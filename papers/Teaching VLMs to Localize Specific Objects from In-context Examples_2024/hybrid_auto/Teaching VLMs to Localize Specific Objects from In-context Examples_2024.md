@@ -1,0 +1,369 @@
+# Teaching VLMs to Localize Specific Objects from In-context Examples
+
+Sivan Doveh<sup>1,2</sup> Nimrod Shabtay<sup>1,3</sup> Wei Lin<sup>4</sup> Eli Schwartz<sup>1</sup> Hilde Kuehne<sup>1,5</sup> Raja Giryes<sup>3</sup> Rogerio Feris<sup>6</sup> Leonid Karlinsky<sup>6</sup> James Glass<sup>7</sup> Assaf Arbelle<sup>1</sup> Shimon Ullman<sup>2</sup> M. Jehanzeb Mirza<sup>7</sup> <sup>1</sup>IBM Research <sup>2</sup>Weizmann Institute of Science <sup>3</sup>Tel Aviv University, <sup>4</sup>JKU Linz <sup>5</sup>Tuebingen AI Center <sup>6</sup>MIT-IBM <sup>7</sup>MIT CSAIL
+
+![](images/492c97faaba8964fdc97555b0b308a1b1029ef4ca5059b6aeb14c3ce828a150a.jpg)  
+Figure 1. In-context personalized localization involves localizing object instances present in a scene (or query image) similar to the object presented as an in-context example. In this setting, the input to the model is a category name, in-context image, bounding box coordinates (not shown in this figure), and a query image. The model is tasked with localizing the same category of interest (presented as an in-context example) in the query image. Here, we visualize a few inputs and outputs from various VLMs highlighting that our fine-tuned model better captures the information in the in-context image.
+
+## Abstract
+
+Vision-Language Models (VLMs) have shown remarkable capabilities across diverse visual tasks, including image recognition, video understanding, and Visual Question Answering (VQA) when explicitly trained for these tasks. Despite these advances, we find that current VLMs lack a fundamental cognitive ability: learning to localize objects in a scene by taking into account the context. In this work, we focus on the task offew-shot personalized localization, where a model is given a small set of annotated images (in-context examples) – each with a category label and bounding box – and is tasked with localizing the same object type in a query image.<sup>1</sup> To provoke personalized localization abilities in models, we present a data-centric solution thatfine-tunes them using carefully curated datafrom video object tracking datasets. By leveraging sequences of frames tracking the same object across multiple shots, we simulate instruction-tuning dialogues that promote context awareness. To reinforce this, we introduce a novel regularization technique that replaces object labels with pseudonames, ensuring the model relies on visual context rather than prior knowledge. Our method significantly enhances few-shot localization performance without sacrificing generalization, as demonstrated on several benchmarks tailored to personalized localization. This work is the first to explore and benchmark personalized few-shot localization for VLMs, laying a foundation for future research in context-driven vision-language applications.
+
+## 1. Introduction
+
+Present-day Vision-Language Models [3, 23, 24, 33, 34, 40], which aim to emulate human learning processes, have achieved unprecedented performance across tasks such as image recognition [36, 40], video understanding [29], and Visual Question Answering (VQA) [3, 32]. Despite strong capabilities in certain domains, VLMs still lack a fundamental aspect of human cognition: the ability to learn from context. This type of learning, known as in-context learning (ICL) in large language models (LLMs) and VLMs, refers to the model’s ability to draw on cues from in-context examples to infer relevant information in a query. It is surprising that VLMs, despite combining a robust vision encoder (e.g., the CLIP [40] vision encoder) with a powerful language decoder (e.g., Llama [13]), struggle with incontext inference on visual tasks. While LLMs excel at ICL [35, 45, 47], this ability does not readily transfer to multimodal contexts, leaving VLMs unable to mimic this essential aspect of human cognition. One possible reason for this gap is the nature of the data used for instructiontuning VLMs. This data, often curated from LLMs [5] and based on general-purpose image collections (e.g., MS-COCO [30]), lacks semantically correlated instructions that focus on contextual learning. Although this approach enhances the model’s reasoning about specific instances, it does not encourage the model to use context for generalized learning.
+
+Recent works have begun addressing ICL limitations in VLMs for tasks like few-shot object classification and VQA [12, 16, 18]. Despite their success in these tasks, these approaches have not been extended to other tasks like object localization, and, to our knowledge, no work has focused specifically on few-shot localization. Furthermore, empirically we see that modern VLMs often struggle to output structured responses (e.g., bounding box coordinates to localize objects). The problem of lack of structured responses can often be mitigated by providing few-shot in-context examples. However, models show a behavior of merely copying the information from the provided few-shot examples and not learning from it.
+
+In this work, to fill this gap we focus on the task of fewshot personalized object localization. In this task, given a set of N example images annotated with a category label (e.g., snoofkin – the name of your cat) and bounding-box coordinates, the model’s objective is to localize the same type of object (i.e., snoofkin) in a query image (acquired from a different scene). This task is valuable for situations where only a few reference images are available, but there is a need to efficiently locate the target across a large dataset or video stream. We highlight the setting and the outputs from our finetuned and baseline models in Figure 1.
+
+We enhance in-context personalized localization abilities in VLMs using a data-centric approach, termed as
+
+IPLoc. Our IPLoc renders VLMs more context-aware by fine-tuning off-the-shelf VLMs on data carefully harnessed from video object tracking datasets. These datasets provide an ideal training environment, as they track the same object instance across multiple frames (stimulating the personalization aspect). Specifically, we employ three largescale video tracking datasets [9, 14, 20] and sample frames to construct structured conversations between user and assistant, in line with instruction-tuning formats. Furthermore, these conversations are organized by the number of shots, to train these VLMs to utilize contextual information from in-context examples effectively. Further, to prevent models from relying on pre-trained object knowledge, our IPLoc introduces a simple yet effective regularization technique: renaming object categories with pseudo-names (e.g., renaming “Airplane” as “Elizabeth”) to ensure that models focus on contextual cues for object identification, and also induces the personalization aspect as it is a specific namedentity and not a generic object category. After creating these personalized few-shot dialogues, we instruction-tune the VLMs in a parameter-efficient manner to preserve generalization. In addition, we introduce new evaluation benchmarks specifically tailored towards personalized localization, demonstrating that our data-centric approach significantly boosts model performance on these benchmarks, and lowers the tendency of these models to merely copy from context, underscoring its potential for few-shot localization.
+
+Our contributions can be summarized as follows:
+
+• We are the first to explore, study, and propose quantitative metrics highlighting the lack of structured predictions for the task of few-shot object localization in VLMs, which tend to merely copy from the few-shot provided examples.
+
+• We propose a data-centric approach that can be bootstraped with any off-the-shelf VLM and utilizes multiple object-tracking datasets to generate instructiontuning conversations and fine-tune them for improved context awareness for the task of personalized few-shot object localization.
+
+• We introduce innovative data curation and mixing techniques for training and establish new benchmarks for personalized object localization, offering valuable insights and setting a foundation for future research.
+
+## 2. Related Work
+
+Our work is closely related to large-scale visionlanguage foundation models and approaches that enhance the in-context learning abilities of these models.
+
+Vision-Language Foundation Models can typically be divided into two distinct categories. One category of methods usually relies on two encoders (vision and text encoders), which are trained in a contrastive manner on largescale paired image-text data that is scraped from the web. These models show strong retrieval abilities and flourish at discriminative tasks like image recognition. Some popular methods which follow this line of work involve CLIP [40], ALIGN [22], OpenCLIP [42], SigLIP [48], and MetaCLIP [46]. Some methods, e.g., [10, 11, 31, 36–39] further build upon these contrastively pre-trained models to improve them for specific downstream tasks like video action recognition, compositionality reasoning, etc. The other category of methods builds upon two components: a pre-trained vision backbone (usually a contrastively pretrained CLIP [40] vision encoder) and a decoder (usually an LLM [7, 13]). These two components are grounded with a projection from the vision embedding space to the LLM input embedding space, e.g., through a projector. This projection equips the LLM to process the visual tokens and perform open-ended visual reasoning tasks. Some representative approaches belonging to this category include BLIP [27], Instruct-BLIP [8], MiniGPT [6, 52], QWEN-VL [3], Idefics [24], and the LLaVA family of models [26, 34]. These models have shown unprecedented performance gains on many reasoning tasks, like VQA, scene understanding, compositionality reasoning, etc. However, it is reported that these models still somewhat lack in their abilities to learn from context [12,18]. Our goal in this work is to make these VLMs more context-aware. To this end, we focus on the task of personalized localization of objects, where the model is required to localize an object in a query image while taking cues from the images (with annotations) provided as context.
+
+In-context Learning for VLMs: The ability of models to solve novel tasks by consuming a few demonstrations of the downstream task of interest has been formalized as in-context learning (ICL) [35]. In the natural language processing (NLP) domain, several methods have demonstrated strong in-context learning abilities for various downstream tasks of interest. Notably, Brown et al. [4] popularized fewshot learning for LLMs. Similarly, other methods [45, 47] also present different ways to elicit the in-context learning abilities in LLMs. For VLMs, prominent works like Flamingo [1] showed that few-shot ICL can scale up to large-scale vision language models by training on a large corpus of interleaved image-text data. Yet, in recent VLMs, e.g., LLaVA [34], although they inherit a strong decoder, which is an LLM, usually the ICL capabilities are not directly transferred to the VLMs. This could be due to the generic instruction tuning data which does not force the model to focus on the context, but instead teaches the model strong reasoning abilities about the current data instance only.
+
+Some methods like Emu2 [43], Idefics [24, 25], MM-ICL [50], and QWEN-VL [3] focus on training models to specifically improve the multi-modal ICL abilities. They commonly do so by scaling the model size and designing specific training data. On the other hand, some approaches improve the ICL abilities of VLMs in a post hoc manner. Specifically, LLaVA-ICL [12] finetunes off-the-shelf VLMs in a parameter-efficient manner to improve their few-shot classification and VQA abilities, on thematically consistent data. MTV [18] focuses on mitigating the limited context length issues in VLMs by introducing a training-free approach to find task vectors to feed multiple in-context shots to the network, which can even exceed the true context length of the network. Many of these VLMs primarily focus on improving few-shot classification or VQA tasks.
+
+Through extensive experimentation, we find that many of these VLMs perform underwhelmingly when evaluated on the task of few-shot localization and struggle even more for personalized object localization, where the goal is to localize the same instance of the object in the query data. Our IPLoc takes steps to improve these models for the task of personalized object localization by leveraging data from video object tracking datasets which help us to harness instruction-tuning conversations for fine-tuning these models. This data helps the models to become contextaware (in a personalized manner) since the conversations are focused on a single object in multiple different frames. Our parameter-efficient fine-tuning strategy shows impressive gains over the baseline models without the loss of generalization.
+
+## 3. IPLoc: In-context Personalized Localization
+
+In this work, we focus on leveraging existing pre-trained (encoder-decoder) VLMs to make them context aware particularly for the task of personalized few-shot object localization. To this end, we harness instruction-tuning data from video object tracking datasets because such data usually tracks the same object over multiple frames, thus, instilling a notion of personalization in the instruction-tuning conversations. In the following, we explain the details of the proposed approach which enables models to focus on contextual cues. For ease of assimilation, we divide the explanation into 3 distinct parts. In Section 3.1 we explain how we construct the instruction tuning conversations, then in Section 3.2 we outline our data curation strategy and finally in Section 3.3 we conclude with an explanation of the choice of the fine-tuning strategy we employ.
+
+## 3.1. ICL Instruction Tuning Conversations
+
+We aim to build instruction-tuning conversations that can be used to fine-tune existing VLMs such that they can become context-aware for the task of localization. Our ICL instruction-tuning format intends to provide an improvement to the general instruction-tuning format of [26,44] that is not able to process multi-modal ICL instructions. These VLMs usually align modality-specific encoders (e.g., visual, audio, speech) with a capable decoder $( i . e . ,$ an LLM) via multi-modal instruction tuning combined with a structured training curriculum. Our work builds upon existing pre-trained multi-modal alignment architectures where a pre-trained modality encoder E, a modality projector ${ \mathcal { P } } _ { : }$ , and an LLM decoder D are integrated, extending prior methods like [3].
+
+Our proposed instruction-tuning data format typically comprises multi-modal conversations, where a simulated user interacts with an assistant. In our case, each conversation consists of multiple messages, where each message in the conversation follows the following format:
+
+$$
+\text {Message:} <   \text {image} > <   \text {ref} > \text {category} <   / \text {ref} >
+$$
+
+accompanied by bounding box coordinates:
+
+$$
+\big ((x _ {m i n}, y _ {m i n}), (x _ {m a x}, y _ {m a x}) \big).
+$$
+
+Specifically, each message consists of an image, the corresponding category name (e.g., caterpillar), and the bounding box localizing the object of interest.
+
+To obtain conversations for few-shot localization, we structure them for in-context learning with coherent localization instructions. Each few-shot (e.g., n-shot) localization setup follows this format:
+
+$$
+\begin{array}{l} \text {User:} S _ {1} ^ {1} <   \text {image} > <   \text {ref} > \text {Category} <   / \text {ref} > S _ {1} ^ {2} \\ \quad (x _ {1, 1}, y _ {1, 1}), (x _ {1, 2}, y _ {1, 2}) \\ \text {User:} S _ {2} ^ {1} <   \text {image} > <   \text {ref} > \text {Category} <   / \text {ref} > S _ {2} ^ {2} \\ \quad (x _ {2, 1}, y _ {2, 1}), (x _ {2, 2}, y _ {2, 2}) \\ \vdots \\ \text {User:} S _ {n} ^ {1} <   \text {image} > <   \text {ref} > \text {Category} <   / \text {ref} > S _ {n} ^ {2} \\ \quad (x _ {n, 1}, y _ {n, 1}), (x _ {n, 2}, y _ {n, 2}) \\ \text {User:} <   \text {image} > <   \text {ref} > \text {Prediction} <   / \text {ref} > \\ \text {Assistant:} (x _ {n + 1, 1}, y _ {n + 1, 1}), (x _ {n + 1, 2}, y _ {n + 1, 2}) \end{array}
+$$
+
+In this setup, each turn labeled as “User” includes an input comprising contextual text $S _ { j } ^ { 1 }$ preceding an image reference with a known category label, denoted as <image><ref>Category</ref>, followed by additional contextual text $S _ { j } ^ { 2 } .$ Each user input also specifies a bounding box with coordinates $( x _ { j , 1 } , y _ { j , 1 } ) , ( x _ { j , 2 } , y _ { j , 2 } )$ , which delineate the precise location of the labeled object within the image. The assistant then responds with its prediction, which is structured as <image><ref>Prediction</ref>, where it provides a category label based on the context provided by the preceding user examples and the bounding box coordinates for the category of interest. One such conversation is also outlined in Figure 2.
+
+This structured format allows the model to learn to associate provided bounding boxes with corresponding categories across multiple in-context examples and to output the category associated with the specific location (delineated by the bounding box coordinates provided) in the query image. Using input masking for human turns, left-attentive causal language modeling (CLM), and the designed ICL format, the model functions as an “any-shot” trainer: the first shot acts as a zero-shot instruction replay, and each subsequent shot progressively adapts the model for few-shot localization tasks by training on $1 , \cdots , ( i - 1 )$ previous examples in its attended context.
+
+## 3.2. Data Mixes
+
+Curating fine-tuning data carefully is central to our methodology for making current VLMs more context-aware in the task of few-shot personalized localization. A straightforward approach to constructing conversational fine-tuning data is to leverage established object detection and localization datasets, such as MS-COCO [30], and build dialogues as outlined in Section 3.1. This approach, however, often results in generic instruction-tuning data akin to the popularized methods of LLaVA [34]. As recent research has indicated [12], these generic data mixes can hinder VLMs from effectively attending to contextual cues essential for nuanced and situational understanding.
+
+To address this, our data design prioritizes instructiontuning conversations that are semantically coherent and focused on personalization (e.g., relating to the same object in the conversations) and structured to enable the few-shot learning capabilities required by our models. Focusing on the specific needs of our task, we aim to create data that fosters personalized retrieval, where the model learns to focus on unique objects based on the provided context as few-shot examples.
+
+With the overarching goal of training VLMs to hone in on contextual cues for few-shot object localization, we select three prominent single- and multi-object tracking datasets as our foundation for conversation creation between a user and an assistant $( c . f . ,$ , Section 3.1):
+
+• Tracking Any Object (TAO) [9] is a comprehensive, large-scale multi-object tracking dataset comprising 839 categories and 2907 high-resolution videos. TAO’s diversity and category breadth provide a strong foundation for building complex, multi-faceted instruction-tuning conversations.
+
+• Large-scale Single Object Tracking (LaSOT) [14] includes 1400 sequences and over 3.5 million frames, with videos averaging 2500 frames each. This dataset’s extended, high-frame sequences make it wellsuited for developing long-term instruction-tuning dialogues focused on a single, persistent object.
+
+![](images/7a07d4b33b89161fde6935f038613c1cf2034ffeefa1451c3515cf11fd36ba08.jpg)  
+Figure 2. Overview of data creation and conversation format. To instill few-shot personalized localization abilities in VLMs our IPLoc creates multi-modal conversations by harnessing data from multiple video object tracking datasets. For semantic coherence, focus on personalization and stronger contextual awareness, we create these conversations by sampling frames from the same video, tracking a particular object of interest, and enhancing the training data by extending the conversations by replacing the true category name with pseudo names. These conversations are later employed to induce contextual awareness in VLMs.
+
+• Generic Object Tracking Benchmark (GOT) [20] offers an extensive set of 10000 video segments of real-world moving objects, providing a rich dataset for exploring variations in object movement and context.
+
+These datasets, with their extensive tracking sequences of diverse real-world objects, provide an ideal testing ground for developing personalized few-shot tracking conversations. Our fine-tuning conversations emphasize data centered on a single object being tracked across frames, with a deliberate design choice for maximum interval sampling. This approach introduces variation in the object’s position and appearance (e.g., rotation, lighting, background etc.) across frames, thereby increasing the challenge for the model and encouraging it to consistently localize the specific object of interest despite diverse contextual shifts. An overview of the data curation is provided in Figure 2.
+
+Through this design, we generate fine-tuning data composed of multiple shots (e.g., 1-8) in which each conversation focuses on localizing a single object of interest within a single video sequence. This structure reinforces both personalization (due to the recurring task of tracking the same object) and semantic coherence (by sampling frames from the same video sequence). To validate our approach, we conduct an ablation study comparing our proposed data curation strategy with an alternative where conversations are generated by sampling data for a particular category from unrelated video sequences. As shown in Figure 5, our data curation approach significantly improves model performance, underscoring the effectiveness of structured sampling for enhancing context-aware localization.
+
+To strongly bias the model toward focusing on contextual cues, rather than relying solely on knowledge acquired during large-scale pre-training, we propose a simple regularization technique to enhance the training data. Specifically, we replace true class names with pseudo-names (e.g., replacing “Jaguar” with “John”). This regularization encourages the model to depend less on its pre-trained knowledge of the category “Jaguar” when outputting localization coordinates during the assistant turn, and instead biases it to rely on the few-shot in-context examples, which refer to the pseudoname “John”. The main results listed in Table 1 demonstrate the effectiveness of this regularization, indicating substantial improvements in model performance.
+
+In summary, our fine-tuning dataset consists of a combination of data mixes from three video object-tracking datasets [9, 14, 20], with conversations spanning between 1-8 shots, as well as data generated by replacing the true category names with pseudo category names. In the next section, we outline how this large corpus is employed to enhance VLM performance for few-shot personalized localization.
+
+## 3.3. Fine-tuning
+
+To fully leverage our curated shot-based conversational data described in Section 3.2, we employ a targeted finetuning strategy designed to enhance VLM performance for few-shot personalized localization. To recap, each finetuning conversation comprises multiple shots (1–8) sampled from within a single video sequence coupled with the pseudo category name regularized data, with a consistent focus on localizing a single object across frames. While there exist multiple approaches to fine-tune VLMs, including full-model adaptation and adapter-based tuning, we adopt LoRA [17] as our fine-tuning method of choice.
+
+By embedding these conversations within LoRA’s compact and memory-efficient fine-tuning schema, we encourage the model to develop a more refined contextual awareness specific to the personalized few-shot localization task, without compromising the broad knowledge encoded in the VLM’s pre-trained parameters. The learning objective is the standard language modeling (next-token-prediction) loss and it guides the model in accurately generating localization coordinates for the target object within the frame of a shot during the assistant turn of the conversation $( c . f . ,$ Section 3.1), biasing the model to focus on contextual cues. During each conversational exchange, the assistant learns to predict precise bounding-box coordinates by conditioning its responses on the contextual cues provided by the preceding user examples. This setup encourages the model to rely on the in-context examples, adapting its language-based understanding to capture spatial relationships within each conversation (meticulously curated from a single video).
+
+LoRA limits the extent of parameter adjustments thereby reducing the risk of overfitting to specific localization tasks. This is further highlighted in an ablation listed in Figure $^ { 6 , }$ where we compare fully fine-tuned models and LoRA finetuned models on the standard VLM benchmarks [15, 28] and find that our fine-tuning strategy maintains the generalization abilities of the VLM by only incurring a performance penalty of ∼ 1% as compared to the base pre-trained model.
+
+## 4. Experimental Results
+
+In this section, we first list all the evaluation settings, including datasets, models we test, implementation details, and metrics. Then, we provide a detailed discussion of the main results and conclude by extensively ablating our IPLoc.
+
+## 4.1. Evaluations Settings
+
+Datasets: To generate the multi-modal conversations $( c . f . ,$ Section 3.1) for making the VLMs context-aware we employ 3 large scale datasets: TAO [9], LASOT [14] and GOT [20]. These datasets provide bounding box annotations and the category label and we leverage them to construct the conversations for fine-tuning, as explained in Section 3.2. To evaluate our fine-tuned model, we use test sets from two personalized segmentation benchmarks proposed by PDM [41] and PerSeg [49]. PDM is curated from multiple datasets while PerSeg is synthesized from generative models. Furthermore, we also evaluate our model on the test set from LASOT [14] dataset, where we divide the categories present in these datasets in equal proportions, i.e., 50% of the total categories used for training and the remaining are used for testing. This is to ensure that the true generalization abilities of the model are evaluated and the distribution of train and test data is different. For the two segmentation benchmarks – PDM [41] and PerSeg [49] used for evaluating the personalized segmentation abilities of the model, we transform the per-pixel segmentation masks to bounding box coordinates. We delegate more details about these datasets to the supplementary.
+
+Models: We employ the following state-of-the-art (encoder-decoder) VLMs for evaluations in our work:
+
+• Idefics-3 [24] is a recent powerful VLM which is an improved version of its predecessor Idefics-2 [25] and proposes careful training recipes for improvements on many tasks including object localization.
+
+• LLaVA One Vision [26] is built upon the Qwen LLM [2] and instruction-tuned on carefully curated data. It employs a training pipeline involving multiple image resolutions, providing further gains.
+
+• Qwen2-VL [44] also follows the popular grounding pipeline proposed by [34] but employs a novel instruction-tuning dataset to train, which also involves object localization conversations. Moreover, it also uses a reference token for the localization task and is considered the strongest model for grounding among the state-of-the-art.
+
+Implementation Details: We evaluate and fine-tune the models by using the open-source codebase of the Llama-Factory [51]. The fine-tuning parameters for LoRA are also selected as the default parameters used in the same codebase. For the main results, we choose to fine-tune Qwen2- VL [44], however, we also ablate with fine-tuning other models and find that our data curation and fine-tuning strategy is not model specific. To encourage reproducibility, our entire codebase is provided as part of the supplementary material and will be released upon acceptance.
+
+Metrics: For reporting the main results we follow the common object detection evaluation protocol and report the mean intersection over union (mIoU) between the predicted and the ground-truth box coordinates. Furthermore, to evaluate the tendency of the models to copy the information provided by few-shot in-context examples instead of focusing on the contextual cues, we propose a new metric to quantify this behavior. The metric is summarized as follows:
+
+$$
+\mathrm{IoU} _ {e x} = \mathrm{IoU} (A _ {\text {Prediction} \cap \text {GT - Shot}}, A _ {\text {GT - Query} \cap \text {GT - Shot}}),\tag{1}
+$$
+
+where A represents the area of a region in the image, corresponding to the box coordinates. A<sub>Prediction∩GT-Shot</sub> is the intersection between the model’s predicted localization (bounding box coordinates) and the ground truth shot (GT-Shot), highlighting overlap with previously seen information (shots). Similarly, A<sub>GT-Query∩GT-Shot</sub> is the intersection area between the ground truth query (GT-Query) and GT-Shot, representing the part of the target area that aligns with past observations (shots). In its standard form, Eq. (1) is valid for only a single shot, however, for more shots, the shot closest to the prediction first needs to be identified for calculation. By focusing on these intersections, IoU<sub>ex</sub> assesses the model’s use of context from GT-Shot, distinguishing it from direct memorization.
+
+<table><tr><td>Dataset</td><td>Shots</td><td>Idefics3</td><td>LLaVA-OV</td><td>Qwen2-VL-7B</td><td>IPLoc (Real)</td><td>IPLoc (Real + Pseudo)</td></tr><tr><td rowspan="2">PDM</td><td>1</td><td>4.14</td><td>11.10</td><td>16.75</td><td>31.54</td><td>29.21</td></tr><tr><td>2</td><td>3.76</td><td>13.85</td><td>19.72</td><td>24.45</td><td>25.88</td></tr><tr><td rowspan="4">PerSeg</td><td>1</td><td>12.77</td><td>43.01</td><td>34.21</td><td>43.40</td><td>42.43</td></tr><tr><td>2</td><td>16.22</td><td>40.08</td><td>30.22</td><td>29.90</td><td>41.15</td></tr><tr><td>3</td><td>19.54</td><td>30.01</td><td>35.09</td><td>33.23</td><td>39.85</td></tr><tr><td>4</td><td>12.32</td><td>14.03</td><td>18.16</td><td>25.25</td><td>33.08</td></tr><tr><td rowspan="4">ICL-LASOT</td><td>1</td><td>3.32</td><td>12.45</td><td>46.69</td><td>46.98</td><td>49.71</td></tr><tr><td>2</td><td>3.94</td><td>15.66</td><td>49.46</td><td>42.50</td><td>57.14</td></tr><tr><td>4</td><td>8.21</td><td>18.64</td><td>21.89</td><td>16.99</td><td>59.41</td></tr><tr><td>8</td><td>0.01</td><td>7.62</td><td>21.12</td><td>15.52</td><td>33.95</td></tr><tr><td>Average</td><td></td><td>8.42</td><td>20.65</td><td>29.33</td><td>30.97</td><td>41.18</td></tr></table>
+
+Table 1. Few-shot personalized object localization results. We report the mIoU (%) for different shots created from the test splits of the datasets we evaluate in this work. We evaluate up to the maximum number of shots we can create due to the variable number of samples present in these datasets. We obtain all our results by fine-tuning Qwen2-VL-7B [44] on conversations consisting of only the real names and also by the enhanced data with the pseudo name regularization.  
+![](images/ba054c8b7465a1c492997e191547c618f2adc5e6ddf014f6f2ec23ce7b6c7e6d.jpg)  
+Figure 3. Examples of VLM localization. The top row shows in-context shots, and the bottom row shows query images. Ground truth locations are marked in blue, and predicted locations in brown. (A) demonstrates successful localization without copying. (B) and (C) illustrate cases where the model replicates the in-context shot locations.
+
+## 4.2. Results
+
+For the main results, we evaluate 3 VLMs: Idefics3 [24], LLaVA-OV [26] and Qwen2-VL-7B [44]. These models are recent state-of-the-art models in the ever-evolving VLM landscape. We also evaluate two fine-tuned versions of
+
+Qwen2-VL-7B with separate data: one only uses the real category names and the other version employs real and pseudo category names mix $( c . f . ,$ Section 3.2).
+
+In Table 1 we list the detailed results on the 3 datasets we evaluate our fine-tuned Qwen2-VL-7B<sup>2</sup>. We observe that most of the state-of-the-art VLMs show weak performance on the task of few-shot personalized localization. For example, of the 3 models evaluated in this work, we observe that the LLaVA-OV model is the weakest for the task of personalized localization, although it shows strong performance on general reasoning tasks. This shows that the generic instruction-tuning data, curated from publically available datasets, can help this model for a variety of reasoning tasks, like VQA – but does not focus on obtaining spatial understanding to produce structured outputs or force these models to focus on context. These results also highlight the deficiency of these models in understanding finegrained concepts related to reasoning about relations and attributes in an image, as discussed in [19]. Similarly, we find that LLaVA-OV comes in second, by showing an average improvement of 12.23% over the Idefics3 [24] model.This can be because LLaVA-OV includes localization data and interleaved image-text data in its fine-tuning corpus. However, this data might not be semantically coherent or sampled from sources which can make the model focus on a single object of interest, thus, failing to instill in these models a notion of personalization.
+
+![](images/c47bee6e6f87949c332d274581cdc6706e006e32ff76dd469ce34fcaf12efbd3.jpg)  
+Figure 4. mIoU excluding metric. We report the score (%) signifying the tendency of the models to infer from the provided (few-shot ) context.
+
+![](images/cdf8254684590d80bc8052bb8c18c29ce353131f810e5b62cc750eb8660a005e.jpg)  
+Figure 5. Semantically coherent data. Ablating the effect of sampling conversations from the same video (IPLoc) vs. arbitrary video sequences.
+
+![](images/ab9354913aa2a3c9769dea74d94cd8e37b75f8085749933259f788bd8278dc31.jpg)  
+Figure 6. Retention of Generalization. Ablation highlighting the retention of generalization abilities of our fine-tuned model for the task of interest.
+
+In Table 1 we also find that Qwen2-VL-7B remains competitive with our IPLoc and outperforms Idefics3 and LLaVA-OV by 20.9% and 8.68% on average. However, it still lags behind our IPLoc with a fair margin. For example, for the PDM test set our best model (trained only with real category names) outperforms the base model for both 1 and 2 shots while on average being 9.76% better. Similarly, we find that our fine-tuned model also comprehensively outperforms the base model for the PerSeg and LASOT test sets with an average improvement of 12.58%.
+
+We also observe, that enhancing the training data with pseudo name regularization also improves results. For example, we observe an average improvement of 10.21% (over all datasets) while comparing the model trained only with the real category names. These results highlight the effectiveness of the regularization as it makes the models focus more on the contextual cues, rather than simply relying on the pre-trained knowledge to localize the object in the query image.
+
+During our evaluations, we also found that the presentday VLMs have a tendency of simply copying the information (bounding box coordinates) from the few-shot examples. We provide a few qualitative examples in Figure 3. Furthermore, to quantify this behavior we also propose a grounded IoU-Excluding metric in Eq. (1). We compare the base instruction-tuned model with our fine-tuning approach and find that our fine-tuned model can decrease the tendency of these models to simply copy from the few-shot incontext examples – further highlighting that our fine-tuned models are more context-aware and can semantically reason about the provided few-shot examples.
+
+![](images/3a8c54aadec3efcac52c5209a7ba1e1d1c85387d81b71b68fe741db9a1b63213.jpg)
+
+![](images/b4ad2f64b9fd791aef00556eb4f72f72e7a595928f4adc4b2393a6dee8a6e52d.jpg)  
+Figure 7. Focus on Context. We report the mIoU (%) on the LASOT test set by switching true category names with pseudo category names.  
+Figure 8. Generalization of Finetuning. We report the mIoU (%) by finetuning LLaVA-OV [26] on our data mix and compare with the base model.
+
+<table><tr><td>LASOT</td><td>GOT</td><td>TAO</td><td>PDM</td><td>PerSeg</td><td>ICL-LASOT</td></tr><tr><td>✓</td><td></td><td></td><td>16.58</td><td>35.67</td><td>30.30</td></tr><tr><td></td><td>✓</td><td></td><td>18.46</td><td>27.34</td><td>28.25</td></tr><tr><td></td><td></td><td>✓</td><td>12.05</td><td>28.25</td><td>14.06</td></tr><tr><td></td><td>✓</td><td>✓</td><td>21.40</td><td>36.90</td><td>27.69</td></tr><tr><td>✓</td><td></td><td>✓</td><td>21.63</td><td>37.67</td><td>28.04</td></tr><tr><td>✓</td><td>✓</td><td></td><td>21.72</td><td>34.93</td><td>28.86</td></tr><tr><td>✓</td><td>✓</td><td>✓</td><td>27.55</td><td>39.13</td><td>50.05</td></tr></table>
+
+Table 2. Ablating data sources. We report the mIoU (%) by finetuning the Qwen2-VL-7B [44] on different data sources.
+
+## 4.3. Ablations
+
+In this section, we ablate the key aspects of our proposed approach. Specifically, first, we examine the contribution of each data source individually and how the sum of the parts contributes to the overall performance. Then we ablate the design choice of semantically coherent data, the retention of generalization abilities after fine-tuning, the performance on data containing only pseudo names, and finally conclude with fine-tuning other models beyond Qwen2-VL-7B showing the generalization of our proposed fine-tuning.
+
+Contribution of Data Sources: In Table 2 we ablate the contribution from different types of data sources employed for fine-tuning in this work. We find that the best performance is obtained by mixing data from all three datasets [9, 14, 20], highlighting the effectiveness of the diversity of data and our proposed data mix.
+
+Semantically Coherent Data: In Figure 5 we compare fine-tuning with our proposed data curation scheme of sampling few-shot data from the same video sequence vs. creating few-shot instruction-tuning conversations from different video sequences. We find that our proposed methodology fares well. This shows that to make models better at the personalized few-shot object localization task – fine-tuning models on data from a semantically coherent context is of utmost importance.
+
+Retention of Generalization: In our work we fine-tune the VLMs to incorporate personalized few-shot object localization abilities. However, it is imperative that models must not over-specialize upon the proposed task and retain the generalization abilities to also be able to perform strongly on a broader range of tasks. In Figure 6 we compare our fine-tuned model with the base Qwen2-VL-7B (without fine-tuning) on common VL benchmarks like GQA [21], SEED [15], and POPE [28]. We find that our parameter-efficient approach restricts the model parameter update and shows a degradation of less than 1% (on average), thus, highlighting the retention of generalization abilities in VLMs after fine-tuning.
+
+Focus on Context: To evaluate if our fine-tuned model focuses on context or simply relies on the knowledge about common categories learned during the large-scale pre-training, we design a test where we replace the original category names in the LASOT [14] test set with pseudo names and report the results in Figure 7. We find that our model fares better than the baseline, highlighting that our approach makes the models pay attention to the contextual cues rather than solely relying on the knowledge learned during pre-training to localize objects in the query image.
+
+Generalization of Finetuning: In Table 1 we report the results obtained by fine-tuning Qwen2-VL-7B [44] on our proposed instruction-tuning conversations (curated from our data mix). To highlight the applicability of our finetuning methodology across different VLMs, we report the results obtained by fine-tuning LLaVA-OV [26] in Figure 8, where we obtain ∼ 7% improvement over the (base) pretrained model.
+
+## 5. Conclusion
+
+We propose a data-centric approach to enhance the fewshot personalized object localization capabilities of modern VLMs. Our findings reveal that for VLMs to excel in this task, fine-tuning data must be semantically coherent, personalized, and designed to encourage reliance on contextual cues rather than pre-existing pre-training knowledge. To achieve this, we utilize multiple video object-tracking datasets and introduce innovative regularization schemes for constructing instruction-tuning conversations that provoke robust few-shot learning abilities in VLMs. Through extensive evaluations and ablation studies across multiple benchmarks, we demonstrate the effectiveness of our proposed data and fine-tuning strategies. The results provide a fresh perspective on the impact of data-centric methods for advancing personalized localization capabilities in VLMs, offering valuable insights and a foundation for future work in this direction.
+
+## References
+
+[1] Jean-Baptiste Alayrac, Jeff Donahue, Pauline Luc, Antoine Miech, Iain Barr, Yana Hasson, Karel Lenc, Arthur Mensch, Katie Millican, Malcolm Reynolds, Roman Ring, Eliza Rutherford, Serkan Cabi, Tengda Han, Zhitao Gong, Sina Samangooei, Marianne Monteiro, Jacob Menick, Sebastian Borgeaud, Andrew Brock, Aida Nematzadeh, Sahand Sharifzadeh, Mikolaj Binkowski, Ricardo Barreira, Oriol Vinyals, Andrew Zisserman, and Karen Simonyan. Flamingo: a Visual Language Model for Few-Shot Learning. In NeurIPS, 2022. 3
+
+[2] Jinze Bai, Shuai Bai, Yunfei Chu, Zeyu Cui, Kai Dang, Xiaodong Deng, Yang Fan, Wenbin Ge, Yu Han, Fei Huang, Binyuan Hui, Luo Ji, Mei Li, Junyang Lin, Runji Lin, Dayiheng Liu, Gao Liu, Chengqiang Lu, Keming Lu, Jianxin Ma, Rui Men, Xingzhang Ren, Xuancheng Ren, Chuanqi Tan, Sinan Tan, Jianhong Tu, Peng Wang, Shijie Wang, Wei Wang, Shengguang Wu, Benfeng Xu, Jin Xu, An Yang, Hao Yang, Jian Yang, Shusheng Yang, Yang Yao, Bowen Yu, Hongyi Yuan, Zheng Yuan, Jianwei Zhang, Xingxuan Zhang, Yichang Zhang, Zhenru Zhang, Chang Zhou, Jingren Zhou, Xiaohuan Zhou, and Tianhang Zhu. Qwen technical report. arXiv preprint arXiv:2309.16609, 2023. 6
+
+[3] Jinze Bai, Shuai Bai, Shusheng Yang, Shijie Wang, Sinan Tan, Peng Wang, Junyang Lin, Chang Zhou, and Jingren Zhou. Qwen-vl: A versatile vision-language model for understanding, localization, text reading, and beyond. arXiv preprint arXiv:2308.12966, 2023. 2, 3, 4
+
+[4] Tom Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared D Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, et al. Language models are few-shot learners. Advances in neural information processing systems, 33:1877–1901, 2020. 3
+
+[5] Tom B. Brown, Benjamin Mann, Nick Ryder, Melanie Subbiah, Jared Kaplan, Prafulla Dhariwal, Arvind Neelakantan, Pranav Shyam, Girish Sastry, Amanda Askell, Sandhini Agarwal, Ariel Herbert-Voss, Gretchen Krueger, Tom Henighan, Rewon Child, Aditya Ramesh, Daniel M. Ziegler, Jeffrey Wu, Clemens Winter, Christopher Hesse, Mark Chen, Eric Sigler, Mateusz Litwin, Scott Gray, Benjamin Chess, Jack Clark, Christopher Berner, Sam McCandlish, Alec Rad-
+
+ford, Ilya Sutskever, and Dario Amodei. Language Models are Few-Shot Learners. In NeurIPS, 2020. 2
+
+[6] Jun Chen, Deyao Zhu, Xiaoqian Shen, Xiang Li, Zechun Liu, Pengchuan Zhang, Raghuraman Krishnamoorthi, Vikas Chandra, Yunyang Xiong, and Mohamed Elhoseiny. MiniGPT-v2: Large Language Model as a Unified Interface for Vision-Language Multi-task Learning. In Proc. ICLR, 2024. 3
+
+[7] Wei-Lin Chiang, Zhuohan Li, Zi Lin, Ying Sheng, Zhanghao Wu, Hao Zhang, Lianmin Zheng, Siyuan Zhuang, Yonghao Zhuang, Joseph E. Gonzalez, Ion Stoica, and Eric P. Xing. Vicuna: An Open-Source Chatbot Impressing GPT-4 with 90%\* ChatGPT Quality, 2023. 3
+
+[8] Wenliang Dai, Junnan Li, Dongxu Li, Anthony Tiong, Junqi Zhao, Weisheng Wang, Boyang Li, Pascale Fung, and Steven Hoi. InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning. In NeurIPS, 2023. 3
+
+[9] Achal Dave, Tarasha Khurana, Pavel Tokmakov, Cordelia Schmid, and Deva Ramanan. Tao: A large-scale benchmark for tracking any object. In Computer Vision–ECCV 2020: 16th European Conference, Glasgow, UK, August 23– 28, 2020, Proceedings, Part V 16, pages 436–454. Springer, 2020. 2, 4, 5, 6, 9
+
+[10] Sivan Doveh, Assaf Arbelle, Sivan Harary, Amit Alfassy, Roei Herzig, Donghyun Kim, Raja Giryes, Rogerio Feris, Rameswar Panda, Shimon Ullman, et al. Dense and Aligned Captions (DAC) Promote Compositional Reasoning in VL Models. In NeurIPS, 2023. 3
+
+[11] Sivan Doveh, Assaf Arbelle, Sivan Harary, Rameswar Panda, Roei Herzig, Eli Schwartz, Donghyun Kim, Raja Giryes, Rogerio Feris, Shimon Ullman, and Leonid Karlinsky. Teaching structured vision & language concepts to vision & language models. In Proc. CVPR, 2023. 3
+
+[12] Sivan Doveh, Shaked Perek, M Jehanzeb Mirza, Amit Alfassy, Assaf Arbelle, Shimon Ullman, and Leonid Karlinsky. Towards multimodal in-context learning for vision & language models. arXiv preprint arXiv:2403.12736, 2024. 2, 3, 4
+
+[13] Abhimanyu Dubey, Abhinav Jauhri, Abhinav Pandey, Abhishek Kadian, Ahmad Al-Dahle, Aiesha Letman, Akhil Mathur, Alan Schelten, Amy Yang, Angela Fan, et al. The Llama 3 Herd of Models. arXiv preprint arXiv:2407.21783, 2024. 2, 3
+
+[14] Heng Fan, Liting Lin, Fan Yang, Peng Chu, Ge Deng, Sijia Yu, Hexin Bai, Yong Xu, Chunyuan Liao, and Haibin Ling. Lasot: A high-quality benchmark for large-scale single object tracking. In Proceedings ofthe IEEE/CVF conference on computer vision and pattern recognition, pages 5374–5383, 2019. 2, 4, 5, 6, 9
+
+[15] Zhiyuan Fang, Jianfeng Wang, Lijuan Wang, Lei Zhang, Yezhou Yang, and Zicheng Liu. SEED: Self-supervised Distillation for Visual Representation. In Proc. ICLR, 2021. 6, 9, 12
+
+[16] Amir Bar Grace Luo, Trevor Darrell. Task vectors are crossmodal. arXiv preprint arXiv:2410.22330, 2024. 2
+
+[17] Edward J Hu, Yelong Shen, Phillip Wallis, Zeyuan Allen-Zhu, Yuanzhi Li, Shean Wang, Lu Wang, and Weizhu Chen.
+
+Lora: Low-rank adaptation of large language models. arXiv preprint arXiv:2106.09685, 2021. 5
+
+[18] Brandon Huang, Chancharik Mitra, Assaf Arbelle, Leonid Karlinsky, Trevor Darrell, and Roei Herzig. Multimodal task vectors enable many-shot multimodal in-context learning. arXiv preprint arXiv:2406.15334, 2024. 2, 3
+
+[19] Irene Huang, Wei Lin, M Jehanzeb Mirza, Jacob A Hansen, Sivan Doveh, Victor Ion Butoi, Roei Herzig, Assaf Arbelle, Hilde Kuhene, Trevor Darrel, et al. ConMe: Rethinking Evaluation of Compositional Reasoning for Modern VLMs. arXiv preprint arXiv:2406.08164, 2024. 8
+
+[20] Lianghua Huang, Xin Zhao, and Kaiqi Huang. Got-10k: A large high-diversity benchmark for generic object tracking in the wild. IEEE transactions on pattern analysis and machine intelligence, 43(5):1562–1577, 2019. 2, 5, 6, 9
+
+[21] Drew A Hudson and Christopher D Manning. Gqa: A new dataset for real-world visual reasoning and compositional question answering. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pages 6700–6709, 2019. 9
+
+[22] Chao Jia, Yinfei Yang, Ye Xia, Yi-Ting Chen, Zarana Parekh, Hieu Pham, Quoc V. Le, Yunhsuan Sung, Zhen Li, and Tom Duerig. Scaling Up Visual and Vision-Language Representation Learning With Noisy Text Supervision. In Proc. ICML, 2021. 3
+
+[23] Jonathan Kahana, Niv Cohen, and Yedid Hoshen. Improving Zero-Shot Models with Label Distribution Priors. arXiv:2212.00784, 2022. 2
+
+[24] Hugo Laurenc¸on, Andres Marafioti, Victor Sanh, and L ´ eo´ Tronchon. Building and better understanding visionlanguage models: insights and future directions., 2024. 2, 3, 6, 7, 8
+
+[25] Hugo Laurenc¸on, Lucile Saulnier, Leo Tronchon, Stas Bek-´ man, Amanpreet Singh, Anton Lozhkov, Thomas Wang, Siddharth Karamcheti, Alexander M. Rush, Douwe Kiela, Matthieu Cord, and Victor Sanh. Obelics: An open webscale filtered dataset of interleaved image-text documents, 2023. 3, 6
+
+[26] Bo Li, Yuanhan Zhang, Dong Guo, Renrui Zhang, Feng Li, Hao Zhang, Kaichen Zhang, Yanwei Li, Ziwei Liu, and Chunyuan Li. LLaVA-OneVision: Easy Visual Task Transfer. arXiv preprint arXiv:2408.03326, 2024. 3, 4, 6, 7, 8, 9, 12
+
+[27] Junnan Li, Dongxu Li, Silvio Savarese, and Steven Hoi. BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models. In Proc. ICML, 2023. 3
+
+[28] Yifan Li, Yifan Du, Kun Zhou, Jinpeng Wang, Wayne Xin Zhao, and Ji-Rong Wen. Evaluating object hallucination in large vision-language models. arXiv preprint arXiv:2305.10355, 2023. 6, 9
+
+[29] Bin Lin, Bin Zhu, Yang Ye, Munan Ning, Peng Jin, and Li Yuan. Video-llava: Learning united visual representation by alignment before projection. arXiv preprint arXiv:2311.10122, 2023. 2
+
+[30] Tsung-Yi Lin, Michael Maire, Serge Belongie, James Hays, Pietro Perona, Deva Ramanan, Piotr Dollar, and C Lawrence´
+
+Zitnick. Microsoft coco: Common objects in context. In Computer Vision–ECCV 2014: 13th European Conference, Zurich, Switzerland, September 6-12, 2014, Proceedings, Part V 13, pages 740–755. Springer, 2014. 2, 4
+
+[31] Wei Lin, Leonid Karlinsky, Nina Shvetsova, Horst Possegger, Mateusz Kozinski, Rameswar Panda, Rogerio Feris, Hilde Kuehne, and Horst Bischof. MAtch, eXpand and Improve: Unsupervised Finetuning for Zero-Shot Action Recognition with Language Knowledge. In Proc. ICCV, 2023. 3
+
+[32] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. LLaVA-NeXT: Improved reasoning, OCR, and world knowledge, 2023. 2
+
+[33] Haotian Liu, Chunyuan Li, Yuheng Li, and Yong Jae Lee. Improved Baselines with Visual Instruction Tuning. In Proc. CVPR, 2024. 2
+
+[34] Haotian Liu, Chunyuan Li, Qingyang Wu, and Yong Jae Lee. Visual Instruction Tuning. In NeurIPS, 2023. 2, 3, 4, 6
+
+[35] Sewon Min, Mike Lewis, Luke Zettlemoyer, and Hannaneh Hajishirzi. MetaICL: Learning to Learn In Context. In Proc. NAACL, 2022. 2, 3
+
+[36] M. Jehanzeb Mirza, Leonid Karlinsky, Wei Lin, Sivan Doveh, , Jakub Micorek, Mateusz Kozinski, Hilde Kuhene, and Horst Possegger. Meta-Prompting for Automating Zeroshot Visual Recognition with LLMs. In Proc. ECCV, 2024. 2, 3
+
+[37] M. Jehanzeb Mirza, Leonid Karlinsky, Wei Lin, Horst Possegger, Rogerio Feris, and Horst Bischof. TAP: Targeted Prompting for Task Adaptive Generation of Textual Training Instances for Visual Classification. arXiv preprint arXiv:2309.06809, 2023. 3
+
+[38] Muhammad Jehanzeb Mirza, Leonid Karlinsky, Wei Lin, Horst Possegger, Mateusz Kozinski, Rogerio Feris, and Horst Bischof. LaFTer: Label-Free Tuning of Zero-shot Classifier using Language and Unlabeled Image Collections. In NeurIPS, 2023. 3
+
+[39] M Jehanzeb Mirza, Mengjie Zhao, Zhuoyuan Mao, Sivan Doveh, Wei Lin, Paul Gavrikov, Michael Dorkenwald, Shiqi Yang, Saurav Jha, Hiromi Wakaki, et al. Glov: Guided large language models as implicit optimizers for vision language models. arXiv preprint arXiv:2410.06154, 2024. 3
+
+[40] Alec Radford, Jong Wook Kim, Chris Hallacy, Aditya Ramesh, Gabriel Goh, Sandhini Agarwal, Girish Sastry, Amanda Askell, Pamela Mishkin, Jack Clark, Gretchen Krueger, and Ilya Sutskever. Learning Transferable Visual Models from Natural Language Supervision. In Proc. ICML, 2021. 2, 3
+
+[41] Dvir Samuel, Rami Ben-Ari, Matan Levy, Nir Darshan, and Gal Chechik. Where’s waldo: Diffusion features for personalized segmentation and retrieval. NeurIPS, 2024. 6, 12
+
+[42] Christoph Schuhmann, Romain Beaumont, Richard Vencu, Cade W Gordon, Ross Wightman, Mehdi Cherti, Theo Coombes, Aarush Katta, Clayton Mullis, Mitchell Wortsman, Patrick Schramowski, Srivatsa R Kundurthy, Katherine Crowson, Ludwig Schmidt, Robert Kaczmarczyk, and Jenia Jitsev. LAION-5b: An open large-scale dataset for training next generation image-text models. In NeurIPS, 2022. 3
+
+[43] Quan Sun, Yufeng Cui, Xiaosong Zhang, Fan Zhang, Qiying Yu, Zhengxiong Luo, Yueze Wang, Yongming Rao, Jingjing Liu, Tiejun Huang, et al. Generative multimodal models are in-context learners. arXiv preprint arXiv:2312.13286, 2023. 3
+
+[44] Peng Wang, Shuai Bai, Sinan Tan, Shijie Wang, Zhihao Fan, Jinze Bai, Keqin Chen, Xuejing Liu, Jialin Wang, Wenbin Ge, et al. Qwen2-vl: Enhancing vision-language model’s perception of the world at any resolution. arXiv preprint arXiv:2409.12191, 2024. 4, 6, 7, 8, 9, 12
+
+[45] Jason Wei, Xuezhi Wang, Dale Schuurmans, Maarten Bosma, Fei Xia, Ed Chi, Quoc V Le, Denny Zhou, et al. Chain-of-Thought Prompting Elicits Reasoning in Large Language Models. In NeurIPS, 2022. 2, 3
+
+[46] Hu Xu, Saining Xie, Xiaoqing Ellen Tan, Po-Yao Huang, Russell Howes, Vasu Sharma, Shang-Wen Li, Gargi Ghosh, Luke Zettlemoyer, and Christoph Feichtenhofer. Demystifying CLIP Data. In Proc. ICLR, 2023. 3
+
+[47] Shunyu Yao, Dian Yu, Jeffrey Zhao, Izhak Shafran, Tom Griffiths, Yuan Cao, and Karthik Narasimhan. Tree of Thoughts: Deliberate Problem Solving with Large Language Models. In NeurIPS, 2023. 2, 3
+
+[48] Xiaohua Zhai, Basil Mustafa, Alexander Kolesnikov, and Lucas Beyer. Sigmoid Loss for Language Image Pretraining. In Proc. ICCV, 2023. 3
+
+[49] Renrui Zhang, Zhengkai Jiang, Ziyu Guo, Shilin Yan, Junting Pan, Xianzheng Ma, Hao Dong, Peng Gao, and Hongsheng Li. Personalize segment anything model with one shot. arXiv preprint arXiv:2305.03048, 2023. 6, 12
+
+[50] Haozhe Zhao, Zefan Cai, Shuzheng Si, Xiaojian Ma, Kaikai An, Liang Chen, Zixuan Liu, Sheng Wang, Wenjuan Han, and Baobao Chang. Mmicl: Empowering vision-language model with multi-modal in-context learning. arXiv preprint arXiv:2309.07915, 2023. 3
+
+[51] Yaowei Zheng, Richong Zhang, Junhao Zhang, Yanhan Ye, Zheyan Luo, Zhangchi Feng, and Yongqiang Ma. Llamafactory: Unified efficient fine-tuning of 100+ language models. In Proceedings of the 62nd Annual Meeting of the Association for Computational Linguistics (Volume 3: System Demonstrations), Bangkok, Thailand, 2024. Association for Computational Linguistics. 6
+
+[52] Deyao Zhu, Jun Chen, Xiaoqian Shen, Xiang Li, and Mohamed Elhoseiny. MiniGPT-4: Enhancing Vision-Language Understanding with Advanced Large Language Models. In Proc. ICLR, 2024. 3
+
+## Appendix
+
+In the following, we provide additional experiments and further explanations that offer deeper insights and enhance the clarity of the main manuscript. In Section A, we present the detailed results for the LLaVA-OV model (with and without) finetuning, complementing the bar plot summaries from the main text. In Section B, we detail the methodology for converting pixel-level segmentation maps from datasets like PDM and PerSeg into bounding box annotations, ensuring compatibility with our application. Finally, in Section C, we provide extensive qualitative visualizations across various datasets and few-shot settings, highlighting both successful localizations and challenges in instancelevel discrimination. Comprehensive examples for 1-shot to 8-shot scenarios are included to illustrate the robustness and adaptability of our method.
+
+## A. Detailed Results
+
+In the following, we first provide the detailed results of the experiment performed in the main manuscript highlighting the retention of generalization abilities of our fine-tuned models, then provide results showing the generalization of fine-tuning across different network architectures.
+
+## A.1. Retention of Generalization
+
+In Table 4, we present the detailed results on the SEED benchmark [15] for LLaVA-OV [26] – with and without our proposed fine-tuning. These results highlight the retention of the generalization abilities by our IPLoc.
+
+## A.2. LLaVA-OV Fine-tuning Results
+
+The detailed results obtained from base LLaVA-OV and the fine-tuned model (on our dataset) are presented in Table 3. We find that our IPLoc consistently improves the base model on all the few-shot splits we test on. These results provide insights regarding the generalization of our fine-tuning methodology across different vision language models (VLMs). Note that in the main manuscript (Table 1), we fine-tuned Qwen2-VL [44].
+
+## B. Segmentation Masks to Bounding Boxes
+
+The PDM [41] and PerSeg [49] datasets provide images annotated with pixel-level segmentation maps, where each item is uniquely labeled. Since our method requires bounding box annotations, we directly utilize the segmentation maps. Each segmentation map, containing unique object labels, is processed to extract bounding box coordinates $( x _ { 1 } , y _ { 1 } , x _ { 2 } , y _ { 2 } )$ that enclose the objects. These bounding box annotations are derived from the segmentation maps without the need for additional pixel-level computation, as the mapping between labels and objects is predefined.
+
+<table><tr><td>Dataset</td><td>Shots</td><td>Base</td><td>IPLoc</td></tr><tr><td rowspan="2">PDM</td><td>1</td><td>11.10</td><td>12.29</td></tr><tr><td>2</td><td>13.85</td><td>15.03</td></tr><tr><td rowspan="4">PerSeg</td><td>1</td><td>43.01</td><td>52.96</td></tr><tr><td>2</td><td>40.08</td><td>57.90</td></tr><tr><td>3</td><td>30.01</td><td>56.51</td></tr><tr><td>4</td><td>14.03</td><td>18.11</td></tr><tr><td rowspan="4">LASOT</td><td>1</td><td>12.45</td><td>13.99</td></tr><tr><td>2</td><td>15.66</td><td>16.88</td></tr><tr><td>4</td><td>18.64</td><td>21.04</td></tr><tr><td>8</td><td>7.62</td><td>7.80</td></tr><tr><td>Average</td><td></td><td>20.65</td><td>27.25</td></tr></table>
+
+Table 3. Generalization across VLMs. We report the detailed results of base and IPLoc-finetuned LLaVa-OV model.
+
+<table><tr><td>Metric</td><td>Samples</td><td>Qwen2-VL-7B</td><td>IPLoc</td></tr><tr><td>seed_image</td><td>14233</td><td>76.47</td><td>75.74</td></tr><tr><td>seed_video</td><td>3757</td><td>55.15</td><td>53.82</td></tr><tr><td>Weighted Average</td><td>17990</td><td>0.7202</td><td>0.7116</td></tr></table>
+
+Table 4. Retention of Generalization. We report the comparison of Qwen2-VL-7B and our IPLoc on the SEED2 Benchmark splits.
+
+## C. Comprehensive Visual Analysis Across Datasets
+
+We present an extensive set of qualitative results demonstrating our method’s performance across multiple benchmark datasets (PerSeg, LaSOT, PDM) under various fewshot settings. Our visualization framework employs a consistent color-coding scheme where red bounding boxes denote ground truth annotations in the support frames, while blue bounding boxes indicate our model’s predictions on query frames. For each example, we show the support shots (containing the target object with its localization) followed by the corresponding query image in the final column.
+
+As shown in Figure 9, our method successfully localizes objects with just a single support frame across diverse scenarios. The challenges of instance-level discrimination are evident in Figure 13, where semantically similar objects lead to incorrect localizations. Further, in Figure 10, Figure 11 and Figure 12 we can see our method also performs well with more shots.
+
+![](images/1ca1bcbe39704503a43a98c41bd94cf1aeeae0b843f5755cd14aa81fc117f3d2.jpg)
+
+![](images/83fca5be646bfae2062c607b2ed9279984b9c419051e7c2f89fbfd59d0eaf01e.jpg)  
+Figure 9. One-shot Localization Results. Representative examples of object localization using a single support frame in the PerSeg dataset.
+
+![](images/48ce96d7a9bc277ed797bc05a4717e14dc8bc3a4f01ac502c0e3f3f70d889739.jpg)
+
+![](images/8c03f93d4fd2a945cfb279bf1715d752e2c2840cf6651ec15503566b8e9212bc.jpg)
+
+![](images/63917eefcd67dbc2ca0820e6a347e45fe73dc9b56b4c0ee66dee0d80db64e49d.jpg)
+
+![](images/36edeec31c7b7eee879698d8a18dad8f59b72fa0afe94067e03a653fb9c7cb26.jpg)
+
+![](images/cde6edbff73a433e0fddb1ccbfa199403a2cc6d377c8787b02fc6874a62aabe6.jpg)
+
+![](images/2778fba49108313a22267cd7254226ba132b946122c61195373e517343a44b4d.jpg)  
+Figure 10. Two-shot Localization Results. Performance visualization with two support frames on the LaSOT and PDM datasets.
+
+![](images/5dd7a79ffa332789ad1e9eaa3f128627ac12785600ee6028dd595bcfe3749dab.jpg)  
+Figure 11. Four-shot Localization Examples. Visualization of our method’s localization results when provided with four support frames on PerSeg and LaSOT datasets.
+
+![](images/7ac8b6bc88f959347ee3179c64dfdfd76b4b266c7461e77537f5a8b6c416d0ca.jpg)  
+Figure 12. Eight-shot Setting Results. Demonstration of our method’s localization behavior in the eight-shot setting on the LaSOT dataset.
+
+![](images/e9bd6f3381c3b2e37a720748f7964fc295b9e53ecd459d4a615aad8501986c09.jpg)
+
+![](images/433fe78fa15921584ea4ed02ed3325203cf95789326672c33d4f4b0da92f6150.jpg)
+
+![](images/953d7f0a0207dcf9c3e9c4efd9291310e1fc2f0d04ecbede44c308f44354e6d7.jpg)
+
+![](images/e353a11c6adb1a8b333f52c4172d7a49144302b3fd8d63ee5cb1ad6c0207cea2.jpg)  
+Figure 13. Challenging Cases in One-shot Setting. Examples where the model identifies semantically similar objects (incorrect airplane and boat) but fails to distinguish the specific target instance, highlighting the complexity of instance-level discrimination.

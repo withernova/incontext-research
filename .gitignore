@@ -1,0 +1,5 @@
+codespace/
+__pycache__/
+*.pyc
+.DS_Store
+.survey-tool/ui_state.json

@@ -1,0 +1,4724 @@
+[
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization"
+                    }
+                ],
+                "level": 1
+            },
+            "bbox": [
+                117,
+                109,
+                854,
+                154
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Mohammed Asad Karim <sup>*</sup> <sup>1</sup> Vinay Kumar Verma <sup>*</sup> <sup>1</sup>"
+                    }
+                ]
+            },
+            "bbox": [
+                300,
+                199,
+                669,
+                215
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Abstract"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                241,
+                242,
+                321,
+                258
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In-context localization (ICL) seeks to localize a target object specified by a small set of support examples in a query image, operating on the fly without training or parameter updates. Despite rapid advances in vision–language models (VLMs), achieving category-agnostic and visually grounded ICL remains an open problem, even though it is essential for applications such as image editing, personalized visual search, and retrieval. Existing methods are fragile and rely on explicit category supervision, which not only limits applicability in realistic settings with unnamed or instance-specific objects but also introduces category bias that steers predictions toward semantic priors rather than visual evidence. We introduce a two-stage training framework that explicitly optimizes in-context attention between support bounding boxes and query images without category supervision. We further refine localization via reinforcement learning using Group Relative Policy Optimization (GRPO) to directly minimize localization error. This formulation enforces visual correspondence over semantic priors, yielding robust instance-level localization. Empirically, a 7B-parameter model trained with our objectives outperforms models up to 72B parameters, demonstrating that context-aware localization objectives can surpass scaling alone. Comprehensive ablations validate the contribution of each component."
+                    }
+                ]
+            },
+            "bbox": [
+                117,
+                263,
+                444,
+                719
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "1. Introduction"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                732,
+                217,
+                750
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Vision–language models (VLMs) (Wang et al., 2024; Li et al., 2024; Dai et al., 2023a; Li et al., 2023) have achieved remarkable success across a broad spectrum of vision and language tasks, yet they continue to struggle with in-context object localization. In-Context Object Localization (ICOL) focuses on localizing a user-specified object in a query image by relying solely on a small set of visual support examples available at inference time. In contrast to traditional object detection or grounding approaches that depend on fixed category vocabularies and extensive supervised training, ICOL enables models to infer the target concept on the fly, without parameter updates, by reasoning over visual correspondences between support and query images. This capability is critical for practical applications such as customized image editing, personalized visual search, and interactive object tracking, where the object of interest is user-defined, instance-specific, and often difficult or impossible to describe textually in advance. Achieving reliable in-context localization is therefore a key step toward flexible, user-driven visual understanding systems."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                758,
+                475,
+                820
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                495,
+                244,
+                890,
+                487
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Despite the success of in-context learning in large language models (LLMs) (Alayrac et al., 2022; Brown et al., 2020b; OpenAI, 2023; Raffel et al., 2020), transferring this paradigm to vision–language models (VLMs) for object localization remains challenging. Recent work on in-context object localization shows that VLMs (Singh et al., 2022) can use support examples with bounding box annotations to localize novel objects at inference time; however, their predictions are still strongly shaped by category-level priors rather than instance-specific visual reasoning (Doveh et al., 2025). To address this, Doveh et al. introduce pseudolabels during training to reduce reliance on true category names and encourage visual grounding. In practice, inference continues to rely on original category labels, creating a train–test mismatch that reintroduces semantic priors at deployment. As a result, category bias is only partially mitigated, and localization decisions can still be driven by semantic cues instead of the visual evidence provided by support examples. Moreover, empirical findings suggest that even with pseudo-label training, models frequently underutilize fine-grained spatial cues such as bounding box geometry and relative position defaulting to coarse visual similarity or residual category correlations. These observations reveal a central gap: existing approaches fail to eliminate categorymediated reasoning and do not enforce strict reliance on visual support constraints for instance-level localization."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                494,
+                890,
+                888
+            ]
+        },
+        {
+            "type": "page_aside_text",
+            "content": {
+                "page_aside_text_content": [
+                    {
+                        "type": "text",
+                        "content": "arXiv:2605.31145v1 [cs.CV] 29 May 2026"
+                    }
+                ]
+            },
+            "bbox": [
+                22,
+                271,
+                58,
+                723
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "43<sup>rd</sup>"
+                    }
+                ]
+            },
+            "bbox": [
+                207,
+                864,
+                238,
+                878
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "<sup>1</sup>Amazon, Seattle, USA; <sup>∗</sup>Equal contribution. Correspondence to: Mohammed Asad Karim <asadkarim0938@gmail.com>."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                828,
+                475,
+                856
+            ]
+        },
+        {
+            "type": "page_footnote",
+            "content": {
+                "page_footnote_content": [
+                    {
+                        "type": "text",
+                        "content": "Proceedings of the International Conference on Machine Learning, Seoul, South Korea. PMLR 306, 2026. Copyright 2026 by the author(s)."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                864,
+                475,
+                906
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "1"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                491,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To address these limitations, we propose a category-agnostic, attention-based formulation of in-context object localization that removes category names entirely from both support and query prompts. Instead of relying on true labels or pseudo-labels, our method optimizes in-context attention using only visual support examples, ensuring that localization decisions are driven by visual correspondence and spatial reasoning. By removing textual identifiers, the model is no longer influenced by semantic category priors and must infer the target object from visual appearance and geometry. This attention-based design promotes direct use of bounding box information, encouraging consistent focus on object shape, relative position, and surrounding visual cues across support and query images. To further improve query alignment, we refine bounding box prediction using GRPO-based reward optimization, which directly minimizes alignment error. As a result, the model generalizes to arbitrary object instances, including unseen categories and visually defined concepts without stable names. Overall, our approach reframes in-context localization as a visual reasoning task, enabling robust and generalizable instance-level grounding. We summarize our key contributions as follows:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                85,
+                478,
+                419
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "• We propose a category-independent, pure visual context–based in-context localization framework that overcomes category-induced bias in VLMs."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                430,
+                478,
+                477
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "• We introduce an attention map optimization that encourages the model to focus on the most relevant regions in both support and query images for robust localization. In addition, a GRPO-based reward objective is used to reduce object bounding-box alignment error."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                491,
+                477,
+                568
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "• Through extensive experiments, we demonstrate that the proposed model (FOCUS) enables effective in-context localization without relying on category labels or prior semantic information."
+                    }
+                ]
+            },
+            "bbox": [
+                88,
+                582,
+                475,
+                643
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "2. Related Work"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                660,
+                228,
+                676
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In-context learning in language models. In-context learning (ICL) (Doveh et al., 2025) enables large language models (LLMs) to perform new tasks by conditioning on a small set of demonstrations at inference time, without parameter updates. Early work showed that few-shot performance scales with model and context size in autoregressive models (Brown et al., 2020a). Subsequent studies interpret ICL as implicit Bayesian inference (Xie et al., 2022) or gradient-descent-like computation emerging from transformer attention dynamics (Von Oswald et al., 2023). Empirically, ICL is sensitive to prompt composition (Min et al., 2022; Lu et al., 2022), motivating calibration (Zhao et al., 2021) and retrieval-augmented methods (Rubin et al., 2022). Instruction-tuned models further improve zero-shot generalization (Wei et al., 2022)."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                679,
+                478,
+                907
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In-context learning in vision–language models. Compared to language models, in-context learning for vision– language models (VLMs) remains relatively underexplored (Alayrac et al., 2022; Zhang et al., 2024; OpenAI, 2023). Recent multimodal models demonstrate in-context capabilities for tasks such as visual question answering, reasoning, and visual grounding when examples are provided in the prompt (Alayrac et al., 2022; Brown et al., 2020b; Dai et al., 2023b). However, these demonstrations primarily focus on semantic understanding and rely on natural language to specify the task and the target object (Liu et al., 2024; Liao et al., 2025). As a result, in-context behavior in VLMs has largely been studied through language-conditioned interactions rather than through purely visual conditioning (Radford et al., 2021; Huang et al., 2023). A recent work IPLoc (Doveh et al., 2025) explores the ICL with the help of pseudo-label and visual grounding, however pseudo label reduce the generalization ability since for the novel category model have not learned the pseudo label."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                85,
+                890,
+                375
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Semantic grounding and localization in VLMs. Most vision–language models (VLMs) for grounding and localization rely on explicit semantic supervision, such as object names, attributes, or referring expressions. Early work formulates grounding as localizing regions described by natural language queries (Kazemzadeh et al., 2014; Yu et al., 2016), later extended to end-to-end multimodal transformers that condition detection on text (Kamath et al., 2021). Recent large-scale pretraining unifies open-vocabulary detection and phrase grounding by aligning visual regions with linguistic descriptions (Li et al., 2021; Zhang et al., 2022), while CLIP-based methods adapt contrastively trained models for grounding tasks (Xiao et al., 2023). Despite strong performance, these approaches assume targets can be specified unambiguously through language. This assumption limits applicability in settings with unnamed objects, visually similar instances, or domain-specific entities without canonical labels, motivating methods that relax or adapt text-conditioned grounding architectures (Shi et al., 2023)."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                388,
+                890,
+                678
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Few-shot and instance-level visual conditioning. Fewshot object localization (Chen et al., 2022) has been studied via episodic and meta-learning across detection, segmentation, and tracking tasks (Bertinetto et al., 2016; Shaban et al., 2017; Yan et al., 2019). Recent work extends these paradigms to foundation and vision–language models using stronger visual and multimodal features (Madan et al., 2024; Han & Lim, 2024). However, most approaches rely on supervised adaptation or architectural updates rather than inference-time conditioning, and thus do not exhibit true in-context behavior (Xu et al., 2023; Liu et al., 2023)."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                691,
+                890,
+                861
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Pure visual in-context localization. We introduce a pure visual in-context localization setting in which a single frozen model localizes objects using only support images and bounding box annotations, without any semantic labels or textual cues. To our knowledge, this is the first systematic study of in-context localization driven solely by visual evidence. By eliminating linguistic priors, this formulation enables open-set generalization to novel object instances and enforces robust instance-level reasoning through visual correspondence alone."
+                    }
+                ]
+            },
+            "bbox": [
+                496,
+                875,
+                888,
+                906
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                71
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "2"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/5c3d5ebdfb52691456943c84c1bfc833601175b893b0a57ae2af2a0a86b4ec33.jpg"
+                },
+                "content": "",
+                "image_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 1. The figure illustrates in-context localization across different models by visualizing the support, query, predicted bounding boxes, and the corresponding attention maps. The support image provides a bounding box specifying the target object. Attention heatmaps highlight regions the model relies on for prediction, while red boxes indicate the final localized output."
+                    }
+                ],
+                "image_footnote": []
+            },
+            "bbox": [
+                93,
+                85,
+                877,
+                176
+            ]
+        },
+        {
+            "type": "chart",
+            "content": {
+                "image_source": {
+                    "path": "images/b63cbed04835e6235f24ec217ed4b14950b3bde77ab2efa12bc40fe5f3ea892d.jpg"
+                },
+                "content": "",
+                "chart_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 2. Comparison of attention from answer tokens to inpu tokens. Our model places greater attention on query image tokens compared to the SFT baseline, indicating stronger visual grounding during localization. Here w/c and wo/c shows the model with and without category information respectively."
+                    }
+                ],
+                "chart_footnote": []
+            },
+            "bbox": [
+                89,
+                234,
+                470,
+                375
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                84,
+                458,
+                475,
+                580
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "3. Why LVMs Require Explicit Supervision?"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                597,
+                462,
+                614
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We conduct an extensive empirical study to analyze failure cases of in-context localization models and design targeted objectives to address the identified limitations. Our key findings are summarized as follows:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                625,
+                475,
+                685
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Prior Bias/ Category Name Biasness We observe that language bias, particularly the use of category names, plays a decisive role in predicting the query bounding box. As illustrated in Fig. 1, IPLoc fails to localize the correct instance and instead attends to an incorrect bowl when multiple objects from the same category appear in the scene. This failure mode exposes a fundamental limitation of categorydriven localization. When several instances share the same semantic label, category supervision biases the model toward visually salient or prototypical instances rather than the specific instance defined by the in-context example. Fig. 2 further supports this finding by examining attention from the answer token to the input tokens. We observe that category tokens receive comparable or even higher attention than the relevant visual context, indicating reliance on semantic shortcuts instead of grounded visual reasoning."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                694,
+                477,
+                906
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                496,
+                234,
+                885,
+                265
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Attention Distribution to the Visual Context We further analyze attention from the answer token to the input tokens, as shown in Fig. 2, which reflects each token’s contribution during prediction. IPLoc and the vanilla w/c baseline assign limited attention to query and BBOX tokens while allocating relatively higher attention to category tokens, explaining their observed failure cases. The reduced attention to support and BBOX tokens indicates weak visual grounding. We then examine whether removing category names from the vanilla model (vanilla wo/c) resolves this issue. Although Fig. 2 suggests improved attention allocation across query, support, and BBOX tokens, this improvement is superficial. A closer inspection of Fig. 1 for Qwen2-VL-7B reveals that, without category information, the model exhibits high aggregated attention over the query image; however, this attention is diffusely distributed and fails to concentrate on regions corresponding to the support examples. Consequently, the predicted bounding boxes remain weakly grounded in the visual context."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                284,
+                888,
+                571
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Motivated by this analysis, we introduce an attention-based loss and a GRPO-based reward to correct these failure modes, explicitly enforcing support-aware visual attention and improving bounding box alignment for reliable incontext localization."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                578,
+                888,
+                654
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4. Preliminary"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                659,
+                624,
+                676
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "4.1. Problem Definition and Notation"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                684,
+                759,
+                699
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This work study in-context localization, where a model localizes a target object in a query image by conditioning on a set of visual demonstrations (support images) provided within the same prompt. Let a sequence of images be:"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                708,
+                887,
+                770
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {I} = (I _ {1}, I _ {2}, \\dots , I _ {T}),\\tag{1}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/c0603b9409f83ccceb2e8725b7204b534818979390500024589188daad5cfea1.jpg"
+                }
+            },
+            "bbox": [
+                619,
+                782,
+                763,
+                800
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\forall I _ { t } \\in \\mathbb { R } ^ { H \\times W \\times 3 }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( I _ { 1 } , I _ { 2 } , \\ldots , I _ { T - 1 } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are the support images that contain the target object annotated by the bounding box. For the support images, the bounding boxes are given as:"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                813,
+                888,
+                876
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {B} _ {1: T - 1} = \\{b _ {1}, b _ {2}, \\dots , b _ {T - 1} \\},\\tag{2}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/67a2354c9e875db72148f07df69ac0b51aba02b8ed3e38960d6f08e7a978248f.jpg"
+                }
+            },
+            "bbox": [
+                589,
+                888,
+                792,
+                907
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "3"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                935
+            ]
+        }
+    ],
+    [
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/55ec9576e319fc6cb6b4888d1e9cd00fb146ea5ac8e688a4d681910575c651ee.jpg"
+                },
+                "content": "",
+                "image_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 3. The block diagram of the proposed approach model (FOCUS): The model accepts the support set with the BBOX and predicts the final BBOX over the query image. Attention loss is applied to the attention map from the query to the input token, and GRPO helps generate a precise BBOX."
+                    }
+                ],
+                "image_footnote": []
+            },
+            "bbox": [
+                88,
+                82,
+                883,
+                297
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where each bounding box "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\left( \\boldsymbol { b } _ { t } \\right)"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is parameterized as "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b _ { t } \\ ="
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "[ x _ { \\mathrm { m i n } } ^ { ( t ) } , y _ { \\mathrm { m i n } } ^ { ( t ) } , x _ { \\mathrm { m a x } } ^ { ( t ) } , y _ { \\mathrm { m a x } } ^ { ( \\overline { { t } } ) } ]"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Given this context, the objective is to predict the bounding box "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b _ { T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "corresponding to the same object instance in the final query image "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "I _ { T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                371,
+                475,
+                435
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Let us assume that we have a multimodal autoregressive model "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { f } _ { \\theta } ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "where θ is the model parameters. The model accepts the support image data and the bounding boxes along with the query sample as input and predicts the query object output as BBOX, which is defined as:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                441,
+                475,
+                518
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\hat {b} _ {T} = \\mathbf {f} _ {\\theta} (I _ {T} / (I _ {1}, I _ {2}, \\dots , I _ {T - 1}), \\mathcal {B} _ {1: T - 1})\\tag{3}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/66e5409c68a37e6bc66a81541b9b766893e337b556cfa36c2c8aaba466f053d3.jpg"
+                }
+            },
+            "bbox": [
+                143,
+                529,
+                415,
+                547
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\hat { b } _ { T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is the predicted bounding box from the query image."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                560,
+                475,
+                593
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The model jointly encodes visual tokens extracted from images and textual tokens from the instruction prompt, enabling cross-modal reasoning over spatial relationships. Localization is performed by matching regions in the query image with the target object defined through bounding box demonstrations in the context. This formulation does not rely on temporal continuity, motion cues, or persistent object states. Each prediction is made independently based on incontext examples, framing localization as a demonstrationconditioned visual reasoning task."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                599,
+                477,
+                751
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5. Methodology"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                758,
+                220,
+                776
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "As outlined in Section 4, each training instance comprises multiple support images annotated with BBOXes, followed by a query image for which the model generates a BBOX prediction in text form. The proposed training framework consists of two stages. In the first stage, we optimize a category-agnostic, attention-based BBOX grounding objective using only visual context. This objective explicitly encourages attention concentration on relevant visual regions, while suppressing attention to irrelevant areas and categoryinduced biases. In the second stage, we refine BBOX alignment through reinforcement learning using Group Relative Policy Optimization (GRPO), guided by an IoU-based reward. The following section presents a detailed description of the proposed approach."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                784,
+                477,
+                907
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                495,
+                371,
+                888,
+                464
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.1. Prompt Specification"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                479,
+                678,
+                494
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "All experiments use a fixed natural language prompt that defines the in-context localization task and specifies the expected output format. The prompt is prepended once to each input sequence, followed by interleaved images and their corresponding BBOX annotations. The exact prompt text used in all experiments is provided below:"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                502,
+                888,
+                594
+            ]
+        },
+        {
+            "type": "code",
+            "content": {
+                "code_caption": [],
+                "code_content": [
+                    {
+                        "type": "text",
+                        "content": "Prompt: Locate the same object across the sequence of frames shown below. Your goal is to identify the target object consistently using the visual context provided."
+                    }
+                ],
+                "code_language": "txt"
+            },
+            "bbox": [
+                495,
+                598,
+                887,
+                674
+            ]
+        },
+        {
+            "type": "algorithm",
+            "content": {
+                "algorithm_caption": [],
+                "algorithm_content": [
+                    {
+                        "type": "text",
+                        "content": "For the first  "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "T-1"
+                    },
+                    {
+                        "type": "text",
+                        "content": " frames, the bounding box of the object is already provided. Use this information and the visual context to predict where the same object appears in the final frame."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                681,
+                885,
+                758
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Output the predicted bounding box for the last frame in the following format:"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                763,
+                883,
+                796
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle \\text {answer} \\rangle [ x _ {\\min}, y _ {\\min}, x _ {\\max}, y _ {\\max} ] \\langle / \\text {answer} \\rangle",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/b168d6f8894defd85be01182f3b8d0366de57b1328b69279bd8a98a9ef4c671e.jpg"
+                }
+            },
+            "bbox": [
+                534,
+                805,
+                849,
+                824
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Following the task description, each image in the sequence is paired with a corresponding BBOX annotation. For frames 1 through T − 1, the input explicitly provides the bounding box of the target object associated with each image. For the final frame T, no bounding box is given, and the model is instructed to predict the corresponding BBOX for the query image."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                829,
+                888,
+                907
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                271,
+                56,
+                700,
+                71
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "4"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/1dfdeae323dd85974d4b7c02faea1e5154a427c620ea243c97087297dc9189ce.jpg"
+                },
+                "content": "",
+                "image_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 4. BBOX Attention Optimization: The mask for the BBOX token are given as 1 and remaining are 0 which is used to compute the average attention for the BBOX and non-BBOX token using the Eq-7."
+                    }
+                ],
+                "image_footnote": []
+            },
+            "bbox": [
+                91,
+                89,
+                473,
+                311
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                84,
+                388,
+                473,
+                420
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Formally, the complete input to the model is constructed as an interleaved sequence:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                426,
+                473,
+                458
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {C} = \\langle \\text {prompt}, (I _ {1}, b _ {1}), \\dots , (I _ {T - 1}, b _ {T - 1}), (I _ {T}) \\rangle\\tag{4}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/471df93c671b35885ecbc6016795f535e5184505fd47e4d14551b82baab1b3e2.jpg"
+                }
+            },
+            "bbox": [
+                107,
+                472,
+                433,
+                489
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Note that Eq. 4 contains no category information; only visual inputs are provided to the model. The task is framed as in-context localization, where the target object is specified exclusively through BBOX demonstrations contained within the prompt."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                511,
+                475,
+                588
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.2. Bounding Box Attention Optimization"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                602,
+                385,
+                618
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In the LVM failure analysis (Section 3), we observe that existing models exhibit weak attention to the visual context of both support and query images, failing to sufficiently emphasize the regions critical for accurate localization. As a result, predictions are often dominated by prior semantic knowledge rather than instance-specific visual evidence, leading to incorrect localization and persistent category bias. To address this limitation, we explicitly optimize the model’s latent attention maps to concentrate on the key spatial regions corresponding to the annotated support objects and the query image."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                626,
+                477,
+                794
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\boldsymbol { x } = ( x _ { 1 } , \\dots , x _ { T } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "denote the input token sequence obtained from Eq. 4, consisting of the prompt and interleaved vision and text tokens from both the support set and the query example. The model "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathbf { f } _ { \\theta }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "consists of a set of transformer layers. For each transformer layer "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\ell \\in \\{ 1 , \\ldots , L \\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and attention head "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "h \\in \\{ 1 , \\ldots , H \\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", the model produces an attention matrix "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A ^ { ( \\ell , h ) } \\stackrel { \\textstyle \\setminus } { \\in } \\mathbb { R } ^ { T \\times T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". We aggregate attentions across the layers and heads by averaging:"
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                799,
+                475,
+                906
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                496,
+                85,
+                772,
+                99
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A = \\frac {1}{L H} \\sum_ {\\ell = 1} ^ {L} \\sum_ {h = 1} ^ {H} A ^ {(\\ell , h)}.\\tag{5}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/1c155204dfb070373b776a169966754d478e4018344aebf7022cf82247ba1860.jpg"
+                }
+            },
+            "bbox": [
+                607,
+                109,
+                774,
+                151
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathcal { T } _ { \\mathrm { q u e r y } } \\subset \\{ 1 , . . . , T \\}"
+                    },
+                    {
+                        "type": "text",
+                        "content": "denote the index set of tokens corresponding to the query image. We extract the rows of "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A"
+                    },
+                    {
+                        "type": "text",
+                        "content": "indexed by "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathcal { T } _ { \\mathrm { q u e r y } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", yielding"
+                    }
+                ]
+            },
+            "bbox": [
+                496,
+                167,
+                885,
+                215
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "P \\in \\mathbb {R} ^ {N \\times T}\\tag{6}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/8d554166497df7202b366ee561c1c1b99455f1394f9d962868d089afbe1ad296.jpg"
+                }
+            },
+            "bbox": [
+                651,
+                220,
+                733,
+                238
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "N = | \\mathcal { T } _ { \\mathrm { q u e r y } } |"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is the number of query image tokens. Each row "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "P _ { i }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "represents the attention distribution from query image token i to all input tokens."
+                    }
+                ]
+            },
+            "bbox": [
+                496,
+                250,
+                887,
+                297
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Bounding Box Token Mask During supervised finetuning, BBOX annotations for the support images are explicitly provided in the prompt as structured text (e.g., "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "[ x _ { m i n } , y _ { m i n } , x _ { m a x } , y _ { m a x } ] )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Since these annotations are serialized into text tokens by the tokenizer, the corresponding token indices are deterministically known. Based on this, we construct a binary mask "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "m \\in \\{ 0 , 1 \\} ^ { T }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "m _ { j } = 1"
+                    },
+                    {
+                        "type": "text",
+                        "content": "if token "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "j"
+                    },
+                    {
+                        "type": "text",
+                        "content": "corresponds to a BBOX annotation token from the support examples, and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "m _ { j } = 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": "otherwise. A schematic illustration of the token mask and the associated loss computation is shown in Fig. 4."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                311,
+                888,
+                479
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Equation 6 denotes the attention map from query image tokens to all input prompt tokens. We then compute the average attention mass assigned to BBOX tokens and to non-bounding box tokens:"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                484,
+                887,
+                546
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "p _ {i} ^ {+} = \\frac {\\sum_ {j} P _ {i j} m _ {j}}{\\sum_ {j} m _ {j}}, \\quad p _ {i} ^ {-} = \\frac {\\sum_ {j} P _ {i j} (1 - m _ {j})}{\\sum_ {j} (1 - m _ {j})}.\\tag{7}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/abe7f44cedce9558d8144d506628511b8a88af0926eb72e6b110e3fc4362fb02.jpg"
+                }
+            },
+            "bbox": [
+                519,
+                553,
+                843,
+                590
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The attention preference margin for query image token i is defined as: − p+ (8)"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                599,
+                887,
+                628
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\Delta_ {i} = p _ {i} ^ {+} - p _ {i} ^ {-}\\tag{8}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/cba763c609e736d22e44de052d58ad2196d87e1fe58480530c9f2fee46556c40.jpg"
+                }
+            },
+            "bbox": [
+                640,
+                621,
+                741,
+                638
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The loss for the margin "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\Delta _ { i }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "<sub>i</sub> is formulated to encourage query image tokens to preferentially attend to BBOX annotation tokens by minimizing a margin-based hinge loss."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                651,
+                887,
+                696
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {L} _ {\\mathrm{bbox}} = \\frac {1}{N} \\sum_ {i = 1} ^ {N} \\max (0, \\mu - \\Delta_ {i}) ^ {2},\\tag{9}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/89884f45cffecb9ae0cdd5d39baa59ae491b2caa52adf71d221a397d11288601.jpg"
+                }
+            },
+            "bbox": [
+                576,
+                699,
+                807,
+                741
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mu > 0"
+                    },
+                    {
+                        "type": "text",
+                        "content": "is a hyperparameter. This loss enforces a relative preference for bounding box tokens over unrelated context, without constraining absolute attention magnitudes."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                750,
+                888,
+                795
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.3. Supervised Fine-Tuning Objective"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                811,
+                769,
+                825
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Let "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mathcal { L } _ { \\mathrm { L M } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "denote the standard language modeling loss. Incorporating the BBOX attention optimization the supervised fine-tuning objective is defined as:"
+                    }
+                ]
+            },
+            "bbox": [
+                496,
+                834,
+                888,
+                880
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {L} _ {\\mathrm{SFT}} = \\mathcal {L} _ {\\mathrm{LM}} + \\beta \\mathcal {L} _ {\\mathrm{bbox}},\\tag{10}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/469f39bb3963b043b143288db1c2beb29c795dd5d3841053bc57a0f6f2d345be.jpg"
+                }
+            },
+            "bbox": [
+                612,
+                890,
+                771,
+                907
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "5"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                935
+            ]
+        }
+    ],
+    [
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta ,"
+                    },
+                    {
+                        "type": "text",
+                        "content": "controls the strength of bounding box attention supervision which is optimized using the grid search over the validation data. This objective biases the model to ground its internal representations in spatial annotations provided by the support examples. Instead of training the model parameter θ we add the LoRA (Hu et al., 2021) weight ϕ and we only train the LoRA parameters."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                85,
+                477,
+                191
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "While BBOX Attention Optimization emphasizes key regions in support and query images, it does not guarantee specific format and precise bounding box alignment. To address this limitation, we further optimize the model using Group Relative Policy Optimization (GRPO), encouraging accurate query bounding box prediction "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "b _ { \\mathrm { p r e d } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The reward consists of two components: (i) an IoU-based reward computed against the query ground truth, and (ii) a formatting reward that enforces syntactic validity of the predicted bounding box."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                198,
+                477,
+                349
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "5.4. Reinforcement Learning with GRPO"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                364,
+                377,
+                381
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Group Relative Policy Optimization (GRPO) is a reinforcement learning method that updates policies using relative comparisons among multiple sampled responses, rather than a learned critic. In contrast to PPO (Schulman et al., 2017), GRPO (Shao et al., 2024; DeepSeek-AI, 2024) may relies on rule-based rewards and therefore avoids value function estimation. Given a query q, GRPO samples G candidate outputs"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                388,
+                477,
+                510
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\{o _ {1}, o _ {2}, \\dots , o _ {G} \\} \\sim \\pi_ {\\theta_ {\\mathrm{old}}} (\\cdot \\mid q),",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/cdaee84d87dd66a4d9547fce0e3c82a1b4e6aefac96d302c2c5b44f9164926d1.jpg"
+                }
+            },
+            "bbox": [
+                176,
+                508,
+                383,
+                526
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "each of which is assigned a scalar reward, producing"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                532,
+                434,
+                547
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\{r _ {1}, r _ {2}, \\dots , r _ {G} \\}.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/f9f8b7236d8eadc7a4b8aac917a7b8108945e00b611557f490f8ca0141fe0b95.jpg"
+                }
+            },
+            "bbox": [
+                220,
+                556,
+                338,
+                574
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The policy parameters θ are optimized by maximizing"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                584,
+                444,
+                599
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\begin{array}{l} \\mathcal {J} _ {\\mathrm{GRPO}} (\\theta) = \\mathbb {E} \\Bigg [ \\frac {1}{G} \\sum_ {i = 1} ^ {G} \\min \\left(\\frac {\\pi_ {\\theta} (o _ {i} \\mid q)}{\\pi_ {\\theta_ {\\mathrm{old}}} (o _ {i} \\mid q)} A _ {i}, \\right. \\\\ \\left. \\quad \\operatorname{clip} \\left(\\frac {\\pi_ {\\theta} (o _ {i} \\mid q)}{\\pi_ {\\theta_ {\\mathrm{old}}} (o _ {i} \\mid q)}, 1 - \\epsilon , 1 + \\epsilon\\right) A _ {i}\\right) \\Bigg ] \\\\ \\quad - \\beta \\mathcal {D} _ {\\mathrm{KL}} (\\pi_ {\\theta} \\parallel \\pi_ {\\mathrm{ref}}) \\end{array}\\tag{11}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/3e9dda6ef9ff54314ae622dcc5353d011355712501c8f211fd1ffc40a437c72d.jpg"
+                }
+            },
+            "bbox": [
+                94,
+                608,
+                437,
+                712
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "where ϵ controls the clipping range and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta"
+                    },
+                    {
+                        "type": "text",
+                        "content": "weights KL regularization against a fixed reference policy "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\pi _ { \\mathrm { r e f } } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": ". Advantages "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "A _ { i }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "are computed within each group using normalized rewards:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                720,
+                475,
+                779
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "A _ {i} = \\frac {r _ {i} - \\mathrm{mean} (\\{r _ {1} , \\ldots , r _ {G} \\})}{\\mathrm{std} (\\{r _ {1} , \\ldots , r _ {G} \\})}.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/5f83357a85f50bb2128932e3e351bd552db3e42e42970742dcaaebf37887cff2.jpg"
+                }
+            },
+            "bbox": [
+                168,
+                777,
+                390,
+                811
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This relative formulation promotes higher-quality responses within each sampled group and provides a stable alternative to critic-based optimization."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                814,
+                475,
+                859
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Query IoU reward. To ensure accurate localization with respect to the full query object, we additionally include the standard IoU between the predicted box and the query ground truth:"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                875,
+                475,
+                906
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                496,
+                85,
+                887,
+                114
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "r _ {\\mathrm{iou}} = \\mathrm{IoU} (b _ {\\mathrm{pred}}, b _ {\\mathrm{qry}}).\\tag{12}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/9b660d1b030c754a9ba7e8d0bb53529fe4ae921e6cfebcd7ac142f602891a72b.jpg"
+                }
+            },
+            "bbox": [
+                614,
+                114,
+                767,
+                132
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Formatting reward. Because bounding boxes are generated as text, we include a formatting reward "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "r _ { \\mathrm { f m t } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "that encourages syntactically valid predictions. A prediction is considered valid if it follows the required structure"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                143,
+                888,
+                205
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\langle \\text {answer} \\rangle [ x _ {\\min}, y _ {\\min}, x _ {\\max}, y _ {\\max} ] \\langle / \\text {answer} \\rangle .",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/fc9efbb7d107b259abd87e4fa8d7e8a1baee6a4bbd89c743a66a7803fdadbe43.jpg"
+                }
+            },
+            "bbox": [
+                531,
+                215,
+                851,
+                234
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The formatting reward is defined as"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                244,
+                736,
+                260
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "r _ {\\mathrm{fmt}} (\\hat {y}) = \\left\\{ \\begin{array}{l l} 0. 5, & \\text {if} \\hat {y} \\text {matches the specified format,} \\\\ 0, & \\text {otherwise.} \\end{array} \\right.",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/9fc26cc24e882763efcabadbbfaa88f871778a78e5387b2fc1713e109478e21b.jpg"
+                }
+            },
+            "bbox": [
+                516,
+                271,
+                862,
+                310
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Combined reward. The final reward (R) used for GRPO is a weighted sum of the two above rewards:"
+                    }
+                ]
+            },
+            "bbox": [
+                496,
+                328,
+                885,
+                359
+            ]
+        },
+        {
+            "type": "equation_interline",
+            "content": {
+                "math_content": "\\mathcal {R} = r _ {\\mathrm{iou}} + r _ {\\mathrm{fmt}},\\tag{13}",
+                "math_type": "latex",
+                "image_source": {
+                    "path": "images/01b7e880f2e1de060045c3c17137880e798019b0fd6823cb234194529b4fd8dd.jpg"
+                }
+            },
+            "bbox": [
+                627,
+                372,
+                756,
+                388
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The reward R are optimized w.r.t. the LoRA parameters ϕ. GRPO updates the policy by contrasting each trajectory’s reward against a group-wise baseline computed over sampled trajectories, yielding low-variance gradients and stable optimization in the few-shot localization setting. GRPO assigns a higher advantage to predicted BBOXes that outperform the average reward, which strongly encourages the model to concentrate on the most accurate alignment during in-context few-shot training scenarios"
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                398,
+                888,
+                537
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "6. Results and Discussions"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                555,
+                720,
+                571
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "The following section evaluates the proposed model across various datasets and compares its results with recent stateof-the-art baselines. Further, we investigate the proposed components and present the results in the ablations."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                580,
+                888,
+                643
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7. Dataset Details"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                660,
+                648,
+                676
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We evaluate FOCUS for the in-context localization on a diverse collection of video and image benchmarks, including LaSOT (Fan et al., 2019), GOT-10k (Huang et al., 2019), TAO (Dave et al., 2020), PerSeg (Zhang et al., 2023), and PerMIRS (Samuel et al., 2024), which together span a wide range of object diversity, scene complexity, and generalization regimes. All datasets provide frame-level spatial annotations that we use to construct prompt-based in-context localization tasks, where the target object is specified implicitly via bounding-box demonstrations rather than semantic labels or explicit identity cues."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                686,
+                890,
+                854
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "LaSOT is a large-scale object video benchmark comprising long sequences with dense, high-quality bounding-box annotations across 85 object categories. The extended temporal duration of LaSOT videos introduces substantial appearance variation due to viewpoint changes, occlusions, and scale shifts, making it well-suited for evaluating localization robustness over time. GOT-10k emphasizes category-level generalization by enforcing a strict train–test split with zero overlap in object classes. As a result, models must localize objects from previously unseen categories at test time, which directly aligns with our in-context formulation, where object identity must be inferred solely from contextual visual and spatial cues. Both LaSOT and GOT-10k provide bounding box annotations for a single target object per sequence."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                859,
+                888,
+                906
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                271,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "6"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                935
+            ]
+        }
+    ],
+    [
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/1ad2c21e77ca499ad2b81fa479d4c73a8c12d3f7542600440c2951d12b2404ed.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 1. In-Context Few-shot localization performance (%) across multiple benchmark datasets and model variants."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"3\">TAO</td><td colspan=\"3\">GOT</td><td colspan=\"3\">ICL-LASOT</td><td rowspan=\"2\">Avg.</td></tr><tr><td>1-shot</td><td>2-shot</td><td>4-shot</td><td>1-shot</td><td>2-shot</td><td>4-shot</td><td>1-shot</td><td>2-shot</td><td>4-shot</td></tr><tr><td>Idefics3</td><td>6.8</td><td>15.0</td><td>25.5</td><td>9.3</td><td>21.2</td><td>32.3</td><td>3.6</td><td>8.7</td><td>14.7</td><td>15.2</td></tr><tr><td>Pixtral-12B</td><td>8.2</td><td>22.7</td><td>16.8</td><td>13.9</td><td>19.4</td><td>23.7</td><td>4.6</td><td>7.6</td><td>22.4</td><td>15.5</td></tr><tr><td>LLaVA-OV</td><td>22.5</td><td>29.5</td><td>33.5</td><td>18.6</td><td>26.4</td><td>33.7</td><td>10.8</td><td>14.1</td><td>17.7</td><td>23.0</td></tr><tr><td>Qwen2-VL-7B</td><td>26.0</td><td>31.6</td><td>36.1</td><td>36.2</td><td>37.0</td><td>39.3</td><td>26.2</td><td>22.3</td><td>25.0</td><td>31.1</td></tr><tr><td>IPLoc (7B)</td><td>51.7</td><td>54.3</td><td>56.1</td><td>64.2</td><td>68.1</td><td>68.7</td><td>49.7</td><td>57.1</td><td>59.4</td><td>58.8</td></tr><tr><td>Qwen2-VL-72B</td><td>46.2</td><td>52.8</td><td>55.6</td><td>62.7</td><td>60.1</td><td>59.9</td><td>51.9</td><td>50.7</td><td>55.4</td><td>55.0</td></tr><tr><td>InternVL2-76B</td><td>50.4</td><td>55.2</td><td>57.5</td><td>65.8</td><td>66.7</td><td>65.4</td><td>44.2</td><td>47.3</td><td>52.5</td><td>56.1</td></tr><tr><td>FOCUS (Ours)</td><td>55.8</td><td>63.0</td><td>68.5</td><td>77.1</td><td>80.6</td><td>82.6</td><td>56.1</td><td>59.9</td><td>65.6</td><td>67.7</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                102,
+                104,
+                866,
+                263
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                84,
+                282,
+                477,
+                450
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "TAO represents a more challenging, open-world setting, with high-resolution videos containing multiple annotated objects per frame and a large, diverse vocabulary of object categories. Unlike LaSOT and GOT-10k, TAO includes multiple object instances within the same scene, often under significant clutter and occlusion. To construct a consistent in-context localization benchmark, we select the most frequently occurring object track within each video sequence as the target instance and treat the remaining objects as distractors. This setting evaluates a model’s ability to resolve object identity from context alone in the presence of competing visual signals."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                457,
+                477,
+                638
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "For all video datasets, we construct a fixed-shot in-context setting by uniformly sampling a set of support frames from each sequence. The first support frame is selected from the beginning of the video, the last from the end, and the remaining frames are sampled at equal temporal intervals in between. This strategy ensures that the in-context examples span the full temporal extent of the video and capture meaningful appearance variation of the target object. The final frame is used as the query, for which the model must predict the target object’s bounding box."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                645,
+                477,
+                797
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To further assess generalization beyond natural video benchmarks, we also evaluate on PerSeg and PerMIRS, which provide segmentation annotations that we convert to bounding boxes. PerSeg is a synthetic dataset containing a single object per image and serves as a controlled setting for evaluating basic in-context localization behavior. In contrast,"
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                804,
+                478,
+                896
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/92f3dee050e7299e375441fa6acaae5c5d405c3c391377744ea3779be50ed643.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 2. In context localization results on domain shift datasets"
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td rowspan=\"2\">Model</td><td colspan=\"2\">PerMIRS</td><td colspan=\"3\">PerSeg</td><td rowspan=\"2\">Avg.</td></tr><tr><td>1-shot</td><td>2-shot</td><td>1-shot</td><td>2-shot</td><td>4-shot</td></tr><tr><td>Qwen2-VL-7B</td><td>24.5</td><td>50.2</td><td>64.0</td><td>65.7</td><td>63.4</td><td>53.6</td></tr><tr><td>IPLoc (7B)</td><td>41.2</td><td>53.3</td><td>84.1</td><td>83.1</td><td>79.4</td><td>68.2</td></tr><tr><td>Qwen2-VL-72B</td><td>43.9</td><td>54.3</td><td>91.5</td><td>92.6</td><td>95.8</td><td>75.6</td></tr><tr><td>FOCUS (Ours)</td><td>53.8</td><td>72.8</td><td>95.5</td><td>96.6</td><td>97.5</td><td>83.2</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                500,
+                304,
+                883,
+                390
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "PerMIRS contains scenes with multiple objects, often including several instances from the same category, increasing ambiguity and requiring finer-grained instance-level reasoning. Together, these datasets span a wide spectrum of visual complexity, ranging from PerSeg, the simplest scenario, to TAO, the most challenging setting, with an average of 4.1 objects per image."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                425,
+                888,
+                532
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Overall, this collection of datasets enables a comprehensive evaluation of in-context localization across controlled, category-generalization, and open-world scenarios."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                539,
+                888,
+                585
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.1. Implementation Details"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                599,
+                697,
+                614
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We fine-tune our models using LoRA; the details of the LoRA configuration are provided in the appendix. All experiments are run using the DeepSpeed distributed library for efficient distributed training. For our main results, we use Qwen2-VL-7B as the base model and fine-tune all models under a four-shot setting. We find that models fine-tuned under this setting generalize reasonably well to other shot configurations, and we therefore adopt the four-shot setting for all our experiments. We conducted all the inference (1-shot, 2-shot, 4-shot) using the same four-shot training model, demonstrating the model’s generalization. We tuned the model’s hyperparameters using a validation set. The Additional details about the model hyperparameters and other experimental details are provided in the appendix."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                625,
+                888,
+                837
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.2. Attention Heatmap Upsampling and Visualization"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                851,
+                880,
+                867
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To visualize attention distributions over the input image, we convert the model’s 1D attention vector into a spatial heatmap aligned with the image’s resolution. Given a 1D attention tensor of length N, we first infer its underlying 2D grid resolution "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( H _ { \\mathrm { g r i d } } , W _ { \\mathrm { g r i d } } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "based on the target image dimensions (H, W). The attention vector is then reshaped into a 2D map of size "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "H _ { \\mathrm { g r i d } } \\times W _ { \\mathrm { g r i d } }"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". To obtain a dense attention heatmap at the image resolution, we upsample this grid using bilinear interpolation to size "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "H \\times W"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", ensuring spatial alignment with the original image. This upsampled heatmap is subsequently normalized and overlaid on the image for visualization and analysis."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                875,
+                888,
+                906
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                271,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "7"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/8ad92628e38588c299f67342d5b7fe57601a0220d64247f32047c908de60c91f.jpg"
+                },
+                "content": "",
+                "image_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 5. We share attention-based localization heatmaps across models and compare Qwen2-VL-7B under different training regimes. The vanilla model fails to localize the person riding the camel, while fine-tuning improves localization but remains incomplete. In contrast, our attention-based loss improves visual grounding and accurately localizes the target, with further gains from reinforcement learning."
+                    }
+                ],
+                "image_footnote": []
+            },
+            "bbox": [
+                91,
+                84,
+                880,
+                209
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                84,
+                286,
+                475,
+                438
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.3. Evaluation Metrics"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                454,
+                254,
+                469
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Similar to the IPLoc (Doveh et al., 2025) we use mIoU as the primary evaluation metric, reporting the IoU on the query image for the test set. We evaluate our model under different in-context few-shot settings. To demonstrate robustness across datasets, we fine-tune on multiple datasets and report performance on their respective test sets. In addition, we evaluate generalization by reporting performance on datasets outside the training distribution."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                477,
+                477,
+                599
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "7.4. Results"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                614,
+                173,
+                628
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We evaluate in-context localization performance across multiple datasets and compare our method against strong vision–language baselines, including Idefics3 (Laurenc¸on et al., 2023), Pixtral-12B (Agrawal et al., 2024), LLaVA-OV (Li et al., 2024), Qwen2-VL-72B (Wang et al., 2024), InternVL2-76B (Chen et al., 2024), and IPLoc (). Results are reported on TAO (Dave et al., 2020), GOT (Huang et al., 2019), ICL-LaSOT (Fan et al., 2019), PerSeg (Zhang et al., 2023), and PerMIRS (Samuel et al., 2024) datasets. For each dataset, model hyperparameters are tuned using 10% of the training samples. On these datasets, the proposed model is evaluated under the following scenarios:"
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                638,
+                478,
+                820
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In-Context Localization Generalization Capabilities: To assess generalization beyond the training distribution, we evaluate FOCUS on two held-out datasets, PerMIRS and PerSeg. PerMIRS contains videos with multiple instances from the same semantic category, while PerSeg is a synthetic dataset generated using a diffusion model. We report mean IoU (mIoU) across shot settings. The model is trained on the joint TAO, GOT, and ICL-LaSOT data under the four-shot setting and evaluated on PerMIRS and PerSeg. The results are reported in Table 2."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                844,
+                477,
+                906
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                495,
+                286,
+                888,
+                377
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "PerSeg is a synthetic dataset with relatively simple scenes containing a single object per sample. Nevertheless, IPLoc (Doveh et al., 2025) underperforms on this benchmark, as shown in Table 2. The performance gap widens further on PerMIRS, where each sample contains multiple instances from the same semantic category. In this setting, IPLoc struggles to correctly disambiguate the target instance, highlighting a limitation of category-conditioned localization in the presence of instance ambiguity. In contrast, FOCUS maintains strong performance by relying exclusively on visual context from in-context support images rather than semantic category names. As summarized in Table 2, FOCUS achieves absolute improvements of 19.1% on PerMIRS and 13.5% on PerSeg over IPLoc in the 2-shot setting."
+                    }
+                ]
+            },
+            "bbox": [
+                493,
+                383,
+                890,
+                612
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In Context Localization on Seen/Unseen Classes: We have evaluated the model on the TAO dataset, and the results are shown in Table 1. TAO is highly challenging, contains the open word category, and each image contains multiple objects. For the multi-object scenario, where other models suffer, FOCUS outperforms recent baselines by a significant margin. Further, to evaluate generalization to unseen classes, we report results on the ICL-LaSOT and GOT datasets. La-SOT contains 70 object categories; we train on 35 categories and evaluate on the remaining 35 unseen categories. Similarly, GOT enforces a strict category-disjoint split between training and testing. Results are summarized in Table 1. We observe that FOCUS generalizes substantially better to unseen classes than IPLoc, achieving absolute gains of 13.9% on GOT and 6.2% on ICL-LaSOT in the four-shot setting. These results indicate that FOCUS learns categoryagnostic visual grounding from in-context examples rather than relying on category-specific cues."
+                    }
+                ]
+            },
+            "bbox": [
+                493,
+                633,
+                890,
+                907
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "8"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/2838c16d292650c1cb276e99b461c4f7fc60911737e7076c23260fa817eea7d3.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 3. Ablations over the various components of the TAO Dataset"
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>Model</td><td>1-shot</td><td>2-shot</td><td>4-shot</td></tr><tr><td>Qwen2-VL-7B</td><td>26.0</td><td>31.6</td><td>36.1</td></tr><tr><td>Qwen2-VL-7B (sft)</td><td>22.1</td><td>28.9</td><td>34.3</td></tr><tr><td>Qwen2-VL-7B (grpo)</td><td>19.4</td><td>26.4</td><td>32.1</td></tr><tr><td>Qwen2-VL-7B (grpo+sft)</td><td>24.3</td><td>27.2</td><td>33.7</td></tr><tr><td>Qwen2-VL-7B (sft + attn loss) (ours)</td><td>51.7</td><td>54.0</td><td>57.1</td></tr><tr><td>Qwen2-VL-7B (sft + attn loss + grpo) (Ours)</td><td>55.8</td><td>63.0</td><td>68.5</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                86,
+                104,
+                478,
+                213
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "8. Ablations"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                239,
+                192,
+                257
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We conduct extensive ablation studies to analyze the contributions of individual components in the proposed model. Specifically, we examine the attention distribution of answer tokens across different groups of input tokens, including query image tokens, support image tokens, and bounding box annotation tokens. We find the TAO dataset to be most suitable for these ablations, as it features open-vocabulary categories and multiple objects per frame. Compared to a na¨ıve SFT baseline, our model assigns substantially higher attention to query image tokens while reducing reliance on bounding box annotation tokens. Although our training objective explicitly encourages query image tokens to attend to bounding box annotations, this behavior reflects representation learning induced by the attention loss rather than a failure of the objective. Quantitatively, as shown in Table 3, incorporating the attention loss alongside SFT yields significant performance gains. Further refining bounding box prediction using the GRPO loss improves boundary alignment, resulting in an additional 11.4% gain in the 4-shot setting over SFT with attention loss. Qualitative results in Fig. 5 further demonstrate that attention loss improves focus on relevant regions, while the combination of attention loss and GRPO enables accurate bounding box prediction in multi-object scenarios."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                266,
+                478,
+                630
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS with a different base model"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                645,
+                341,
+                661
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We evaluate the generality of our approach on an additional architecture, LLaVA-OV, using the TAO dataset. The results are shown in Table 4. FOCUS consistently improves over the LLaVA-OV baseline across all shot settings, increasing performance from 22.5 to 52.2 in the 1-shot setting, 29.5 to 59.7 in the 2-shot setting, and 33.5 to 65.7 in the 4-shot setting. These results show that our method is not limited to a single base VLM and can provide consistent gains across different architectures."
+                    }
+                ]
+            },
+            "bbox": [
+                83,
+                667,
+                477,
+                806
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Performance Across Different Layers of Attention"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                821,
+                439,
+                837
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We ablate the effect of applying the attention loss at different layer groups: the first five layers, the last five layers, and the mean attention across all layers. We evaluate Qwen2 VL 7B on TAO in the 4-shot setting, as shown in Table 5. Applying the attention loss to the first five layers achieves the best performance, with a score of 62.8, compared to 42.12 for the last five layers and 57.1 for all layers. This suggests that early-layer attention is more effective for grounding the model in the relevant visual region, while later layers primarily refine semantic features after the attended region has already been identified. This finding is interesting and could be a potential direction for future exploration. We conducted this study for completeness."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                845,
+                475,
+                906
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/70862dae84f17d8f4a8bb7b3fcc91926efacc5ad413417523ca2620687427d65.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 4. Performance comparison with LLaVA-OV architecture on the TAO dataset: FOCUS shows consistently better results for the 1, 2, and 4-shot settings."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>Model</td><td>1-shot</td><td>2-shot</td><td>4-shot</td></tr><tr><td>LLaVA-OV</td><td>22.5</td><td>29.5</td><td>33.5</td></tr><tr><td>FOCUS (on LLaVA-OV)</td><td>52.2</td><td>59.7</td><td>65.7</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                501,
+                128,
+                880,
+                181
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/1ea9b319c993b34112a364c3a03dcad476d305f9936185caac9fe65af322239b.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 5. Ablation on attention loss placement across layers on the TAO dataset in the 4-shot setting."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>Model</td><td>First 5</td><td>Last 5</td><td>All</td></tr><tr><td>Qwen2-VL-7B (sft + attn loss)</td><td>62.8</td><td>42.12</td><td>57.1</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                500,
+                234,
+                887,
+                273
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": []
+            },
+            "bbox": [
+                495,
+                304,
+                888,
+                441
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "9. Memory Analysis with Attention Loss"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                460,
+                839,
+                477
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "During training, attention loss introduces a small memory overhead because attention maps must be retained for supervision. In our setting, SFT without attention loss requires 57.2 GB of VRAM, while adding the attention loss requires 64.1 GB. This corresponds to approximately 12% additional VRAM with a reasonable training batch size."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                484,
+                888,
+                578
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Importantly, this overhead is only incurred during training. At inference time, the attention loss is not used, so both memory usage and FLOPs remain the same as the base SFT model. Thus, our method improves grounding performance without adding any inference time computational cost."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                584,
+                888,
+                661
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "10. Conclusions"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                667,
+                635,
+                685
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "In this work, we investigated in-context object localization under a category-agnostic, purely visual conditioning setting and identified key limitations of existing vision–language models, including reliance on semantic priors and weak spatial grounding. To address these issues, we proposed FOCUS, a two-stage framework that optimizes in-context attention over support bounding boxes and refines localization using Group Relative Policy Optimization. By enforcing reliance on visual correspondence rather than category supervision, our approach achieves robust instance-level localization. Extensive experiments demonstrate consistent improvements over strong baselines, including models an order of magnitude larger, highlighting the importance of context-aware localization objectives over model scale."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                694,
+                890,
+                907
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                71
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "9"
+                    }
+                ]
+            },
+            "bbox": [
+                480,
+                922,
+                493,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "Impact Statement"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                84,
+                83,
+                241,
+                99
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "This work advances in-context visual understanding and may positively impact applications such as image editing, accessibility tools, and visual search. We expect its broader societal effects to align with established, beneficial uses of vision–language models, without introducing new ethical concerns."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                109,
+                475,
+                200
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "References"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                219,
+                184,
+                234
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Agrawal, P., Antoniak, S., Hanna, E. B., Bout, B., Chaplot, D., Chudnovsky, J., Costa, D., De Monicault, B., Garg, S., Gervet, T., et al. Pixtral 12b. arXiv preprint arXiv:2410.07073, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                242,
+                473,
+                281
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Alayrac, J.-B., Donahue, J., Luc, P., Miech, A., Barr, I., Hasson, Y., Lenc, K., Mensch, A., Millican, K., Reynolds, M., Ring, R., Rutherford, E., Cabi, S., Han, T., Gong, Z., Samangooei, S., Monteiro, M., Menick, J., Borgeaud, S., Brock, A., Nematzadeh, A., Sharifzadeh, S., Binkowski, M., Barreira, R., Vinyals, O., Zisserman, A., and Simonyan, K. Flamingo: a Visual Language Model for Few-Shot Learning. In NeurIPS, 2022."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                295,
+                475,
+                385
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Bertinetto, L., Valmadre, J., Henriques, J. F., Vedaldi, A., and Torr, P. H. S. Learning feed-forward oneshot learners. In Advances in Neural Information Processing Systems, volume 29, 2016. URL https: //proceedings.neurips.cc/paper/2016/hash/ 90e1357833654983612fb05e3ec9148c-Abstract. html."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                398,
+                475,
+                487
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I., and Amodei, D. Language models are few-shot learners. In Advances in Neural Information Processing Systems, volume 33, 2020a."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                502,
+                475,
+                604
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Brown, T. B., Mann, B., Ryder, N., Subbiah, M., Kaplan, J., Dhariwal, P., Neelakantan, A., Shyam, P., Sastry, G., Askell, A., Agarwal, S., Herbert-Voss, A., Krueger, G., Henighan, T., Child, R., Ramesh, A., Ziegler, D. M., Wu, J., Winter, C., Hesse, C., Chen, M., Sigler, E., Litwin, M., Gray, S., Chess, B., Clark, J., Berner, C., McCandlish, S., Radford, A., Sutskever, I., and Amodei, D. Language Models are Few-Shot Learners. In NeurIPS, 2020b."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                619,
+                475,
+                719
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Chen, M., Du, J., Pasunuru, R., Mihaylov, T., Iyer, S., Stoyanov, V., and Kozareva, Z. Improving In-Context Few-Shot Learning via Self-Supervised Training. In Proc. NAACL, 2022."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                734,
+                475,
+                773
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Chen, Z., Wang, W., Tian, H., Ye, S., Gao, Z., Cui, E., Tong, W., Hu, K., Luo, J., Ma, Z., et al. How far are we to gpt-4v? closing the gap to commercial multimodal models with open-source suites. arXiv preprint arXiv:2404.16821, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                787,
+                475,
+                839
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Dai, W., Li, J., Li, D., Tiong, A., Zhao, J., Wang, W., Li, B., Fung, P., and Hoi, S. InstructBLIP: Towards General-purpose Vision-Language Models with Instruction Tuning. In NeurIPS, 2023a."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                853,
+                475,
+                904
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Dai, W., Li, J., Li, D., Tiong, A., Zhao, J., Wang, W., Li, B., Fung, P. N., and Hoi, S. Instructblip: Towards general-purpose visionlanguage models with instruction tuning. Advances in neural information processing systems, 36:49250–49267, 2023b."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                85,
+                888,
+                138
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Dave, A., Khurana, T., Tokmakov, P., Schmid, C., and Ramanan, D. Tao: A large-scale benchmark for tracking any object. In Computer Vision–ECCV 2020: 16th European Conference, Glasgow, UK, August 23–28, 2020, Proceedings, Part V 16, pp. 436–454. Springer, 2020."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                500,
+                148,
+                888,
+                213
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "DeepSeek-AI. Deepseek-r1: Incentivizing reasoning capability in llms via reinforcement learning. arXiv preprint arXiv:2401.06066, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                500,
+                224,
+                888,
+                263
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Doveh, S., Shabtay, N., Schwartz, E., Kuehne, H., Giryes, R., Feris, R., Karlinsky, L., Glass, J., Arbelle, A., Ullman, S., et al. Teaching vlms to localize specific objects from in-context examples. In Proceedings ofthe IEEE/CVF International Conference on Computer Vision, pp. 9572–9582, 2025."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                273,
+                888,
+                339
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Fan, H., Lin, L., Yang, F., Chu, P., Deng, G., Yu, S., Bai, H., Xu, Y., Liao, C., and Ling, H. Lasot: A high-quality benchmark for large-scale single object tracking. In Proceedings of the IEEE/CVF conference on computer vision and pattern recognition, pp. 5374–5383, 2019."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                349,
+                887,
+                415
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Han, G. and Lim, S.-N. Few-shot object detection with foundation models. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 28608–28618, 2024. URL https: //openaccess.thecvf.com/content/CVPR2024/ html/Han_Few-Shot_Object_Detection_with_ Foundation_Models_CVPR_2024_paper.html."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                426,
+                888,
+                515
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Hu, E. J., Shen, Y., Wallis, P., Allen-Zhu, Z., Li, Y., Wang, S., Wang, L., and Chen, W. Lora: Low-rank adaptation of large language models. arXiv preprint arXiv:2106.09685, 2021."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                500,
+                526,
+                887,
+                566
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Huang, L., Zhao, X., and Huang, K. Got-10k: A large highdiversity benchmark for generic object tracking in the wild. IEEE transactions on pattern analysis and machine intelligence, 43(5):1562–1577, 2019."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                575,
+                888,
+                628
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Huang, S., Dong, L., Wang, W., Hao, Y., Singhal, S., Ma, S., Lv, T., Cui, L., Mohammed, O. K., Patra, B., et al. Language is not all you need: Aligning perception with language models. Advances in Neural Information Processing Systems, 36:72096–72109, 2023."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                638,
+                888,
+                703
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Kamath, A., Singh, M., LeCun, Y., Synnaeve, G., Misra, I., and Carion, N. Mdetr: Modulated detection for end-to-end multimodal understanding. arXiv preprint arXiv:2104.12763, 2021. URL https://arxiv.org/abs/2104.12763."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                715,
+                888,
+                767
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Kazemzadeh, S., Ordonez, V., Matten, M., and Berg, T. L. Referitgame: Referring to objects in photographs of natural scenes. In Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2014. URL https://aclanthology.org/D14-1086/."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                500,
+                777,
+                888,
+                843
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Laurenc¸on, H., Saulnier, L., Tronchon, L., Bekman, S., Singh, A., Lozhkov, A., Wang, T., Karamcheti, S., Rush, A. M., Kiela, D., Cord, M., and Sanh, V. Obelics: An open web-scale filtered dataset of interleaved image-text documents, 2023."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                500,
+                854,
+                887,
+                904
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "10"
+                    }
+                ]
+            },
+            "bbox": [
+                477,
+                922,
+                496,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Li, B., Zhang, Y., Guo, D., Zhang, R., Li, F., Zhang, H., Zhang, K., Li, Y., Liu, Z., and Li, C. LLaVA-OneVision: Easy Visual Task Transfer. arXiv preprint arXiv:2408.03326, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                85,
+                475,
+                125
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Li, J., Li, D., Savarese, S., and Hoi, S. BLIP-2: Bootstrapping Language-Image Pre-training with Frozen Image Encoders and Large Language Models. In Proc. ICML, 2023."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                136,
+                475,
+                175
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Li, L. H., Zhang, P., Zhang, H., Yang, J., Li, C., Zhong, Y., Wang, L., Yuan, L., Chang, K.-W., and Gao, J. Grounded languageimage pre-training. arXiv preprint arXiv:2112.03857, 2021. URL https://arxiv.org/abs/2112.03857."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                186,
+                475,
+                239
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Liao, Y.-H., Mahmood, R., Fidler, S., and Acuna, D. Can large vision-language models correct semantic grounding errors by themselves? In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 14667– 14678, June 2025."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                250,
+                475,
+                314
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Liu, S., Zeng, Z., Ren, T., Li, F., Zhang, H., Yang, J., Jiang, Q., Li, C., Yang, J., Su, H., et al. Grounding dino: Marrying dino with grounded pre-training for open-set object detection. In European conference on computer vision, pp. 38–55. Springer, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                324,
+                475,
+                388
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Liu, Y., Zhu, M., Li, H., Chen, H., Wang, X., and Shen, C. Matcher: Segment anything with one shot using all-purpose feature matching. arXiv preprint arXiv:2305.13310, 2023. URL https://arxiv.org/abs/2305.13310."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                398,
+                475,
+                453
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Lu, Y., Bartolo, M., Moore, A., and Riedel, S. Fantastically ordered prompts and where to find them: Overcoming fewshot prompt order sensitivity. In Proceedings of the 60th Annual Meeting ofthe Associationfor Computational Linguistics (ACL), 2022. URL https://aclanthology.org/2022. acl-long.556/."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                464,
+                477,
+                540
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Madan, A., Peri, N., Kong, S., and Ramanan, D. Revisiting few-shot object detection with vision-language models. In Advances in Neural Information Processing Systems (NeurIPS), 2024. URL https://proceedings. neurips.cc/paper_files/paper/2024/file/ 22b2067b8f680812624032025864c5a1-Paper-Abs html. Datasets and Benchmarks Track."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                551,
+                478,
+                641
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Min, S., Lyu, X., Holtzman, A., Artetxe, M., Lewis, M., Hajishirzi, H., and Zettlemoyer, L. Rethinking the role of demonstrations: What makes in-context learning work? In Proceedings of the 2022 Conference on Empirical Methods in Natural Language Processing (EMNLP), 2022. URL https: //aclanthology.org/2022.emnlp-main.759/."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                652,
+                477,
+                729
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "OpenAI. GPT-4 Technical Report. arXiv preprint arXiv:2303.08774, 2023."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                739,
+                475,
+                767
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Radford, A., Kim, J. W., Hallacy, C., Ramesh, A., Goh, G., Agarwal, S., Sastry, G., Askell, A., Mishkin, P., Clark, J., et al. Learning transferable visual models from natural language supervision. In International conference on machine learning, pp. 8748–8763. PmLR, 2021."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                777,
+                478,
+                843
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Raffel, C., Shazeer, N., Roberts, A., Lee, K., Narang, S., Matena, M., Zhou, Y., Li, W., and Liu, P. J. Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer. JMLR, 2020."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                854,
+                475,
+                904
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Rubin, O., Herzig, J., and Berant, J. Learning to retrieve prompts for in-context learning. In Proceedings of the 2022 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies (NAACL), 2022. URL https://aclanthology.org/ 2022.naacl-main.191/."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                85,
+                888,
+                162
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Samuel, D., Ben-Ari, R., Levy, M., Darshan, N., and Chechik, G. Where’s waldo: Diffusion features for personalized segmentation and retrieval. NeurIPS, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                174,
+                888,
+                213
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Schulman, J., Wolski, F., Dhariwal, P., Radford, A., and Klimov, O. Proximal policy optimization algorithms. arXiv preprint arXiv:1707.06347, 2017."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                224,
+                888,
+                263
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Shaban, A., Bansal, S., Liu, Z., Essa, I., and Boots, B. One-shot learning for semantic segmentation. In Kim, T.-K., Zafeiriou, S., Brostow, G., and Mikolajczyk, K. (eds.), Proceedings of the British Machine Vision Conference (BMVC), pp. 167.1– 167.13. BMVA Press, September 2017. ISBN 1-901725-60-X. doi: 10.5244/C.31.167. URL https://dx.doi.org/10. 5244/C.31.167."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                273,
+                890,
+                363
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Shao, Z., Wang, P., Zhu, Y., Xu, R., Song, J., et al. Deepseekmath: Pushing the limits of mathematical reasoning in open language models. arXiv preprint arXiv:2402.03300, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                375,
+                888,
+                415
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Shi, F., Gao, R., Huang, W., and Wang, L. Dynamic mdetr: A dynamic multimodal transformer decoder for visual grounding. IEEE Transactions on Pattern Analysis and Machine Intelligence, 2023. doi: 10.1109/TPAMI.2023.3328185."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                426,
+                888,
+                478
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Singh, A., Hu, R., Goswami, V., Couairon, G., Galuba, W., Rohrbach, M., and Kiela, D. FLAVA: A Foundational Language And Vision Alignment Model. In Proc. CVPR, 2022."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                489,
+                888,
+                529
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Von Oswald, J., Niklasson, E., Randazzo, E., Sacramento, J., Mordvintsev, A., Zhmoginov, A., and Vladymyrov, M. Transformers learn in-context by gradient descent. In Proceedings ofthe 40th International Conference on Machine Learning (ICML), volume 202 of Proceedings of Machine Learning Research, 2023. URL https://proceedings.mlr. act.press/v202/von-oswald23a.html."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                539,
+                890,
+                628
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Wang, P., Bai, S., Tan, S., Wang, S., Fan, Z., Bai, J., Chen, K., Liu, X., Wang, J., Ge, W., et al. Qwen2-vl: Enhancing visionlanguage model’s perception of the world at any resolution. arXiv preprint arXiv:2409.12191, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                638,
+                888,
+                691
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Wei, J., Bosma, M., Zhao, V. Y., Guu, K., Yu, A. W., Lester, B., Du, N., Dai, A. M., and Le, Q. V. Finetuned language models are zero-shot learners. In International Conference on Learning Representations (ICLR), 2022. URL https:// openreview.net/forum?id=gEZrGCozdqR."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                702,
+                888,
+                768
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Xiao, L., Yang, X., Peng, F., Yan, M., Wang, Y., and Xu, C. Clip-vg: Self-paced curriculum adapting of clip for visual grounding. arXiv preprint arXiv:2305.08685, 2023. URL https://arxiv.org/abs/2305.08685."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                777,
+                888,
+                830
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Xie, S. M., Raghunathan, A., Liang, P., and Ma, T. An explanation of in-context learning as implicit bayesian inference. In International Conference on Learning Representations (ICLR), 2022. URL https://openreview.net/forum?id= RdJVFCHjUMI."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                498,
+                840,
+                888,
+                904
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                271,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "11"
+                    }
+                ]
+            },
+            "bbox": [
+                477,
+                922,
+                495,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Xu, Y., Zhang, M., Fu, C., Chen, P., Yang, X., Li, K., and Xu, C. Multi-modal queried object detection in the wild. arXiv preprint arXiv:2305.18980, 2023. URL https://arxiv. org/abs/2305.18980."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                85,
+                475,
+                137
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Yan, X., Chen, Z., Xu, A., Wang, X., Liang, X., and Lin, L. Meta rcnn: Towards general solver for instance-level low-shot learning. In Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV), October 2019."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                184,
+                475,
+                238
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Yu, L., Poirson, P., Yang, S., Berg, A. C., and Berg, T. L. Modeling context in referring expressions. In European Conference on Computer Vision (ECCV), 2016. URL https: //arxiv.org/abs/1608.00272."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                284,
+                477,
+                337
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Zhang, H., Zhang, P., Hu, X., Chen, Y.-C., Li, L. H., Dai, X., Wang, L., and Gao, J. Glipv2: Unifying localization and visionlanguage understanding. arXiv preprint arXiv:2206.05836, 2022. URL https://arxiv.org/abs/2206.05836."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                383,
+                475,
+                436
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Zhang, J., Huang, J., Jin, S., and Lu, S. Vision-language models for vision tasks: A survey. IEEE transactions on pattern analysis and machine intelligence, 46(8):5625–5644, 2024."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                484,
+                475,
+                523
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Zhang, R., Jiang, Z., Guo, Z., Yan, S., Pan, J., Ma, X., Dong, H., Gao, P., and Li, H. Personalize segment anything model with one shot. arXiv preprint arXiv:2305.03048, 2023."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                571,
+                475,
+                611
+            ]
+        },
+        {
+            "type": "list",
+            "content": {
+                "list_type": "reference_list",
+                "list_items": [
+                    {
+                        "item_type": "text",
+                        "item_content": [
+                            {
+                                "type": "text",
+                                "content": "Zhao, T. Z., Wallace, E., Feng, S., Klein, D., and Singh, S. Calibrate before use: Improving few-shot performance of language models. In Proceedings ofthe 38th International Conference on Machine Learning (ICML), volume 139 of Proceedings ofMachine Learning Research, 2021. URL https: //proceedings.mlr.press/v139/zhao21c.html."
+                            }
+                        ]
+                    }
+                ]
+            },
+            "bbox": [
+                86,
+                657,
+                477,
+                737
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "A. BBOX Notations"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                791,
+                254,
+                806
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "Following the standard convention adopted by recent vision–language models, bounding box coordinates are represented in a normalized coordinate space. Specifically, bounding boxes are scaled relative to the image dimensions and mapped to a fixed 0–1000 range. To remain consistent with this convention, we apply the same normalization to all bounding box annotations during preprocessing."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                816,
+                477,
+                906
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "B. Failure Cases:"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                498,
+                83,
+                645,
+                99
+            ]
+        },
+        {
+            "type": "image",
+            "content": {
+                "image_source": {
+                    "path": "images/1e4b0ff8787472c061ace9b90cf89d4abb5e0926c17d17c50c137bd7caad1527.jpg"
+                },
+                "content": "",
+                "image_caption": [
+                    {
+                        "type": "text",
+                        "content": "Figure 6. The figure shows representative 2-shot in-context localization failure cases on GOT. These examples illustrate the intrinsic difficulty of the task, where large viewpoint and scale changes between support and query images, heavy occlusion, and background clutter make reliable localization from a small number of support examples highly challenging."
+                    }
+                ],
+                "image_footnote": []
+            },
+            "bbox": [
+                503,
+                128,
+                880,
+                311
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "C. Hyperparameter Tuning for "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mu"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                441,
+                831,
+                459
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "During training with the attention loss, we perform a grid search over the margin parameter µ and the weighting factor "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta"
+                    },
+                    {
+                        "type": "text",
+                        "content": "on the TAO dataset under the 4-shot setting. As shown in Table 1, performance is sensitive to the choice of these hyperparameters, with intermediate values yielding substantially better localization accuracy. Based on this analysis, we select "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\dot { \\mu } = 0 . 0 2 5"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta = 0 . 2 5"
+                    },
+                    {
+                        "type": "text",
+                        "content": "for the TAO dataset. Similar hyperparameter searches are conducted independently for each dataset."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                465,
+                888,
+                569
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/ea340ff94d06fc48096bf8d347e553c2665d3589b02b333959ab67167add0e1e.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 6. Grid search over "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\mu"
+                    },
+                    {
+                        "type": "text",
+                        "content": "and "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "\\beta"
+                    },
+                    {
+                        "type": "text",
+                        "content": "on TAO in the 4-shot setting."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td> $\\mu \\downarrow$ </td><td> $I$ </td><td> $\\beta \\rightarrow$ </td><td>0.0</td><td>0.01</td><td>0.15</td><td>0.20</td><td>0.25</td><td>0.30</td><td>0.35</td><td>1.0</td></tr><tr><td></td><td>0.025</td><td></td><td>34.3</td><td>37.2</td><td>53.2</td><td>55.9</td><td>57.1</td><td>56.4</td><td>52.5</td><td>28.1</td></tr><tr><td></td><td>0.05</td><td></td><td>34.3</td><td>40.8</td><td>48.6</td><td>49.7</td><td>50.2</td><td>51.3</td><td>50.7</td><td>24.2</td></tr><tr><td></td><td>0.075</td><td></td><td>34.3</td><td>38.7</td><td>46.1</td><td>47.3</td><td>47.5</td><td>45.5</td><td>44.7</td><td>23.4</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                500,
+                618,
+                900,
+                681
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "D. Attention Heatmap Upsampling and Visualization."
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                496,
+                723,
+                830,
+                757
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "To visualize attention distributions over the input image, we convert the model’s 1D attention vector into a spatial heatmap aligned with the image’s resolution. Given a 1D attention tensor of length "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "N _ { \\ast }"
+                    },
+                    {
+                        "type": "text",
+                        "content": "we first infer its underlying 2D grid resolution "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( H _ { \\mathrm { g r i d } } , W _ { \\mathrm { g r i d } } )"
+                    },
+                    {
+                        "type": "text",
+                        "content": "based on the target image dimensions "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "( H , W )"
+                    },
+                    {
+                        "type": "text",
+                        "content": ". The attention vector is then reshaped into a 2D map of size "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "H _ { \\mathrm { g n i d } } \\times W _ { \\mathrm { g r i d } } ."
+                    },
+                    {
+                        "type": "text",
+                        "content": "To obtain a dense attention heatmap at the image resolution, we upsample this grid using bilinear interpolation to size "
+                    },
+                    {
+                        "type": "equation_inline",
+                        "content": "H \\times W"
+                    },
+                    {
+                        "type": "text",
+                        "content": ", ensuring spatial alignment with the original image. This upsampled heatmap is subsequently normalized and overlaid on the image for visualization and analysis."
+                    }
+                ]
+            },
+            "bbox": [
+                495,
+                766,
+                888,
+                906
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "12"
+                    }
+                ]
+            },
+            "bbox": [
+                477,
+                922,
+                496,
+                934
+            ]
+        }
+    ],
+    [
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/69fd3bfc2d6ec440bd1aed93853a09e2de67f95a168c49cccdbe991db486379f.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 7. Training configuration for supervised fine-tuning (SFT), GRPO, and LoRA."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>Setting</td><td>Value</td></tr><tr><td colspan=\"2\">Supervised Fine-Tuning (SFT) Configuration</td></tr><tr><td>Base model</td><td>Qwen2-VL-7B-Instruct</td></tr><tr><td>Learning rate</td><td> $2 \\times 10^{-4}$ </td></tr><tr><td>Gradient accumulation steps</td><td>16</td></tr><tr><td>Warmup ratio</td><td>0.03</td></tr><tr><td>Max gradient norm</td><td>0.3</td></tr><tr><td>Precision</td><td>bfloat16</td></tr><tr><td colspan=\"2\">GRPO Training Configuration</td></tr><tr><td>Base model</td><td>Qwen2-VL-7B-Instruct</td></tr><tr><td>Optimization method</td><td>Group Relative Policy Optimization (GRPO)</td></tr><tr><td>Number of generations</td><td>4</td></tr><tr><td>Max prompt length</td><td>8192</td></tr><tr><td>Learning rate</td><td> $1 \\times 10^{-5}$ </td></tr><tr><td>Warmup ratio</td><td>0.01</td></tr><tr><td>Max gradient norm</td><td>1.0</td></tr><tr><td>Precision</td><td>bfloat16</td></tr><tr><td>Attention implementation</td><td>FlashAttention-2</td></tr><tr><td>Reward functions</td><td>Accuracy, Format correctness</td></tr><tr><td colspan=\"2\">LoRA Fine-Tuning Configuration</td></tr><tr><td>LoRA rank (r)</td><td>8</td></tr><tr><td>LoRA scaling (α)</td><td>16</td></tr><tr><td>LoRA dropout</td><td>0.0</td></tr><tr><td>Target modules</td><td>q_proj, k_proj, v_proj, o_proj,up_proj, down_proj, gate_proj</td></tr><tr><td>Task type</td><td>Causal language modeling</td></tr><tr><td>Model quantization</td><td>4-bit</td></tr></table>",
+                "table_type": "complex_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                91,
+                114,
+                470,
+                428
+            ]
+        },
+        {
+            "type": "title",
+            "content": {
+                "title_content": [
+                    {
+                        "type": "text",
+                        "content": "E. FOCUS with 72B model"
+                    }
+                ],
+                "level": 2
+            },
+            "bbox": [
+                86,
+                439,
+                316,
+                455
+            ]
+        },
+        {
+            "type": "paragraph",
+            "content": {
+                "paragraph_content": [
+                    {
+                        "type": "text",
+                        "content": "We further evaluate FOCUS on the 72B model setting to compare with the strongest reported IPLoc baseline. IPLoc reports results using Qwen2-VL-72B with real and pseudo examples. Since our original experiments were conducted under a more limited compute setting, we trained FOCUS primarily with Qwen2-VL-7B. To assess scalability to larger models, we additionally train FOCUS using Qwen3-VL-72B on 8 A100 80GB GPUs and evaluate on the ICL-LASOT dataset. The results are reported in Table 8."
+                    }
+                ]
+            },
+            "bbox": [
+                84,
+                465,
+                475,
+                566
+            ]
+        },
+        {
+            "type": "table",
+            "content": {
+                "image_source": {
+                    "path": "images/2164307e08ee18e74a29b6c99ac83c9f2e89d50c686e2e3ee5bae8bd149bdaf3.jpg"
+                },
+                "table_caption": [
+                    {
+                        "type": "text",
+                        "content": "Table 8. Comparison with IPLoc on TAO."
+                    }
+                ],
+                "table_footnote": [],
+                "html": "<table><tr><td>Model</td><td>2-shot</td><td>4-shot</td></tr><tr><td>IPLoc (72B) (Real + Pseudo)</td><td>65.71</td><td>67.63</td></tr><tr><td>FOCUS (on Qwen2-VL-72B)</td><td>70.72</td><td>72.35</td></tr></table>",
+                "table_type": "simple_table",
+                "table_nest_level": 1
+            },
+            "bbox": [
+                94,
+                601,
+                460,
+                654
+            ]
+        },
+        {
+            "type": "page_header",
+            "content": {
+                "page_header_content": [
+                    {
+                        "type": "text",
+                        "content": "FOCUS: Policy Optimization based In-Context Object Localization"
+                    }
+                ]
+            },
+            "bbox": [
+                272,
+                56,
+                700,
+                70
+            ]
+        },
+        {
+            "type": "page_number",
+            "content": {
+                "page_number_content": [
+                    {
+                        "type": "text",
+                        "content": "13"
+                    }
+                ]
+            },
+            "bbox": [
+                477,
+                922,
+                496,
+                935
+            ]
+        }
+    ]
+]
