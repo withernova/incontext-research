@@ -1,0 +1,41 @@
+[
+  {
+    "name": "test-cmp",
+    "papers": [
+      "detpoinc2026",
+      "focusfor2026"
+    ],
+    "axes": [
+      "数据集"
+    ],
+    "customAxes": [],
+    "cells": {},
+    "findings": [],
+    "discussion": []
+  },
+  {
+    "name": "ICOL 与 DetPO",
+    "papers": [
+      "detpoinc2026",
+      "focusfor2026"
+    ],
+    "axes": [
+      "ICOL 和 DetPO 的 benchmark 有什么区别",
+      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+    ],
+    "customAxes": [
+      "ICOL 和 DetPO 的 benchmark 有什么区别",
+      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+    ],
+    "cells": {},
+    "findings": [],
+    "discussion": [
+      {
+        "who": "你",
+        "text": "进行已有维度的分析",
+        "time": "4:27:34 PM"
+      }
+    ],
+    "piAnalysis": "两篇 MinerU `.md` 均已读取（FOCUS 全文 + DetPO 全文）。下面先逐维度分析（引用 `[[citekey]] §小节`/Fig./Table），最后给表格结论。\n\n---\n\n### 维度1: ICOL 和 DetPO 的 benchmark 有什么区别\n\n**任务定义不同：检测全部 vs 定位单个。** DetPO 评测的是 few-shot **目标检测**——给定一个类（类名+文本描述+少量视觉示例），在图像里找出该类的**所有实例**，走 COCO 协议、用 mAP [[detpoinc2026]] §4 Datasets and Metrics。FOCUS 评测的是 in-context **目标定位**——给定若干带 bbox 的视觉 support 帧，在 query 图里定位**同一个特定实例**的一个框，用 mIoU [[focusfor2026]] §4.1 / §7.3。所以一个是\"多实例召回+精确率\"，一个是\"单实例对齐度\"。\n\n**目标指定方式不同：类名+描述 vs 纯视觉示例。** DetPO 的 RF20-VL 每类提供类名、标注说明文本、10-shot 视觉示例，模型按\"类\"去检测 [[detpoinc2026]] §4（\"Each dataset provides 10-shot training examples and rich annotation instructions per class\"）。FOCUS 则**彻底去掉类名**，prompt 只含任务描述 + 交错的 (image, bbox) support 对，目标仅由视觉 support 指定（category-agnostic）[[focusfor2026]] §5.1（\"Eq.4 contains no category information\"）。\n\n**数据集与域不同：真实多域 vs 视频跟踪+个性化。** DetPO 主基准 **Roboflow20-VL (RF20-VL)** = 20 个跨域数据集（航拍、X 光、医学、野生动物等），外加 **LVIS**（1203 类长尾）[[detpoinc2026]] §4 + Appendix E。FOCUS 用 **LaSOT / GOT-10k / TAO**（视频跟踪）+ **PerSeg / PerMIRS**（个性化分割转框），训练在 TAO+GOT+ICL-LaSOT、评测在 PerMIRS/PerSeg 及类别不相交的 GOT/LaSOT 未见类 [[focusfor2026]] §7。前者是\"互联网预训练里见不到的真实域\"，后者是\"同一物体跨帧/跨图的实例一致性\"。\n\n**shot 与评测口径不同。** DetPO 固定 10-shot 训练，评测 mAP（每框置信度，可加 VQA Score 重排）[[detpoinc2026]] §3 VQA Score / Table 4。FOCUS 以 4-shot 训练、在 1/2/4-shot 上评测 mIoU，且同一 4-shot 模型泛化到其它 shot [[focusfor2026]] §7.1。\n\n**一个关键共性（对照点）：** 两者都发现\"把视觉示例直接喂给冻结 MLLM 会失败\"。DetPO Table 1 实测给 Qwen3-VL-8B 加视觉示例 mAP 从 11.4 掉到 7.0 [[detpoinc2026]] Table 1；FOCUS §3 实测冻结 Qwen2-VL-7B 去类名后 attention 弥散、定位失败 [[focusfor2026]] §3 / Fig.1-2。但两者选择了截然不同的补救路径（见维度2）。\n\n---\n\n### 维度2: 为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要\n\n**SFT 是什么。** SFT = Supervised Fine-Tuning（监督微调），即在带标注（GT bbox/文本）的数据上用梯度更新模型参数（FOCUS 里是 LoRA 低秩增量，只训 LoRA 权重 ϕ，冻结底座 θ）[[focusfor2026]] §5.3（\"we add the LoRA weight ϕ and we only train the LoRA parameters\"）。\n\n**为什么 ICOL/FOCUS 必须 SFT——任务行为不在冻结模型里，且机制是梯度级的。** FOCUS §3 诊断：冻结 VLM 即使去类名，attention 仍弥散、不集中在 support bbox 对应区域，预测框不落地 [[focusfor2026]] §3。其方法两阶段都依赖梯度：① BBOX Attention Optimization 用 hinge margin 损失 $\\mathcal{L}_{bbox}=\\frac1N\\sum\\max(0,\\mu-\\Delta_i)^2$ 强制 query token 对 BBOX token 的注意力高出余量 μ [[focusfor2026]] §5.2 Eq.9；② GRPO 用 IoU+格式 reward 对 LoRA 策略做强化学习 [[focusfor2026]] §5.4 Eq.11–13。这两者都是**对权重的梯度更新**，冻结模型无法获得。量化对比：冻结 Qwen2-VL-7B avg 31.1 → FOCUS(7B+SFT+attn+GRPO) 67.7 [[focusfor2026]] Table 1。换言之，ICOL 要的\"按视觉 support 输出精确单框\"是 MLLM 预训练/后训练里没有的行为，必须 SFT 烧进权重。\n\n**为什么 DetPO 不需要 SFT——刻意走黑盒，且任务更贴近 MLLM 原生能力。** DetPO §1 明说动机：前沿 MLLM 只能通过 API 访问、开源大模型在消费级硬件上微调代价过高，因此选择 **gradient-free / black-box** 路线 [[detpoinc2026]] §1（\"frontier MLLMs are typically only accessible via APIs ... prohibitively expensive to fine-tune ... we instead explore black-box prompt optimization\"）。其方法不更新任何权重：**Contrastive Prompt Refinement** 用 few-shot 训练集上的 FP/FN 视觉反馈去迭代改写**纯文本类描述**（让 critique MLLM 看 FP/FN 图去收紧/放宽描述）[[detpoinc2026]] §3 + Fig.2；再加 **VQA Score** 对预测框做置信度重排（问\"Yes/No\"取 Yes token 归一化概率）[[detpoinc2026]] §3 VQA Score。模型始终冻结，只动 prompt 与后处理。结果：Qwen3-VL-30B 11.9 → +DetPO+VQA 21.6 mAP [[detpoinc2026]] Table 2/3。\n\n**更深层原因：任务性质差异决定可选工具集。** DetPO 的\"按类名+描述检出全部\"本就是 MLLM 后训练里强化的 grounding 行为（RefCOCO/OdinW-13 上已与 GroundingDINO 持平）[[detpoinc2026]] §1，所以**prompt 级对齐**就能把 OOD 类概念对上、拿到收益；且它发现把视觉示例直接进 prompt 反而掉点（Table 1），于是改成把视觉示例\"蒸馏进文本 prompt\"而非进权重。而 ICOL 的\"按视觉 support 定位特定实例+输出单框\"不是 MLLM 原生行为，且 FOCUS 的核心机制是**显式监督注意力分布**（attention loss）——这只能靠梯度注入，prompt 改写做不到。两者都承认 DetPO Table 5 里**白盒微调仍更强**（GroundingDINO fine-tuned 33.4 > DetPO 26.3）[[detpoinc2026]] Table 5，但 DetPO 用\"不微调\"换\"可对 API-only 前沿模型用\"，FOCUS 用\"必须微调\"换\"把定位行为烧进 7B 模型并超 72B\"。\n\n**一句话对照：** ICOL 的瓶颈在\"模型不会按 support 输出精确框\"，要靠 SFT 改权重解决；DetPO 的瓶颈在\"类概念对不上冻结模型\"，且模型是 API 黑盒，所以靠 prompt 优化解决——前者是 weight-level，后者是 prompt-level。\n\n---"
+  }
+]

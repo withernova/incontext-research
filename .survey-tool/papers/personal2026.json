@@ -1,0 +1,10 @@
+{
+  "triage": "deep",
+  "github_repo": "github.com/kensuke-nakamura/iplocid.",
+  "github_status": "scanned",
+  "clone_dir": "",
+  "claims": [],
+  "github_signals": [
+    "open-source pretrained VLMs"
+  ]
+}
