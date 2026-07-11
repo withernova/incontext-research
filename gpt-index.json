@@ -1,0 +1,98 @@
+{
+  "format": "survey-gpt-index",
+  "version": 1,
+  "generatedAt": "2026-07-11T10:58:20",
+  "project": {
+    "id": "incontext",
+    "name": "incontext"
+  },
+  "papers": {
+    "detpoinc2026": {
+      "title": "DetPO: In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection",
+      "paperPath": "papers/DetPO_ In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection_2026/hybrid_auto/DetPO_ In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection_2026.md",
+      "sevenPath": "shell/03_evidence/papers/detpoinc2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "focusfor2026": {
+      "title": "FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization",
+      "paperPath": "papers/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026/hybrid_auto/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026.md",
+      "sevenPath": "shell/03_evidence/papers/focusfor2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "personal2026": {
+      "title": "Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models",
+      "paperPath": "papers/Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models_2026/hybrid_auto/Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models_2026.md",
+      "sevenPath": "shell/03_evidence/papers/personal2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "teaching2024": {
+      "title": "Teaching VLMs to Localize Specific Objects from In-context Examples",
+      "paperPath": "papers/Teaching VLMs to Localize Specific Objects from In-context Examples_2024/hybrid_auto/Teaching VLMs to Localize Specific Objects from In-context Examples_2024.md",
+      "sevenPath": "shell/03_evidence/papers/teaching2024.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "prompthu2026": {
+      "title": "PromptHub: Enhancing Multi-Prompt Visual In-Context Learning with Locality-Aware Fusion, Concentration and Alignment",
+      "paperPath": "",
+      "sevenPath": "shell/03_evidence/papers/prompthu2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    }
+  },
+  "comparisons": {
+    "cmp-test-cmp": {
+      "name": "test-cmp",
+      "path": ".survey-tool/compares.json",
+      "axes": {
+        "axis-1": "数据集"
+      }
+    },
+    "cmp-icol-detpo": {
+      "name": "ICOL 与 DetPO",
+      "path": ".survey-tool/compares.json",
+      "axes": {
+        "axis-1": "ICOL 和 DetPO 的 benchmark 有什么区别",
+        "axis-2": "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+      }
+    }
+  }
+}
