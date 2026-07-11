@@ -70,7 +70,7 @@
       }
     ],
     "discussion": [],
-    "analysis": "DetPO 不需要 SFT 过程，而 FOCUS 需要造成了巨大的训练开销。DetPO 可以对 FOUCS 产生什么样的启示吗。另外根据 mechanism 里已有的内容，你觉得如果我想尝试把 FOCUS 为基础的一系列方法改为 training-free 的方式，有所可能吗",
+    "analysis": "DetPO 不需要 SFT 过程，而 FOCUS 需要造成了巨大的训练开销。DetPO 可以对 FOUCS 产生什么样的启示吗。另外根据 mechanism 相关的 findings 里已有的内容，你觉得如果我想尝试把 FOCUS 为基础的一系列方法改为 training-free 的方式，有所可能吗",
     "id": "cmp-detpo-mechanism-icol",
     "axisIds": {}
   },
