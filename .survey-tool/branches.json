@@ -10,5 +10,65 @@
     },
     "id": "b1",
     "createdAt": "2026-07-10T14:34:31"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #1",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-11T11-21-43-223Z_019f50e9-6e37-74e4-bab9-0a9b38c724ea.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 0
+    },
+    "id": "b2",
+    "createdAt": "2026-07-11T19:21:43"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #1",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-11T11-22-09-289Z_019f50e9-d409-753f-ac4b-c336f63911b3.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 0
+    },
+    "id": "b3",
+    "createdAt": "2026-07-11T19:22:09"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #1",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-11T11-25-05-057Z_019f50ec-82a1-75b2-92e3-c80620abe697.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 0
+    },
+    "id": "b4",
+    "createdAt": "2026-07-11T19:25:05"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #1",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-11T11-29-02-957Z_019f50f0-23ed-78a8-b819-047ef8c9fee6.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 0
+    },
+    "id": "b5",
+    "createdAt": "2026-07-11T19:29:02"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #1",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-11T11-30-05-621Z_019f50f1-18b5-7c74-8a74-a4721d010227.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 0
+    },
+    "id": "b6",
+    "createdAt": "2026-07-11T19:30:05"
   }
 ]
