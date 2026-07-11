@@ -21,15 +21,18 @@
     "name": "ICOL 与 DetPO",
     "papers": [
       "detpoinc2026",
-      "focusfor2026"
+      "focusfor2026",
+      "mechanis2026"
     ],
     "axes": [
       "ICOL 和 DetPO 的 benchmark 有什么区别",
-      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要",
+      "根据 mechanism 论文内的内容，如果SFT 是必要的吗，可能可以用 DetPO+mechanism 的启示直接解决 ICOLsetting 的现存问题吗"
     ],
     "customAxes": [
       "ICOL 和 DetPO 的 benchmark 有什么区别",
-      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要",
+      "根据 mechanism 论文内的内容，如果SFT 是必要的吗，可能可以用 DetPO+mechanism 的启示直接解决 ICOLsetting 的现存问题吗"
     ],
     "cells": {},
     "findings": [],
@@ -44,7 +47,41 @@
     "id": "cmp-icol-detpo",
     "axisIds": {
       "ICOL 和 DetPO 的 benchmark 有什么区别": "axis-icol-detpo-benchmark",
-      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要": "axis-icol-sft-sft-detpo"
+      "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要": "axis-icol-sft-sft-detpo",
+      "根据 mechanism 论文内的内容，如果SFT 是必要的吗，可能可以用 DetPO+mechanism 的启示直接解决 ICOLsetting 的现存问题吗": "axis-mechanism-sft-detpo-mechanism-icolse"
     }
+  },
+  {
+    "name": "DetPO 和 mechanism 对 ICOL 的启示",
+    "mode": "relational",
+    "papers": [
+      "detpoinc2026",
+      "focusfor2026",
+      "mechanis2026"
+    ],
+    "axes": [],
+    "customAxes": [],
+    "cells": {},
+    "findings": [],
+    "discussion": [],
+    "analysis": "DetPO 不需要 SFT 过程，而 FOCUS 需要造成了巨大的训练开销。DetPO 可以对 FOUCS 产生什么样的启示吗。另外 mechanism 里面暗示了 FO",
+    "id": "cmp-detpo-mechanism-icol",
+    "axisIds": {}
+  },
+  {
+    "name": "mechanism 对 FOCUS 的细节",
+    "mode": "relational",
+    "papers": [
+      "mechanis2026",
+      "focusfor2026"
+    ],
+    "axes": [],
+    "customAxes": [],
+    "cells": {},
+    "findings": [],
+    "discussion": [],
+    "analysis": "mechanism 论文里面有很多思想，他们可能一定程度上对FOUCS 的解决方案有一定的建设性，请挖掘",
+    "id": "cmp-mechanism-focus",
+    "axisIds": {}
   }
 ]

@@ -7,21 +7,16 @@
 通用 MLLM 在 OdinW-13、RefCOCO 这类热门检测基准上已与 GroundingDINO 等专用检测器持平，但面对预训练里没见过的**类/任务/成像模态**（X 光、热成像、航拍、缺陷检测、材质属性）会崩；而**直接把 few-shot 视觉示例塞进 prompt（多模态 ICL）反而掉点**（Qwen3-VL-8B mAP 11.4→7.0），且前沿 MLLM 只能走 API、开源大模型在消费级硬件上微调太贵。DetPO 要解决的就是"在不能微调的前提下，如何让冻结 MLLM 用 few-shot 示例对齐 OOD 类概念"。依据：[[detpoinc2026]] §1 Introduction + Table 1。
 
 ### ② 方法具体怎么做？
-输入：
-输出：
-
-训练阶段：
-推理阶段：
-
-核心流程：
-输入 → 步骤1 → 步骤2 → 步骤3 → 输出
-
-关键模块：
-- 模块1：作用
-- 模块2：作用
-- 模块3：作用
-
-（基于 [[detpoinc2026]] § / Fig 补充）
+few-shot 标注图片
+→ 总结目标类共同特征
+→ 与其他类别做对比，生成初始文本 prompt
+→ 在训练集运行检测
+→ 找出严重 FP 和 FN
+→ FN 用于放宽定义，FP 用于收紧定义
+→ 反复评估、修改和必要时回退
+→ 验证集选择最佳 prompt
+→ 测试图片 + 最佳文本 prompt
+→ 检测框 + 自报置信度 / VQA Score
 
 ### ③ 真正的创新点是什么？
 相对 GEPA/MIPROv2 等**只用数值奖励盲优化**的通用 prompt optimizer，DetPO 把视觉 FP/FN 样本喂给 critique MLLM 去改写文本 prompt（"视觉任务该用视觉反馈"）；相对经典 FSOD（meta-learning/transfer-learning + 微调），它是**面向通用 MLLM 的黑盒/免梯度**路线；并提出 **VQA Score**（二值 Yes/No 归一化概率）为默认无每框置信度的 MLLM 校准置信度。核心 insight 是"多模态 ICL 损害检测 → 把视觉示例蒸馏进文本 prompt"。依据：[[detpoinc2026]] §3 + Fig.2，§1 + Table 1，§3 VQA Score，Table 2（超 GEPA/MIPROv2 及专用检测器）。

@@ -4,12 +4,13 @@
 
 ## 概况
 - state: BOOTSTRAP · iteration: 0
-- 论文: 5 · 声明: 1 · Idea: 1
+- 论文: 6 · 声明: 1 · Idea: 1
 - 目标会议/领域: 见 INTAKE.md / AGENTS.md
 
 ## 论文
 - [[detpoinc2026]] DetPO: In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection (2026)
 - [[focusfor2026]] FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization (2026)
+- [[mechanis2026]] Mechanisms of Object Localization in Vision-Language Models (2026)
 - [[personal2026]] Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models (2026)
 - [[teaching2024]] Teaching VLMs to Localize Specific Objects from In-context Examples (2024)
 - [[prompthu2026]] PromptHub: Enhancing Multi-Prompt Visual In-Context Learning with Locality-Aware Fusion, Concentration and Alignment (2026-03-19 2026-03-19)

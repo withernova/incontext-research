@@ -1,7 +1,7 @@
 {
   "format": "survey-gpt-index",
   "version": 1,
-  "generatedAt": "2026-07-11T10:58:48",
+  "generatedAt": "2026-07-11T18:51:11",
   "project": {
     "id": "incontext",
     "name": "incontext"
@@ -25,6 +25,20 @@
       "title": "FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization",
       "paperPath": "papers/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026/hybrid_auto/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026.md",
       "sevenPath": "shell/03_evidence/papers/focusfor2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "mechanis2026": {
+      "title": "Mechanisms of Object Localization in Vision-Language Models",
+      "paperPath": "papers/Mechanisms of Object Localization in Vision-Language Models_2026/hybrid_auto/Mechanisms of Object Localization in Vision-Language Models_2026.md",
+      "sevenPath": "shell/03_evidence/papers/mechanis2026.md",
       "questions": {
         "q1": "① 解决了什么问题？",
         "q2": "② 方法具体怎么做？",
@@ -91,8 +105,19 @@
       "path": ".survey-tool/compares.json",
       "axes": {
         "axis-1": "ICOL 和 DetPO 的 benchmark 有什么区别",
-        "axis-2": "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要"
+        "axis-2": "为什么 ICOL 需要进行 SFT（顺便解释一下 SFT 的意思），DetPO 不需要",
+        "axis-3": "根据 mechanism 论文内的内容，如果SFT 是必要的吗，可能可以用 DetPO+mechanism 的启示直接解决 ICOLsetting 的现存问题吗"
       }
+    },
+    "cmp-detpo-mechanism-icol": {
+      "name": "DetPO 和 mechanism 对 ICOL 的启示",
+      "path": ".survey-tool/compares.json",
+      "axes": {}
+    },
+    "cmp-mechanism-focus": {
+      "name": "mechanism 对 FOCUS 的细节",
+      "path": ".survey-tool/compares.json",
+      "axes": {}
     }
   }
 }
