@@ -4,7 +4,7 @@
 
 ## 概况
 - state: BOOTSTRAP · iteration: 0
-- 论文: 6 · 声明: 1 · Idea: 1
+- 论文: 6 · 声明: 1 · Idea: 3
 - 目标会议/领域: 见 INTAKE.md / AGENTS.md
 
 ## 论文

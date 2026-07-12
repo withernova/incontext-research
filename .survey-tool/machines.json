@@ -1,0 +1,9 @@
+[
+  {
+    "id": "M-01",
+    "label": "feturize",
+    "ssh_host": "featurize",
+    "project_root": "/home/featurize/work/mechanism",
+    "launcher": "tmux"
+  }
+]

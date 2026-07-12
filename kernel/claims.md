@@ -20,4 +20,18 @@
 - human_verdict: pending
 - citekey: focusfor2026
 - created: 2026-07-09T15:45:08
+- rationale:
+
+## C02
+- text: 测试引用claim
+- status: draft
+- confidence: 
+- sources: [[detpoinc2026]] §3
+- contradicting_evidence: 
+- r2_verdict: pending
+- human_verdict: pending
+- citekey: 
+- source_type: seven_question
+- source_ref: detpoinc2026:q3
+- created: 2026-07-12T09:00:48
 - rationale: 

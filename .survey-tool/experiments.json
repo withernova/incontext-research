@@ -1,0 +1,92 @@
+[
+  {
+    "title": "验证：mechanism 的原理",
+    "kind": "idea_validation",
+    "source_ref": "I-02",
+    "objective": "在恢复远程只读访问后，先复现 Mechanisms 的两类表示干预（within-object shuffle 与 padding 扩展）到仓库实际支持的 Qwen2.5-VL 推理路径，并区分类别定位与实例条件定位，判断边界随 padding 的响应及内部 shuffle 敏感性是否呈现 containerization 预期。",
+    "hypothesis": "容器不变性假设",
+    "success_criteria": "",
+    "failure_criteria": "如果shuffle对实例定位无影响则假设不成立",
+    "schedule": "",
+    "claim_refs": [],
+    "id": "E-001",
+    "status": "implementing",
+    "created": "2026-07-12T10:33:58",
+    "updated": "2026-07-12T13:41:14",
+    "workspace_id": "W-01",
+    "remote_experiment_dir": "",
+    "remote_worktree": "",
+    "run_dir_template": "{remote_experiment_dir}/{run_id}",
+    "log_template": "{run_dir}/logs/train.log",
+    "output_template": "{run_dir}/outputs",
+    "metrics_template": "{run_dir}/metrics.json",
+    "tmux_template": "{project}-{experiment_id}-{run_id}",
+    "launcher": "",
+    "constraints": "",
+    "agent_level": "2",
+    "result_summary": "",
+    "claim_verdict": "",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-001",
+      "verified_facts": [
+        {
+          "label": "实验初稿",
+          "value": "目标是在 Qwen2.5-VL 上验证 containerization；初稿将‘shuffle 对实例定位无影响’列为证伪条件，但成功标准、变量、baseline 和指标尚未填写。",
+          "evidence": "shell/06_experiments/E-001/plan.md"
+        },
+        {
+          "label": "Mechanisms 的原始实验范围",
+          "value": "本地已抓取论文文本显示原工作研究 LLaVA-1.5 与 InternVL-3.5，并用 padding 扩展及 within-mask/full shuffle 检验 containerization；未在该范围中包含 Qwen2.5-VL。",
+          "evidence": "papers/Mechanisms of Object Localization in Vision-Language Models_2026/hybrid_auto/Mechanisms of Object Localization in Vision-Language Models_2026.md §3.1.1（Table 2、Fig.1）；shell/03_evidence/papers/mechanis2026.md"
+        },
+        {
+          "label": "本地对比假设",
+          "value": "现有本地想法提出比较类别定位与实例定位对内部 shuffle 的敏感性，而不只是单独观察实例定位。",
+          "evidence": "shell/00_idea/idea.md I-01 motivation 与 key_experiments 第1项"
+        },
+        {
+          "label": "绑定 Workspace",
+          "value": "登记的远程仓库为 /home/featurize/work/mechanism/Rex-Omni，数据根为 /home/featurize/data，SSH alias 为 featurize。",
+          "evidence": "surveyctl experiment context E-001"
+        },
+        {
+          "label": "远程勘察状态",
+          "value": "permission_denied；无法验证远程代码、数据、环境、GPU、入口和配置。",
+          "evidence": "ssh -o BatchMode=yes -o ConnectTimeout=10 featurize：Permission denied (publickey,password)"
+        }
+      ],
+      "proposal": {
+        "objective": "在恢复远程只读访问后，先复现 Mechanisms 的两类表示干预（within-object shuffle 与 padding 扩展）到仓库实际支持的 Qwen2.5-VL 推理路径，并区分类别定位与实例条件定位，判断边界随 padding 的响应及内部 shuffle 敏感性是否呈现 containerization 预期。",
+        "implementation_scope": "当前 draft 不修改代码。确认后仅基于远程仓库已有模型封装、数据接口和评测入口增加最小干预 hook、成对 baseline/干预配置及结果记录；具体文件和命令必须待 SSH 勘察后确定。",
+        "evaluation": "使用仓库现有且经勘察确认的定位指标，对同一样本做未干预、within-object shuffle、full shuffle、padding 扩展的成对比较；同时报告类别定位与实例定位变化。成立至少要求 padding 扩展呈边界随扩展响应，且 within-object shuffle 明显弱于 full shuffle；实例定位敏感性作为与类别定位的额外对比，不用单一总体分数替代。"
+      },
+      "questions": [
+        {
+          "key": "restore_ssh_access",
+          "label": "请恢复本机对 SSH alias `featurize` 的认证，或在 Workspace 中换绑一个可用 alias。",
+          "why": "强制只读勘察目前因 publickey/password 拒绝而中断，无法基于事实确定仓库入口、模型版本、数据与真实命令。",
+          "suggested": "先在同一终端确认 `ssh featurize` 可无交互登录，再在工具中敲定/重新触发勘察。"
+        },
+        {
+          "key": "task_scope",
+          "label": "敲定时请确认 E-001 是只验证通用类别定位的原论文 containerization，还是同时验证 ICOL 实例定位差异。",
+          "why": "初稿目标只写 Qwen2.5-VL containerization，但本地对比动机要求类别定位与实例定位并列，二者决定数据入口、prompt 与证伪解释。",
+          "suggested": "建议同时保留类别定位作为机制复现对照，并把实例定位作为目标条件；否则‘shuffle 对实例定位无影响’无法被直接检验。"
+        }
+      ],
+      "risks": [
+        "远程访问尚未恢复，proposal 中不能声称 Rex-Omni 已支持所需 Qwen2.5-VL、数据集或评测入口。",
+        "Qwen2.5-VL 的动态分辨率与视觉 token 合并方式可能使原论文的 object-token mask、padding 和 shuffle 不能逐字迁移，需在代码勘察后定义等价干预。",
+        "初稿当前将单一 shuffle 结果作为证伪条件，可能混淆定位失败、输出解析变化与真正的内部排列不变性；应保留 full-shuffle 和 padding 对照。"
+      ]
+    },
+    "workflow_stage": "confirmed",
+    "implementation_scope": "当前 draft 不修改代码。确认后仅基于远程仓库已有模型封装、数据接口和评测入口增加最小干预 hook、成对 baseline/干预配置及结果记录；具体文件和命令必须待 SSH 勘察后确定。",
+    "evaluation": "使用仓库现有且经勘察确认的定位指标，对同一样本做未干预、within-object shuffle、full shuffle、padding 扩展的成对比较；同时报告类别定位与实例定位变化。成立至少要求 padding 扩展呈边界随扩展响应，且 within-object shuffle 明显弱于 full shuffle；实例定位敏感性作为与类别定位的额外对比，不用单一总体分数替代。",
+    "user_answers": {
+      "restore_ssh_access": "已设置了 key，可以链接",
+      "task_scope": "先只验证 containerization"
+    }
+  }
+]

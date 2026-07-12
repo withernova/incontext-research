@@ -70,5 +70,17 @@
     },
     "id": "b6",
     "createdAt": "2026-07-11T19:30:05"
+  },
+  {
+    "label": "incontext · finding深挖: mechanism 对 FOCUS 的细节 #3",
+    "sessionFile": "/Users/saul/.pi/agent/sessions/--Users-saul-Project-NKU-MASTER-Projects-26-CVPR-incontext--/2026-07-12T00-37-11-092Z_019f53c1-b334-7bee-bb65-5b07c16852bf.jsonl",
+    "kind": "finding",
+    "ctx": {
+      "kind": "finding",
+      "ci": 3,
+      "fi": 2
+    },
+    "id": "b7",
+    "createdAt": "2026-07-12T08:37:11"
   }
 ]

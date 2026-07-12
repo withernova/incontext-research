@@ -1,0 +1,13 @@
+[
+  {
+    "id": "W-01",
+    "label": "mechanism 的验证",
+    "server_id": "M-01",
+    "remote_repo": "/home/featurize/work/mechanism/Rex-Omni",
+    "remote_data_root": "/home/featurize/data",
+    "remote_worktree_root": "/home/featurize/work/mechanism",
+    "remote_experiment_root": "/home/featurize/work/mechanism/explog",
+    "environment_activation": "",
+    "launcher": "tmux"
+  }
+]
