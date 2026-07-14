@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1250" height="560" viewBox="0 0 1250 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="625.0" y="44" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="28" font-weight="700">当前证据链：containerized reference-matching</text>
+<rect x="45" y="105" width="300" height="62" rx="8" fill="#4C78A8"/>
+<text x="195" y="144" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700" fill="white">Container expansion</text>
+<text x="380" y="144" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#111">E-001 R-004c：外圈复制 token → 面积比 1.222，59.1% 样本预测框变大</text>
+<rect x="45" y="193" width="300" height="62" rx="8" fill="#72B7B2"/>
+<text x="195" y="232" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700" fill="white">Order shuffle</text>
+<text x="380" y="232" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#111">R-015：support/query/support+query shuffle 的 neg_FPR 均为 0.037；不是主导机制</text>
+<rect x="45" y="281" width="300" height="62" rx="8" fill="#E45756"/>
+<text x="195" y="320" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700" fill="white">Reference-like contamination</text>
+<text x="380" y="320" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#111">R-014：no-repeat contamination 将 neg_FPR 从 0.148 提高到 0.444</text>
+<rect x="45" y="369" width="300" height="62" rx="8" fill="#000000"/>
+<text x="195" y="408" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="700" fill="white">Global structure</text>
+<text x="380" y="408" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="20" fill="#111">R-011/R-015：full visual shuffle 的 neg_FPR = 1.000，negative rejection 崩溃</text>
+<text x="55" y="505" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="22" font-weight="700">结论：POIL 对 object-internal token order shuffle 相对鲁棒；但对全局视觉结构和 query object container 中的 support/reference-like evidence 高度敏感。</text>
+</svg>

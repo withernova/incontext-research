@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560">
+<rect width="100%" height="100%" fill="white"/>
+<text x="450.0" y="36" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="700">E-001：向外复制 object tokens 会扩大预测框</text>
+<line x1="90" y1="80" x2="90" y2="405" stroke="#333"/>
+<line x1="90" y1="405" x2="865" y2="405" stroke="#333"/>
+<line x1="85" y1="405.0" x2="90" y2="405.0" stroke="#333"/>
+<line x1="90" y1="405.0" x2="865" y2="405.0" stroke="#eee"/>
+<text x="80" y="409.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">-0.18</text>
+<line x1="85" y1="340.0" x2="90" y2="340.0" stroke="#333"/>
+<line x1="90" y1="340.0" x2="865" y2="340.0" stroke="#eee"/>
+<text x="80" y="344.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.13</text>
+<line x1="85" y1="275.0" x2="90" y2="275.0" stroke="#333"/>
+<line x1="90" y1="275.0" x2="865" y2="275.0" stroke="#eee"/>
+<text x="80" y="279.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.43</text>
+<line x1="85" y1="210.0" x2="90" y2="210.0" stroke="#333"/>
+<line x1="90" y1="210.0" x2="865" y2="210.0" stroke="#eee"/>
+<text x="80" y="214.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.74</text>
+<line x1="85" y1="145.0" x2="90" y2="145.0" stroke="#333"/>
+<line x1="90" y1="145.0" x2="865" y2="145.0" stroke="#eee"/>
+<text x="80" y="149.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.04</text>
+<line x1="85" y1="80.0" x2="90" y2="80.0" stroke="#333"/>
+<line x1="90" y1="80.0" x2="865" y2="80.0" stroke="#eee"/>
+<text x="80" y="84.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.35</text>
+<line x1="90" y1="154.3" x2="865" y2="154.3" stroke="#777" stroke-dasharray="7,5"/>
+<text x="860" y="148.3" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#777">面积比=1</text>
+<rect x="139.1" y="107.2" width="160.2" height="259.6" fill="#4C78A8" rx="4"/>
+<text x="219.2" y="99.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.222</text>
+<text x="219.2" y="433.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">面积比</text>
+<text x="219.2" y="451.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">干预/基线</text>
+<rect x="397.4" y="241.2" width="160.2" height="125.5" fill="#72B7B2" rx="4"/>
+<text x="477.5" y="233.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.591</text>
+<text x="477.5" y="433.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">面积增大</text>
+<text x="477.5" y="451.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">比例</text>
+<rect x="655.8" y="366.8" width="160.2" height="17.6" fill="#E45756" rx="4"/>
+<text x="735.8" y="402.4" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">-0.083</text>
+<text x="735.8" y="433.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">IoU</text>
+<text x="735.8" y="451.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">变化</text>
+<text transform="translate(24,242.5) rotate(-90)" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16">数值</text>
+<text x="90" y="536" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#555">R-004c：60 个 COCO visual-prompt 样本；面积比 1.222，59.1% 样本预测框变大。</text>
+</svg>

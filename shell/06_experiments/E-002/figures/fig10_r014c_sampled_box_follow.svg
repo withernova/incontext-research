@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1050" height="600" viewBox="0 0 1050 600">
+<rect width="100%" height="100%" fill="white"/>
+<text x="525.0" y="38" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="700">R-014c：预测框向 support-token 污染区域靠近的 proxy 指标</text>
+<line x1="92" y1="78" x2="92" y2="442" stroke="#333"/>
+<line x1="92" y1="442" x2="1008" y2="442" stroke="#333"/>
+<line x1="92" y1="442.0" x2="1008" y2="442.0" stroke="#eee"/>
+<text x="82" y="446.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">-0.02</text>
+<line x1="92" y1="369.2" x2="1008" y2="369.2" stroke="#eee"/>
+<text x="82" y="373.2" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.02</text>
+<line x1="92" y1="296.4" x2="1008" y2="296.4" stroke="#eee"/>
+<text x="82" y="300.4" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.05</text>
+<line x1="92" y1="223.6" x2="1008" y2="223.6" stroke="#eee"/>
+<text x="82" y="227.6" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.09</text>
+<line x1="92" y1="150.8" x2="1008" y2="150.8" stroke="#eee"/>
+<text x="82" y="154.8" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.12</text>
+<line x1="92" y1="78.0" x2="1008" y2="78.0" stroke="#eee"/>
+<text x="82" y="82.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.16</text>
+<rect x="140.1" y="367.2" width="132.8" height="34.4" fill="#FFE0A3" rx="4"/>
+<text x="206.5" y="359.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.017</text>
+<text x="206.5" y="470.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p25</text>
+<text x="206.5" y="488.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="369.1" y="294.4" width="132.8" height="107.2" fill="#FFB74D" rx="4"/>
+<text x="435.5" y="286.4" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.053</text>
+<text x="435.5" y="470.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p50</text>
+<text x="435.5" y="488.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="598.1" y="195.3" width="132.8" height="206.3" fill="#FF7043" rx="4"/>
+<text x="664.5" y="187.3" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.102</text>
+<text x="664.5" y="470.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p75</text>
+<text x="664.5" y="488.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="827.1" y="142.7" width="132.8" height="258.8" fill="#E45756" rx="4"/>
+<text x="893.5" y="134.7" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.128</text>
+<text x="893.5" y="470.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p100</text>
+<text x="893.5" y="488.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<text x="893.5" y="506.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">no-repeat</text>
+<text transform="translate(26,260.0) rotate(-90)" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16">ΔIoU to contaminated region（柱）</text>
+<text x="92" y="576" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#555">ΔIoU&gt;0 表示干预框比 baseline 更重叠污染区域；R-014c 未保存 exact pairs，此处用 actual count + center-out ranking 近似 contaminated region。</text>
+</svg>

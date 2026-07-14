@@ -4,9 +4,9 @@
     "projectDir": "/home/featurize/work/mechanism"
   },
   "experiment": {
-    "tmuxSession": "e002_r014_partial_mix",
-    "logFile": "/home/featurize/work/mechanism/explog/E-002/runs/R-014-qwen3vl-partial-support-token-contamination-n27/logs/run.log",
-    "description": "E-002 R-014 partial support-token contamination / norepeat vs repeat control"
+    "tmuxSession": "e002_r014c_sampled",
+    "logFile": "/home/featurize/work/mechanism/explog/E-002/runs/R-014c-qwen3vl-sampled-centerout-support-contamination-n27/logs/run.log",
+    "description": "E-002 R-014c sampled center-out support-token contamination n27"
   },
   "monitoring": {
     "errorPatterns": [

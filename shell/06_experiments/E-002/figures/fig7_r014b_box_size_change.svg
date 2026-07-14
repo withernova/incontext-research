@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1150" height="650" viewBox="0 0 1150 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="575.0" y="38" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="700">R-014b：support-token 污染后预测框面积变化</text>
+<line x1="90" y1="78" x2="90" y2="500" stroke="#333"/>
+<line x1="90" y1="500" x2="1110" y2="500" stroke="#333"/>
+<line x1="90" y1="500.0" x2="1110" y2="500.0" stroke="#eee"/>
+<text x="80" y="504.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.00</text>
+<line x1="90" y1="415.6" x2="1110" y2="415.6" stroke="#eee"/>
+<text x="80" y="419.6" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.35</text>
+<line x1="90" y1="331.2" x2="1110" y2="331.2" stroke="#eee"/>
+<text x="80" y="335.2" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.70</text>
+<line x1="90" y1="246.8" x2="1110" y2="246.8" stroke="#eee"/>
+<text x="80" y="250.8" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.05</text>
+<line x1="90" y1="162.4" x2="1110" y2="162.4" stroke="#eee"/>
+<text x="80" y="166.4" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.40</text>
+<line x1="90" y1="78.0" x2="1110" y2="78.0" stroke="#eee"/>
+<text x="80" y="82.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.75</text>
+<rect x="125.7" y="224.6" width="98.6" height="275.4" fill="#FFCC80" rx="4"/>
+<text x="175.0" y="216.6" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.142</text>
+<text x="175.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p25</text>
+<text x="175.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">center-out</text>
+<rect x="295.7" y="181.9" width="98.6" height="318.1" fill="#FFB74D" rx="4"/>
+<text x="345.0" y="173.9" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.319</text>
+<text x="345.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p50</text>
+<text x="345.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">center-out</text>
+<rect x="465.7" y="157.8" width="98.6" height="342.2" fill="#FF8A65" rx="4"/>
+<text x="515.0" y="149.8" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.419</text>
+<text x="515.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p75</text>
+<text x="515.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">center-out</text>
+<rect x="635.7" y="134.4" width="98.6" height="365.6" fill="#E57373" rx="4"/>
+<text x="685.0" y="126.4" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.516</text>
+<text x="685.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p100</text>
+<text x="685.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">no-repeat</text>
+<rect x="805.7" y="152.8" width="98.6" height="347.2" fill="#BA68C8" rx="4"/>
+<text x="855.0" y="144.8" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.440</text>
+<text x="855.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p100</text>
+<text x="855.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">repeat</text>
+<rect x="975.7" y="235.9" width="98.6" height="264.1" fill="#64B5F6" rx="4"/>
+<text x="1025.0" y="227.9" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">1.095</text>
+<text x="1025.0" y="528.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">query</text>
+<text x="1025.0" y="546.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">shuffle</text>
+<polyline points="175.0,339.2 345.0,339.2 515.0,330.2 685.0,330.2 855.0,321.3 1025.0,365.9" fill="none" stroke="#2E7D32" stroke-width="3"/>
+<circle cx="175.0" cy="339.2" r="5" fill="#2E7D32"/>
+<text x="175.0" y="327.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.667</text>
+<circle cx="345.0" cy="339.2" r="5" fill="#2E7D32"/>
+<text x="345.0" y="327.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.667</text>
+<circle cx="515.0" cy="330.2" r="5" fill="#2E7D32"/>
+<text x="515.0" y="318.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.704</text>
+<circle cx="685.0" cy="330.2" r="5" fill="#2E7D32"/>
+<text x="685.0" y="318.2" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.704</text>
+<circle cx="855.0" cy="321.3" r="5" fill="#2E7D32"/>
+<text x="855.0" y="309.3" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.741</text>
+<circle cx="1025.0" cy="365.9" r="5" fill="#2E7D32"/>
+<text x="1025.0" y="353.9" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.556</text>
+<text x="1105" y="98" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#2E7D32">fraction area increased</text>
+<text transform="translate(26,289.0) rotate(-90)" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16">mean area ratio: intervention / baseline</text>
+<text x="90" y="626" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#555">统计对象：same-class negative query images；面积来自模型输出框。面积比 &gt; 1 表示预测框变大。</text>
+</svg>

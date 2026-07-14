@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="650" viewBox="0 0 1180 650">
+<rect width="100%" height="100%" fill="white"/>
+<text x="590.0" y="38" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="26" font-weight="700">R-014c：随机采样式 query support-token 污染仍提高 negative FP</text>
+<line x1="92" y1="78" x2="92" y2="492" stroke="#333"/>
+<line x1="92" y1="492" x2="1138" y2="492" stroke="#333"/>
+<line x1="92" y1="492.0" x2="1138" y2="492.0" stroke="#eee"/>
+<text x="82" y="496.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.00</text>
+<line x1="92" y1="409.2" x2="1138" y2="409.2" stroke="#eee"/>
+<text x="82" y="413.2" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.22</text>
+<line x1="92" y1="326.4" x2="1138" y2="326.4" stroke="#eee"/>
+<text x="82" y="330.4" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.43</text>
+<line x1="92" y1="243.6" x2="1138" y2="243.6" stroke="#eee"/>
+<text x="82" y="247.6" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.65</text>
+<line x1="92" y1="160.8" x2="1138" y2="160.8" stroke="#eee"/>
+<text x="82" y="164.8" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">0.86</text>
+<line x1="92" y1="78.0" x2="1138" y2="78.0" stroke="#eee"/>
+<text x="82" y="82.0" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">1.08</text>
+<rect x="123.4" y="463.6" width="86.7" height="28.4" fill="#999999" rx="4"/>
+<text x="166.7" y="455.6" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.074</text>
+<text x="166.7" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">baseline</text>
+<rect x="272.8" y="406.9" width="86.7" height="85.1" fill="#FFE0A3" rx="4"/>
+<text x="316.1" y="398.9" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.222</text>
+<text x="316.1" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p25</text>
+<text x="316.1" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="422.2" y="392.7" width="86.7" height="99.3" fill="#FFB74D" rx="4"/>
+<text x="465.6" y="384.7" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.259</text>
+<text x="465.6" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p50</text>
+<text x="465.6" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="571.7" y="392.7" width="86.7" height="99.3" fill="#FF7043" rx="4"/>
+<text x="615.0" y="384.7" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.259</text>
+<text x="615.0" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p75</text>
+<text x="615.0" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<rect x="721.1" y="321.8" width="86.7" height="170.2" fill="#E45756" rx="4"/>
+<text x="764.4" y="313.8" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.444</text>
+<text x="764.4" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p100</text>
+<text x="764.4" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<text x="764.4" y="556.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">no-repeat</text>
+<rect x="870.5" y="378.5" width="86.7" height="113.5" fill="#B279A2" rx="4"/>
+<text x="913.9" y="370.5" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.296</text>
+<text x="913.9" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">p100</text>
+<text x="913.9" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">sampled</text>
+<text x="913.9" y="556.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">repeat</text>
+<rect x="1020.0" y="463.6" width="86.7" height="28.4" fill="#64B5F6" rx="4"/>
+<text x="1063.3" y="455.6" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" font-weight="700">0.074</text>
+<text x="1063.3" y="520.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">query</text>
+<text x="1063.3" y="538.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14">shuffle</text>
+<polyline points="166.7,122.5 316.1,147.0 465.6,152.8 615.0,152.8 764.4,178.4 913.9,158.1 1063.3,122.5" fill="none" stroke="#2E7D32" stroke-width="3"/>
+<circle cx="166.7" cy="122.5" r="5" fill="#2E7D32"/>
+<text x="166.7" y="110.5" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.964</text>
+<circle cx="316.1" cy="147.0" r="5" fill="#2E7D32"/>
+<text x="316.1" y="135.0" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.900</text>
+<circle cx="465.6" cy="152.8" r="5" fill="#2E7D32"/>
+<text x="465.6" y="140.8" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.885</text>
+<circle cx="615.0" cy="152.8" r="5" fill="#2E7D32"/>
+<text x="615.0" y="140.8" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.885</text>
+<circle cx="764.4" cy="178.4" r="5" fill="#2E7D32"/>
+<text x="764.4" y="166.4" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.818</text>
+<circle cx="913.9" cy="158.1" r="5" fill="#2E7D32"/>
+<text x="913.9" y="146.1" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.871</text>
+<circle cx="1063.3" cy="122.5" r="5" fill="#2E7D32"/>
+<text x="1063.3" y="110.5" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" fill="#2E7D32">0.964</text>
+<text x="1133" y="98" text-anchor="end" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#2E7D32">F1</text>
+<text transform="translate(26,285.0) rotate(-90)" text-anchor="middle" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="16">neg_FPR（柱） / F1（绿线）</text>
+<text x="92" y="626" font-family="Arial, 'Noto Sans CJK SC', 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="15" fill="#555">R-014c：在 center-out ratio bin 内随机采样 query object slots 替换为 support/reference tokens；query shuffle 为顺序打乱控制。</text>
+</svg>
