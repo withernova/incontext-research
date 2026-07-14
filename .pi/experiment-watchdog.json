@@ -1,0 +1,28 @@
+{
+  "remote": {
+    "host": "featurize",
+    "projectDir": "/home/featurize/work/mechanism"
+  },
+  "experiment": {
+    "tmuxSession": "e002_r014_partial_mix",
+    "logFile": "/home/featurize/work/mechanism/explog/E-002/runs/R-014-qwen3vl-partial-support-token-contamination-n27/logs/run.log",
+    "description": "E-002 R-014 partial support-token contamination / norepeat vs repeat control"
+  },
+  "monitoring": {
+    "errorPatterns": [
+      "Traceback",
+      "Error",
+      "Exception",
+      "CUDA out of memory",
+      "SyntaxError",
+      "ModuleNotFoundError"
+    ],
+    "progressPatterns": [
+      "\\[DATA\\]",
+      "\\[OUT\\]",
+      "\\[SUMMARY\\]",
+      "\\[DONE\\]"
+    ],
+    "gpuWarningPercent": 95
+  }
+}

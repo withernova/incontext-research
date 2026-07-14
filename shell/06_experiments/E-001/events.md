@@ -230,3 +230,47 @@ Commit 63e0d47c873567d5e89d7344c4fbc3176adeda4b. Cause: small reference boxes wi
 ## 2026-07-12T17:23:10+08:00 · run_update
 - run: R-002
 - message: 修复启动问题后，R2 center-half -> R1 baseline 串行任务已在 tmux 中运行。
+
+## 2026-07-12T19:54:02+08:00 · run_created
+- run: R-005
+- message: Agent 创建 R-005 · vllm_patched_baseline_mixed60_multi
+
+## 2026-07-12T19:54:02+08:00 · run_created
+- run: R-006
+- message: Agent 创建 R-006 · vllm_mask_token_support_shuffle_mixed60_multi
+
+## 2026-07-12T19:54:30+08:00 · result
+- run: R-006
+- message: 归档：vLLM-native mask-token support shuffle mixed60-multi 已完成；相对 patched baseline 仅小幅下降。
+
+R-005 baseline mIoU_gt_best=0.6186, recall@0.5=0.6655；R-006 support-mask token shuffle mIoU_gt_best=0.6006, recall@0.5=0.6622。分层 weighted mIoU_gt_best：hard 0.5057→0.5015，normal 0.7373→0.7145，easy 0.8309→0.7775。初步结论：support mask 内 token shuffle 对整体定位影响较小但非零，特别 easy 降幅更明显；尚不足以单独证明/证伪 containerization，需要 full-token shuffle 和 padding_expand 对照。
+
+## 2026-07-12T21:22:22+08:00 · correction
+- run: -
+- message: 修正：padding expansion 原 R-004 实现逻辑错误；应扩展 query/target candidate，而不是 support/reference prompt box。
+
+用户指出：若要验证 query 是否被模型用过大的 container 框起来，padding/扩框应作用于 query/target candidate side；当前 R-004-padding-expand-mixed60-multi 是 support prompt box 扩展，不能进入 containerization 结论，只作为错误实现记录。
+
+## 2026-07-12T21:20:00+08:00 · correction
+- run: R-004
+- message: invalidated: padding expansion 逻辑应作用于 query/target candidate，而不是 support/reference prompt box。
+
+用户指出：要看 query 是否被模型用过大的框框起来，扩框应施加在 query/target candidate side；当前远程 `/home/featurize/work/mechanism/explog/E-001/R-004-padding-expand-mixed60-multi` 实际扩展的是 visual prompt support box，因此不进入 containerization 结论。
+
+## 2026-07-12T22:01:36+08:00 · run_created
+- run: R-007
+- message: Agent 创建 R-007 · query_side_padding_eval_mixed60_multi
+
+## 2026-07-12T22:01:36+08:00 · run_created
+- run: R-008
+- message: Agent 创建 R-008 · candidate_identity_probe_mixed60_multi
+
+## 2026-07-12T22:37:03+08:00 · run_created
+- run: R-009
+- message: Agent 创建 R-009 · query_object_token_padding_mixed60_multi
+
+## 2026-07-12T22:37:03+08:00 · run_started
+- run: -
+- message: Started R-004c query-object token padding intervention.
+
+remote commit 1d5eb39; tmux incontext-E-001-R004c-query-token-padding; output /home/featurize/work/mechanism/explog/E-001/R-004c-query-token-padding-mixed60-multi. This supersedes R-004b post-hoc GT expansion for causal query token padding.

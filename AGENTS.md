@@ -21,6 +21,7 @@
 - 引用格式 [[citekey]] §小节。绝不允许引用未实际抓取过的论文。
 - 论文内容问答：优先读取同名目录下 MinerU 抽取的 .md（含图像与公式）；否则对 PDF 做 read/pdf-converter 抽取。
 - 使用 ~/.pi/agent/skills/research-survey/scripts/ 下的脚本。
+- **E-002 填表/同步前必须读取** `shell/06_experiments/E-002/ledger_filling_skill.md`，并遵守其中 run id 一一对应、干预细节、shuffle 区域、token-grid、seed、selected-token-counts、结论边界等记录要求。
 
 ## Intake 缺口（如有）
 - none

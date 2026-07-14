@@ -99,7 +99,13 @@
         "_expanded": true
       }
     ],
-    "discussion": [],
+    "discussion": [
+      {
+        "who": "你",
+        "text": "我有一个想法不知道可不可以，就是我把图像 a 中的物体 1 的 mask 扣下来，然后放在同样出现物体 类别 的图像 b 中，然后让模型找重复物体，这样子你觉得有价值吗",
+        "time": "7:35:15 PM"
+      }
+    ],
     "analysis": "mechanism 论文里面有很多思想，他们可能一定程度上对FOUCS 的解决方案有一定的建设性，请挖掘",
     "id": "cmp-mechanism-focus",
     "axisIds": {}

@@ -88,5 +88,22 @@
       "restore_ssh_access": "已设置了 key，可以链接",
       "task_scope": "先只验证 containerization"
     }
+  },
+  {
+    "id": "E-002",
+    "title": "使用 Personalize / POIL 数据集验证 ICOL instance-level identification",
+    "kind": "idea_validation / dataset_protocol_reproduction",
+    "source_ref": "personal2026",
+    "objective": "基于 Personalize / POIL positive/negative query protocol，评估 Rex-Omni/ICOL 模型是否具备 reference-conditioned instance localization 与 negative rejection 能力。",
+    "hypothesis": "Localization-only ICOL 模型可能在 in-class negative query 上产生高 false-positive；加入 self-posed identification 或相关训练目标可能降低 false positives。",
+    "success_criteria": "完成 POIL manifest 检查、小样本 localization-only baseline，并报告 positive mIoU、negative false-positive rate 与 F1。",
+    "failure_criteria": "无法获取/构造 POIL 数据，或模型输出无法稳定解析为 bbox/rejection。",
+    "status": "draft",
+    "created": "2026-07-13T00:00:00+08:00",
+    "updated": "2026-07-13T14:04:49",
+    "workspace_id": "W-01",
+    "workflow_stage": "planning",
+    "implementation_scope": "先做数据协议复现与小样本 baseline；不立即训练大模型。",
+    "evaluation": "positive mIoU + negative false-positive rate + balanced F1；优先区分 in-class 与 out-of-class negatives。"
   }
 ]

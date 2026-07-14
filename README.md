@@ -3,7 +3,7 @@
 > 由 survey-tool 导出。配合 [research-survey](https://) skill 使用。
 
 ## 概况
-- state: BOOTSTRAP · iteration: 0
+- state: E002_PLANNING · iteration: 1
 - 论文: 6 · 声明: 1 · Idea: 3
 - 目标会议/领域: 见 INTAKE.md / AGENTS.md
 
