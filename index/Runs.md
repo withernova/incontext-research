@@ -1,0 +1,21 @@
+# Runs
+
+- [[R-001|baseline_none]] ← [[E-001]] · `completed`
+- [[R-002|within_object_shuffle]] ← [[E-001]] · `running`
+- [[R-003|full_shuffle]] ← [[E-001]] · `draft`
+- [[R-004|padding_expand]] ← [[E-001]] · `draft`
+- [[R-005|vllm_patched_baseline_mixed60_multi]] ← [[E-001]] · `completed`
+- [[R-006|vllm_mask_token_support_shuffle_mixed60_multi]] ← [[E-001]] · `completed`
+- [[R-007|query_side_padding_eval_mixed60_multi]] ← [[E-001]] · `running`
+- [[R-008|candidate_identity_probe_mixed60_multi]] ← [[E-001]] · `running`
+- [[R-009|query_object_token_padding_mixed60_multi]] ← [[E-001]] · `running`
+- [[R-001-smoke-local-lasot-iplocid-n2|smoke_local_lasot_iplocid_n2]] ← [[E-002]] · `completed`
+- [[R-001b-lasot-local-n20-compare|lasot_local_n20_iplocid_vs_iploc_compare]] ← [[E-002]] · `completed`
+- [[R-002a-hard-patch-pilot-autoloop|hard_patch_level_proxy_pilot]] ← [[E-002]] · `completed`
+- [[R-003-token-hook-inspection|qwen3vl_token_hook_inspection]] ← [[E-002]] · `completed`
+- [[R-004-qwen3vl-token-hook-smoke|qwen3vl_token_hook_smoke]] ← [[E-002]] · `completed`
+- [[R-005-qwen3vl-full-visual-token-intervention-n10|full_visual_token_control_n10]] ← [[E-002]] · `completed`
+- [[R-006-qwen3vl-object-token-shuffle-n10|object_footprint_token_shuffle_n10]] ← [[E-002]] · `completed`
+- [[R-007-qwen3vl-object-token-ablation-n10|object_footprint_token_zero_ablation_n10]] ← [[E-002]] · `completed`
+- [[R-008-persistent-orchestrator-and-summary|persistent_orchestrator_crossrun_summary]] ← [[E-002]] · `running`
+- [[R-009-data-rehydrate|data_rehydrate_after_server_reset]] ← [[E-002]] · `completed`

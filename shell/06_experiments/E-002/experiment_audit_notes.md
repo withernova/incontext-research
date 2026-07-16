@@ -83,3 +83,13 @@ R-010 可视化暴露一个关键混杂：当前 Qwen3-VL/IPLoc-ID hook 位于 `
 - segmentation mask object token 不重要；因为 LaSOT 当前用 bbox approximation。
 - mean ablation 下也不重要；因为 R-007 用 zero。
 - 已经证明机制；因为 n=10 且还缺 token-footprint-size 分层、large-object subset、copy-padding / identity transfer / hard-token mining。
+
+## 7. R-010–R-015 补归档边界（2026-07-16）
+
+- Exact run notes 已新增到 `shell/06_experiments/E-002/runs/`，文件名与远端目录一一对应。
+- R-012 只称 replacement/stamping/contamination pilot，不称干净 identity transfer。
+- R-014/R-014b/R-014c 的 p25/p50/p75/p100 定义不同：原版、deterministic center-out、sampled-bin center-out 不可混为同一剂量实现。
+- R-014c 未记录 exact source→destination pairs；decision/FPR 与 box area 可用，exact box-follow 与旧 `actual_fraction` 不可作正式结果。
+- `full_visual_shuffle` 是 concatenated support+query 全视觉 token stream 的 global permutation，可跨 image boundary；不是 query-only full-image shuffle。
+- 当前 interventions 主要修改 `pooler_output`，deepstack features 可能保留未修改视觉信息。
+- R-014/R-015 等 run 的 aggregate 指标相同或相近不等于 per-sample 行为相同；baseline 和 seed/path 也有波动。

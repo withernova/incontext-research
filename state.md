@@ -13,7 +13,7 @@ next_actions:
   - 创建 E-002 远程目录：`/home/featurize/work/mechanism/explog/E-002` 与 `/home/featurize/work/mechanism/Rex-Omni/tmp/e002`。
   - 先做 R-001 POIL dataset acquisition / format inspection，不立即训练或跑大规模推理。
   - 基于 POIL manifest 再运行 R-002 localization-only baseline 与 R-003 prompt-only self-posed identification baseline。
-last_updated: 2026-07-13T00:00:00+08:00
+last_updated: 2026-07-16T15:00:00+08:00
 
 ## 阶段历史（append-only）
 - 2026-07-09T15:31:09 | AWAIT_INTAKE | 创建项目骨架
@@ -26,3 +26,7 @@ last_updated: 2026-07-13T00:00:00+08:00
 - Added plan: `shell/06_experiments/E-002/internal_token_mechanism_plan.md`.
 - Hard samples should be mined using model visual-layer object-token similarity: same category, similar silhouette, high unordered internal-token similarity, but different identity/order-aware structure.
 - 2026-07-13 | E002_MECHANISM_PROTOCOL | Read Mechanisms of Object Localization paper. Token interventions should follow: mask-to-token-grid by any overlap, LLM-input intervention after multimodal projection, global-average embedding ablation, object-token shuffle vs full shuffle, copy-padding/container extension, and global/local view separation when applicable.
+- 2026-07-16 | E003_CREATED | 将 Joint F1@IoU 与 forced-candidate verifier 从 E-002 独立为 E-003。E-002 保留 hidden-token/container mechanism；E-003 检验 identification-only F1 是否与 localization correctness 解耦并高估 joint task success。
+- 2026-07-16 | E003_R001 | 重建本地 LaSOT POIL manifest：140 samples / 70 classes / 140 positive + 140 same-class negative，missing=0、invalid bbox=0；非官方 split。
+- 2026-07-16 | E003_R002_FAILED | 首次 Joint F1 n140 因 Torch/Transformers 不兼容导致所有 processor 调用失败，零有效记录；run 保留为 failed audit，不得引用。
+- 2026-07-16 | ARCHIVE_RECENT_RUNS | 按 ledger_filling_skill 审计归档 E-002 R-010–R-015（含 R-014b/R-014c）与 E-003 R-001–R-004b；明确记录 failed/aborted/smoke/main 状态、exact remote paths、R-014c geometry caveat 与 E003 Joint F1 结论边界。

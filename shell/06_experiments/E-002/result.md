@@ -172,3 +172,26 @@ R-005/R-006/R-007 的组合比单个 run 更有审核价值：
 2. **R-011 planned**：object copy-padding/container extension，观察 bbox/decision 是否随 token footprint 扩张。
 3. **R-012 planned**：token-feature hard mining，输出 unordered-similar / order-different hard negatives。
 4. **R-013 planned**：token replacement / identity transfer。
+
+---
+
+## 2026-07-16 补归档：R-010–R-015（含 R-014b/R-014c）
+
+> 每个 run 的可复现细节、完整指标、结论边界和审核入口见 `shell/06_experiments/E-002/runs/<exact-run-id>.md`。远端目录与本地 note 使用 exact run ID 一一对应。
+
+| Run | 核心对照 | Baseline F1/FPR | 关键 intervention F1/FPR | 审计结论 |
+|---|---|---:|---:|---|
+| R-010-qwen3vl-object-token-shuffle-n50-full-vs-center-vis | bbox full/center vs global shuffle | .925/.140 | object full .906/.160；global .667/1.000 | object order影响有限；小目标 token 数是重要混杂 |
+| R-011-qwen3vl-large-rich-object-shuffle-stratified-n27 | token-rich object shuffle | 1.000/.000 | object full .947/.111；global .667/1.000 | large/rich 上仍远弱于 global destructive effect |
+| R-012-qwen3vl-large-object-token-identity-transfer-n27 | ref→negative-query replacement | .915/.185 | full .806/.481；query shuffle .982/.037 | support-like contamination 增 FP；存在 repeated stamping caveat |
+| R-013-qwen3vl-wrong-class-object-token-replacement-n27 | wrong-class donor，positive-only | 1.000 | full .962（2 FN）；center25 1.000 | identity-destroying replacement 只产生有限 FN |
+| R-014-qwen3vl-partial-support-token-contamination-n27 | no-repeat dose | .931/.148 | p25 .885/.259；p100 .818/.444 | no-repeat 污染仍有 dose-like FP 上升 |
+| R-014b-qwen3vl-partial-support-token-contamination-centerout-n27 | deterministic center-out | .982/.037 | p25 .931/.148；p100 no-repeat .857/.333 | 污染提高 FP，且平均预测框面积随剂量增大 |
+| R-014c-qwen3vl-sampled-centerout-support-contamination-n27 | sampled bin intensity | .964/.074 | p25 .900/.222；p100 no-repeat .818/.444 | decision 与 box-area 可引用；exact box-follow 仍为 proxy |
+| R-015-qwen3vl-support-vs-query-object-shuffle-n27 | support/query scope split | .964/.074 | 三种 object shuffle均 .982/.037；global .667/1.000 | object order无稳定损害；global stream 对 rejection关键 |
+
+### 当前 E-002 结论边界
+
+当前证据更支持 **class-conditioned containerized reference matching**：prompt 显式提供 category name；在同类别先验下，POIL 对 bbox object-footprint 内部 token order permutation 相对鲁棒，但 same-class negative rejection 对 global visual-stream destruction 以及 query object container 内 support/reference-like token contamination 敏感。该表述仍受 bbox proxy、pooler-only、deepstack 未改、单 seed/小样本与 run baseline 波动限制。
+
+R-014c 特别限制：当前 run 没有保存 exact `src_indices/dst_indices/pairs_list`，因此 `analysis/r014c_box_metrics` 中 decision 和 box area 可审计，box-follow 只能称 center-out reconstruction proxy；旧 posthoc `actual_fraction` 可能>1，不得正式引用。

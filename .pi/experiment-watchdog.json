@@ -4,24 +4,26 @@
     "projectDir": "/home/featurize/work/mechanism"
   },
   "experiment": {
-    "tmuxSession": "e002_r014c_sampled",
-    "logFile": "/home/featurize/work/mechanism/explog/E-002/runs/R-014c-qwen3vl-sampled-centerout-support-contamination-n27/logs/run.log",
-    "description": "E-002 R-014c sampled center-out support-token contamination n27"
+    "tmuxSession": "e003_r004b",
+    "logFile": "explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/logs/run.log",
+    "description": "E-003 R-004b Joint F1@IoU main diagnostic n=140, max_new_tokens=128"
   },
   "monitoring": {
     "errorPatterns": [
       "Traceback",
-      "Error",
-      "Exception",
+      "processor(...) failed",
       "CUDA out of memory",
-      "SyntaxError",
-      "ModuleNotFoundError"
+      "INTEGRITY_FAIL",
+      "Killed",
+      "ZeroDivisionError"
     ],
     "progressPatterns": [
-      "\\[DATA\\]",
-      "\\[OUT\\]",
-      "\\[SUMMARY\\]",
-      "\\[DONE\\]"
+      "Loading checkpoint shards",
+      "data index:",
+      "data 0/140 done",
+      "data 139/140 done",
+      "JOINT_SUMMARY",
+      "[DONE]"
     ],
     "gpuWarningPercent": 95
   }
