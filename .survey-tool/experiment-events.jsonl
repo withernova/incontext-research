@@ -126,5 +126,237 @@
     "type": "result",
     "message": "completed: data rehydrate after server reset",
     "details": "LaSOT links=280; LASOTTesting_1shot_T2_local samples=140 missing=0; LASOT_hard_1shot_T2_n50 samples=50 missing=0; perturb variants regenerated under /home/featurize/data/e002_perturbed."
+  },
+  {
+    "time": "2026-07-20T17:04:13+08:00",
+    "experiment_id": "E-002",
+    "run_id": "",
+    "type": "sync_blocker",
+    "message": "E-003/E-004 最新 runs 已在本地 Markdown 归档，但当前 surveyctl 无 experiment-create 接口，暂不能按 canonical experiment/run IDs 写入工具 registry。",
+    "details": "待同步：E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20（run 末尾 integrity assertion traceback，须记 failed/incomplete）；E004-R-000-qwen3vl-head-hook-audit（implementation audit）；E004-R-001-synthetic-double-instance-behavior-n4（completed / behavioral gate failed）。surveyctl run create E-003 返回 not found: E-003；experiment 子命令仅 context/events/handoff。未直接编辑 .survey-tool。"
+  },
+  {
+    "time": "2026-07-20T17:15:05+08:00",
+    "experiment_id": "E-003",
+    "run_id": "",
+    "type": "experiment_created",
+    "message": "Agent 创建实验初稿 E-003 · IPLoc-ID identification-only F1 与 localization correctness 联合评测审计",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:15:06+08:00",
+    "experiment_id": "E-004",
+    "run_id": "",
+    "type": "experiment_created",
+    "message": "Agent 创建实验初稿 E-004 · Reference-conditioned causal token routing",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-010",
+    "type": "run_created",
+    "message": "Agent 创建 R-010 · E003-R-004b-joint-f1-iou-local-lasot-n140-t128",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-010",
+    "type": "run_update",
+    "message": "同步已完成的 Joint F1 主评测；保留非官方 split 与结论边界。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-011",
+    "type": "run_created",
+    "message": "Agent 创建 R-011 · E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-011",
+    "type": "run_update",
+    "message": "同步 R-005e，并按日志 traceback 登记为 failed 而非 completed。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-004",
+    "run_id": "R-012",
+    "type": "run_created",
+    "message": "Agent 创建 R-012 · E004-R-000-qwen3vl-head-hook-audit",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-004",
+    "run_id": "R-012",
+    "type": "run_update",
+    "message": "同步Qwen3-VL head-hook模块审计。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-004",
+    "run_id": "R-013",
+    "type": "run_created",
+    "message": "Agent 创建 R-013 · E004-R-001-synthetic-double-instance-behavior-n4",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:16:20+08:00",
+    "experiment_id": "E-004",
+    "run_id": "R-013",
+    "type": "run_update",
+    "message": "同步synthetic 2x2 sanity，并明确behavioral gate failed。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:11+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-014",
+    "type": "run_created",
+    "message": "Agent 创建 R-014 · E003-R-001-data-rehydrate-local-lasot-n140",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:11+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-014",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-001-data-rehydrate-local-lasot-n140。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:11+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-015",
+    "type": "run_created",
+    "message": "Agent 创建 R-015 · E003-R-002-joint-f1-n140-failed-env",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-015",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-002-joint-f1-n140-failed-env。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-016",
+    "type": "run_created",
+    "message": "Agent 创建 R-016 · E003-R-003-torch-compat-smoke-local-lasot-n1",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-016",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-003-torch-compat-smoke-local-lasot-n1。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-017",
+    "type": "run_created",
+    "message": "Agent 创建 R-017 · E003-R-004-joint-f1-iou-local-lasot-n140",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-017",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-004-joint-f1-iou-local-lasot-n140。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-018",
+    "type": "run_created",
+    "message": "Agent 创建 R-018 · E003-R-005-forced-candidate-verifier-local-lasot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-018",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-005-forced-candidate-verifier-local-lasot-n20。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-019",
+    "type": "run_created",
+    "message": "Agent 创建 R-019 · E003-R-005b-forced-candidate-verifier-local-lasot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-019",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-005b-forced-candidate-verifier-local-lasot-n20。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-020",
+    "type": "run_created",
+    "message": "Agent 创建 R-020 · E003-R-005c-forced-candidate-verifier-local-lasot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-020",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-005c-forced-candidate-verifier-local-lasot-n20。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-021",
+    "type": "run_created",
+    "message": "Agent 创建 R-021 · E003-R-005d-forced-candidate-verifier-local-lasot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:12+08:00",
+    "experiment_id": "E-003",
+    "run_id": "R-021",
+    "type": "run_update",
+    "message": "同步 canonical run E003-R-005d-forced-candidate-verifier-local-lasot-n20。",
+    "details": ""
+  },
+  {
+    "time": "2026-07-20T17:17:34+08:00",
+    "experiment_id": "E-003",
+    "run_id": "",
+    "type": "registry_sync",
+    "message": "E-003 已创建并同步 canonical run chain R-001 至 R-005e。",
+    "details": "工具自动ID映射：R-014→E003-R-001，R-015→E003-R-002，R-016→E003-R-003，R-017→E003-R-004，R-010→E003-R-004b，R-018→E003-R-005，R-019→E003-R-005b，R-020→E003-R-005c，R-021→E003-R-005d，R-011→E003-R-005e。canonical ID保存在variant/notes；failed/aborted/smoke/completed状态均保留。"
+  },
+  {
+    "time": "2026-07-20T17:17:34+08:00",
+    "experiment_id": "E-004",
+    "run_id": "",
+    "type": "registry_sync",
+    "message": "E-004 已创建并同步 module audit 与 synthetic behavioral gate。",
+    "details": "工具自动ID映射：R-012→E004-R-000-qwen3vl-head-hook-audit；R-013→E004-R-001-synthetic-double-instance-behavior-n4。R-001状态为completed_gate_failed，不进入科学head scan。"
   }
 ]

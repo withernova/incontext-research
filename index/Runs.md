@@ -19,3 +19,15 @@
 - [[R-007-qwen3vl-object-token-ablation-n10|object_footprint_token_zero_ablation_n10]] ← [[E-002]] · `completed`
 - [[R-008-persistent-orchestrator-and-summary|persistent_orchestrator_crossrun_summary]] ← [[E-002]] · `running`
 - [[R-009-data-rehydrate|data_rehydrate_after_server_reset]] ← [[E-002]] · `completed`
+- [[R-010|E003-R-004b-joint-f1-iou-local-lasot-n140-t128]] ← [[E-003]] · `completed`
+- [[R-011|E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20]] ← [[E-003]] · `failed`
+- [[R-012|E004-R-000-qwen3vl-head-hook-audit]] ← [[E-004]] · `completed`
+- [[R-013|E004-R-001-synthetic-double-instance-behavior-n4]] ← [[E-004]] · `completed_gate_failed`
+- [[R-014|E003-R-001-data-rehydrate-local-lasot-n140]] ← [[E-003]] · `completed`
+- [[R-015|E003-R-002-joint-f1-n140-failed-env]] ← [[E-003]] · `failed`
+- [[R-016|E003-R-003-torch-compat-smoke-local-lasot-n1]] ← [[E-003]] · `completed`
+- [[R-017|E003-R-004-joint-f1-iou-local-lasot-n140]] ← [[E-003]] · `aborted`
+- [[R-018|E003-R-005-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `failed`
+- [[R-019|E003-R-005b-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`
+- [[R-020|E003-R-005c-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`
+- [[R-021|E003-R-005d-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`

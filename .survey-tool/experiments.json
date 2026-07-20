@@ -105,5 +105,47 @@
     "workflow_stage": "planning",
     "implementation_scope": "先做数据协议复现与小样本 baseline；不立即训练大模型。",
     "evaluation": "positive mIoU + negative false-positive rate + balanced F1；优先区分 in-class 与 out-of-class negatives。"
+  },
+  {
+    "title": "IPLoc-ID identification-only F1 与 localization correctness 联合评测审计",
+    "workspace_id": "W-01",
+    "objective": "审计 identification-only F1 是否与定位正确性解耦；报告 Joint F1@IoU，并用 prefix-conditioned forced-candidate verifier probe 检验最终判断对 candidate region 的响应。",
+    "constraints": "使用本地 deterministic LaSOT POIL reconstruction，明确其非官方 split；forced assistant-prefix 存在 exposure shift；失败与中止 run 必须保留且不得作为科学结果。",
+    "source_ref": "personal2026",
+    "evidence_refs": [
+      "shell/06_experiments/E-003/result.md"
+    ],
+    "claim_refs": [],
+    "kind": "evaluation_audit",
+    "agent_level": "2",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "id": "E-003",
+    "status": "planned",
+    "brief_objective": "审计 identification-only F1 是否与定位正确性解耦；报告 Joint F1@IoU，并用 prefix-conditioned forced-candidate verifier probe 检验最终判断对 candidate region 的响应。",
+    "brief_constraints": "使用本地 deterministic LaSOT POIL reconstruction，明确其非官方 split；forced assistant-prefix 存在 exposure shift；失败与中止 run 必须保留且不得作为科学结果。",
+    "created": "2026-07-20T17:15:05",
+    "updated": "2026-07-20T17:15:05"
+  },
+  {
+    "title": "Reference-conditioned causal token routing",
+    "workspace_id": "W-01",
+    "objective": "识别对 Yes/No margin 有因果作用的 Qwen3-VL attention heads，并检验其是否随 reference identity 读取正确的 query-instance tokens，以及 localization 与 identification circuits 是否解耦。",
+    "constraints": "先通过 Reference A/B × Candidate A/B behavioral gate；按因果效应而非 attention map 选 heads；synthetic pilot 不外推自然同图双实例；覆盖 pooler/deepstack 路径限制。",
+    "source_ref": "Q-001",
+    "evidence_refs": [
+      "shell/01_questions/Q-001.md"
+    ],
+    "claim_refs": [],
+    "kind": "mechanism_causal_analysis",
+    "agent_level": "2",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "id": "E-004",
+    "status": "planned",
+    "brief_objective": "识别对 Yes/No margin 有因果作用的 Qwen3-VL attention heads，并检验其是否随 reference identity 读取正确的 query-instance tokens，以及 localization 与 identification circuits 是否解耦。",
+    "brief_constraints": "先通过 Reference A/B × Candidate A/B behavioral gate；按因果效应而非 attention map 选 heads；synthetic pilot 不外推自然同图双实例；覆盖 pooler/deepstack 路径限制。",
+    "created": "2026-07-20T17:15:06",
+    "updated": "2026-07-20T17:15:06"
   }
 ]

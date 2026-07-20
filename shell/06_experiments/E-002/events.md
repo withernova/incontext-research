@@ -78,3 +78,9 @@ output=/home/featurize/work/mechanism/explog/E-002/runs/R-008-persistent-orchest
 - message: completed: data rehydrate after server reset
 
 LaSOT links=280; LASOTTesting_1shot_T2_local samples=140 missing=0; LASOT_hard_1shot_T2_n50 samples=50 missing=0; perturb variants regenerated under /home/featurize/data/e002_perturbed.
+
+## 2026-07-20T17:04:13+08:00 · sync_blocker
+- run: -
+- message: E-003/E-004 最新 runs 已在本地 Markdown 归档，但当前 surveyctl 无 experiment-create 接口，暂不能按 canonical experiment/run IDs 写入工具 registry。
+
+待同步：E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20（run 末尾 integrity assertion traceback，须记 failed/incomplete）；E004-R-000-qwen3vl-head-hook-audit（implementation audit）；E004-R-001-synthetic-double-instance-behavior-n4（completed / behavioral gate failed）。surveyctl run create E-003 返回 not found: E-003；experiment 子命令仅 context/events/handoff。未直接编辑 .survey-tool。
