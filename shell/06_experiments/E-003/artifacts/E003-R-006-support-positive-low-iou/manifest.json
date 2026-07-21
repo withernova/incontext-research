@@ -1,0 +1,527 @@
+[
+  {
+    "sample": 15,
+    "element": "bottle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-015_bottle_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/bottle-12/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/bottle-12/img/00002400.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 22,
+    "element": "cattle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-022_cattle_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/cattle-2/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/cattle-2/img/00002461.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 23,
+    "element": "cattle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-023_cattle_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/cattle-7/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/cattle-7/img/00001780.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 25,
+    "element": "chameleon",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-025_chameleon_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/chameleon-6/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/chameleon-6/img/00001800.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 27,
+    "element": "coin",
+    "iou": 0.015221486799418926,
+    "decision": "Yes",
+    "file": "sample-027_coin_support-query_iou-0.015.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/coin-6/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/coin-6/img/00003120.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 33,
+    "element": "cup",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-033_cup_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/cup-4/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/cup-4/img/00002191.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 35,
+    "element": "deer",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-035_deer_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/deer-8/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/deer-8/img/00002911.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 39,
+    "element": "drone",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-039_drone_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/drone-7/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/drone-7/img/00002817.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 42,
+    "element": "elephant",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-042_elephant_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/elephant-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/elephant-1/img/00001889.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 43,
+    "element": "elephant",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-043_elephant_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/elephant-12/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/elephant-12/img/00001053.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 47,
+    "element": "fox",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-047_fox_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/fox-3/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/fox-3/img/00002163.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 52,
+    "element": "gecko",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-052_gecko_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/gecko-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/gecko-1/img/00002406.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 56,
+    "element": "goldfish",
+    "iou": 0.0723891332745552,
+    "decision": "Yes",
+    "file": "sample-056_goldfish_support-query_iou-0.072.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/goldfish-3/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/goldfish-3/img/00002375.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 57,
+    "element": "goldfish",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-057_goldfish_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/goldfish-7/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/goldfish-7/img/00008000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 61,
+    "element": "guitar",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-061_guitar_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/guitar-8/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/guitar-8/img/00002190.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 63,
+    "element": "hand",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-063_hand_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/hand-3/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/hand-3/img/00003210.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 65,
+    "element": "hat",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-065_hat_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/hat-2/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/hat-2/img/00001465.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 70,
+    "element": "horse",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-070_horse_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/horse-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/horse-1/img/00001313.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 73,
+    "element": "kangaroo",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-073_kangaroo_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/kangaroo-5/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/kangaroo-5/img/00003119.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 79,
+    "element": "licenseplate",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-079_licenseplate_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/licenseplate-12/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/licenseplate-12/img/00002667.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 81,
+    "element": "lion",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-081_lion_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/lion-5/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/lion-5/img/00002451.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 84,
+    "element": "microphone",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-084_microphone_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/microphone-2/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/microphone-2/img/00004017.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 86,
+    "element": "monkey",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-086_monkey_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/monkey-3/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/monkey-3/img/00001261.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 90,
+    "element": "mouse",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-090_mouse_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/mouse-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/mouse-1/img/00001547.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 93,
+    "element": "person",
+    "iou": 0.09093663096427917,
+    "decision": "Yes",
+    "file": "sample-093_person_support-query_iou-0.091.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/person-5/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/person-5/img/00002967.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 94,
+    "element": "pig",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-094_pig_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/pig-2/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/pig-2/img/00002671.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 104,
+    "element": "rubicCube",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-104_rubicCube_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/rubicCube-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/rubicCube-1/img/00001800.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 108,
+    "element": "shark",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-108_shark_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/shark-2/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/shark-2/img/00003455.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 109,
+    "element": "shark",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-109_shark_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/shark-3/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/shark-3/img/00001000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 111,
+    "element": "sheep",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-111_sheep_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/sheep-5/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/sheep-5/img/00001000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 121,
+    "element": "swing",
+    "iou": 0.022646257653832436,
+    "decision": "Yes",
+    "file": "sample-121_swing_support-query_iou-0.023.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/swing-14/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/swing-14/img/00002564.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 126,
+    "element": "train",
+    "iou": 0.02036656066775322,
+    "decision": "Yes",
+    "file": "sample-126_train_support-query_iou-0.020.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/train-1/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/train-1/img/00001150.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 127,
+    "element": "train",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-127_train_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/train-7/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/train-7/img/00001425.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 133,
+    "element": "umbrella",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-133_umbrella_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/umbrella-9/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/umbrella-9/img/00001615.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  },
+  {
+    "sample": 138,
+    "element": "zebra",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-138_zebra_support-query_iou-0.000.jpg",
+    "support_path": "/home/featurize/data/LaSOTTesting/zebra-10/img/00000001.jpg",
+    "query_path": "/home/featurize/data/LaSOTTesting/zebra-10/img/00002008.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "legend": {
+      "support_green": "support/reference target GT",
+      "query_green": "positive-query target GT",
+      "query_red": "natural model prediction"
+    }
+  }
+]

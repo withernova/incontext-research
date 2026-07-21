@@ -1,0 +1,100 @@
+[
+  {
+    "sample": 22,
+    "element": "cattle",
+    "wrong_instance_bbox": [
+      0.375,
+      118.0,
+      185.25,
+      267.0
+    ],
+    "reason": "natural prediction covers the left cattle while tracked target GT is the distinct right cattle",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[0.78125, 327.77777777777777, 385.9375, 741.6666666666666], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[0.78125, 327.77777777777777, 385.9375, 741.6666666666666], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 23,
+    "element": "cattle",
+    "wrong_instance_bbox": [
+      926.0,
+      303.0,
+      1280.0,
+      632.0
+    ],
+    "reason": "natural prediction covers the right cattle while tracked target GT is the distinct left cattle",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[723.4375, 420.83333333333337, 1000.0, 877.7777777777777], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[723.4375, 420.83333333333337, 1000.0, 877.7777777777777], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 42,
+    "element": "elephant",
+    "wrong_instance_bbox": [
+      266.0,
+      232.0,
+      364.0,
+      315.0
+    ],
+    "reason": "natural prediction covers the left elephant while tracked target GT is the distinct right elephant",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[207.8125, 322.22222222222223, 284.375, 437.5], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[207.8125, 322.22222222222223, 284.375, 437.5], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 43,
+    "element": "elephant",
+    "wrong_instance_bbox": [
+      787.0,
+      195.0,
+      1245.0,
+      520.0
+    ],
+    "reason": "natural prediction covers the right elephant while tracked target GT is the distinct center-left elephant",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[614.84375, 270.8333333333333, 972.65625, 722.2222222222223], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[614.84375, 270.8333333333333, 972.65625, 722.2222222222223], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 93,
+    "element": "person",
+    "wrong_instance_bbox": [
+      699.0,
+      179.0,
+      888.0,
+      544.0
+    ],
+    "reason": "natural prediction covers the adjacent right dancer while tracked target GT is the distinct center dancer",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[546.09375, 248.61111111111111, 693.75, 755.5555555555555], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[546.09375, 248.61111111111111, 693.75, 755.5555555555555], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 94,
+    "element": "pig",
+    "wrong_instance_bbox": [
+      861.0,
+      192.0,
+      1008.0,
+      582.0
+    ],
+    "reason": "natural prediction covers the right pig while tracked target GT is the distinct left pig",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[672.65625, 266.6666666666667, 787.5, 808.3333333333334], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[672.65625, 266.6666666666667, 787.5, 808.3333333333334], Do all these boxes have the same object? "
+  },
+  {
+    "sample": 138,
+    "element": "zebra",
+    "wrong_instance_bbox": [
+      405.0,
+      371.0,
+      646.0,
+      546.0
+    ],
+    "reason": "natural prediction covers the center-left zebra while tracked target GT is the distinct right zebra",
+    "reviewer": "terminal_pi_single_reviewer_visual_audit_2026-07-21",
+    "natural_wrong_exact_prefix_no_space": "[316.40625, 515.2777777777778, 504.6875, 758.3333333333334], Do all these boxes have the same object?",
+    "natural_wrong_exact_prefix_with_space": "[316.40625, 515.2777777777778, 504.6875, 758.3333333333334], Do all these boxes have the same object? "
+  }
+]

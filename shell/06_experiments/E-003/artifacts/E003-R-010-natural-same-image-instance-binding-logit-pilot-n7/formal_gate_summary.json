@@ -1,0 +1,47 @@
+{
+  "status": "completed_gate_failed",
+  "run_id": "E003-R-010-natural-same-image-instance-binding-logit-pilot-n7",
+  "integrity_gate_passed": true,
+  "scientific_replay_gate_passed": false,
+  "integrity": {
+    "records": 21,
+    "samples": 7,
+    "modes": {
+      "target_gt": 7,
+      "wrong_instance_natural": 7,
+      "background_matched_size": 7
+    },
+    "finite_logits": true,
+    "human_wrong_instance_verified": 7,
+    "visualizations": 7,
+    "errors": 0
+  },
+  "replay_gate": {
+    "definition": "exact natural R-004b wrong-instance prefix through ? must recover original natural Yes preference before candidate counterfactual interpretation",
+    "expected_yes": 7,
+    "observed_yes": 1,
+    "observed_no": 6,
+    "pass": false
+  },
+  "observed_but_noninterpretable": {
+    "target_yes": 1,
+    "wrong_yes": 1,
+    "background_yes": 0,
+    "binding_success": 1,
+    "n": 7,
+    "mean_target_minus_wrong_margin": -0.7034040178571429,
+    "bootstrap95": [
+      -2.6439732142857144,
+      1.1372767857142858
+    ]
+  },
+  "conclusion": "No candidate-binding conclusion. Exact-prefix replay recovered Yes on only 1/7 cases although R-004b natural outputs were Yes on 7/7. Counterfactual target/wrong margins are not scientifically interpretable until model/environment/context replay is reconciled.",
+  "likely_audit_targets": [
+    "R-004b versus current transformers/model loading environment",
+    "chat-template/message equality at token and pixel-value level",
+    "generation-time decision tokenization versus post-hoc teacher-forced scoring",
+    "LoRA/base snapshot identity and hashes"
+  ],
+  "tokenization_correction": "Prefix must end at ? and score leading-space tokens: Yes=7414, No=2308. R-005e used 9454/2753 after a literal trailing-space prefix and is invalid independently of its existing assertion failure.",
+  "limitations": "n7 selected pilot; single reviewer; forced-prefix exposure shift; local split; replay gate failure dominates all metrics"
+}

@@ -1,0 +1,26 @@
+LASOT_1shot_T2_classwise-split_test.json {"records": 140, "negative_edges": 140, "distinct_edges": 140, "negative_target_is_also_reference_identity": 25, "reciprocal_identity_pairs": 0}
+LASOT_1shot_T2_classwise-split_train.json {"records": 700, "negative_edges": 700, "distinct_edges": 700, "negative_target_is_also_reference_identity": 700, "reciprocal_identity_pairs": 28}
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-14', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-5')
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-10', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-7')
+LASOT_2shot_T2_classwise-split_test.json {"records": 140, "negative_edges": 140, "distinct_edges": 140, "negative_target_is_also_reference_identity": 25, "reciprocal_identity_pairs": 0}
+LASOT_2shot_T2_classwise-split_train.json {"records": 700, "negative_edges": 700, "distinct_edges": 700, "negative_target_is_also_reference_identity": 700, "reciprocal_identity_pairs": 28}
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-14', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-5')
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-10', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-7')
+LASOT_4shot_T2_classwise-split_test.json {"records": 140, "negative_edges": 140, "distinct_edges": 140, "negative_target_is_also_reference_identity": 25, "reciprocal_identity_pairs": 0}
+LASOT_4shot_T2_classwise-split_train.json {"records": 700, "negative_edges": 700, "distinct_edges": 700, "negative_target_is_also_reference_identity": 700, "reciprocal_identity_pairs": 28}
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-14', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-5')
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-10', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-7')
+LASOT_8shot_T2_classwise-split_test.json {"records": 140, "negative_edges": 140, "distinct_edges": 140, "negative_target_is_also_reference_identity": 25, "reciprocal_identity_pairs": 0}
+LASOT_8shot_T2_classwise-split_train.json {"records": 700, "negative_edges": 700, "distinct_edges": 700, "negative_target_is_also_reference_identity": 700, "reciprocal_identity_pairs": 28}
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-14', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/horse/horse-5')
+ RECIP ('/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-10', '/ssd1/dataset/ICL_tracking_minimized/video/LASOT/kangaroo/kangaroo-7')
+VastTrack_test_1shot_T2.json {"records": 391, "negative_edges": 391, "distinct_edges": 391, "negative_target_is_also_reference_identity": 0, "reciprocal_identity_pairs": 0}
+VastTrack_test_2shot_T2.json {"records": 391, "negative_edges": 391, "distinct_edges": 391, "negative_target_is_also_reference_identity": 0, "reciprocal_identity_pairs": 0}
+VastTrack_test_4shot_T2.json {"records": 391, "negative_edges": 391, "distinct_edges": 391, "negative_target_is_also_reference_identity": 0, "reciprocal_identity_pairs": 0}
+VastTrack_test_8shot_T2.json {"records": 391, "negative_edges": 391, "distinct_edges": 391, "negative_target_is_also_reference_identity": 0, "reciprocal_identity_pairs": 0}
+got10k-val_1shot_T2.json {"records": 180, "negative_edges": 180, "distinct_edges": 180, "negative_target_is_also_reference_identity": 180, "reciprocal_identity_pairs": 0}
+got10k-val_2shot_T2.json {"records": 180, "negative_edges": 180, "distinct_edges": 180, "negative_target_is_also_reference_identity": 180, "reciprocal_identity_pairs": 0}
+got10k-val_4shot_T2.json {"records": 180, "negative_edges": 180, "distinct_edges": 180, "negative_target_is_also_reference_identity": 180, "reciprocal_identity_pairs": 0}
+got10k-val_8shot_T2.json {"records": 180, "negative_edges": 180, "distinct_edges": 180, "negative_target_is_also_reference_identity": 180, "reciprocal_identity_pairs": 0}
+pdm_1shot_T2.json {"records": 745, "negative_edges": 745, "distinct_edges": 1, "negative_target_is_also_reference_identity": 745, "reciprocal_identity_pairs": 0}
+pdm_2shot_T2.json {"records": 745, "negative_edges": 745, "distinct_edges": 1, "negative_target_is_also_reference_identity": 745, "reciprocal_identity_pairs": 0}

@@ -1,0 +1,10 @@
+{
+  "files": [
+    "joint_f1_iou_threshold_curve.png",
+    "joint_f1_iou_threshold_curve.pdf",
+    "positive_joint_failure_curve.png",
+    "positive_iou_ecdf.png"
+  ],
+  "source": "E003-R-004b outputs",
+  "offline_no_model_rerun": true
+}

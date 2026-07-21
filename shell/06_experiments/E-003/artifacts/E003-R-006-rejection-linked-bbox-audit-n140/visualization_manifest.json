@@ -1,0 +1,247 @@
+[
+  {
+    "sample": 15,
+    "file": "sample-015_bottle_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 22,
+    "file": "sample-022_cattle_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.981637716293335,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 23,
+    "file": "sample-023_cattle_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.8359753489494324,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 25,
+    "file": "sample-025_chameleon_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.6625523567199707,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 27,
+    "file": "sample-027_coin_posTP_iou-0.015_neg-TN.png",
+    "positive_iou": 0.015221486799418926,
+    "negative_iou": 0.9279237389564514,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 33,
+    "file": "sample-033_cup_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 35,
+    "file": "sample-035_deer_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.4621848165988922,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 39,
+    "file": "sample-039_drone_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.935574471950531,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 42,
+    "file": "sample-042_elephant_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 43,
+    "file": "sample-043_elephant_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 47,
+    "file": "sample-047_fox_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.9012340307235718,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 52,
+    "file": "sample-052_gecko_posTP_iou-0.000_neg-FP.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.48608189821243286,
+    "negative_confusion": "FP"
+  },
+  {
+    "sample": 56,
+    "file": "sample-056_goldfish_posTP_iou-0.072_neg-TN.png",
+    "positive_iou": 0.0723891332745552,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 57,
+    "file": "sample-057_goldfish_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 61,
+    "file": "sample-061_guitar_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 63,
+    "file": "sample-063_hand_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 65,
+    "file": "sample-065_hat_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.31285643577575684,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 70,
+    "file": "sample-070_horse_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.9428125619888306,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 73,
+    "file": "sample-073_kangaroo_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.8998628258705139,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 79,
+    "file": "sample-079_licenseplate_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.8943637609481812,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 81,
+    "file": "sample-081_lion_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.7633776664733887,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 84,
+    "file": "sample-084_microphone_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.28554466366767883,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 86,
+    "file": "sample-086_monkey_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.13166241347789764,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 90,
+    "file": "sample-090_mouse_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.7561438679695129,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 93,
+    "file": "sample-093_person_posTP_iou-0.091_neg-TN.png",
+    "positive_iou": 0.09093663096427917,
+    "negative_iou": 0.9203334450721741,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 94,
+    "file": "sample-094_pig_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.11028815805912018,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 104,
+    "file": "sample-104_rubicCube_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.003927349112927914,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 108,
+    "file": "sample-108_shark_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.3482411205768585,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 109,
+    "file": "sample-109_shark_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.5865511298179626,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 111,
+    "file": "sample-111_sheep_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 121,
+    "file": "sample-121_swing_posTP_iou-0.023_neg-TN.png",
+    "positive_iou": 0.022646257653832436,
+    "negative_iou": 0.4098072946071625,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 126,
+    "file": "sample-126_train_posTP_iou-0.020_neg-TN.png",
+    "positive_iou": 0.02036656066775322,
+    "negative_iou": 0.0,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 127,
+    "file": "sample-127_train_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.6244584918022156,
+    "negative_confusion": "TN"
+  },
+  {
+    "sample": 133,
+    "file": "sample-133_umbrella_posTP_iou-0.000_neg-FP.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.9422322511672974,
+    "negative_confusion": "FP"
+  },
+  {
+    "sample": 138,
+    "file": "sample-138_zebra_posTP_iou-0.000_neg-TN.png",
+    "positive_iou": 0.0,
+    "negative_iou": 0.7231035828590393,
+    "negative_confusion": "TN"
+  }
+]

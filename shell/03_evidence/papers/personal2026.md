@@ -40,9 +40,12 @@
 
 #### 反例与失效边界
 - 如果 negative query 多为 out-of-class，rejection 可能退化为类别识别；因此 in-class negative（LaSOT/VastTrack）更关键。
-- 当前设置每个 query 只关注单个 object，不处理多目标同时定位与识别。论文也在 limitation 中承认。见 [[personal2026]] §5。
+- 公开manifest中的negative与positive是不同query image：LaSOT/VastTrack来自不同sequence/sub-class，PDM/GOT-10K来自不同class。因而它没有显式构造“同一positive图像包含target和同类distractor，但candidate落到distractor”的counterfactual。
+- 当前设置每个 query 只关注单个 object，不处理多目标同时定位与识别。论文也在 limitation 中承认。见 [[personal2026]] §3.5.1–§3.5.3, §5。
+- 需要区分作者承认的multi-target limitation与更窄的single-target multi-instance binding问题：后者仍只要求输出一个target，但必须在同图多个同类实例间绑定正确identity；原文没有直接分析`Yes + wrong-instance bbox`或candidate-answer consistency。
 
 ### ⑥ 作为审稿人，最关键的质疑是什么？
+- 形式上answer建模为`p(A|x,B,Q)`并被描述为验证candidate B，但ground-truth `A*(x)`由query是否包含reference instance的`δ(x)`决定。公开数据没有显式训练/评估“图像含target A、candidate却指向同类B、答案应No”的冲突cell。因此identification F1可能主要刻画query-level acceptance/rejection，而不能完整刻画candidate-bound instance discrimination。见 [[personal2026]] §3.1.1, §3.3.1–§3.3.2, §3.5。
 - 官方训练代码和额外模型是否完全开放；论文称 inference code、dataset construction scripts、minimal trained models 在 GitHub，training code/additional models upon acceptance。见 [[personal2026]] Data and code availability。
 - reproduced IPLoc 与原始 IPLoc 不完全一致，论文也承认原 IPLoc 完整训练配置未公开。见 [[personal2026]] §4.1.1。
 - POIL 是否过度依赖 video dataset 的 sequence/subclass 结构。

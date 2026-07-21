@@ -4,25 +4,23 @@
     "projectDir": "/home/featurize/work/mechanism"
   },
   "experiment": {
-    "tmuxSession": "e003_r004b",
-    "logFile": "explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/logs/run.log",
-    "description": "E-003 R-004b Joint F1@IoU main diagnostic n=140, max_new_tokens=128"
+    "tmuxSession": "e004_lama_env",
+    "logFile": "explog/E-004/runs/E004-R-013b-lama-runtime-environment-no-deps/logs/run.log",
+    "description": "E-004 R-013b recover LaMa runtime using no-deps packages while preserving torch2.2.2/torchvision0.17.2/numpy1.26.4"
   },
   "monitoring": {
     "errorPatterns": [
+      "ERROR:",
       "Traceback",
-      "processor(...) failed",
-      "CUDA out of memory",
-      "INTEGRITY_FAIL",
-      "Killed",
-      "ZeroDivisionError"
+      "ModuleNotFoundError",
+      "ImportError",
+      "AssertionError",
+      "No space left",
+      "Killed"
     ],
     "progressPatterns": [
-      "Loading checkpoint shards",
-      "data index:",
-      "data 0/140 done",
-      "data 139/140 done",
-      "JOINT_SUMMARY",
+      "Successfully installed",
+      "[IMPORT_GATE]",
       "[DONE]"
     ],
     "gpuWarningPercent": 95

@@ -1,0 +1,58 @@
+{
+  "status": "completed",
+  "run_id": "E003-R-004b-joint-f1-iou-local-lasot-n140-t128",
+  "source_outputs": "/home/featurize/work/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json",
+  "integrity": {
+    "num_records": 280,
+    "positive": 140,
+    "negative": 140
+  },
+  "identification": {
+    "TP": 133,
+    "FN": 7,
+    "FP": 4,
+    "TN": 136,
+    "F1": 0.9602888086642599
+  },
+  "joint_by_iou": {
+    "0.3": {
+      "TP": 97,
+      "TN": 136,
+      "FP": 4,
+      "FN": 43,
+      "F1": 0.8049792531120332,
+      "positive_joint_recall": 0.6928571428571428
+    },
+    "0.5": {
+      "TP": 89,
+      "TN": 136,
+      "FP": 4,
+      "FN": 51,
+      "F1": 0.7639484978540773,
+      "positive_joint_recall": 0.6357142857142857
+    },
+    "0.7": {
+      "TP": 76,
+      "TN": 136,
+      "FP": 4,
+      "FN": 64,
+      "F1": 0.6909090909090909,
+      "positive_joint_recall": 0.5428571428571428
+    }
+  },
+  "positive_localization": {
+    "mean_iou_all": 0.5744756054731884,
+    "median_iou_all": 0.7413747310638428,
+    "identification_tp_n": 133,
+    "mean_iou_given_identification_tp": 0.5879642336622328,
+    "median_iou_given_identification_tp": 0.7440859079360962,
+    "iou_bins_given_identification_tp": {
+      "[0,.1)": 35,
+      "[.1,.3)": 1,
+      "[.3,.5)": 8,
+      "[.5,.7)": 13,
+      "[.7,1]": 76
+    }
+  },
+  "scope": "Local deterministic LaSOT reconstruction, not official IPLoc-ID split. Metric coupling evidence only; no shortcut mechanism conclusion."
+}

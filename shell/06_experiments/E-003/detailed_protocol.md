@@ -12,7 +12,7 @@
 
 ---
 
-## E003-R-005b · Prefix-conditioned forced-candidate pilot（当前优先运行）
+## 历史协议：E003-R-005b · Prefix-conditioned forced-candidate pilot（已废弃，不再作为当前优先实验）
 
 ### 研究问题
 
@@ -25,14 +25,22 @@
 - 每个 target 6 modes，完整性门槛为240 records；
 - 模型与 LoRA 同 E003-R-004b。
 
-### Candidate modes
+### Candidate modes（历史记录，不得用于下一主实验）
 
-1. `generated_candidate`：E003-R-004b 自然生成框；
-2. `annotated_target` / `annotated_distractor`：该 query annotation；
-3. `shifted_annotated`：与 annotation IoU<0.1 的等尺寸偏移框；
-4. `background_matched_size`：四角中与 annotation IoU 最低的等尺寸框；
-5. `contracted_annotated_50pct`：中心不变，宽高各缩为50%；
-6. `expanded_annotated_150pct`：中心不变，宽高各放大为150%，并裁剪到图像。
+旧设计包含`generated/annotated/shifted/background/contracted/expanded`等区域敏感性条件。经设计复核，这些条件不能替代reference identity switch，尤其`background_matched_size`对核心双向identity-binding问题无必要，已从后续科学实验完全删除。历史failed/aborted run只作审计保留，不得沿用为主设计。
+
+### 当前唯一主设计
+
+获得真实双实例、双reference数据后，仅运行：
+
+```text
+reference A + query(A,B) + candidate A → Yes
+reference A + query(A,B) + candidate B → No
+reference B + query(A,B) + candidate A → No
+reference B + query(A,B) + candidate B → Yes
+```
+
+固定同一query pixels和candidate A/B，只切换reference identity。主指标为all-four-correct、双向binding gap和固定candidate下的reference-switch flip。不加入背景candidate。
 
 ### 实现
 
@@ -65,19 +73,20 @@
 
 ---
 
-## E003-R-006 · Low-IoU identification-TP audit（R-005b 后立即执行）
+## E003-R-006 · Rejection-linked low-IoU bbox audit（已完成）
 
 ### 输入集合
 
-E003-R-004b 中：
+E003-R-004b 全部140个positive/negative pairs，同时预注册分层：
 
 ```text
-role=positive-image
-pn_label=positive
-full_iou_for_all_targets < 0.1
+all positive
+identification TP
+identification TP && IoU<0.5
+identification TP && IoU<0.1
 ```
 
-预期35例。完整性检查必须重新由 outputs 计算，不硬编码35作为成功结果。
+低IoU数量由outputs重算，不硬编码。最终为44与35例。
 
 ### 自动检查
 
@@ -103,14 +112,41 @@ coordinate_or_parser_suspect / annotation_suspect / uncertain
 
 自动规则不能冒充人工语义判断。
 
+### 配对拒绝框关联
+
+每个sample登记`positive GT/prediction + paired negative annotation/prediction`。各框独立映射至本图的`[0,1]^2`单位画布，主距离是normalized xyxy corner RMSE；对照是同类别另一sample的negative box，并做10,000次类内permutation与sample bootstrap。
+
+结果未支持“paired rejected bbox更近”：
+
+```text
+IoU<0.1 TP, n=35
+posPred→paired negPred RMSE=0.2880
+posPred→same-class control=0.2527
+delta=+0.0353, paired-closer=0.400, p_lower=0.9180
+
+posPred→paired negGT RMSE=0.2924
+posPred→same-class control=0.2772
+delta=+0.0152, paired-closer=0.429, p_lower=0.6637
+```
+
+辅助发现：83/140 negative generated candidates达到自身distractor annotation IoU≥0.5，其中82个最终回答No。这表明模型经常可以定位同类distractor后执行identity rejection；与sequential design相容，不能写成论文缺陷。
+
 ### 输出
 
 ```text
-analysis/low_iou_audit.json
-analysis/low_iou_audit.md
+analysis/summary.json
+analysis/summary.md
+results/per_sample_geometry.json
 visualizations/*.png
 visualizations/manifest.json
+manifests/provenance.json
 ```
+
+解释补充：`runs/E003-R-006-rejection-linked-bbox-audit-n140.interpretation.md`。
+
+### 下一审计
+
+contact sheets提示部分positive错误框可能落在**同一positive图像内的另一个同类实例**。这是非正式观察。下一run应补多实例annotation/人工taxonomy，直接计算target GT与non-target same-class boxes，而不是把跨图像归一化geometry误当成identity overlap。
 
 ---
 

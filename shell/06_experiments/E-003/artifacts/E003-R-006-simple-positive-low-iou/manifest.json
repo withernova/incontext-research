@@ -1,0 +1,352 @@
+[
+  {
+    "sample": 15,
+    "element": "bottle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-015_bottle_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 22,
+    "element": "cattle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-022_cattle_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 23,
+    "element": "cattle",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-023_cattle_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 25,
+    "element": "chameleon",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-025_chameleon_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 27,
+    "element": "coin",
+    "iou": 0.015221486799418926,
+    "decision": "Yes",
+    "file": "sample-027_coin_yes_iou-0.015.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 33,
+    "element": "cup",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-033_cup_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 35,
+    "element": "deer",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-035_deer_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 39,
+    "element": "drone",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-039_drone_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 42,
+    "element": "elephant",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-042_elephant_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 43,
+    "element": "elephant",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-043_elephant_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 47,
+    "element": "fox",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-047_fox_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 52,
+    "element": "gecko",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-052_gecko_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 56,
+    "element": "goldfish",
+    "iou": 0.0723891332745552,
+    "decision": "Yes",
+    "file": "sample-056_goldfish_yes_iou-0.072.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 57,
+    "element": "goldfish",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-057_goldfish_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 61,
+    "element": "guitar",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-061_guitar_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 63,
+    "element": "hand",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-063_hand_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 65,
+    "element": "hat",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-065_hat_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 70,
+    "element": "horse",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-070_horse_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 73,
+    "element": "kangaroo",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-073_kangaroo_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 79,
+    "element": "licenseplate",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-079_licenseplate_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 81,
+    "element": "lion",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-081_lion_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 84,
+    "element": "microphone",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-084_microphone_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 86,
+    "element": "monkey",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-086_monkey_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 90,
+    "element": "mouse",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-090_mouse_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 93,
+    "element": "person",
+    "iou": 0.09093663096427917,
+    "decision": "Yes",
+    "file": "sample-093_person_yes_iou-0.091.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 94,
+    "element": "pig",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-094_pig_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 104,
+    "element": "rubicCube",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-104_rubicCube_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 108,
+    "element": "shark",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-108_shark_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 109,
+    "element": "shark",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-109_shark_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 111,
+    "element": "sheep",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-111_sheep_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 121,
+    "element": "swing",
+    "iou": 0.022646257653832436,
+    "decision": "Yes",
+    "file": "sample-121_swing_yes_iou-0.023.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 126,
+    "element": "train",
+    "iou": 0.02036656066775322,
+    "decision": "Yes",
+    "file": "sample-126_train_yes_iou-0.020.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 127,
+    "element": "train",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-127_train_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 133,
+    "element": "umbrella",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-133_umbrella_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": false,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  },
+  {
+    "sample": 138,
+    "element": "zebra",
+    "iou": 0.0,
+    "decision": "Yes",
+    "file": "sample-138_zebra_yes_iou-0.000.jpg",
+    "human_screened_possible_wrong_instance": true,
+    "green": "positive query target GT",
+    "red": "natural model prediction"
+  }
+]

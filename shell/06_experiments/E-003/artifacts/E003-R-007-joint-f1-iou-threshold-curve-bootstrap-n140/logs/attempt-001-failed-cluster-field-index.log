@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/featurize/work/mechanism/explog/E-003/runs/E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140/config/analyze.py", line 77, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/home/featurize/work/mechanism/explog/E-003/runs/E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140/config/analyze.py", line 26, in main
+    pos_yes=np.array([by[i]['confusion']=='TP' for i in ids],bool)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/featurize/work/mechanism/explog/E-003/runs/E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140/config/analyze.py", line 26, in <listcomp>
+    pos_yes=np.array([by[i]['confusion']=='TP' for i in ids],bool)
+                      ~~~~~^^^^^^^^^^^^^
+KeyError: 'confusion'
+EXIT:0
