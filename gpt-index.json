@@ -1,7 +1,7 @@
 {
   "format": "survey-gpt-index",
   "version": 1,
-  "generatedAt": "2026-07-21T17:54:31",
+  "generatedAt": "2026-07-28T13:52:27",
   "project": {
     "id": "incontext",
     "name": "incontext"
@@ -67,6 +67,20 @@
       "title": "Teaching VLMs to Localize Specific Objects from In-context Examples",
       "paperPath": "papers/Teaching VLMs to Localize Specific Objects from In-context Examples_2024/hybrid_auto/Teaching VLMs to Localize Specific Objects from In-context Examples_2024.md",
       "sevenPath": "shell/03_evidence/papers/teaching2024.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "yourlarg2025": {
+      "title": "Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding",
+      "paperPath": "papers/Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding_2025/hybrid_auto/Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding_2025.md",
+      "sevenPath": "shell/03_evidence/papers/yourlarg2025.md",
       "questions": {
         "q1": "① 解决了什么问题？",
         "q2": "② 方法具体怎么做？",

@@ -4,7 +4,7 @@
 
 ## 概况
 - state: E002_PLANNING · iteration: 1
-- 论文: 6 · 声明: 1 · Idea: 3
+- 论文: 7 · 声明: 1 · Idea: 3
 - 目标会议/领域: 见 INTAKE.md / AGENTS.md
 
 ## 论文
@@ -13,6 +13,7 @@
 - [[mechanis2026]] Mechanisms of Object Localization in Vision-Language Models (2026)
 - [[personal2026]] Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models (2026)
 - [[teaching2024]] Teaching VLMs to Localize Specific Objects from In-context Examples (2024)
+- [[yourlarg2025]] Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding (2025)
 - [[prompthu2026]] PromptHub: Enhancing Multi-Prompt Visual In-Context Learning with Locality-Aware Fusion, Concentration and Alignment (2026-03-19 2026-03-19)
 
 ## 目录结构

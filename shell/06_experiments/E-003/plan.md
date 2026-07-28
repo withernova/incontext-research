@@ -34,6 +34,7 @@ H2：如果 IPLoc-ID 的 identification component 真正在验证候选区域，
 - E003-R-004：Joint F1 n=140，因 `max_new_tokens=80` 截断 Yes/No，于约9/140提前中止。
 - E003-R-004b：改为 `max_new_tokens=128` 的 Joint F1 n=140 main diagnostic，已完成。
 - E003-R-005：forced-candidate n=20 pilot；通过后决定是否扩展。
+- E-005 attention follow-up：复用 R-004b 自然输出，分析 identification=Yes 但 localization 失败的 attention signature。主集合为 IoU<0.1 的35个 accepted positives；优先子集为单人初筛 possible-wrong-instance IDs=`22,23,42,43,93,94,138`，始终标记 `screening_only_not_confirmed`。具体冻结heads、exact natural replay gate、matched-correct controls和可视化协议见 `../E-005/plan.md`。该分析不改变 E-003 的 joint-metric 结论，也不得把 attention 图当作 confirmed wrong-instance 或因果解释。
 
 ## 成功/证伪标准
 - H1：比较原始 F1 与各 Joint F1，不预设必须下降多少；同时报告误差构成。若 identification TP 几乎全部满足各 IoU threshold，则“实质高估”假设被削弱。

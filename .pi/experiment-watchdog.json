@@ -4,24 +4,26 @@
     "projectDir": "/home/featurize/work/mechanism"
   },
   "experiment": {
-    "tmuxSession": "e004_lama_env",
-    "logFile": "explog/E-004/runs/E004-R-013b-lama-runtime-environment-no-deps/logs/run.log",
-    "description": "E-004 R-013b recover LaMa runtime using no-deps packages while preserving torch2.2.2/torchvision0.17.2/numpy1.26.4"
+    "tmuxSession": "e005_binding_workflow",
+    "logFile": "explog/E-005/e005_binding_workflow.log",
+    "description": "串行自动工作流：审计R-022d 69/70 replay并物化token coverage；执行E005-R-023同forward reference grounding vs natural-bbox Q→R四状态频率与fractional-token IoU curves；最后检查70 records/figures、finite、summary/manifest并写completed gate。"
   },
   "monitoring": {
     "errorPatterns": [
-      "ERROR:",
       "Traceback",
-      "ModuleNotFoundError",
-      "ImportError",
+      "CUDA out of memory",
+      "FileNotFoundError",
+      "ValueError",
       "AssertionError",
-      "No space left",
-      "Killed"
+      "Input/output error",
+      "FAILED"
     ],
     "progressPatterns": [
-      "Successfully installed",
-      "[IMPORT_GATE]",
-      "[DONE]"
+      "[COVERAGE]",
+      "[LOAD]",
+      "[BIND]",
+      "[SUMMARY]",
+      "[WORKFLOW_DONE]"
     ],
     "gpuWarningPercent": 95
   }

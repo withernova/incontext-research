@@ -1,8 +1,11 @@
 {
   "triage": "deep",
-  "github_repo": "",
-  "github_status": "unscanned",
-  "clone_dir": "",
+  "github_status": "scanned",
   "claims": [],
+  "github_repo": "github.com/t9s9/vlm-loc-mechanisms",
+  "github_signals": [
+    "open-source chatbot impressing gpt-4 with 90%\\* chatgpt quality, 2023",
+    "open-source multimodal models in versatility, reasoning, and efficiency"
+  ],
   "seven_meta": {}
 }

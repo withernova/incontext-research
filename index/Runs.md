@@ -40,4 +40,44 @@
 - [[E003-R-006-rejection-linked-bbox-audit-n140|E003-R-006-rejection-linked-bbox-audit-n140]] ← [[E-003]] · `completed`
 - [[E003-R-010-natural-same-image-instance-binding-logit-pilot-n7|E003-R-010-natural-same-image-instance-binding-logit-pilot-n7]] ← [[E-003]] · `completed_gate_failed`
 - [[E003-R-011-self-replayed-same-image-binding-logit-pilot-n7|E003-R-011-self-replayed-same-image-binding-logit-pilot-n7]] ← [[E-003]] · `aborted`
-- [[E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140|E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140]] ← [[E-003]] · `running`
+- [[E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140|E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140]] ← [[E-003]] · `completed`
+- [[E005-R-000-repo-original-qwen-adapter-unit-gate|repo-original Qwen适配单元门禁]] ← [[E-005]] · `completed_passed`
+- [[E005-R-001-qwen3vl-model-recovery-localdisk|Qwen3-VL本地盘模型恢复]] ← [[E-005]] · `completed_passed`
+- [[E005-R-002-qwen3vl-iplocid-single-sample-attention-smoke|Qwen3-VL/IPLoc-ID单样本真实attention smoke]] ← [[E-005]] · `failed_preflight`
+- [[E005-R-002b-qwen3vl-self-contained-attention-smoke|自包含synthetic-reference真实attention恢复smoke]] ← [[E-005]] · `failed_preflight`
+- [[E005-R-002c-qwen3vl-self-contained-attention-smoke-fixed|自包含真实attention smoke参数修复]] ← [[E-005]] · `completed_passed`
+- [[E005-R-003-refcoco-train-data-acquisition-split-n1220|RefCOCO train数据获取与固定分区]] ← [[E-005]] · `aborted_network_protocol`
+- [[E005-R-003b-refcoco-train-data-acquisition-http-n1220|RefCOCO train数据获取HTTP恢复]] ← [[E-005]] · `aborted_by_user_scope_change`
+- [[E005-R-003c-lasot-local-manifest-rehydrate-n140|自有LaSOT/IPLoc-ID任务数据恢复]] ← [[E-005]] · `completed_passed`
+- [[E005-R-004-lasot-iplocid-attention-pilot-n10|自有LaSOT/IPLoc-ID正负样本attention pilot n10]] ← [[E-005]] · `completed_passed`
+- [[E005-R-005-lasot-iplocid-attention-discovery-n100|自有LaSOT/IPLoc-ID attention discovery n100]] ← [[E-005]] · `completed_passed`
+- [[E005-R-006-lasot-fixed-head-heldout-eval-n40|固定discovery heads的LaSOT held-out grounding eval n40]] ← [[E-005]] · `completed_passed`
+- [[E005-R-007-positive-query-role-specific-selection-n80|R-006后post-hoc positive-query role-specific selection]] ← [[E-005]] · `failed_schema_key`
+- [[E005-R-007b-positive-query-role-specific-selection-n80|positive-query role-specific selection schema recovery]] ← [[E-005]] · `completed_passed`
+- [[E005-R-008-role-specific-internal-validation-n20|post-hoc role-specific internal validation n20]] ← [[E-005]] · `completed_passed`
+- [[E005-R-009-prompt-image-token-attention-budget-n20|prompt图像token多query attention-budget audit n20]] ← [[E-005]] · `aborted_by_user_protocol_reorder`
+- [[E005-R-010-frozen-head-gt-concentration-viz-audit-n40|冻结论文方法heads的GT concentration与可视化审计]] ← [[E-005]] · `completed_failed_quality_gate`
+- [[E005-R-010b-turbo-visualization-and-query-token-audit-n10|R-010可视化配色修正与query-token审计]] ← [[E-005]] · `completed_passed`
+- [[E005-R-011-coordinate-prediction-query-head-recovery-n80-20|teacher-forced coordinate-prediction query head recovery n80+20]] ← [[E-005]] · `failed_alignment_gate`
+- [[E005-R-011b-coordinate-prediction-query-head-recovery-n80-20|teacher-forced coordinate-prediction query recovery（唯一子序列对齐修复）]] ← [[E-005]] · `failed_metadata_index`
+- [[E005-R-011c-coordinate-prediction-query-head-recovery-n80-20|coordinate-prediction query recovery（metadata修复）]] ← [[E-005]] · `completed_passed_quality_gate`
+- [[E005-R-012-dual-span-coordinate-query-common-heads-n80-20|dual-span coordinate-query shared localization heads n80+20]] ← [[E-005]] · `completed_mixed_quality`
+- [[E005-R-012b-query-derived-heads-cross-span-viz-n80-20|冻结query-derived heads的reference/query双侧可视化]] ← [[E-005]] · `completed_passed_quality_gate`
+- [[E005-R-013-unseen-sequence-positive-manifest-n70|完全未使用LaSOT sequences positive-only确认manifest n70]] ← [[E-005]] · `completed_passed`
+- [[E005-R-014-unseen-sequence-dual-span-confirmation-n70|unseen-sequence frozen-head dual-span confirmation n70]] ← [[E-005]] · `completed_passed_confirmatory_gates`
+- [[E005-R-014b-paired-reference-query-visualizations-n10|R-014同次推理reference-query配对可视化n10]] ← [[E-005]] · `completed_visualization_only`
+- [[E005-R-015-reverse-reference-target-coordinate-head-discovery-n80-20|reverse-direction reference-target coordinate-query head discovery n80+20]] ← [[E-005]] · `completed_passed_quality_gate`
+- [[E005-R-016-original-order-reference-grounding-vs-query-localization-heads-n80-20|original-order reference-grounding vs query-localization heads n80+20]] ← [[E-005]] · `completed_passed_stage_quality`
+- [[E005-R-017-original-order-three-channel-reference-use-heads-n80-20|original-order three-channel reference grounding/retrieval/query localization n80+20]] ← [[E-005]] · `completed_mixed_reference_retrieval_gate_failed`
+- [[E005-R-018-query-visual-to-reference-token-head-discovery-n80-20|query visual rows to reference token retrieval heads n80+20]] ← [[E-005]] · `completed_passed_spatial_gate_no_identity_selectivity`
+- [[E005-R-019-yes-no-decision-token-reference-query-heads-n80-20|Yes/No decision-token reference/query attention heads n80+20]] ← [[E-005]] · `failed_control_flow_before_first_forward`
+- [[E005-R-019b-yes-no-decision-token-reference-query-heads-n80-20|Yes/No decision-token reference/query heads recovery n80+20]] ← [[E-005]] · `completed_failed_spatial_quality_gate`
+- [[E005-R-020-unified-reference-query-yesno-role-visualizations-n10x2|unified reference retrieval query localization YesNo visualization n10x2]] ← [[E-005]] · `failed_control_flow_before_first_forward`
+- [[E005-R-020b-unified-reference-query-yesno-role-visualizations-n10x2|unified three-role visualizations recovery n10x2]] ← [[E-005]] · `completed_visualization_only`
+- [[E005-R-021-e003-screened-wrong-instance-natural-output-attention-n7|E003 screened wrong-instance archived-natural-output attention n7]] ← [[E-005]] · `failed_visualization_return_contract`
+- [[E005-R-021b-e003-screened-wrong-instance-natural-output-attention-n7|E003 screened wrong-instance attention visualization recovery n7]] ← [[E-005]] · `completed_passed_replay_gate`
+- [[E005-R-022-correct-vs-error-natural-query-attention-matched35x2|correct vs error natural query localization attention matched35x2]] ← [[E-005]] · `failed_missing_manifest_before_first_forward`
+- [[E005-R-022b-correct-vs-error-natural-query-attention-matched35x2|correct vs error query attention recovery matched35x2]] ← [[E-005]] · `failed_missing_model_before_first_forward`
+- [[E005-R-022c-correct-vs-error-natural-query-attention-matched35x2|correct vs error query attention persistent-model recovery matched35x2]] ← [[E-005]] · `failed_summary_variable_shadow_after_all_forwards`
+- [[E005-R-022d-correct-vs-error-natural-query-attention-matched35x2|R-022c summary-shadow recovery matched35x2]] ← [[E-005]] · `completed_with_one_resolution_reduced_replay_failure`
+- [[E005-R-023-reference-binding-frequency-fiou-matched35x2|reference target-binding four-state frequency plus token-fIoU curves matched35x2]] ← [[E-005]] · `running`

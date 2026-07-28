@@ -5,4 +5,5 @@
 - [[mechanis2026|Mechanisms of Object Localization in Vision-Language Models]]
 - [[personal2026|Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models]]
 - [[teaching2024|Teaching VLMs to Localize Specific Objects from In-context Examples]]
+- [[yourlarg2025|Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding]]
 - [[prompthu2026|PromptHub: Enhancing Multi-Prompt Visual In-Context Learning with Locality-Aware Fusion, Concentration and Alignment]]

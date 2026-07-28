@@ -147,5 +147,81 @@
     "brief_constraints": "先通过 Reference A/B × Candidate A/B behavioral gate；按因果效应而非 attention map 选 heads；synthetic pilot 不外推自然同图双实例；覆盖 pooler/deepstack 路径限制。",
     "created": "2026-07-20T17:15:06",
     "updated": "2026-07-20T17:15:06"
+  },
+  {
+    "title": "Attention-derived localization-head discovery and grounding audit",
+    "workspace_id": "W-01",
+    "objective": "采用LocalizationHeads当前公开仓库的repo-original参数与实现，在冻结Qwen3-VL/IPLoc-ID中读取最后输入文本token到reference/query视觉tokens的逐head attention，发现稳定localization heads，并与E-004候选层比较。",
+    "constraints": "保留官方源码不改；论文与公开代码不一致处显式审计；Qwen适配仅做必要最小修改；raw attention不得表述为因果证据；先复现原生流程再迁移。",
+    "source_ref": "localizationheads2025",
+    "evidence_refs": [
+      "shell/03_evidence/papers/localizationheads2025.md"
+    ],
+    "claim_refs": [],
+    "kind": "attention_mechanism_analysis",
+    "agent_level": "2",
+    "workflow_stage": "confirmed",
+    "created_by": "terminal_pi",
+    "id": "E-005",
+    "status": "implementing",
+    "brief_objective": "严格参照Localization Heads论文与官方实现，在冻结LVLM中发现少量稳定视觉定位heads，并迁移到Qwen3-VL/IPLoc-ID以比较localization与identification circuits。",
+    "brief_constraints": "保留官方源码不改；论文与公开代码不一致处显式审计；Qwen适配仅做必要最小修改；raw attention不得表述为因果证据；先复现原生流程再迁移。",
+    "created": "2026-07-24T13:42:03",
+    "updated": "2026-07-24T13:52:20",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-005",
+      "verified_facts": [
+        {
+          "label": "官方源码快照",
+          "value": "codespace/LocalizationHeads @ 9ffe219d20ec376eb4dd14d42c54bb3299ffdb4a",
+          "evidence": "GitHub codeload固定commit tarball；archive sha256=b020c51a97f6911829da6b83202104cdfc5519ca7706f4c7e5a960ede7e0b9e9；源码hash清单=codespace/LocalizationHeads_upstream_sha256.txt"
+        },
+        {
+          "label": "论文一致的核心入口",
+          "value": "最后输入文本token到视觉token的逐层逐head attention，shape [L,H,1,V]",
+          "evidence": "codespace/LocalizationHeads/collector.py::_forward_collect；output_attentions=True；eager backend"
+        },
+        {
+          "label": "公开实现与论文差异",
+          "value": "top_k、spatial entropy、bbox与trial数至少四处不一致",
+          "evidence": "selection_v1.yaml top_k=5；analyze.py ReLU(S-2mean)+mass entropy；bbox.py无largest-convex-hull；README 10 trials vs论文Appendix A 5 trials"
+        },
+        {
+          "label": "远端算力",
+          "value": "RTX 3090 24GB，当前空闲",
+          "evidence": "experiment_status：GPU 0%，1/24576MiB"
+        },
+        {
+          "label": "远端直接SSH",
+          "value": "当前被host-key verification阻断",
+          "evidence": "ssh featurize: Host key verification failed；custom experiment tools仍可连接"
+        }
+      ],
+      "proposal": {
+        "objective": "先保真复现Localization Heads的论文协议，再以最小Qwen3-VL adapter读取IPLoc-ID reference/query视觉spans，发现稳定localization heads并与E-004候选层比较。",
+        "implementation_scope": "保持codespace/LocalizationHeads上游快照零修改；新增独立e005_adapter目录。复用其attention sum、selection frequency、Gaussian aggregation与输出格式，仅修正论文明确规定的k=3、ReLU(S-mean)、component-area entropy、largest-convex-hull bbox和5-trial统计；Qwen侧只新增模型加载、动态grid/span元数据和非方形map支持。",
+        "evaluation": "先做上游静态一致性与合成attention单元测试；再做单样本attention shape/span/grid smoke；随后才进行固定discovery/evaluation split的selection-frequency实验。raw attention结果仅称localization-head evidence，不称causal mediation。"
+      },
+      "questions": [
+        {
+          "key": "paper_vs_repo",
+          "label": "论文与当前公开代码冲突时，以论文公式/附录为主，并同时保留repo-original对照，是否确认？",
+          "why": "若机械沿用公开代码，会使用k=5、2倍均值和mass entropy，无法声称严格遵循论文。",
+          "suggested": "确认：paper-faithful作为主实现，repo-original作为兼容对照；不直接修改上游快照。"
+        }
+      ],
+      "risks": [
+        "Qwen3-VL eager output_attentions可能显著增加24GB显存占用，需先单样本smoke。",
+        "Qwen3-VL动态merged grid和双图视觉span不能套用P×P假设。",
+        "论文的1,000样本×5 trials协议不应被缩小pilot冒充正式复现。",
+        "attention ranking不等于因果head ranking。"
+      ]
+    },
+    "implementation_scope": "保持codespace/LocalizationHeads上游快照零修改；仅新增codespace/e005_adapter。原样复用top_k=5、chord threshold、ReLU(A-2mean)、attention-mass spatial entropy、bottom-row filter与当前mask/bbox实现；Qwen适配只增加模型输入接入、双图token span、动态merged HxW grid和[L,H,1,V]导出。",
+    "evaluation": "先验证方形输入与上游analyze.py逐项一致，再验证矩形grid、双图span和hard-failure gates；随后做Qwen单样本attention smoke。正式selection-frequency扫描另建Run，不把raw attention称为因果证据。",
+    "user_answers": {
+      "paper_vs_repo": "采用当前公开代码作为主协议；按照代码参数运行。论文差异保留在审计记录中。"
+    }
   }
 ]
