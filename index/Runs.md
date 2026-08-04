@@ -1,83 +1,42 @@
 # Runs
 
-- [[R-001|baseline_none]] ← [[E-001]] · `completed`
-- [[R-002|within_object_shuffle]] ← [[E-001]] · `running`
-- [[R-003|full_shuffle]] ← [[E-001]] · `draft`
-- [[R-004|padding_expand]] ← [[E-001]] · `draft`
-- [[R-005|vllm_patched_baseline_mixed60_multi]] ← [[E-001]] · `completed`
-- [[R-006|vllm_mask_token_support_shuffle_mixed60_multi]] ← [[E-001]] · `completed`
-- [[R-007|query_side_padding_eval_mixed60_multi]] ← [[E-001]] · `running`
-- [[R-008|candidate_identity_probe_mixed60_multi]] ← [[E-001]] · `running`
-- [[R-009|query_object_token_padding_mixed60_multi]] ← [[E-001]] · `running`
-- [[R-001-smoke-local-lasot-iplocid-n2|smoke_local_lasot_iplocid_n2]] ← [[E-002]] · `completed`
-- [[R-001b-lasot-local-n20-compare|lasot_local_n20_iplocid_vs_iploc_compare]] ← [[E-002]] · `completed`
-- [[R-002a-hard-patch-pilot-autoloop|hard_patch_level_proxy_pilot]] ← [[E-002]] · `completed`
-- [[R-003-token-hook-inspection|qwen3vl_token_hook_inspection]] ← [[E-002]] · `completed`
-- [[R-004-qwen3vl-token-hook-smoke|qwen3vl_token_hook_smoke]] ← [[E-002]] · `completed`
-- [[R-005-qwen3vl-full-visual-token-intervention-n10|full_visual_token_control_n10]] ← [[E-002]] · `completed`
-- [[R-006-qwen3vl-object-token-shuffle-n10|object_footprint_token_shuffle_n10]] ← [[E-002]] · `completed`
-- [[R-007-qwen3vl-object-token-ablation-n10|object_footprint_token_zero_ablation_n10]] ← [[E-002]] · `completed`
-- [[R-008-persistent-orchestrator-and-summary|persistent_orchestrator_crossrun_summary]] ← [[E-002]] · `running`
-- [[R-009-data-rehydrate|data_rehydrate_after_server_reset]] ← [[E-002]] · `completed`
-- [[E003-R-004b-joint-f1-iou-local-lasot-n140-t128|E003-R-004b-joint-f1-iou-local-lasot-n140-t128]] ← [[E-003]] · `completed`
-- [[E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20|E003-R-005e-forced-candidate-logit-verifier-local-lasot-n20]] ← [[E-003]] · `failed`
-- [[E004-R-000-qwen3vl-head-hook-audit|E004-R-000-qwen3vl-head-hook-audit]] ← [[E-004]] · `completed`
-- [[E004-R-001-synthetic-double-instance-behavior-n4|E004-R-001-synthetic-double-instance-behavior-n4]] ← [[E-004]] · `completed_gate_failed`
-- [[E003-R-001-data-rehydrate-local-lasot-n140|E003-R-001-data-rehydrate-local-lasot-n140]] ← [[E-003]] · `completed`
-- [[E003-R-002-joint-f1-n140-failed-env|E003-R-002-joint-f1-n140-failed-env]] ← [[E-003]] · `failed`
-- [[E003-R-003-torch-compat-smoke-local-lasot-n1|E003-R-003-torch-compat-smoke-local-lasot-n1]] ← [[E-003]] · `completed`
-- [[E003-R-004-joint-f1-iou-local-lasot-n140|E003-R-004-joint-f1-iou-local-lasot-n140]] ← [[E-003]] · `aborted`
-- [[E003-R-005-forced-candidate-verifier-local-lasot-n20|E003-R-005-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `failed`
-- [[E003-R-005b-forced-candidate-verifier-local-lasot-n20|E003-R-005b-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`
-- [[E003-R-005c-forced-candidate-verifier-local-lasot-n20|E003-R-005c-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`
-- [[E003-R-005d-forced-candidate-verifier-local-lasot-n20|E003-R-005d-forced-candidate-verifier-local-lasot-n20]] ← [[E-003]] · `aborted`
-- [[E004-R-006-qwen3vl-head-hook-correctness-smoke|E004-R-006-qwen3vl-head-hook-correctness-smoke]] ← [[E-004]] · `completed_passed`
-- [[E004-R-007-qwen3vl-layer-output-ablation-synthetic-n4|E004-R-007-qwen3vl-layer-output-ablation-synthetic-n4]] ← [[E-004]] · `completed_diagnostic`
-- [[E004-R-008-source-base-object-removal-proxy-gate-n4|E004-R-008-source-base-object-removal-proxy-gate-n4]] ← [[E-004]] · `completed_gate_passed`
-- [[E004-R-009-layer-cma-recoverability-proxy-strict-n6|E004-R-009-layer-cma-recoverability-proxy-strict-n6]] ← [[E-004]] · `completed_gate_passed`
-- [[E004-R-010-single-head-activation-patching-correctness-smoke|E004-R-010-single-head-activation-patching-correctness-smoke]] ← [[E-004]] · `completed_passed`
-- [[E004-R-011-official-lama-code-acquisition|E004-R-011-official-lama-code-acquisition]] ← [[E-004]] · `completed_passed`
-- [[E003-R-006-rejection-linked-bbox-audit-n140|E003-R-006-rejection-linked-bbox-audit-n140]] ← [[E-003]] · `completed`
-- [[E003-R-010-natural-same-image-instance-binding-logit-pilot-n7|E003-R-010-natural-same-image-instance-binding-logit-pilot-n7]] ← [[E-003]] · `completed_gate_failed`
-- [[E003-R-011-self-replayed-same-image-binding-logit-pilot-n7|E003-R-011-self-replayed-same-image-binding-logit-pilot-n7]] ← [[E-003]] · `aborted`
-- [[E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140|E003-R-007-joint-f1-iou-threshold-curve-bootstrap-n140]] ← [[E-003]] · `completed`
-- [[E005-R-000-repo-original-qwen-adapter-unit-gate|repo-original Qwen适配单元门禁]] ← [[E-005]] · `completed_passed`
-- [[E005-R-001-qwen3vl-model-recovery-localdisk|Qwen3-VL本地盘模型恢复]] ← [[E-005]] · `completed_passed`
-- [[E005-R-002-qwen3vl-iplocid-single-sample-attention-smoke|Qwen3-VL/IPLoc-ID单样本真实attention smoke]] ← [[E-005]] · `failed_preflight`
-- [[E005-R-002b-qwen3vl-self-contained-attention-smoke|自包含synthetic-reference真实attention恢复smoke]] ← [[E-005]] · `failed_preflight`
-- [[E005-R-002c-qwen3vl-self-contained-attention-smoke-fixed|自包含真实attention smoke参数修复]] ← [[E-005]] · `completed_passed`
-- [[E005-R-003-refcoco-train-data-acquisition-split-n1220|RefCOCO train数据获取与固定分区]] ← [[E-005]] · `aborted_network_protocol`
-- [[E005-R-003b-refcoco-train-data-acquisition-http-n1220|RefCOCO train数据获取HTTP恢复]] ← [[E-005]] · `aborted_by_user_scope_change`
-- [[E005-R-003c-lasot-local-manifest-rehydrate-n140|自有LaSOT/IPLoc-ID任务数据恢复]] ← [[E-005]] · `completed_passed`
-- [[E005-R-004-lasot-iplocid-attention-pilot-n10|自有LaSOT/IPLoc-ID正负样本attention pilot n10]] ← [[E-005]] · `completed_passed`
-- [[E005-R-005-lasot-iplocid-attention-discovery-n100|自有LaSOT/IPLoc-ID attention discovery n100]] ← [[E-005]] · `completed_passed`
-- [[E005-R-006-lasot-fixed-head-heldout-eval-n40|固定discovery heads的LaSOT held-out grounding eval n40]] ← [[E-005]] · `completed_passed`
-- [[E005-R-007-positive-query-role-specific-selection-n80|R-006后post-hoc positive-query role-specific selection]] ← [[E-005]] · `failed_schema_key`
-- [[E005-R-007b-positive-query-role-specific-selection-n80|positive-query role-specific selection schema recovery]] ← [[E-005]] · `completed_passed`
-- [[E005-R-008-role-specific-internal-validation-n20|post-hoc role-specific internal validation n20]] ← [[E-005]] · `completed_passed`
-- [[E005-R-009-prompt-image-token-attention-budget-n20|prompt图像token多query attention-budget audit n20]] ← [[E-005]] · `aborted_by_user_protocol_reorder`
-- [[E005-R-010-frozen-head-gt-concentration-viz-audit-n40|冻结论文方法heads的GT concentration与可视化审计]] ← [[E-005]] · `completed_failed_quality_gate`
-- [[E005-R-010b-turbo-visualization-and-query-token-audit-n10|R-010可视化配色修正与query-token审计]] ← [[E-005]] · `completed_passed`
-- [[E005-R-011-coordinate-prediction-query-head-recovery-n80-20|teacher-forced coordinate-prediction query head recovery n80+20]] ← [[E-005]] · `failed_alignment_gate`
-- [[E005-R-011b-coordinate-prediction-query-head-recovery-n80-20|teacher-forced coordinate-prediction query recovery（唯一子序列对齐修复）]] ← [[E-005]] · `failed_metadata_index`
-- [[E005-R-011c-coordinate-prediction-query-head-recovery-n80-20|coordinate-prediction query recovery（metadata修复）]] ← [[E-005]] · `completed_passed_quality_gate`
-- [[E005-R-012-dual-span-coordinate-query-common-heads-n80-20|dual-span coordinate-query shared localization heads n80+20]] ← [[E-005]] · `completed_mixed_quality`
-- [[E005-R-012b-query-derived-heads-cross-span-viz-n80-20|冻结query-derived heads的reference/query双侧可视化]] ← [[E-005]] · `completed_passed_quality_gate`
-- [[E005-R-013-unseen-sequence-positive-manifest-n70|完全未使用LaSOT sequences positive-only确认manifest n70]] ← [[E-005]] · `completed_passed`
-- [[E005-R-014-unseen-sequence-dual-span-confirmation-n70|unseen-sequence frozen-head dual-span confirmation n70]] ← [[E-005]] · `completed_passed_confirmatory_gates`
-- [[E005-R-014b-paired-reference-query-visualizations-n10|R-014同次推理reference-query配对可视化n10]] ← [[E-005]] · `completed_visualization_only`
-- [[E005-R-015-reverse-reference-target-coordinate-head-discovery-n80-20|reverse-direction reference-target coordinate-query head discovery n80+20]] ← [[E-005]] · `completed_passed_quality_gate`
-- [[E005-R-016-original-order-reference-grounding-vs-query-localization-heads-n80-20|original-order reference-grounding vs query-localization heads n80+20]] ← [[E-005]] · `completed_passed_stage_quality`
-- [[E005-R-017-original-order-three-channel-reference-use-heads-n80-20|original-order three-channel reference grounding/retrieval/query localization n80+20]] ← [[E-005]] · `completed_mixed_reference_retrieval_gate_failed`
-- [[E005-R-018-query-visual-to-reference-token-head-discovery-n80-20|query visual rows to reference token retrieval heads n80+20]] ← [[E-005]] · `completed_passed_spatial_gate_no_identity_selectivity`
-- [[E005-R-019-yes-no-decision-token-reference-query-heads-n80-20|Yes/No decision-token reference/query attention heads n80+20]] ← [[E-005]] · `failed_control_flow_before_first_forward`
-- [[E005-R-019b-yes-no-decision-token-reference-query-heads-n80-20|Yes/No decision-token reference/query heads recovery n80+20]] ← [[E-005]] · `completed_failed_spatial_quality_gate`
-- [[E005-R-020-unified-reference-query-yesno-role-visualizations-n10x2|unified reference retrieval query localization YesNo visualization n10x2]] ← [[E-005]] · `failed_control_flow_before_first_forward`
-- [[E005-R-020b-unified-reference-query-yesno-role-visualizations-n10x2|unified three-role visualizations recovery n10x2]] ← [[E-005]] · `completed_visualization_only`
-- [[E005-R-021-e003-screened-wrong-instance-natural-output-attention-n7|E003 screened wrong-instance archived-natural-output attention n7]] ← [[E-005]] · `failed_visualization_return_contract`
-- [[E005-R-021b-e003-screened-wrong-instance-natural-output-attention-n7|E003 screened wrong-instance attention visualization recovery n7]] ← [[E-005]] · `completed_passed_replay_gate`
-- [[E005-R-022-correct-vs-error-natural-query-attention-matched35x2|correct vs error natural query localization attention matched35x2]] ← [[E-005]] · `failed_missing_manifest_before_first_forward`
-- [[E005-R-022b-correct-vs-error-natural-query-attention-matched35x2|correct vs error query attention recovery matched35x2]] ← [[E-005]] · `failed_missing_model_before_first_forward`
-- [[E005-R-022c-correct-vs-error-natural-query-attention-matched35x2|correct vs error query attention persistent-model recovery matched35x2]] ← [[E-005]] · `failed_summary_variable_shadow_after_all_forwards`
-- [[E005-R-022d-correct-vs-error-natural-query-attention-matched35x2|R-022c summary-shadow recovery matched35x2]] ← [[E-005]] · `completed_with_one_resolution_reduced_replay_failure`
-- [[E005-R-023-reference-binding-frequency-fiou-matched35x2|reference target-binding four-state frequency plus token-fIoU curves matched35x2]] ← [[E-005]] · `running`
+- [[E005-R-028-r023-matched35x2-same-resolution-640|matched35x2 same-resolution640 attention and visualization]] ← [[E-005]] · `completed_passed_integrity`
+- [[E005-R-029c-original140-positive-targets-binding-640|original E003 positive n140 same-resolution640 binding audit]] ← [[E-005]] · `completed_passed_integrity`
+- [[E005-R-030c-original140-negative-targets-binding-640|original E003 same-class negative n140 separate640 diagnostic]] ← [[E-005]] · `completed_passed_integrity`
+- [[E005-R-033-positive-full140-unified-fivepanel-640|full original n140 positive unified five-panel640 visualizations]] ← [[E-005]] · `completed_passed_integrity_visualization_only`
+- [[E005-R-033-negative-full140-unified-fivepanel-640|full original n140 negative unified five-panel640 visualizations]] ← [[E-005]] · `completed_passed_integrity_visualization_only`
+- [[E005-R-034-qr-continuous-threshold-curve-offline-640|offline Q→R curve analysis first implementation]] ← [[E-005]] · `failed_implementation_no_scientific_output`
+- [[E005-R-034b-qr-continuous-threshold-curve-offline-640|pure numpy recovery]] ← [[E-005]] · `failed_implementation_no_scientific_output`
+- [[E005-R-034d-qr-continuous-threshold-curve-offline-640|final frozen Q→R continuous threshold fIoU analysis]] ← [[E-005]] · `completed_passed_integrity_inference_only`
+- [[E006-R-005-simple-top50-support-components-positive-extremes-n111-640|fixed top50 support per-head GtoR QtoR QtoQ]] ← [[E-006]] · `completed_passed_integrity_inference_only`
+- [[E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640|exact last-token vs first-generate-step vs bbox-pminus1 row gate]] ← [[E-006]] · `planned`
+- [[E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220|RefCOCO primary and optional filtered COCO-val proxy manifest gate]] ← [[E-006]] · `completed`
+- [[E006-R-008-upstream-llava-last-token-refcoco-positive-control-n1000-200|immutable upstream LocalizationHeads LLaVA exact last-token positive control]] ← [[E-006]] · `cancelled`
+- [[E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200|Qwen RefCOCO exact-last-token first-step bbox-row parity]] ← [[E-006]] · `completed`
+- [[E006-R-010-outcome-stratified-allhead-discovery-sequence-split|correct-error separate all-head discovery for last-token and bbox rows]] ← [[E-006]] · `planned`
+- [[E006-R-011-outcome-headsets-fresh-cross-evaluation|2x2 correct-discovered error-discovered fresh sequence confirmation]] ← [[E-006]] · `planned`
+- [[E006-R-012-reference-query-transform-geometric-separability-gate|identity HFlip VFlip R180 reference-only query-only both offline geometry]] ← [[E-006]] · `planned`
+- [[E006-R-013-natural-behavior-transform-gate|natural Yes bbox under REF-only QUERY-only BOTH H V R180]] ← [[E-006]] · `planned`
+- [[E006-R-014-qtor-reference-vs-query-coordinate-equivariance|QtoR reference tracking versus query-coordinate copy transform audit]] ← [[E-006]] · `planned`
+- [[E006-R-015-reference-image-vs-prompt-bbox-mismatch-diagnostic|reference visual transform versus explicit bbox-coordinate mismatch]] ← [[E-006]] · `planned`
+- [[E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz|correct error balanced-mix by reference-query role all-head discovery and visualization]] ← [[E-006]] · `planned`
+- [[E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization|r005-sample-aligned-three-row-equivariance-visualization]] ← [[E-006]] · `completed`
+- [[E006-R-016-icol-last-token-row-stage-falsification|icol-last-token-row-stage-falsification]] ← [[E-006]] · `planned`
+- [[E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220|refcoco-train2014-recovery-integrity-gate-n1220]] ← [[E-006]] · `completed`
+- [[E006-R-014c-prediction-projection-expanded-equivariance-audit|prediction-projection-expanded-equivariance-audit]] ← [[E-006]] · `completed`
+- [[E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200|refcoco-natural-bbox-token-head-transfer-n1000-200]] ← [[E-006]] · `completed`
+- [[E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200|refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200]] ← [[E-006]] · `completed`
+- [[E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200|refcoco-original-prompt-natural-output-row-audit-n20-1000-200]] ← [[E-006]] · `completed`
+- [[E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200|refcoco-specific-gt-aligned-head-discovery-viz-fresh200]] ← [[E-006]] · `planned`
+- [[E006-R-017-refcoco-synthetic-paired-view-icol-format-head-transfer|refcoco-synthetic-paired-view-icol-format-head-transfer]] ← [[E-006]] · `planned`
+- [[E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer|refcoco-synthetic-icol-format-within-lora-head-transfer]] ← [[E-006]] · `completed`
+- [[E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke|qwen3vl-attention-probability-rewrite-correctness-smoke]] ← [[E-007]] · `planned`
+- [[E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20|frozen-source-map-and-online-window-alignment-gate-n20]] ← [[E-007]] · `planned`
+- [[E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20|teacher-replayed-qtor-shape-transplant-controls-n20]] ← [[E-007]] · `planned`
+- [[E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20|natural-generation-qtor-shape-transplant-pilot-n20]] ← [[E-007]] · `planned`
+- [[E007-R-004-fresh-sequence-qtor-transplant-joint-f1-n140|fresh-sequence-qtor-transplant-joint-f1-n140]] ← [[E-007]] · `planned`
+- [[E007-R-005-budget-vs-shape-factorial-and-headset-specificity|budget-vs-shape-factorial-and-headset-specificity]] ← [[E-007]] · `planned`
+- [[E007-R-002v-target-attention-before-after-and-av-visual-audit-n4|target-attention-before-after-and-av-visual-audit-n4]] ← [[E-007]] · `draft`
+- [[E007-R-003b-post-null-natural-generation-transplant-pilot-n20|post-null-natural-generation-transplant-pilot-n20]] ← [[E-007]] · `draft`
+- [[E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20|source-map-normalization-and-residual-blend-sweep-n20]] ← [[E-007]] · `draft`
+- [[E007-R-004b-fresh-top3-mapping-family-joint-f1-n140|fresh-top3-mapping-family-joint-f1-n140]] ← [[E-007]] · `draft`

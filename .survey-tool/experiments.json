@@ -223,5 +223,49 @@
     "user_answers": {
       "paper_vs_repo": "采用当前公开代码作为主协议；按照代码参数运行。论文差异保留在审计记录中。"
     }
+  },
+  {
+    "title": "简洁的attention-on-GT与联通子图审计",
+    "workspace_id": "W-01",
+    "objective": "用固定top50 attention support、GT majority与4邻域联通子图，逐head比较localization-correct和localization-error的G→R、Q→R、Q→Q空间情况。",
+    "constraints": "仅positive natural-Yes extremes；error35/correct76；max_side640；逐head；不扫描阈值；attention-derived non-causal。",
+    "source_ref": "E005-R-033",
+    "evidence_refs": [
+      "shell/06_experiments/E-006/plan.md"
+    ],
+    "claim_refs": [],
+    "kind": "attention_spatial_support_audit",
+    "agent_level": "2",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "id": "E-006",
+    "status": "planned",
+    "brief_objective": "用固定top50 attention support、GT majority与4邻域联通子图，逐head比较localization-correct和localization-error的G→R、Q→R、Q→Q空间情况。",
+    "brief_constraints": "仅positive natural-Yes extremes；error35/correct76；max_side640；逐head；不扫描阈值；attention-derived non-causal。",
+    "created": "2026-07-28T23:21:49",
+    "updated": "2026-07-28T23:21:49"
+  },
+  {
+    "title": "Query-stage reference-attention transplant and causal rescue",
+    "workspace_id": "W-01",
+    "objective": "在原始IPLoc-ID/POIL任务中，对真正参与A@V计算的query-stage Q→R attention进行受控移植、破坏与恢复，检验prompt-stage reference-grounding空间分布能否改善或救回自然bbox localization与Joint F1，并区分reference总预算、reference内部空间shape和任意集中化效应。",
+    "constraints": "保持原IPLoc-ID LoRA、原始prompt、max_side=640和自然输出协议；primary shape transplant严格保持每个target row原Q→R总mass，只改变reference span内分布；必须有identity、R180/permutation、uniform-reference-bbox、mismatched-source和Q→R knockout controls；先工程gate/teacher replay，后自然生成；attention intervention必须发生在softmax后A@V前；sequence-level split/bootstrap；不把改善解释为identity理解或共享因果电路。",
+    "source_ref": "shell/06_experiments/E-005/head_role_registry.md; shell/06_experiments/E-005/dual_gpu_640_core_results.md; shell/06_experiments/E-006/result.md; shell/06_experiments/E-004/runs/E004-R-010-single-head-activation-patching-correctness-smoke.md",
+    "evidence_refs": [
+      "E006-R-006 row alignment GATE_PASS; E006-R-014c reference-target attention response; E003-R-004b Joint F1 audit; E005 historical G→R and Q→R head sets"
+    ],
+    "claim_refs": [
+      "Q-004; attention-derived reference-target use remains observational until behavior-changing intervention"
+    ],
+    "kind": "causal_intervention",
+    "agent_level": "2",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "id": "E-007",
+    "status": "planned",
+    "brief_objective": "在原始IPLoc-ID/POIL任务中，对真正参与A@V计算的query-stage Q→R attention进行受控移植、破坏与恢复，检验prompt-stage reference-grounding空间分布能否改善或救回自然bbox localization与Joint F1，并区分reference总预算、reference内部空间shape和任意集中化效应。",
+    "brief_constraints": "保持原IPLoc-ID LoRA、原始prompt、max_side=640和自然输出协议；primary shape transplant严格保持每个target row原Q→R总mass，只改变reference span内分布；必须有identity、R180/permutation、uniform-reference-bbox、mismatched-source和Q→R knockout controls；先工程gate/teacher replay，后自然生成；attention intervention必须发生在softmax后A@V前；sequence-level split/bootstrap；不把改善解释为identity理解或共享因果电路。",
+    "created": "2026-08-04T20:42:20",
+    "updated": "2026-08-04T20:42:20"
   }
 ]

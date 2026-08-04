@@ -1,0 +1,13 @@
+{
+  "scope": "legacy R-010 offline visualization; no model forward",
+  "figures": [
+    "/home/featurize/work/mechanism/explog/E-006/E006-R-010-outcome-stratified-allhead-discovery-sequence-split/visualizations/r010_correct_error_layer_distributions.png",
+    "/home/featurize/work/mechanism/explog/E-006/E006-R-010-outcome-stratified-allhead-discovery-sequence-split/visualizations/r010_correct_error_top10_head_matrix.png",
+    "/home/featurize/work/mechanism/explog/E-006/E006-R-010-outcome-stratified-allhead-discovery-sequence-split/visualizations/r010_correct_error_top10_jaccard.png",
+    "/home/featurize/work/mechanism/explog/E-006/E006-R-010-outcome-stratified-allhead-discovery-sequence-split/visualizations/r010_correct_vs_error_rank_scatter.png"
+  ],
+  "excludes": [
+    "balanced mix M (pending R-010b)",
+    "per-sample heatmaps (pending R-010b)"
+  ]
+}

@@ -1510,5 +1510,725 @@
     "type": "run_update",
     "message": "补全R-023算法、coverage、完整频率、Wilson、McNemar、paired bootstrap、conditional bootstrap、fIoU AUC和结论边界。",
     "details": ""
+  },
+  {
+    "time": "2026-07-28T20:13:24+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-024-unseen-multiframe-positive-manifest-n280",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-024-unseen-multiframe-positive-manifest-n280 · unseen70 multiframe4 positive-only n280 manifest",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T20:13:36+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-025-dualgpu-640-eager-attention-smoke-n5",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-025-dualgpu-640-eager-attention-smoke-n5 · dual RTX4090 max_side640 standard eager attention smoke n5",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T20:16:40+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-026-unseen-multiframe-natural-generation-n280-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-026-unseen-multiframe-natural-generation-n280-640 · natural single-bbox generation positive n280 max_side640",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T20:16:41+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-027-binding-discrepancy-unseen-multiframe-n280-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-027-binding-discrepancy-unseen-multiframe-n280-640 · same-resolution binding discrepancy n280 max_side640",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T21:11:41+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-028-r023-matched35x2-same-resolution-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-028-r023-matched35x2-same-resolution-640 · A R023 matched35x2 archived-natural replay max_side640 with 70 visualizations",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T22:19:54+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-033-positive-full140-unified-fivepanel-640",
+    "type": "result_synthesis",
+    "message": "双卡640核心结果归档：原n140最强error signature为Q→Q localization collapse；G→R grounding基本保持；G→R/Q→R discrepancy在matched与expanded分析中未统计稳定。完整公式、指标、结果与路径已写入本地高浓度总结。",
+    "details": "{\"artifact\": \"shell/06_experiments/E-005/dual_gpu_640_core_results.md\", \"configuration\": {\"gpus\": \"2xRTX4090 24GB\", \"max_side\": 640, \"attention\": \"standard HF eager\", \"model\": \"Qwen3-VL-8B+IPLoc-ID LoRA\"}, \"metric_definitions\": {\"G_to_R\": \"reference bbox p-1 rows x grounding heads -> reference keys\", \"Q_to_R\": \"natural query bbox p-1 rows x localization heads -> reference keys\", \"Q_to_Q\": \"same natural bbox p-1 rows x localization heads -> query keys\", \"target_mass\": \"normalized raw attention mass weighted by fractional GT-cell occupancy\", \"enrichment\": \"mean attention density inside fractional GT / outside\", \"strict_hit\": \"enrichment>1 AND raw argmax overlaps GT AND GT coverage>=2 merged tokens\", \"D_abs\": \"abs(logit(P_GtoR)-logit(P_QtoR))\"}, \"original_positive_n140\": {\"groups\": {\"error\": 35, \"correct\": 76, \"partial\": 22, \"fn\": 7}, \"GtoR_hit_error_correct\": [0.942857, 0.947368], \"QtoR_hit_error_correct\": [0.257143, 0.342105], \"QtoQ_hit_error_correct\": [0.142857, 0.960526], \"QtoQ_mass_median_error_correct\": [0.017503, 0.437874], \"QtoQ_enrichment_median_error_correct\": [0.662482, 16.00419], \"Dabs_median_error_correct\": [2.100597, 1.52687], \"Dabs_error_minus_correct\": 0.573727, \"cluster_ci95\": [-0.221581, 1.418997], \"spearman\": {\"rho\": -0.185973, \"p\": 0.050671, \"n\": 111}, \"coverage\": {\"median\": 9, \"le1\": 3, \"2_3\": 16, \"ge4\": 121}}, \"matched35x2_640\": {\"state11_error_correct\": [9, 13], \"state11_rates\": [0.257143, 0.371429], \"paired_diff_ci_pp\": [-11.43, 34.29], \"QtoR_mass_paired_median_correct_minus_error\": 0.032297, \"QtoR_mass_ci95\": [0.006042, 0.08811], \"GtoR_mass_diff\": 0.002858, \"GtoR_mass_ci95\": [-0.042684, 0.039786], \"coverage_median_224_640\": [4, 6], \"state_stable\": 39}, \"expanded_n280\": {\"groups\": {\"error\": 48, \"correct\": 177, \"partial\": 45, \"rejected\": 10}, \"Dabs_error_correct\": [1.567379, 1.304465], \"diff\": 0.262913, \"cluster_ci95\": [-0.348299, 0.986894], \"spearman\": {\"rho\": -0.037438, \"p\": 0.576404, \"n\": 225}, \"coverage_median\": 8, \"unalignable\": 0}, \"negative_n140\": {\"tn\": 136, \"fp\": 4, \"boundary\": \"candidate IoU is not personalized localization correctness\"}, \"visualizations\": {\"positive\": 140, \"negative\": 140, \"layout\": [\"reference clean\", \"G->R\", \"Q->R\", \"Q->Q\", \"query clean GT+pred\"], \"naming\": \"presentation/by_behavior\"}, \"conclusion\": \"Strongest error-associated attention signature is Q->Q query localization collapse, not loss of G->R grounding. G->R/Q->R discrepancy is directional but statistically unstable across matched and expanded analyses.\", \"boundaries\": [\"attention-derived non-causal\", \"archived-output teacher replay\", \"not identity selective\", \"paper did not disclose max_side\", \"local reconstructed split\"]}"
+  },
+  {
+    "time": "2026-07-28T22:20:42+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-028-r023-matched35x2-same-resolution-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-028-r023-matched35x2-same-resolution-640 · matched35x2 same-resolution640 attention and visualization",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T22:20:42+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-029c-original140-positive-targets-binding-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-029c-original140-positive-targets-binding-640 · original E003 positive n140 same-resolution640 binding audit",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T22:20:42+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-030c-original140-negative-targets-binding-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-030c-original140-negative-targets-binding-640 · original E003 same-class negative n140 separate640 diagnostic",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T22:21:10+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-033-positive-full140-unified-fivepanel-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-033-positive-full140-unified-fivepanel-640 · full original n140 positive unified five-panel640 visualizations",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T22:21:10+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-033-negative-full140-unified-fivepanel-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-033-negative-full140-unified-fivepanel-640 · full original n140 negative unified five-panel640 visualizations",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:12:15+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-034-qr-continuous-threshold-curve-offline-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-034-qr-continuous-threshold-curve-offline-640 · offline Q→R curve analysis first implementation",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:12:15+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-034b-qr-continuous-threshold-curve-offline-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-034b-qr-continuous-threshold-curve-offline-640 · pure numpy recovery",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:12:15+08:00",
+    "experiment_id": "E-005",
+    "run_id": "E005-R-034d-qr-continuous-threshold-curve-offline-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E005-R-034d-qr-continuous-threshold-curve-offline-640 · final frozen Q→R continuous threshold fIoU analysis",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:21:49+08:00",
+    "experiment_id": "E-006",
+    "run_id": "",
+    "type": "experiment_created",
+    "message": "Agent 创建实验初稿 E-006 · 简洁的attention-on-GT与联通子图审计",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:37:58+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-005-simple-top50-support-components-positive-extremes-n111-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-005-simple-top50-support-components-positive-extremes-n111-640 · fixed top50 support per-head GtoR QtoR QtoQ",
+    "details": ""
+  },
+  {
+    "time": "2026-07-28T23:51:04+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-005-simple-top50-support-components-positive-extremes-n111-640",
+    "type": "run_update",
+    "message": "补全top50 support算法定义、条件归一化边界、selected-token统计与组会解释。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640 · exact last-token vs first-generate-step vs bbox-pminus1 row gate",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220 · RefCOCO primary and optional filtered COCO-val proxy manifest gate",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-008-upstream-llava-last-token-refcoco-positive-control-n1000-200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-008-upstream-llava-last-token-refcoco-positive-control-n1000-200 · immutable upstream LocalizationHeads LLaVA exact last-token positive control",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200 · Qwen RefCOCO exact-last-token first-step bbox-row parity",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-010-outcome-stratified-allhead-discovery-sequence-split · correct-error separate all-head discovery for last-token and bbox rows",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-011-outcome-headsets-fresh-cross-evaluation",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-011-outcome-headsets-fresh-cross-evaluation · 2x2 correct-discovered error-discovered fresh sequence confirmation",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-012-reference-query-transform-geometric-separability-gate · identity HFlip VFlip R180 reference-only query-only both offline geometry",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-013-natural-behavior-transform-gate",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-013-natural-behavior-transform-gate · natural Yes bbox under REF-only QUERY-only BOTH H V R180",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-014-qtor-reference-vs-query-coordinate-equivariance · QtoR reference tracking versus query-coordinate copy transform audit",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T14:54:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-015-reference-image-vs-prompt-bbox-mismatch-diagnostic",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-015-reference-image-vs-prompt-bbox-mismatch-diagnostic · reference visual transform versus explicit bbox-coordinate mismatch",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:15:18+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+    "type": "run_update",
+    "message": "按用户审核修订R-007：使用现有COCO，澄清unique-image来源与采样单位。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:16:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-008-upstream-llava-last-token-refcoco-positive-control-n1000-200",
+    "type": "run_update",
+    "message": "用户决定不做LLaVA upstream control。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:16:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+    "type": "run_update",
+    "message": "按用户疑问重新解释并缩小R-009。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+    "type": "run_review_submitted",
+    "message": "已按审核修订：使用现有COCO；n为expression samples；image_id group split是本地防泄漏而非原文要求。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+    "type": "run_review_submitted",
+    "message": "已简化为Qwen-only可选RefCOCO空间正对照，请决定保留或取消。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz · correct error balanced-mix by reference-query role all-head discovery and visualization",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+    "type": "run_update",
+    "message": "基于已批准R010的新增可视化授权备注创建实质修订版，避免修改已批准记录。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+    "type": "run_review_submitted",
+    "message": "请审核修订版R010b；旧R010保留但不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T15:17:11+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-011-outcome-headsets-fresh-cross-evaluation",
+    "type": "run_update",
+    "message": "同步用户对R010的三组和可视化要求。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T17:55:31+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+    "type": "run_review_submitted",
+    "message": "按用户要求重写为attention-first直接空间迁移审计：同一forward Q→R/Q→Q、projected Q→Q、REF-only/QUERY-only、固定main4与6+6全套turbo heatmaps。请审核；尚未执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:06:43+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization · r005-sample-aligned-three-row-equivariance-visualization",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:07:03+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+    "type": "run_review_submitted",
+    "message": "已按用户反馈提交初稿：与R-005原始n111样本对齐；固定6 correct+6 error、84个真实自然生成/replay；36张identity/REF-only/QUERY-only三行四列主图；修复原图到max_side=640显示坐标缩放；每行显示当前预测状态与IoU；R-014保持不可变。请用户审核和补充，批准后仍需单独执行授权。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:18:40+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+    "type": "run_update",
+    "message": "Activated and launched only R-014b after approval/authorization/spec-equality gate.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:36:17+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+    "type": "run_update",
+    "message": "exit=0; GATE_PASS; 84/84 natural generations and same-forward bbox-p-1 teacher replays; 36/36 main 3x4 figures; 84 appendices; no parse failures. REF-only sequence-level median mass preference toward R_t over R_0 = +0.01468, 95% sequence bootstrap CI [-0.02155,+0.06075], 8/12 positive; only VFlip transform CI excluded 0. QUERY-only preference for R_0 over projected Q_t = +0.03066 CI [-0.01503,+0.07831], 7/12. Supports at most a weak/mixed reference-region tracking signature; simple direct query-map copying remains weakened, not disproved; non-causal and small n.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:39:43+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+    "type": "run_update",
+    "message": "Completed canonical result and bounded interpretation; local statistical charts added.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:44:19+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-016-icol-last-token-row-stage-falsification",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-016-icol-last-token-row-stage-falsification · icol-last-token-row-stage-falsification",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T20:44:19+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-016-icol-last-token-row-stage-falsification",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T22:00:45+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+    "type": "run_update",
+    "message": "User requested proceeding with experiment after COCO train2014 extraction. Pre-execution dependency/data gate now being validated; no model run launched yet.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T22:01:13+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+    "type": "run_update",
+    "message": "Corrected immutable old R-007 status to completed gate-stop; current assets require R-007b.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T22:01:41+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220 · refcoco-train2014-recovery-integrity-gate-n1220",
+    "details": ""
+  },
+  {
+    "time": "2026-08-03T22:01:41+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:14:44+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+    "type": "run_update",
+    "message": "Network interruption did not affect remote tmux; R-007b completed successfully.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:30:31+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-014c-prediction-projection-expanded-equivariance-audit · prediction-projection-expanded-equivariance-audit",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:30:31+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:39:47+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+    "type": "run_update",
+    "message": "Completed after one archived missing-scipy attempt; canonical successful attempt used existing lama_site scipy.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:40:37+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200 · refcoco-natural-bbox-token-head-transfer-n1000-200",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:40:37+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T15:46:45+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_update",
+    "message": "Sequential first run completed at preregistered pilot gate. No scope bypass; normalized-coordinate recovery requires a new run.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T16:02:57+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200 · refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T16:02:57+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T17:25:21+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+    "type": "run_update",
+    "message": "Completed with one immutable natural parse failure (idx86 monkey-3 REF-only VFlip); no borrowed bbox and no rerun.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T17:46:57+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+    "type": "run_update",
+    "message": "Completed after archived attempt-001 variable-grid raw-map accumulation failure; successful recovery used per-sample repo-style head votes. Interpretation explicitly bounded by modified explicit-bbox prompt.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T17:47:36+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200 · refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T17:47:36+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T18:44:45+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+    "type": "run_update",
+    "message": "Successful canonical attempt followed archived attempt-001 one-natural-nonbbox handling bug; successful runner preserved output and enforced >=95% coverage.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T18:45:27+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200 · refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T18:45:27+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T19:22:19+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-017-refcoco-synthetic-paired-view-icol-format-head-transfer",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-017-refcoco-synthetic-paired-view-icol-format-head-transfer · refcoco-synthetic-paired-view-icol-format-head-transfer",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T19:22:20+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-017-refcoco-synthetic-paired-view-icol-format-head-transfer",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T19:30:32+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer · refcoco-synthetic-icol-format-within-lora-head-transfer",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T19:30:32+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T19:41:14+08:00",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+    "type": "run_update",
+    "message": "Approved authorization consumed for Stage0 only. Immutable preregistered geometry retention gate failed; stopped before GPU/model inference. Artifacts preserved in canonical run directory.",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:42:20+08:00",
+    "experiment_id": "E-007",
+    "run_id": "",
+    "type": "experiment_created",
+    "message": "Agent 创建实验初稿 E-007 · Query-stage reference-attention transplant and causal rescue",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:43+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke · qwen3vl-attention-probability-rewrite-correctness-smoke",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:43+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20 · frozen-source-map-and-online-window-alignment-gate-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:43+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20 · teacher-replayed-qtor-shape-transplant-controls-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:43+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20 · natural-generation-qtor-shape-transplant-pilot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:44+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-004-fresh-sequence-qtor-transplant-joint-f1-n140",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-004-fresh-sequence-qtor-transplant-joint-f1-n140 · fresh-sequence-qtor-transplant-joint-f1-n140",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:44+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-005-budget-vs-shape-factorial-and-headset-specificity · budget-vs-shape-factorial-and-headset-specificity",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-004-fresh-sequence-qtor-transplant-joint-f1-n140",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T20:44:51+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+    "type": "run_review_submitted",
+    "message": "Run 初稿已完成，等待用户审核",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:02:47+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-002v-target-attention-before-after-and-av-visual-audit-n4 · target-attention-before-after-and-av-visual-audit-n4",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:02:47+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-003b-post-null-natural-generation-transplant-pilot-n20 · post-null-natural-generation-transplant-pilot-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:02:47+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+    "type": "run_review_submitted",
+    "message": "实现可视化gate初稿已完成：补齐真实A_before/A_after、A@V、卸载恢复和future-free逐token窗口审计，等待审核。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:02:47+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+    "type": "run_review_submitted",
+    "message": "post-null自然生成pilot初稿已完成：n20×8独立生成，完整报告rescue与newly-broken；positive-only不冒充完整F1，等待审核。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:44:35+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20 · source-map-normalization-and-residual-blend-sweep-n20",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:44:35+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E007-R-004b-fresh-top3-mapping-family-joint-f1-n140 · fresh-top3-mapping-family-joint-f1-n140",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:44:35+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+    "type": "run_review_submitted",
+    "message": "算法screening：旧n20固定15条件，自动规则冻结至多Top3，明确不作确认。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-04T22:44:35+08:00",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+    "type": "run_review_submitted",
+    "message": "fresh 70+70大样本：只评估R003c预冻结Top3，完整mIoU/Identification/Joint F1及Holm/cluster bootstrap。",
+    "details": ""
   }
 ]

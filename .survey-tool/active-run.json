@@ -1,0 +1,22 @@
+{
+  "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+  "experiment_id": "E-007",
+  "activated_at": "2026-08-04T22:48:22",
+  "resolved": {
+    "server_id": "M-01",
+    "server_label": "feturize",
+    "ssh_host": "featurize",
+    "workspace_id": "W-01",
+    "remote_repo": "/home/featurize/work/mechanism/Rex-Omni",
+    "remote_data_root": "/home/featurize/data",
+    "project_dir": "/home/featurize/work/mechanism/E-007",
+    "environment_activation": "",
+    "launcher": "tmux",
+    "run_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+    "log_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/logs/train.log",
+    "output_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/outputs",
+    "metrics_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/metrics.json",
+    "tmux_session": "incontext-E-007-E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+    "complete": true
+  }
+}

@@ -412,3 +412,61 @@ reference来自query crop，仅工程验证；不进入科学head discovery。
 ## 2026-07-28T13:44:18+08:00 · run_update
 - run: E005-R-023-reference-binding-frequency-fiou-matched35x2
 - message: 补全R-023算法、coverage、完整频率、Wilson、McNemar、paired bootstrap、conditional bootstrap、fIoU AUC和结论边界。
+
+## 2026-07-28T20:13:24+08:00 · run_created
+- run: E005-R-024-unseen-multiframe-positive-manifest-n280
+- message: Agent 创建 canonical Run E005-R-024-unseen-multiframe-positive-manifest-n280 · unseen70 multiframe4 positive-only n280 manifest
+
+## 2026-07-28T20:13:36+08:00 · run_created
+- run: E005-R-025-dualgpu-640-eager-attention-smoke-n5
+- message: Agent 创建 canonical Run E005-R-025-dualgpu-640-eager-attention-smoke-n5 · dual RTX4090 max_side640 standard eager attention smoke n5
+
+## 2026-07-28T20:16:40+08:00 · run_created
+- run: E005-R-026-unseen-multiframe-natural-generation-n280-640
+- message: Agent 创建 canonical Run E005-R-026-unseen-multiframe-natural-generation-n280-640 · natural single-bbox generation positive n280 max_side640
+
+## 2026-07-28T20:16:41+08:00 · run_created
+- run: E005-R-027-binding-discrepancy-unseen-multiframe-n280-640
+- message: Agent 创建 canonical Run E005-R-027-binding-discrepancy-unseen-multiframe-n280-640 · same-resolution binding discrepancy n280 max_side640
+
+## 2026-07-28T21:11:41+08:00 · run_created
+- run: E005-R-028-r023-matched35x2-same-resolution-640
+- message: Agent 创建 canonical Run E005-R-028-r023-matched35x2-same-resolution-640 · A R023 matched35x2 archived-natural replay max_side640 with 70 visualizations
+
+## 2026-07-28T22:19:54+08:00 · result_synthesis
+- run: E005-R-033-positive-full140-unified-fivepanel-640
+- message: 双卡640核心结果归档：原n140最强error signature为Q→Q localization collapse；G→R grounding基本保持；G→R/Q→R discrepancy在matched与expanded分析中未统计稳定。完整公式、指标、结果与路径已写入本地高浓度总结。
+
+{"artifact": "shell/06_experiments/E-005/dual_gpu_640_core_results.md", "configuration": {"gpus": "2xRTX4090 24GB", "max_side": 640, "attention": "standard HF eager", "model": "Qwen3-VL-8B+IPLoc-ID LoRA"}, "metric_definitions": {"G_to_R": "reference bbox p-1 rows x grounding heads -> reference keys", "Q_to_R": "natural query bbox p-1 rows x localization heads -> reference keys", "Q_to_Q": "same natural bbox p-1 rows x localization heads -> query keys", "target_mass": "normalized raw attention mass weighted by fractional GT-cell occupancy", "enrichment": "mean attention density inside fractional GT / outside", "strict_hit": "enrichment>1 AND raw argmax overlaps GT AND GT coverage>=2 merged tokens", "D_abs": "abs(logit(P_GtoR)-logit(P_QtoR))"}, "original_positive_n140": {"groups": {"error": 35, "correct": 76, "partial": 22, "fn": 7}, "GtoR_hit_error_correct": [0.942857, 0.947368], "QtoR_hit_error_correct": [0.257143, 0.342105], "QtoQ_hit_error_correct": [0.142857, 0.960526], "QtoQ_mass_median_error_correct": [0.017503, 0.437874], "QtoQ_enrichment_median_error_correct": [0.662482, 16.00419], "Dabs_median_error_correct": [2.100597, 1.52687], "Dabs_error_minus_correct": 0.573727, "cluster_ci95": [-0.221581, 1.418997], "spearman": {"rho": -0.185973, "p": 0.050671, "n": 111}, "coverage": {"median": 9, "le1": 3, "2_3": 16, "ge4": 121}}, "matched35x2_640": {"state11_error_correct": [9, 13], "state11_rates": [0.257143, 0.371429], "paired_diff_ci_pp": [-11.43, 34.29], "QtoR_mass_paired_median_correct_minus_error": 0.032297, "QtoR_mass_ci95": [0.006042, 0.08811], "GtoR_mass_diff": 0.002858, "GtoR_mass_ci95": [-0.042684, 0.039786], "coverage_median_224_640": [4, 6], "state_stable": 39}, "expanded_n280": {"groups": {"error": 48, "correct": 177, "partial": 45, "rejected": 10}, "Dabs_error_correct": [1.567379, 1.304465], "diff": 0.262913, "cluster_ci95": [-0.348299, 0.986894], "spearman": {"rho": -0.037438, "p": 0.576404, "n": 225}, "coverage_median": 8, "unalignable": 0}, "negative_n140": {"tn": 136, "fp": 4, "boundary": "candidate IoU is not personalized localization correctness"}, "visualizations": {"positive": 140, "negative": 140, "layout": ["reference clean", "G->R", "Q->R", "Q->Q", "query clean GT+pred"], "naming": "presentation/by_behavior"}, "conclusion": "Strongest error-associated attention signature is Q->Q query localization collapse, not loss of G->R grounding. G->R/Q->R discrepancy is directional but statistically unstable across matched and expanded analyses.", "boundaries": ["attention-derived non-causal", "archived-output teacher replay", "not identity selective", "paper did not disclose max_side", "local reconstructed split"]}
+
+## 2026-07-28T22:20:42+08:00 · run_created
+- run: E005-R-028-r023-matched35x2-same-resolution-640
+- message: Agent 创建 canonical Run E005-R-028-r023-matched35x2-same-resolution-640 · matched35x2 same-resolution640 attention and visualization
+
+## 2026-07-28T22:20:42+08:00 · run_created
+- run: E005-R-029c-original140-positive-targets-binding-640
+- message: Agent 创建 canonical Run E005-R-029c-original140-positive-targets-binding-640 · original E003 positive n140 same-resolution640 binding audit
+
+## 2026-07-28T22:20:42+08:00 · run_created
+- run: E005-R-030c-original140-negative-targets-binding-640
+- message: Agent 创建 canonical Run E005-R-030c-original140-negative-targets-binding-640 · original E003 same-class negative n140 separate640 diagnostic
+
+## 2026-07-28T22:21:10+08:00 · run_created
+- run: E005-R-033-positive-full140-unified-fivepanel-640
+- message: Agent 创建 canonical Run E005-R-033-positive-full140-unified-fivepanel-640 · full original n140 positive unified five-panel640 visualizations
+
+## 2026-07-28T22:21:10+08:00 · run_created
+- run: E005-R-033-negative-full140-unified-fivepanel-640
+- message: Agent 创建 canonical Run E005-R-033-negative-full140-unified-fivepanel-640 · full original n140 negative unified five-panel640 visualizations
+
+## 2026-07-28T23:12:15+08:00 · run_created
+- run: E005-R-034-qr-continuous-threshold-curve-offline-640
+- message: Agent 创建 canonical Run E005-R-034-qr-continuous-threshold-curve-offline-640 · offline Q→R curve analysis first implementation
+
+## 2026-07-28T23:12:15+08:00 · run_created
+- run: E005-R-034b-qr-continuous-threshold-curve-offline-640
+- message: Agent 创建 canonical Run E005-R-034b-qr-continuous-threshold-curve-offline-640 · pure numpy recovery
+
+## 2026-07-28T23:12:15+08:00 · run_created
+- run: E005-R-034d-qr-continuous-threshold-curve-offline-640
+- message: Agent 创建 canonical Run E005-R-034d-qr-continuous-threshold-curve-offline-640 · final frozen Q→R continuous threshold fIoU analysis

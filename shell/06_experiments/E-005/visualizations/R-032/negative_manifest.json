@@ -1,0 +1,203 @@
+{
+  "n": 14,
+  "naming_rule": "behavior__index__element__PN__IoU__GR__QR__QQ",
+  "state_order": "G->R,Q->R,Q->Q",
+  "records": [
+    {
+      "behavior_group": "correct_rejection",
+      "index": 0,
+      "element": "airplane",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.8842347264289856,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 1,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-000__airplane__PN-negative__IoU-0.884__GR-1__QR-1__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 10,
+      "element": "boat",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.8871108293533325,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-010__boat__PN-negative__IoU-0.887__GR-1__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 20,
+      "element": "cat",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-020__cat__PN-negative__IoU-0.000__GR-1__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 30,
+      "element": "crocodile",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.9153305888175964,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-030__crocodile__PN-negative__IoU-0.915__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 40,
+      "element": "electricfan",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.9530761241912842,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-040__electricfan__PN-negative__IoU-0.953__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 50,
+      "element": "gametarget",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 0,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-050__gametarget__PN-negative__IoU-0.000__GR-0__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 60,
+      "element": "guitar",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-060__guitar__PN-negative__IoU-0.000__GR-1__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 70,
+      "element": "horse",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.9428125619888306,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-070__horse__PN-negative__IoU-0.943__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 80,
+      "element": "lion",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.8404505848884583,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-080__lion__PN-negative__IoU-0.840__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 90,
+      "element": "mouse",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.7561438679695129,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-090__mouse__PN-negative__IoU-0.756__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 100,
+      "element": "racing",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.8702468872070312,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 1
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-100__racing__PN-negative__IoU-0.870__GR-1__QR-0__QQ-1.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 110,
+      "element": "sheep",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-110__sheep__PN-negative__IoU-0.000__GR-1__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 120,
+      "element": "swing",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-120__swing__PN-negative__IoU-0.000__GR-1__QR-0__QQ-0.png"
+    },
+    {
+      "behavior_group": "correct_rejection",
+      "index": 130,
+      "element": "turtle",
+      "pn_label": "negative",
+      "confusion": "TN",
+      "iou": 0.0,
+      "state_bits": {
+        "G_to_R": 1,
+        "Q_to_R": 0,
+        "Q_to_Q": 0
+      },
+      "path": "/home/featurize/work/mechanism/explog/E-005/runs/E005-R-032-negative-fixed14-unified-fivepanel-640/presentation_named/correct_rejection__idx-130__turtle__PN-negative__IoU-0.000__GR-1__QR-0__QQ-0.png"
+    }
+  ]
+}
