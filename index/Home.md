@@ -8,5 +8,6 @@
 - [[Claims]]
 - [[Experiments|实验]]
 - [[Runs]]
+- [[Explorations|自由探索]]
 
 > canonical Markdown 是研究内容事实源；`.survey-tool/` 仅作兼容索引与 UI 状态。

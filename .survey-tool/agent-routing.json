@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "routes": {
+    "local_tool_edit": {
+      "enabled": true,
+      "agent_kind": "codex",
+      "model": "sol",
+      "fallback_agent_kind": "pi",
+      "fallback_model": ""
+    },
+    "experiment_code_edit": {
+      "enabled": true,
+      "agent_kind": "codex",
+      "model": "sol",
+      "fallback_agent_kind": "pi",
+      "fallback_model": ""
+    }
+  }
+}

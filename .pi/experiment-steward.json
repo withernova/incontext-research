@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "identity": {
+    "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
+    "runId": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+    "experimentId": "E-007"
+  },
+  "remote": {
+    "host": "featurize",
+    "projectDir": "/home/featurize/work/mechanism/E-007"
+  },
+  "experiment": {
+    "tmuxSession": "incontext-E-007-E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+    "logFile": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/logs/train.log",
+    "description": "E-007 / E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20 / reference head引导的两遍reference遮罩自然生成门禁",
+    "processPattern": ""
+  },
+  "monitoring": {
+    "errorPatterns": [
+      "FileNotFoundError",
+      "CUDA out of memory",
+      "RuntimeError",
+      "KeyboardInterrupt",
+      "Traceback",
+      "AssertionError"
+    ],
+    "progressPatterns": [
+      "iteration:",
+      "epoch:",
+      "loss:",
+      "ETA:"
+    ],
+    "gpuWarningPercent": 95,
+    "etaRegex": "ETA:\\s*(?:(\\d+):)?(\\d{1,2}):(\\d{2}):(\\d{2})|ETA:\\s*(\\d+(?:\\.\\d+)?)\\s*([mh])"
+  },
+  "scheduling": {
+    "minIntervalMinutes": 2,
+    "normalIntervalMinutes": 15,
+    "maxIntervalMinutes": 60,
+    "etaFraction": 0.1,
+    "nearCompletionMinutes": 30,
+    "stableBackoffAfterChecks": 3
+  },
+  "completion": {
+    "enabled": false,
+    "completionMarkers": [],
+    "requiredArtifacts": [],
+    "metricsFile": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/metrics.json",
+    "exitCodeFile": "",
+    "stableChecks": 2,
+    "requireProcessExit": true,
+    "allowNonzeroExit": false
+  },
+  "remediation": {
+    "enabled": false,
+    "maxRestarts": 1,
+    "playbooks": []
+  },
+  "archive": {
+    "enabled": false,
+    "mode": "manifest_reference",
+    "localDir": ".survey-tool/experiment-archives",
+    "includePaths": [],
+    "checksumAlgorithm": "sha256",
+    "autoArchive": false,
+    "maxFiles": 2000,
+    "maxTotalBytes": 2000000000
+  }
+}

@@ -1,0 +1,1 @@
+按 local_tool_edit 路由修复 /home/zhengyuesong/Tools/survey-tool/start.sh。已定位：headless WSL中 command -v open 命中/usr/bin/open，但open/xdg-open无法找到浏览器并返回3；set -e导致launcher退出，尽管server已启动。只做最小修复：打开浏览器必须best-effort，失败时输出提示但不能终止server/wait；保持自定义port、清理旧实例和Ctrl+C语义。运行bash -n和一个不会遗留server的测试。不要改其他文件。

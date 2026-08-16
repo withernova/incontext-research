@@ -1,7 +1,7 @@
 {
-  "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+  "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
   "experiment_id": "E-007",
-  "activated_at": "2026-08-04T22:48:22",
+  "activated_at": "2026-08-12T16:05:37",
   "resolved": {
     "server_id": "M-01",
     "server_label": "feturize",
@@ -12,11 +12,36 @@
     "project_dir": "/home/featurize/work/mechanism/E-007",
     "environment_activation": "",
     "launcher": "tmux",
-    "run_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
-    "log_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/logs/train.log",
-    "output_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/outputs",
-    "metrics_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20/metrics.json",
-    "tmux_session": "incontext-E-007-E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
-    "complete": true
+    "run_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+    "log_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/logs/train.log",
+    "output_dir": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/outputs",
+    "metrics_file": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/metrics.json",
+    "tmux_session": "incontext-E-007-E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+    "complete": true,
+    "environment_policy": {
+      "allowed_write_roots": [
+        "/home/featurize/work/mechanism/Rex-Omni",
+        "/home/featurize/work/mechanism",
+        "/home/featurize/work/mechanism/explog"
+      ],
+      "forbidden_paths": [
+        "/tmp"
+      ],
+      "read_only_roots": [
+        "/home/featurize/data"
+      ],
+      "forbidden_operations": [
+        "删除数据",
+        "破坏性 Git 操作",
+        "覆盖已有产物",
+        "泄露密钥"
+      ],
+      "temp_policy": "临时文件只能放在 Workspace 明确允许的临时目录；不得把 /tmp 用作源码或持久产物。",
+      "notes": "",
+      "policy_preset": "legacy-default",
+      "dangerous_exceptions": []
+    },
+    "policy_violations": [],
+    "policy_ok": true
   }
 }

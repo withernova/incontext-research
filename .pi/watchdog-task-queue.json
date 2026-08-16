@@ -1,0 +1,75 @@
+{
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 15,
+  "currentTaskId": null,
+  "tasks": [
+    {
+      "id": "r008-diagnose",
+      "instruction": "核验E007 R-008当前失败日志、退出码、tmux/process/GPU并定位首个真实错误；不得凭历史摘要猜测。",
+      "acceptance": [
+        "记录实际Traceback、文件行号、错误张量形状和退出码",
+        "确认正式进程已停止且GPU空闲"
+      ],
+      "dependsOn": [],
+      "capability": "inspect",
+      "maxAttempts": 1,
+      "attempts": 0,
+      "onFailure": "pause",
+      "status": "pending"
+    },
+    {
+      "id": "r008-remediate",
+      "instruction": "仅修复已定位的R-008实现bug，运行本地与远程静态/最小函数测试，保留原失败日志和remediation记录；不得改变已批准科学规范。",
+      "acceptance": [
+        "修复attention map与GT occupancy形状契约",
+        "py_compile、bash -n和针对性shape单元测试通过",
+        "远程config快照与SHA256更新且旧日志不覆盖"
+      ],
+      "dependsOn": [
+        "r008-diagnose"
+      ],
+      "capability": "implement",
+      "maxAttempts": 2,
+      "attempts": 0,
+      "onFailure": "pause",
+      "status": "pending"
+    },
+    {
+      "id": "r008-restart",
+      "instruction": "在已消费的同一R-008执行激活内重启修复后的正式tmux，验证进程、GPU和日志进入模型加载/forward；不得创建新Run或覆盖已有记录。",
+      "acceptance": [
+        "正式tmux存活",
+        "runner_008进程存在",
+        "日志包含新的LAUNCH/REMEDIATION且无立即Traceback"
+      ],
+      "dependsOn": [
+        "r008-remediate"
+      ],
+      "capability": "execute_approved",
+      "maxAttempts": 2,
+      "attempts": 0,
+      "onFailure": "pause",
+      "status": "pending"
+    },
+    {
+      "id": "r008-monitor-audit",
+      "instruction": "持续监控R-008直到完成或出现新错误；完成时核验exit.code、140 records、summary.json、metrics.json、records/visualization manifests和预注册科学门槛，并如实同步registry。新错误只按具体fingerprint诊断，不后验改变科学规范。",
+      "acceptance": [
+        "exit.code=0且140条唯一generation records",
+        "summary/metrics/manifests/8套图齐全并通过完整性gate",
+        "registry记录真实结果与claim边界；若失败则有真实blocker证据"
+      ],
+      "dependsOn": [
+        "r008-restart"
+      ],
+      "capability": "execute_approved",
+      "maxAttempts": 3,
+      "attempts": 0,
+      "onFailure": "pause",
+      "status": "pending"
+    }
+  ],
+  "createdAt": "2026-08-12T09:34:37.498Z",
+  "updatedAt": "2026-08-12T09:34:37.498Z"
+}

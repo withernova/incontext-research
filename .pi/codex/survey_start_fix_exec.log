@@ -1,0 +1,25 @@
+Reading additional input from stdin...
+2026-08-15T06:27:37.839574Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+2026-08-15T06:27:37.884100Z ERROR codex_models_manager::manager: failed to refresh available models: timeout waiting for child process to exit
+OpenAI Codex v0.147.0
+--------
+workdir: /home/zhengyuesong/Tools/survey-tool
+model: sol
+provider: openai
+approval: on-request
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: none
+reasoning summaries: none
+session id: 01a0041a-c31f-7ab1-8d4b-ded787a727b5
+--------
+user
+按 local_tool_edit 路由修复 /home/zhengyuesong/Tools/survey-tool/start.sh。已定位：headless WSL中 command -v open 命中/usr/bin/open，但open/xdg-open无法找到浏览器并返回3；set -e导致launcher退出，尽管server已启动。只做最小修复：打开浏览器必须best-effort，失败时输出提示但不能终止server/wait；保持自定义port、清理旧实例和Ctrl+C语义。运行bash -n和一个不会遗留server的测试。不要改其他文件。
+warning: Model metadata for `sol` not found. Defaulting to fallback metadata; this can degrade performance and cause issues.
+2026-08-15T06:28:07.963412Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: route-aware request timed out")))
+hook: SessionStart
+hook: SessionStart Completed
+2026-08-15T06:28:37.963971Z ERROR rmcp::transport::worker: worker quit with fatal: Transport channel closed, when Client(HttpRequest(HttpRequest("http/request failed: error sending request for url (https://chatgpt.com/backend-api/ps/mcp)")))
+ERROR: Reconnecting... 2/5
+ERROR: Reconnecting... 3/5
+ERROR: Reconnecting... 4/5
+ERROR: Reconnecting... 5/5

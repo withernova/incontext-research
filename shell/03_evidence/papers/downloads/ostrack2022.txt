@@ -1,0 +1,1222 @@
+Joint Feature Learning and Relation Modeling
+for Tracking: A One-Stream Framework
+Botao Ye1,2, Hong Chang 1,2, Bingpeng Ma 2,
+Shiguang Shan1,2, and Xilin Chen 1,2
+1 Key Lab of Intelligent Information Processing of Chinese Academy of Sciences
+(CAS), Institute of Computing Technology, CAS, Beijing, 100190, China
+2 University of Chinese Academy of Sciences, Beijing, 100049, China
+botao.ye@vipl.ict.ac.cn, changhong@ict.ac.cn, bpma@ucas.ac.cn,
+{sgshan, xlchen}@ict.ac.cn
+Abstract. The current popular two-stream, two-stage tracking frame-
+work extracts the template and the search region features separately
+and then performs relation modeling, thus the extracted features lack
+the awareness of the target and have limited target-background dis-
+criminability. To tackle the above issue, we propose a novel one-stream
+tracking (OSTrack) framework that unifies feature learning and relation
+modeling by bridging the template-search image pairs with bidirectional
+information flows. In this way, discriminative target-oriented features
+can be dynamically extracted by mutual guidance. Since no extra heavy
+relation modeling module is needed and the implementation is highly
+parallelized, the proposed tracker runs at a fast speed. To further im-
+prove the inference efficiency, an in-network candidate early elimination
+module is proposed based on the strong similarity prior calculated in the
+one-stream framework. As a unified framework, OSTrack achieves state-
+of-the-art performance on multiple benchmarks, in particular, it shows
+impressive results on the one-shot tracking benchmark GOT-10k, i.e.,
+achieving 73.7% AO, improving the existing best result (SwinTrack) by
+4.3%. Besides, our method maintains a good performance-speed trade-
+off and shows faster convergence. The code and models are available at
+https://github.com/botaoye/OSTrack.
+1 Introduction
+Visual object tracking (VOT) aims at localizing an arbitrary target in each video
+frame, given only its initial appearance. Thecontinuously changingand arbitrary
+nature of the target poses a challenge to learn a target appearance model that
+can effectively discriminate the specified target from the background. Current
+mainstream trackers typically address this problem with a common two-stream
+and two-stage pipeline, which means that the features of the template and the
+search region are separately extracted (two-stream), and the whole process is
+divided into two sequential steps: feature extraction and relation modeling (two-
+stage). Such a natural pipeline employs the strategy of “divide-and-conquer”
+and achieves remarkable success in terms of tracking performance.
+arXiv:2203.11991v4  [cs.CV]  20 Dec 2022
+
+2 B. Ye, H. Chang et al.
+Fig. 1: A comparison of AO and
+speed of state-of-the-art trackers
+on GOT-10k under one-shot set-
+ting. Our OSTrack-384 sets a new
+SOTA of 73.7% AO on GOT-
+10k, showing impressive one-shot
+tracking performance. OSTrack-
+256 runs at 105.4 FPS while still
+outperforming all previous track-
+ers.
+0 10 20 30 40 50 60 70 80 90 100 110 120
+Tracking Speed (FPS)
+50.0
+52.5
+55.0
+57.5
+60.0
+62.5
+65.0
+67.5
+70.0
+72.5
+75.0AO Score
+OSTrack-384(ours)
+OSTrack-256
+(ours)
+SwinTrack
+STARK TransT
+DiMP50
+SiamRCNN
+SiamPRN++
+SiamCAR
+Ocean
+PrDiMP
+AO vs.  Speed on GOT-10k (One-shot Setting)
+However, the separation of feature extraction and relation modeling suffers
+from the following limitations. Firstly, the feature extracted by the vanilla two-
+stream two-stage framework is unaware of the target. In other words, the ex-
+tracted feature for each image is determined after off-line training, since there is
+no interaction between the template and the search region. This is against with
+the continuously changing and arbitrary nature of the target, leading to limited
+target-background discriminative power. On some occasions when the category of
+the target object is not involved in the training dataset ( i.e., one-shot tracking),
+the above problems are particularly serious. Secondly, the two-stream, two-stage
+framework is vulnerable to the performance-speed dilemma. According to the
+computation burden of the feature fusion module, two different strategies are
+commonly utilized. The first type, shown in Fig 2(a), simply adopts one sin-
+gle operator like cross-correlation [1, 27] or discriminative correlation filter [2, 7],
+which is efficient but less effective since the simple linear operation leads to dis-
+criminative information loss [5]. The second type, shown in Fig 2(b), addresses
+the information loss by complicated non-linear interaction (Transformer [44]),
+but is less efficient due to a large number of parameters and the use of iterative
+refinement ( e.g., for each search image, STARK-S50 [50] takes 7.5 ms for the
+feature extraction and 14.1 ms for relation modeling on an RTX2080Ti GPU).
+In this work, we set out to address the aforementioned problems via a uni-
+fied one-stream one-stagetracking framework. The core insight of the one-stream
+framework is to bridge a free information flow between the template and search
+region at the early stage ( i.e., the raw image pair), thus extracting target-
+oriented features and avoiding the loss of discriminative information. Specifi-
+cally, we concatenate the flattened template and search region and feed them
+into staked self-attention layers [44] (widely used Vision Transformer (ViT) [12]
+is chosen in our implementation), and the produced search region features can be
+directly used for target classification and regression without further matching.
+The staked self-attention operations enable iteratively feature matching between
+the template and the search region, thus allowing mutual guidance for target-
+oriented feature extraction. Therefore, both template and search region features
+can be extracted dynamically with strong discriminative power. Additionally,
+the proposed framework achieves a good balance between performance and speed
+
+Joint Feature Learning and Relation Modeling for Tracking 3
+because the concatenation of the template and the search region makes the one-
+stream framework highly parallelizable and does not require additional heavy
+relational modeling networks.
+Moreover, the proposed one-stream framework provides a strong prior about
+the similarity of the target and each part of the search region ( i.e. candidates)
+as shown in Fig. 4, which means that the model can identify background regions
+even at the early stage. This phenomenon verifies the effectiveness of the one-
+stream framework and motivates us to propose an in-network early candidate
+elimination module for progressively identifying and discarding the candidates
+belonging to the background in a timely manner. The proposed candidate elim-
+ination module not only significantly boosts the inference speed, but also avoids
+the negative impact of uninformative background regions on feature matching.
+Despite its simple structure, the proposed trackers achieve impressive perfor-
+mance and set a new state-of-the-art (SOTA) on multiple benchmarks. Moreover,
+it maintains adorable inference efficiency and shows faster convergence compared
+to SOTA Transformer based trackers. As shown in Fig. 1, our method achieves
+a good balance between the accuracy and inference speed.
+The main contributions of this work are three-fold: (1) We propose a simple,
+neat, and effective one-stream, one-stage tracking framework by combining the
+feature extraction and relation modeling. (2) Motivated by the prior of the early
+acquired similarity score between the target and each part of the search region,
+an in-network early candidate elimination module is proposed for decreasing the
+inference time. (3) We perform comprehensive experiments to verify that the
+one-stream framework outperforms the previous SOTA two-stream trackers in
+terms of performance, inference speed, and convergence speed. The resulting
+tracker OSTrack sets a new state-of-the-art on multiple tracking benchmarks.
+2 Related Work
+In this section, we briefly review different tracking pipelines, as well as the adap-
+tive inference methods related to our early candidate elimination module.
+T racking Pipelines.Based on the different computational burdens of fea-
+ture extraction and relation modeling networks, we compare our method with
+two different two-stream two-stage archetypes in Fig. 2. Earlier Siamese track-
+ers [1, 27, 55] and discriminative trackers [2, 7] belong to Fig. 2(a). They first
+extract the features of the template and the search region separately by a CNN
+backbone [18, 24], which shares the same structure and parameters. Then, a
+lightweight relation modeling network ( e.g., the cross-correlation layer [1, 26] in
+Siamese trackers and correlation filter [4, 19] in discriminative trackers) takes
+responsibility to fuse these features for the subsequent state estimation task.
+However, the template feature cannot be adjusted according to the search re-
+gion feature in these methods. Such a shallow and unidirectional relation model-
+ing strategy may be insufficient for information interaction. ARecently, stacked
+Transformer layers [44] are introduced for better relation modeling. These meth-
+ods belong to Fig. 2(b) where the relation modeling module is relatively heavy
+
+4 B. Ye, H. Chang et al.
+Template
+Feature 
+Extraction
+Search
+Feature 
+Extraction
+Template Search Region
+Relation Modeling
+Template
+Feature 
+Extraction
+Search
+Feature 
+Extraction
+Template Search Region
+Relation Modeling
+(a) Two-stream two-stage 
+with light relation modeling
+Relation Modeling
+Template
+Feature 
+Extraction
+Search
+Feature 
+Extraction
+Template Search Region
+Relation Modeling
+Template
+Feature 
+Extraction
+Search
+Feature 
+Extraction
+Template Search Region
+(b) Two-stream two-stage 
+with heavy relation modeling
+Joint
+Feature Extraction
+&
+Relation Modeling
+Template Search Region
+Joint
+Feature Extraction
+&
+Relation Modeling
+Template Search Region
+(c) One-stream one-stage 
+without extra relation modeling
+Fig. 2: Three different taxonomies of tracking pipeline. The height of each rect-
+angular represents the relative model size.
+and enables bi-directional information interaction. TransT [5] proposes to stack
+a series of self-attention and cross-attention layers for iterative feature fusion.
+STARK [50] concatenates the pre-extracted template and search region features
+and feeds them into multiple self-attention layers. The bi-directional heavy struc-
+ture brings performance gain but inevitably slows down the inference speed.
+Differently, our one-stream one-stage design belongs to Fig. 2(c). For the first
+time, we seamlessly combine feature extraction and relation modeling into a uni-
+fied pipeline. The proposed method provides free information flow between the
+template and search region with minor computation costs. It not only generates
+target-oriented features by mutual guidance but also is efficient in terms of both
+training and testing time.
+Adaptive Inference. Our early candidate elimination module can be seen
+as a progressive process of adaptively discarding potential background regions
+based on the similarity between the target and the search region. One related
+topic is the adaptive inference [29,39,52] in vision transformers, which is proposed
+to accelerate the computation of ViT. DynamicViT [39] trains extra control
+gates with the Gumbel-softmax trick to discard tokens during inference. Instead
+of directly discarding non-informative tokens, EViT [29] fuses them to avoid
+potential information loss. These works are tightly coupled with the classification
+task and are therefore not suitable for tracking. Instead, we treat each token as
+a target candidate and then discard the candidates that are least similar to
+the target by means of a free similarity score calculated by the self-attention
+operation. To the best of our knowledge, this is the first work that attempts to
+eliminate potential background candidates within the tracking network.
+3 Method
+This section describes the proposed one-stream tracker (OSTrack). The input
+image pairs are fed into a ViT backbone for simultaneous feature extraction and
+relation modeling, and the resulting search region features are directly adopted
+
+Joint Feature Learning and Relation Modeling for Tracking 5
+1 2 3 4 1 2 3 4 5 6 7 8 9
+Linear Projection
+N x (Encoder Layer w/ or w/o Early Elimination Module)
+Reshape and Head
+Token Padding
+Template Patches Search Region Patches
+Multi-Head Attention
+LayerNorm
+MLP
+LayerNorm
+Top-k Candidates 
+Early Candidate 
+Elimination
+Template
+Tokens
+Next Layer
+Input Tokens
+Joint
+Feature 
+Extraction
+&
+Relation 
+Modeling
+Head
+Input Image Pair
+Target 
+Prediction
+* * Position Embeddings
+Patch Embeddings
+(a) (b)
+Fig. 3: (a) The overall framework of the proposed one-stream framework. The
+template and search region are split, flattened, and linear projected. Image em-
+beddings are then concatenated and fed into Transformer encoder layers for joint
+feature extraction and relation modeling. (b) The structure of the encoder layer
+with early candidate elimination module, which is insert after the multi-head
+attention operation [44].
+for subsequent target classification and regression. An overview of the model is
+shown in Fig. 3(a).
+3.1 Joint F eature Extraction and Relation Modeling
+We propose to combine the feature extraction and relation modeling modules
+and construct a free information flow between the contents of the template and
+the search region. The global contextual modeling capacity of self-attention [44]
+operation perfectly fits our goal, therefore, vanilla ViT [12] is selected as the
+main body of OSTrack. Adopting the existing Vision Transformer architecture
+also provides a bunch of publicly available pre-trained models [17, 42], freeing
+us from the time-consuming pre-training stage. The input of OSTrack is a pair
+of images, namely, the template image patch z ∈ R3×Hz×Wz and the search
+region patch x ∈ R3×Hx×Wx . They are first split and flattened into sequences of
+patches zp ∈ RNz×(3·P 2) and xp ∈ RNx×(3·P 2), where P × P is the resolution of
+each patch, and Nz = HzWz/P 2, Nx = HxWx/P 2 are the number of patches of
+template and search region respectively. After that, a trainable linear projection
+layer with parameter E is used to project zp and xp into D dimension latent
+space as in Eq. 1 and Eq. 2, and the output of this projection is commonly
+called patch embeddings [12]. Learnable 1D position embeddings P z and P x
+are added to the patch embeddings of the template and search region separately
+to produce the final template token embeddings H 0
+z ∈ RNz×D and search region
+
+6 B. Ye, H. Chang et al.
+token embeddings H 0
+x ∈ RNx×D.
+H 0
+z =
+
+z1
+pE; z2
+pE; · · ·; zNz
+p E
+
++ P z, E ∈ R(3·P 2)×D, P z ∈ RNz×D (1)
+H 0
+x =
+
+x1
+pE; x2
+pE; · · ·; xNz
+p E
+
++ P x, P x ∈ RNx×D (2)
+To verify whether adding addition identity embeddings (to indicate a token be-
+longing to the template or search region as in BERT [11]) or adopting relative
+positional embeddings are beneficial to the performance, we also conduct abla-
+tion studies and observe no significant improvement, thus they are omitted for
+simplicity (details can be found in the supplementary material).
+Token sequences H 0
+z and H 0
+x are then concatenated as H 0
+zx = [ H 0
+z; H 0
+x],
+and the resulting vector H 0
+zx is then fed into several Transformer encoder lay-
+ers [12]. Unlike the vanilla ViT [12], we insert the proposed early candidate
+eliminating module into some of encoder layers as shown in Fig. 3(b) for in-
+ference efficiency, and the technical details are presented in Sec. 3.2. Notably,
+adopting the self-attention of concatenated features makes the whole framework
+highly parallelized compared to the cross-attention [5]. Although template im-
+ages are also fed into the ViT for each search frame, the impact on the inference
+speed is minor due to the highly parallel structure and the fact that the number
+of template tokens is small compared to the number of search region tokens.
+Analysis. From the perspective of the self-attention mechanism [44], we
+further analyze the intrinsic reasons why the proposed framework is able to
+realize simultaneous feature extraction and relation modeling. The output of
+self-attention operation A in our approach can be written as:
+A = Softmax
+ 
+QK ⊤
+√dk
+!
+· V = Softmax
+ [Qz; Qx][Kz; Kx]⊤
+√dk
+
+· [V z; V x], (3)
+where Q, K, and V are query, key and value matrices separately. The subscripts
+z and x denote matrix items belonging to the template and search region. The
+calculation of attention weights in Eq. 3 can be expanded to:
+Softmax
+ [Qz; Qx][Kz; Kx]⊤
+√dk
+
+= Softmax
+ 
+[QzK⊤
+z , QzK⊤
+x ; QxK⊤
+z , QxK⊤
+x ]√dk
+!
+≜ [W zz , W zx; W xz, W xx],
+(4)
+where Wzx is a measure of similarity between the template and the search region,
+and the rest are similar. The output A can be further written as:
+A = [W zz V z + W zxV x; W xzV z + W xxV x]. (5)
+In the right part of Eq. 5, W xzV z is responsible for aggregating the iter-image
+feature (relation modeling) and W xxV x aggregating the intra-image feature
+(feature extraction) based on the similarity of different image parts. Therefore,
+the feature extraction and relation modeling can be done with a self-attention
+
+Joint Feature Learning and Relation Modeling for Tracking 7
+Input Layer 1 Layer 4 Layer 7 Layer 10 Layer 12
+Fig. 4: Visualization of the attention weights of search region corresponding to
+the center part of template after different ViT layers, the green rectangles indi-
+cate target objects. It can be seen as an estimate of the similarity between the
+target and each position of the search region.
+operation. Moreover, Eq. 5 also constructs a bi-direction information flow that
+allows mutual guidance of target-oriented feature extraction through the simi-
+larity learning.
+Comparisons with Two-Stream T ransformer F usion T rackers. 1)
+Previous two-stream Transformer fusion trackers [5, 30] all adopt a Siamese
+framework, where the features of the template and search region are separately
+extracted first, and the Transformer layer is only adopted to fuse the extracted
+features. Therefore, the extracted features of these methods are not adaptive
+and may lose some discriminative information, which is irreparable. In contrast,
+OSTrack directly concatenates linearly projected template and search region im-
+ages at the first stage, so feature extraction and relation modeling are seamlessly
+integrated and target-oriented features can be extracted through the mutual
+guidance of the template and the search region. 2) Previous Transformer fusion
+trackers only employ ImageNet [10] pre-trained backbone networks [18, 32] and
+leave Transformer layers randomly initialized, which degrades the convergence
+speed, while OSTrack benefits from pre-trained ViT models for faster conver-
+gence. 3) The one-stream framework provides the possibility of identifying and
+discarding useless background regions for further improving the model perfor-
+mance and inference speed as presented in Sec. 3.2.
+3.2 Early Candidate Elimination
+Each token of the search region can be regarded as a target candidate and
+each template token can be considered as a part of the target object. Previous
+trackers keep all candidates during feature extraction and relation modeling,
+while background regions are not identified until the final output of the network
+(i.e., classification score map). However, our one-stream framework provides a
+strong prior on the similarity between the target and each candidate. As shown
+in Fig. 4, the attention weights of the search region highlight the foreground
+objects in the early stage of ViT ( e.g., layer 4), and then progressively focus on
+
+8 B. Ye, H. Chang et al.
+the target. This property makes it possible to progressively identify and eliminate
+candidates belonging to the background regions inside the network. Therefore,
+we propose an early candidate elimination module that progressively eliminates
+candidates belonging to the background in the early stages of ViT to lighten
+the computational burden and avoid the negative impact of noisy background
+regions on feature learning.
+Candidate Elimination. Recall that the self-attention operation in ViT
+can be seen as a spatial aggregation of tokens with normalized importances [44],
+which is measured by the dot product similarity between each token pair. Specif-
+ically, each template token hi
+z, 1 ≤ i ≤ Nz is calculated as:
+hi
+z = Softmax
+ qi · [Kz; Kx]⊤
+√
+d
+
+· V = [wi
+z; wi
+x] · V , (6)
+where qi, Kz, Kx and V denote the query vector of token hi
+z, the key matrix
+corresponding to the template, the key matrix corresponding to the search re-
+gion and the value matrix. The attention weight wi
+x determines the similarity
+between the template part hi
+z and all search region tokens (candidates). The
+j − th item (1 ≤ j ≤ n, n is the number of input search region tokens) of wi
+x
+determines the similarity between hi
+z and the j − th candidate. However, the
+input templates usually include background regions that introduce noise when
+calculating the similarity between the target and each candidate. Therefore, in-
+stead of summing up the similarity of each candidate to all template parts wi
+x,
+i = 1, . . . , Nz, we take wϕ
+x, ϕ= ⌊ Wz
+2 ⌋ + Wz · ⌊Hz
+2 ⌋ (ϕ − th token corresponding to
+the center part of the original template image) as the representative similarity.
+This is fairly reasonable as the center template part has aggregated enough infor-
+mation through self-attention to represent the target. In the supplementary, we
+compare the effect of different template token choices. Considering that multi-
+head self-attention is used in ViT, there are multiple similarity scores wϕ
+x(m),
+where m = 1, ..., Mand M is the total number of attention heads [44]. We av-
+erage the similarity scores of all heads by wϕ
+x = PM
+m=1 wϕ
+x(m)/M, which serves
+as the final similarity score of the target and each candidate. One candidate is
+more likely to be a background region if its similarity score with the target is
+relatively small. Therefore, we only keep the candidates corresponding to the k
+largest (top- k) elements in wϕ
+x (k is a hyperparameter, and we define the to-
+ken keeping ratio as ρ = k/n), while the remaining candidates are eliminated.
+The proposed candidate elimination module is inserted after the multi-head at-
+tention operation [44] in the encoder layer, which is illustrated in Fig. 3(b). In
+addition, the original order of all remaining candidates is recorded so that it can
+be recovered in the final stage.
+Candidate Restoration. The aforementioned candidate elimination mod-
+ule disrupts the original order of the candidates, making it impossible to reshape
+the candidate sequence back into the feature map as described in Sec. 3.3, so we
+restore the original order of the remaining candidates and then pad the missing
+positions. Since the discarded candidates belong to the irrelevant background re-
+gions, they will not affect the classification and regression tasks. In other words,
+
+Joint Feature Learning and Relation Modeling for Tracking 9
+Input Stage 1 Stage 2 Stage 3 Input Stage 1 Stage 2 Stage 3 Input Stage 1 Stage 2 Stage 3
+Fig. 5: Visualization of the progressive early candidate elimination process. The
+main body of “Input” is the search region image, and the upper left corner shows
+the corresponding template image. The Green rectangles indicate target objects
+and the masked regions represent the discarded candidates. The results show
+that our method can gradually identify and discard the candidates belonging to
+the background regions.
+they just act as placeholders for the reshaping operation. Therefore, we first re-
+store the order of the remaining candidates and then zero-pad in between them.
+Visualization. To further investigate the behavior of the early candidate
+elimination module, we visualize the progressive process in Fig. 5. By iteratively
+discarding the irrelevant tokens in the search region, OSTrack not only largely
+lightens the computation burden but also avoids the negative impact of noisy
+background regions on feature learning.
+3.3 Head and Loss
+We first re-interpret the padded sequence of search region tokens to a 2D spatial
+feature map and then feed it into a fully convolutional network (FCN), which
+consists of L stacked Conv-BN-ReLU layers for each output. Outputs of the
+FCN contain the target classification score mapP ∈ [0, 1]
+Hx
+P × Wx
+P , the local offset
+O ∈ [0, 1)2× Hx
+P × Wx
+P to compensate the discretization error caused by reduced
+resolution and the normalized bounding box size ( i.e. width and height) S ∈
+[0, 1]2× Hx
+P × Wx
+P . The position with highest classification score is considered to be
+target position, i.e., (xd, yd) = arg max(x,y) P xy and the finial target bounding
+box is obtained as:
+(x, y, w, h) = (xd + O(0, xd, yd), yd + O(1, xd, yd), S(0, xd, yd), S(1, xd, yd)). (7)
+During training, both classification and regression losses are used. We adopt
+the weighted focal loss [25] for classification (see the supplementary for more de-
+tails). With the predicted bounding box, ℓ1 loss and the generalized IoU loss [40]
+are employed for bounding box regression. Finally, the overall loss function is:
+Ltrack = Lcls + λiouLiou + λL1 L1, (8)
+where λiou = 2 and λL1 = 5 are the regularization parameters in our experiments
+as in [50].
+
+10 B. Ye, H. Chang et al.
+4 Experiments
+After introducing the implementation details, this section first presents a com-
+parison of OSTrack with other state-of-the-art methods on seven different bench-
+marks. Then, ablation studies are provided to analyze the impact of each com-
+ponent and different design choices.
+4.1 Implementation Details
+Our trackers are implemented in Python using PyTorch. The models are trained
+on 4 NVIDIA A100 GPUs and the inference speed is tested on a single NVIDIA
+RTX2080Ti GPU.
+Model. The vanilla ViT-Base [12] model pre-trained with MAE [17] is adopted
+as the backbone for joint feature extraction and relation modeling. The head is a
+lightweight FCN, consisting of 4 stacked Conv-BN-ReLU layers for each of three
+outputs. The keeping ratio ρ of each candidate elimination module is set as 0.7,
+and a total of three candidate elimination modules are inserted at layers 4, 7,
+and 10 of ViT respectively, following [39]. We present two variants with different
+input image pair resolution for showing the scalability of OSTrack:
+– OST rack-256.Template: 128×128 pixels; Search region: 256 ×256 pixels.
+– OST rack-384.Template: 192×192 pixels; Search region: 384 ×384 pixels.
+T raining.The training splits of COCO [31], LaSOT [14], GOT-10k [20]
+(1k forbidden sequences from GOT-10k training set are removed following the
+convention [50]) and TrackingNet [37] are used for training. Common data aug-
+mentations including horizontal flip and brightness jittering are used in training.
+Each GPU holds 32 image pairs, resulting in a total batch size of 128. We train
+the model with AdamW optimizer [33], set the weight decay to 10 −4, the initial
+learning rate for the backbone to 4 × 10−5 and other parameters to 4 × 10−4,
+respectively. The total training epochs are set to 300 with 60k image pairs per
+epoch and we decrease the learning rate by a factor of 10 after 240 epochs.
+Inference. During inference, Hanning window penalty is adopted to utilize
+positional prior in tracking following the common practice [5,55]. Specifically, we
+simply multiply the classification map P by the Hanning window with the same
+size, and the box with the highest score after multiplication will be selected as
+the tracking result.
+4.2 Comparison with State-of-the-arts
+To demonstrate the effectiveness of the proposed models, we compare them with
+state-of-the-art (SOTA) trackers on seven different benchmarks.
+GOT-10k. GOT-10k [20] test set employs the one-shot tracking rule, i.e.,
+it requires the trackers to be trained only on the GOT-10k training split, and
+the object classes between train and test splits are not overlapped. We follow
+this protocol to train our model and evaluate the results by submitting them to
+
+Joint Feature Learning and Relation Modeling for Tracking 11
+Table 1: Comparison with state-of-the-arts on four large-scale benchmarks: La-
+SOT, LaSOT ext, TrackingNet and GOT-10k 3. The best two results are shown
+in red and blue fonts.
+Method Source LaSOT [14] LaSOText[13] TrackingNet [37]GOT-10k∗ [20]
+AUC PN ormP AUC PN ormP AUC PN ormP AO SR0.5 SR0.75
+SiamFC [1] ECCVW1633.6 42.0 33.9 23.0 31.1 26.9 57.1 66.3 53.3 34.8 35.3 9.8
+MDNet [38] CVPR1639.7 46.0 37.3 27.9 34.9 31.8 60.6 70.5 56.5 29.9 30.3 9.9
+ECO [8] ICCV17 32.4 33.8 30.1 22.0 25.2 24.0 55.4 61.8 49.2 31.6 30.9 11.1
+SiamPRN++ [26]CVPR1949.6 56.9 49.1 34.0 41.6 39.6 73.3 80.0 69.4 51.7 61.6 32.5
+DiMP [2] ICCV19 56.9 65.0 56.7 39.2 47.6 45.1 74.0 80.1 68.7 61.1 71.7 49.2
+SiamR-CNN [45]CVPR2064.8 72.2 - - - - 81.2 85.4 80.0 64.9 72.8 59.7
+MAMLTrack [46]CVPR2052.3 - - - - - 75.7 82.2 72.5 - - -
+LTMU [6] CVPR2057.2 - 57.2 41.4 49.9 47.3 - - - - - -
+Ocean [55] ECCV2056.0 65.1 56.6 - - - - - - 61.1 72.1 47.3
+TrDiMP [47] CVPR2163.9 - 61.4 - - - 78.4 83.3 73.1 67.1 77.7 58.3
+TransT [5] CVPR2164.9 73.8 69.0 - - - 81.4 86.7 80.3 67.1 76.8 60.9
+AutoMatch [54]ICCV21 58.3 - 59.9 - - - 76.0 - 72.6 65.2 76.6 54.3
+STARK [50] ICCV21 67.1 77.0 - - - - 82.0 86.9 - 68.8 78.1 64.1
+KeepTrack [35]ICCV21 67.1 77.2 70.2 48.2 - - - - - - - -
+SwinTrack-B [30]arXiv2169.6 78.6 74.1 47.6 58.2 54.182.5 87.0 80.4 69.4 78.0 64.3
+OSTrack-256 Ours 69.1 78.7 75.247.4 57.3 53.3 83.1 87.8 82.071.0 80.4 68.2
+OSTrack-384 Ours 71.1 81.1 77.650.5 61.3 57.683.9 88.5 83.273.7 83.2 70.8
+Table 2: Comparison with state-of-the-arts on three benchmarks: NFS [22],
+UA V123 [36] and TNL2K [49]. AUC(%) scores are reported. The best two results
+are shown in red and blue fonts.
+SiamFC
+[1]
+RT-MDNet
+[21]
+ECO
+[8]
+Ocean
+[55]
+ATOM
+[7]
+DiMP50
+[2]
+STMTrack
+[15]
+TransT
+[5]
+STARK
+[50]
+OSTrack
+-256
+OSTrack
+-384
+NFS 37.7 43.3 52.2 49.4 58.3 61.8 - 65.3 66.2 64.7 66.5
+UA V12346.8 52.8 53.5 57.4 63.2 64.3 64.7 68.1 68.2 68.3 70.7
+TNL2K 29.5 - 32.6 38.4 40.1 44.7 - 50.7 - 54.3 55.9
+the official evaluation server. As reported in Tab. 1, OSTrack-384 and OSTrack-
+256 outperform SwinTrack-B [30] by 1.6% and 4.3% in AO. The SR 0.75 score of
+OSTrack-384 reaches 70.8%, outperforming SwinTrack-B by 6.5%, which verifies
+the capability of our trackers in both accurate target-background discrimination
+and bounding box regression. Moreover, the high performance on this one-shot
+tracking benchmark demonstrates that our one-stream tracking framework can
+extract more discriminative features for unseen classes by mutual guidance.
+LaSOT. LaSOT [14] is a challenging large-scale long-term tracking bench-
+mark, which contains 280 videos for testing. We compare the result of the OS-
+Track with previous SOTA trackers in Tab. 1. The results show that the proposed
+tracker with smaller input resolution, i.e., OSTrack-256, already obtains compa-
+rable performance with SwinTrack-B [30]. Besides, OSTrack-256 runs at a fast
+inference speed of 105.4 FPS, being 2x faster than SwinTrack-B (52 FPS), which
+indicates that OSTrack achieves an excellent balance between accuracy and in-
+ference speed. By increasing the input resolution, OSTrack-384 further improves
+the AUC on LaSOT to 71.1% and sets a new state-of-the-art.
+3 We add the symbol ∗ to GOT-10k if the corresponding models are trained following
+the one-shot protocol, otherwise they are trained with all training data.
+
+12 B. Ye, H. Chang et al.
+Table 3: The effect of our proposed early candidate elimination module on the in-
+ference speed, MACs and tracking performance on LaSOT, GOT-10k and Track-
+ingNet benchmarks, and w/o and w/ denote the models with or without early
+candidate elimination module separately.
+Input
+Resolution
+FPS MACs (G) LaSOT AUC (%)TrackingNet AUC (%)GOT-10k∗ AO (%)
+w/o w/ w/o w/ w/o w/ w/o w/ w/o w/
+256x25693.1 105.4(+13.2%)29.0 21.5(-25.9%)68.7 69.1(+0.4)82.9 83.1(+0.2) 71.0 71.0(+0.0)
+384x38441.4 58.1(+40.3%)65.3 48.3(-26.0%)71.0 71.1(+0.1)83.5 83.9(+0.4) 73.5 73.7(+0.2)
+T rackingNet.The TrackingNet [37] benchmark contains 511 sequences for
+testing, which covers diverse target classes. Tab. 1 shows that OSTrack-256 and
+OSTrack-384 surpass SwinTrack-B [30] by 0.6% and 1.4% in AUC separately.
+Moreover, both models are faster than SwinTrack-B.
+LaSOText. LaSOText [13] is a recently released extension of LaSOT, which
+consists of 150 extra videos from 15 object classes. Tab 1 presents the results.
+Previous SOTA tracker KeepTrack [35] designs a complex association network
+and runs at 18.3 FPS. In contrast, our simple one-stream tracker OSTrack-256
+shows slightly lower performance but runs at 105.4 FPS. OSTrack-384 sets a
+new state-of-the-art AUC score of 50.5% while runs in 58.1 FPS, which is 2.3%
+higher in AUC score and 3x faster in speed.
+NFS, UA V123 and TNL2K.We also evaluate our tracker on three addi-
+tional benchmarks: NFS [22], UA V123 [36] and TNL2K [49] includes 100, 123,
+and 700 video sequences, separately. The results in Tab. 2 show that OSTrack-
+384 achieves the best performance on all three benchmarks, demonstrating the
+strong generalizability of OSTrack.
+4.3 Ablation Study and Analysis
+The Effect of Early Candidate Elimination Module Tab. 1 shows that
+increasing the input resolution of the input image pairs can bring significant
+performance gain. However, the quadratic complexity with respect to the input
+resolution makes simply increasing the input resolution unaffordable in infer-
+ence time. The proposed early candidate elimination module addresses the above
+problem well. We present the effect of the early candidate elimination module
+from the aspects of inference speed (FPS), multiply-accumulate computations
+(MACs), and tracking performance on multiple benchmarks in Tab. 3. The effect
+on different input search region resolutions is also presented. Tab. 3 shows that
+the early candidate elimination module can significantly decrease the calcula-
+tion and increase the inference speed, while slightly boosting the performance in
+most cases. This demonstrates that the proposed module alleviates the negative
+impact brought by the noisy background regions on feature learning. For exam-
+ple, adding the early candidate elimination module in OSTrack-256 decreases
+the MACs by 25.9% and increases the tracking speed by 13.2%, and the LaSOT
+AUC is increased by 0.4%. Furthermore, larger input resolution benefits more
+from this module, e.g., OSTrack-384 shows a 40.3% increase in speed.
+
+Joint Feature Learning and Relation Modeling for Tracking 13
+Table 4: The effect of different pre-training methods. All the models are trained
+without the early candidate elimination module.
+Trackers LaSOT TrackingNet GOT-10k
+Success PN ormP Success PN ormP AO SR0.5 SR0.75
+No pre-training60.4 70.0 62.8 77.5 83.0 73.8 62.7 72.8 53.7
+ImageNet-1k66.1 75.8 70.6 82.0 86.7 80.1 69.7 79.0 65.6
+ImageNet-21k66.9 76.3 71.2 82.4 86.9 80.1 70.2 80.7 65.4
+MAE 68.7 78.1 74.682.9 87.5 81.673.6 83.0 71.7
+Different Pre-training Methods. While previous Transformer fusion track-
+ers [5,30,50] random initialize the weights of Transformer layers, our joint feature
+learning and relation modeling module can directly benefit from the pre-trained
+weights. We further investigate the effect of different pre-training methods on
+the tracking performance by comparing four different pre-training strategies: no
+pre-training; ImageNet-1k [10] pre-trained model provided by [43]; ImageNet-
+21k [41] pre-trained model provided by [42]; unsupervised pre-training model
+MAE [17]. As the results in Tab. 4 show, pre-training is necessary for the model
+weights initialization. Interestingly, we also observe that the unsupervised pre-
+training method MAE brings better tracking performance than the supervised
+pre-training ones using ImageNet. We hope this can inspire the community for
+designing better pre-training strategies tailored for the tracking task.
+Aligned Comparison with SOT A Two-stream T rackers. One may
+wonder whether the performance gain is brought by the proposed one-stream
+structure or purely by the superiority of ViT. We thus compare our method
+with two SOTA two-stream Transformer fusion trackers [30, 50] by eliminating
+the influencing factors of backbone and head structure. To be specific, we align
+two previous SOTA two-stream trackers (STRAK-S [50] and SwinTrack [30])
+with ours for fair comparison as follows: replacing their backbones with the same
+pre-trained ViT and setting the same input resolution, head structure, and train-
+ing objective as OSTrack-256. The remaining experimental settings are kept the
+same as in the original paper. As shown in Tab. 5, our re-implemented two-stream
+trackers show comparable or stronger performance compared to the initially
+published performance, but still lag behind OSTrack, which demonstrates the
+effectiveness of our one-stream structure. We also observe that OSTrack signifi-
+cantly outperforms the previous two-stream trackers on the one-shot benchmark
+GOT-10k, which further proves the advantage of our one-stream framework in
+the challenging scenario. Actually, the discriminative power of features extracted
+by the two-stream framework is limited since the object classes in the testing
+set are completely different from the training set. Whereas, by iterative inter-
+action between the features of the template and search region, OSTrack can
+extract more discriminative features through mutual guidance. Different from
+the two-stream SOTA trackers, OSTrack neglects the extra heavy relation mod-
+eling module while still keeping the high parallelism of joint feature extraction
+and relation modeling module. Therefore, when the same backbone network is
+adopted, the proposed one-stream framework is much faster than STARK (40.2
+
+14 B. Ye, H. Chang et al.
+Input OSTrackSwinTrack-aligned Input OSTrackSwinTrack-aligned
+Fig. 6: Visualization of discriminative regions (i.e., activation maps) of backbone
+features extracted by OSTrack and two-stream tracker (SwinTrack-aligned).
+Table 5: Comparison with re-implemented previous SOTA trackers aligned with
+OSTrack. Here OSTrack is trained without the early candidate elimination mod-
+ule for fair comparison and “aligned” denotes that the backbone, head, loss and
+input resolution are kept the same as OSTrack.
+Trackers LaSOT TrackingNet GOT-10k∗
+FPSTraing Pairs(×106)Success PN ormP Success PN ormP AO SR0.5 SR0.75
+STARK-aligned67.6 76.3 72.8 82.6 87.4 81.568.8 78.4 65.652.9 30
+SwinTrack-aligned68.0 77.6 73.9 82.9 87.6 81.669.5 79.2 65.067.5 39.3
+OSTrack 68.7 78.1 74.682.9 87.581.671.0 80.3 68.293.1 18
+FPS faster) and SwinTrack (25.6 FPS faster). Besides, OSTrack requires fewer
+training image pairs to converge.
+Discriminative Region Visualization. To better illustrate the effective-
+ness of the proposed one-stream tracker, we visualize the discriminative regions
+of the backbone features extracted by OSTrack and a SOTA two-stream tracker
+(SwinTrack-aligned) in Fig. 6. As can be observed, due to the lack of target
+awareness, features extracted by the backbone of SwinTrack-aligned show lim-
+ited target-background discriminative power and may lose some important target
+information (e.g., head and helmet in Fig. 6), which is irreparable. In contrast,
+OSTrack can extract discriminative target-oriented features, since the proposed
+early fusion mechanism enables relation modeling between the template and
+search region at the first stage.
+5 Conclusion
+This work proposes a simple, neat, and high-performance one-stream tracking
+framework based on Vision Transformer, which breaks out of the Siamese-like
+pipeline. The proposed tracker combines the feature extraction and relation mod-
+eling tasks, and shows a good balance between performance and inference speed.
+In addition, we further propose an early candidate elimination module that pro-
+gressively discards search region tokens belonging to background regions, which
+significantly boosts the tracking inference speed. Extensive experiments show
+that the proposed one-stream trackers perform much better than previous meth-
+ods on multiple benchmarks, especially under the one-shot protocol. We expect
+this work can attract more attention to the one-stream tracking framework.
+Acknowledgments. This work is partially supported by Natural Science Foun-
+dation of China (NSFC): 61976203 and 61876171. Thanks Zhipeng Zhang for his
+helpful suggestions.
+
+Joint Feature Learning and Relation Modeling for Tracking 15
+References
+1. Bertinetto, L., Valmadre, J., Henriques, J.F., Vedaldi, A., Torr, P.H.: Fully-
+convolutional siamese networks for object tracking. In: ECCV. pp. 850–865 (2016)
+2, 3, 11
+2. Bhat, G., Danelljan, M., Gool, L.V., Timofte, R.: Learning discriminative model
+prediction for tracking. In: ICCV. pp. 6182–6191 (2019) 2, 3, 11, 23
+3. Bhat, G., Danelljan, M., Gool, L.V., Timofte, R.: Know your surroundings: Ex-
+ploiting scene information for object tracking. In: ECCV. pp. 205–221 (2020) 23
+4. Bolme, D.S., Beveridge, J.R., Draper, B.A., Lui, Y.M.: Visual object tracking using
+adaptive correlation filters. In: CVPR. pp. 2544–2550 (2010) 3
+5. Chen, X., Yan, B., Zhu, J., Wang, D., Yang, X., Lu, H.: Transformer tracking. In:
+CVPR. pp. 8126–8135 (2021) 2, 4, 6, 7, 10, 11, 13, 23
+6. Dai, K., Zhang, Y., Wang, D., Li, J., Lu, H., Yang, X.: High-performance long-term
+tracking with meta-updater. In: CVPR. pp. 6298–6307 (2020) 11
+7. Danelljan, M., Bhat, G., Khan, F.S., Felsberg, M.: Atom: Accurate tracking by
+overlap maximization. In: CVPR. pp. 4660–4669 (2019) 2, 3, 11, 22, 23
+8. Danelljan, M., Bhat, G., Shahbaz Khan, F., Felsberg, M.: ECO: Efficient convolu-
+tion operators for tracking. In: CVPR. pp. 6638–6646 (2017) 11
+9. Danelljan, M., Gool, L.V., Timofte, R.: Probabilistic regression for visual tracking.
+In: CVPR. pp. 7183–7192 (2020) 23
+10. Deng, J., Dong, W., Socher, R., Li, L.J., Li, K., Fei-Fei, L.: ImageNet: A large-scale
+hierarchical image database. In: CVPR. pp. 248–255 (2009) 7, 13
+11. Devlin, J., Chang, M.W., Lee, K., Toutanova, K.: BERT: Pre-training of deep
+bidirectional transformers for language understanding. In: NAACL. pp. 4171–4186
+(2019) 6, 20
+12. Dosovitskiy, A., Beyer, L., Kolesnikov, A., Weissenborn, D., Zhai, X., Unterthiner,
+T., Dehghani, M., Minderer, M., Heigold, G., Gelly, S., Uszkoreit, J., Houlsby, N.:
+An image is worth 16x16 words: Transformers for image recognition at scale. ICLR
+(2021) 2, 5, 6, 10
+13. Fan, H., Bai, H., Lin, L., Yang, F., Chu, P., Deng, G., Yu, S., Huang, M., Liu, J.,
+Xu, Y., et al.: Lasot: A high-quality large-scale single object tracking benchmark.
+IJCV 129(2), 439–461 (2021) 11, 12
+14. Fan, H., Lin, L., Yang, F., Chu, P., Deng, G., Yu, S., Bai, H., Xu, Y., Liao, C.,
+Ling, H.: Lasot: A high-quality benchmark for large-scale single object tracking.
+In: CVPR. pp. 5374–5383 (2019) 10, 11, 21
+15. Fu, Z., Liu, Q., Fu, Z., Wang, Y.: Stmtrack: Template-free visual tracking with
+space-time memory networks. In: CVPR. pp. 13774–13783 (2021) 11
+16. Guo, D., Shao, Y., Cui, Y., Wang, Z., Zhang, L., Shen, C.: Graph attention track-
+ing. In: CVPR. pp. 9543–9552 (2021) 23
+17. He, K., Chen, X., Xie, S., Li, Y., Doll´ ar, P., Girshick, R.: Masked autoencoders are
+scalable vision learners. arXiv preprint arXiv:2111.06377 (2021) 5, 10, 13
+18. He, K., Zhang, X., Ren, S., Sun, J.: Deep residual learning for image recognition.
+In: CVPR. pp. 770–778 (2016) 3, 7
+19. Henriques, J.F., Caseiro, R., Martins, P., Batista, J.: High-speed tracking with
+kernelized correlation filters. TPAMI 37(3), 583–596 (2014) 3
+20. Huang, L., Zhao, X., Huang, K.: Got-10k: A large high-diversity benchmark for
+generic object tracking in the wild. TPAMI 43(5), 1562–1577 (2019) 10, 11, 18, 21
+21. Jung, I., Son, J., Baek, M., Han, B.: Real-time mdnet. In: ECCV. pp. 83–98 (2018)
+11
+
+16 B. Ye, H. Chang et al.
+22. Kiani Galoogahi, H., Fagg, A., Huang, C., Ramanan, D., Lucey, S.: Need for speed:
+A benchmark for higher frame rate object tracking. In: ICCV. pp. 1125–1134 (2017)
+11, 12
+23. Kristan, M., Leonardis, A., Matas, J., Felsberg, M., Pflugfelder, R., K¨ am¨ ar¨ ainen,
+J.K., Danelljan, M., Zajc, L. ˇC., Lukeˇ ziˇ c, A., Drbohlav, O., et al.: The eighth visual
+object tracking vot2020 challenge results. In: ECCV. pp. 547–601 (2020) 22
+24. Krizhevsky, A., Sutskever, I., Hinton, G.E.: Imagenet classification with deep con-
+volutional neural networks. NeurIPS 25 (2012) 3
+25. Law, H., Deng, J.: Cornernet: Detecting objects as paired keypoints. In: ECCV.
+pp. 734–750 (2018) 9, 18
+26. Li, B., Wu, W., Wang, Q., Zhang, F., Xing, J., Yan, J.: SiamRPN++: Evolution of
+siamese visual tracking with very deep networks. In: CVPR. pp. 4282–4291 (2019)
+3, 11, 23
+27. Li, B., Yan, J., Wu, W., Zhu, Z., Hu, X.: High performance visual tracking with
+siamese region proposal network. In: CVPR. pp. 8971–8980 (2018) 2, 3
+28. Li, X., Liu, Q., Pei, W., Shen, Q., Wang, Y., Lu, H., Yang, M.H.: An informative
+tracking benchmark. arXiv preprint arXiv:2112.06467 (2021) 23
+29. Liang, Y., GE, C., Tong, Z., Song, Y., Wang, J., Xie, P.: EViT: Expediting vision
+transformers via token reorganizations. In: ICLR (2022) 4
+30. Lin, L., Fan, H., Xu, Y., Ling, H.: Swintrack: A simple and strong baseline for
+transformer tracking. arXiv preprint arXiv:2112.00995 (2021) 7, 11, 12, 13, 18, 20,
+21
+31. Lin, T.Y., Maire, M., Belongie, S., Hays, J., Perona, P., Ramanan, D., Doll´ ar, P.,
+Zitnick, C.L.: Microsoft coco: Common objects in context. In: ECCV. pp. 740–755
+(2014) 10
+32. Liu, Z., Lin, Y., Cao, Y., Hu, H., Wei, Y., Zhang, Z., Lin, S., Guo, B.: Swin
+transformer: Hierarchical vision transformer using shifted windows. In: ICCV. pp.
+10012–10022 (2021) 7
+33. Loshchilov, I., Hutter, F.: Decoupled weight decay regularization. In: ICLR (2018)
+10
+34. Lukezic, A., Matas, J., Kristan, M.: D3s-a discriminative single shot segmentation
+tracker. In: CVPR. pp. 7133–7142 (2020) 22
+35. Mayer, C., Danelljan, M., Paudel, D.P., Van Gool, L.: Learning target candidate
+association to keep track of what not to track. In: ICCV. pp. 13444–13454 (2021)
+11, 12
+36. Mueller, M., Smith, N., Ghanem, B.: A benchmark and simulator for uav tracking.
+In: ECCV. pp. 445–461 (2016) 11, 12
+37. Muller, M., Bibi, A., Giancola, S., Alsubaihi, S., Ghanem, B.: Trackingnet: A large-
+scale dataset and benchmark for object tracking in the wild. In: ECCV. pp. 300–317
+(2018) 10, 11, 12, 21
+38. Nam, H., Han, B.: Learning multi-domain convolutional neural networks for visual
+tracking. In: CVPR. pp. 4293–4302 (2016) 11
+39. Rao, Y., Zhao, W., Liu, B., Lu, J., Zhou, J., Hsieh, C.J.: Dynamicvit: Efficient
+vision transformers with dynamic token sparsification. NeurIPS 34 (2021) 4, 10
+40. Rezatofighi, H., Tsoi, N., Gwak, J., Sadeghian, A., Reid, I., Savarese, S.: General-
+ized intersection over union: A metric and a loss for bounding box regression. In:
+CVPR. pp. 658–666 (2019) 9
+41. Ridnik, T., Ben-Baruch, E., Noy, A., Zelnik-Manor, L.: ImageNet-21k pretraining
+for the masses. arXiv preprint arXiv:2104.10972 (2021) 13
+
+Joint Feature Learning and Relation Modeling for Tracking 17
+42. Steiner, A., Kolesnikov, A., Zhai, X., Wightman, R., Uszkoreit, J., Beyer, L.: How
+to train your vit? data, augmentation, and regularization in vision transformers.
+arXiv preprint arXiv:2106.10270 (2021) 5, 13
+43. Touvron, H., Cord, M., Douze, M., Massa, F., Sablayrolles, A., J´ egou, H.: Training
+data-efficient image transformers & distillation through attention. In: ICML. pp.
+10347–10357 (2021) 13
+44. Vaswani, A., Shazeer, N., Parmar, N., Uszkoreit, J., Jones, L., Gomez, A.N., Kaiser,
+ L., Polosukhin, I.: Attention is all you need. In: NeurIPS. pp. 5998–6008 (2017) 2,
+3, 5, 6, 8
+45. Voigtlaender, P., Luiten, J., Torr, P.H., Leibe, B.: Siam r-cnn: Visual tracking by
+re-detection. In: CVPR. pp. 6578–6588 (2020) 11
+46. Wang, G., Luo, C., Sun, X., Xiong, Z., Zeng, W.: Tracking by instance detection:
+A meta-learning approach. In: CVPR. pp. 6288–6297 (2020) 11
+47. Wang, N., Zhou, W., Wang, J., Li, H.: Transformer meets tracker: Exploiting
+temporal context for robust visual tracking. In: CVPR. pp. 1571–1580 (2021) 11,
+23
+48. Wang, Q., Zhang, L., Bertinetto, L., Hu, W., Torr, P.H.: Fast online object tracking
+and segmentation: A unifying approach. In: CVPR. pp. 1328–1338 (2019) 22
+49. Wang, X., Shu, X., Zhang, Z., Jiang, B., Wang, Y., Tian, Y., Wu, F.: Towards
+more flexible and accurate object tracking with natural language: Algorithms and
+benchmark. In: CVPR. pp. 13763–13773 (2021) 11, 12
+50. Yan, B., Peng, H., Fu, J., Wang, D., Lu, H.: Learning spatio-temporal transformer
+for visual tracking. In: ICCV. pp. 10448–10457 (2021) 2, 4, 9, 10, 11, 13, 18, 22,
+23
+51. Yan, B., Zhang, X., Wang, D., Lu, H., Yang, X.: Alpha-refine: Boosting tracking
+performance by precise bounding box estimation. In: CVPR. pp. 5289–5298 (2021)
+22
+52. Yin, H., Vahdat, A., Alvarez, J., Mallya, A., Kautz, J., Molchanov, P.: Adavit:
+Adaptive tokens for efficient vision transformer. arXiv preprint arXiv:2112.07658
+(2021) 4
+53. Zagoruyko, S., Komodakis, N.: Paying more attention to attention: Improving
+the performance of convolutional neural networks via attention transfer. In: ICLR
+(2017) 18
+54. Zhang, Z., Liu, Y., Wang, X., Li, B., Hu, W.: Learn to match: Automatic matching
+network design for visual tracking. In: ICCV. pp. 13339–13348 (2021) 11
+55. Zhang, Z., Peng, H., Fu, J., Li, B., Hu, W.: Ocean: Object-aware anchor-free track-
+ing. In: ECCV. pp. 771–787 (2020) 3, 10, 11, 22, 23
+56. Zhou, X., Wang, D., Kr¨ ahenb¨ uhl, P.: Objects as points. arXiv preprint
+arXiv:1904.07850 (2019) 18
+
+18 B. Ye, H. Chang et al.
+Appendix
+A More Implementation Details
+T raining Details. In OSTrack-256, the input sizes of templates and search
+regions are 128 × 128 pixels and 256 × 256 pixels respectively, corresponding to
+22 and 4 2 times of the target bounding box area. In OSTrack-384, the input
+sizes of templates and search regions are 192 × 192 pixels and 384 × 384 pixels,
+corresponding to 2 2 and 5 2 times of the target bounding box area. For the
+GOT-10k test benchmark [20], which requires training the models with only the
+training split of GOT-10k (one-shot setting), we set the total training epoch
+to 100 with 60k image pairs per epoch, and we decrease the learning rate by
+a factor of 10 after 80 epochs. The other settings are kept consistent with the
+models trained with all datasets.
+Classification Loss. We adopt the weighted focal loss [25] for classification.
+Specifically, for each ground truth target center ˆ p and its corresponding low-
+resolution equivalent ˜p = [˜px, ˜py], the ground truth heatmap can be generated
+using a Gaussian kernel as ˆP xy = exp
+
+− (x− ˜px)2+(y− ˜py)2
+2σ2p
+
+, where σ is an object
+size-adaptive standard deviation [25]. The Gaussian weighted focal loss can be
+formulated as:
+Lcls = −
+X
+xy
+
+
+
+(1 − P xy)αlog(P xy), if ˆP xy = 1
+(1 − ˆP xy)β(P xy)αlog(1 − P xy), otherwise
+(9)
+where α and β are hyper-parameters and we set α = 2 and β = 4 as in [25, 56].
+Position Embeddings. The length of the position embeddings in the pre-
+trained ViT is different from the length of the input template and search region
+embeddings. Therefore, the pre-trained positional embeddings are interpolated
+(2D bicubic interpolation is adopted) to the sizes of the template and search
+region embeddings separately, which are further added to the patch embeddings.
+Model Details. In Sec. 4.3, we compare our OSTrack (without the early
+candidate elimination module) with aligned two-stream trackers ( i.e., STARK-
+aligned and SwinTrack-aligned), and we further present the detailed structures
+in this section. The proposed one-stream framework, as shown in Fig. A1(a),
+combines feature extraction and relation modeling modules into a single ViT
+backbone. The aligned two-stream framework, as shown in Fig. A1(b), first ex-
+tracts features of the template and the search region separately with the same
+ViT backbone and then models the feature relation with several extra Trans-
+former encoder layers. As presented in Sec. 4.3, this relation modeling module
+is instantiated with the encoder structure proposed in STARK [50] (STARK-
+aligned) and SwinTrack [30] (SwinTrack-aligned) separately.
+Discriminative Regions Visualization. We show the method used to
+obtain the visualization of the discriminative regions in Fig. 6. Zagoruyko et
+al . [53] show that the importance of a hidden neuron activation can be indicated
+by its absolute value. In this work, we adopt a similar approach to obtain the
+
+Joint Feature Learning and Relation Modeling for Tracking 19
+1 2 3 4 1 2 3 4 5 6 7 8 9
+Linear Projection
+N x (Encoder Layer)
+* * Position Embeddings
+Patch Embeddings
+(a) One-stream framework without the early candidate elimination module
+Search Region PatchesTemplate Patches
+Reshape and Head
+1 2 3 4 1 2 3 4 5 6 7 8 9
+Linear Projection
+N x (Encoder Layer)
+Search Region PatchesTemplate Patches
+Reshape and Head
+N x (Encoder Layer)Shared
+(b) Aligned two-stream framework
+M x (Encoder Layer)
+Joint
+Feature 
+Extraction
+&
+Relation 
+Modeling
+Head
+Input Image Pair
+Target 
+Prediction
+Feature 
+Extraction
+Head
+Template
+Target 
+Prediction
+Relation Modeling
+Search
+Feature 
+Extraction
+Fig. A1: (a) Our proposed one-stream framework without the early candidate
+elimination module, which combines feature extraction and relation modeling
+modules. (b) The aligned two-stream tracking framework, which extracts fea-
+tures of the template and search region separately and then models the feature
+relation with extra Transformer encoder layers.
+discriminative regions of each feature map F . We first calculate the absolute
+mean values of each pixel along the channel dimension:
+M (F ) = 1
+C ·
+CX
+c=1
+|F c| , (10)
+where C is the number of channels. Then, the relative importance of each pixel
+is then calculated by:
+D(F ) = M (F ) − min(M (F ))
+max(M (F )) − min(M (F )) , (11)
+where min(·) and max(·) return the maximum and minimum values of all pixels,
+respectively.
+
+20 B. Ye, H. Chang et al.
+Table A1: Ablation study on different choices of template tokens used to identify
+candidates belonging to background.
+Template Token Selection LaSOT TrackingNet GOT-10k
+Success PN ormP Success PN ormP AO SR0.5 SR0.75
+No Early Candidate Elimination68.7 78.1 74.6 82.9 87.5 81.673.683.0 71.7
+All Template Tokens 68.1 77.4 73.5 82.8 87.5 81.672.9 82.3 70.1
+All Template Tokens within GT Box68.5 78.1 74.2 83.1 87.881.773.6 83.4 72.0
+Center 4x4 Template Tokens68.3 77.6 73.9 82.9 87.7 82.073.5 83.0 71.5
+Center Template Token69.1 78.7 75.283.1 87.8 82.073.682.8 71.4
+B More Ablation Studies
+B.1 The Effect of Different T emplate T oken Choices.
+As pointed out in Sec. 3.2, the goal of the early candidate elimination module is
+to identify and discard candidates belonging to background regions based on the
+ranking of similarity between the target and each candidate. However, the input
+template also contains background regions, which introduces noisy information
+when calculating the similarity score. Therefore, different choices of template
+parts (tokens) used for the similarity calculation may influence the candidate
+elimination results and consequently affect the tracking performance. We com-
+pare four different template token choices (the similarity scores of all chosen
+template tokens are summed up for the final ranking): 1) all template tokens;
+2) all template tokens within the ground truth target bounding box; 3) tem-
+plate tokens within a 4x4 region around the center of the template image; 4) the
+template token corresponding to the center of the template image. The result
+comparison of these template choices is shown in Tab. A1. The results demon-
+strate that different template token choices do affect the quality of identifying
+background candidates. Since the input template contains background regions,
+directly using “All Template Tokens” clearly degrades the tracking performance
+compared with the baseline (“No Early Candidate Elimination”),i.e., 0.6% lower
+in LaSOT AUC. Compared to other choices, using the central template token
+shows better performance, probably because the central token does not contain
+any background region and has aggregated the entire target information through
+self-attention.
+B.2 Identity Embeddings and Relative Positional Embeddings
+We additionally verify the effect of adding identity embeddings and relative po-
+sitional embeddings. Specifically, for the identity embeddings, we add learnable
+identity embeddings (to indicate a token belonging to the template or search
+region as in BERT [11]) to template tokens and search region tokens separately.
+For the relative positional embeddings, the same method as in SwinTrack [30]
+is adopted. The results are presented in Tab. A2, these two components do not
+bring performance gain compared to the original design, thus not adopted in our
+model.
+
+Joint Feature Learning and Relation Modeling for Tracking 21
+Table A2: The effect of adding additional identity embeddings to the template
+and search region embeddings and adding relative positional embeddings to the
+OSTrack-256 (without the early candidate elimination module). The results on
+LaSOT [14], TrackingNet [37] and GOT10k [20] benchmarks are presented.
+LaSOT TrackingNet GOT-10k
+Success PN ormP Success PN ormP AO SR0.5 SR0.75
+Ours 68.7 78.1 74.682.9 87.5 81.6 73.6 83.0 71.7
++ Identity Embeddings 68.0 77.3 73.6 83.3 88.0 82.273.6 82.9 71.7
++ Relative Positional Embeddings68.5 77.8 74.1 83.2 87.8 82.0 73.7 83.371.2
+Table A3: Add additional relation modeling module to our OSTrack-256 (without
+the early candidate elimination module).
+LaSOT TrackingNet GOT-10k
+Success PN orm P Success PN orm P AO SR0.5 SR0.75
+Ours 68.7 78.1 74.6 82.9 87.5 81.6 73.6 83.0 71.7
++ Relation Modeling 68.5 78.0 74.1 82.9 87.4 81.5 72.7 82.2 70.5
+B.3 Additional Relation Modeling Module
+To investigate whether our one-stream framework does not require an extra
+feature relation module, we add an additional transformer-based feature fusion
+module proposed in [30], which consists of 4 self-attention layers and 1 cross-
+attention layer, to further fusion the extracted template and search region fea-
+tures. As the results in Tab. A3 show, adding such a relation modeling module
+instead degrades the tracking performance, indicating that the output search re-
+gion features of the ViT backbone have been sufficiently fused with the template
+features.
+B.4 F ewer Relation Modeling Layers
+In the implementation of vanilla OSTrack, all encoder layers in ViT-Base (12
+layers in total) are used for simultaneous feature extraction and relation model-
+ing. In this subsection, we try to decrease the number of layers used for relation
+modeling. Specifically, only the last n encoder layers are used for simultaneous
+feature extraction and relation modeling, and the first 12 − n layers are only
+used for the template and search region feature extraction. n is set to be 6 and 3
+separately and the results are presented in Tab. A4. The results show that using
+fewer encoder layers for simultaneous feature extraction and relation modeling
+will degrade the tracking performance, showing the necessity of sufficient feature
+fusion.
+B.5 Different T oken Drop Rate
+We also try to apply a different keeping ratioρ for the early candidate elimination
+module. As the results in Tab. A5 show, using ρ <0.7 leads to performance drop
+on the LaSOT [14] tracking benchmark since small ρ may cause a significant
+information loss. However, the reduction in computational cost that comes with
+
+22 B. Ye, H. Chang et al.
+Table A4: Ablation studies on the number of encoder layers used for relation
+modeling.
+LaSOT TrackingNet GOT-10k
+Success PN orm P Success PN orm P AO SR0.5 SR0.75
+12 (Ours) 68.7 78.1 74.6 82.9 87.5 81.673.6 83.0 71.7
+6 67.9 77.3 73.6 83.0 87.5 81.5 73.3 82.9 71.4
+3 67.8 77.0 73.5 82.7 87.4 80.7 72.8 82.5 70.7
+Table A5: Different keeping ratio ρ used in the early candidate elimination mod-
+ule (ρ = 1 means the early candidate elimination module is not adopted).
+Keeping
+Ratio
+LaSOT TrackingNet GOT-10k MACs (G)Success PN orm P Success PN orm P AO SR 0.5 SR0.75
+1 68.7 78.1 74.6 82.9 87.5 81.6 73.6 83.0 71.7 29.0
+0.9 68.7 78.2 74.6 83.2 87.8 82.0 74.1 83.6 71.8 26.2
+0.8 68.9 78.4 74.9 83.3 88.0 82.3 73.4 82.7 71.4 23.6
+0.7 69.1 78.7 75.2 83.1 87.8 82.0 73.6 82.8 71.4 21.5
+0.6 68.4 77.9 74.3 83.1 87.6 81.8 73.5 82.9 71.7 19.6
+0.5 67.8 77.2 73.4 82.7 87.4 81.3 71.8 81.3 68.4 18.0
+Table A6: Comparison on VOT2020 benchmark. The left part of the trackers
+adopts an online template update mechanism, while the right part of the trackers
+does not. The best two results are shown in red and blue fonts.
+Ocean
+[55]
+ATOM
+[7]
+D3S
+[34]
+AlphaRef
+[51]
+STARK-
+ST50 [50]
+STARK -
+ST101 [50]
+SiamMask
+[48]
+STARK-
+S50 [50]OSTrack-256 OSTrack-384
+EAO (↑) 0.43 0.271 0.439 0.482 0.505 0.497 0.321 0.462 0.518 0.524
+Accuracy (↑) 0.693 0.462 0.699 0.754 0.759 0.763 0.624 0.761 0.762 0.767
+Robustness (↑) 0.754 0.734 0.769 0.777 0.817 0.789 0.648 0.749 0.814 0.816
+large ρ is limited. Setting ρ = 0.7 shows a decent decrease in computational cost
+with a slight improvement in tracking performance. Therefore, we use ρ = 0.7
+in our experiments.
+C Results on VOT2020
+VOT2020 [23] is a challenging short-term tracking benchmark that is evaluated
+by target segmentation results. To evaluate OSTrack on VOT2020, we use Al-
+phaRefine [51] to generate segmentation masks, and the results are shown in
+Tab. A6. Since the wide existence of distractors in VOT2020, updating the tem-
+plate during the tracking process has become a common practice to avoid track-
+ing drift, which can bring significant performance gain (e.g., STARK-ST50 cites-
+tark raises the EAO from 0.462 to 0.505 by simply adding a dynamic template).
+OSTrack-256 obtains an EAO of 0.518, which already outperforms the STARK-
+ST50 with an online template updating mechanism. This demonstrates the great
+potential of OSTrack which serves as a neat and strong baseline model.
+
+Joint Feature Learning and Relation Modeling for Tracking 23
+Table A7: Comparison with state-of-the-arts on ITB [28] benchmark. mIoU(%)
+scores are reported. The best two results are shown in red and blue fonts.
+SiamRPN++
+[26]
+Ocean
+[55]
+GAT
+[16]
+ATOM
+[7]
+DiMP
+[2]
+PrDiMP
+[9]
+KYS
+[3]
+TrDiMP
+[47]
+TransT
+[5]
+STARK
+[50]
+OSTrack
+-246
+OSTrack
+-384
+mIoU 44.1 47.7 44.9 47.2 53.7 54.4 52.0 56.1 54.7 57.6 61.2 64.8
+D Results on ITB
+ITB [28] benchmark is a newly collected benchmark with 9 representative scenar-
+ios and 180 diverse videos, which contains more informative tracking sequences.
+Tab. A7 shows the results of OSTrack compared with other SOTA tackers.
+Our OSTrack-384 achieves 64.8% in mIoU, surpassing the previous best tracker
+STARK [50] by a large margin (7.2%).
+E More Visualization
+We first provide more visualization results for attention weights of the search
+region corresponding to the center part of the template (which can be seen as
+the target) in Fig. A2. The results show that the model attends to the fore-
+ground objects at an early stage (see “Layer 4” in Fig. A2) and finally shows
+great discriminative power between the target and distractors (see “Layer 12”
+in Fig. A2). These phenomenons demonstrate that the proposed OSTrack can
+extract target-oriented features with strong target-distractor discriminability.
+In Fig. A3, more visualization results of the early candidate elimination mod-
+ule are presented. The results validate that the proposed method can effectively
+identify and discard background regions under various target categories and
+challenge scenarios (e.g., target deformation, occlusion, motion blur, etc.).
+
+24 B. Ye, H. Chang et al.
+Input Layer 1 Layer 4 Layer 7 Layer 10 Layer 12
+Fig. A2: Extended visualization for attention weights of the search region corre-
+sponding to the center part of the template after different ViT layers, the green
+rectangles indicate target objects. The results show that our one-stream frame-
+work is able to distinguish between targets and distractors and progressively
+focus on targets.
+
+Joint Feature Learning and Relation Modeling for Tracking 25
+Input Stage 1 Stage 2 Stage 3Input Stage 1 Stage 2 Stage 3 Input Stage 1 Stage 2 Stage 3Input Stage 1 Stage 2 Stage 3
+Fig. A3: Extended visualization results of the progressive candidate elimination
+process. The main body of “Input” is the search region image, and the upper left
+corner shows the corresponding template image. The Green rectangles indicate
+target objects and the masked regions represent the discarded tokens. Our early
+candidate elimination module can effectively deal with different tracking targets
+and scenarios.

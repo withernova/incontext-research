@@ -1,0 +1,118 @@
+FILE /home/featurize/work/mechanism/scripts/e005/e005_r029c_original140_binding_640.py
+#!/usr/bin/env python3
+import argparse,json,time,math
+from pathlib import Path
+import numpy as np,torch
+if not hasattr(torch,'compiler'):
+ class C:pass
+ torch.compiler=C()
+if not hasattr(torch.compiler,'is_compiling'):torch.compiler.is_compiling=lambda:False
+from peft import PeftModel
+from transformers import AutoProcessor,Qwen3VLForConditionalGeneration
+from vlm_build_messages import build_messages
+from vlm_coord_utils import pixel_to_vlm_format
+from code_inference import load_and_resize_image
+from qwen_spans import locate_image_spans
+from scipy.stats import spearmanr
+p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--source-output',required=True);p.add_argument('--run',required=True);p.add_argument('--model-path',required=True);p.add_argument('--lora-path',required=True);p.add_argument('--max-side',type=int,default=640);p.add_argument('--seed',type=int,default=20260728);a=p.parse_args();R=Path(a.run)
+for d in ['logs','results','analysis','manifests','artifacts','config','visualizations']:(R/d).mkdir(parents=True,exist_ok=True)
+rows=json.load(open(a.manifest));src=json.load(open(a.source_output));outs=src['outputs'];by={int(x['sample']):x for x in outs if x['role']=='positive-image'};assert len(rows)==len(by); N=len(rows)
+proc=AutoProcessor.from_pretrained(a.model_path,local_files_only=True);tok=proc.tokenizer;iid=int(tok.convert_tokens_to_ids('<|image_pad|>'));print('[LOAD]',flush=True);t0=time.time();model=Qwen3VLForConditionalGeneration.from_pretrained(a.model_path,dtype=torch.bfloat16,device_map='auto',max_memory={0:'22GiB',1:'22GiB'},attn_implementation='eager',local_files_only=True).eval();model=PeftModel.from_pretrained(model,a.lora_path).eval();dev=next(model.parameters()).device;merge=int(model.config.vision_config.spatial_merge_size);load_s=time.time()-t0
+class IA:pass
+ia=IA();ia.model_id='Qwen/Qwen3-VL-8B-Instruct';ia.max_side=a.max_side;ia.data_path=a.manifest
+HQ=[(18,15),(19,3),(22,0),(20,8)];HG=[(15,13),(16,23),(18,15)]
+def ov(box,W,H,gh,gw):
+ z=np.zeros((gh,gw))
+ for y in range(gh):
+  for x in range(gw):
+   x0=x*W/gw;x1=(x+1)*W/gw;y0=y*H/gh;y1=(y+1)*H/gh;z[y,x]=max(0,min(x1,box[2])-max(x0,box[0]))*max(0,min(y1,box[3])-max(y0,box[1]))/((x1-x0)*(y1-y0))
+ return z
+def ids(text,cs,ce):
+ e=tok(text,add_special_tokens=False,return_offsets_mapping=True);return [e['input_ids'][i] for i,(x,y) in enumerate(e['offset_mapping']) if y>cs and x<ce]
+def exact(mm,z,lo,hi):
+ q=[k for k in range(lo,hi-len(z)+1) if mm[k:k+len(z)]==z]
+ if len(q)!=1:raise ValueError(f'matches={q}')
+ return list(range(q[0],q[0]+len(z)))
+def amap(att,heads,qr,sp):return np.sum([att[l][0,h,qr,sp.start:sp.end].float().mean(0).cpu().numpy().reshape(sp.merged_h,sp.merged_w) for l,h in heads],0)
+def metrics(m,o):
+ v=np.maximum(m.astype(float),0);v/=v.sum()+1e-30;mass=float((v*o).sum());inside=(v*o).sum()/(o.sum()+1e-12);outside=(v*(1-o)).sum()/((1-o).sum()+1e-12);py,px=np.unravel_index(np.argmax(v),v.shape);return {'target_mass':mass,'enrichment':float(inside/(outside+1e-12)),'pointing':bool(o[py,px]>0)}
+def logit(x):x=np.clip(x,1e-8,1-1e-8);return float(np.log(x/(1-x)))
+def js(p,q):
+ p=np.maximum(p.reshape(-1),0);q=np.maximum(q.reshape(-1),0);p/=p.sum()+1e-30;q/=q.sum()+1e-30;m=(p+q)/2;return float(.5*np.sum(p*np.log((p+1e-30)/(m+1e-30)))+.5*np.sum(q*np.log((q+1e-30)/(m+1e-30))))
+recs=[];fails=[];start=time.time()
+for i,r in enumerate(rows):
+ s=by[i];response=s['text'];end=response.find(']')
+ if end<0:
+  fails.append({'index':i,'sequence':r['source']['sequence_cluster'],'reason':'no_bbox_closing_bracket','text':response});print('[SKIP]',i,'no bbox',flush=True);continue
+ try:
+  rp,qp=r['image_path'];rb=list(map(float,json.loads(r['bbox'][0])));ri,_,sc=load_and_resize_image(rp,a.max_side);qi,_,_=load_and_resize_image(qp,a.max_side);rbn=str(pixel_to_vlm_format(ia,'['+','.join(str(x*sc) for x in rb)+']',ri.size,'NotGT',model_id=ia.model_id));base,_=build_messages(element=r['element'],reference_img_path='R',ref_box_text=rbn,query_img_path='Q');full=base+[{'role':'assistant','content':[{'type':'text','text':response}]}];text=proc.apply_chat_template(full,tokenize=False,add_generation_prompt=False);inp=proc(text=[text],images=[ri,qi],videos=None,padding=True,return_tensors='pt').to(dev);sp=locate_image_spans(inp.input_ids,inp.image_grid_thw,iid,merge);assert len(sp)==2;mm=inp.input_ids[0].tolist();qcs=text.rfind(response);qpos=exact(mm,ids(text,qcs,qcs+end+1),sp[1].end,len(mm));rcs=text.find(rbn);rpos=exact(mm,ids(text,rcs,rcs+len(rbn)),sp[0].end,sp[1].start);qr=[x-1 for x in qpos];gr=[x-1 for x in rpos]
+  with torch.inference_mode():z=model(**inp,output_attentions=True,return_dict=True)
+  mq=amap(z.attentions,HQ,qr,sp[0]);mg=amap(z.attentions,HG,gr,sp[0]);W,H=__import__('PIL').Image.open(rp).size;o=ov(rb,W,H,*mq.shape);q=metrics(mq,o);g=metrics(mg,o);dg=logit(g['target_mass'])-logit(q['target_mass']);rec={'index':i,'sequence':r['source']['sequence_cluster'],'element':r['element'],'query_fraction':r['source'].get('original_sample',i),'pn_label':s['pn_label'],'confusion':s['confusion'],'iou':float(s['iou_raw'] or 0),'group':'rejected' if s['pn_label']!='positive' else 'error' if float(s['iou_raw'] or 0)<.1 else 'correct' if float(s['iou_raw'] or 0)>=.7 else 'middle','coverage_tokens':int((o>0).sum()),'coverage_fractional':float(o.sum()),'grounding':g,'query_to_reference':q,'directional_logit_gap_g_minus_q':dg,'absolute_logit_gap':abs(dg),'full_map_jsd':js(mg,mq),'seq_len':len(mm),'grid':[sp[0].merged_h,sp[0].merged_w]};recs.append(rec);del z,inp;torch.cuda.empty_cache();(R/'artifacts'/'records_checkpoint.json').write_text(json.dumps(recs,indent=2)+'\n');print('[BIND]',len(recs)+len(fails),'f/{N}',rec['sequence'],rec['group'],f'iou={rec["iou"]:.3f}',f'D={rec["absolute_logit_gap"]:.3f}',flush=True)
+ except Exception as e:fails.append({'index':i,'sequence':r['source']['sequence_cluster'],'reason':type(e).__name__+': '+str(e),'text':response});print('[SKIP]',i,fails[-1]['reason'],flush=True);torch.cuda.empty_cache()
+def med(z,k):return float(np.median([x[k] for x in z])) if z else None
+groups={g:[x for x in recs if x['group']==g] for g in ['error','correct','middle','rejected']};eligible=[x for x in recs if x['group'] in ['error','correct']];rho=spearmanr([x['absolute_logit_gap'] for x in eligible],[x['iou'] for x in eligible]) if len(eligible)>2 else (np.nan,np.nan)
+rng=np.random.default_rng(a.seed);seqs=sorted({x['sequence'] for x in eligible});boot=[]
+for _ in range(10000):
+ ss=rng.choice(seqs,len(seqs),replace=True);z=[x for s0 in ss for x in eligible if x['sequence']==s0];e=[x['absolute_logit_gap'] for x in z if x['group']=='error'];c=[x['absolute_logit_gap'] for x in z if x['group']=='correct'];
+ if e and c:boot.append(float(np.median(e)-np.median(c)))
+summary={'status':'completed_pending_integrity','max_side':640,'same_resolution_with_generation':True,'records':len(recs),'unalignable':len(fails),'group_counts':{k:len(v) for k,v in groups.items()},'absolute_gap_medians':{k:med(v,'absolute_logit_gap') for k,v in groups.items()},'primary_error_minus_correct_median_gap':(med(groups['error'],'absolute_logit_gap')-med(groups['correct'],'absolute_logit_gap')) if groups['error'] and groups['correct'] else None,'sequence_cluster_bootstrap_ci95':[float(x) for x in np.quantile(boot,[.025,.975])] if boot else None,'bootstrap_valid':len(boot),'spearman_gap_vs_iou_accepted_extremes':{'rho':float(rho.statistic),'p':float(rho.pvalue),'n':len(eligible)},'coverage':{'median_tokens':float(np.median([x['coverage_tokens'] for x in recs])) if recs else None,'le1':sum(x['coverage_tokens']<=1 for x in recs),'2_3':sum(2<=x['coverage_tokens']<=3 for x in recs),'ge4':sum(x['coverage_tokens']>=4 for x in recs)},'records_data':recs,'unalignable_records':fails,'load_seconds':load_s,'runtime_seconds':time.time()-start,'limitations':['positive-only','70 sequence clusters with four queries each','sequence-disjoint from old development but reuses R014 sequences','attention-derived non-causal','query bbox rows require natural output containing alignable bbox','paper did not disclose max_side; 640 is public-code default']};(R/'analysis'/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print('[SUMMARY]',json.dumps({k:v for k,v in summary.items() if k not in ['records_data','unalignable_records']}),flush=True)
+
+FILE /home/featurize/work/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/config/e005_r029c_original140_binding_640.py
+#!/usr/bin/env python3
+import argparse,json,time,math
+from pathlib import Path
+import numpy as np,torch
+if not hasattr(torch,'compiler'):
+ class C:pass
+ torch.compiler=C()
+if not hasattr(torch.compiler,'is_compiling'):torch.compiler.is_compiling=lambda:False
+from peft import PeftModel
+from transformers import AutoProcessor,Qwen3VLForConditionalGeneration
+from vlm_build_messages import build_messages
+from vlm_coord_utils import pixel_to_vlm_format
+from code_inference import load_and_resize_image
+from qwen_spans import locate_image_spans
+from scipy.stats import spearmanr
+p=argparse.ArgumentParser();p.add_argument('--manifest',required=True);p.add_argument('--source-output',required=True);p.add_argument('--run',required=True);p.add_argument('--model-path',required=True);p.add_argument('--lora-path',required=True);p.add_argument('--max-side',type=int,default=640);p.add_argument('--seed',type=int,default=20260728);a=p.parse_args();R=Path(a.run)
+for d in ['logs','results','analysis','manifests','artifacts','config','visualizations']:(R/d).mkdir(parents=True,exist_ok=True)
+rows=json.load(open(a.manifest));src=json.load(open(a.source_output));outs=src['outputs'];by={int(x['sample']):x for x in outs if x['role']=='positive-image'};assert len(rows)==len(by); N=len(rows)
+proc=AutoProcessor.from_pretrained(a.model_path,local_files_only=True);tok=proc.tokenizer;iid=int(tok.convert_tokens_to_ids('<|image_pad|>'));print('[LOAD]',flush=True);t0=time.time();model=Qwen3VLForConditionalGeneration.from_pretrained(a.model_path,dtype=torch.bfloat16,device_map='auto',max_memory={0:'22GiB',1:'22GiB'},attn_implementation='eager',local_files_only=True).eval();model=PeftModel.from_pretrained(model,a.lora_path).eval();dev=next(model.parameters()).device;merge=int(model.config.vision_config.spatial_merge_size);load_s=time.time()-t0
+class IA:pass
+ia=IA();ia.model_id='Qwen/Qwen3-VL-8B-Instruct';ia.max_side=a.max_side;ia.data_path=a.manifest
+HQ=[(18,15),(19,3),(22,0),(20,8)];HG=[(15,13),(16,23),(18,15)]
+def ov(box,W,H,gh,gw):
+ z=np.zeros((gh,gw))
+ for y in range(gh):
+  for x in range(gw):
+   x0=x*W/gw;x1=(x+1)*W/gw;y0=y*H/gh;y1=(y+1)*H/gh;z[y,x]=max(0,min(x1,box[2])-max(x0,box[0]))*max(0,min(y1,box[3])-max(y0,box[1]))/((x1-x0)*(y1-y0))
+ return z
+def ids(text,cs,ce):
+ e=tok(text,add_special_tokens=False,return_offsets_mapping=True);return [e['input_ids'][i] for i,(x,y) in enumerate(e['offset_mapping']) if y>cs and x<ce]
+def exact(mm,z,lo,hi):
+ q=[k for k in range(lo,hi-len(z)+1) if mm[k:k+len(z)]==z]
+ if len(q)!=1:raise ValueError(f'matches={q}')
+ return list(range(q[0],q[0]+len(z)))
+def amap(att,heads,qr,sp):return np.sum([att[l][0,h,qr,sp.start:sp.end].float().mean(0).cpu().numpy().reshape(sp.merged_h,sp.merged_w) for l,h in heads],0)
+def metrics(m,o):
+ v=np.maximum(m.astype(float),0);v/=v.sum()+1e-30;mass=float((v*o).sum());inside=(v*o).sum()/(o.sum()+1e-12);outside=(v*(1-o)).sum()/((1-o).sum()+1e-12);py,px=np.unravel_index(np.argmax(v),v.shape);return {'target_mass':mass,'enrichment':float(inside/(outside+1e-12)),'pointing':bool(o[py,px]>0)}
+def logit(x):x=np.clip(x,1e-8,1-1e-8);return float(np.log(x/(1-x)))
+def js(p,q):
+ p=np.maximum(p.reshape(-1),0);q=np.maximum(q.reshape(-1),0);p/=p.sum()+1e-30;q/=q.sum()+1e-30;m=(p+q)/2;return float(.5*np.sum(p*np.log((p+1e-30)/(m+1e-30)))+.5*np.sum(q*np.log((q+1e-30)/(m+1e-30))))
+recs=[];fails=[];start=time.time()
+for i,r in enumerate(rows):
+ s=by[i];response=s['text'];end=response.find(']')
+ if end<0:
+  fails.append({'index':i,'sequence':r['source']['sequence_cluster'],'reason':'no_bbox_closing_bracket','text':response});print('[SKIP]',i,'no bbox',flush=True);continue
+ try:
+  rp,qp=r['image_path'];rb=list(map(float,json.loads(r['bbox'][0])));ri,_,sc=load_and_resize_image(rp,a.max_side);qi,_,_=load_and_resize_image(qp,a.max_side);rbn=str(pixel_to_vlm_format(ia,'['+','.join(str(x*sc) for x in rb)+']',ri.size,'NotGT',model_id=ia.model_id));base,_=build_messages(element=r['element'],reference_img_path='R',ref_box_text=rbn,query_img_path='Q');full=base+[{'role':'assistant','content':[{'type':'text','text':response}]}];text=proc.apply_chat_template(full,tokenize=False,add_generation_prompt=False);inp=proc(text=[text],images=[ri,qi],videos=None,padding=True,return_tensors='pt').to(dev);sp=locate_image_spans(inp.input_ids,inp.image_grid_thw,iid,merge);assert len(sp)==2;mm=inp.input_ids[0].tolist();qcs=text.rfind(response);qpos=exact(mm,ids(text,qcs,qcs+end+1),sp[1].end,len(mm));rcs=text.find(rbn);rpos=exact(mm,ids(text,rcs,rcs+len(rbn)),sp[0].end,sp[1].start);qr=[x-1 for x in qpos];gr=[x-1 for x in rpos]
+  with torch.inference_mode():z=model(**inp,output_attentions=True,return_dict=True)
+  mq=amap(z.attentions,HQ,qr,sp[0]);mg=amap(z.attentions,HG,gr,sp[0]);W,H=__import__('PIL').Image.open(rp).size;o=ov(rb,W,H,*mq.shape);q=metrics(mq,o);g=metrics(mg,o);dg=logit(g['target_mass'])-logit(q['target_mass']);rec={'index':i,'sequence':r['source']['sequence_cluster'],'element':r['element'],'query_fraction':r['source'].get('original_sample',i),'pn_label':s['pn_label'],'confusion':s['confusion'],'iou':float(s['iou_raw'] or 0),'group':'rejected' if s['pn_label']!='positive' else 'error' if float(s['iou_raw'] or 0)<.1 else 'correct' if float(s['iou_raw'] or 0)>=.7 else 'middle','coverage_tokens':int((o>0).sum()),'coverage_fractional':float(o.sum()),'grounding':g,'query_to_reference':q,'directional_logit_gap_g_minus_q':dg,'absolute_logit_gap':abs(dg),'full_map_jsd':js(mg,mq),'seq_len':len(mm),'grid':[sp[0].merged_h,sp[0].merged_w]};recs.append(rec);del z,inp;torch.cuda.empty_cache();(R/'artifacts'/'records_checkpoint.json').write_text(json.dumps(recs,indent=2)+'\n');print('[BIND]',len(recs)+len(fails),'f/{N}',rec['sequence'],rec['group'],f'iou={rec["iou"]:.3f}',f'D={rec["absolute_logit_gap"]:.3f}',flush=True)
+ except Exception as e:fails.append({'index':i,'sequence':r['source']['sequence_cluster'],'reason':type(e).__name__+': '+str(e),'text':response});print('[SKIP]',i,fails[-1]['reason'],flush=True);torch.cuda.empty_cache()
+def med(z,k):return float(np.median([x[k] for x in z])) if z else None
+groups={g:[x for x in recs if x['group']==g] for g in ['error','correct','middle','rejected']};eligible=[x for x in recs if x['group'] in ['error','correct']];rho=spearmanr([x['absolute_logit_gap'] for x in eligible],[x['iou'] for x in eligible]) if len(eligible)>2 else (np.nan,np.nan)
+rng=np.random.default_rng(a.seed);seqs=sorted({x['sequence'] for x in eligible});boot=[]
+for _ in range(10000):
+ ss=rng.choice(seqs,len(seqs),replace=True);z=[x for s0 in ss for x in eligible if x['sequence']==s0];e=[x['absolute_logit_gap'] for x in z if x['group']=='error'];c=[x['absolute_logit_gap'] for x in z if x['group']=='correct'];
+ if e and c:boot.append(float(np.median(e)-np.median(c)))
+summary={'status':'completed_pending_integrity','max_side':640,'same_resolution_with_generation':True,'records':len(recs),'unalignable':len(fails),'group_counts':{k:len(v) for k,v in groups.items()},'absolute_gap_medians':{k:med(v,'absolute_logit_gap') for k,v in groups.items()},'primary_error_minus_correct_median_gap':(med(groups['error'],'absolute_logit_gap')-med(groups['correct'],'absolute_logit_gap')) if groups['error'] and groups['correct'] else None,'sequence_cluster_bootstrap_ci95':[float(x) for x in np.quantile(boot,[.025,.975])] if boot else None,'bootstrap_valid':len(boot),'spearman_gap_vs_iou_accepted_extremes':{'rho':float(rho.statistic),'p':float(rho.pvalue),'n':len(eligible)},'coverage':{'median_tokens':float(np.median([x['coverage_tokens'] for x in recs])) if recs else None,'le1':sum(x['coverage_tokens']<=1 for x in recs),'2_3':sum(2<=x['coverage_tokens']<=3 for x in recs),'ge4':sum(x['coverage_tokens']>=4 for x in recs)},'records_data':recs,'unalignable_records':fails,'load_seconds':load_s,'runtime_seconds':time.time()-start,'limitations':['positive-only','70 sequence clusters with four queries each','sequence-disjoint from old development but reuses R014 sequences','attention-derived non-causal','query bbox rows require natural output containing alignable bbox','paper did not disclose max_side; 640 is public-code default']};(R/'analysis'/'summary.json').write_text(json.dumps(summary,indent=2)+'\n');print('[SUMMARY]',json.dumps({k:v for k,v in summary.items() if k not in ['records_data','unalignable_records']}),flush=True)
+

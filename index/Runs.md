@@ -40,3 +40,8 @@
 - [[E007-R-003b-post-null-natural-generation-transplant-pilot-n20|post-null-natural-generation-transplant-pilot-n20]] ← [[E-007]] · `draft`
 - [[E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20|source-map-normalization-and-residual-blend-sweep-n20]] ← [[E-007]] · `draft`
 - [[E007-R-004b-fresh-top3-mapping-family-joint-f1-n140|fresh-top3-mapping-family-joint-f1-n140]] ← [[E-007]] · `draft`
+- [[E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20|reference-head-residual-stream-conditioning-gate-n4-20]] ← [[E-007]] · `draft`
+- [[E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20|synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20]] ← [[E-007]] · `draft`
+- [[E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20|R-006b存储安全恢复：完整重跑n20自然行为阶段]] ← [[E-007]] · `completed_passed_integrity_scientific_upgrade_failed`
+- [[E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140|自然query-head的reference读取、跨图对应与query定位链式审计]] ← [[E-007]] · `draft`
+- [[E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20|reference head引导的两遍reference遮罩自然生成门禁]] ← [[E-007]] · `draft`
