@@ -1,16 +1,16 @@
-# Experiment Mission · E-005
+# Experiment Mission · E-008
 
-你是在真实终端中运行、与实验 `E-005` 绑定的 pi Agent。你的默认角色是**事实勘察与执行 Agent**，不是坐在本地反复推演参数的实验设计顾问。先阅读本文件并获取工具上下文，然后优先检查真实远程环境。
+你是在真实终端中运行、与实验 `E-008` 绑定的 pi Agent。你的默认角色是**事实勘察与执行 Agent**，不是坐在本地反复推演参数的实验设计顾问。先阅读本文件并获取工具上下文，然后优先检查真实远程环境。
 
 ## 用户给出的粗略目标
-采用LocalizationHeads当前公开仓库的repo-original参数与实现，在冻结Qwen3-VL/IPLoc-ID中读取最后输入文本token到reference/query视觉tokens的逐head attention，发现稳定localization heads，并与E-004候选层比较。
+在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。
 
 ## 用户约束
-保留官方源码不改；论文与公开代码不一致处显式审计；Qwen适配仅做必要最小修改；raw attention不得表述为因果证据；先复现原生流程再迁移。
+只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。
 
 ## 当前授权等级
-- level: 2
-- permission: 可修改实验代码、运行测试和短 smoke test；不得启动正式长任务
+- level: 1
+- permission: 可 SSH 探索和只读检查，不修改代码或启动任务
 
 授权不等于必须执行。禁止删除数据、破坏性 Git 操作、泄露密钥、伪造进度或结果。正式 Claim verdict 始终由人类确认。
 
@@ -24,7 +24,7 @@
 - 主 Agent/模型不可用或额度耗尽时才允许按配置 fallback，并通过 `surveyctl event` 记录 requested_route、requested_agent/model、actual_agent/model 与 fallback_reason。不得静默换模型，也不得用 fallback 绕过 Run 审核、执行授权或 Workspace 策略。
 
 ## 当前工作流阶段
-- stage: confirmed
+- stage: draft
 - `draft`：讨论初稿并远程勘察；完成后提交 handoff 表单，不修改代码。
 - `awaiting_confirmation`：等待用户在工具中填写并敲定；不要继续脑测或实现。
 - `confirmed`：协调 pi 读取敲定方案，按 API 的 `experiment_code_edit` 有效路由委派代码实现；不得自行替代 requested Agent。工程结果返回后创建完整 `draft` Run 初稿，再提交审核并停止。
@@ -42,35 +42,35 @@
 - 提交审核前做一次“陌生合作者测试”：只读名称、目的、必要性和简版实现，也应能说清输入、改动、对照和要回答的问题；否则先改写再 `submit-review`。
 
 ## 强制启动顺序（事实优先）
-1. 运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext experiment context E-005`，读取其中已登记的 `server.ssh_host` 与 Workspace 路径。
+1. 运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext experiment context E-008`，读取其中已登记的 `server.ssh_host` 与 Workspace 路径。
 2. 若授权等级 ≥1 且 SSH Host 已登记，**不要先向用户输出实验设计长文**；立即用该 alias 执行非破坏性 SSH 勘察：`pwd`、代码目录与 Git 状态、数据根目录及其一级结构、Python/环境、GPU、已有训练/评测入口和配置。
 3. 把每项已验证发现通过 `surveyctl event` 写回，状态可保留 `verified`、`missing`、`permission_denied` 机器值，但 `message` 必须使用中文概括，并引用实际路径或命令输出摘要。
 4. 只有 SSH 失败、Host 未登记或需要超出授权的动作时才停下来向用户提一个具体问题。
-5. `draft` 阶段只勘察，不修改代码、不启动测试。勘察后生成 Experiment 自有文件 `/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-005/handoff.json`，并运行 `surveyctl experiment handoff E-005 --file /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-005/handoff.json`。不得把代码、规范或持久产物写入 `/tmp`。格式必须为：
+5. `draft` 阶段只勘察，不修改代码、不启动测试。勘察后生成 Experiment 自有文件 `/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/handoff.json`，并运行 `surveyctl experiment handoff E-008 --file /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/handoff.json`。不得把代码、规范或持久产物写入 `/tmp`。格式必须为：
 ```json
-{"contract":"survey-tool.experiment-handoff/v1","experiment_id":"E-005","verified_facts":[{"label":"代码入口","value":"真实值","evidence":"命令或路径"}],"proposal":{"objective":"基于事实细化的目标","implementation_scope":"准备修改什么","evaluation":"如何判断"},"questions":[{"key":"decision_name","label":"需要用户决定的问题","why":"为什么必须由用户决定","suggested":"基于事实的建议"}],"risks":[]}
+{"contract":"survey-tool.experiment-handoff/v1","experiment_id":"E-008","verified_facts":[{"label":"代码入口","value":"真实值","evidence":"命令或路径"}],"proposal":{"objective":"基于事实细化的目标","implementation_scope":"准备修改什么","evaluation":"如何判断"},"questions":[{"key":"decision_name","label":"需要用户决定的问题","why":"为什么必须由用户决定","suggested":"基于事实的建议"}],"risks":[]}
 ```
-6. `confirmed` 阶段先创建 v2 Run 的研究设计：用自然科研语言写清问题、目的、假设或比较关系，并说明复用哪些 Experiment 指标及其公式。人类确认设计后，再规划公共实验包并按 `experiment_code_edit` 路由委派实现。默认新 Run 只增加配置和可读 Shell launcher；新机制应进入公共包的 Hook、Metric、Adapter 或 Pipeline，禁止默认新增 `runner_<run>.py`，也禁止用 `importlib` 把多个 Run runner 串成隐式继承链。协调 pi 必须记录 requested/actual route；只有不可用或额度耗尽时才能 fallback。实现完成后登记 `implementation_ref` 和测试，再提交审核。Codex 不承担科研规划、审核或授权。
+6. `confirmed` 阶段先创建 v2 Run 的研究设计：用自然科研语言写清问题、目的、假设或比较关系，并说明复用哪些 Experiment 指标及其公式。人类确认设计后，再规划公共实验包并按 `experiment_code_edit` 路由委派实现。默认新 Run 只增加必要配置和可读 launcher；代码直接修改当前 Workspace 绑定仓库中的实际模块目录，不要求新建 codespace、实验索引或 `runner_<run>.py`；新机制应进入仓库已有的 Hook、Metric、Adapter 或 Pipeline，禁止复制已有代码，也禁止用 `importlib` 把多个 Run runner 串成隐式继承链。协调 pi 必须记录 requested/actual route；只有不可用或额度耗尽时才能 fallback。实现完成后登记 `implementation_ref` 和测试，再提交审核。Codex 不承担科研规划、审核或授权。
 7. 用户可以对 `pending_review` Run 选择“退回完善”，写入补充要求和疑问。Agent 只能在 `changes_requested` 状态修改科学/执行规范；完善后写入简洁回应并再次提交审核。`approved` 表示规范冻结，不表示执行授权。
 8. 仅当 Run 同时满足 `review_status=approved`、存在 `execution_authorized_at`，并且用户在终端中明确点名要求执行时才启动。任何审核后的规范变化都会使执行 gate 失败并要求重新审核。
-9. 若 Execution Outbox 派发协调 Prompt，收到 Prompt 只表示 delivered。pi 必须先运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox claim-next --experiment-id E-005 --consumer pi:<session-id>` 原子领取，再按 `experiment_code_edit` 委派 Codex。随后用返回的 dispatch/token 依次运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox ack <dispatch-id> --lease-token <lease-token> --consumer pi:<session-id> --actual-agent <agent> --actual-model <model>` 和 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox running <dispatch-id> --lease-token <lease-token> --consumer pi:<session-id>`；结束时运行 `outbox complete`（必须含 log/artifact/result-message）或 `outbox fail`。actual route 与 requested 相同时 ACK 不需要 fallback reason，不同时必须加 `--fallback-reason <原因>`。不得自动 claim，不得把 delivered 当 running；pi 保留协调与证据核验职责。
+9. 若 Execution Outbox 派发协调 Prompt，收到 Prompt 只表示 delivered。pi 必须先运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox claim-next --experiment-id E-008 --consumer pi:<session-id>` 原子领取，再按 `experiment_code_edit` 委派 Codex。随后用返回的 dispatch/token 依次运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox ack <dispatch-id> --lease-token <lease-token> --consumer pi:<session-id> --actual-agent <agent> --actual-model <model>` 和 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext outbox running <dispatch-id> --lease-token <lease-token> --consumer pi:<session-id>`；结束时运行 `outbox complete`（必须含 log/artifact/result-message）或 `outbox fail`。actual route 与 requested 相同时 ACK 不需要 fallback reason，不同时必须加 `--fallback-reason <原因>`。不得自动 claim，不得把 delivered 当 running；pi 保留协调与证据核验职责。
 8. 启动 Run 时，除极短且无需持续观察的前台检查外，**默认优先创建独立 tmux session**。优先使用 Run 解析配置中的 `tmux_session` 名称；启动前检查同名 session，避免误覆盖已有任务。将实际 session 名、启动命令和日志路径写回 Run，确保用户可运行 `ssh <host> -t 'tmux attach -t <session>'` 棷查。若远端无 tmux 或任务不适合 tmux，说明原因并使用等价的可观察后台方式，不得静默脱离。
 
 在完成远程勘察前，禁止讨论“多少张图片足够”、多 seed、完整消融矩阵、统计显著性或任意臆测的 test 参数；禁止把 `<待确认>` 展开成循环讨论。先查事实，再设计。
 
 ## 同步命令
 - 用户已明确要求创建或完善某个 Run 时，该请求本身授权你在同一轮登记/更新 Run 草稿，并推进到“提交人工审核”；不要再要求用户确认初稿、解除只读或重复说“正式登记”。这项授权只覆盖研究记录写入和提交审核，不覆盖批准、执行授权或实际执行。
-- 创建 v2 Run 研究设计：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext run create E-005 --id <真实产物目录名> --variant <中文名称> --research-question <研究问题> --purpose <比较什么及排除什么疑问> --hypothesis <假设或比较预期> --metric-plan <复用哪些已登记指标及原因> --data-definition <数据身份> --variables-controls <变量与对照>`。随后用 `run workflow <R-ID> --action confirm-design` 确认目的与指标；代码方案完成后用 `--action implementation-ready`。不再要求用冗长边界字段证明严谨。
+- 创建 v2 Run 研究设计：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext run create E-008 --id <真实产物目录名> --variant <中文名称> --research-question <研究问题> --purpose <比较什么及排除什么疑问> --hypothesis <假设或比较预期> --metric-plan <复用哪些已登记指标及原因> --data-definition <数据身份> --variables-controls <变量与对照>`。随后用 `run workflow <R-ID> --action confirm-design` 确认目的与指标；代码方案完成后用 `--action implementation-ready`。不再要求用冗长边界字段证明严谨。
 - 提交用户审核：满足 workflow gate 后，直接运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext run submit-review <R-ID> --message <初稿完成摘要>`，然后停止等待人类批准。若 gate 不满足，应直接补齐已知字段或报告具体缺口，不得用泛化的“只读/请再次确认”代替。若已由后端策略批准，不得重复提交，直接报告最终状态并停止。
 - 用户退回后完善：先读取 context 中 `review_requirements` / `review_questions`，再用 `run update` 更新；最后重新 `run submit-review`。不得在 pending_review 或 approved 时修改规范。
 - 运行后更新：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext run update <R-ID> --status <status> --result-summary <结果摘要> --metric-observations '<结构化 JSON 数组>' --conclusion-scope <可支持的结论> --message <中文进度>`。
-- 记录发现：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext event E-005 --type discovery --message <verified-fact> --details <path-or-output-summary>`。
-- Agent 整理 Run Folder：只提交确实需要移动的 partial assignments，可运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext experiment agent-grouping E-005 --file <experiment-owned-proposal.json>`。后端会逐条应用安全项，锁定/未知/冲突项只跳过，不得借此修改审核、Claim 或执行状态。
+- 记录发现：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext event E-008 --type discovery --message <verified-fact> --details <path-or-output-summary>`。
+- Agent 整理 Run Folder：只提交确实需要移动的 partial assignments，可运行 `python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext experiment agent-grouping E-008 --file <experiment-owned-proposal.json>`。后端会逐条应用安全项，锁定/未知/冲突项只跳过，不得借此修改审核、Claim 或执行状态。
 - 每次修改代码后同步 changed files、branch/commit、测试命令与结果；每次启动任务后同步命令、实际 tmux session、日志和产物路径。Run 更新示例：`surveyctl.py --project /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext run update <R-ID> --status running --command '<command>' --tmux-session '<session>' --log-path '<log>' --message '已在 tmux 启动，可 attach 检查'`。
 
 ## Canonical 路径
-- 实验方案：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-005/plan.md
-- Runs：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-005/runs
-- 活动记录：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-005/events.md
+- 实验方案：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/plan.md
+- Runs：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/runs
+- 活动记录：/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/events.md
 
 `.survey-tool/` 是工具内部状态，不要直接编辑；只通过 `surveyctl.py` 写回。研究结论必须遵守项目的人工审核门禁。

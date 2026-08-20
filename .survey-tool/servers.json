@@ -5,5 +5,15 @@
     "ssh_host": "featurize",
     "project_root": "/home/featurize/work/mechanism",
     "launcher": "tmux"
+  },
+  {
+    "id": "02",
+    "label": "lwc-IPLoc",
+    "ssh_host": "NKU-LWC",
+    "project_root": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "gpu_type": "3090",
+    "gpu_count": 4,
+    "launcher": "ssh NKU-LWC",
+    "notes": "请勿在本服务器除了project_root下读取编写文件，例如/tmp"
   }
 ]

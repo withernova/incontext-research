@@ -45,3 +45,9 @@
 - [[E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20|R-006b存储安全恢复：完整重跑n20自然行为阶段]] ← [[E-007]] · `completed_passed_integrity_scientific_upgrade_failed`
 - [[E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140|自然query-head的reference读取、跨图对应与query定位链式审计]] ← [[E-007]] · `draft`
 - [[E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20|reference head引导的两遍reference遮罩自然生成门禁]] ← [[E-007]] · `draft`
+- [[E008-R-000-grounding-heads-query-image-alignment-smoke-n4|grounding heads query-image alignment smoke n4]] ← [[E-008]] · `failed`
+- [[E008-R-001-grounding-heads-query-image-role-audit-n140-640|grounding heads query-image role audit n140 640]] ← [[E-008]] · `draft`
+- [[E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded|grounding heads query-image alignment smoke n4 tmux-guarded replacement]] ← [[E-008]] · `failed`
+- [[E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry|grounding heads query-image alignment smoke n4 tmux-guarded runtime retry]] ← [[E-008]] · `draft`
+- [[E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2|grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2]] ← [[E-008]] · `running`
+- [[002|可编辑]] ← [[E-008]] · `draft`

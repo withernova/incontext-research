@@ -9,5 +9,93 @@
     "remote_experiment_root": "/home/featurize/work/mechanism/explog",
     "environment_activation": "",
     "launcher": "tmux"
+  },
+  {
+    "id": "02",
+    "label": "lwc-IPLoc",
+    "server_id": "02",
+    "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+    "remote_worktree_root": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "remote_experiment_root": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
+    "environment_activation": "conda:IPLoc",
+    "launcher": "ssh NKU-LWC",
+    "environment_policy": {
+      "allowed_write_roots": [
+        "/defaultShare/archive/liuwenchu/projects/IPLoc"
+      ],
+      "forbidden_paths": [
+        "/defaultShare/archive",
+        "/tmp"
+      ],
+      "read_only_roots": [
+        "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+      ],
+      "forbidden_operations": [
+        "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+        "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+        "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+        "sudo",
+        "删除未明确列出的目录或数据"
+      ],
+      "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+      "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+      "policy_preset": "custom",
+      "dangerous_exceptions": [],
+      "default_deny_write": true
+    },
+    "execution_isolation": {
+      "mode": "tmux-guarded",
+      "required": true,
+      "network": "host",
+      "deny_read_roots": [],
+      "notes": "人类明确接受的降级隔离：NKU-LWC不允许Bubblewrap mount namespace。执行器继续强制审核快照、授权、conda:IPLoc证明、固定command/tmux和allowlist写路径；但无法内核级隐藏宿主其他可读目录，且无法强制断网。"
+    },
+    "dataset_bindings": [],
+    "rule_input": {
+      "contract": "survey-tool.workspace-rule-input/v1",
+      "original_request": "仅仅操作/defaultShare/archive/liuwenchu/projects/IPLoc下的文件。临时文件也请在/defaultShare/archive/liuwenchu/projects/IPLoc下创建文件夹，请勿触碰/下的其他文件夹，尤其是/defaultShare/archive下的其他文件夹。删除可以改为移动至/defaultShare/archive/liuwenchu/projects/IPLoc下新建一个临时回收站。数据集在/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test下的软连接。使用git对代码编写。conda环境使用IPLoc的conda环境进行操作。创建tmux进行实验。使用本机的NKU-LWC进行连接",
+      "preset": "research_safe",
+      "updated_at": "2026-08-18T15:53:53"
+    },
+    "rule_profile": {
+      "contract": "survey-tool.workspace-rule-profile/v1",
+      "original_request": "仅仅操作/defaultShare/archive/liuwenchu/projects/IPLoc下的文件。临时文件也请在/defaultShare/archive/liuwenchu/projects/IPLoc下创建文件夹，请勿触碰/下的其他文件夹，尤其是/defaultShare/archive下的其他文件夹。删除可以改为移动至/defaultShare/archive/liuwenchu/projects/IPLoc下新建一个临时回收站。数据集在/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test下的软连接。使用git对代码编写。conda环境使用IPLoc的conda环境进行操作。创建tmux进行实验。使用本机的NKU-LWC进行连接",
+      "preset": "research_safe",
+      "rules": [
+        {
+          "id": "default-deny-write",
+          "label": "默认拒绝写入",
+          "detail": "仅已登记的代码、工作与实验目录可写。",
+          "source": "preset"
+        },
+        {
+          "id": "data-read-only",
+          "label": "研究数据只读",
+          "detail": "已登记的数据目录只用于读取，不得修改。",
+          "source": "preset"
+        },
+        {
+          "id": "dangerous-ops",
+          "label": "禁止危险操作",
+          "detail": "禁止 sudo 和删除未明确授权的目录或数据。",
+          "source": "preset"
+        }
+      ],
+      "warnings": [
+        "描述中没有可安全自动转换的明确规则；原文已保留，请人工检查高级设置。",
+        "未明确给出独立的实验输出根目录，因此 remote_experiment_root 留空。",
+        "原文禁止触碰 / 和 /defaultShare/archive 下的“其他文件夹”，但未逐一给出这些目录的绝对路径；为避免猜测或把允许目录的父目录整体列为 forbidden_paths，未填 forbidden_paths，相关限制保留在 forbidden_operations。",
+        "原文只明确说明数据集位于 /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test 下的软连接，未给出软连接实际指向的数据源绝对路径，因此无法填写更具体的数据集 source_path。",
+        "原文未明确声明数据集目录本身为只读，因此 read_only_roots 留空；dataset_candidates 仅按只读候选提出。"
+      ],
+      "questions": [],
+      "updated_at": "2026-08-18T15:53:53",
+      "organizer": {
+        "requested": "external",
+        "used": "ai",
+        "reason": "validated workspace-rule-external/v1"
+      }
+    }
   }
 ]

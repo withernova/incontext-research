@@ -470,3 +470,94 @@ reference来自query crop，仅工程验证；不进入科学head discovery。
 ## 2026-07-28T23:12:15+08:00 · run_created
 - run: E005-R-034d-qr-continuous-threshold-curve-offline-640
 - message: Agent 创建 canonical Run E005-R-034d-qr-continuous-threshold-curve-offline-640 · final frozen Q→R continuous threshold fIoU analysis
+
+## 2026-08-17T12:53:40 · agent_run_grouping
+- run: -
+- message: Agent Folder 整理：已分类 8，跳过 0，未变 0
+
+```json
+{
+  "applied": [
+    {
+      "run_id": "E005-R-028-r023-matched35x2-same-resolution-640",
+      "from": "",
+      "to": "resolution-stability"
+    },
+    {
+      "run_id": "E005-R-029c-original140-positive-targets-binding-640",
+      "from": "",
+      "to": "positive-binding-audit"
+    },
+    {
+      "run_id": "E005-R-030c-original140-negative-targets-binding-640",
+      "from": "",
+      "to": "negative-binding-audit"
+    },
+    {
+      "run_id": "E005-R-033-positive-full140-unified-fivepanel-640",
+      "from": "",
+      "to": "unified-visualization"
+    },
+    {
+      "run_id": "E005-R-033-negative-full140-unified-fivepanel-640",
+      "from": "",
+      "to": "unified-visualization"
+    },
+    {
+      "run_id": "E005-R-034-qr-continuous-threshold-curve-offline-640",
+      "from": "",
+      "to": "offline-threshold-curve"
+    },
+    {
+      "run_id": "E005-R-034b-qr-continuous-threshold-curve-offline-640",
+      "from": "",
+      "to": "offline-threshold-curve"
+    },
+    {
+      "run_id": "E005-R-034d-qr-continuous-threshold-curve-offline-640",
+      "from": "",
+      "to": "offline-threshold-curve"
+    }
+  ],
+  "skipped": [],
+  "unchanged": [],
+  "groups_added": [
+    {
+      "id": "resolution-stability",
+      "name": "分辨率稳定性复核",
+      "description": "复核 R023 的 224 replay 方向在 640 分辨率下是否保持，检验 paired resolution stability",
+      "color": "#4F7C78"
+    },
+    {
+      "id": "positive-binding-audit",
+      "name": "正样本绑定审计",
+      "description": "在原始 positive 目标上检验 G→R/Q→R discrepancy 与自然定位 IoU 的关系",
+      "color": "#3B6EA5"
+    },
+    {
+      "id": "negative-binding-audit",
+      "name": "负样本绑定诊断",
+      "description": "单独审计 same-class negative 的自然拒绝/接受与 reference lookback 行为",
+      "color": "#B5651D"
+    },
+    {
+      "id": "unified-visualization",
+      "name": "统一五面板可视化",
+      "description": "按自然行为命名提供完整 G→R/Q→R/Q→Q 统一可视化",
+      "color": "#7A4B94"
+    },
+    {
+      "id": "offline-threshold-curve",
+      "name": "离线 Q→R 阈值曲线",
+      "description": "离线分析 Q→R 连续指标、阈值曲线与 distributed reference-target attention signal",
+      "color": "#C05780"
+    }
+  ],
+  "totals": {
+    "applied": 8,
+    "skipped": 0,
+    "unchanged": 0,
+    "groups_added": 5
+  }
+}
+```

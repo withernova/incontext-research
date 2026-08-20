@@ -1,17 +1,22 @@
 # E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20 · natural-generation-qtor-shape-transplant-pilot-n20
 
 - canonical_run_id: `E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20`
+- group_id: （未分组 / 待整理）
 - run_type: causal_behavior_pilot
-- review_status: pending_review
+- review_status: approved
 - review_round: 1
 - submitted_for_review_at: 2026-08-04T20:44:51
-- approved_at: 
-- execution_authorized_at: 
+- approved_at: 2026-08-17T13:50:02
+- approved_by: human:web-v2
+- execution_authorized_at: 2026-08-17T13:50:04
+- execution_authorized_by: human:web-v2
 - execution_authorization_consumed_at: 
+- execution_dispatch_id: 
+- execution_dispatch_latest_status: 
 - legacy_registry_ids: （无）
 
-> `canonical_run_id` 同时是 registry 主键、canonical note 文件名与默认远端产物目录名，不要再把它塞入 variant 或 notes。
-> 新 Run 必须经过 Agent 初稿 → 用户审核/补充 → Agent 完善并重新提交 → 用户批准 → 单独执行授权。批准不等于执行。
+> 已分组 Run 位于 `runs/<group-id>/<run-id>.md`；未分组 Run 位于 `runs/<run-id>.md`。
+> Run 必须经过 Agent 初稿 → 用户审核/补充 → Agent 完善并重新提交 → 用户批准 → 单独执行授权。批准不等于执行。
 
 ## 状态
 planned
@@ -70,9 +75,6 @@ n20；online窗口含格式tokens；positive-only不能评价FP；attention改�
 ## 不支持的结论 / Claim 边界
 仅为小样本自然行为pilot；不能形成最终Joint F1或identity结论。
 
-## 关键指标
-（待补充）
-
 ## Artifacts
 （待补充）
 
@@ -81,6 +83,9 @@ E003-R-004b outputs; E007-R-002 artifacts
 
 ## 过程记录与补充细节
 （待补充）
+
+## 指标观测
+（尚无结构化观测）
 
 ## Run 审核
 ### 用户补充要求
@@ -92,6 +97,8 @@ E003-R-004b outputs; E007-R-002 artifacts
 ### Agent 对疑问的回应
 （待补充）
 ### 本次执行授权备注
+（待补充）
+### 自动审核快照
 （待补充）
 
 <details><summary>执行与复现信息</summary>
@@ -141,11 +148,11 @@ W-01
 - environment_activation: 
 - complete: true
 
-> 这是服务器与监控的唯一配置源。Agent 不得自行读取历史 watchdog 配置或猜测其他服务器。配置不完整时必须停止。
+> 这是服务器与监控的唯一配置源。Agent 不得自行读取历史 Steward/Watchdog 配置或猜测其他服务器。配置不完整时必须停止。
 
 - created_by: terminal_pi
 - created: 2026-08-04T20:44:43
-- updated: 2026-08-04T20:44:51
+- updated: 2026-08-17T13:50:04
 
 ## 自由笔记（Obsidian）
 

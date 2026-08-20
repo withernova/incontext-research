@@ -1,0 +1,271 @@
+[
+  {
+    "time": "2026-08-19T16:17:45",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 1
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-19T16:20:18",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "acknowledged"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 1
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-19T16:21:26",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "acknowledged"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 1
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-19T16:21:54",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "acknowledged"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 2
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-20T14:15:28",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 3
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-20T14:15:44",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 3
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-20T14:16:17",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 3
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-20T14:16:36",
+    "experiment_id": "E-008",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 3
+      }
+    },
+    "results": []
+  }
+]

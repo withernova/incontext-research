@@ -166,3 +166,61 @@ requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=Cod
 - message: survey-tool start.sh修复请求Codex/sol超时，按local_tool_edit配置fallback到pi。
 
 requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=Codex route-aware request timed out/reconnect exhausted；日志=.pi/codex/survey_start_fix_exec.log。
+
+## 2026-08-17T13:50:04 · execution_dispatch_enqueue
+- run: E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20
+- message: E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9",
+  "experiment_id": "E-007",
+  "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+  "status": "queued",
+  "created_at": "2026-08-17T13:50:04",
+  "updated_at": "2026-08-17T13:50:04",
+  "authorization_timestamp": "2026-08-17T13:50:04",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-17T13:50:04",
+      "type": "queued",
+      "detail": "authorization_reliability"
+    }
+  ]
+}
+```
+
+## 2026-08-17T13:50:12 · execution_dispatch_enqueue
+- run: E007-R-005-budget-vs-shape-factorial-and-headset-specificity
+- message: E007-R-005-budget-vs-shape-factorial-and-headset-specificity outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d",
+  "experiment_id": "E-007",
+  "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+  "status": "queued",
+  "created_at": "2026-08-17T13:50:12",
+  "updated_at": "2026-08-17T13:50:12",
+  "authorization_timestamp": "2026-08-17T13:50:12",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-17T13:50:12",
+      "type": "queued",
+      "detail": "authorization_reliability"
+    }
+  ]
+}
+```

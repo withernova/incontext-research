@@ -7,3 +7,4 @@
 - [[E-005|Attention-derived localization-head discovery and grounding audit]] · `implementing`
 - [[E-006|简洁的attention-on-GT与联通子图审计]] · `planned`
 - [[E-007|Query-stage reference-attention transplant and causal rescue]] · `planned`
+- [[E-008|Reference-grounding heads on query-image attention]] · `planned`

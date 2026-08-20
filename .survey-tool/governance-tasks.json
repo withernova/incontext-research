@@ -1,0 +1,168 @@
+{
+  "schema": "survey-tool.governance-tasks/v1",
+  "version": 1,
+  "items": [
+    {
+      "task_id": "classify-af6ce4fc90d6197cf8f1",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "run_type": "engineering_gate",
+          "variant": "grounding heads query-image alignment smoke n4",
+          "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-18T14:25:48"
+    },
+    {
+      "task_id": "classify-6c89a3216fbea9ca017a",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "run_type": "observational_mechanism_audit",
+          "variant": "grounding heads query-image role audit n140 640",
+          "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-18T14:25:48"
+    },
+    {
+      "task_id": "classify-55c3e927040e34f5ed40",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "run_type": "engineering_gate",
+          "variant": "grounding heads query-image alignment smoke n4 tmux-guarded replacement",
+          "purpose": "在相同n4、模型、LoRA、manifest、归档输出和冻结heads下完成公共pipeline工程门禁；唯一变化是人类接受的tmux-guarded隔离替代Bubblewrap。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-19T16:03:16"
+    },
+    {
+      "task_id": "classify-dd0ef0f878cc80de634c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+          "run_type": "engineering_gate",
+          "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry",
+          "purpose": "在与R-000b相同的n4、冻结head、manifest、归档输出、模型和LoRA下重试公共pipeline；唯一新增前提是已记录的canonical IPLoc runtime修复。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-19T16:20:18"
+    },
+    {
+      "task_id": "classify-426868f13e81015475bb",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "run_type": "engineering_gate",
+          "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+          "purpose": "在R-000b相同的冻结n4科研规范下，使用已修复的canonical IPLoc运行时重试公共pipeline；唯一执行层变化为已接受的tmux-guarded隔离。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-19T16:21:53"
+    },
+    {
+      "task_id": "classify-b84ecd335864203c6355",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "002",
+          "run_type": "",
+          "variant": "可编辑",
+          "purpose": "看看query head对query image 的attention是不是起到了模型预测的决定性结果"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-20T14:52:26"
+    }
+  ]
+}

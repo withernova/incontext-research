@@ -341,3 +341,108 @@ Never edit past entries.
   - mcgovern2019makingth: Making the Black Box More Transparent: Understanding the Physical Implications of Machine Learning | https://openalex.org/W2969309273 | 2019 | doi=10.1175/bams-d-18-0195.1
   - nocentin2019asurveyo: A Survey of Behavioral Models for Social Robots | https://openalex.org/W2945459164 | 2019 | doi=10.3390/robotics8030054
   - garcagas2018onthebeh: On the Behavior of Convolutional Nets for Feature Extraction | https://openalex.org/W2592563856 | 2018 | doi=10.1613/jair.5756
+
+## 2026-08-17T10:30:57 | openalex | query: 'training-free inference-time hallucination mitigation vision language model'
+- hits: 12  
+  - ouyang2022training: Training language models to follow instructions with human feedback | https://openalex.org/W4226278401 | 2022 | doi=10.48550/arxiv.2203.02155
+  - singhal2023largelan: Large language models encode clinical knowledge | https://openalex.org/W4384071683 | 2023 | doi=10.1038/s41586-023-06291-2
+  - chowdher2022palmscal: PaLM: Scaling Language Modeling with Pathways | https://openalex.org/W4224308101 | 2022 | doi=10.48550/arxiv.2204.02311
+  - zhao2026asurveyo: A Survey of Large Language Models | https://openalex.org/W4362515116 | 2026 | doi=10.1007/s11704-026-60308-3
+  - wang2024asurveyo: A survey on large language model based autonomous agents | https://openalex.org/W4393065402 | 2024 | doi=10.1007/s11704-024-40231-1
+  - hager2024evaluati: Evaluation and mitigation of the limitations of large language models in clinical decision-making | https://openalex.org/W4400324908 | 2024 | doi=10.1038/s41591-024-03097-1
+  - zhang2023sirensso: Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models | https://openalex.org/W4386501849 | 2023 | doi=10.48550/arxiv.2309.01219
+  - zhao2024explaina: Explainability for Large Language Models: A Survey | https://openalex.org/W4390490761 | 2024 | doi=10.1145/3639372
+  - thoppila2022lamdalan: LaMDA: Language Models for Dialog Applications | https://openalex.org/W4226399820 | 2022 | doi=10.48550/arxiv.2201.08239
+  - huang2023asurveyo: A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions | https://openalex.org/W4388585881 | 2023 | doi=10.48550/arxiv.2311.05232
+  - tonmoy2024acompreh: A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models | https://openalex.org/W4390602555 | 2024 | doi=10.48550/arxiv.2401.01313
+  - raiaan2024areviewo: A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges | https://openalex.org/W4391855109 | 2024 | doi=10.1109/access.2024.3365742
+
+## 2026-08-17T10:31:08 | openalex | query: 'attention intervention mitigate object hallucination vision language model inference'
+- hits: 15  
+  - zhang2023sirensso: Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models | https://openalex.org/W4386501849 | 2023 | doi=10.48550/arxiv.2309.01219
+  - huang2023asurveyo: A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions | https://openalex.org/W4388585881 | 2023 | doi=10.48550/arxiv.2311.05232
+  - thoppila2022lamdalan: LaMDA: Language Models for Dialog Applications | https://openalex.org/W4226399820 | 2022 | doi=10.48550/arxiv.2201.08239
+  - zhao2024explaina: Explainability for Large Language Models: A Survey | https://openalex.org/W4390490761 | 2024 | doi=10.1145/3639372
+  - tonmoy2024acompreh: A Comprehensive Survey of Hallucination Mitigation Techniques in Large Language Models | https://openalex.org/W4390602555 | 2024 | doi=10.48550/arxiv.2401.01313
+  - zhang2025sirensso: 🧜Siren’s Song in the AI Ocean: A Survey on Hallucination in Large Language Models | https://openalex.org/W4412158322 | 2025 | doi=10.1162/coli.a.16
+  - raiaan2024areviewo: A Review on Large Language Models: Architectures, Applications, Taxonomies, Open Issues and Challenges | https://openalex.org/W4391855109 | 2024 | doi=10.1109/access.2024.3365742
+  - srivasta2022beyondth: Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models | https://openalex.org/W4281690148 | 2022 | doi=10.48550/arxiv.2206.04615
+  - mahowald2024dissocia: Dissociating language and thought in large language models | https://openalex.org/W4392935324 | 2024 | doi=10.1016/j.tics.2024.01.011
+  - hartsock2024visionla: Vision-language models for medical report generation and visual question answering: a review | https://openalex.org/W4404509535 | 2024 | doi=10.3389/frai.2024.1430984
+  - ji2022surveyof: Survey of Hallucination in Natural Language Generation | https://openalex.org/W4221163727 | 2022 | doi=10.48550/arxiv.2202.03629
+  - chen2023hallucin: Hallucination Detection: Robustly Discerning Reliable Answers in Large Language Models | https://openalex.org/W4387848774 | 2023 | doi=10.1145/3583780.3614905
+  - carvalho2023knowledg: Knowledge Engineering Using Large Language Models | https://openalex.org/W4287024925 | 2023 | doi=10.4230/oasics.icpec.2023.9
+  - ye2023cognitiv: Cognitive Mirage: A Review of Hallucinations in Large Language Models | https://openalex.org/W4386755313 | 2023 | doi=10.48550/arxiv.2309.06794
+  - carharth2019rebusand: REBUS and the Anarchic Brain: Toward a Unified Model of the Brain Action of Psychedelics | https://openalex.org/W2949457836 | 2019 | doi=10.1124/pr.118.017160
+
+## 2026-08-17T10:31:08 | openalex | query: 'attention steering multimodal large language model hallucination inference-time'
+- hits: 15  
+  - zhao2026asurveyo: A Survey of Large Language Models | https://openalex.org/W4362515116 | 2026 | doi=10.1007/s11704-026-60308-3
+  - gao2023retrieva: Retrieval-Augmented Generation for Large Language Models: A Survey | https://openalex.org/W4389984066 | 2023 | doi=10.48550/arxiv.2312.10997
+  - zhang2023sirensso: Siren's Song in the AI Ocean: A Survey on Hallucination in Large Language Models | https://openalex.org/W4386501849 | 2023 | doi=10.48550/arxiv.2309.01219
+  - huang2023asurveyo: A Survey on Hallucination in Large Language Models: Principles, Taxonomy, Challenges, and Open Questions | https://openalex.org/W4388585881 | 2023 | doi=10.48550/arxiv.2311.05232
+  - naveed2023acompreh: A Comprehensive Overview of Large Language Models | https://openalex.org/W4384389802 | 2023 | doi=10.48550/arxiv.2307.06435
+  - zhang2025sirensso: 🧜Siren’s Song in the AI Ocean: A Survey on Hallucination in Large Language Models | https://openalex.org/W4412158322 | 2025 | doi=10.1162/coli.a.16
+  - gallifan2025thetripo: The TRIPOD-LLM reporting guideline for studies using large language models | https://openalex.org/W4406152263 | 2025 | doi=10.1038/s41591-024-03425-5
+  - minaee2024largelan: Large Language Models: A Survey | https://openalex.org/W4391766565 | 2024 | doi=10.48550/arxiv.2402.06196
+  - hadi2023asurveyo: A Survey on Large Language Models: Applications, Challenges, Limitations, and Practical Usage | https://openalex.org/W4383737134 | 2023 | doi=10.36227/techrxiv.23589741.v1
+  - srivasta2022beyondth: Beyond the Imitation Game: Quantifying and extrapolating the capabilities of language models | https://openalex.org/W4281690148 | 2022 | doi=10.48550/arxiv.2206.04615
+  - xi2023therisea: The Rise and Potential of Large Language Model Based Agents: A Survey | https://openalex.org/W4386794445 | 2023 | doi=10.48550/arxiv.2309.07864
+  - bai2024hallucin: Hallucination of Multimodal Large Language Models: A Survey | https://openalex.org/W4396821279 | 2024 | doi=10.48550/arxiv.2404.18930
+  - ji2022surveyof: Survey of Hallucination in Natural Language Generation | https://openalex.org/W4221163727 | 2022 | doi=10.48550/arxiv.2202.03629
+  - wang2024largelan: Large language models in medical and healthcare fields: applications, advances, and challenges | https://openalex.org/W4402692877 | 2024 | doi=10.1007/s10462-024-10921-0
+  - raza2025industri: Industrial applications of large language models | https://openalex.org/W4409626943 | 2025 | doi=10.1038/s41598-025-98483-1
+
+## 2026-08-17T10:31:57 | arxiv | query: 'inference-time attention intervention object hallucination vision language'
+- hits: 15  
+  - sapkota2025objectde: Object Detection with Multimodal Large Vision-Language Models: An In-depth Review | http://arxiv.org/abs/2508.19294v2 | 2025 | doi=10.1016/j.inffus.2025.103575
+  - chen2024multiobj: Multi-Object Hallucination in Vision-Language Models | http://arxiv.org/abs/2407.06192v2 | 2024 | doi=
+  - ye2025claimmit: CLAIM: Mitigating Multilingual Object Hallucination in Large Vision-Language Models with Cross-Lingual Attention Interve | http://arxiv.org/abs/2506.11073v1 | 2025 | doi=
+  - feng2025visionla: Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation | http://arxiv.org/abs/2504.09480v1 | 2025 | doi=
+  - zhang2026mitigati: Mitigating Multimodal Hallucination via Phase-wise Self-reward | http://arxiv.org/abs/2604.17982v1 | 2026 | doi=
+  - li2025caicapti: CAI: Caption-Sensitive Attention Intervention for Mitigating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2506.23590v1 | 2025 | doi=
+  - chen2024ictimage: ICT: Image-Object Cross-Level Trusted Intervention for Mitigating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2411.15268v1 | 2024 | doi=
+  - hoangxua2025paspreli: PAS : Prelim Attention Score for Detecting Object Hallucinations in Large Vision--Language Models | http://arxiv.org/abs/2511.11502v1 | 2025 | doi=
+  - duan2025truthpri: TruthPrInt: Mitigating Large Vision-Language Models Object Hallucination Via Latent Truthful-Guided Pre-Intervention | http://arxiv.org/abs/2503.10602v3 | 2025 | doi=
+  - song2026segmenta: Segmentation-Based Attention Entropy: Detecting and Mitigating Object Hallucinations in Large Vision-Language Models | http://arxiv.org/abs/2603.16558v1 | 2026 | doi=
+  - qi2021theroadt: The Road to Know-Where: An Object-and-Room Informed Sequential BERT for Indoor Vision-Language Navigation | http://arxiv.org/abs/2104.04167v2 | 2021 | doi=
+  - wang2025vegasmit: VEGAS: Mitigating Hallucinations in Large Vision-Language Models via Vision-Encoder Attention Guided Adaptive Steering | http://arxiv.org/abs/2512.12089v1 | 2025 | doi=
+  - zhang2023visiontr: Vision Transformer with Quadrangle Attention | http://arxiv.org/abs/2303.15105v1 | 2023 | doi=
+  - jiang2024devilsin: Devils in Middle Layers of Large Vision-Language Models: Interpreting, Detecting and Mitigating Object Hallucinations vi | http://arxiv.org/abs/2411.16724v3 | 2024 | doi=
+  - an2024mitigati: Mitigating Object Hallucinations in Large Vision-Language Models with Assembly of Global and Local Attention | http://arxiv.org/abs/2406.12718v3 | 2024 | doi=
+
+## 2026-08-17T10:32:36 | arxiv | query: 'attention steering activation intervention hallucination multimodal large vision language'
+- hits: 15  
+  - kang2026promptac: Prompt-Activation Duality: Improving Activation Steering via Attention-Level Interventions | http://arxiv.org/abs/2605.10664v2 | 2026 | doi=
+  - yin2026dynamicm: Dynamic Multimodal Activation Steering for Hallucination Mitigation in Large Vision-Language Models | http://arxiv.org/abs/2602.21704v1 | 2026 | doi=
+  - yin2023asurveyo: A Survey on Multimodal Large Language Models | http://arxiv.org/abs/2306.13549v4 | 2023 | doi=10.1093/nsr/nwae403
+  - lee2026hierarch: Hierarchical Pre-Training of Vision Encoders with Large Language Model | http://arxiv.org/abs/2604.00086v2 | 2026 | doi=
+  - gral2025depthwis: Depth-Wise Activation Steering for Honest Language Models | http://arxiv.org/abs/2512.07667v1 | 2025 | doi=
+  - wang2025vegasmit: VEGAS: Mitigating Hallucinations in Large Vision-Language Models via Vision-Encoder Attention Guided Adaptive Steering | http://arxiv.org/abs/2512.12089v1 | 2025 | doi=
+  - ye2025claimmit: CLAIM: Mitigating Multilingual Object Hallucination in Large Vision-Language Models with Cross-Lingual Attention Interve | http://arxiv.org/abs/2506.11073v1 | 2025 | doi=
+  - zhang2026mitigati: Mitigating Multimodal Hallucination via Phase-wise Self-reward | http://arxiv.org/abs/2604.17982v1 | 2026 | doi=
+  - li2026castmiti: CAST: Mitigating Object Hallucination in Large Vision-Language Models via Caption-Guided Visual Attention Steering | http://arxiv.org/abs/2605.04641v2 | 2026 | doi=
+  - darm2025headspec: Head-Specific Intervention Can Induce Misaligned AI Coordination in Large Language Models | http://arxiv.org/abs/2502.05945v3 | 2025 | doi=
+  - liu2024reducing: Reducing Hallucinations in Vision-Language Models via Latent Space Steering | http://arxiv.org/abs/2410.15778v2 | 2024 | doi=
+  - zhou2026emoshift: EmoShift: Lightweight Activation Steering for Enhanced Emotion-Aware Speech Synthesis | http://arxiv.org/abs/2601.22873v1 | 2026 | doi=
+  - li2025caicapti: CAI: Caption-Sensitive Attention Intervention for Mitigating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2506.23590v1 | 2025 | doi=
+  - zhang2026mitigati: Mitigating Entangled Steering in Large Vision-Language Models for Hallucination Reduction | http://arxiv.org/abs/2604.07914v1 | 2026 | doi=
+  - gao2023ophglmtr: OphGLM: Training an Ophthalmology Large Language-and-Vision Assistant based on Instructions and Dialogue | http://arxiv.org/abs/2306.12174v2 | 2023 | doi=
+
+## 2026-08-17T10:34:57 | arxiv | query: 'attention reweighting calibration training-free object hallucination large vision language'
+- hits: 15  
+  - sapkota2025objectde: Object Detection with Multimodal Large Vision-Language Models: An In-depth Review | http://arxiv.org/abs/2508.19294v2 | 2025 | doi=10.1016/j.inffus.2025.103575
+  - fazli2025mitigati: Mitigating Hallucination in Large Vision-Language Models via Adaptive Attention Calibration | http://arxiv.org/abs/2505.21472v2 | 2025 | doi=
+  - chen2024multiobj: Multi-Object Hallucination in Vision-Language Models | http://arxiv.org/abs/2407.06192v2 | 2024 | doi=
+  - zhu2025mitigati: Mitigating Object Hallucinations in Large Vision-Language Models via Attention Calibration | http://arxiv.org/abs/2502.01969v2 | 2025 | doi=
+  - sanogo2025towardmo: Toward More Reliable Artificial Intelligence: Reducing Hallucinations in Vision-Language Models | http://arxiv.org/abs/2512.07564v1 | 2025 | doi=
+  - ye2025claimmit: CLAIM: Mitigating Multilingual Object Hallucination in Large Vision-Language Models with Cross-Lingual Attention Interve | http://arxiv.org/abs/2506.11073v1 | 2025 | doi=
+  - an2024mitigati: Mitigating Object Hallucinations in Large Vision-Language Models with Assembly of Global and Local Attention | http://arxiv.org/abs/2406.12718v3 | 2024 | doi=
+  - feng2025visionla: Vision-Language Model for Object Detection and Segmentation: A Review and Evaluation | http://arxiv.org/abs/2504.09480v1 | 2025 | doi=
+  - xiao2026vlcalibr: VL-Calibration: Decoupled Confidence Calibration for Large Vision-Language Models Reasoning | http://arxiv.org/abs/2604.09529v1 | 2026 | doi=
+  - ren2026nolanmit: NoLan: Mitigating Object Hallucinations in Large Vision-Language Models via Dynamic Suppression of Language Priors | http://arxiv.org/abs/2602.22144v1 | 2026 | doi=
+  - neo2024vordvisu: VORD: Visual Ordinal Calibration for Mitigating Object Hallucinations in Large Vision-Language Models | http://arxiv.org/abs/2412.15739v1 | 2024 | doi=
+  - hoangxua2025paspreli: PAS : Prelim Attention Score for Detecting Object Hallucinations in Large Vision--Language Models | http://arxiv.org/abs/2511.11502v1 | 2025 | doi=
+  - zhang2026mitigati: Mitigating Multimodal Hallucination via Phase-wise Self-reward | http://arxiv.org/abs/2604.17982v1 | 2026 | doi=
+  - song2026segmenta: Segmentation-Based Attention Entropy: Detecting and Mitigating Object Hallucinations in Large Vision-Language Models | http://arxiv.org/abs/2603.16558v1 | 2026 | doi=
+  - li2023evaluati: Evaluating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2305.10355v3 | 2023 | doi=

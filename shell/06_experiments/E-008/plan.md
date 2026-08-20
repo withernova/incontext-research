@@ -1,15 +1,15 @@
-# E-005 · Attention-derived localization-head discovery and grounding audit
+# E-008 · Reference-grounding heads on query-image attention
 
-- status: implementing
-- kind: attention_mechanism_analysis
-- source_ref: localizationheads2025
-- claim_refs: 
+- status: planned
+- kind: observational_mechanism_audit
+- source_ref: shell/06_experiments/E-005/head_role_registry.md; shell/06_experiments/E-005/dual_gpu_640_core_results.md; shell/06_experiments/E-005/runs/positive-binding-audit/E005-R-029c-original140-positive-targets-binding-640.md; shell/01_questions/Q-004.md; shell/01_questions/Q-005.md
+- claim_refs: Q-004; Q-005; observational head-role audit only
 - priority: medium
-- created: 2026-07-24T13:42:03
-- updated: 2026-08-18T13:56:12
+- created: 2026-08-18T14:25:06
+- updated: 2026-08-19T17:25:47
 
 ## 实验目标
-采用LocalizationHeads当前公开仓库的repo-original参数与实现，在冻结Qwen3-VL/IPLoc-ID中读取最后输入文本token到reference/query视觉tokens的逐head attention，发现稳定localization heads，并与E-004候选层比较。
+在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。
 
 ## 假设
 （待补充）

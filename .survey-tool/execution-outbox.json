@@ -1,0 +1,428 @@
+{
+  "schema": "survey-tool.execution-outbox/v1",
+  "version": 1,
+  "items": [
+    {
+      "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9",
+      "experiment_id": "E-007",
+      "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+      "status": "queued",
+      "created_at": "2026-08-17T13:50:04",
+      "updated_at": "2026-08-17T13:50:04",
+      "authorization_timestamp": "2026-08-17T13:50:04",
+      "approved_spec_hash": "4947b064fbc9a15b30f3ca8b1773fe0346020dbf33310f9b415ebc82a5744432",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-17T13:50:04",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d",
+      "experiment_id": "E-007",
+      "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+      "status": "queued",
+      "created_at": "2026-08-17T13:50:12",
+      "updated_at": "2026-08-17T13:50:12",
+      "authorization_timestamp": "2026-08-17T13:50:12",
+      "approved_spec_hash": "b3028e9ea0d1ebfbf71152ab4549f2b43c3474271def859b80c693a8aef0d77e",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-17T13:50:12",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-6ec2ba6c947dd9b9c417c68d",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "status": "cancelled",
+      "created_at": "2026-08-18T14:53:25",
+      "updated_at": "2026-08-18T14:56:33",
+      "authorization_timestamp": "2026-08-18T14:53:25",
+      "approved_spec_hash": "2e74dbd304498fb05ff65062c9ec6d9a4f3f8b9fa732edb7225b2cdbeb3c6590",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-18T14:53:25",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-18T14:56:33",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-5667beaf6f961780c6285ba1",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "status": "cancelled",
+      "created_at": "2026-08-18T14:53:39",
+      "updated_at": "2026-08-18T14:56:57",
+      "authorization_timestamp": "2026-08-18T14:53:39",
+      "approved_spec_hash": "fc5d04a9005d1985d0c5ce353fcd45d4b4a7581755b59eb7e0aa3846f595adda",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-18T14:53:39",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-18T14:56:57",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-9f97f7daa18d1605e9fcb34e",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "status": "cancelled",
+      "created_at": "2026-08-19T14:43:32",
+      "updated_at": "2026-08-19T14:56:37",
+      "authorization_timestamp": "2026-08-19T14:43:32",
+      "approved_spec_hash": "1cbeb5d1be69844684cbaab6cab297b528c1d15e69fd2c827fea7b1004d7be50",
+      "workspace_execution_hash": "sha256:643657951506716d9899bc061e9e372de4f03b3d527e229cfafecd8632a82545",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-19T14:43:32",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-19T14:56:37",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "status": "running",
+      "created_at": "2026-08-19T15:17:42",
+      "updated_at": "2026-08-19T15:40:01",
+      "authorization_timestamp": "2026-08-19T15:17:42",
+      "approved_spec_hash": "75340239906201508e1306b24a521a9339a684db0678ef5c61b75fc76d2ce346",
+      "workspace_execution_hash": "sha256:643657951506716d9899bc061e9e372de4f03b3d527e229cfafecd8632a82545",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "Managed execution preflight blocked: /usr/bin/tmux exists but bubblewrap/bwrap is absent. Installing it would modify system directories outside the approved IPLoc Workspace; lease released without consuming authorization.",
+      "history": [
+        {
+          "time": "2026-08-19T15:17:42",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-19T15:35:01",
+          "type": "claimed",
+          "detail": "pi:e008-r000"
+        },
+        {
+          "time": "2026-08-19T15:36:22",
+          "type": "acknowledge",
+          "detail": "pi:e008-r000"
+        },
+        {
+          "time": "2026-08-19T15:36:57",
+          "type": "released",
+          "detail": "Managed execution preflight blocked: /usr/bin/tmux exists but bubblewrap/bwrap is absent. Installing it would modify system directories outside the approved IPLoc Workspace; lease released without consuming authorization."
+        },
+        {
+          "time": "2026-08-19T15:39:37",
+          "type": "claimed",
+          "detail": "pi:e008-r000"
+        },
+        {
+          "time": "2026-08-19T15:39:37",
+          "type": "acknowledge",
+          "detail": "pi:e008-r000"
+        },
+        {
+          "time": "2026-08-19T15:40:01",
+          "type": "running",
+          "detail": "pi:e008-r000"
+        },
+        {
+          "time": "2026-08-19T15:40:01",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        }
+      ],
+      "claimed_at": "2026-08-19T15:39:37",
+      "acknowledged_at": "2026-08-19T15:39:37",
+      "actual_agent": "pi",
+      "actual_model": "agent-default",
+      "fallback_reason": "configured Codex sol route is unsupported for the current ChatGPT account; using the configured pi fallback for approved R-000.",
+      "lease_token_hash": "c646aca43b67204211842de43258c947004a7e7c92b5a498d1e78d3d6be2bec5",
+      "consumer": "pi:e008-r000",
+      "lease_expires_at": "2026-08-19T16:09:37",
+      "running_at": "2026-08-19T15:40:01",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "bubblewrap",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+      "status": "queued",
+      "created_at": "2026-08-19T16:03:42",
+      "updated_at": "2026-08-20T14:17:16",
+      "authorization_timestamp": "2026-08-19T16:03:42",
+      "approved_spec_hash": "0e644b73e53b873e9ee3741548ea75d7da06f244e42ba7ba6b4a61299c96865b",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 5,
+      "last_error": "do not execute unrelated R-000b",
+      "history": [
+        {
+          "time": "2026-08-19T16:03:42",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-19T16:03:42",
+          "type": "claimed",
+          "detail": "pi:e008-r000b"
+        },
+        {
+          "time": "2026-08-19T16:03:57",
+          "type": "acknowledge",
+          "detail": "pi:e008-r000b"
+        },
+        {
+          "time": "2026-08-19T16:04:09",
+          "type": "running",
+          "detail": "pi:e008-r000b"
+        },
+        {
+          "time": "2026-08-19T16:04:10",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-19T16:04:35",
+          "type": "fail",
+          "detail": "tmux-guarded launcher reached Python pipeline but failed before model load: transformers 4.46.2 lacks Qwen3VLForConditionalGeneration. Exit before any model forward/scientific records; R-001 not started. Environment repair requires compatible Transformers/PEFT upgrade in canonical conda:IPLoc."
+        },
+        {
+          "time": "2026-08-19T16:17:45",
+          "type": "retry",
+          "detail": "Canonical conda:IPLoc runtime repaired after the retryable pre-model failure: packaging repaired; transformers upgraded to 4.57.3; torch/torchvision upgraded to 2.2.2+cu121/0.17.2+cu121; incompatible xformers removed; Qwen3VL class and CUDA gate pass; pip check pass."
+        },
+        {
+          "time": "2026-08-19T16:17:45",
+          "type": "claimed",
+          "detail": "pi:e008-r000b-retry"
+        },
+        {
+          "time": "2026-08-19T16:18:06",
+          "type": "acknowledge",
+          "detail": "pi:e008-r000b-retry"
+        },
+        {
+          "time": "2026-08-19T16:48:27",
+          "type": "lease_expired",
+          "detail": ""
+        },
+        {
+          "time": "2026-08-20T14:15:44",
+          "type": "claimed",
+          "detail": "pi-e008"
+        },
+        {
+          "time": "2026-08-20T14:16:17",
+          "type": "released",
+          "detail": "stale failed dispatch; target is newly authorized E008-R-001"
+        },
+        {
+          "time": "2026-08-20T14:16:17",
+          "type": "claimed",
+          "detail": "pi-e008"
+        },
+        {
+          "time": "2026-08-20T14:16:36",
+          "type": "released",
+          "detail": "release unrelated stale R-000b dispatch"
+        },
+        {
+          "time": "2026-08-20T14:16:37",
+          "type": "claimed",
+          "detail": "pi-e008"
+        },
+        {
+          "time": "2026-08-20T14:17:16",
+          "type": "released",
+          "detail": "do not execute unrelated R-000b"
+        }
+      ],
+      "claimed_at": "2026-08-20T14:16:37",
+      "acknowledged_at": "2026-08-19T16:18:06",
+      "actual_agent": "pi",
+      "actual_model": "agent-default",
+      "fallback_reason": "configured Codex sol route is unsupported for the current ChatGPT account; retrying the already approved R-000b through configured pi fallback after recorded environment repair.",
+      "running_at": "2026-08-19T16:04:09",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded"
+      },
+      "failed_at": "2026-08-19T16:04:35",
+      "failure_class": "transformers_qwen3vl_class_missing",
+      "retryable": true,
+      "retry_reason": "Canonical conda:IPLoc runtime repaired after the retryable pre-model failure: packaging repaired; transformers upgraded to 4.57.3; torch/torchvision upgraded to 2.2.2+cu121/0.17.2+cu121; incompatible xformers removed; Qwen3VL class and CUDA gate pass; pip check pass.",
+      "retry_evidence": "E008_FULL_RUNTIME_GATE_PASS: torch=2.2.2+cu121 transformers=4.57.3 peft=0.17.1 accelerate=1.10.1; pip check=No broken requirements found."
+    },
+    {
+      "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+      "status": "running",
+      "created_at": "2026-08-19T16:21:53",
+      "updated_at": "2026-08-19T16:22:25",
+      "authorization_timestamp": "2026-08-19T16:21:53",
+      "approved_spec_hash": "8b0f416eb6b47de9c52203bd81d30953b27a65dcf03b86149610562ddfc2fdab",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-19T16:21:53",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-19T16:21:54",
+          "type": "claimed",
+          "detail": "pi:e008-r000d"
+        },
+        {
+          "time": "2026-08-19T16:22:15",
+          "type": "acknowledge",
+          "detail": "pi:e008-r000d"
+        },
+        {
+          "time": "2026-08-19T16:22:25",
+          "type": "running",
+          "detail": "pi:e008-r000d"
+        },
+        {
+          "time": "2026-08-19T16:22:25",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        }
+      ],
+      "lease_token_hash": "74daf0034ec0d714fc4c610313b56ba55d93a7c685b95417c0056ce891af6618",
+      "consumer": "pi:e008-r000d",
+      "claimed_at": "2026-08-19T16:21:54",
+      "lease_expires_at": "2026-08-19T16:51:54",
+      "acknowledged_at": "2026-08-19T16:22:15",
+      "actual_agent": "pi",
+      "actual_model": "agent-default",
+      "fallback_reason": "configured Codex sol route is unsupported; user explicitly ordered immediate runtime retry through pi fallback after verified canonical IPLoc repair.",
+      "running_at": "2026-08-19T16:22:25",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-e4562a47d57133493fab7ac5",
+      "experiment_id": "E-008",
+      "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "status": "queued",
+      "created_at": "2026-08-20T14:14:03",
+      "updated_at": "2026-08-20T14:52:26",
+      "authorization_timestamp": "2026-08-20T14:14:03",
+      "approved_spec_hash": "702ffa3cac0a7d81694188ce71b787fd31825b0a11b23714300ffede2af258e0",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "claim lease expired",
+      "history": [
+        {
+          "time": "2026-08-20T14:14:03",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-20T14:15:28",
+          "type": "claimed",
+          "detail": "pi-e008"
+        },
+        {
+          "time": "2026-08-20T14:52:26",
+          "type": "lease_expired",
+          "detail": ""
+        }
+      ],
+      "claimed_at": "2026-08-20T14:15:28"
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "explanation": "已从 125 条成功 replay artifact 生成用户指定的四 panel 拼图；运行的 15 条路径匹配失败保持显式 integrity failure，未被悄然丢弃。",
+  "steps": [
+    {
+      "step": "核验失败记录和现有 artifact 是否足以生成四 panel 图",
+      "status": "completed"
+    },
+    {
+      "step": "实现四边 attention 拼图、GT/预测框和正确性文件名",
+      "status": "completed"
+    },
+    {
+      "step": "对已成功记录生成并检查拼图可视化",
+      "status": "completed"
+    },
+    {
+      "step": "报告运行失败与可视化产物边界",
+      "status": "completed"
+    }
+  ],
+  "updatedAt": "2026-08-20T06:42:22.324Z"
+}

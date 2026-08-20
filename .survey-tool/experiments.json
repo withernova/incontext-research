@@ -150,12 +150,14 @@
   },
   {
     "title": "Attention-derived localization-head discovery and grounding audit",
-    "workspace_id": "W-01",
+    "workspace_id": "02",
     "objective": "采用LocalizationHeads当前公开仓库的repo-original参数与实现，在冻结Qwen3-VL/IPLoc-ID中读取最后输入文本token到reference/query视觉tokens的逐head attention，发现稳定localization heads，并与E-004候选层比较。",
     "constraints": "保留官方源码不改；论文与公开代码不一致处显式审计；Qwen适配仅做必要最小修改；raw attention不得表述为因果证据；先复现原生流程再迁移。",
     "source_ref": "localizationheads2025",
     "evidence_refs": [
-      "shell/03_evidence/papers/localizationheads2025.md"
+      "[",
+      "\"shell/03_evidence/papers/localizationheads2025.md\"",
+      "]"
     ],
     "claim_refs": [],
     "kind": "attention_mechanism_analysis",
@@ -167,7 +169,7 @@
     "brief_objective": "严格参照Localization Heads论文与官方实现，在冻结LVLM中发现少量稳定视觉定位heads，并迁移到Qwen3-VL/IPLoc-ID以比较localization与identification circuits。",
     "brief_constraints": "保留官方源码不改；论文与公开代码不一致处显式审计；Qwen适配仅做必要最小修改；raw attention不得表述为因果证据；先复现原生流程再迁移。",
     "created": "2026-07-24T13:42:03",
-    "updated": "2026-07-24T13:52:20",
+    "updated": "2026-08-18T13:56:12",
     "agent_handoff": {
       "contract": "survey-tool.experiment-handoff/v1",
       "experiment_id": "E-005",
@@ -222,7 +224,43 @@
     "evaluation": "先验证方形输入与上游analyze.py逐项一致，再验证矩形grid、双图span和hard-failure gates；随后做Qwen单样本attention smoke。正式selection-frequency扫描另建Run，不把raw attention称为因果证据。",
     "user_answers": {
       "paper_vs_repo": "采用当前公开代码作为主协议；按照代码参数运行。论文差异保留在审计记录中。"
-    }
+    },
+    "run_groups": [
+      {
+        "id": "resolution-stability",
+        "name": "分辨率稳定性复核",
+        "description": "复核 R023 的 224 replay 方向在 640 分辨率下是否保持，检验 paired resolution stability",
+        "color": "#4F7C78"
+      },
+      {
+        "id": "positive-binding-audit",
+        "name": "正样本绑定审计",
+        "description": "在原始 positive 目标上检验 G→R/Q→R discrepancy 与自然定位 IoU 的关系",
+        "color": "#3B6EA5"
+      },
+      {
+        "id": "negative-binding-audit",
+        "name": "负样本绑定诊断",
+        "description": "单独审计 same-class negative 的自然拒绝/接受与 reference lookback 行为",
+        "color": "#B5651D"
+      },
+      {
+        "id": "unified-visualization",
+        "name": "统一五面板可视化",
+        "description": "按自然行为命名提供完整 G→R/Q→R/Q→Q 统一可视化",
+        "color": "#7A4B94"
+      },
+      {
+        "id": "offline-threshold-curve",
+        "name": "离线 Q→R 阈值曲线",
+        "description": "离线分析 Q→R 连续指标、阈值曲线与 distributed reference-target attention signal",
+        "color": "#C05780"
+      }
+    ],
+    "hypothesis": "",
+    "success_criteria": "",
+    "failure_criteria": "",
+    "metric_definitions": []
   },
   {
     "title": "简洁的attention-on-GT与联通子图审计",
@@ -267,5 +305,81 @@
     "brief_constraints": "保持原IPLoc-ID LoRA、原始prompt、max_side=640和自然输出协议；primary shape transplant严格保持每个target row原Q→R总mass，只改变reference span内分布；必须有identity、R180/permutation、uniform-reference-bbox、mismatched-source和Q→R knockout controls；先工程gate/teacher replay，后自然生成；attention intervention必须发生在softmax后A@V前；sequence-level split/bootstrap；不把改善解释为identity理解或共享因果电路。",
     "created": "2026-08-04T20:42:20",
     "updated": "2026-08-04T20:42:20"
+  },
+  {
+    "title": "Reference-grounding heads on query-image attention",
+    "workspace_id": "02",
+    "objective": "在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。",
+    "constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。",
+    "source_ref": "shell/06_experiments/E-005/head_role_registry.md; shell/06_experiments/E-005/dual_gpu_640_core_results.md; shell/06_experiments/E-005/runs/positive-binding-audit/E005-R-029c-original140-positive-targets-binding-640.md; shell/01_questions/Q-004.md; shell/01_questions/Q-005.md",
+    "evidence_refs": [
+      "E005-R-016 original-order stage audit; E005-R-029c n140 max_side640 exact replay; E006-R-005 Q→Q main4 support audit"
+    ],
+    "claim_refs": [
+      "Q-004; Q-005; observational head-role audit only"
+    ],
+    "kind": "observational_mechanism_audit",
+    "agent_level": "1",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "run_groups": [],
+    "metric_definitions": [
+      {
+        "id": "exact_replay_rate",
+        "name": "Exact teacher-replay通过率",
+        "formula": "N_exact / N_total",
+        "meaning": "归档响应token、bbox p-1 row与双图span均精确对齐的样本比例",
+        "direction": "target",
+        "unit": "ratio",
+        "aggregation": "micro ratio",
+        "scope": "R-000工程门禁与R-001完整性"
+      },
+      {
+        "id": "fractional_gt_mass",
+        "name": "GT区域fractional attention mass",
+        "formula": "sum_j A_j * w_j，其中w_j为视觉token与GT bbox的fractional occupancy",
+        "meaning": "指定row/head在目标区域内分配的raw attention质量",
+        "direction": "higher",
+        "unit": "attention mass",
+        "aggregation": "逐head样本中位数及sequence bootstrap",
+        "scope": "Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]"
+      },
+      {
+        "id": "area_normalized_enrichment",
+        "name": "GT区域面积归一化富集",
+        "formula": "(sum_j A_j*w_j / sum_j A_j) / (sum_j w_j / N_visual)",
+        "meaning": "相对均匀视觉attention时目标区域获得的富集倍数",
+        "direction": "higher",
+        "unit": "ratio",
+        "aggregation": "逐head样本中位数及correct-error差",
+        "scope": "各视觉span内条件化attention"
+      },
+      {
+        "id": "pointing_rate",
+        "name": "Raw-attention pointing命中率",
+        "formula": "N[argmax_j A_j的token与GT bbox有fractional overlap] / N_eligible",
+        "meaning": "raw map峰值是否落入目标区域的样本比例",
+        "direction": "higher",
+        "unit": "ratio",
+        "aggregation": "逐head分子/分母、Wilson区间与sequence bootstrap差",
+        "scope": "GT覆盖至少一个merged visual token的样本"
+      },
+      {
+        "id": "retained_mass_fiou_auc",
+        "name": "累计质量fractional-token IoU AUC",
+        "formula": "mean_{rho in {0.05,...,0.95}} fIoU(S_rho,GT)，S_rho为达到累计attention质量rho的最小token集合",
+        "meaning": "衡量distributed attention support与GT token区域在多阈值下的空间重合",
+        "direction": "higher",
+        "unit": "AUC ratio",
+        "aggregation": "逐head样本中位数及sequence bootstrap",
+        "scope": "各预注册edge的视觉span条件化raw attention"
+      }
+    ],
+    "id": "E-008",
+    "status": "planned",
+    "brief_objective": "在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。",
+    "brief_constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。",
+    "created": "2026-08-18T14:25:06",
+    "updated": "2026-08-19T17:25:47"
   }
 ]

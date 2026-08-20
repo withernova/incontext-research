@@ -2,18 +2,19 @@
   "version": 2,
   "identity": {
     "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
-    "runId": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
-    "experimentId": "E-007"
+    "runId": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+    "experimentId": "E-008",
+    "managedExecution": true
   },
   "remote": {
-    "host": "featurize",
-    "projectDir": "/home/featurize/work/mechanism/E-007"
+    "host": "NKU-LWC",
+    "projectDir": "/defaultShare/archive/liuwenchu/projects/IPLoc/E-008"
   },
   "experiment": {
-    "tmuxSession": "incontext-E-007-E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
-    "logFile": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/logs/train.log",
-    "description": "E-007 / E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20 / reference head引导的两遍reference遮罩自然生成门禁",
-    "processPattern": ""
+    "tmuxSession": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+    "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+    "description": "E-008 / E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2 / grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+    "processPattern": "run_e008_r000\\.sh"
   },
   "monitoring": {
     "errorPatterns": [
@@ -42,22 +43,43 @@
     "stableBackoffAfterChecks": 3
   },
   "completion": {
-    "enabled": false,
-    "completionMarkers": [],
+    "enabled": true,
+    "completionMarkers": [
+      "SURVEY_TOOL_RUN_COMPLETE"
+    ],
     "requiredArtifacts": [],
-    "metricsFile": "/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/metrics.json",
-    "exitCodeFile": "",
+    "metricsFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/.survey-tool-exit-code",
     "stableChecks": 2,
     "requireProcessExit": true,
     "allowNonzeroExit": false
   },
   "remediation": {
     "enabled": false,
-    "maxRestarts": 1,
+    "maxRestarts": 0,
     "playbooks": []
   },
+  "automation": {
+    "mode": "off",
+    "allowedCodeRoots": [],
+    "testCommands": [],
+    "maxRepairs": 0,
+    "timeBudgetMinutes": 30,
+    "autoRerun": false,
+    "installDeclaredDependencies": false,
+    "dependencyFiles": [],
+    "prohibitedActions": [
+      "修改 Workspace",
+      "修改数据 manifest",
+      "修改 head、指标、样本或假设",
+      "创建替代 Conda 环境",
+      "使用旧环境路径"
+    ],
+    "researchFieldsLocked": true,
+    "environmentChangesLocked": true
+  },
   "archive": {
-    "enabled": false,
+    "enabled": true,
     "mode": "manifest_reference",
     "localDir": ".survey-tool/experiment-archives",
     "includePaths": [],
