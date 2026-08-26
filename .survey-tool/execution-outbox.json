@@ -423,6 +423,1932 @@
         }
       ],
       "claimed_at": "2026-08-20T14:15:28"
+    },
+    {
+      "dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-20T15:49:32",
+      "updated_at": "2026-08-24T18:19:31",
+      "authorization_timestamp": "2026-08-20T15:49:32",
+      "approved_spec_hash": "02662c81f652982d61b4ae7b3a69ee6c3a0f45c15c2c6ec678ffd44121e27b61",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "远端 tmux 已结束但缺少受控完成证据",
+      "history": [
+        {
+          "time": "2026-08-20T15:49:32",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "claimed",
+          "detail": "steward:002:cd97b98b8a"
+        },
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "acknowledge",
+          "detail": "steward:002:cd97b98b8a"
+        },
+        {
+          "time": "2026-08-24T16:09:48",
+          "type": "running",
+          "detail": "steward:002:cd97b98b8a"
+        },
+        {
+          "time": "2026-08-24T16:09:48",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T16:09:53",
+          "type": "managed_heartbeat",
+          "detail": "steward:002:cd97b98b8a"
+        },
+        {
+          "time": "2026-08-24T16:32:39",
+          "type": "managed_reattached",
+          "detail": "steward:002:6f1300c841"
+        },
+        {
+          "time": "2026-08-24T16:32:50",
+          "type": "managed_heartbeat",
+          "detail": "steward:002:6f1300c841"
+        },
+        {
+          "time": "2026-08-24T18:19:19",
+          "type": "managed_reattached",
+          "detail": "steward:002:dccc835154"
+        },
+        {
+          "time": "2026-08-24T18:19:30",
+          "type": "managed_heartbeat",
+          "detail": "steward:002:dccc835154"
+        },
+        {
+          "time": "2026-08-24T18:19:31",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T18:19:31",
+          "type": "fail",
+          "detail": "远端 tmux 已结束但缺少受控完成证据"
+        }
+      ],
+      "consumer": "steward:002:dccc835154",
+      "claimed_at": "2026-08-24T16:09:36",
+      "lease_expires_at": "2026-08-24T18:34:30",
+      "acknowledged_at": "2026-08-24T16:09:36",
+      "executor_kind": "steward",
+      "actual_agent": "",
+      "actual_model": "",
+      "fallback_reason": "",
+      "running_at": "2026-08-24T16:09:48",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-002",
+        "status_observation": {
+          "tmux_alive": false,
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516166
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516305
+            }
+          },
+          "exit_code": null,
+          "marker_found": false
+        }
+      },
+      "reattached_at": "2026-08-24T18:19:19",
+      "failed_at": "2026-08-24T18:19:31",
+      "failure_class": "environment",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac",
+      "experiment_id": "E-006",
+      "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+      "status": "queued",
+      "created_at": "2026-08-24T16:09:36",
+      "updated_at": "2026-08-24T16:09:36",
+      "authorization_timestamp": "2026-08-03T18:01:45",
+      "approved_spec_hash": "99ec69ad743e6573bfb09d8958a3c67d3b4974dc91a34809c10e3d69f612447b",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "queued",
+          "detail": "reconciliation"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-7d458141203ab1fd247f9305",
+      "experiment_id": "E-007",
+      "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+      "status": "queued",
+      "created_at": "2026-08-24T16:09:36",
+      "updated_at": "2026-08-24T16:09:36",
+      "authorization_timestamp": "2026-08-04T22:46:10",
+      "approved_spec_hash": "d67a5fe4bff0c9c955b87ed7f473f34a86f5c9ac4432b2810a2266904c03fdd9",
+      "workspace_execution_hash": "sha256:134bd85ffd75f6c0ae48fbd2c502da2e01d71b76f9c421e7ef3052033f6ae761",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "queued",
+          "detail": "reconciliation"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T18:49:36",
+      "updated_at": "2026-08-24T21:57:23",
+      "authorization_timestamp": "2026-08-24T18:49:36.378961",
+      "approved_spec_hash": "02662c81f652982d61b4ae7b3a69ee6c3a0f45c15c2c6ec678ffd44121e27b61",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "reattach/status 显示 managed execution 未实际启动：tmux_alive=false，run_dir/output_dir 虽存在但 log_file 与 metrics_file 均不存在、目录为空，且无 exit_code 或 completion marker；无法执行或核验该 Run。",
+      "history": [
+        {
+          "time": "2026-08-24T18:49:36",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T18:54:29",
+          "type": "claimed",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:54:29",
+          "type": "acknowledge",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:54:45",
+          "type": "running",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:54:45",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T18:54:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:54:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T18:55:14",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:55:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T18:59:38",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T18:59:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T19:00:08",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T19:00:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T19:01:14",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:68042"
+        },
+        {
+          "time": "2026-08-24T19:01:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T20:42:21",
+          "type": "managed_steward_force_revoked",
+          "detail": "human:web-v2"
+        },
+        {
+          "time": "2026-08-24T21:42:42",
+          "type": "managed_reattached",
+          "detail": "pi-steward:91062"
+        },
+        {
+          "time": "2026-08-24T21:51:30",
+          "type": "managed_steward_force_revoked",
+          "detail": "human:web-v2"
+        },
+        {
+          "time": "2026-08-24T21:56:52",
+          "type": "managed_reattached",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T21:57:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T21:57:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T21:57:16",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T21:57:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T21:57:23",
+          "type": "fail",
+          "detail": "reattach/status 显示 managed execution 未实际启动：tmux_alive=false，run_dir/output_dir 虽存在但 log_file 与 metrics_file 均不存在、目录为空，且无 exit_code 或 completion marker；无法执行或核验该 Run。"
+        }
+      ],
+      "consumer": "pi-steward:94453",
+      "claimed_at": "2026-08-24T18:54:29",
+      "lease_expires_at": "2026-08-24T22:12:16",
+      "acknowledged_at": "2026-08-24T18:54:29",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-24T18:54:45",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-002",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-24T21:57:17",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516166
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516305
+            }
+          },
+          "exit_code": null,
+          "marker_found": false
+        }
+      },
+      "steward_force_revoked_at": "2026-08-24T21:51:30",
+      "steward_force_revoked_by": "human:web-v2",
+      "reattached_at": "2026-08-24T21:56:52",
+      "failed_at": "2026-08-24T21:57:23",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-8bb60cd3e3d6200f96a12fcb",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "cancelled",
+      "created_at": "2026-08-24T22:21:36",
+      "updated_at": "2026-08-24T22:22:14",
+      "authorization_timestamp": "2026-08-24T22:21:36.060192",
+      "approved_spec_hash": "02662c81f652982d61b4ae7b3a69ee6c3a0f45c15c2c6ec678ffd44121e27b61",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-24T22:21:36",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T22:22:14",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-12b9459a0b6ebc21dfeb1bbb",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "cancelled",
+      "created_at": "2026-08-24T22:30:02",
+      "updated_at": "2026-08-24T22:30:19",
+      "authorization_timestamp": "2026-08-24T22:30:02",
+      "approved_spec_hash": "49979cd3c3cba1e4aa6358b6444df15105a69a6665585d73cf1d34912fb920bf",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-24T22:30:02",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-24T22:30:19",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T22:30:35",
+      "updated_at": "2026-08-24T22:32:39",
+      "authorization_timestamp": "2026-08-24T22:30:35",
+      "approved_spec_hash": "49979cd3c3cba1e4aa6358b6444df15105a69a6665585d73cf1d34912fb920bf",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "启动后连续两次 status 均显示 tmux_alive=false；日志与 metrics 文件不存在，run/output 目录为空，未出现 exit code 或完成标记。任务未进入实际执行。",
+      "history": [
+        {
+          "time": "2026-08-24T22:30:35",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        },
+        {
+          "time": "2026-08-24T22:32:02",
+          "type": "claimed",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T22:32:02",
+          "type": "acknowledge",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T22:32:11",
+          "type": "running",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T22:32:11",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T22:32:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T22:32:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T22:32:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T22:32:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T22:32:39",
+          "type": "fail",
+          "detail": "启动后连续两次 status 均显示 tmux_alive=false；日志与 metrics 文件不存在，run/output 目录为空，未出现 exit code 或完成标记。任务未进入实际执行。"
+        }
+      ],
+      "consumer": "pi-steward:94453",
+      "claimed_at": "2026-08-24T22:32:02",
+      "lease_expires_at": "2026-08-24T22:47:33",
+      "acknowledged_at": "2026-08-24T22:32:02",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-24T22:32:11",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-002",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-24T22:32:33",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516166
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516305
+            }
+          },
+          "exit_code": null,
+          "marker_found": false
+        }
+      },
+      "failed_at": "2026-08-24T22:32:39",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T22:41:34",
+      "updated_at": "2026-08-24T23:00:57",
+      "authorization_timestamp": "2026-08-24T22:41:34.908827",
+      "approved_spec_hash": "49979cd3c3cba1e4aa6358b6444df15105a69a6665585d73cf1d34912fb920bf",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "按用户要求将 Experiment E-008 Run 002 的 Steward 返回失败，以便在 Survey Tool 中重新启动。当前 approved spec 的 launcher 未登记完整，command 仍含 manifest/source-output/model/LoRA 占位路径，且 query_span_permute 实现尚未核验；直接启动会重复立即退出。",
+      "history": [
+        {
+          "time": "2026-08-24T22:41:34",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T23:00:51",
+          "type": "claimed",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T23:00:51",
+          "type": "acknowledge",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T23:00:57",
+          "type": "fail",
+          "detail": "按用户要求将 Experiment E-008 Run 002 的 Steward 返回失败，以便在 Survey Tool 中重新启动。当前 approved spec 的 launcher 未登记完整，command 仍含 manifest/source-output/model/LoRA 占位路径，且 query_span_permute 实现尚未核验；直接启动会重复立即退出。"
+        }
+      ],
+      "consumer": "pi-steward:94453",
+      "claimed_at": "2026-08-24T23:00:51",
+      "lease_expires_at": "2026-08-24T23:30:51",
+      "acknowledged_at": "2026-08-24T23:00:51",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "failed_at": "2026-08-24T23:00:57",
+      "failure_class": "invalid_spec",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T23:07:21",
+      "updated_at": "2026-08-24T23:07:48",
+      "authorization_timestamp": "2026-08-24T23:07:21.831160",
+      "approved_spec_hash": "49979cd3c3cba1e4aa6358b6444df15105a69a6665585d73cf1d34912fb920bf",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "按用户要求再次将 E-008 Run 002 的 Steward 返回失败，以便重新操作。当前 approved spec 仍存在不可执行项：launcher 未完整登记，command 含 manifest/source-output/model/LoRA 占位路径，query_span_permute 实现尚未核验。",
+      "history": [
+        {
+          "time": "2026-08-24T23:07:21",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T23:07:43",
+          "type": "claimed",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T23:07:43",
+          "type": "acknowledge",
+          "detail": "pi-steward:94453"
+        },
+        {
+          "time": "2026-08-24T23:07:48",
+          "type": "fail",
+          "detail": "按用户要求再次将 E-008 Run 002 的 Steward 返回失败，以便重新操作。当前 approved spec 仍存在不可执行项：launcher 未完整登记，command 含 manifest/source-output/model/LoRA 占位路径，query_span_permute 实现尚未核验。"
+        }
+      ],
+      "consumer": "pi-steward:94453",
+      "claimed_at": "2026-08-24T23:07:43",
+      "lease_expires_at": "2026-08-24T23:37:43",
+      "acknowledged_at": "2026-08-24T23:07:43",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "failed_at": "2026-08-24T23:07:48",
+      "failure_class": "invalid_spec",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T23:08:06",
+      "updated_at": "2026-08-24T23:20:35",
+      "authorization_timestamp": "2026-08-24T23:08:06.913906",
+      "approved_spec_hash": "5ca2206932b1393ff64aa4e639f5b89d972336d907873896157c153ce9942786",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "Managed launcher used configured projectDir /defaultShare/archive/liuwenchu/projects/IPLoc/E-008, which does not exist; actual approved Workspace root is /defaultShare/archive/liuwenchu/projects/IPLoc. Process exited 1 before runtime command.",
+      "history": [
+        {
+          "time": "2026-08-24T23:08:06",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T23:19:49",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-08-24T23:19:53",
+          "type": "claimed",
+          "detail": "pi-steward:114021"
+        },
+        {
+          "time": "2026-08-24T23:19:53",
+          "type": "acknowledge",
+          "detail": "pi-steward:114021"
+        },
+        {
+          "time": "2026-08-24T23:20:11",
+          "type": "running",
+          "detail": "pi-steward:114021"
+        },
+        {
+          "time": "2026-08-24T23:20:11",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T23:20:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:114021"
+        },
+        {
+          "time": "2026-08-24T23:20:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T23:20:35",
+          "type": "fail",
+          "detail": "Managed launcher used configured projectDir /defaultShare/archive/liuwenchu/projects/IPLoc/E-008, which does not exist; actual approved Workspace root is /defaultShare/archive/liuwenchu/projects/IPLoc. Process exited 1 before runtime command."
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-24T23:19:49",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:114021",
+      "claimed_at": "2026-08-24T23:19:53",
+      "lease_expires_at": "2026-08-24T23:35:18",
+      "acknowledged_at": "2026-08-24T23:19:53",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-24T23:20:11",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-002",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-24T23:20:19",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 401,
+              "mtime": 1787584907.085117
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516166
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787584907.091545
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-24T23:20:35",
+      "failure_class": "environment",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "failed",
+      "created_at": "2026-08-24T23:24:13",
+      "updated_at": "2026-08-25T00:14:40",
+      "authorization_timestamp": "2026-08-24T23:24:13.569037",
+      "approved_spec_hash": "5ca2206932b1393ff64aa4e639f5b89d972336d907873896157c153ce9942786",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 3,
+      "last_error": "进程 exit 0 但 completion contract 缺失 metrics.json 与完成 marker；需要释放 managed lease 后只读审计现有 summary、111 条记录和可视化，确认是否是交付层缺失而非科学运行失败。",
+      "history": [
+        {
+          "time": "2026-08-24T23:24:13",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-24T23:28:03",
+          "type": "claimed",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:28:03",
+          "type": "acknowledge",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:28:22",
+          "type": "running",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:28:22",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T23:28:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:28:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-24T23:28:45",
+          "type": "fail",
+          "detail": "Managed launcher 在执行 runtime command 前即失败：canonical resolved project_dir=/defaultShare/archive/liuwenchu/projects/IPLoc/E-008 不存在，日志显示 launcher.sh line 37 cd failed；exit_code=1，未产生 metrics。代码仓库实际根为 /defaultShare/archive/liuwenchu/projects/IPLoc，需由治理层修正 Workspace project_dir 后重试。"
+        },
+        {
+          "time": "2026-08-24T23:34:12",
+          "type": "retry",
+          "detail": "已在授权写入根内创建并验证 canonical project_dir /defaultShare/archive/liuwenchu/projects/IPLoc/E-008；launcher 的前置 cd blocker 已消除。"
+        },
+        {
+          "time": "2026-08-24T23:34:16",
+          "type": "claimed",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:34:16",
+          "type": "acknowledge",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:49:19",
+          "type": "fail",
+          "detail": "清理上次 retry 后遗留的 acknowledged managed lease；实验进程未启动，canonical project_dir blocker 已修复，立即重试同一 dispatch。"
+        },
+        {
+          "time": "2026-08-24T23:49:23",
+          "type": "retry",
+          "detail": "已释放遗留 lease；canonical project_dir 已修复，按用户明确指令强制直接重启同一 approved Run 002。"
+        },
+        {
+          "time": "2026-08-24T23:49:27",
+          "type": "claimed",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:49:27",
+          "type": "acknowledge",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:49:35",
+          "type": "running",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:49:35",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-24T23:49:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:115286"
+        },
+        {
+          "time": "2026-08-24T23:49:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T00:14:40",
+          "type": "fail",
+          "detail": "进程 exit 0 但 completion contract 缺失 metrics.json 与完成 marker；需要释放 managed lease 后只读审计现有 summary、111 条记录和可视化，确认是否是交付层缺失而非科学运行失败。"
+        }
+      ],
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-002",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-08-24T23:49:53",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1100,
+              "mtime": 1787586686.5167763
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787559084.516166
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787586671.614472
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-25T00:14:40",
+      "failure_class": "scientific",
+      "retryable": true,
+      "retry_reason": "已释放遗留 lease；canonical project_dir 已修复，按用户明确指令强制直接重启同一 approved Run 002。",
+      "retry_evidence": "已释放遗留 lease；canonical project_dir 已修复，按用户明确指令强制直接重启同一 approved Run 002。",
+      "consumer": "pi-steward:115286",
+      "claimed_at": "2026-08-24T23:49:27",
+      "lease_expires_at": "2026-08-25T00:04:53",
+      "acknowledged_at": "2026-08-24T23:49:27",
+      "running_at": "2026-08-24T23:49:35"
+    },
+    {
+      "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T00:55:34",
+      "updated_at": "2026-08-25T02:14:15",
+      "authorization_timestamp": "2026-08-25T00:55:34.889989",
+      "approved_spec_hash": "77d9bca24d2b11e3a1d1299c926245e9377049b78512c7940e65b89ffd8aebe6",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T00:55:34",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T00:57:45",
+          "type": "claimed",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T00:57:45",
+          "type": "acknowledge",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T00:57:57",
+          "type": "running",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T00:57:57",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T00:58:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T00:58:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T01:10:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T01:10:13",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T01:29:30",
+          "type": "fail",
+          "detail": "进程 exit 0 且 metrics.json 已生成，但 completion marker 缺失，managed lease 已过期且当前 Pi 无法 status/complete；先释放 lease，再按 retryable 恢复同一 approved snapshot 做只读结果核验。"
+        },
+        {
+          "time": "2026-08-25T01:29:37",
+          "type": "retry",
+          "detail": "changed evidence: exit_code=0 and metrics.json exists; retry only to restore managed state and validate completion artifacts/marker, not rerun scientific scope."
+        },
+        {
+          "time": "2026-08-25T01:30:26",
+          "type": "claimed",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T01:30:26",
+          "type": "acknowledge",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T01:30:40",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T01:30:41",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T01:30:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:123690"
+        },
+        {
+          "time": "2026-08-25T01:30:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T01:54:38",
+          "type": "lease_expired",
+          "detail": ""
+        },
+        {
+          "time": "2026-08-25T02:14:15",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ],
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-003",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-25T01:30:54",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1397,
+              "mtime": 1787590812.900441
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 2800,
+              "mtime": 1787592488.4937696
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787590773.412995
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787592489.325954
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-25T01:29:29",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "changed evidence: exit_code=0 and metrics.json exists; retry only to restore managed state and validate completion artifacts/marker, not rerun scientific scope.",
+      "retry_evidence": "changed evidence: exit_code=0 and metrics.json exists; retry only to restore managed state and validate completion artifacts/marker, not rerun scientific scope."
+    },
+    {
+      "dispatch_id": "dispatch-d1aea01446ea81315901cdd5",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T02:14:15",
+      "updated_at": "2026-08-25T02:15:17",
+      "authorization_timestamp": "2026-08-25T02:14:15.141605",
+      "approved_spec_hash": "5a8ab875fcd8fd8dee8e5a492e6d8108742c0a8fb1037dd219316ba1f758dd3e",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T02:14:15",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T02:15:17",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-9932233e6089037952aa062d",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T02:15:17",
+      "updated_at": "2026-08-25T02:19:37",
+      "authorization_timestamp": "2026-08-25T02:15:17.546804",
+      "approved_spec_hash": "a960110edaa9ad07b214e6af69e90e95c7cc554234ef7f3e938d2dee25cb6a44",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T02:15:17",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T02:19:37",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-b4debf02e1c9479b72f8a462",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T02:19:37",
+      "updated_at": "2026-08-25T02:30:20",
+      "authorization_timestamp": "2026-08-25T02:19:37.972065",
+      "approved_spec_hash": "9bc2f6f9ffda7afaa8ce65154e88a863c3a88a8e91e40c3662e4cd4cdccc6a8f",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T02:19:37",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T02:30:20",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-ab2be0d900f5e9c155f6a26a",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T02:30:20",
+      "updated_at": "2026-08-25T09:47:03",
+      "authorization_timestamp": "2026-08-25T02:30:20.891368",
+      "approved_spec_hash": "3ef24e6a01203901b14302e2a837715a282ae0f3b687a91a9158f2dc2f43c13e",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T02:30:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T09:47:03",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "superseded",
+      "created_at": "2026-08-25T09:47:04",
+      "updated_at": "2026-08-25T16:09:52",
+      "authorization_timestamp": "2026-08-25T09:47:04.000561",
+      "approved_spec_hash": "ac23c64a1aab16f81e5aa452c165d941ca824486f7e767e9cff8c18769f8376d",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 3,
+      "last_error": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-25T09:47:04",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T10:11:43",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-25T10:11:43",
+          "type": "claimed",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:11:43",
+          "type": "acknowledge",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:11:56",
+          "type": "running",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:11:56",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T10:12:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:12:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:12:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:12:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:12:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:12:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:12:56",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:12:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:13:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:13:08",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:13:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:13:18",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T10:13:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T10:13:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T13:08:43",
+          "type": "fail",
+          "detail": "T-003 uniform intervention completed 111/111 but failed preregistered mass-preservation integrity: BF16 uniform writeback accumulated max row/span mass error 0.003354 > 5e-5. T-004/T-005 were not started because batch stopped on the gate. Requires minimal numeric correction in rewrite implementation, then managed retry of the same manifest."
+        },
+        {
+          "time": "2026-08-25T13:10:05",
+          "type": "retry",
+          "detail": "Fixed T-003 BF16 uniform mass preservation by quantizing the common value and assigning a representable residual to the final query-span token; added BF16 regression test and focused suite passes 5/5. Retry same approved 5-Trial manifest and batch command."
+        },
+        {
+          "time": "2026-08-25T13:10:10",
+          "type": "claimed",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T13:10:10",
+          "type": "acknowledge",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T13:10:27",
+          "type": "running",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T13:10:27",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T13:10:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:177100"
+        },
+        {
+          "time": "2026-08-25T13:10:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:39:20",
+          "type": "managed_reattached",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:39:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:39:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:39:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:39:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:40:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:40:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:40:47",
+          "type": "fail",
+          "detail": "Retry progressed through T-003 successfully after uniform fix. T-004 completed 111/111 but failed row-sum integrity because BF16 cast after intentional mass rescaling produced max row_sum_error 0.004724; T-005 was not reached. Need normalization-mode audit/correction that distinguishes intended mass redistribution from BF16 writeback rounding, then retry same manifest."
+        },
+        {
+          "time": "2026-08-25T15:41:57",
+          "type": "retry",
+          "detail": "T-004 failure traced to BF16 attention cast before rewrite and row renormalization. Rewrites now retain float32 attention for uniform/mass_scale/mass_zero paths; mass redistribution is therefore performed in high precision before model output casting. Focused intervention checks and full 11-test suite pass."
+        },
+        {
+          "time": "2026-08-25T15:42:05",
+          "type": "claimed",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:42:05",
+          "type": "acknowledge",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:42:22",
+          "type": "running",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:42:22",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T15:42:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:42:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:50:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:50:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T15:52:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T15:52:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T16:00:51",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:226186"
+        },
+        {
+          "time": "2026-08-25T16:00:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T16:09:52",
+          "type": "superseded",
+          "detail": "用户提交了新的 Trial 计划；旧 attempt 不再拥有此 Run"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-25T10:11:43",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:d3c362d7a65328663910d7d1683e3448c3e753c975b0ff4371ee1c5ce5503cb1",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-003",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-08-25T16:00:51",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 16188,
+              "mtime": 1787643878.7721078
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 2800,
+              "mtime": 1787592488.4937696
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787590773.412995
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787643838.740023
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-25T15:40:47",
+      "failure_class": "scientific",
+      "retryable": true,
+      "retry_reason": "T-004 failure traced to BF16 attention cast before rewrite and row renormalization. Rewrites now retain float32 attention for uniform/mass_scale/mass_zero paths; mass redistribution is therefore performed in high precision before model output casting. Focused intervention checks and full 11-test suite pass.",
+      "retry_evidence": "T-004 failure traced to BF16 attention cast before rewrite and row renormalization. Rewrites now retain float32 attention for uniform/mass_scale/mass_zero paths; mass redistribution is therefore performed in high precision before model output casting. Focused intervention checks and full 11-test suite pass.",
+      "reattached_at": "2026-08-25T15:39:20",
+      "running_at": "2026-08-25T15:42:22"
+    },
+    {
+      "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+      "status": "queued",
+      "created_at": "2026-08-25T14:08:27",
+      "updated_at": "2026-08-25T14:49:28",
+      "authorization_timestamp": "2026-08-25T14:08:27.684827",
+      "approved_spec_hash": "d85f0c7aa9906516feb4a6bb8c53c703861d4dc6e9fd3c1166b4a2abbdeb5493",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T14:08:27",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T14:12:24",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-08-25T14:12:30",
+          "type": "claimed",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:12:30",
+          "type": "acknowledge",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:12:50",
+          "type": "running",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:12:50",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T14:13:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:13:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T14:13:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:13:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T14:13:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:13:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T14:13:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:13:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T14:14:01",
+          "type": "fail",
+          "detail": "Training itself passed all gates with exit code 0, but managed completion rejected because the runner wrote metrics to outputs/metrics.json while the completion contract requires a nonempty run-root metrics.json. Changed evidence: completion_candidate=true, marker_found=true, exit_code=0, and survey_run_execution complete returned 'nonempty bounded metrics file required'. Repair only the launcher artifact path contract, then rerun the same dispatch."
+        },
+        {
+          "time": "2026-08-25T14:14:01",
+          "type": "retry",
+          "detail": "Training itself passed all gates with exit code 0, but managed completion rejected because the runner wrote metrics to outputs/metrics.json while the completion contract requires a nonempty run-root metrics.json. Changed evidence: completion_candidate=true, marker_found=true, exit_code=0, and survey_run_execution complete returned 'nonempty bounded metrics file required'. Repair only the launcher artifact path contract, then rerun the same dispatch."
+        },
+        {
+          "time": "2026-08-25T14:15:20",
+          "type": "claimed",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:15:20",
+          "type": "acknowledge",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:15:31",
+          "type": "running",
+          "detail": "pi-steward:233106"
+        },
+        {
+          "time": "2026-08-25T14:15:31",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T14:49:27",
+          "type": "fail",
+          "detail": "Managed attempt has exited successfully and root metrics.json was published, but lease state is inconsistent: status/complete report 'lease expired', reattach/claim report this Pi still holds a managed lease, and bash guard remains active. Changed evidence: tmux dead, no training process, GPU2/3 idle, no new error occurrences, successful [DONE] plus [METRICS_PUBLISHED]. Request safe lease cleanup/requeue so canonical completion can be finalized; no scientific or code change requested."
+        },
+        {
+          "time": "2026-08-25T14:49:28",
+          "type": "retry",
+          "detail": "Managed attempt has exited successfully and root metrics.json was published, but lease state is inconsistent: status/complete report 'lease expired', reattach/claim report this Pi still holds a managed lease, and bash guard remains active. Changed evidence: tmux dead, no training process, GPU2/3 idle, no new error occurrences, successful [DONE] plus [METRICS_PUBLISHED]. Request safe lease cleanup/requeue so canonical completion can be finalized; no scientific or code change requested."
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-25T14:12:24",
+      "runtime_command_prepared_by": "pi-steward",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-001-qwen3vl8b-lora-sft-capability-smoke/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-009-E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-25T14:13:54",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 4841,
+              "mtime": 1787638510.7381303
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787638510.735852
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787638511.492074
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-25T14:49:27",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "Managed attempt has exited successfully and root metrics.json was published, but lease state is inconsistent: status/complete report 'lease expired', reattach/claim report this Pi still holds a managed lease, and bash guard remains active. Changed evidence: tmux dead, no training process, GPU2/3 idle, no new error occurrences, successful [DONE] plus [METRICS_PUBLISHED]. Request safe lease cleanup/requeue so canonical completion can be finalized; no scientific or code change requested.",
+      "retry_evidence": "Managed attempt has exited successfully and root metrics.json was published, but lease state is inconsistent: status/complete report 'lease expired', reattach/claim report this Pi still holds a managed lease, and bash guard remains active. Changed evidence: tmux dead, no training process, GPU2/3 idle, no new error occurrences, successful [DONE] plus [METRICS_PUBLISHED]. Request safe lease cleanup/requeue so canonical completion can be finalized; no scientific or code change requested."
+    },
+    {
+      "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T16:09:52",
+      "updated_at": "2026-08-25T23:16:53",
+      "authorization_timestamp": "2026-08-25T16:09:52.190650",
+      "approved_spec_hash": "612d9c07a4a4dc2f0b46a74ee67c592e25369629c806be4a283a16dc7e95d9fb",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 3,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T16:09:52",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-25T16:14:22",
+          "type": "runtime_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-25T16:14:22",
+          "type": "claimed",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:14:22",
+          "type": "acknowledge",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:14:35",
+          "type": "running",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:14:35",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T16:14:46",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:14:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T16:15:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:15:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T16:16:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:16:02",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T16:41:52",
+          "type": "fail",
+          "detail": "Human explicitly requests cancellation of the currently attached stale attempt because it is considered an old experiment and must not consume further compute. Changed evidence: explicit human instruction now requires terminating the existing managed tmux attempt and restarting only the canonical six-Trial manifest (T-001..T-006, concurrency=1) with the corrected launcher; do not preserve or complete the old attempt."
+        },
+        {
+          "time": "2026-08-25T16:41:52",
+          "type": "retry",
+          "detail": "Human explicitly requests cancellation of the currently attached stale attempt because it is considered an old experiment and must not consume further compute. Changed evidence: explicit human instruction now requires terminating the existing managed tmux attempt and restarting only the canonical six-Trial manifest (T-001..T-006, concurrency=1) with the corrected launcher; do not preserve or complete the old attempt."
+        },
+        {
+          "time": "2026-08-25T16:42:28",
+          "type": "claimed",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:42:29",
+          "type": "acknowledge",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:42:34",
+          "type": "running",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:42:34",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T16:42:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T16:42:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T19:02:39",
+          "type": "fail",
+          "detail": "Human explicitly authorizes cleanup of obsolete Run 003 attempts and direct restart of only the canonical six-Trial plan. Changed evidence: tmux is dead, GPUs are free, the latest attempt did not satisfy the six-Trial result contract, and the user now authorizes removal/quarantine of stale 003 trial outputs before retry. Preserve governance state and retain the exact approved T-001..T-006 manifest."
+        },
+        {
+          "time": "2026-08-25T19:02:39",
+          "type": "retry",
+          "detail": "Human explicitly authorizes cleanup of obsolete Run 003 attempts and direct restart of only the canonical six-Trial plan. Changed evidence: tmux is dead, GPUs are free, the latest attempt did not satisfy the six-Trial result contract, and the user now authorizes removal/quarantine of stale 003 trial outputs before retry. Preserve governance state and retain the exact approved T-001..T-006 manifest."
+        },
+        {
+          "time": "2026-08-25T19:05:11",
+          "type": "claimed",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T19:05:11",
+          "type": "acknowledge",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T19:05:16",
+          "type": "running",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T19:05:16",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-25T19:05:25",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T19:05:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T19:05:46",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:248942"
+        },
+        {
+          "time": "2026-08-25T19:05:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-25T23:16:53",
+          "type": "fail",
+          "detail": "User explicitly requests fixing the T-004 intervention and resuming from T-004. Changed evidence: the latest managed attempt terminated; its log contains the concrete T-004 RuntimeError `expected scalar type BFloat16 but found Float`, and the attempt used stale/mismatched T-003/T-004 parameters plus an inconsistent trial output path. Preserve the approved six-Trial manifest and do not alter governance; repair the runtime and use only a managed restart. Because the Trial contract requires exact planned coverage, resume must be validated by the executor rather than bypassing T-001..T-003 through an ad hoc command."
+        },
+        {
+          "time": "2026-08-25T23:16:53",
+          "type": "retry",
+          "detail": "User explicitly requests fixing the T-004 intervention and resuming from T-004. Changed evidence: the latest managed attempt terminated; its log contains the concrete T-004 RuntimeError `expected scalar type BFloat16 but found Float`, and the attempt used stale/mismatched T-003/T-004 parameters plus an inconsistent trial output path. Preserve the approved six-Trial manifest and do not alter governance; repair the runtime and use only a managed restart. Because the Trial contract requires exact planned coverage, resume must be validated by the executor rather than bypassing T-001..T-003 through an ad hoc command."
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-25T16:14:22",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:8ea7599ab02e3b06c8c05581f55878b81f30009b42cae0f7179d87d9a27ed516",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-008-003",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-08-25T19:05:47",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 39525,
+              "mtime": 1787656041.7555766
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 2800,
+              "mtime": 1787592488.4937696
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787590773.412995
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787656012.749057
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-25T23:16:53",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "User explicitly requests fixing the T-004 intervention and resuming from T-004. Changed evidence: the latest managed attempt terminated; its log contains the concrete T-004 RuntimeError `expected scalar type BFloat16 but found Float`, and the attempt used stale/mismatched T-003/T-004 parameters plus an inconsistent trial output path. Preserve the approved six-Trial manifest and do not alter governance; repair the runtime and use only a managed restart. Because the Trial contract requires exact planned coverage, resume must be validated by the executor rather than bypassing T-001..T-003 through an ad hoc command.",
+      "retry_evidence": "User explicitly requests fixing the T-004 intervention and resuming from T-004. Changed evidence: the latest managed attempt terminated; its log contains the concrete T-004 RuntimeError `expected scalar type BFloat16 but found Float`, and the attempt used stale/mismatched T-003/T-004 parameters plus an inconsistent trial output path. Preserve the approved six-Trial manifest and do not alter governance; repair the runtime and use only a managed restart. Because the Trial contract requires exact planned coverage, resume must be validated by the executor rather than bypassing T-001..T-003 through an ad hoc command."
     }
   ]
 }

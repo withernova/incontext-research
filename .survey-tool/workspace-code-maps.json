@@ -1,0 +1,15 @@
+{
+  "contract": "survey-tool.workspace-code-maps/v1",
+  "maps": [
+    {
+      "contract": "survey-tool.workspace-code-map/v1",
+      "workspace_id": "02",
+      "revision": "unknown.e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "files": [],
+      "directories": [],
+      "key_files": [],
+      "recent_changed_files": [],
+      "refreshed_at": "2026-08-25T00:38:04"
+    }
+  ]
+}

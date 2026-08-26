@@ -320,7 +320,7 @@
     ],
     "kind": "observational_mechanism_audit",
     "agent_level": "1",
-    "workflow_stage": "draft",
+    "workflow_stage": "awaiting_confirmation",
     "created_by": "terminal_pi",
     "run_groups": [],
     "metric_definitions": [
@@ -380,6 +380,76 @@
     "brief_objective": "在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。",
     "brief_constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。",
     "created": "2026-08-18T14:25:06",
-    "updated": "2026-08-19T17:25:47"
+    "updated": "2026-08-20T15:42:29",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-008",
+      "verified_facts": [
+        {
+          "label": "远程勘察状态",
+          "value": "已登记的 SSH alias 当前连接被拒绝，未读取或修改远程代码、数据或运行产物。",
+          "evidence": "2026-08-20: ssh -o BatchMode=yes -o ConnectTimeout=10 featurize ... -> Connection refused"
+        },
+        {
+          "label": "已有公共实现入口",
+          "value": "E-008 已登记公共 role_audit_pipeline 及 attention/spans、metrics、replay 模块，Run 002 应在同一公共包内增加最小 query-span permutation 机制，而非复制 runner。",
+          "evidence": "shell/06_experiments/E-008/runs/E008-R-001-grounding-heads-query-image-role-audit-n140-640.md §3"
+        }
+      ],
+      "proposal": {
+        "objective": "在 exact teacher replay 的自然 bbox p-1 rows 上，直接置换 target heads 对 query-image visual-token span 的原 attention 值，测试 query-token 的位置—权重对应是否影响 bbox-token compatibility。",
+        "implementation_scope": "在公共 attention rewrite hook 中增加 query_span_permute mode；对每个 sample/layer/head/row 派生确定性置换，只重排 query span 内值，reference span 与非视觉 token 不改。",
+        "evaluation": "比较 baseline、identity 与 query_permuted 的自然 bbox token NLL/logit 差；逐记录验证 row sum、query-span mass、排序权重、多重集、entropy 和 selected-token count 不变。"
+      },
+      "questions": [],
+      "risks": [
+        "远程连接恢复前，公共模块的确切函数签名与最小修改位置仍须复核；本轮仅完成可审核设计，不实现或执行。",
+        "该 intervention 测试 query-image 内空间位置—权重对应，不能替代或解释 Q→R reference routing。"
+      ]
+    }
+  },
+  {
+    "title": "目前环境是否支持SFT",
+    "objective": "对qwen3.0VL原生，参考iplocid和iploc的仓库，尝试看看能不能对其进行微调",
+    "workspace_id": "02",
+    "constraints": "",
+    "evidence_refs": [],
+    "hypothesis": "",
+    "success_criteria": "",
+    "failure_criteria": "",
+    "metric_definitions": [],
+    "run_groups": [],
+    "id": "E-009",
+    "status": "planned",
+    "kind": "standalone",
+    "workflow_stage": "draft",
+    "agent_level": "2",
+    "brief_objective": "对qwen3.0VL原生，参考iplocid和iploc的仓库，尝试看看能不能对其进行微调",
+    "brief_constraints": "",
+    "claim_refs": [],
+    "created": "2026-08-25T13:39:23",
+    "updated": "2026-08-25T13:39:23"
+  },
+  {
+    "title": "验证Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding的可靠性",
+    "objective": "本篇论文找到的attention可能在图像间差别较大，据报告可能每张图片用本算法找到的head都不太一样，不太好平均的来找，可能要更详细的讨论分析，确保我们找到的head不要有危险性。",
+    "workspace_id": "02",
+    "constraints": "",
+    "evidence_refs": [],
+    "hypothesis": "",
+    "success_criteria": "",
+    "failure_criteria": "",
+    "metric_definitions": [],
+    "run_groups": [],
+    "id": "E-010",
+    "status": "planned",
+    "kind": "standalone",
+    "workflow_stage": "draft",
+    "agent_level": "2",
+    "brief_objective": "本篇论文找到的attention可能在图像间差别较大，据报告可能每张图片用本算法找到的head都不太一样，不太好平均的来找，可能要更详细的讨论分析，确保我们找到的head不要有危险性。",
+    "brief_constraints": "",
+    "claim_refs": [],
+    "created": "2026-08-26T13:04:30",
+    "updated": "2026-08-26T13:04:30"
   }
 ]

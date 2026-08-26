@@ -77,7 +77,7 @@ n4；主要是工程可视化；attention heatmap仍不能单独证明语义或i
 （待补充）
 
 ## 审核入口
-codespace/e007/runner_000_002.py; shell/06_experiments/E-007/plan.md; E007-R-000/R-001/R-002远端artifacts与attempts
+shell/06_experiments/_legacy/codespace/e007/runner_000_002.py; shell/06_experiments/E-007/plan.md; E007-R-000/R-001/R-002远端artifacts与attempts
 
 ## 过程记录与补充细节
 （待补充）

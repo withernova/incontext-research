@@ -77,7 +77,7 @@ positive-only n20不能估计完整Identification/Joint F1；mismatched使用don
 （待补充）
 
 ## 审核入口
-codespace/e007/runner_002v_003b.py; E007-R-002v raw A/A@V figures; E007-R-003b records; E007-R-001 frozen n20 manifest
+shell/06_experiments/_legacy/codespace/e007/runner_002v_003b.py; E007-R-002v raw A/A@V figures; E007-R-003b records; E007-R-001 frozen n20 manifest
 
 ## 过程记录与补充细节
 （待补充）

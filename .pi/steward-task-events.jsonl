@@ -1,0 +1,4 @@
+{"time":"2026-08-24T17:51:41.900Z","event":"queue_set","tasks":["r004","r005","r006","r007","r008"]}
+{"time":"2026-08-24T17:53:36.297Z","event":"queue_started"}
+{"time":"2026-08-24T17:53:36.302Z","event":"task_started","taskId":"r004","attempt":1}
+{"time":"2026-08-24T17:54:14.189Z","event":"task_retry_denied","taskId":"r004","reason":"前一 Run 003 的 managed lease/state 卡在不一致状态：dispatch 已 retry 为 queued，但当前 Pi 被判定仍持有过期 lease；claim/reattach 均返回 already holds lease，start/status 返回 lease expired，fail 又因 queued 不允许迁移。该 lease 全局禁止 bash，因此无法调用 surveyctl 创建 canonical R004，也无法经 SSH 实现/测试。未执行 R004，未修改代码或治理状态。","failureClass":"environment","retryBasis":{},"noRetryReason":"retry_basis contains no changed input/config/environment or new evidence","status":"failed"}

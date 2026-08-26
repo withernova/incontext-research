@@ -7,7 +7,7 @@
 - run: -
 - message: 官方仓库已按固定commit下载为只读上游快照。
 
-路径=codespace/LocalizationHeads；commit=9ffe219d20ec376eb4dd14d42c54bb3299ffdb4a；Git clone因HTTP2/empty reply失败，改用GitHub codeload commit tarball；archive sha256=b020c51a97f6911829da6b83202104cdfc5519ca7706f4c7e5a960ede7e0b9e9；源码清单hash=codespace/LocalizationHeads_upstream_sha256.txt。
+路径=shell/06_experiments/_legacy/codespace/LocalizationHeads；commit=9ffe219d20ec376eb4dd14d42c54bb3299ffdb4a；Git clone因HTTP2/empty reply失败，改用GitHub codeload commit tarball；archive sha256=b020c51a97f6911829da6b83202104cdfc5519ca7706f4c7e5a960ede7e0b9e9；源码清单hash=shell/06_experiments/_legacy/codespace/LocalizationHeads_upstream_sha256.txt。
 
 ## 2026-07-24T13:44:31+08:00 · discovery
 - run: -
@@ -35,7 +35,7 @@ collector.py调用output_attentions=True并截取最后输入token到视觉span�
 - run: -
 - message: 用户确认E-005以当前公开代码参数和实现为主，不按论文公式另建paper-faithful主分支。
 
-主协议采用repo-original：selection_v1.yaml top_k=5、analyze.py ReLU(A-2mean)+component attention-mass entropy、bottom-row filter、bbox.py当前mask min/max实现；论文差异仅记录为复现边界。上游codespace/LocalizationHeads保持零修改。
+主协议采用repo-original：selection_v1.yaml top_k=5、analyze.py ReLU(A-2mean)+component attention-mass entropy、bottom-row filter、bbox.py当前mask min/max实现；论文差异仅记录为复现边界。上游shell/06_experiments/_legacy/codespace/LocalizationHeads保持零修改。
 
 ## 2026-07-24T13:52:44+08:00 · discovery
 - run: -
@@ -47,7 +47,7 @@ ssh featurize现可用；远端RTX3090 24GB空闲；e004_site含torch2.2.2+cu121
 - run: -
 - message: 已完成最小Qwen3-VL适配层，未修改官方LocalizationHeads源码。
 
-新增codespace/e005_adapter/{analyze_rect.py,qwen_spans.py,qwen_collector.py,test_repo_compat.py,README.md}；远端同步至/home/featurize/work/mechanism/scripts/e005/adapter；上游同步至/home/featurize/work/mechanism/third_party/LocalizationHeads。
+新增shell/06_experiments/_legacy/codespace/e005_adapter/{analyze_rect.py,qwen_spans.py,qwen_collector.py,test_repo_compat.py,README.md}；远端同步至/home/featurize/work/mechanism/scripts/e005/adapter；上游同步至/home/featurize/work/mechanism/third_party/LocalizationHeads。
 
 ## 2026-07-24T13:52:45+08:00 · test
 - run: -

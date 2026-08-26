@@ -1,0 +1,2779 @@
+{
+  "project": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
+  "experiment": {
+    "title": "Reference-grounding heads on query-image attention",
+    "workspace_id": "02",
+    "objective": "在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。",
+    "constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。",
+    "source_ref": "shell/06_experiments/E-005/head_role_registry.md; shell/06_experiments/E-005/dual_gpu_640_core_results.md; shell/06_experiments/E-005/runs/positive-binding-audit/E005-R-029c-original140-positive-targets-binding-640.md; shell/01_questions/Q-004.md; shell/01_questions/Q-005.md",
+    "evidence_refs": [
+      "E005-R-016 original-order stage audit; E005-R-029c n140 max_side640 exact replay; E006-R-005 Q→Q main4 support audit"
+    ],
+    "claim_refs": [
+      "Q-004; Q-005; observational head-role audit only"
+    ],
+    "kind": "observational_mechanism_audit",
+    "agent_level": "1",
+    "workflow_stage": "awaiting_confirmation",
+    "created_by": "terminal_pi",
+    "run_groups": [],
+    "metric_definitions": [
+      {
+        "id": "exact_replay_rate",
+        "name": "Exact teacher-replay通过率",
+        "formula": "N_exact / N_total",
+        "meaning": "归档响应token、bbox p-1 row与双图span均精确对齐的样本比例",
+        "direction": "target",
+        "unit": "ratio",
+        "aggregation": "micro ratio",
+        "scope": "R-000工程门禁与R-001完整性"
+      },
+      {
+        "id": "fractional_gt_mass",
+        "name": "GT区域fractional attention mass",
+        "formula": "sum_j A_j * w_j，其中w_j为视觉token与GT bbox的fractional occupancy",
+        "meaning": "指定row/head在目标区域内分配的raw attention质量",
+        "direction": "higher",
+        "unit": "attention mass",
+        "aggregation": "逐head样本中位数及sequence bootstrap",
+        "scope": "Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]"
+      },
+      {
+        "id": "area_normalized_enrichment",
+        "name": "GT区域面积归一化富集",
+        "formula": "(sum_j A_j*w_j / sum_j A_j) / (sum_j w_j / N_visual)",
+        "meaning": "相对均匀视觉attention时目标区域获得的富集倍数",
+        "direction": "higher",
+        "unit": "ratio",
+        "aggregation": "逐head样本中位数及correct-error差",
+        "scope": "各视觉span内条件化attention"
+      },
+      {
+        "id": "pointing_rate",
+        "name": "Raw-attention pointing命中率",
+        "formula": "N[argmax_j A_j的token与GT bbox有fractional overlap] / N_eligible",
+        "meaning": "raw map峰值是否落入目标区域的样本比例",
+        "direction": "higher",
+        "unit": "ratio",
+        "aggregation": "逐head分子/分母、Wilson区间与sequence bootstrap差",
+        "scope": "GT覆盖至少一个merged visual token的样本"
+      },
+      {
+        "id": "retained_mass_fiou_auc",
+        "name": "累计质量fractional-token IoU AUC",
+        "formula": "mean_{rho in {0.05,...,0.95}} fIoU(S_rho,GT)，S_rho为达到累计attention质量rho的最小token集合",
+        "meaning": "衡量distributed attention support与GT token区域在多阈值下的空间重合",
+        "direction": "higher",
+        "unit": "AUC ratio",
+        "aggregation": "逐head样本中位数及sequence bootstrap",
+        "scope": "各预注册edge的视觉span条件化raw attention"
+      }
+    ],
+    "id": "E-008",
+    "status": "planned",
+    "brief_objective": "在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。",
+    "brief_constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。",
+    "created": "2026-08-18T14:25:06",
+    "updated": "2026-08-20T15:42:29",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-008",
+      "verified_facts": [
+        {
+          "label": "远程勘察状态",
+          "value": "已登记的 SSH alias 当前连接被拒绝，未读取或修改远程代码、数据或运行产物。",
+          "evidence": "2026-08-20: ssh -o BatchMode=yes -o ConnectTimeout=10 featurize ... -> Connection refused"
+        },
+        {
+          "label": "已有公共实现入口",
+          "value": "E-008 已登记公共 role_audit_pipeline 及 attention/spans、metrics、replay 模块，Run 002 应在同一公共包内增加最小 query-span permutation 机制，而非复制 runner。",
+          "evidence": "shell/06_experiments/E-008/runs/E008-R-001-grounding-heads-query-image-role-audit-n140-640.md §3"
+        }
+      ],
+      "proposal": {
+        "objective": "在 exact teacher replay 的自然 bbox p-1 rows 上，直接置换 target heads 对 query-image visual-token span 的原 attention 值，测试 query-token 的位置—权重对应是否影响 bbox-token compatibility。",
+        "implementation_scope": "在公共 attention rewrite hook 中增加 query_span_permute mode；对每个 sample/layer/head/row 派生确定性置换，只重排 query span 内值，reference span 与非视觉 token 不改。",
+        "evaluation": "比较 baseline、identity 与 query_permuted 的自然 bbox token NLL/logit 差；逐记录验证 row sum、query-span mass、排序权重、多重集、entropy 和 selected-token count 不变。"
+      },
+      "questions": [],
+      "risks": [
+        "远程连接恢复前，公共模块的确切函数签名与最小修改位置仍须复核；本轮仅完成可审核设计，不实现或执行。",
+        "该 intervention 测试 query-image 内空间位置—权重对应，不能替代或解释 Q→R reference routing。"
+      ]
+    }
+  },
+  "execution_logic": {
+    "workflow_stage": "awaiting_confirmation",
+    "agent_level": "1",
+    "constraints": "只复用E003-R-004b positive n140与归档natural responses；Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；max_side=640 exact teacher replay；冻结G-heads=L15H13,L16H23,L18H15与L-heads=L18H15,L19H03,L22H00,L20H08；无activation/attention干预；attention-derived、non-causal；不得创建或提升Claim。"
+  },
+  "review_automation_policy": {
+    "enabled": false,
+    "auto_review_on_create": false,
+    "auto_approve_threshold": 85,
+    "auto_authorize_execution": false,
+    "auto_authorize_threshold": 95,
+    "policy_version": "run-review-score/v1",
+    "notes": ""
+  },
+  "execution_dispatch_policy": {
+    "enabled": false,
+    "auto_queue_on_authorize": false,
+    "auto_deliver_on_pi_live": false,
+    "claim_lease_minutes": 30,
+    "max_delivery_attempts": 5,
+    "notes": ""
+  },
+  "agent_routing": {
+    "version": 1,
+    "routes": {
+      "local_tool_edit": {
+        "enabled": true,
+        "agent_kind": "codex",
+        "model": "sol",
+        "fallback_agent_kind": "pi",
+        "fallback_model": ""
+      },
+      "experiment_code_edit": {
+        "enabled": true,
+        "agent_kind": "codex",
+        "model": "sol",
+        "fallback_agent_kind": "pi",
+        "fallback_model": ""
+      },
+      "lightweight_governance": {
+        "enabled": true,
+        "agent_kind": "codex",
+        "model": "sol",
+        "fallback_agent_kind": "pi",
+        "fallback_model": "",
+        "inherited_from": "local_tool_edit"
+      }
+    }
+  },
+  "run_groups": [],
+  "metric_definitions": [
+    {
+      "id": "exact_replay_rate",
+      "name": "Exact teacher-replay通过率",
+      "formula": "N_exact / N_total",
+      "meaning": "归档响应token、bbox p-1 row与双图span均精确对齐的样本比例",
+      "direction": "target",
+      "unit": "ratio",
+      "aggregation": "micro ratio",
+      "scope": "R-000工程门禁与R-001完整性"
+    },
+    {
+      "id": "fractional_gt_mass",
+      "name": "GT区域fractional attention mass",
+      "formula": "sum_j A_j * w_j，其中w_j为视觉token与GT bbox的fractional occupancy",
+      "meaning": "指定row/head在目标区域内分配的raw attention质量",
+      "direction": "higher",
+      "unit": "attention mass",
+      "aggregation": "逐head样本中位数及sequence bootstrap",
+      "scope": "Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]"
+    },
+    {
+      "id": "area_normalized_enrichment",
+      "name": "GT区域面积归一化富集",
+      "formula": "(sum_j A_j*w_j / sum_j A_j) / (sum_j w_j / N_visual)",
+      "meaning": "相对均匀视觉attention时目标区域获得的富集倍数",
+      "direction": "higher",
+      "unit": "ratio",
+      "aggregation": "逐head样本中位数及correct-error差",
+      "scope": "各视觉span内条件化attention"
+    },
+    {
+      "id": "pointing_rate",
+      "name": "Raw-attention pointing命中率",
+      "formula": "N[argmax_j A_j的token与GT bbox有fractional overlap] / N_eligible",
+      "meaning": "raw map峰值是否落入目标区域的样本比例",
+      "direction": "higher",
+      "unit": "ratio",
+      "aggregation": "逐head分子/分母、Wilson区间与sequence bootstrap差",
+      "scope": "GT覆盖至少一个merged visual token的样本"
+    },
+    {
+      "id": "retained_mass_fiou_auc",
+      "name": "累计质量fractional-token IoU AUC",
+      "formula": "mean_{rho in {0.05,...,0.95}} fIoU(S_rho,GT)，S_rho为达到累计attention质量rho的最小token集合",
+      "meaning": "衡量distributed attention support与GT token区域在多阈值下的空间重合",
+      "direction": "higher",
+      "unit": "AUC ratio",
+      "aggregation": "逐head样本中位数及sequence bootstrap",
+      "scope": "各预注册edge的视觉span条件化raw attention"
+    }
+  ],
+  "workspace": {
+    "id": "02",
+    "label": "lwc-IPLoc",
+    "server_id": "02",
+    "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+    "remote_worktree_root": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "remote_experiment_root": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
+    "environment_activation": "conda:IPLoc",
+    "launcher": "ssh NKU-LWC",
+    "environment_policy": {
+      "allowed_write_roots": [
+        "/defaultShare/archive/liuwenchu/projects/IPLoc"
+      ],
+      "forbidden_paths": [
+        "/defaultShare/archive",
+        "/tmp"
+      ],
+      "read_only_roots": [
+        "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+      ],
+      "forbidden_operations": [
+        "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+        "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+        "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+        "sudo",
+        "删除未明确列出的目录或数据"
+      ],
+      "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+      "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+      "policy_preset": "custom",
+      "dangerous_exceptions": [],
+      "default_deny_write": true
+    },
+    "execution_isolation": {
+      "mode": "tmux-guarded",
+      "required": true,
+      "network": "host",
+      "deny_read_roots": [],
+      "notes": "人类明确接受的降级隔离：NKU-LWC不允许Bubblewrap mount namespace。执行器继续强制审核快照、授权、conda:IPLoc证明、固定command/tmux和allowlist写路径；但无法内核级隐藏宿主其他可读目录，且无法强制断网。"
+    },
+    "dataset_bindings": [],
+    "rule_input": {
+      "contract": "survey-tool.workspace-rule-input/v1",
+      "original_request": "仅仅操作/defaultShare/archive/liuwenchu/projects/IPLoc下的文件。临时文件也请在/defaultShare/archive/liuwenchu/projects/IPLoc下创建文件夹，请勿触碰/下的其他文件夹，尤其是/defaultShare/archive下的其他文件夹。删除可以改为移动至/defaultShare/archive/liuwenchu/projects/IPLoc下新建一个临时回收站。数据集在/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test下的软连接。使用git对代码编写。conda环境使用IPLoc的conda环境进行操作。创建tmux进行实验。使用本机的NKU-LWC进行连接",
+      "preset": "research_safe",
+      "updated_at": "2026-08-18T15:53:53"
+    },
+    "rule_profile": {
+      "contract": "survey-tool.workspace-rule-profile/v1",
+      "original_request": "仅仅操作/defaultShare/archive/liuwenchu/projects/IPLoc下的文件。临时文件也请在/defaultShare/archive/liuwenchu/projects/IPLoc下创建文件夹，请勿触碰/下的其他文件夹，尤其是/defaultShare/archive下的其他文件夹。删除可以改为移动至/defaultShare/archive/liuwenchu/projects/IPLoc下新建一个临时回收站。数据集在/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test下的软连接。使用git对代码编写。conda环境使用IPLoc的conda环境进行操作。创建tmux进行实验。使用本机的NKU-LWC进行连接",
+      "preset": "research_safe",
+      "rules": [
+        {
+          "id": "default-deny-write",
+          "label": "默认拒绝写入",
+          "detail": "仅已登记的代码、工作与实验目录可写。",
+          "source": "preset"
+        },
+        {
+          "id": "data-read-only",
+          "label": "研究数据只读",
+          "detail": "已登记的数据目录只用于读取，不得修改。",
+          "source": "preset"
+        },
+        {
+          "id": "dangerous-ops",
+          "label": "禁止危险操作",
+          "detail": "禁止 sudo 和删除未明确授权的目录或数据。",
+          "source": "preset"
+        }
+      ],
+      "warnings": [
+        "描述中没有可安全自动转换的明确规则；原文已保留，请人工检查高级设置。",
+        "未明确给出独立的实验输出根目录，因此 remote_experiment_root 留空。",
+        "原文禁止触碰 / 和 /defaultShare/archive 下的“其他文件夹”，但未逐一给出这些目录的绝对路径；为避免猜测或把允许目录的父目录整体列为 forbidden_paths，未填 forbidden_paths，相关限制保留在 forbidden_operations。",
+        "原文只明确说明数据集位于 /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset-test 下的软连接，未给出软连接实际指向的数据源绝对路径，因此无法填写更具体的数据集 source_path。",
+        "原文未明确声明数据集目录本身为只读，因此 read_only_roots 留空；dataset_candidates 仅按只读候选提出。"
+      ],
+      "questions": [],
+      "updated_at": "2026-08-18T15:53:53",
+      "organizer": {
+        "requested": "external",
+        "used": "ai",
+        "reason": "validated workspace-rule-external/v1"
+      }
+    }
+  },
+  "server": {
+    "id": "02",
+    "label": "lwc-IPLoc",
+    "ssh_host": "NKU-LWC",
+    "project_root": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+    "gpu_type": "3090",
+    "gpu_count": 4,
+    "launcher": "ssh NKU-LWC",
+    "notes": "请勿在本服务器除了project_root下读取编写文件，例如/tmp"
+  },
+  "forbidden_operations": [
+    "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+    "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+    "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+    "sudo",
+    "删除未明确列出的目录或数据"
+  ],
+  "runs": [
+    {
+      "variant": "grounding heads query-image alignment smoke n4",
+      "run_type": "engineering_gate",
+      "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+      "necessity": "在n140观测前排除row/span/head映射错误；该run不产生科学结论。",
+      "evidence_basis": "E005-R-029c 640 exact replay入口；E005 head_role_registry；E006-R-005 Q→Q main4 audit。",
+      "implementation_summary": "固定2 correct+2 error，复用归档natural response做exact teacher replay；提取G-heads=L15H13,L16H23,L18H15在Q→Q、Q→R、G→R三条边，以及L-heads在Q→Q对照。",
+      "implementation_details": "无模型干预；query bbox p-1 rows→query/reference visual keys；reference bbox p-1 rows→reference keys；验证visual span、merged-token occupancy、非方形grid、row alignment、finite和future-free。",
+      "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+      "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+      "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+      "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+      "metric_definition": "row/span alignment、token exact、visual span conditional mass、finite、raw mass及GT coverage仅作工程审计。",
+      "integrity_gates": "4/4 exact replay；row/token/span唯一匹配；grid映射正确；all finite；不读future；head集合不可变；失败显式保留。",
+      "expected_outcome": "工程通过后允许R-001；任一关键gate失败则停止并新建修复run。",
+      "acceptance_criteria": "所有预注册工程gate通过并生成可机器读取审计记录和固定图。",
+      "dependencies": "E005-R-029c；E003-R-004b manifest；E-005 head_role_registry。",
+      "limitations": "n4工程gate；不支持head role、localization或causal结论。",
+      "claim_boundary": "仅支持实现与对齐正确性，不支持科学Finding/Claim。",
+      "audit_paths": "shell/06_experiments/E-008/plan.md; shell/06_experiments/E-005/head_role_registry.md",
+      "status": "failed",
+      "workspace_id": "02",
+      "git_commit": "",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "artifacts": "",
+      "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "seed": "20260818",
+      "group_id": "",
+      "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+      "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+      "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+      "architecture_plan": "R-000 与R-001共用 mechanism/iplocid 的 role_audit_pipeline；R-000只通过--limit 4固定2 correct+2 error工程样本。配置只声明冻结head和n4范围，launcher仅激活Workspace conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+      "created_by": "terminal_pi",
+      "id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+      "experiment_id": "E-008",
+      "workflow_version": 2,
+      "workflow_stage": "failed",
+      "review_status": "approved",
+      "review_round": 3,
+      "created": "2026-08-18T14:25:48",
+      "updated": "2026-08-19T15:57:44",
+      "organization_snapshot": {
+        "time": "2026-08-18T14:25:48",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-af6ce4fc90d6197cf8f1"
+      },
+      "workflow_history": [
+        {
+          "time": "2026-08-18T14:45:30",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-18T14:48:46",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-18T14:48:47",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-18T14:53:21",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        },
+        {
+          "time": "2026-08-18T14:56:33",
+          "action": "reopen-design",
+          "from": "ready_to_run",
+          "to": "research_design",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-18T14:56:39",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-19T14:43:27",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-19T14:43:29",
+          "action": "submit-review",
+          "actor": "human:web-v2",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-19T14:43:31",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        },
+        {
+          "time": "2026-08-19T14:56:37",
+          "action": "reopen-design",
+          "from": "ready_to_run",
+          "to": "research_design",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-19T14:58:13",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T14:58:13",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T14:58:14",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-19T15:17:39",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        },
+        {
+          "time": "2026-08-19T15:57:44",
+          "action": "mark-failed",
+          "from": "running",
+          "to": "failed",
+          "actor": "human:web-v2"
+        }
+      ],
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/datasets/records.py",
+          "mechanism/iplocid/iplocid/models/qwen.py",
+          "mechanism/iplocid/iplocid/prompts/messages.py",
+          "mechanism/iplocid/iplocid/prompts/coordinates.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_attention_metrics.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "submitted_for_review_at": "2026-08-19T14:58:14",
+      "review_history": [
+        {
+          "time": "2026-08-18T14:48:47",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包src/incontext_experiments/e008封装exact replay、双图span、Q→Q/Q→R/G→R边提取与指标；R-000仅使用n4配置和薄Shell启动，pytest覆盖row/span、非方形grid、head索引、finite与identity exact。",
+            "artifact_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /home/featurize/work/mechanism/Rex-Omni/codespace/e008/run_r000_alignment_smoke_n4.sh",
+            "config": "/home/featurize/work/mechanism/Rex-Omni/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "src/incontext_experiments/e008",
+              "entrypoint": "incontext_experiments.e008.cli:main",
+              "reused_modules": [
+                "src/incontext_experiments/e008/replay.py",
+                "src/incontext_experiments/e008/spans.py",
+                "src/incontext_experiments/e008/metrics.py"
+              ],
+              "added_modules": [
+                "src/incontext_experiments/e008/attention_role_audit.py"
+              ],
+              "tests": [
+                "tests/e008/test_span_row_alignment.py",
+                "tests/e008/test_attention_edge_metrics.py"
+              ],
+              "config_path": "configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "codespace/e008/run_r000_alignment_smoke_n4.sh"
+            },
+            "launcher": null,
+            "log_path": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": null,
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "W-01"
+          }
+        },
+        {
+          "time": "2026-08-18T14:53:21",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包src/incontext_experiments/e008封装exact replay、双图span、Q→Q/Q→R/G→R边提取与指标；R-000仅使用n4配置和薄Shell启动，pytest覆盖row/span、非方形grid、head索引、finite与identity exact。",
+            "artifact_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /home/featurize/work/mechanism/Rex-Omni/codespace/e008/run_r000_alignment_smoke_n4.sh",
+            "config": "/home/featurize/work/mechanism/Rex-Omni/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "src/incontext_experiments/e008",
+              "entrypoint": "incontext_experiments.e008.cli:main",
+              "reused_modules": [
+                "src/incontext_experiments/e008/replay.py",
+                "src/incontext_experiments/e008/spans.py",
+                "src/incontext_experiments/e008/metrics.py"
+              ],
+              "added_modules": [
+                "src/incontext_experiments/e008/attention_role_audit.py"
+              ],
+              "tests": [
+                "tests/e008/test_span_row_alignment.py",
+                "tests/e008/test_attention_edge_metrics.py"
+              ],
+              "config_path": "configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "codespace/e008/run_r000_alignment_smoke_n4.sh"
+            },
+            "launcher": null,
+            "log_path": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": null,
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "W-01"
+          }
+        },
+        {
+          "time": "2026-08-18T14:53:25",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        },
+        {
+          "time": "2026-08-19T14:43:29",
+          "action": "submit",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包src/incontext_experiments/e008封装exact replay、双图span、Q→Q/Q→R/G→R边提取与指标；R-000仅使用n4配置和薄Shell启动，pytest覆盖row/span、非方形grid、head索引、finite与identity exact。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "reused_modules": [
+                "iplocid/datasets/records.py",
+                "iplocid/models/qwen.py",
+                "iplocid/prompts/messages.py",
+                "iplocid/prompts/coordinates.py",
+                "iplocid/attention/spans.py",
+                "iplocid/attention/metrics.py",
+                "iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "tests/test_attention_spans.py",
+                "tests/test_attention_metrics.py",
+                "tests/test_role_audit_spec.py"
+              ],
+              "config_path": "configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "tools/run_e008_r000.sh"
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T14:43:31",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包src/incontext_experiments/e008封装exact replay、双图span、Q→Q/Q→R/G→R边提取与指标；R-000仅使用n4配置和薄Shell启动，pytest覆盖row/span、非方形grid、head索引、finite与identity exact。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "reused_modules": [
+                "iplocid/datasets/records.py",
+                "iplocid/models/qwen.py",
+                "iplocid/prompts/messages.py",
+                "iplocid/prompts/coordinates.py",
+                "iplocid/attention/spans.py",
+                "iplocid/attention/metrics.py",
+                "iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "tests/test_attention_spans.py",
+                "tests/test_attention_metrics.py",
+                "tests/test_role_audit_spec.py"
+              ],
+              "config_path": "configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "tools/run_e008_r000.sh"
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T14:43:32",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        },
+        {
+          "time": "2026-08-19T14:58:14",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "R-000 与R-001共用 mechanism/iplocid 的 role_audit_pipeline；R-000只通过--limit 4固定2 correct+2 error工程样本。配置只声明冻结head和n4范围，launcher仅激活Workspace conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T15:17:39",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "R-000 与R-001共用 mechanism/iplocid 的 role_audit_pipeline；R-000只通过--limit 4固定2 correct+2 error工程样本。配置只声明冻结head和n4范围，launcher仅激活Workspace conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+            "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+            "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+            "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+            "run_type": "engineering_gate",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+            "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+            "variant": "grounding heads query-image alignment smoke n4",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T15:17:42",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        }
+      ],
+      "approved_at": "2026-08-19T15:17:39",
+      "approved_by": "human:web-v2",
+      "approved_spec": {
+        "architecture_plan": "R-000 与R-001共用 mechanism/iplocid 的 role_audit_pipeline；R-000只通过--limit 4固定2 correct+2 error工程样本。配置只声明冻结head和n4范围，launcher仅激活Workspace conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+        "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+        "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+        "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "data_definition": "E003-R-004b positive archived replay，预冻结2 correct+2 error，不按结果选样本。",
+        "data_scale": "n=4 samples；每sample固定G-heads三条边与L-heads Q→Q。",
+        "git_commit": "",
+        "group_id": "",
+        "hypothesis": "若实现正确，4/4样本应满足归档token exact、bbox p-1 row与双图visual span唯一匹配、非方形merged grid正确、所有预注册head/edge attention finite；否则R-001不得启动。",
+        "implementation_ref": {
+          "schema": "survey-tool.run-implementation/v1",
+          "package_root": "mechanism/iplocid/iplocid",
+          "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+          "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+          "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+          "reused_modules": [
+            "mechanism/iplocid/iplocid/datasets/records.py",
+            "mechanism/iplocid/iplocid/models/qwen.py",
+            "mechanism/iplocid/iplocid/prompts/messages.py",
+            "mechanism/iplocid/iplocid/prompts/coordinates.py",
+            "mechanism/iplocid/iplocid/attention/spans.py",
+            "mechanism/iplocid/iplocid/attention/metrics.py",
+            "mechanism/iplocid/iplocid/inference/replay.py"
+          ],
+          "added_modules": [
+            "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+          ],
+          "tests": [
+            "mechanism/iplocid/tests/test_attention_spans.py",
+            "mechanism/iplocid/tests/test_attention_metrics.py",
+            "mechanism/iplocid/tests/test_role_audit_spec.py"
+          ]
+        },
+        "launcher": null,
+        "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+        "metric_plan": "复用E005/E006的row alignment、visual-span conditional mass、GT fractional coverage与finite审计；不新增科学指标。复用这些指标是因为R-000只验证被测attention边是否准确对应自然bbox生成row和正确图像span，避免把错位或空span误认为head角色。",
+        "metrics_path": null,
+        "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；原prompt/processor/EOS；exact teacher replay。",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "purpose": "验证G-heads在query bbox p-1 rows上的Q→Q、Q→R与定义性G→R span提取、token对齐、grid映射和exact teacher replay。",
+        "research_question": "能否在Qwen3-VL/IPLoc-ID的640 exact teacher replay中，无歧义地提取query bbox p-1 rows上的G-head Q→Q/Q→R以及reference bbox rows上的G→R，并与L-head Q→Q对齐？",
+        "run_type": "engineering_gate",
+        "seed": "20260818",
+        "server_id": null,
+        "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+        "variables_controls": "无干预；G-heads固定[L15H13,L16H23,L18H15]；L-heads固定[L18H15,L19H03,L22H00,L20H08]；Q→Q/Q→R/G→R span固定。",
+        "variant": "grounding heads query-image alignment smoke n4",
+        "workspace_id": "02"
+      },
+      "execution_dispatch_enqueue_result": {
+        "queued": true,
+        "idempotent": false,
+        "dispatch": {
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa",
+          "experiment_id": "E-008",
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "status": "queued",
+          "created_at": "2026-08-19T15:17:42",
+          "updated_at": "2026-08-19T15:17:42",
+          "authorization_timestamp": "2026-08-19T15:17:42",
+          "requested_route": "experiment_code_edit",
+          "requested_agent": "codex",
+          "requested_model": "sol",
+          "delivery_attempts": 0,
+          "claim_attempts": 0,
+          "last_error": "",
+          "history": [
+            {
+              "time": "2026-08-19T15:17:42",
+              "type": "queued",
+              "detail": "authorization_reliability"
+            }
+          ]
+        },
+        "needs_attention": false
+      },
+      "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+      "automation_policy": {
+        "mode": "careful",
+        "allowed_code_roots": [
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/src/incontext_experiments/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/tests/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/configs/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/codespace/e008"
+        ],
+        "test_commands": [
+          "pytest tests/e008 -q"
+        ],
+        "max_repairs": 2,
+        "time_budget_minutes": 30,
+        "auto_rerun": true,
+        "install_declared_dependencies": true,
+        "dependency_files": [
+          "requirements.txt"
+        ],
+        "prohibited_actions": [
+          "修改 Workspace",
+          "修改数据 manifest",
+          "修改 head、指标、样本或假设",
+          "创建替代 Conda 环境",
+          "使用旧环境路径"
+        ]
+      },
+      "execution_authorized_at": "2026-08-19T15:17:42",
+      "execution_authorized_by": "human:web-v2",
+      "execution_authorization_note": "",
+      "authorized_workspace_execution_hash": "sha256:643657951506716d9899bc061e9e372de4f03b3d527e229cfafecd8632a82545",
+      "execution_authorization_consumed_at": "2026-08-19T15:40:01",
+      "execution_dispatch_id": "dispatch-91529d76a769a0d13ebf37aa",
+      "execution_dispatch_latest_status": "running",
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000-grounding-heads-query-image-alignment-smoke-n4/metrics.json",
+        "tmux_session": "incontext-E-008-E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": false,
+        "reason": "本次执行授权已被激活消费；再次执行需要用户重新授权"
+      }
+    },
+    {
+      "variant": "grounding heads query-image role audit n140 640",
+      "run_type": "observational_mechanism_audit",
+      "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+      "necessity": "现有Q→Q主要审计localization main4；L15H13/L16H23在Q→Q上的空间质量尚未单独量化。",
+      "evidence_basis": "E005 head_role_registry；E005-R-029c n140 640 exact replay；E006-R-005 Q→Q main4 audit；Q-004/Q-005。",
+      "implementation_summary": "复用E003-R-004b positive n140 archived natural responses，exact teacher replay；同forward提取G-heads Q→Q、Q→R、G→R，以及L-heads Q→Q对照；输出逐head raw metrics和固定heatmaps。",
+      "implementation_details": "主边为query bbox p-1 rows×G-heads→query visual keys；补充query bbox p-1×G-heads→reference keys；定义性reference bbox p-1×G-heads→reference keys；对照query bbox p-1×L-heads→query keys；不做任何activation或attention rewrite。",
+      "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+      "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+      "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+      "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+      "metric_definition": "fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC、correct-error差、sequence bootstrap；保存raw attention与共享色标heatmaps。",
+      "integrity_gates": "R-000通过；140/140 records或显式失败；token/row/span唯一匹配；head集合冻结；all finite；不使用future；不按结果重选head；rejected不借bbox row。",
+      "expected_outcome": "若G-heads Q→Q对query GT有空间选择性且correct高于error，支持跨角色query-localization signature；若G→R正常而Q→Q弥散，支持reference-only role division。",
+      "acceptance_criteria": "完成全体预冻结样本与逐head指标/heatmaps；无论正负均报告；不得将attention-derived观察升级为causal或identity claim。",
+      "dependencies": "E008-R-000；E005-R-029c；E003-R-004b；E005 head_role_registry。",
+      "limitations": "teacher replay、attention-derived、non-causal；L18H15为两类head交集；不能证明identity、共享电路或行为改善。",
+      "claim_boundary": "最多支持/削弱grounding heads是否携带query-side localization signature；不证明causal head role、identity或Joint F1泛化。",
+      "audit_paths": "shell/06_experiments/E-008/plan.md; shell/06_experiments/E-005/head_role_registry.md; shell/01_questions/Q-004.md; shell/01_questions/Q-005.md",
+      "status": "draft",
+      "workspace_id": "02",
+      "git_commit": "",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r001.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 140",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "artifacts": "",
+      "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "seed": "20260818",
+      "group_id": "",
+      "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+      "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+      "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+      "architecture_plan": "E-008 使用 mechanism/iplocid 的公共 role_audit_pipeline；配置只声明冻结head与n140范围，tools 仅激活Workspace声明的conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts并按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+      "created_by": "terminal_pi",
+      "id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+      "experiment_id": "E-008",
+      "workflow_version": 2,
+      "workflow_stage": "ready_to_run",
+      "review_status": "approved",
+      "review_round": 2,
+      "created": "2026-08-18T14:25:48",
+      "updated": "2026-08-20T14:14:03",
+      "organization_snapshot": {
+        "time": "2026-08-18T14:25:48",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-6c89a3216fbea9ca017a"
+      },
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r001.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/datasets/records.py",
+          "mechanism/iplocid/iplocid/models/qwen.py",
+          "mechanism/iplocid/iplocid/prompts/messages.py",
+          "mechanism/iplocid/iplocid/prompts/coordinates.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_attention_metrics.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "workflow_history": [
+        {
+          "time": "2026-08-18T14:48:46",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-18T14:48:47",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-18T14:48:47",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-18T14:53:37",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        },
+        {
+          "time": "2026-08-18T14:56:57",
+          "action": "reopen-design",
+          "from": "ready_to_run",
+          "to": "research_design",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-18T14:57:04",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-19T14:44:58",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T14:44:58",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-20T14:14:01",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        }
+      ],
+      "submitted_for_review_at": "2026-08-19T14:44:58",
+      "review_history": [
+        {
+          "time": "2026-08-18T14:48:47",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "复用公共包src/incontext_experiments/e008的replay/span/metric模块；attention_role_audit流水线按配置提取Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]，输出逐head raw records、bootstrap与共享色标图；R-001只增加n140配置和薄Shell，测试覆盖指标公式、冻结head集合与rejected coverage。",
+            "artifact_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "command": "bash /home/featurize/work/mechanism/Rex-Omni/codespace/e008/run_r001_role_audit_n140_640.sh",
+            "config": "/home/featurize/work/mechanism/Rex-Omni/configs/e008/r001_role_audit_n140_640.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+            "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "src/incontext_experiments/e008",
+              "entrypoint": "incontext_experiments.e008.cli:main",
+              "reused_modules": [
+                "src/incontext_experiments/e008/replay.py",
+                "src/incontext_experiments/e008/spans.py",
+                "src/incontext_experiments/e008/metrics.py"
+              ],
+              "added_modules": [
+                "src/incontext_experiments/e008/attention_role_audit.py"
+              ],
+              "tests": [
+                "tests/e008/test_span_row_alignment.py",
+                "tests/e008/test_attention_edge_metrics.py"
+              ],
+              "config_path": "configs/e008/r001_role_audit_n140_640.yaml",
+              "launcher_path": "codespace/e008/run_r001_role_audit_n140_640.sh"
+            },
+            "launcher": null,
+            "log_path": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+            "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+            "output_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+            "project_dir": null,
+            "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+            "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+            "run_type": "observational_mechanism_audit",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+            "variant": "grounding heads query-image role audit n140 640",
+            "workspace_id": "W-01"
+          }
+        },
+        {
+          "time": "2026-08-18T14:53:37",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "复用公共包src/incontext_experiments/e008的replay/span/metric模块；attention_role_audit流水线按配置提取Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]，输出逐head raw records、bootstrap与共享色标图；R-001只增加n140配置和薄Shell，测试覆盖指标公式、冻结head集合与rejected coverage。",
+            "artifact_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "command": "bash /home/featurize/work/mechanism/Rex-Omni/codespace/e008/run_r001_role_audit_n140_640.sh",
+            "config": "/home/featurize/work/mechanism/Rex-Omni/configs/e008/r001_role_audit_n140_640.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+            "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "src/incontext_experiments/e008",
+              "entrypoint": "incontext_experiments.e008.cli:main",
+              "reused_modules": [
+                "src/incontext_experiments/e008/replay.py",
+                "src/incontext_experiments/e008/spans.py",
+                "src/incontext_experiments/e008/metrics.py"
+              ],
+              "added_modules": [
+                "src/incontext_experiments/e008/attention_role_audit.py"
+              ],
+              "tests": [
+                "tests/e008/test_span_row_alignment.py",
+                "tests/e008/test_attention_edge_metrics.py"
+              ],
+              "config_path": "configs/e008/r001_role_audit_n140_640.yaml",
+              "launcher_path": "codespace/e008/run_r001_role_audit_n140_640.sh"
+            },
+            "launcher": null,
+            "log_path": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+            "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+            "output_dir": "/home/featurize/work/mechanism/explog/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+            "project_dir": null,
+            "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+            "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+            "run_type": "observational_mechanism_audit",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+            "variant": "grounding heads query-image role audit n140 640",
+            "workspace_id": "W-01"
+          }
+        },
+        {
+          "time": "2026-08-18T14:53:39",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        },
+        {
+          "time": "2026-08-19T14:44:58",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "E-008 使用 mechanism/iplocid 的公共 role_audit_pipeline；配置只声明冻结head与n140范围，tools 仅激活Workspace声明的conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts并按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r001.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 140",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+            "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r001.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+            "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+            "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+            "run_type": "observational_mechanism_audit",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+            "variant": "grounding heads query-image role audit n140 640",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-20T14:14:01",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "E-008 使用 mechanism/iplocid 的公共 role_audit_pipeline；配置只声明冻结head与n140范围，tools 仅激活Workspace声明的conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts并按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r001.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 140",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+            "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r001.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+            "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+            "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+            "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+            "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+            "run_type": "observational_mechanism_audit",
+            "seed": "20260818",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+            "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+            "variant": "grounding heads query-image role audit n140 640",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-20T14:14:03",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        }
+      ],
+      "approved_at": "2026-08-20T14:14:01",
+      "approved_by": "human:web-v2",
+      "approved_spec": {
+        "architecture_plan": "E-008 使用 mechanism/iplocid 的公共 role_audit_pipeline；配置只声明冻结head与n140范围，tools 仅激活Workspace声明的conda:IPLoc并调用公共CLI。source output 使用E-003 generated-texts并按query image path唯一匹配；Q→Q采用query GT/grid，Q→R/G→R采用reference GT/grid。",
+        "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+        "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r001.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 140",
+        "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+        "data_definition": "E003-R-004b positive n140 manifest与归档natural responses；primary accepted error35+correct76=n111；partial22 secondary；rejected7仅coverage。GT只用于生成后空间评价。",
+        "data_scale": "140 exact teacher replay；primary n111；max_side=640；sequence-level bootstrap。",
+        "git_commit": "",
+        "group_id": "",
+        "hypothesis": "H1跨角色：G-head Q→Q对query GT有空间选择性且correct高于error；H2角色分工：G→R正常而G-head Q→Q弥散；H3部分共享：仅交集head L18H15跨两侧有效。",
+        "implementation_ref": {
+          "schema": "survey-tool.run-implementation/v1",
+          "package_root": "mechanism/iplocid/iplocid",
+          "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+          "config_path": "mechanism/iplocid/configs/e008/r001_role_audit_n140_640.yaml",
+          "launcher_path": "mechanism/iplocid/tools/run_e008_r001.sh",
+          "reused_modules": [
+            "mechanism/iplocid/iplocid/datasets/records.py",
+            "mechanism/iplocid/iplocid/models/qwen.py",
+            "mechanism/iplocid/iplocid/prompts/messages.py",
+            "mechanism/iplocid/iplocid/prompts/coordinates.py",
+            "mechanism/iplocid/iplocid/attention/spans.py",
+            "mechanism/iplocid/iplocid/attention/metrics.py",
+            "mechanism/iplocid/iplocid/inference/replay.py"
+          ],
+          "added_modules": [
+            "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+          ],
+          "tests": [
+            "mechanism/iplocid/tests/test_attention_spans.py",
+            "mechanism/iplocid/tests/test_attention_metrics.py",
+            "mechanism/iplocid/tests/test_role_audit_spec.py"
+          ]
+        },
+        "launcher": null,
+        "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+        "metric_plan": "复用E005/E006已定义的fractional GT mass、area-normalized enrichment、pointing、S50、retained-mass token-fIoU/AUC及sequence bootstrap；新增的是同一指标在Q→Q[G-heads]上的角色对照，不新增事后阈值。质量/富集指标回答是否落在query GT，S50/fIoU回答distributed support而非仅argmax，correct-error与Q→R/G→R/Q→Q[L]对照回答跨角色还是reference-only。",
+        "metrics_path": null,
+        "model_config": "Qwen3-VL-8B-Instruct+原IPLoc-ID 1shot LoRA；bf16 eager；max_side=640；官方原prompt/processor/EOS；与E005-R-029c入口一致。",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "purpose": "比较reference-grounding heads在自然query bbox生成行上的Q→Q与Q→R attention，并以G→R定义性边和localization main4 Q→Q作对照，判断grounding heads是否跨角色参与query定位。",
+        "research_question": "reference-grounding heads L15H13/L16H23/L18H15在自然query bbox生成p-1 rows上是否对query image形成可重复的空间定位attention，还是仅保留reference-side grounding角色？",
+        "run_type": "observational_mechanism_audit",
+        "seed": "20260818",
+        "server_id": null,
+        "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+        "variables_controls": "无干预；G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；边类型Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L]；按head单独报告。",
+        "variant": "grounding heads query-image role audit n140 640",
+        "workspace_id": "02"
+      },
+      "execution_dispatch_enqueue_result": {
+        "queued": true,
+        "idempotent": false,
+        "dispatch": {
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5",
+          "experiment_id": "E-008",
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "status": "queued",
+          "created_at": "2026-08-20T14:14:03",
+          "updated_at": "2026-08-20T14:14:03",
+          "authorization_timestamp": "2026-08-20T14:14:03",
+          "requested_route": "experiment_code_edit",
+          "requested_agent": "codex",
+          "requested_model": "sol",
+          "delivery_attempts": 0,
+          "claim_attempts": 0,
+          "last_error": "",
+          "history": [
+            {
+              "time": "2026-08-20T14:14:03",
+              "type": "queued",
+              "detail": "authorization_reliability"
+            }
+          ]
+        },
+        "needs_attention": false
+      },
+      "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+      "automation_policy": {
+        "mode": "careful",
+        "allowed_code_roots": [
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/src/incontext_experiments/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/tests/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/configs/e008",
+          "/defaultShare/archive/liuwenchu/projects/IPLoc/codespace/e008"
+        ],
+        "test_commands": [
+          "pytest tests/e008 -q"
+        ],
+        "max_repairs": 2,
+        "time_budget_minutes": 30,
+        "auto_rerun": true,
+        "install_declared_dependencies": true,
+        "dependency_files": [
+          "requirements.txt"
+        ],
+        "prohibited_actions": [
+          "修改 Workspace",
+          "修改数据 manifest",
+          "修改 head、指标、样本或假设",
+          "创建替代 Conda 环境",
+          "使用旧环境路径"
+        ]
+      },
+      "execution_authorized_at": "2026-08-20T14:14:03",
+      "execution_authorized_by": "human:web-v2",
+      "execution_authorization_note": "",
+      "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-001-grounding-heads-query-image-role-audit-n140-640/metrics.json",
+        "tmux_session": "incontext-E-008-E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": true,
+        "reason": "审核、单次授权、路径策略均有效"
+      }
+    },
+    {
+      "variant": "grounding heads query-image alignment smoke n4 tmux-guarded replacement",
+      "run_type": "engineering_gate",
+      "purpose": "在相同n4、模型、LoRA、manifest、归档输出和冻结heads下完成公共pipeline工程门禁；唯一变化是人类接受的tmux-guarded隔离替代Bubblewrap。",
+      "necessity": "旧R-000在Bubblewrap mount namespace创建前失败、0模型forward；需在明确降级隔离下完成同一工程门禁。",
+      "evidence_basis": "旧E008-R-000失败日志；E005-R-029c manifest；E003-R-004b generated_texts；公共iplocid tests。",
+      "implementation_summary": "公共iplocid role_audit_pipeline以--limit 4运行exact teacher replay，按query image path匹配E003 archived output。",
+      "implementation_details": "Q→Q使用query GT/grid，Q→R/G→R使用reference GT/grid；conda:IPLoc证明、固定tmux、allowlist写路径和已审核command继续强制。tmux-guarded不隐藏宿主可读目录且无法强制断网，已由人类接受。",
+      "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+      "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+      "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+      "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+      "metric_definition": "exact replay、row/span唯一匹配、finite、四种边的raw map及GT fractional metrics仅作工程审计。",
+      "integrity_gates": "4/4 records或显式失败；模型/LoRA/manifest/source output本地存在；conda:IPLoc proof；public package tests；固定head和双图span；tmux-guarded路径allowlist。",
+      "expected_outcome": "若4/4通过，说明公共pipeline与新环境可进入R-001审核；若失败，保留失败记录，不变更科研变量。",
+      "acceptance_criteria": "4/4 token/row/span/grid/head/finite gate通过，生成summary、raw npz和显式failure records。",
+      "dependencies": "E005-R-029c；E003-R-004b；旧E008-R-000失败日志；mechanism/iplocid公共包。",
+      "limitations": "tmux-guarded为人类接受的降级隔离：宿主可读目录不可被内核隐藏、网络不可强制隔离；n4无科学结论。",
+      "claim_boundary": "仅支持公共pipeline工程正确性；不支持head role、identity、因果或行为结论。",
+      "audit_paths": "shell/06_experiments/E-008/events.md; mechanism/iplocid/ARCHITECTURE_MIGRATION.md",
+      "status": "failed",
+      "workspace_id": "02",
+      "git_commit": "",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/outputs",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+      "artifacts": "",
+      "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+      "seed": "20260819",
+      "group_id": "",
+      "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+      "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+      "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+      "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/datasets/records.py",
+          "mechanism/iplocid/iplocid/models/qwen.py",
+          "mechanism/iplocid/iplocid/prompts/messages.py",
+          "mechanism/iplocid/iplocid/prompts/coordinates.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_attention_metrics.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "created_by": "terminal_pi",
+      "id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+      "experiment_id": "E-008",
+      "workflow_version": 2,
+      "workflow_stage": "failed",
+      "review_status": "approved",
+      "review_round": 1,
+      "created": "2026-08-19T16:03:16",
+      "updated": "2026-08-19T16:04:35",
+      "organization_snapshot": {
+        "time": "2026-08-19T16:03:16",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-55c3e927040e34f5ed40"
+      },
+      "workflow_history": [
+        {
+          "time": "2026-08-19T16:03:16",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T16:03:17",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T16:03:42",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-19T16:03:42",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        }
+      ],
+      "submitted_for_review_at": "2026-08-19T16:03:42",
+      "review_history": [
+        {
+          "time": "2026-08-19T16:03:42",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+            "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/logs/train.log",
+            "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/outputs",
+            "project_dir": null,
+            "purpose": "在相同n4、模型、LoRA、manifest、归档输出和冻结heads下完成公共pipeline工程门禁；唯一变化是人类接受的tmux-guarded隔离替代Bubblewrap。",
+            "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+            "run_type": "engineering_gate",
+            "seed": "20260819",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+            "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+            "variant": "grounding heads query-image alignment smoke n4 tmux-guarded replacement",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T16:03:42",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+            "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/logs/train.log",
+            "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/outputs",
+            "project_dir": null,
+            "purpose": "在相同n4、模型、LoRA、manifest、归档输出和冻结heads下完成公共pipeline工程门禁；唯一变化是人类接受的tmux-guarded隔离替代Bubblewrap。",
+            "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+            "run_type": "engineering_gate",
+            "seed": "20260819",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+            "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+            "variant": "grounding heads query-image alignment smoke n4 tmux-guarded replacement",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T16:03:42",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": "用户明确要求立即执行；唯一变更为已明示接受的tmux-guarded降级隔离。"
+        }
+      ],
+      "approved_at": "2026-08-19T16:03:42",
+      "approved_by": "human:web-v2",
+      "approved_spec": {
+        "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。",
+        "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+        "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+        "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+        "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+        "git_commit": "",
+        "group_id": "",
+        "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+        "implementation_ref": {
+          "schema": "survey-tool.run-implementation/v1",
+          "package_root": "mechanism/iplocid/iplocid",
+          "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+          "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+          "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+          "reused_modules": [
+            "mechanism/iplocid/iplocid/datasets/records.py",
+            "mechanism/iplocid/iplocid/models/qwen.py",
+            "mechanism/iplocid/iplocid/prompts/messages.py",
+            "mechanism/iplocid/iplocid/prompts/coordinates.py",
+            "mechanism/iplocid/iplocid/attention/spans.py",
+            "mechanism/iplocid/iplocid/attention/metrics.py",
+            "mechanism/iplocid/iplocid/inference/replay.py"
+          ],
+          "added_modules": [
+            "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+          ],
+          "tests": [
+            "mechanism/iplocid/tests/test_attention_spans.py",
+            "mechanism/iplocid/tests/test_attention_metrics.py",
+            "mechanism/iplocid/tests/test_role_audit_spec.py"
+          ]
+        },
+        "launcher": null,
+        "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/logs/train.log",
+        "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+        "metrics_path": null,
+        "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/outputs",
+        "project_dir": null,
+        "purpose": "在相同n4、模型、LoRA、manifest、归档输出和冻结heads下完成公共pipeline工程门禁；唯一变化是人类接受的tmux-guarded隔离替代Bubblewrap。",
+        "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+        "run_type": "engineering_gate",
+        "seed": "20260819",
+        "server_id": null,
+        "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+        "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+        "variant": "grounding heads query-image alignment smoke n4 tmux-guarded replacement",
+        "workspace_id": "02"
+      },
+      "execution_authorized_at": "2026-08-19T16:03:42",
+      "execution_authorized_by": "human:web-v2",
+      "execution_authorization_note": "用户明确要求立即执行；唯一变更为已明示接受的tmux-guarded降级隔离。",
+      "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "execution_dispatch_enqueue_result": {
+        "queued": true,
+        "idempotent": false,
+        "dispatch": {
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "experiment_id": "E-008",
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "status": "queued",
+          "created_at": "2026-08-19T16:03:42",
+          "updated_at": "2026-08-19T16:03:42",
+          "authorization_timestamp": "2026-08-19T16:03:42",
+          "requested_route": "experiment_code_edit",
+          "requested_agent": "codex",
+          "requested_model": "sol",
+          "delivery_attempts": 0,
+          "claim_attempts": 0,
+          "last_error": "",
+          "history": [
+            {
+              "time": "2026-08-19T16:03:42",
+              "type": "queued",
+              "detail": "authorization_reliability"
+            }
+          ]
+        },
+        "needs_attention": false
+      },
+      "execution_authorization_consumed_at": "2026-08-19T16:04:09",
+      "execution_dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+      "execution_dispatch_latest_status": "failed",
+      "execution_dispatch_failed_at": "2026-08-19T16:04:35",
+      "execution_dispatch_failure": {
+        "failure_class": "transformers_qwen3vl_class_missing",
+        "reason": "tmux-guarded launcher reached Python pipeline but failed before model load: transformers 4.46.2 lacks Qwen3VLForConditionalGeneration. Exit before any model forward/scientific records; R-001 not started. Environment repair requires compatible Transformers/PEFT upgrade in canonical conda:IPLoc.",
+        "retryable": true
+      },
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/E-008",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded/metrics.json",
+        "tmux_session": "incontext-E-008-E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": false,
+        "reason": "本次执行授权已被激活消费；再次执行需要用户重新授权"
+      }
+    },
+    {
+      "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry",
+      "run_type": "engineering_gate",
+      "purpose": "在与R-000b相同的n4、冻结head、manifest、归档输出、模型和LoRA下重试公共pipeline；唯一新增前提是已记录的canonical IPLoc runtime修复。",
+      "necessity": "R-000b在任何模型forward前因transformers版本缺少Qwen3VL类而失败；该环境现已修复并通过Qwen3 class、CUDA与pip check gate。",
+      "evidence_basis": "旧E008-R-000失败日志；E005-R-029c manifest；E003-R-004b generated_texts；公共iplocid tests。",
+      "implementation_summary": "公共iplocid role_audit_pipeline以--limit 4运行exact teacher replay，按query image path匹配E003 archived output。",
+      "implementation_details": "Q→Q使用query GT/grid，Q→R/G→R使用reference GT/grid；conda:IPLoc证明、固定tmux、allowlist写路径和已审核command继续强制。tmux-guarded不隐藏宿主可读目录且无法强制断网，已由人类接受。",
+      "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+      "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+      "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+      "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+      "metric_definition": "exact replay、row/span唯一匹配、finite、四种边的raw map及GT fractional metrics仅作工程审计。",
+      "integrity_gates": "4/4 records或显式失败；模型/LoRA/manifest/source output本地存在；conda:IPLoc proof；public package tests；固定head和双图span；tmux-guarded路径allowlist。",
+      "expected_outcome": "若4/4通过，说明公共pipeline与新环境可进入R-001审核；若失败，保留失败记录，不变更科研变量。",
+      "acceptance_criteria": "4/4 token/row/span/grid/head/finite gate通过，生成summary、raw npz和显式failure records。",
+      "dependencies": "E005-R-029c；E003-R-004b；旧E008-R-000失败日志；mechanism/iplocid公共包。",
+      "limitations": "tmux-guarded为人类接受的降级隔离：宿主可读目录不可被内核隐藏、网络不可强制隔离；n4无科学结论。",
+      "claim_boundary": "仅支持公共pipeline工程正确性；不支持head role、identity、因果或行为结论。",
+      "audit_paths": "shell/06_experiments/E-008/events.md; mechanism/iplocid/ARCHITECTURE_MIGRATION.md",
+      "status": "draft",
+      "workspace_id": "02",
+      "git_commit": "",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry/outputs",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+      "artifacts": "",
+      "tmux_session": "incontext-E-008-E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+      "seed": "20260819",
+      "group_id": "",
+      "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+      "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+      "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+      "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/datasets/records.py",
+          "mechanism/iplocid/iplocid/models/qwen.py",
+          "mechanism/iplocid/iplocid/prompts/messages.py",
+          "mechanism/iplocid/iplocid/prompts/coordinates.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_attention_metrics.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "created_by": "terminal_pi",
+      "notes": "Replacement of R-000b after retryable pre-model runtime failure. User explicitly directed immediate execution after the recorded environment repair; scientific variables remain frozen.",
+      "id": "E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+      "experiment_id": "E-008",
+      "review_status": "draft",
+      "review_round": 0,
+      "created": "2026-08-19T16:20:18",
+      "updated": "2026-08-19T16:20:18",
+      "organization_snapshot": {
+        "time": "2026-08-19T16:20:18",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-dd0ef0f878cc80de634c"
+      },
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/E-008",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry/metrics.json",
+        "tmux_session": "incontext-E-008-E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": false,
+        "reason": "Run 尚未审核通过：review_status=draft"
+      }
+    },
+    {
+      "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+      "run_type": "engineering_gate",
+      "purpose": "在R-000b相同的冻结n4科研规范下，使用已修复的canonical IPLoc运行时重试公共pipeline；唯一执行层变化为已接受的tmux-guarded隔离。",
+      "necessity": "R-000b在模型加载前因旧Transformers缺少Qwen3VL类失败，0 forward；当前IPLoc已验证torch 2.2.2+cu121、transformers 4.57.3、Qwen3VL class和pip check均通过。",
+      "evidence_basis": "旧E008-R-000失败日志；E005-R-029c manifest；E003-R-004b generated_texts；公共iplocid tests。",
+      "implementation_summary": "公共iplocid role_audit_pipeline以--limit 4运行exact teacher replay，按query image path匹配E003 archived output。",
+      "implementation_details": "Q→Q使用query GT/grid，Q→R/G→R使用reference GT/grid；conda:IPLoc证明、固定tmux、allowlist写路径和已审核command继续强制。tmux-guarded不隐藏宿主可读目录且无法强制断网，已由人类接受。",
+      "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+      "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+      "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+      "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+      "metric_definition": "exact replay、row/span唯一匹配、finite、四种边的raw map及GT fractional metrics仅作工程审计。",
+      "integrity_gates": "4/4 records或显式失败；模型/LoRA/manifest/source output本地存在；conda:IPLoc proof；public package tests；固定head和双图span；tmux-guarded路径allowlist。",
+      "expected_outcome": "若4/4通过，说明公共pipeline与新环境可进入R-001审核；若失败，保留失败记录，不变更科研变量。",
+      "acceptance_criteria": "4/4 token/row/span/grid/head/finite gate通过，生成summary、raw npz和显式failure records。",
+      "dependencies": "E005-R-029c；E003-R-004b；旧E008-R-000失败日志；mechanism/iplocid公共包。",
+      "limitations": "tmux-guarded为人类接受的降级隔离：宿主可读目录不可被内核隐藏、网络不可强制隔离；n4无科学结论。 此为环境runtime retry，不产生额外科学变量。",
+      "claim_boundary": "仅支持公共pipeline工程正确性；不支持head role、identity、因果或行为结论。",
+      "audit_paths": "shell/06_experiments/E-008/events.md; mechanism/iplocid/ARCHITECTURE_MIGRATION.md",
+      "status": "running",
+      "workspace_id": "02",
+      "git_commit": "",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/outputs",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+      "artifacts": "",
+      "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+      "seed": "20260819",
+      "group_id": "",
+      "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+      "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+      "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+      "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。 本run仅替换已验证的运行时版本，科研样本/head/指标/提示词完全继承R-000b。",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/datasets/records.py",
+          "mechanism/iplocid/iplocid/models/qwen.py",
+          "mechanism/iplocid/iplocid/prompts/messages.py",
+          "mechanism/iplocid/iplocid/prompts/coordinates.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_attention_metrics.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "created_by": "terminal_pi",
+      "id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+      "experiment_id": "E-008",
+      "workflow_version": 2,
+      "workflow_stage": "running",
+      "review_status": "approved",
+      "review_round": 1,
+      "created": "2026-08-19T16:21:53",
+      "updated": "2026-08-19T16:22:25",
+      "organization_snapshot": {
+        "time": "2026-08-19T16:21:53",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-426868f13e81015475bb"
+      },
+      "workflow_history": [
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "submit-review",
+          "actor": "terminal_pi",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "approve",
+          "actor": "human:terminal-explicit-request",
+          "to": "ready_to_run"
+        }
+      ],
+      "submitted_for_review_at": "2026-08-19T16:21:53",
+      "review_history": [
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "submit",
+          "actor": "terminal_pi",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。 本run仅替换已验证的运行时版本，科研样本/head/指标/提示词完全继承R-000b。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+            "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+            "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/outputs",
+            "project_dir": null,
+            "purpose": "在R-000b相同的冻结n4科研规范下，使用已修复的canonical IPLoc运行时重试公共pipeline；唯一执行层变化为已接受的tmux-guarded隔离。",
+            "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+            "run_type": "engineering_gate",
+            "seed": "20260819",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+            "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+            "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "approve",
+          "actor": "human:terminal-explicit-request",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。 本run仅替换已验证的运行时版本，科研样本/head/指标/提示词完全继承R-000b。",
+            "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+            "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+            "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+            "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+            "git_commit": "",
+            "group_id": "",
+            "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+              "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/datasets/records.py",
+                "mechanism/iplocid/iplocid/models/qwen.py",
+                "mechanism/iplocid/iplocid/prompts/messages.py",
+                "mechanism/iplocid/iplocid/prompts/coordinates.py",
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_attention_metrics.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+            "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+            "metrics_path": null,
+            "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/outputs",
+            "project_dir": null,
+            "purpose": "在R-000b相同的冻结n4科研规范下，使用已修复的canonical IPLoc运行时重试公共pipeline；唯一执行层变化为已接受的tmux-guarded隔离。",
+            "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+            "run_type": "engineering_gate",
+            "seed": "20260819",
+            "server_id": null,
+            "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+            "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+            "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+            "workspace_id": "02"
+          }
+        },
+        {
+          "time": "2026-08-19T16:21:53",
+          "action": "authorize_execution",
+          "actor": "human:terminal-explicit-request",
+          "note": "User explicitly ordered immediate execution after canonical IPLoc runtime repair; tmux-guarded risk accepted."
+        }
+      ],
+      "approved_at": "2026-08-19T16:21:53",
+      "approved_by": "human:terminal-explicit-request",
+      "approved_spec": {
+        "architecture_plan": "公共包mechanism/iplocid/iplocid提供pipeline；configs/e008仅声明范围；tools/run_e008_r000.sh仅激活conda:IPLoc并调用公共CLI。tmux-guarded由survey-tool执行器强制审核快照、环境证明、固定command和allowlist路径。 本run仅替换已验证的运行时版本，科研样本/head/指标/提示词完全继承R-000b。",
+        "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+        "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r000.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid --old-data-prefix /home/featurize/data/LaSOTTesting --new-data-prefix /defaultShare/archive/liuwenchu/data/LaSOTTesting --limit 4",
+        "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+        "data_definition": "E003-R-004b positive n140 manifest前4样本；E003 generated_texts按query image path唯一匹配；不修改manifest/response/head/指标。",
+        "data_scale": "n=4 exact teacher replay；不产生n140科学结论。",
+        "git_commit": "",
+        "group_id": "",
+        "hypothesis": "唯一隔离变化不应改变公共pipeline对冻结4样本的token、row、span、grid和attention finite工程结果；若失败则是新环境/实现故障而非科学反证。",
+        "implementation_ref": {
+          "schema": "survey-tool.run-implementation/v1",
+          "package_root": "mechanism/iplocid/iplocid",
+          "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+          "config_path": "mechanism/iplocid/configs/e008/r000_alignment_smoke_n4.yaml",
+          "launcher_path": "mechanism/iplocid/tools/run_e008_r000.sh",
+          "reused_modules": [
+            "mechanism/iplocid/iplocid/datasets/records.py",
+            "mechanism/iplocid/iplocid/models/qwen.py",
+            "mechanism/iplocid/iplocid/prompts/messages.py",
+            "mechanism/iplocid/iplocid/prompts/coordinates.py",
+            "mechanism/iplocid/iplocid/attention/spans.py",
+            "mechanism/iplocid/iplocid/attention/metrics.py",
+            "mechanism/iplocid/iplocid/inference/replay.py"
+          ],
+          "added_modules": [
+            "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+          ],
+          "tests": [
+            "mechanism/iplocid/tests/test_attention_spans.py",
+            "mechanism/iplocid/tests/test_attention_metrics.py",
+            "mechanism/iplocid/tests/test_role_audit_spec.py"
+          ]
+        },
+        "launcher": null,
+        "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+        "metric_plan": "复用E-008 Experiment已登记exact_replay_rate、fractional_gt_mass、area_normalized_enrichment、pointing_rate和retained_mass_fiou_auc；本run只用它们验证对齐与finite，不解释组间科学差异。",
+        "metrics_path": null,
+        "model_config": "Qwen3-VL-8B-Instruct+IPLoc-ID 1shot LoRA；conda:IPLoc；bf16 eager；max_side=640。",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/outputs",
+        "project_dir": null,
+        "purpose": "在R-000b相同的冻结n4科研规范下，使用已修复的canonical IPLoc运行时重试公共pipeline；唯一执行层变化为已接受的tmux-guarded隔离。",
+        "research_question": "在tmux-guarded降级隔离下，同一n4公共iplocid exact replay能否完成R-000既定行/跨度工程门禁？",
+        "run_type": "engineering_gate",
+        "seed": "20260819",
+        "server_id": null,
+        "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+        "variables_controls": "G-heads=[L15H13,L16H23,L18H15]；L-heads=[L18H15,L19H03,L22H00,L20H08]；无attention/activation干预。",
+        "variant": "grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2",
+        "workspace_id": "02"
+      },
+      "execution_authorized_at": "2026-08-19T16:21:53",
+      "execution_authorized_by": "human:terminal-explicit-request",
+      "execution_authorization_note": "User explicitly ordered immediate execution after canonical IPLoc runtime repair; tmux-guarded risk accepted.",
+      "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "execution_dispatch_enqueue_result": {
+        "queued": true,
+        "idempotent": false,
+        "dispatch": {
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf",
+          "experiment_id": "E-008",
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "status": "queued",
+          "created_at": "2026-08-19T16:21:53",
+          "updated_at": "2026-08-19T16:21:53",
+          "authorization_timestamp": "2026-08-19T16:21:53",
+          "requested_route": "experiment_code_edit",
+          "requested_agent": "codex",
+          "requested_model": "sol",
+          "delivery_attempts": 0,
+          "claim_attempts": 0,
+          "last_error": "",
+          "history": [
+            {
+              "time": "2026-08-19T16:21:53",
+              "type": "queued",
+              "detail": "authorization_reliability"
+            }
+          ]
+        },
+        "needs_attention": false
+      },
+      "execution_authorization_consumed_at": "2026-08-19T16:22:25",
+      "execution_dispatch_id": "dispatch-0e828a23d12e40efd4f443bf",
+      "execution_dispatch_latest_status": "running",
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/E-008",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2/metrics.json",
+        "tmux_session": "incontext-E-008-E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": false,
+        "reason": "本次执行授权已被激活消费；再次执行需要用户重新授权"
+      }
+    },
+    {
+      "variant": "可编辑",
+      "group_id": "",
+      "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+      "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+      "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+      "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+      "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+      "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+      "workspace_id": "",
+      "id": "002",
+      "experiment_id": "E-008",
+      "workflow_version": 2,
+      "workflow_stage": "ready_to_run",
+      "status": "draft",
+      "review_status": "approved",
+      "review_round": 1,
+      "created": "2026-08-20T14:52:26",
+      "updated": "2026-08-20T15:49:32",
+      "organization_snapshot": {
+        "time": "2026-08-20T14:52:26",
+        "policy_version": "run-organization/v1",
+        "action": "microtask",
+        "group_id": "",
+        "reason": "ambiguous",
+        "task_id": "classify-b84ecd335864203c6355"
+      },
+      "workflow_history": [
+        {
+          "time": "2026-08-20T15:19:04",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-20T15:19:21",
+          "action": "reopen-design",
+          "from": "code_planning",
+          "to": "research_design",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-20T15:43:56",
+          "action": "confirm-design",
+          "from": "research_design",
+          "to": "code_planning",
+          "actor": "terminal_pi"
+        },
+        {
+          "time": "2026-08-20T15:49:25",
+          "action": "implementation-ready",
+          "from": "code_planning",
+          "to": "ready_for_review",
+          "actor": "human:web-v2"
+        },
+        {
+          "time": "2026-08-20T15:49:26",
+          "action": "submit-review",
+          "actor": "human:web-v2",
+          "to": "awaiting_review"
+        },
+        {
+          "time": "2026-08-20T15:49:29",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "to": "ready_to_run"
+        }
+      ],
+      "integrity_gates": "identity 的 bbox-token logits max_abs_diff≤5e-4；每个 query_permuted rewrite 的整行和误差与 query-span mass error≤5e-5；排序后的置换前后 query-span 权重 max_abs_diff≤5e-7（仅 bf16 写回误差）；entropy 差≤5e-6；置换索引为双射且长度>1、hash 可复算；reference-span 与 query-span 外值逐项不变；所有数值 finite；111 条 primary records 或显式逐条失败，禁止静默缩样。若 hook 未在 A@V 前生效或任一保持性门禁失败，停止且不解释 NLL 差。",
+      "acceptance_criteria": "完成可审计 baseline/identity/query_permuted teacher replay，逐 sample×head×row 保存 audit 与 bbox-token NLL/logit；只有 identity 和保持性门禁均通过时才报告 paired query_permuted 差异。该 run 无论正负均只决定是否值得另建自然生成 follow-up，不得由 teacher replay 声称 IoU、identity 或因果电路改善。",
+      "limitations": "teacher replay使用归档 response；attention probability 置换是分布外表征干预；多个 head/row 同时置换时无法归因到单一 head；远程连接未恢复，尚未核对实际 hook API、未实现或运行。",
+      "claim_boundary": "最多支持或削弱：在固定 target heads、exact natural bbox rows 和当前模型下，query-image visual-token attention 的位置—权重对应是否会改变 teacher-replayed bbox-token compatibility。不支持自然生成 bbox 改善、GT 空间定位质量、reference 使用、identity understanding 或跨模型泛化。",
+      "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+      "tmux_session": "incontext-E-008-002",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+        "launcher_path": "codespace/e008/run_e008_r002.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py",
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/attention/rewrite.py",
+          "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+          "codespace/e008/run_e008_r002.sh"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_rewrite.py",
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "submitted_for_review_at": "2026-08-20T15:49:26",
+      "review_history": [
+        {
+          "time": "2026-08-20T15:49:26",
+          "action": "submit",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+            "artifact_dir": null,
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+            "config": null,
+            "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+            "data_scale": null,
+            "git_commit": null,
+            "group_id": "",
+            "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "launcher_path": "codespace/e008/run_e008_r002.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py",
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/attention/rewrite.py",
+                "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+                "codespace/e008/run_e008_r002.sh"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_rewrite.py",
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+            "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+            "metrics_path": null,
+            "model_config": null,
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+            "project_dir": null,
+            "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+            "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+            "run_type": null,
+            "seed": null,
+            "server_id": null,
+            "tmux_session": "incontext-E-008-002",
+            "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+            "variant": "可编辑",
+            "workspace_id": ""
+          }
+        },
+        {
+          "time": "2026-08-20T15:49:29",
+          "action": "approve",
+          "actor": "human:web-v2",
+          "requirements": "",
+          "questions": "",
+          "snapshot": {
+            "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+            "artifact_dir": null,
+            "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+            "config": null,
+            "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+            "data_scale": null,
+            "git_commit": null,
+            "group_id": "",
+            "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+            "implementation_ref": {
+              "schema": "survey-tool.run-implementation/v1",
+              "package_root": "mechanism/iplocid/iplocid",
+              "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+              "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "launcher_path": "codespace/e008/run_e008_r002.sh",
+              "reused_modules": [
+                "mechanism/iplocid/iplocid/attention/spans.py",
+                "mechanism/iplocid/iplocid/attention/metrics.py",
+                "mechanism/iplocid/iplocid/inference/replay.py",
+                "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+              ],
+              "added_modules": [
+                "mechanism/iplocid/iplocid/attention/rewrite.py",
+                "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+                "codespace/e008/run_e008_r002.sh"
+              ],
+              "tests": [
+                "mechanism/iplocid/tests/test_attention_rewrite.py",
+                "mechanism/iplocid/tests/test_attention_spans.py",
+                "mechanism/iplocid/tests/test_role_audit_spec.py"
+              ]
+            },
+            "launcher": null,
+            "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+            "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+            "metrics_path": null,
+            "model_config": null,
+            "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+            "project_dir": null,
+            "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+            "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+            "run_type": null,
+            "seed": null,
+            "server_id": null,
+            "tmux_session": "incontext-E-008-002",
+            "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+            "variant": "可编辑",
+            "workspace_id": ""
+          }
+        },
+        {
+          "time": "2026-08-20T15:49:32",
+          "action": "authorize_execution",
+          "actor": "human:web-v2",
+          "note": ""
+        }
+      ],
+      "approved_at": "2026-08-20T15:49:29",
+      "approved_by": "human:web-v2",
+      "approved_spec": {
+        "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+        "artifact_dir": null,
+        "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+        "config": null,
+        "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+        "data_scale": null,
+        "git_commit": null,
+        "group_id": "",
+        "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+        "implementation_ref": {
+          "schema": "survey-tool.run-implementation/v1",
+          "package_root": "mechanism/iplocid/iplocid",
+          "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+          "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+          "launcher_path": "codespace/e008/run_e008_r002.sh",
+          "reused_modules": [
+            "mechanism/iplocid/iplocid/attention/spans.py",
+            "mechanism/iplocid/iplocid/attention/metrics.py",
+            "mechanism/iplocid/iplocid/inference/replay.py",
+            "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+          ],
+          "added_modules": [
+            "mechanism/iplocid/iplocid/attention/rewrite.py",
+            "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "codespace/e008/run_e008_r002.sh"
+          ],
+          "tests": [
+            "mechanism/iplocid/tests/test_attention_rewrite.py",
+            "mechanism/iplocid/tests/test_attention_spans.py",
+            "mechanism/iplocid/tests/test_role_audit_spec.py"
+          ]
+        },
+        "launcher": null,
+        "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+        "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+        "metrics_path": null,
+        "model_config": null,
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+        "project_dir": null,
+        "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+        "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+        "run_type": null,
+        "seed": null,
+        "server_id": null,
+        "tmux_session": "incontext-E-008-002",
+        "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+        "variant": "可编辑",
+        "workspace_id": ""
+      },
+      "execution_authorized_at": "2026-08-20T15:49:32",
+      "execution_authorized_by": "human:web-v2",
+      "execution_authorization_note": "",
+      "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "execution_dispatch_enqueue_result": {
+        "queued": true,
+        "idempotent": false,
+        "dispatch": {
+          "dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+          "experiment_id": "E-008",
+          "run_id": "002",
+          "status": "queued",
+          "created_at": "2026-08-20T15:49:32",
+          "updated_at": "2026-08-20T15:49:32",
+          "authorization_timestamp": "2026-08-20T15:49:32",
+          "requested_route": "experiment_code_edit",
+          "requested_agent": "codex",
+          "requested_model": "sol",
+          "delivery_attempts": 0,
+          "claim_attempts": 0,
+          "last_error": "",
+          "history": [
+            {
+              "time": "2026-08-20T15:49:32",
+              "type": "queued",
+              "detail": "authorization_reliability"
+            }
+          ]
+        },
+        "needs_attention": false
+      },
+      "resolved": {
+        "server_id": "02",
+        "server_label": "lwc-IPLoc",
+        "ssh_host": "NKU-LWC",
+        "workspace_id": "02",
+        "remote_repo": "/defaultShare/archive/liuwenchu/projects/IPLoc",
+        "remote_data_root": "/defaultShare/archive/liuwenchu/data/LaSOTTesting",
+        "project_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/E-008",
+        "environment_activation": "conda:IPLoc",
+        "launcher": "ssh NKU-LWC",
+        "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002",
+        "log_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+        "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+        "metrics_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/metrics.json",
+        "tmux_session": "incontext-E-008-002",
+        "dataset_bindings": [],
+        "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+        "complete": true,
+        "environment_policy": {
+          "allowed_write_roots": [
+            "/defaultShare/archive/liuwenchu/projects/IPLoc"
+          ],
+          "forbidden_paths": [
+            "/defaultShare/archive",
+            "/tmp"
+          ],
+          "read_only_roots": [
+            "/defaultShare/archive/liuwenchu/data/LaSOTTesting"
+          ],
+          "forbidden_operations": [
+            "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/liuwenchu/projects/IPLoc 下新建的临时回收站",
+            "触碰 / 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 之外的其他文件夹",
+            "触碰 /defaultShare/archive 下除 /defaultShare/archive/liuwenchu/projects/IPLoc 与 /defaultShare/archive/liuwenchu/data/LaSOTTesting 之外的其他文件夹",
+            "sudo",
+            "删除未明确列出的目录或数据"
+          ],
+          "temp_policy": "临时文件只能放在 /defaultShare/archive/liuwenchu/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+          "notes": "默认隐藏 /defaultShare/archive；managed execution 仅重新挂载 IPLoc 工程根（读写）与 LaSOTTesting（只读）。",
+          "policy_preset": "custom",
+          "dangerous_exceptions": [],
+          "default_deny_write": true
+        },
+        "policy_violations": [],
+        "policy_ok": true
+      },
+      "gate": {
+        "open": true,
+        "reason": "审核、单次授权、路径策略均有效"
+      }
+    }
+  ],
+  "canonical": {
+    "plan": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/plan.md",
+    "mission": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/mission.md",
+    "events": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/shell/06_experiments/E-008/events.md"
+  }
+}

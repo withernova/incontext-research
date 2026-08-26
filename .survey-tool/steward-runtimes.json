@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "runs": {
+    "002": {
+      "run_id": "002",
+      "phase": "agent_running",
+      "started_at": "2026-08-24T23:24:19",
+      "dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
+      "updated_at": "2026-08-24T23:24:23",
+      "pid": 59691,
+      "finished_at": "",
+      "error_class": "",
+      "runtime_kind": "herdr_pi",
+      "internal_agent_name": "steward-002-1c678ea5d8",
+      "internal_pane_id": "w1:pW",
+      "agent_status": "idle"
+    },
+    "003": {
+      "run_id": "003",
+      "phase": "agent_running",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+      "error_class": "",
+      "finished_at": "",
+      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
+      "updated_at": "2026-08-25T16:10:08",
+      "started_at": "2026-08-25T16:10:03",
+      "internal_agent_name": "steward-003-048e31bebe",
+      "internal_pane_id": "w1:p15",
+      "agent_status": "idle"
+    },
+    "E009-R-001-qwen3vl8b-lora-sft-capability-smoke": {
+      "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+      "phase": "handoff_ready",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+      "error_class": "",
+      "finished_at": "",
+      "message": "等待新 Pi 读取批准上下文并调用 Steward 扩展",
+      "updated_at": "2026-08-25T14:08:27"
+    }
+  }
+}

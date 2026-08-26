@@ -58,7 +58,7 @@ LocalizationHeads官方仓库commit 9ffe219；用户确认采用repo-original参
 （待补充）
 
 ## 审核入口
-codespace/e005_adapter; codespace/LocalizationHeads_upstream_sha256.txt; /home/featurize/work/mechanism/explog/E-005/runs/E005-R-000-repo-original-qwen-adapter-unit-gate
+shell/06_experiments/_legacy/codespace/e005_adapter; shell/06_experiments/_legacy/codespace/LocalizationHeads_upstream_sha256.txt; /home/featurize/work/mechanism/explog/E-005/runs/E005-R-000-repo-original-qwen-adapter-unit-gate
 
 ## 过程记录与补充细节
 （待补充）

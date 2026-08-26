@@ -3,7 +3,7 @@
 > 日期：2026-07-28  
 > 状态：`completed_offline_no_new_forward / inference_only / attention-derived non-causal`  
 > 输入：冻结的 R-027、R-028、R-029c 逐样本结果；无新 forward、无样本/head 重选。  
-> 实现：`codespace/e005_adapter/posthoc_qr_curve_analysis.py`  
+> 实现：`shell/06_experiments/_legacy/codespace/e005_adapter/posthoc_qr_curve_analysis.py`  
 > 失败记录：R-034 缺少 scipy；R-034b NumPy bool subtraction；两者均在统计输出前失败。R-034c 首次完整产出；R-034d 增加 cluster/pair Spearman CI 与 ECDF/ROC 图，作为最终版本。
 
 ## 1. 分析问题与反 threshold-fishing 约束

@@ -77,7 +77,7 @@ R-002v工程通过；R-003b完整性通过且科学upgrade失败。该run需单�
 （待补充）
 
 ## 审核入口
-E007-R-001 source artifacts; E007-R-002v raw A/A@V; E007-R-003b records/summary; codespace/e007/runner_002v_003b.py
+E007-R-001 source artifacts; E007-R-002v raw A/A@V; E007-R-003b records/summary; shell/06_experiments/_legacy/codespace/e007/runner_002v_003b.py
 
 ## 过程记录与补充细节
 （待补充）

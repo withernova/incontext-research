@@ -163,6 +163,60 @@
         }
       },
       "created_at": "2026-08-20T14:52:26"
+    },
+    {
+      "task_id": "classify-c608f5a68ccb1964d893",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "003",
+          "run_type": "",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-25T00:31:06"
+    },
+    {
+      "task_id": "classify-f3a5055da574672ea581",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "run_type": "smoke",
+          "variant": "Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验",
+          "purpose": "用极小的图像—指令—框答案数据完成加载、前向、反向、参数更新、保存和重载，直接判断当前机器与软件栈是否支持基础 SFT；本 Run 不评估 IPLoc-ID 的科学效果。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-25T13:46:56"
     }
   ]
 }

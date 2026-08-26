@@ -617,3 +617,886 @@ remote log=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/E008
   "task_id": "classify-b84ecd335864203c6355"
 }
 ```
+
+## 2026-08-20T15:19:04 · run_workflow
+- run: 002
+- message: 002: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-20T15:19:21 · run_workflow
+- run: 002
+- message: 002: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-20T15:42:29+08:00 · degraded
+- run: -
+- message: E-008 Run 002 设计前远程勘察被连接拒绝阻断；本轮未读取或修改远程代码、数据或产物。
+
+ssh featurize -> workspace.featurize.cn:48084 Connection refused；本地已核对E008 R001登记的公共role_audit_pipeline架构。
+
+## 2026-08-20T15:42:29+08:00 · handoff
+- run: -
+- message: Agent 已提交勘察结果与待确认表单
+
+## 2026-08-20T15:43:56+08:00 · run_update
+- run: 002
+- message: 已补全 Run 002：将“保持相同比例随机”精确定义为 query-image visual-token span 内原 attention 值的确定性 permutation，并补齐保持性门禁、对照、记录与结论边界。
+
+## 2026-08-20T15:43:56 · run_workflow
+- run: 002
+- message: 002: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-20T15:44:33+08:00 · run_update
+- run: 002
+- message: 补全代码架构：公共 attention rewrite/replay pipeline、配置、薄 launcher、测试和预期命令均已登记；命令中的资产参数待远程恢复后核验，尚未实现或执行。
+
+## 2026-08-20T15:49:25 · run_workflow
+- run: 002
+- message: 002: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-20T15:49:32 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-20T15:49:32",
+  "updated_at": "2026-08-20T15:49:32",
+  "authorization_timestamp": "2026-08-20T15:49:32",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-20T15:49:32",
+      "type": "queued",
+      "detail": "authorization_reliability"
+    }
+  ]
+}
+```
+
+## 2026-08-24T18:49:36 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T18:49:36",
+  "updated_at": "2026-08-24T18:49:36",
+  "authorization_timestamp": "2026-08-24T18:49:36.378961",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T18:49:36",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T18:49:36 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+  "new_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T19:15:43 · run_workflow
+- run: 002
+- message: 002: mark-failed → failed
+
+```json
+{
+  "version": 2,
+  "stage": "failed",
+  "legacy": false,
+  "step": 3,
+  "total": 6,
+  "label": "运行失败"
+}
+```
+
+## 2026-08-24T22:21:36 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-8bb60cd3e3d6200f96a12fcb",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T22:21:36",
+  "updated_at": "2026-08-24T22:21:36",
+  "authorization_timestamp": "2026-08-24T22:21:36.060192",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T22:21:36",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T22:21:36 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+  "new_dispatch_id": "dispatch-8bb60cd3e3d6200f96a12fcb",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T22:22:14 · run_workflow
+- run: 002
+- message: 002: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-24T22:22:17 · run_workflow
+- run: 002
+- message: 002: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-24T22:29:55 · run_workflow
+- run: 002
+- message: 002: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-24T22:30:02 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-12b9459a0b6ebc21dfeb1bbb",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T22:30:02",
+  "updated_at": "2026-08-24T22:30:02",
+  "authorization_timestamp": "2026-08-24T22:30:02",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T22:30:02",
+      "type": "queued",
+      "detail": "authorization_reliability"
+    }
+  ]
+}
+```
+
+## 2026-08-24T22:30:19 · run_workflow
+- run: 002
+- message: 002: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-24T22:30:20 · run_workflow
+- run: 002
+- message: 002: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-24T22:30:22 · run_workflow
+- run: 002
+- message: 002: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-24T22:30:35 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T22:30:35",
+  "updated_at": "2026-08-24T22:30:35",
+  "authorization_timestamp": "2026-08-24T22:30:35",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T22:30:35",
+      "type": "queued",
+      "detail": "authorization_reliability"
+    }
+  ]
+}
+```
+
+## 2026-08-24T22:41:34 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T22:41:34",
+  "updated_at": "2026-08-24T22:41:34",
+  "authorization_timestamp": "2026-08-24T22:41:34.908827",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T22:41:34",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T22:41:34 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+  "new_dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T23:07:21 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T23:07:21",
+  "updated_at": "2026-08-24T23:07:21",
+  "authorization_timestamp": "2026-08-24T23:07:21.831160",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T23:07:21",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T23:07:21 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+  "new_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T23:08:06 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T23:08:06",
+  "updated_at": "2026-08-24T23:08:06",
+  "authorization_timestamp": "2026-08-24T23:08:06.913906",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T23:08:06",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T23:08:06 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+  "new_dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T23:19:49 · run_runtime_command_prepared
+- run: 002
+- message: 002: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-24T23:24:13 · execution_dispatch_enqueue
+- run: 002
+- message: 002 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+  "experiment_id": "E-008",
+  "run_id": "002",
+  "status": "queued",
+  "created_at": "2026-08-24T23:24:13",
+  "updated_at": "2026-08-24T23:24:13",
+  "authorization_timestamp": "2026-08-24T23:24:13.569037",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T23:24:13",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-24T23:24:13 · run_execution_restarted
+- run: 002
+- message: 002: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+  "new_dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-24T23:25:51+08:00 · discovery
+- run: -
+- message: Run 002 远程实现路由回退：请求的 codex/sol 在当前 Codex 账户不受支持，按已配置路由改用 pi fallback。
+
+requested_route=experiment_code_edit; requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=Codex returned invalid_request_error: sol model is not supported
+
+## 2026-08-25T00:31:06 · run_organization
+- run: 003
+- message: 003: microtask
+
+```json
+{
+  "time": "2026-08-25T00:31:06",
+  "policy_version": "run-organization/v1",
+  "action": "microtask",
+  "group_id": "",
+  "reason": "ambiguous",
+  "task_id": "classify-c608f5a68ccb1964d893"
+}
+```
+
+## 2026-08-25T00:31:06+08:00 · run_created
+- run: 003
+- message: Agent 创建 canonical Run 003 · query-span attention 置换的自然生成 IoU 对照
+
+## 2026-08-25T00:31:49+08:00 · discovery
+- run: -
+- message: Run 003 远程实现按配置回退到 pi：experiment_code_edit 请求的 codex/sol 已在本会话确认不受当前 Codex 账户支持。
+
+requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=known invalid_request_error in current session; scope=Run 003 online generation IoU implementation
+
+## 2026-08-25T00:33:59+08:00 · run_update
+- run: 003
+- message: Run 003自然生成IoU对照已完成最小实现；py_compile、shell syntax、10个测试与diff check通过。
+
+## 2026-08-25T00:33:59 · run_workflow
+- run: 003
+- message: 003: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-25T00:33:59+08:00 · run_review_submitted
+- run: 003
+- message: 自然生成IoU三条件对照已实现并通过聚焦检查；请求按用户本轮“测量一下”直接审核执行。
+
+## 2026-08-25T00:55:34 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T00:55:34",
+  "updated_at": "2026-08-25T00:55:34",
+  "authorization_timestamp": "2026-08-25T00:55:34.889989",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T00:55:34",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T00:55:34 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T02:14:15 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-d1aea01446ea81315901cdd5",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T02:14:15",
+  "updated_at": "2026-08-25T02:14:15",
+  "authorization_timestamp": "2026-08-25T02:14:15.141605",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T02:14:15",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T02:14:15 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-d1aea01446ea81315901cdd5",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T02:15:17 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-9932233e6089037952aa062d",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T02:15:17",
+  "updated_at": "2026-08-25T02:15:17",
+  "authorization_timestamp": "2026-08-25T02:15:17.546804",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T02:15:17",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T02:15:17 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-9932233e6089037952aa062d",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T02:19:37 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-b4debf02e1c9479b72f8a462",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T02:19:37",
+  "updated_at": "2026-08-25T02:19:37",
+  "authorization_timestamp": "2026-08-25T02:19:37.972065",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T02:19:37",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T02:19:37 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-b4debf02e1c9479b72f8a462",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T02:30:20 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-ab2be0d900f5e9c155f6a26a",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T02:30:20",
+  "updated_at": "2026-08-25T02:30:20",
+  "authorization_timestamp": "2026-08-25T02:30:20.891368",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T02:30:20",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T02:30:20 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-ab2be0d900f5e9c155f6a26a",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T09:47:04 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T09:47:04",
+  "updated_at": "2026-08-25T09:47:04",
+  "authorization_timestamp": "2026-08-25T09:47:04.000561",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T09:47:04",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T09:47:04 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T10:11:43 · run_runtime_command_prepared
+- run: 003
+- message: 003: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-25T16:09:52 · execution_dispatch_enqueue
+- run: 003
+- message: 003 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+  "experiment_id": "E-008",
+  "run_id": "003",
+  "status": "queued",
+  "created_at": "2026-08-25T16:09:52",
+  "updated_at": "2026-08-25T16:09:52",
+  "authorization_timestamp": "2026-08-25T16:09:52.190650",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-25T16:09:52",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-25T16:09:52 · run_direct_steward
+- run: 003
+- message: 003: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-25T16:14:22 · run_runtime_command_prepared
+- run: 003
+- message: 003: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+  "consumer": "pi-steward"
+}
+```

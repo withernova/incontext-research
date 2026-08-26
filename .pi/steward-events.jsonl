@@ -1,0 +1,119 @@
+{"time":"2026-08-24T11:07:48.827Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-24T16:05:03.810Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"tmux stopped before completion"}
+{"time":"2026-08-24T16:07:06.442Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:09:09.069Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:11:11.591Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:13:14.123Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:15:16.774Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:17:19.243Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:19:21.596Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:21:24.190Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:23:26.826Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:25:29.437Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:27:32.409Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:29:35.143Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:31:37.685Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:33:40.271Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:35:42.920Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:37:45.479Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:38:06.839Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-24T16:39:48.107Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:41:51.785Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:43:54.307Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:45:56.941Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:47:59.537Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:50:02.191Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:52:04.856Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:54:07.903Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:55:46.256Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-24T16:56:10.721Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T16:58:13.433Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:00:16.059Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:02:18.797Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:04:21.588Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:06:24.207Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:08:26.807Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:10:29.594Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:12:32.478Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:13:13.559Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-24T17:14:35.083Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:15:16.228Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:16:37.704Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:17:18.872Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:18:40.338Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:19:21.404Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:20:43.009Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:21:24.172Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:22:45.710Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:23:26.846Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:24:48.412Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:25:29.505Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:26:50.898Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:27:32.169Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:28:53.495Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:29:18.801Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"user requested via tool"}
+{"time":"2026-08-24T17:30:56.082Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:32:58.722Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:35:01.722Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:37:04.614Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:39:07.171Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:41:09.726Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:43:12.335Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:45:14.832Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:47:17.614Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:49:20.191Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:51:22.799Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:53:25.368Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:55:27.809Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:57:30.556Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T17:59:33.251Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:01:35.672Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:03:38.189Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:05:40.845Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:07:43.400Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:09:45.962Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:11:48.583Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:13:51.202Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:14:32.540Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-24T18:15:53.866Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:17:56.593Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-24T18:20:00.510Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-25T06:12:54.025Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-25T06:14:01.379Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-25T06:15:34.593Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-25T06:17:37.706Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:19:40.303Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:21:42.939Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:23:45.514Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:25:48.118Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:27:50.748Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:29:53.623Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:31:56.309Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:33:58.879Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:36:01.418Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:38:03.912Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:40:06.845Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:42:09.337Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:44:11.895Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:46:14.688Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:48:17.399Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T06:49:27.967Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-25T07:29:57.541Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
+{"time":"2026-08-25T07:42:26.635Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-25T07:44:29.439Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:46:32.209Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:48:34.610Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:50:37.114Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:52:39.522Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:54:41.969Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:56:44.679Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T07:58:47.074Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:00:49.460Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:02:52.065Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:04:54.474Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:06:57.011Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:08:59.427Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:11:02.290Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"new error occurrence"}
+{"time":"2026-08-25T08:13:04.819Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:15:07.411Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-25T08:17:10.051Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}

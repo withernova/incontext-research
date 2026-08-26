@@ -1,0 +1,26 @@
+{
+  "contract": "survey-tool.experiment-handoff/v1",
+  "experiment_id": "E-008",
+  "verified_facts": [
+    {
+      "label": "远程勘察状态",
+      "value": "已登记的 SSH alias 当前连接被拒绝，未读取或修改远程代码、数据或运行产物。",
+      "evidence": "2026-08-20: ssh -o BatchMode=yes -o ConnectTimeout=10 featurize ... -> Connection refused"
+    },
+    {
+      "label": "已有公共实现入口",
+      "value": "E-008 已登记公共 role_audit_pipeline 及 attention/spans、metrics、replay 模块，Run 002 应在同一公共包内增加最小 query-span permutation 机制，而非复制 runner。",
+      "evidence": "shell/06_experiments/E-008/runs/E008-R-001-grounding-heads-query-image-role-audit-n140-640.md §3"
+    }
+  ],
+  "proposal": {
+    "objective": "在 exact teacher replay 的自然 bbox p-1 rows 上，直接置换 target heads 对 query-image visual-token span 的原 attention 值，测试 query-token 的位置—权重对应是否影响 bbox-token compatibility。",
+    "implementation_scope": "在公共 attention rewrite hook 中增加 query_span_permute mode；对每个 sample/layer/head/row 派生确定性置换，只重排 query span 内值，reference span 与非视觉 token 不改。",
+    "evaluation": "比较 baseline、identity 与 query_permuted 的自然 bbox token NLL/logit 差；逐记录验证 row sum、query-span mass、排序权重、多重集、entropy 和 selected-token count 不变。"
+  },
+  "questions": [],
+  "risks": [
+    "远程连接恢复前，公共模块的确切函数签名与最小修改位置仍须复核；本轮仅完成可审核设计，不实现或执行。",
+    "该 intervention 测试 query-image 内空间位置—权重对应，不能替代或解释 Q→R reference routing。"
+  ]
+}

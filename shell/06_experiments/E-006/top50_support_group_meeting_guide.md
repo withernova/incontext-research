@@ -357,6 +357,6 @@ Q→Q：1.0→4.0/4，仅作natural-bbox localization sanity check。
 补充选择统计：analysis/support_selection_details.json
 bootstrap组差：analysis/poststats.json
 逐样本可视化：visualizations/*.png
-实验代码：codespace/e005_adapter/e006_simple_support_audit.py
+实验代码：shell/06_experiments/_legacy/codespace/e005_adapter/e006_simple_support_audit.py
 正式结果：shell/06_experiments/E-006/result.md
 ```

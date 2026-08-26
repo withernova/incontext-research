@@ -77,7 +77,7 @@ R-006保留exit1/traceback为失败attempt，不覆盖。R-006b需新的人工�
 （待补充）
 
 ## 审核入口
-E007-R-006 logs/exit.code/train.log; codespace/e007/runner_006.py; E007-R-002v engineering artifacts; E007-R-001 frozen manifest
+E007-R-006 logs/exit.code/train.log; shell/06_experiments/_legacy/codespace/e007/runner_006.py; E007-R-002v engineering artifacts; E007-R-001 frozen manifest
 
 ## 过程记录与补充细节
 （待补充）

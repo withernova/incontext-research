@@ -224,3 +224,32 @@ requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=Cod
   ]
 }
 ```
+
+## 2026-08-24T16:09:36 · execution_dispatch_enqueue
+- run: E007-R-004b-fresh-top3-mapping-family-joint-f1-n140
+- message: E007-R-004b-fresh-top3-mapping-family-joint-f1-n140 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-7d458141203ab1fd247f9305",
+  "experiment_id": "E-007",
+  "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+  "status": "queued",
+  "created_at": "2026-08-24T16:09:36",
+  "updated_at": "2026-08-24T16:09:36",
+  "authorization_timestamp": "2026-08-04T22:46:10",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T16:09:36",
+      "type": "queued",
+      "detail": "reconciliation"
+    }
+  ]
+}
+```

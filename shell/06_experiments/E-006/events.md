@@ -218,3 +218,32 @@
 ## 2026-08-04T19:41:14+08:00 · run_update
 - run: E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer
 - message: Approved authorization consumed for Stage0 only. Immutable preregistered geometry retention gate failed; stopped before GPU/model inference. Artifacts preserved in canonical run directory.
+
+## 2026-08-24T16:09:36 · execution_dispatch_enqueue
+- run: E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz
+- message: E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac",
+  "experiment_id": "E-006",
+  "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+  "status": "queued",
+  "created_at": "2026-08-24T16:09:36",
+  "updated_at": "2026-08-24T16:09:36",
+  "authorization_timestamp": "2026-08-03T18:01:45",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-24T16:09:36",
+      "type": "queued",
+      "detail": "reconciliation"
+    }
+  ]
+}
+```

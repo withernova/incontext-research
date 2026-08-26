@@ -50,4 +50,6 @@
 - [[E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded|grounding heads query-image alignment smoke n4 tmux-guarded replacement]] ← [[E-008]] · `failed`
 - [[E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry|grounding heads query-image alignment smoke n4 tmux-guarded runtime retry]] ← [[E-008]] · `draft`
 - [[E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2|grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2]] ← [[E-008]] · `running`
-- [[002|可编辑]] ← [[E-008]] · `draft`
+- [[002|可编辑]] ← [[E-008]] · `failed`
+- [[003|query-span attention 置换的自然生成 IoU 对照]] ← [[E-008]] · `approved`
+- [[E009-R-001-qwen3vl8b-lora-sft-capability-smoke|Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验]] ← [[E-009]] · `approved`

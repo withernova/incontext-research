@@ -7878,22 +7878,22 @@
   {
     "variant": "可编辑",
     "group_id": "",
-    "research_question": "如果将query head对query image 的attention清空或者在保持相同attention比例的情况下随机，那模型最后的预测结果会怎么样呢",
-    "purpose": "看看query head对query image 的attention是不是起到了模型预测的决定性结果",
-    "hypothesis": "",
-    "metric_plan": "可以衡量一下相较于R001的预测结果变化。可视化方式参考R001",
-    "data_definition": "",
-    "variables_controls": "",
+    "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+    "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+    "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+    "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+    "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+    "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
     "workspace_id": "",
     "id": "002",
     "experiment_id": "E-008",
     "workflow_version": 2,
-    "workflow_stage": "research_design",
-    "status": "draft",
-    "review_status": "draft",
-    "review_round": 0,
+    "workflow_stage": "failed",
+    "status": "failed",
+    "review_status": "approved",
+    "review_round": 3,
     "created": "2026-08-20T14:52:26",
-    "updated": "2026-08-20T14:52:26",
+    "updated": "2026-08-25T00:14:40",
     "organization_snapshot": {
       "time": "2026-08-20T14:52:26",
       "policy_version": "run-organization/v1",
@@ -7901,6 +7901,2217 @@
       "group_id": "",
       "reason": "ambiguous",
       "task_id": "classify-b84ecd335864203c6355"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-08-20T15:19:04",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-20T15:19:21",
+        "action": "reopen-design",
+        "from": "code_planning",
+        "to": "research_design",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-20T15:43:56",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-20T15:49:25",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-20T15:49:26",
+        "action": "submit-review",
+        "actor": "human:web-v2",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-20T15:49:29",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "to": "ready_to_run"
+      },
+      {
+        "time": "2026-08-24T18:49:36.378961",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5"
+      },
+      {
+        "time": "2026-08-24T19:15:43",
+        "action": "mark-failed",
+        "from": "running",
+        "to": "failed",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T21:56:52",
+        "action": "repair-running-dispatch-projection",
+        "from": "failed",
+        "to": "running",
+        "actor": "pi-steward:94453",
+        "dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7"
+      },
+      {
+        "time": "2026-08-24T22:21:36.060192",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7"
+      },
+      {
+        "time": "2026-08-24T22:22:14",
+        "action": "reopen-design",
+        "from": "ready_to_run",
+        "to": "research_design",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:22:17",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:29:55",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:29:57",
+        "action": "submit-review",
+        "actor": "human:web-v2",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-24T22:29:59",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "to": "ready_to_run"
+      },
+      {
+        "time": "2026-08-24T22:30:19",
+        "action": "reopen-design",
+        "from": "ready_to_run",
+        "to": "research_design",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:30:20",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:30:22",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-24T22:30:23",
+        "action": "submit-review",
+        "actor": "human:web-v2",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-24T22:30:25",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "to": "ready_to_run"
+      },
+      {
+        "time": "2026-08-24T22:41:34.908827",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-70498202b197844ef78f6a8e"
+      },
+      {
+        "time": "2026-08-24T23:07:21.831160",
+        "action": "restart-failed-execution",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-e4a5583cdcca020b98f51566"
+      },
+      {
+        "time": "2026-08-24T23:08:06.913906",
+        "action": "restart-failed-execution",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2"
+      },
+      {
+        "time": "2026-08-24T23:24:13.569037",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-8d013bc6d22b89c771732b10"
+      },
+      {
+        "time": "2026-08-24T23:49:23",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+        "reason": "已释放遗留 lease；canonical project_dir 已修复，按用户明确指令强制直接重启同一 approved Run 002。"
+      }
+    ],
+    "integrity_gates": "identity 的 bbox-token logits max_abs_diff≤5e-4；每个 query_permuted rewrite 的整行和误差与 query-span mass error≤5e-5；排序后的置换前后 query-span 权重 max_abs_diff≤5e-7（仅 bf16 写回误差）；entropy 差≤5e-6；置换索引为双射且长度>1、hash 可复算；reference-span 与 query-span 外值逐项不变；所有数值 finite；111 条 primary records 或显式逐条失败，禁止静默缩样。若 hook 未在 A@V 前生效或任一保持性门禁失败，停止且不解释 NLL 差。",
+    "acceptance_criteria": "完成可审计 baseline/identity/query_permuted teacher replay，逐 sample×head×row 保存 audit 与 bbox-token NLL/logit；只有 identity 和保持性门禁均通过时才报告 paired query_permuted 差异。该 run 无论正负均只决定是否值得另建自然生成 follow-up，不得由 teacher replay 声称 IoU、identity 或因果电路改善。",
+    "limitations": "teacher replay使用归档 response；attention probability 置换是分布外表征干预；多个 head/row 同时置换时无法归因到单一 head；远程连接未恢复，尚未核对实际 hook API、未实现或运行。",
+    "claim_boundary": "最多支持或削弱：在固定 target heads、exact natural bbox rows 和当前模型下，query-image visual-token attention 的位置—权重对应是否会改变 teacher-replayed bbox-token compatibility。不支持自然生成 bbox 改善、GT 空间定位质量、reference 使用、identity understanding 或跨模型泛化。",
+    "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+    "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+    "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+    "tmux_session": "incontext-E-008-002",
+    "implementation_ref": {
+      "schema": "survey-tool.run-implementation/v1",
+      "package_root": "mechanism/iplocid/iplocid",
+      "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+      "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+      "launcher_path": "",
+      "reused_modules": [
+        "mechanism/iplocid/iplocid/attention/spans.py",
+        "mechanism/iplocid/iplocid/attention/metrics.py",
+        "mechanism/iplocid/iplocid/inference/replay.py",
+        "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+      ],
+      "added_modules": [
+        "mechanism/iplocid/iplocid/attention/rewrite.py",
+        "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+      ],
+      "tests": [
+        "mechanism/iplocid/tests/test_attention_rewrite.py",
+        "mechanism/iplocid/tests/test_attention_spans.py",
+        "mechanism/iplocid/tests/test_role_audit_spec.py"
+      ]
+    },
+    "submitted_for_review_at": "2026-08-24T22:30:23",
+    "review_history": [
+      {
+        "time": "2026-08-20T15:49:26",
+        "action": "submit",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "codespace/e008/run_e008_r002.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "codespace/e008/run_e008_r002.sh"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-20T15:49:29",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "codespace/e008/run_e008_r002.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "codespace/e008/run_e008_r002.sh"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-20T15:49:32",
+        "action": "authorize_execution",
+        "actor": "human:web-v2",
+        "note": ""
+      },
+      {
+        "time": "2026-08-24T18:49:36.378961",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "codespace/e008/run_e008_r002.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "codespace/e008/run_e008_r002.sh"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:21:36.060192",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "codespace/e008/run_e008_r002.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+              "codespace/e008/run_e008_r002.sh"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:29:57",
+        "action": "submit",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:29:59",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:30:02",
+        "action": "authorize_execution",
+        "actor": "human:web-v2",
+        "note": ""
+      },
+      {
+        "time": "2026-08-24T22:30:23",
+        "action": "submit",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:30:25",
+        "action": "approve",
+        "actor": "human:web-v2",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T22:30:35",
+        "action": "authorize_execution",
+        "actor": "human:web-v2",
+        "note": ""
+      },
+      {
+        "time": "2026-08-24T22:41:34.908827",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T23:07:21.831160",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T23:08:06.913906",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest <E003-R-004b-positive-n140-manifest> --source-output <E003-R-004b-archived-natural-responses> --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path <canonical-qwen-model> --lora-path <canonical-iplocid-lora>",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      },
+      {
+        "time": "2026-08-24T23:24:13.569037",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+        "snapshot": {
+          "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+          "artifact_dir": null,
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": null,
+          "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": "",
+          "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+            "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+            "launcher_path": "",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/attention/metrics.py",
+              "mechanism/iplocid/iplocid/inference/replay.py",
+              "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+            ],
+            "added_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+            ],
+            "tests": [
+              "mechanism/iplocid/tests/test_attention_rewrite.py",
+              "mechanism/iplocid/tests/test_attention_spans.py",
+              "mechanism/iplocid/tests/test_role_audit_spec.py"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+          "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+          "project_dir": null,
+          "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+          "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+          "run_type": null,
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-008-002",
+          "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+          "variant": "可编辑",
+          "workspace_id": ""
+        }
+      }
+    ],
+    "approved_at": "2026-08-24T22:30:25",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "公共实现放入 mechanism/iplocid/iplocid：复用 exact teacher replay、双图 span 定位和 eager-attention hook；在已有 hook/spec 增加 query_span_permute mode 与不可变性审计，在公共 replay pipeline 增加 baseline/identity/query_permuted 条件循环和逐 row/head audit 聚合。配置 configs/e008/r002_query_span_permutation_n111.yaml 固定 seed、main4、三条件与样本范围；tools/run_e008_r002.sh 只做环境准备并调用公共 CLI。单元测试覆盖确定性置换、双射、query span 值多重集/熵/mass 保持、非目标 span 不变与 identity logits。远程恢复后必须先核验这些模块的真实路径和函数签名；本轮尚未实现。",
+      "artifact_dir": null,
+      "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/codespace/e008/run_e008_r002.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+      "config": null,
+      "data_definition": "复用 E003-R-004b positive n140 manifest 与归档 natural responses；primary 仅采用可唯一匹配归档 response、双图 span 和 natural bbox token p-1 rows 的 accepted error35+correct76=n111。partial/rejected 只报告对齐覆盖，不因结果补样本；样本、head、row 均在查看干预结果前固定。",
+      "data_scale": null,
+      "git_commit": null,
+      "group_id": "",
+      "hypothesis": "若 query-image 内空间位置—权重对应对 bbox token 重要，query_permuted 相对 identity/baseline 应改变 natural bbox token NLL 与 logits；若主要只依赖 query-image 总预算或下游对该细粒度布局不敏感，置换效应应接近 identity。",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.role_audit_pipeline:main",
+        "config_path": "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml",
+        "launcher_path": "",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/attention/metrics.py",
+          "mechanism/iplocid/iplocid/inference/replay.py",
+          "mechanism/iplocid/iplocid/pipelines/role_audit_pipeline.py"
+        ],
+        "added_modules": [
+          "mechanism/iplocid/iplocid/attention/rewrite.py",
+          "mechanism/iplocid/configs/e008/r002_query_span_permutation_n111.yaml"
+        ],
+        "tests": [
+          "mechanism/iplocid/tests/test_attention_rewrite.py",
+          "mechanism/iplocid/tests/test_attention_spans.py",
+          "mechanism/iplocid/tests/test_role_audit_spec.py"
+        ]
+      },
+      "launcher": null,
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log",
+      "metric_plan": "复用 exact_replay_rate 作为行/span 对齐门禁；主指标为每样本自然 bbox token mean NLL 相对 baseline 的配对差和 selected bbox-token logits 最大绝对差。辅助记录 query-image span 的 raw attention entropy、sorted-value max difference、query-span mass error、整行和误差、A@V L2/cosine change；不复用 GT attention 空间质量指标作为干预选择或主结论。",
+      "metrics_path": null,
+      "model_config": null,
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/outputs",
+      "project_dir": null,
+      "purpose": "比较原 attention、identity 重写与 query-span 内位置置换，检验模型是否依赖 query 图像中“哪个 token 获得哪个 attention 权重”的空间对应关系，而不是只依赖 query-image 总 attention 预算。该比较不改 reference span，排除把 Q→R 路由变化误当成 query-image 内部空间效应。",
+      "research_question": "在自然 bbox token 的 exact teacher replay 中，若只置换 target query heads 在 query-image visual-token span 内的原 attention 值、而不改变该 span 总质量或权重分布，bbox-token 预测会否改变？",
+      "run_type": null,
+      "seed": null,
+      "server_id": null,
+      "tmux_session": "incontext-E-008-002",
+      "variables_controls": "干预层级=attention probability representation，在 softmax 后、dropout 前、A@V 前。target heads 固定 L18H15,L19H03,L22H00,L20H08；每个 exact bbox p-1 row 独立处理。条件为 baseline（无 hook）、identity（原 query-span 值原位写回）和 query_permuted（仅对 query visual span 的原值作确定性一一置换）。reference visual span、文本、其他 token、target V 与 Q→R attention 全部保持原样；不重采样、不归一化、不改变 query-span mass。",
+      "variant": "可编辑",
+      "workspace_id": ""
+    },
+    "execution_dispatch_enqueue_result": {
+      "queued": true,
+      "idempotent": false,
+      "dispatch": {
+        "dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+        "experiment_id": "E-008",
+        "run_id": "002",
+        "status": "queued",
+        "created_at": "2026-08-24T22:30:35",
+        "updated_at": "2026-08-24T22:30:35",
+        "authorization_timestamp": "2026-08-24T22:30:35",
+        "requested_route": "experiment_code_edit",
+        "requested_agent": "codex",
+        "requested_model": "sol",
+        "delivery_attempts": 0,
+        "claim_attempts": 0,
+        "last_error": "",
+        "history": [
+          {
+            "time": "2026-08-24T22:30:35",
+            "type": "queued",
+            "detail": "authorization_reliability"
+          }
+        ]
+      },
+      "needs_attention": false
+    },
+    "implementation_history": [
+      {
+        "time": "2026-08-24T22:29:55",
+        "fields": [
+          "implementation_ref"
+        ],
+        "migration": "removed_legacy_codespace_references",
+        "removed_fields": [
+          "added_modules",
+          "launcher_path"
+        ]
+      }
+    ],
+    "execution_authorized_at": "2026-08-24T23:24:13.569037",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "人工重新启动 failed Steward；沿用未变化的 approved spec",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "execution_authorization_consumed_at": "2026-08-24T23:28:22",
+    "execution_dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+    "execution_dispatch_latest_status": "failed",
+    "execution_dispatch_failed_at": "2026-08-25T00:14:40",
+    "execution_dispatch_failure": {
+      "failure_class": "scientific",
+      "reason": "进程 exit 0 但 completion contract 缺失 metrics.json 与完成 marker；需要释放 managed lease 后只读审计现有 summary、111 条记录和可视化，确认是否是交付层缺失而非科学运行失败。",
+      "retryable": true
     }
+  },
+  {
+    "variant": "query-span attention 置换的自然生成 IoU 对照",
+    "run_type": "",
+    "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+    "necessity": "",
+    "evidence_basis": "",
+    "implementation_summary": "新增自回归自然生成三条件pipeline；生成时用当前decode row=-1并按KV key length派生确定性置换，直到首个右方括号停止；逐样本保存文本、bbox、IoU和rewrite audit。",
+    "implementation_details": "baseline卸载hook；identity/query_permuted安装softmax后、dropout前、A@V前hook。query span由prompt双图token定位；四个main4 heads；无合法bbox的full IoU记0。",
+    "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+    "data_scale": "",
+    "model_config": "",
+    "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+    "metric_definition": "",
+    "integrity_gates": "111×3条件均须有显式record或失败原因；identity与baseline逐token完全一致，否则停止；每次rewrite保持query-span mass、值多重集、entropy与span外值；仅在bbox前缀施加；所有IoU finite且[0,1]，无合法bbox按预注册规则记0。",
+    "expected_outcome": "",
+    "acceptance_criteria": "写出333条生成record、逐样本三条件文本/bbox/IoU、配对metrics.json和代表样本操作拼图；通过identity与保持性门禁后报告IoU差，结果停在analysis_pending，不自动形成Claim。",
+    "dependencies": "",
+    "limitations": "这是在按历史IoU extremes预固定的条件cohort上的OOD attention干预；不能估计总体性能，也不能证明identity理解或唯一因果电路。逐token生成的KV-cache row与teacher replay full-sequence row不同，必须先做n4 exact replay/online一致性smoke。",
+    "claim_boundary": "最多说明在当前模型、main4 heads和预固定111样本上，query-span attention空间置换对自然生成bbox IoU的影响；不推广到其他heads、模型或数据分布。",
+    "audit_paths": "",
+    "status": "approved",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e008_r003_trials.sh",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+    "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "incontext-E-008-003",
+    "seed": "20260824",
+    "group_id": "",
+    "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+    "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+    "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+    "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+    "created_by": "terminal_pi",
+    "id": "003",
+    "experiment_id": "E-008",
+    "workflow_version": 2,
+    "workflow_stage": "ready_to_run",
+    "review_status": "approved",
+    "review_round": 1,
+    "created": "2026-08-25T00:31:06",
+    "updated": "2026-08-25T23:16:53",
+    "organization_snapshot": {
+      "time": "2026-08-25T00:31:06",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-c608f5a68ccb1964d893"
+    },
+    "implementation_ref": {
+      "schema": "survey-tool.run-implementation/v1",
+      "package_root": "mechanism/iplocid/iplocid",
+      "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+      "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+      "reused_modules": [
+        "mechanism/iplocid/iplocid/attention/rewrite.py",
+        "mechanism/iplocid/iplocid/attention/spans.py",
+        "mechanism/iplocid/iplocid/models/qwen.py"
+      ],
+      "tests": [
+        "python -m py_compile",
+        "python -m pytest -q tests: 10 passed",
+        "bash -n tools/run_e008_r003.sh"
+      ]
+    },
+    "workflow_history": [
+      {
+        "time": "2026-08-25T00:33:59",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-25T00:33:59",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-25T00:55:34.889989",
+        "action": "direct-steward",
+        "from": "awaiting_review",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T01:29:37",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+        "reason": "changed evidence: exit_code=0 and metrics.json exists; retry only to restore managed state and validate completion artifacts/marker, not rerun scientific scope."
+      },
+      {
+        "time": "2026-08-25T02:14:15",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 5,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-d34b834ed9b3cb087eca6486"
+        ]
+      },
+      {
+        "time": "2026-08-25T02:14:15.141605",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T02:15:17",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 5,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-d1aea01446ea81315901cdd5"
+        ]
+      },
+      {
+        "time": "2026-08-25T02:15:17.546804",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T02:19:37",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 5,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-9932233e6089037952aa062d"
+        ]
+      },
+      {
+        "time": "2026-08-25T02:19:37.972065",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T02:30:20",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 5,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-b4debf02e1c9479b72f8a462"
+        ]
+      },
+      {
+        "time": "2026-08-25T02:30:20.891368",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T09:47:03",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 5,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-ab2be0d900f5e9c155f6a26a"
+        ]
+      },
+      {
+        "time": "2026-08-25T09:47:04.000561",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T13:10:05",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+        "reason": "Fixed T-003 BF16 uniform mass preservation by quantizing the common value and assigning a representable residual to the final query-span token; added BF16 regression test and focused suite passes 5/5. Retry same approved 5-Trial manifest and batch command."
+      },
+      {
+        "time": "2026-08-25T15:41:57",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+        "reason": "T-004 failure traced to BF16 attention cast before rewrite and row renormalization. Rewrites now retain float32 attention for uniform/mass_scale/mass_zero paths; mass redistribution is therefore performed in high precision before model output casting. Focused intervention checks and full 11-test suite pass."
+      },
+      {
+        "time": "2026-08-25T16:09:52",
+        "action": "trial-plan-prepared",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 6,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-0c7f3e62eb4069956e6ba98d"
+        ]
+      },
+      {
+        "time": "2026-08-25T16:09:52.190650",
+        "action": "direct-steward",
+        "from": "running",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T16:41:52",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+        "reason": "Human explicitly requests cancellation of the currently attached stale attempt because it is considered an old experiment and must not consume further compute. Changed evidence: explicit human instruction now requires terminating the existing managed tmux attempt and restarting only the canonical six-Trial manifest (T-001..T-006, concurrency=1) with the corrected launcher; do not preserve or complete the old attempt."
+      },
+      {
+        "time": "2026-08-25T19:02:39",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+        "reason": "Human explicitly authorizes cleanup of obsolete Run 003 attempts and direct restart of only the canonical six-Trial plan. Changed evidence: tmux is dead, GPUs are free, the latest attempt did not satisfy the six-Trial result contract, and the user now authorizes removal/quarantine of stale 003 trial outputs before retry. Preserve governance state and retain the exact approved T-001..T-006 manifest."
+      },
+      {
+        "time": "2026-08-25T23:16:53",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+        "reason": "User explicitly requests fixing the T-004 intervention and resuming from T-004. Changed evidence: the latest managed attempt terminated; its log contains the concrete T-004 RuntimeError `expected scalar type BFloat16 but found Float`, and the attempt used stale/mismatched T-003/T-004 parameters plus an inconsistent trial output path. Preserve the approved six-Trial manifest and do not alter governance; repair the runtime and use only a managed restart. Because the Trial contract requires exact p"
+      }
+    ],
+    "submitted_for_review_at": "2026-08-25T00:33:59",
+    "review_history": [
+      {
+        "time": "2026-08-25T00:33:59",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T00:55:34.889989",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T02:14:15.141605",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化",
+            "trial_budget": 5,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-25T02:14:15",
+            "updated_at": "2026-08-25T02:14:15"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T02:15:17.546804",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化",
+            "trial_budget": 5,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-25T02:15:17",
+            "updated_at": "2026-08-25T02:15:17"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T02:19:37.972065",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化",
+            "trial_budget": 5,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 3,
+            "created_at": "2026-08-25T02:19:37",
+            "updated_at": "2026-08-25T02:19:37"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T02:30:20.891368",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化",
+            "trial_budget": 5,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 3,
+            "created_at": "2026-08-25T02:30:20",
+            "updated_at": "2026-08-25T02:30:20"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T09:47:04.000561",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e008_r003.sh --manifest /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-005/runs/E005-R-029c-original140-positive-targets-binding-640/manifests/E003_R004b_positive_targets_n140.json --source-output /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/explog/E-003/runs/E003-R-004b-joint-f1-iou-local-lasot-n140-t128/results/LASOT_local_1shot_T2_n140_v2/generated_texts/e003_r004b_joint_n140.json --run-dir /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003 --model-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct --lora-path /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化",
+            "trial_budget": 5,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 3,
+            "created_at": "2026-08-25T09:47:03",
+            "updated_at": "2026-08-25T09:47:03"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-25T16:09:52.190650",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e008_r003_trials.sh",
+          "config": "",
+          "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+          "data_scale": "",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+          "implementation_ref": {
+            "schema": "survey-tool.run-implementation/v1",
+            "package_root": "mechanism/iplocid/iplocid",
+            "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+            "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+            "reused_modules": [
+              "mechanism/iplocid/iplocid/attention/rewrite.py",
+              "mechanism/iplocid/iplocid/attention/spans.py",
+              "mechanism/iplocid/iplocid/models/qwen.py"
+            ],
+            "tests": [
+              "python -m py_compile",
+              "python -m pytest -q tests: 10 passed",
+              "bash -n tools/run_e008_r003.sh"
+            ]
+          },
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+          "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+          "metrics_path": null,
+          "model_config": "",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+          "project_dir": null,
+          "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+          "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+          "run_type": "",
+          "seed": "20260824",
+          "server_id": null,
+          "tmux_session": "incontext-E-008-003",
+          "trial_manifest": {
+            "contract": "survey-tool.run-trial-manifest/v1",
+            "trials": [
+              {
+                "id": "T-001",
+                "parameters": {
+                  "intervention_mode": "reverse",
+                  "head_scope": "main4",
+                  "heads": "L18H15,L19H03,L22H00,L20H08",
+                  "query_span_mass_policy": "preserve",
+                  "scale": 1,
+                  "seed": 2026082501
+                },
+                "rationale": "最大确定性空间错配：反转 query token 次序，同时保持各 head 的 query-span 总质量。"
+              },
+              {
+                "id": "T-002",
+                "parameters": {
+                  "intervention_mode": "query_permuted",
+                  "head_scope": "all32_layers",
+                  "layers": "18,19,20,22",
+                  "heads_per_layer": 32,
+                  "query_span_mass_policy": "preserve",
+                  "scale": 1,
+                  "seed": 2026082502
+                },
+                "rationale": "扩大干预剂量到四个相关层的全部 128 heads，检验 head 覆盖增加是否引发更剧烈 mIoU 变化。"
+              },
+              {
+                "id": "T-003",
+                "parameters": {
+                  "intervention_mode": "uniform",
+                  "head_scope": "main4",
+                  "heads": "L18H15,L19H03,L22H00,L20H08",
+                  "query_span_mass_policy": "preserve",
+                  "scale": 1,
+                  "seed": 2026082503
+                },
+                "rationale": "移除 main4 query-span 内全部空间结构，但保持其 attention 占比能量。"
+              },
+              {
+                "id": "T-004",
+                "parameters": {
+                  "intervention_mode": "mass_scale",
+                  "head_scope": "main4",
+                  "heads": "L18H15,L19H03,L22H00,L20H08",
+                  "query_span_mass_policy": "scale_then_renormalize",
+                  "scale": 4,
+                  "seed": 2026082504
+                },
+                "rationale": "将 main4 对 query span 的质量放大 4 倍并整行重归一化，直接改变 attention 占比能量。"
+              },
+              {
+                "id": "T-005",
+                "parameters": {
+                  "intervention_mode": "mass_zero",
+                  "head_scope": "main4",
+                  "heads": "L18H15,L19H03,L22H00,L20H08",
+                  "query_span_mass_policy": "zero_then_renormalize_outside",
+                  "scale": 1,
+                  "seed": 2026082505
+                },
+                "rationale": "最强 query-span 能量消融：质量置零并将剩余 attention 重归一化。"
+              }
+            ]
+          },
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化。目前规划为：┌───────┬─────────────────────────────┬────────────────────────────────────────────────────────────┐\n │ Trial │ 对象                        │ 干预                                                       │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-001 │ 核心 4 heads                │ 中等随机置换：query span 中约 50% token 保持原位置，另外   │\n │       │                             │ 50% token 在剩余位置内确定性打乱                           │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-002 │ 核心 4 heads                │ 全 span 规律性反转                                         │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-003 │ 相关层中除核心 4 heads 外的 │ 每个 head 使用同样的 50% 保留位置随机置换                  │\n │       │ 其他 heads                  │                                                            │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-004 │ 核心 4 heads                │ query-span 均匀化                                          │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-005 │ 核心 4 heads                │ query-span attention 质量放大 4 倍并重归一化               │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-006 │ 核心 4 heads                │ query-span attention 置零并重归一化                        │\n └───────┴─────────────────────────────┴────────────────────────────────────────────────────────────┘ 其中已经有一些实验的trail.old，可以先忽视",
+            "trial_budget": 6,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 3,
+            "created_at": "2026-08-25T16:09:52",
+            "updated_at": "2026-08-25T16:09:52"
+          },
+          "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+          "variant": "query-span attention 置换的自然生成 IoU 对照",
+          "workspace_id": "02"
+        }
+      }
+    ],
+    "approved_at": "2026-08-25T16:09:52.190650",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "复用公共Qwen loader、image span定位和attention rewrite controller；新增natural_iou_permutation_pipeline.py与tools launcher。",
+      "artifact_dir": "",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e008_r003_trials.sh",
+      "config": "",
+      "data_definition": "严格复用Run 002预固定的E003-R-004b positive extreme cohort：archived IoU<0.1的35条与IoU>=0.7的76条，共111条；不根据本次结果增删样本。每条使用同一reference/query、模型、LoRA与max_side=640。",
+      "data_scale": "",
+      "git_commit": "",
+      "group_id": "",
+      "hypothesis": "如果query图像中注意力权重与空间位置的对应关系参与坐标生成，query_permuted会相对identity降低full IoU或改变IoU阈值通过率；identity应与baseline逐token一致。",
+      "implementation_ref": {
+        "schema": "survey-tool.run-implementation/v1",
+        "package_root": "mechanism/iplocid/iplocid",
+        "entrypoint": "iplocid.pipelines.natural_iou_permutation_pipeline:main",
+        "launcher_path": "mechanism/iplocid/tools/run_e008_r003.sh",
+        "reused_modules": [
+          "mechanism/iplocid/iplocid/attention/rewrite.py",
+          "mechanism/iplocid/iplocid/attention/spans.py",
+          "mechanism/iplocid/iplocid/models/qwen.py"
+        ],
+        "tests": [
+          "python -m py_compile",
+          "python -m pytest -q tests: 10 passed",
+          "bash -n tools/run_e008_r003.sh"
+        ]
+      },
+      "launcher": null,
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log",
+      "metric_plan": "主指标为每条样本full IoU（无合法bbox记0）及query_permuted-identity的配对IoU差；同时报告mean/median、正负零计数、IoU@0.3/0.5/0.7通过率差、合法bbox解析率、Yes/No变化。identity必须与baseline生成文本、bbox和IoU逐条一致后才解释置换结果。",
+      "metrics_path": null,
+      "model_config": "",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/outputs",
+      "project_dir": null,
+      "purpose": "分别在baseline、identity和query_permuted条件下重新自然生成bbox并计算配对IoU，直接回答Run 002只测NLL而未测定位结果的问题。",
+      "research_question": "在相同111个预固定positive样本上，模型逐token自然生成bbox时，仅置换main4 heads的query-image span attention位置，会使生成bbox的IoU相对baseline与identity改变多少？",
+      "run_type": "",
+      "seed": "20260824",
+      "server_id": null,
+      "tmux_session": "incontext-E-008-003",
+      "trial_manifest": {
+        "contract": "survey-tool.run-trial-manifest/v1",
+        "trials": [
+          {
+            "id": "T-001",
+            "parameters": {
+              "intervention_mode": "partial_shuffle_50",
+              "head_scope": "main4",
+              "heads": "L18H15,L19H03,L22H00,L20H08",
+              "fixed_fraction": 0.5,
+              "query_span_mass_policy": "preserve",
+              "scale": 1,
+              "seed": 2026082501
+            },
+            "rationale": "中等剂量空间扰动：固定一半 query tokens，余下一半作确定性非恒等置换，隔离部分空间错配。"
+          },
+          {
+            "id": "T-002",
+            "parameters": {
+              "intervention_mode": "reverse",
+              "head_scope": "main4",
+              "heads": "L18H15,L19H03,L22H00,L20H08",
+              "query_span_mass_policy": "preserve",
+              "scale": 1,
+              "seed": 2026082502
+            },
+            "rationale": "最大规律性空间错配：全 query span 反转，同时保持 main4 各 head 的 span 总质量。"
+          },
+          {
+            "id": "T-003",
+            "parameters": {
+              "intervention_mode": "partial_shuffle_50",
+              "head_scope": "related_layers_nonmain",
+              "layers": "18,19,20,22",
+              "excluded_heads": "L18H15,L19H03,L20H08,L22H00",
+              "heads_total": 124,
+              "fixed_fraction": 0.5,
+              "query_span_mass_policy": "preserve",
+              "scale": 1,
+              "seed": 2026082503
+            },
+            "rationale": "相同中等扰动施加于四个相关层除 main4 外的其余 124 heads，作为 head-scope 特异性和更大覆盖剂量对照。"
+          },
+          {
+            "id": "T-004",
+            "parameters": {
+              "intervention_mode": "uniform",
+              "head_scope": "main4",
+              "heads": "L18H15,L19H03,L22H00,L20H08",
+              "query_span_mass_policy": "preserve",
+              "scale": 1,
+              "seed": 2026082504
+            },
+            "rationale": "移除 main4 query-span 内全部空间结构但保持 attention 占比能量。"
+          },
+          {
+            "id": "T-005",
+            "parameters": {
+              "intervention_mode": "mass_scale",
+              "head_scope": "main4",
+              "heads": "L18H15,L19H03,L22H00,L20H08",
+              "query_span_mass_policy": "scale_then_renormalize",
+              "scale": 4,
+              "seed": 2026082505
+            },
+            "rationale": "将 main4 对 query span 的质量放大 4 倍并整行重归一化，直接增加 attention 占比能量。"
+          },
+          {
+            "id": "T-006",
+            "parameters": {
+              "intervention_mode": "mass_zero",
+              "head_scope": "main4",
+              "heads": "L18H15,L19H03,L22H00,L20H08",
+              "query_span_mass_policy": "zero_then_renormalize_outside",
+              "scale": 1,
+              "seed": 2026082506
+            },
+            "rationale": "最强 query-span 能量消融：质量置零并将剩余 attention 重归一化。"
+          }
+        ]
+      },
+      "trial_plan": {
+        "contract": "survey-tool.run-trial-plan/v1",
+        "planning_mode": "ai_planned",
+        "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化。目前规划为：┌───────┬─────────────────────────────┬────────────────────────────────────────────────────────────┐\n │ Trial │ 对象                        │ 干预                                                       │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-001 │ 核心 4 heads                │ 中等随机置换：query span 中约 50% token 保持原位置，另外   │\n │       │                             │ 50% token 在剩余位置内确定性打乱                           │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-002 │ 核心 4 heads                │ 全 span 规律性反转                                         │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-003 │ 相关层中除核心 4 heads 外的 │ 每个 head 使用同样的 50% 保留位置随机置换                  │\n │       │ 其他 heads                  │                                                            │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-004 │ 核心 4 heads                │ query-span 均匀化                                          │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-005 │ 核心 4 heads                │ query-span attention 质量放大 4 倍并重归一化               │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-006 │ 核心 4 heads                │ query-span attention 置零并重归一化                        │\n └───────┴─────────────────────────────┴────────────────────────────────────────────────────────────┘ 其中已经有一些实验的trail.old，可以先忽视",
+        "trial_budget": 6,
+        "axes": [],
+        "trials": [],
+        "planning_status": "awaiting_ai",
+        "concurrency": 1,
+        "max_retries": 3,
+        "created_at": "2026-08-25T16:09:52",
+        "updated_at": "2026-08-25T16:09:52"
+      },
+      "variables_controls": "三条件均greedy decoding、相同prompt和最大生成长度。baseline无hook；identity在相同在线生成rows原位写回；query_permuted仅在bbox前缀生成阶段，从首个bbox token预测开始至生成右方括号为止，对L18H15/L19H03/L22H00/L20H08的当前decode query row内query视觉span作确定性双射置换。reference/text/其他heads和值向量不变。",
+      "variant": "query-span attention 置换的自然生成 IoU 对照",
+      "workspace_id": "02"
+    },
+    "execution_authorized_at": "2026-08-25T16:09:52.190650",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "trial_plan": {
+      "contract": "survey-tool.run-trial-plan/v1",
+      "planning_mode": "ai_planned",
+      "request": "在已经运行完的 003 的基础上，运行几个相差更大，甚至影响其attention占比能量的多个实验吗，甚至更混乱的情况。来看看 miou 会不会出现更剧烈的变化。目前规划为：┌───────┬─────────────────────────────┬────────────────────────────────────────────────────────────┐\n │ Trial │ 对象                        │ 干预                                                       │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-001 │ 核心 4 heads                │ 中等随机置换：query span 中约 50% token 保持原位置，另外   │\n │       │                             │ 50% token 在剩余位置内确定性打乱                           │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-002 │ 核心 4 heads                │ 全 span 规律性反转                                         │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-003 │ 相关层中除核心 4 heads 外的 │ 每个 head 使用同样的 50% 保留位置随机置换                  │\n │       │ 其他 heads                  │                                                            │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-004 │ 核心 4 heads                │ query-span 均匀化                                          │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-005 │ 核心 4 heads                │ query-span attention 质量放大 4 倍并重归一化               │\n ├───────┼─────────────────────────────┼────────────────────────────────────────────────────────────┤\n │ T-006 │ 核心 4 heads                │ query-span attention 置零并重归一化                        │\n └───────┴─────────────────────────────┴────────────────────────────────────────────────────────────┘ 其中已经有一些实验的trail.old，可以先忽视",
+      "trial_budget": 6,
+      "axes": [],
+      "trials": [],
+      "planning_status": "awaiting_ai",
+      "concurrency": 1,
+      "max_retries": 3,
+      "created_at": "2026-08-25T16:09:52",
+      "updated_at": "2026-08-25T16:09:52"
+    },
+    "trial_manifest": {
+      "contract": "survey-tool.run-trial-manifest/v1",
+      "trials": [
+        {
+          "id": "T-001",
+          "parameters": {
+            "intervention_mode": "partial_shuffle_50",
+            "head_scope": "main4",
+            "heads": "L18H15,L19H03,L22H00,L20H08",
+            "fixed_fraction": 0.5,
+            "query_span_mass_policy": "preserve",
+            "scale": 1,
+            "seed": 2026082501
+          },
+          "rationale": "中等剂量空间扰动：固定一半 query tokens，余下一半作确定性非恒等置换，隔离部分空间错配。"
+        },
+        {
+          "id": "T-002",
+          "parameters": {
+            "intervention_mode": "reverse",
+            "head_scope": "main4",
+            "heads": "L18H15,L19H03,L22H00,L20H08",
+            "query_span_mass_policy": "preserve",
+            "scale": 1,
+            "seed": 2026082502
+          },
+          "rationale": "最大规律性空间错配：全 query span 反转，同时保持 main4 各 head 的 span 总质量。"
+        },
+        {
+          "id": "T-003",
+          "parameters": {
+            "intervention_mode": "partial_shuffle_50",
+            "head_scope": "related_layers_nonmain",
+            "layers": "18,19,20,22",
+            "excluded_heads": "L18H15,L19H03,L20H08,L22H00",
+            "heads_total": 124,
+            "fixed_fraction": 0.5,
+            "query_span_mass_policy": "preserve",
+            "scale": 1,
+            "seed": 2026082503
+          },
+          "rationale": "相同中等扰动施加于四个相关层除 main4 外的其余 124 heads，作为 head-scope 特异性和更大覆盖剂量对照。"
+        },
+        {
+          "id": "T-004",
+          "parameters": {
+            "intervention_mode": "uniform",
+            "head_scope": "main4",
+            "heads": "L18H15,L19H03,L22H00,L20H08",
+            "query_span_mass_policy": "preserve",
+            "scale": 1,
+            "seed": 2026082504
+          },
+          "rationale": "移除 main4 query-span 内全部空间结构但保持 attention 占比能量。"
+        },
+        {
+          "id": "T-005",
+          "parameters": {
+            "intervention_mode": "mass_scale",
+            "head_scope": "main4",
+            "heads": "L18H15,L19H03,L22H00,L20H08",
+            "query_span_mass_policy": "scale_then_renormalize",
+            "scale": 4,
+            "seed": 2026082505
+          },
+          "rationale": "将 main4 对 query span 的质量放大 4 倍并整行重归一化，直接增加 attention 占比能量。"
+        },
+        {
+          "id": "T-006",
+          "parameters": {
+            "intervention_mode": "mass_zero",
+            "head_scope": "main4",
+            "heads": "L18H15,L19H03,L22H00,L20H08",
+            "query_span_mass_policy": "zero_then_renormalize_outside",
+            "scale": 1,
+            "seed": 2026082506
+          },
+          "rationale": "最强 query-span 能量消融：质量置零并将剩余 attention 重归一化。"
+        }
+      ]
+    },
+    "trial_manifest_hash": "sha256:8ea7599ab02e3b06c8c05581f55878b81f30009b42cae0f7179d87d9a27ed516",
+    "implementation_history": [
+      {
+        "time": "2026-08-25T10:11:43",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:4c1230284142811d422957c466829327f3baef772917053bc2ffbde9b0ecf0e1",
+        "approval_continues": true
+      }
+    ],
+    "execution_authorization_consumed_at": "2026-08-25T16:14:35",
+    "execution_dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+    "execution_dispatch_latest_status": "queued"
+  },
+  {
+    "variant": "Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验",
+    "run_type": "smoke",
+    "purpose": "用极小的图像—指令—框答案数据完成加载、前向、反向、参数更新、保存和重载，直接判断当前机器与软件栈是否支持基础 SFT；本 Run 不评估 IPLoc-ID 的科学效果。",
+    "necessity": "当前有完整 Qwen3-VL 基础模型和 4×24 GiB GPU，但系统与 Miniconda Python 均缺训练依赖；IPLoc/IPLoc-ID 没有公开训练入口，Rex-Omni 的入口又固定为 Qwen2.5-VL，因此仅凭现有文件不能确认 Qwen3-VL SFT 可运行。",
+    "evidence_basis": "只读勘察已确认：本地模型 10/10 分片齐全；IPLoc-ID 的既有 adapter 使用 rank 8、排除 visual、作用于语言侧 q/k/v/o 与 MLP 投影层；Rex-Omni 提供监督训练数据组织思路但其现有 train.py 只适配 Qwen2.5-VL。",
+    "implementation_summary": "需要补一个仅服务于 E-009 的最小 Qwen3-VL LoRA SFT 入口：生成确定性小数据，正确屏蔽非答案 token，执行短训练并验证 adapter 重载。当前只登记设计，不改代码、不安装依赖、不启动训练。",
+    "implementation_details": "实现须显式使用 Qwen3-VL 对应 AutoProcessor/模型类，检查 image token 与 labels 对齐；只将 LoRA 参数设为可训练；每步记录 loss、梯度有限性和显存；保存前后在 eval/no_grad 下复测固定 batch。不得复用 Rex-Omni 中固定 Qwen2.5-VL 的模型类，不得覆盖 iplocid 当前未提交改动。",
+    "data_definition": "运行时在 E-009 专属产物目录生成 4 张简单几何图像及 8 条确定性监督样本；每条包含单图、定位指令和归一化 xyxy 框答案。该数据只验证训练链路与可学习性，不代表 IPLoc/IPLoc-ID 数据分布。",
+    "data_scale": "8 条训练样本；固定 1 条样本用于更新前后同批损失复测；最多 8 个优化步骤，默认先执行 3 步。",
+    "model_config": "本地 Qwen3-VL-8B-Instruct；bf16；基础模型与视觉模块冻结；LoRA r=8、alpha=16、dropout=0，目标模块沿用本地 IPLoc-ID adapter 的语言侧投影层并排除 visual；batch size 1、gradient checkpointing 开启、单 GPU。若显存 gate 失败只能停止并另提量化方案，不在本 Run 静默改配置。",
+    "variables_controls": "唯一处理是启用 LoRA 并执行监督更新。控制包括：更新前基线损失、同一固定 batch 的更新后损失、只读基础权重校验、LoRA 参数变化检查，以及保存后重新加载 adapter 的输出/损失一致性检查。样本、顺序、seed、图像尺寸和 prompt 在看结果前固定。",
+    "metric_definition": "loss_before/loss_after：同一 tokenized 多模态 batch 上、仅对 assistant 答案 token 计交叉熵；finite_grad_fraction：有梯度的可训练参数中梯度全为有限值的比例；adapter_delta_norm：更新前后全部 LoRA 参数差的 L2 范数；reload_loss_abs_diff：保存前与重载后固定 batch loss 的绝对差；peak_gpu_memory_gib：torch CUDA 峰值分配显存。",
+    "integrity_gates": "开始前：10 个基础模型分片均存在、目标 GPU 可用、专属输出目录为空或为本 Run 可恢复目录。训练中：labels 含至少一个非 -100 答案 token、loss/梯度有限、可训练参数全部为 LoRA 且数量大于 0、基础参数无变化。结束时：steps>=3、adapter_delta_norm>0、adapter_config 与权重文件存在、独立重载成功、reload_loss_abs_diff<=1e-4。任一项失败即报告 gate_failed，不把部分产物称为支持 SFT。",
+    "expected_outcome": "若环境与实现兼容，应在单卡完成短 LoRA 更新，固定 batch loss 出现下降且 adapter 可无损重载；否则错误将定位到依赖、显存、Qwen3-VL 数据对齐、反向或保存重载中的具体阶段。",
+    "acceptance_criteria": "工程支持：所有完整性 gate 通过。基础可学习性：loss_after < loss_before。只有两者同时满足才记为“当前环境支持基础 Qwen3-VL LoRA SFT smoke”；仅能前向或仅能保存均不算通过。",
+    "dependencies": "需要在隔离环境安装与 Qwen3-VL 兼容的 torch、transformers、peft、accelerate、torchvision、qwen-vl-utils；需要一张执行时空闲的 RTX 3090。依赖安装、代码实现和训练均须后续按 Run gate 获得许可。",
+    "limitations": "合成小样本与最多 8 步只验证训练闭环和过拟合信号；不能证明真实 IPLoc/IPLoc-ID 数据可训、训练稳定、泛化提升、多卡效率或论文结果可复现。24 GiB 单卡是否足够仍需实际峰值显存 gate 验证。",
+    "claim_boundary": "通过时只能得出“该机器在所记录依赖与配置下可完成 Qwen3-VL-8B 的基础 LoRA 多模态 SFT smoke”。不得声称支持全参数 SFT、正式规模训练，或对个性化目标定位有效。",
+    "audit_paths": "E-009 Run note；远端 experiments/E-009/E009-R-001-qwen3vl8b-lora-sft-capability-smoke/{config.json,metrics.json,train.log,adapter/}；实现后补充精确代码路径、commit/dirty diff 与测试命令。",
+    "status": "approved",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "",
+    "command": "bash mechanism/iploc-szy/run_e009_r001.sh",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260825",
+    "group_id": "",
+    "research_question": "当前工作区能否在不改动基础权重的前提下，对本地 Qwen3-VL-8B-Instruct 完成一次可复现的多模态 LoRA 监督微调闭环？",
+    "hypothesis": "在隔离环境中安装与本地 Qwen3-VL 匹配的 PyTorch、Transformers、PEFT 与 Accelerate 后，冻结视觉编码器和基础模型，仅训练 rank-8 LoRA，可在单张 24 GiB GPU 上完成至少 3 个优化步骤并保存可重载 adapter。",
+    "metric_plan": "主判据为 capability gate：训练依赖可导入、单 batch 前向损失有限、反向梯度有限、至少 3 次 optimizer step 完成、LoRA 参数实际变化、adapter 保存并成功重载。学习信号辅判据为同一固定 batch 的更新后 loss 低于更新前 loss；显存峰值和总耗时只作资源记录。",
+    "architecture_plan": "在 mechanism/iplocid 内新增独立、最小的 Qwen3-VL SFT smoke 模块与可读 launcher，复用现有 vlm loader/消息格式中兼容部分但不改动 attention 实验代码；输出机器可读 metrics.json、冻结配置、训练日志与 adapter 目录。先做 CPU 级数据/collator 测试，再申请执行 smoke。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "ready_to_run",
+    "review_status": "approved",
+    "review_round": 0,
+    "created": "2026-08-25T13:46:56",
+    "updated": "2026-08-25T14:49:28",
+    "organization_snapshot": {
+      "time": "2026-08-25T13:46:56",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f3a5055da574672ea581"
+    },
+    "approved_at": "2026-08-25T14:08:27.684827",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "在 mechanism/iplocid 内新增独立、最小的 Qwen3-VL SFT smoke 模块与可读 launcher，复用现有 vlm loader/消息格式中兼容部分但不改动 attention 实验代码；输出机器可读 metrics.json、冻结配置、训练日志与 adapter 目录。先做 CPU 级数据/collator 测试，再申请执行 smoke。",
+      "artifact_dir": "",
+      "command": "bash mechanism/iploc-szy/run_e009_r001.sh",
+      "config": "",
+      "data_definition": "运行时在 E-009 专属产物目录生成 4 张简单几何图像及 8 条确定性监督样本；每条包含单图、定位指令和归一化 xyxy 框答案。该数据只验证训练链路与可学习性，不代表 IPLoc/IPLoc-ID 数据分布。",
+      "data_scale": "8 条训练样本；固定 1 条样本用于更新前后同批损失复测；最多 8 个优化步骤，默认先执行 3 步。",
+      "git_commit": "",
+      "group_id": "",
+      "hypothesis": "在隔离环境中安装与本地 Qwen3-VL 匹配的 PyTorch、Transformers、PEFT 与 Accelerate 后，冻结视觉编码器和基础模型，仅训练 rank-8 LoRA，可在单张 24 GiB GPU 上完成至少 3 个优化步骤并保存可重载 adapter。",
+      "implementation_ref": null,
+      "launcher": null,
+      "log_path": "",
+      "metric_plan": "主判据为 capability gate：训练依赖可导入、单 batch 前向损失有限、反向梯度有限、至少 3 次 optimizer step 完成、LoRA 参数实际变化、adapter 保存并成功重载。学习信号辅判据为同一固定 batch 的更新后 loss 低于更新前 loss；显存峰值和总耗时只作资源记录。",
+      "metrics_path": null,
+      "model_config": "本地 Qwen3-VL-8B-Instruct；bf16；基础模型与视觉模块冻结；LoRA r=8、alpha=16、dropout=0，目标模块沿用本地 IPLoc-ID adapter 的语言侧投影层并排除 visual；batch size 1、gradient checkpointing 开启、单 GPU。若显存 gate 失败只能停止并另提量化方案，不在本 Run 静默改配置。",
+      "output_dir": "",
+      "project_dir": null,
+      "purpose": "用极小的图像—指令—框答案数据完成加载、前向、反向、参数更新、保存和重载，直接判断当前机器与软件栈是否支持基础 SFT；本 Run 不评估 IPLoc-ID 的科学效果。",
+      "research_question": "当前工作区能否在不改动基础权重的前提下，对本地 Qwen3-VL-8B-Instruct 完成一次可复现的多模态 LoRA 监督微调闭环？",
+      "run_type": "smoke",
+      "seed": "20260825",
+      "server_id": null,
+      "tmux_session": "",
+      "trial_manifest": null,
+      "trial_plan": null,
+      "variables_controls": "唯一处理是启用 LoRA 并执行监督更新。控制包括：更新前基线损失、同一固定 batch 的更新后损失、只读基础权重校验、LoRA 参数变化检查，以及保存后重新加载 adapter 的输出/损失一致性检查。样本、顺序、seed、图像尺寸和 prompt 在看结果前固定。",
+      "variant": "Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验",
+      "workspace_id": "02"
+    },
+    "execution_authorized_at": "2026-08-25T14:08:27.684827",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "workflow_history": [
+      {
+        "time": "2026-08-25T14:08:27.684827",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-25T14:14:01",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+        "reason": "Training itself passed all gates with exit code 0, but managed completion rejected because the runner wrote metrics to outputs/metrics.json while the completion contract requires a nonempty run-root metrics.json. Changed evidence: completion_candidate=true, marker_found=true, exit_code=0, and survey_run_execution complete returned 'nonempty bounded metrics file required'. Repair only the launcher artifact path contract, then rerun the same dispatch."
+      },
+      {
+        "time": "2026-08-25T14:49:28",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+        "reason": "Managed attempt has exited successfully and root metrics.json was published, but lease state is inconsistent: status/complete report 'lease expired', reattach/claim report this Pi still holds a managed lease, and bash guard remains active. Changed evidence: tmux dead, no training process, GPU2/3 idle, no new error occurrences, successful [DONE] plus [METRICS_PUBLISHED]. Request safe lease cleanup/requeue so canonical completion can be finalized; no scientific or code change requested."
+      }
+    ],
+    "review_history": [
+      {
+        "time": "2026-08-25T14:08:27.684827",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在 mechanism/iplocid 内新增独立、最小的 Qwen3-VL SFT smoke 模块与可读 launcher，复用现有 vlm loader/消息格式中兼容部分但不改动 attention 实验代码；输出机器可读 metrics.json、冻结配置、训练日志与 adapter 目录。先做 CPU 级数据/collator 测试，再申请执行 smoke。",
+          "artifact_dir": "",
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": "",
+          "data_definition": "运行时在 E-009 专属产物目录生成 4 张简单几何图像及 8 条确定性监督样本；每条包含单图、定位指令和归一化 xyxy 框答案。该数据只验证训练链路与可学习性，不代表 IPLoc/IPLoc-ID 数据分布。",
+          "data_scale": "8 条训练样本；固定 1 条样本用于更新前后同批损失复测；最多 8 个优化步骤，默认先执行 3 步。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "在隔离环境中安装与本地 Qwen3-VL 匹配的 PyTorch、Transformers、PEFT 与 Accelerate 后，冻结视觉编码器和基础模型，仅训练 rank-8 LoRA，可在单张 24 GiB GPU 上完成至少 3 个优化步骤并保存可重载 adapter。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主判据为 capability gate：训练依赖可导入、单 batch 前向损失有限、反向梯度有限、至少 3 次 optimizer step 完成、LoRA 参数实际变化、adapter 保存并成功重载。学习信号辅判据为同一固定 batch 的更新后 loss 低于更新前 loss；显存峰值和总耗时只作资源记录。",
+          "metrics_path": null,
+          "model_config": "本地 Qwen3-VL-8B-Instruct；bf16；基础模型与视觉模块冻结；LoRA r=8、alpha=16、dropout=0，目标模块沿用本地 IPLoc-ID adapter 的语言侧投影层并排除 visual；batch size 1、gradient checkpointing 开启、单 GPU。若显存 gate 失败只能停止并另提量化方案，不在本 Run 静默改配置。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "用极小的图像—指令—框答案数据完成加载、前向、反向、参数更新、保存和重载，直接判断当前机器与软件栈是否支持基础 SFT；本 Run 不评估 IPLoc-ID 的科学效果。",
+          "research_question": "当前工作区能否在不改动基础权重的前提下，对本地 Qwen3-VL-8B-Instruct 完成一次可复现的多模态 LoRA 监督微调闭环？",
+          "run_type": "smoke",
+          "seed": "20260825",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "唯一处理是启用 LoRA 并执行监督更新。控制包括：更新前基线损失、同一固定 batch 的更新后损失、只读基础权重校验、LoRA 参数变化检查，以及保存后重新加载 adapter 的输出/损失一致性检查。样本、顺序、seed、图像尺寸和 prompt 在看结果前固定。",
+          "variant": "Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验",
+          "workspace_id": "02"
+        }
+      }
+    ],
+    "execution_authorization_consumed_at": "2026-08-25T14:12:50",
+    "execution_dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+    "execution_dispatch_latest_status": "queued"
   }
 ]

@@ -6,7 +6,7 @@
 - claim_refs: Q-004; Q-005; observational head-role audit only
 - priority: medium
 - created: 2026-08-18T14:25:06
-- updated: 2026-08-19T17:25:47
+- updated: 2026-08-20T15:42:29
 
 ## 实验目标
 在不进行模型干预的前提下，审计reference-grounding heads在自然query bbox生成p-1 rows上对query与reference视觉token的attention，区分跨角色query localization与reference-only角色分工。

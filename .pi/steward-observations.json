@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "records": {
+    "featurize|/home/featurize/work/mechanism|/home/featurize/work/mechanism/explog/E-007/E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20/logs/train.log|incontext-E-007-E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "46:144155",
+        "byteOffset": 2658,
+        "since": "2026-08-11T07:57:16.350Z"
+      }
+    },
+    "featurize|/home/featurize/work/mechanism/E-007|/home/featurize/work/mechanism/explog/E-007/E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20/logs/train.log|incontext-E-007-E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "46:147717",
+        "byteOffset": 20539,
+        "since": "2026-08-12T03:55:31.269Z",
+        "pendingLine": ""
+      }
+    },
+    "featurize|/home/featurize/work/mechanism/E-007|/home/featurize/work/mechanism/explog/E-007/E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140/logs/train.log|incontext-E-007-E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140": {
+      "fingerprints": {}
+    },
+    "featurize|/home/featurize/work/mechanism/E-007|/home/featurize/work/mechanism/explog/E-007/E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20/logs/train.log|incontext-E-007-E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "46:144831",
+        "byteOffset": 4179,
+        "since": "2026-08-12T09:33:30.421Z"
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/002/logs/train.log|incontext-E-008-002": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:22280428581",
+        "byteOffset": 2047,
+        "since": "2026-08-24T16:05:01.673Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/logs/train.log|incontext-E-008-003": {
+      "fingerprints": {
+        "ERR-fbef7e15eb24": {
+          "id": "ERR-fbef7e15eb24",
+          "exceptionType": "FileNotFoundError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in open",
+          "command": "incontext-E-008-003",
+          "runId": "E-008 / 003 / query-span attention 置换的自然生成 IoU 对照",
+          "firstSeen": "2026-08-25T08:11:00.314Z",
+          "lastSeen": "2026-08-25T08:11:00.314Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/root/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/root/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-806eb58b078c": {
+          "id": "ERR-806eb58b078c",
+          "exceptionType": "FileNotFoundError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in _opener",
+          "command": "incontext-E-008-003",
+          "runId": "E-008 / 003 / query-span attention 置换的自然生成 IoU 对照",
+          "firstSeen": "2026-08-25T08:11:00.314Z",
+          "lastSeen": "2026-08-25T08:11:00.314Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "  File \"/root/miniconda3/envs/IPLoc/lib/python3.9/pathlib.py\", line 1038, in _opener\n    return self._accessor.open(self, flags, mode)\nFileNotFoundError: [Errno 2] No such file or directory: '/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003-trials/trials/T-001/analysis/summary.json'\n"
+        },
+        "ERR-de97c9a41222": {
+          "id": "ERR-de97c9a41222",
+          "exceptionType": "RuntimeError",
+          "normalizedStackRoot": "R003 failed integrity: {'schema': 'survey-tool.trial-metrics/v1', 'trial_id': 'T-<N>', 'parameters': {'intervention_mode': 'uniform', 'head_scope': 'main4', 'all_head_layers': (<N>, <N>, <N>, <N>), 'scale': <N>.<N>, 'seed': <N>}, 'status': ",
+          "command": "incontext-E-008-003",
+          "runId": "E-008 / 003 / query-span attention 置换的自然生成 IoU 对照",
+          "firstSeen": "2026-08-25T10:59:33.421Z",
+          "lastSeen": "2026-08-25T10:59:33.421Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "/root/miniconda3/envs/IPLoc/lib/python3.9/site-packages/numpy/core/_methods.py:129: RuntimeWarning: invalid value encountered in scalar divide\n  ret = ret.dtype.type(ret / rcount)\nR003 failed integrity: {'schema': 'survey-tool.trial-metrics/v1', 'trial_id': 'T-004', 'parameters': {'intervention_mode': 'uniform', 'head_scope': 'main4', 'all_head_layers': (18, 19, 20, 22), 'scale': 1.0, 'seed': 2026082504}, 'status': 'failed_integrity', 'expected_records': 111, 'records': 0, 'failures': [{'index': 0, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 1, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 2, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 3, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 4, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 5, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 6, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 7, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 8, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 9, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 10, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 11, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 12, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 13, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 14, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 15, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 16, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 17, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 18, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 19, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 20, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 21, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 22, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 23, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 24, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 25, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 26, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 27, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 28, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 29, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 30, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 31, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 32, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 33, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 34, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 35, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 36, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 37, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 38, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 39, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 40, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 41, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 42, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 43, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 44, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 45, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 46, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 47, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 48, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 49, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 50, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 51, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 52, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 53, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 54, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 55, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 56, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 57, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 58, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 59, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 60, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 61, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 62, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 63, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 64, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 65, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 66, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 67, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 68, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 69, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 70, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 71, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 72, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 73, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 74, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 75, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 76, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 77, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 78, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 79, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 80, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 81, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 82, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 83, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 84, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 85, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 86, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 87, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 88, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 89, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 90, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 91, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 92, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 93, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 94, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 95, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 96, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 97, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 98, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 99, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 100, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 101, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 102, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 103, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 104, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 105, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 106, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 107, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 108, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 109, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}, {'index': 110, 'reason': 'RuntimeError: expected scalar type BFloat16 but found Float'}], 'integrity': {'identity_exact': True, 'rewrite_count': 0, 'row_sum_error_max': None, 'query_span_mass_error_max': None, 'sorted_value_max_abs_diff': None, 'entropy_abs_diff_max': None, 'outside_max_abs_diff': None, 'all_bijections': True}, 'iou': {'baseline': {'n': 0, 'mean': None, 'median': None, 'min': None, 'max': None, 'positive_count': 0, 'negative_count': 0, 'zero_count': 0}, 'identity': {'n': 0, 'mean': None, 'median': None, 'min': None, 'max': None, 'positive_count': 0, 'negative_count': 0, 'zero_count': 0}, 'intervention': {'n': 0, 'mean': None, 'median': None, 'min': None, 'max': None, 'positive_count': 0, 'negative_count': 0, 'zero_count': 0}, 'identity_minus_baseline': {'n': 0, 'mean': None, 'median': None, 'min': None, 'max': None, 'positive_count': 0, 'negative_count': 0, 'zero_count': 0}, 'intervention_minus_identity': {'n': 0, 'mean': None, 'median': None, 'min': None, 'max': None, 'positive_count': 0, 'negative_count': 0, 'zero_count': 0}, 'thresholds': {'0.3': {'baseline': nan, 'identity': nan, 'intervention': nan, 'intervention_minus_identity': nan}, '0.5': {'baseline': nan, 'identity': nan, 'intervention': nan, 'intervention_minus_identity': nan}, '0.7': {'baseline': nan, 'identity': nan, 'intervention': nan, 'intervention_minus_identity': nan}}}, 'valid_bbox_rate': {'baseline': None, 'identity': None, 'intervention': None}, 'rewrite_window_closed_rate': {'identity': None, 'intervention': None}, 'decision_counts': {'baseline': {'yes': 0, 'no': 0, 'ambiguous': 0}, 'identity': {'yes': 0, 'no': 0, 'ambiguous': 0}, 'intervention': {'yes': 0, 'no': 0, 'ambiguous': 0}}, 'decision_change_vs_identity': 0}\n"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:56035905789",
+        "byteOffset": 46049,
+        "since": "2026-08-25T14:00:45.550Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-001-qwen3vl8b-lora-sft-capability-smoke/logs/train.log|incontext-E-009-E009-R-001-qwen3vl8b-lora-sft-capability-smoke": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:56069856947",
+        "byteOffset": 4987,
+        "since": "2026-08-25T06:17:35.497Z",
+        "pendingLine": ""
+      }
+    }
+  }
+}

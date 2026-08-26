@@ -77,7 +77,7 @@ positive-only n20、历史极端分层、分布外residual注入，不能估计�
 records=220; summary=analysis/summary.json; manifest=manifests/records_manifest.json; log=logs/train.log; exit=logs/exit.code
 
 ## 审核入口
-前序=/home/featurize/work/mechanism/explog/E-007/E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20/{manifests/frozen_design.json,analysis/phase0.json,analysis/phaseA.json,artifacts/records_checkpoint.json,logs/train.log}; local=codespace/e007/runner_006b.py; 新run默认目录由canonical ID解析。
+前序=/home/featurize/work/mechanism/explog/E-007/E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20/{manifests/frozen_design.json,analysis/phase0.json,analysis/phaseA.json,artifacts/records_checkpoint.json,logs/train.log}; local=shell/06_experiments/_legacy/codespace/e007/runner_006b.py; 新run默认目录由canonical ID解析。
 
 ## 过程记录与补充细节
 （待补充）

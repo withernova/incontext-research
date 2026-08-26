@@ -1,23 +1,31 @@
 {
   "version": 1,
-  "explanation": "已从 125 条成功 replay artifact 生成用户指定的四 panel 拼图；运行的 15 条路径匹配失败保持显式 integrity failure，未被悄然丢弃。",
+  "explanation": "已先提交当前框架快照，再实现并提交一卡一完整模型的双进程 LoRA DDP。原 train.py/config 入口保留；DDP 使用新 model type/config/torchrun launcher。静态编译、4 单测、bs1/2/4/8 processor contract、双 GPU NCCL collectives 和旧接口 inspect 均通过；未实际加载两份 8B 权重或跑容量 sweep。",
   "steps": [
     {
-      "step": "核验失败记录和现有 artifact 是否足以生成四 panel 图",
+      "step": "核验 iploc-szy Git 边界、状态与当前测试，提交重构前快照",
       "status": "completed"
     },
     {
-      "step": "实现四边 attention 拼图、GT/预测框和正确性文件名",
+      "step": "设计并实现单卡完整模型加载与双进程 LoRA DDP 封装",
       "status": "completed"
     },
     {
-      "step": "对已成功记录生成并检查拼图可视化",
+      "step": "扩展 Runner 的 rank-aware 数据分片、指标聚合和 rank-0 保存",
       "status": "completed"
     },
     {
-      "step": "报告运行失败与可视化产物边界",
+      "step": "新增保留原接口的 DDP 配置与 torchrun batch ladder launcher",
+      "status": "completed"
+    },
+    {
+      "step": "运行静态、单元、processor 和分布式轻量契约测试",
+      "status": "completed"
+    },
+    {
+      "step": "提交 DDP 实现并说明运行方式、batch 语义与风险",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-08-20T06:42:22.324Z"
+  "updatedAt": "2026-08-25T08:40:18.984Z"
 }

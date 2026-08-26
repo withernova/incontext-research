@@ -3190,5 +3190,1090 @@
       "reason": "ambiguous",
       "task_id": "classify-b84ecd335864203c6355"
     }
+  },
+  {
+    "time": "2026-08-20T15:19:04",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-20T15:19:21",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-20T15:42:29+08:00",
+    "experiment_id": "E-008",
+    "run_id": "",
+    "type": "degraded",
+    "message": "E-008 Run 002 设计前远程勘察被连接拒绝阻断；本轮未读取或修改远程代码、数据或产物。",
+    "details": "ssh featurize -> workspace.featurize.cn:48084 Connection refused；本地已核对E008 R001登记的公共role_audit_pipeline架构。"
+  },
+  {
+    "time": "2026-08-20T15:42:29+08:00",
+    "experiment_id": "E-008",
+    "run_id": "",
+    "type": "handoff",
+    "message": "Agent 已提交勘察结果与待确认表单",
+    "details": ""
+  },
+  {
+    "time": "2026-08-20T15:43:56+08:00",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_update",
+    "message": "已补全 Run 002：将“保持相同比例随机”精确定义为 query-image visual-token span 内原 attention 值的确定性 permutation，并补齐保持性门禁、对照、记录与结论边界。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-20T15:43:56",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-20T15:44:33+08:00",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_update",
+    "message": "补全代码架构：公共 attention rewrite/replay pipeline、配置、薄 launcher、测试和预期命令均已登记；命令中的资产参数待远程恢复后核验，尚未实现或执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-20T15:49:25",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-20T15:49:32",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-20T15:49:32",
+      "updated_at": "2026-08-20T15:49:32",
+      "authorization_timestamp": "2026-08-20T15:49:32",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-20T15:49:32",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T16:09:36",
+    "experiment_id": "E-006",
+    "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+    "type": "execution_dispatch_enqueue",
+    "message": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac",
+      "experiment_id": "E-006",
+      "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+      "status": "queued",
+      "created_at": "2026-08-24T16:09:36",
+      "updated_at": "2026-08-24T16:09:36",
+      "authorization_timestamp": "2026-08-03T18:01:45",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "queued",
+          "detail": "reconciliation"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T16:09:36",
+    "experiment_id": "E-007",
+    "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+    "type": "execution_dispatch_enqueue",
+    "message": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-7d458141203ab1fd247f9305",
+      "experiment_id": "E-007",
+      "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+      "status": "queued",
+      "created_at": "2026-08-24T16:09:36",
+      "updated_at": "2026-08-24T16:09:36",
+      "authorization_timestamp": "2026-08-04T22:46:10",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T16:09:36",
+          "type": "queued",
+          "detail": "reconciliation"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T18:49:36",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T18:49:36",
+      "updated_at": "2026-08-24T18:49:36",
+      "authorization_timestamp": "2026-08-24T18:49:36.378961",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T18:49:36",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T18:49:36",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-8fabdcc08a03ee277d1bccd5",
+      "new_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T19:15:43",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: mark-failed → failed",
+    "details": {
+      "version": 2,
+      "stage": "failed",
+      "legacy": false,
+      "step": 3,
+      "total": 6,
+      "label": "运行失败"
+    }
+  },
+  {
+    "time": "2026-08-24T22:21:36",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-8bb60cd3e3d6200f96a12fcb",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T22:21:36",
+      "updated_at": "2026-08-24T22:21:36",
+      "authorization_timestamp": "2026-08-24T22:21:36.060192",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T22:21:36",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T22:21:36",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-abad0c19d14f59b0873ea8b7",
+      "new_dispatch_id": "dispatch-8bb60cd3e3d6200f96a12fcb",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T22:22:14",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-24T22:22:17",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-24T22:29:55",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-24T22:30:02",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-12b9459a0b6ebc21dfeb1bbb",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T22:30:02",
+      "updated_at": "2026-08-24T22:30:02",
+      "authorization_timestamp": "2026-08-24T22:30:02",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T22:30:02",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T22:30:19",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-24T22:30:20",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-24T22:30:22",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_workflow",
+    "message": "002: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-24T22:30:35",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T22:30:35",
+      "updated_at": "2026-08-24T22:30:35",
+      "authorization_timestamp": "2026-08-24T22:30:35",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T22:30:35",
+          "type": "queued",
+          "detail": "authorization_reliability"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T22:41:34",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T22:41:34",
+      "updated_at": "2026-08-24T22:41:34",
+      "authorization_timestamp": "2026-08-24T22:41:34.908827",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T22:41:34",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T22:41:34",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-70498202b197844ef78f6a8e",
+      "new_dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T23:07:21",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T23:07:21",
+      "updated_at": "2026-08-24T23:07:21",
+      "authorization_timestamp": "2026-08-24T23:07:21.831160",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T23:07:21",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T23:07:21",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-e4a5583cdcca020b98f51566",
+      "new_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T23:08:06",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T23:08:06",
+      "updated_at": "2026-08-24T23:08:06",
+      "authorization_timestamp": "2026-08-24T23:08:06.913906",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T23:08:06",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T23:08:06",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-2a0f74a1303930f58c9f4ea2",
+      "new_dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T23:19:49",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_runtime_command_prepared",
+    "message": "002: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-24T23:24:13",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "execution_dispatch_enqueue",
+    "message": "002 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+      "experiment_id": "E-008",
+      "run_id": "002",
+      "status": "queued",
+      "created_at": "2026-08-24T23:24:13",
+      "updated_at": "2026-08-24T23:24:13",
+      "authorization_timestamp": "2026-08-24T23:24:13.569037",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-24T23:24:13",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-24T23:24:13",
+    "experiment_id": "E-008",
+    "run_id": "002",
+    "type": "run_execution_restarted",
+    "message": "002: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-8d013bc6d22b89c771732b10",
+      "new_dispatch_id": "dispatch-1d7377ec071abeee36849be6",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-24T23:25:51+08:00",
+    "experiment_id": "E-008",
+    "run_id": "",
+    "type": "discovery",
+    "message": "Run 002 远程实现路由回退：请求的 codex/sol 在当前 Codex 账户不受支持，按已配置路由改用 pi fallback。",
+    "details": "requested_route=experiment_code_edit; requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=Codex returned invalid_request_error: sol model is not supported"
+  },
+  {
+    "time": "2026-08-25T00:31:06",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_organization",
+    "message": "003: microtask",
+    "details": {
+      "time": "2026-08-25T00:31:06",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-c608f5a68ccb1964d893"
+    }
+  },
+  {
+    "time": "2026-08-25T00:31:06+08:00",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run 003 · query-span attention 置换的自然生成 IoU 对照",
+    "details": ""
+  },
+  {
+    "time": "2026-08-25T00:31:49+08:00",
+    "experiment_id": "E-008",
+    "run_id": "",
+    "type": "discovery",
+    "message": "Run 003 远程实现按配置回退到 pi：experiment_code_edit 请求的 codex/sol 已在本会话确认不受当前 Codex 账户支持。",
+    "details": "requested_agent=codex; requested_model=sol; actual_agent=pi; fallback_reason=known invalid_request_error in current session; scope=Run 003 online generation IoU implementation"
+  },
+  {
+    "time": "2026-08-25T00:33:59+08:00",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_update",
+    "message": "Run 003自然生成IoU对照已完成最小实现；py_compile、shell syntax、10个测试与diff check通过。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-25T00:33:59",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_workflow",
+    "message": "003: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-25T00:33:59+08:00",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_review_submitted",
+    "message": "自然生成IoU三条件对照已实现并通过聚焦检查；请求按用户本轮“测量一下”直接审核执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-25T00:55:34",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T00:55:34",
+      "updated_at": "2026-08-25T00:55:34",
+      "authorization_timestamp": "2026-08-25T00:55:34.889989",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T00:55:34",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T00:55:34",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-d34b834ed9b3cb087eca6486",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T02:14:15",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d1aea01446ea81315901cdd5",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T02:14:15",
+      "updated_at": "2026-08-25T02:14:15",
+      "authorization_timestamp": "2026-08-25T02:14:15.141605",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T02:14:15",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T02:14:15",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-d1aea01446ea81315901cdd5",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T02:15:17",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-9932233e6089037952aa062d",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T02:15:17",
+      "updated_at": "2026-08-25T02:15:17",
+      "authorization_timestamp": "2026-08-25T02:15:17.546804",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T02:15:17",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T02:15:17",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-9932233e6089037952aa062d",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T02:19:37",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-b4debf02e1c9479b72f8a462",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T02:19:37",
+      "updated_at": "2026-08-25T02:19:37",
+      "authorization_timestamp": "2026-08-25T02:19:37.972065",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T02:19:37",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T02:19:37",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-b4debf02e1c9479b72f8a462",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T02:30:20",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-ab2be0d900f5e9c155f6a26a",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T02:30:20",
+      "updated_at": "2026-08-25T02:30:20",
+      "authorization_timestamp": "2026-08-25T02:30:20.891368",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T02:30:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T02:30:20",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-ab2be0d900f5e9c155f6a26a",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T09:47:04",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T09:47:04",
+      "updated_at": "2026-08-25T09:47:04",
+      "authorization_timestamp": "2026-08-25T09:47:04.000561",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T09:47:04",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T09:47:04",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T10:11:43",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_runtime_command_prepared",
+    "message": "003: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-0c7f3e62eb4069956e6ba98d",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-25T13:46:07+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已核验：登记工作区根目录不是 Git 仓库；实际可用代码位于 mechanism/IPLoc、mechanism/iplocid 与 mechanism/Rex-Omni 子目录。",
+    "details": "只读检查：根目录一级结构与三个项目子目录；iplocid 当前存在未提交改动，后续实现不得覆盖。"
+  },
+  {
+    "time": "2026-08-25T13:46:07+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已核验：机器有 4 张 RTX 3090（每张 24 GiB），勘察时至少两张基本空闲；共享盘仅剩约 5.9 TiB 且使用率 98%，本地系统盘约剩 770 GiB。",
+    "details": "nvidia-smi 与 df -h 的只读摘要；仅表示勘察时快照，不保证执行时资源仍可用。"
+  },
+  {
+    "time": "2026-08-25T13:46:07+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已核验：系统 Python 与现有 Miniconda Python 均缺 torch、transformers、peft、accelerate、datasets 等训练依赖，当前环境不能直接启动 SFT。",
+    "details": "分别对 /usr/bin/python3 与 /root/miniconda3/bin/python 做 import-spec/import 检查；未读取环境变量。"
+  },
+  {
+    "time": "2026-08-25T13:46:07+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已核验：Qwen3-VL-8B-Instruct 本地基础模型索引包含 10 个权重分片且无缺片；IPLoc-ID 目录另有两个约 87 MB 的 Qwen3-VL LoRA adapter，可作为配置参考。",
+    "details": "模型 config 标识 qwen3_vl、36 层、hidden size 4096；adapter 为 rank 8，排除视觉模块并作用于语言侧投影层。"
+  },
+  {
+    "time": "2026-08-25T13:46:08+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已核验：IPLoc 与 IPLoc-ID 均未提供可用训练代码；Rex-Omni 提供 SFT 入口，但当前实现固定 Qwen2.5-VL 类与配套训练栈，不能直接当作 Qwen3-VL SFT 入口。",
+    "details": "读取三个仓库 README、Rex-Omni/finetuning/train.py 与 requirements.txt；IPLoc-ID README 明确训练代码尚未发布。"
+  },
+  {
+    "time": "2026-08-25T13:46:56",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "type": "run_organization",
+    "message": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke: microtask",
+    "details": {
+      "time": "2026-08-25T13:46:56",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f3a5055da574672ea581"
+    }
+  },
+  {
+    "time": "2026-08-25T13:46:56+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-001-qwen3vl8b-lora-sft-capability-smoke · Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验",
+    "details": ""
+  },
+  {
+    "time": "2026-08-25T14:08:27",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "type": "execution_dispatch_enqueue",
+    "message": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+      "status": "queued",
+      "created_at": "2026-08-25T14:08:27",
+      "updated_at": "2026-08-25T14:08:27",
+      "authorization_timestamp": "2026-08-25T14:08:27.684827",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T14:08:27",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T14:08:27",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "type": "run_direct_steward",
+    "message": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T14:12:24",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+    "type": "run_runtime_command_prepared",
+    "message": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-25T16:09:52",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "execution_dispatch_enqueue",
+    "message": "003 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+      "experiment_id": "E-008",
+      "run_id": "003",
+      "status": "queued",
+      "created_at": "2026-08-25T16:09:52",
+      "updated_at": "2026-08-25T16:09:52",
+      "authorization_timestamp": "2026-08-25T16:09:52.190650",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-25T16:09:52",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-25T16:09:52",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_direct_steward",
+    "message": "003: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-25T16:14:22",
+    "experiment_id": "E-008",
+    "run_id": "003",
+    "type": "run_runtime_command_prepared",
+    "message": "003: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+      "consumer": "pi-steward"
+    }
   }
 ]

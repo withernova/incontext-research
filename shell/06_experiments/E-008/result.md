@@ -9,7 +9,8 @@
 | [E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded](runs/E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded.md) | grounding heads query-image alignment smoke n4 tmux-guarded replacement | 20260819 | failed | （尚无结构化观测） |
 | [E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry](runs/E008-R-000c-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry.md) | grounding heads query-image alignment smoke n4 tmux-guarded runtime retry | 20260819 | draft | （尚无结构化观测） |
 | [E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2](runs/E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2.md) | grounding heads query-image alignment smoke n4 tmux-guarded runtime retry v2 | 20260819 | running | （尚无结构化观测） |
-| [002](runs/002.md) | 可编辑 |  | draft | （尚无结构化观测） |
+| [002](runs/002.md) | 可编辑 |  | failed | （尚无结构化观测） |
+| [003](runs/003.md) | query-span attention 置换的自然生成 IoU 对照 | 20260824 | draft | （尚无结构化观测） |
 
 
 ## 指标观测（survey-tool 管理）
