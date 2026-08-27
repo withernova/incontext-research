@@ -1,0 +1,37 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 2,
+  "checkCount": 498,
+  "lastCheckTime": 1787799507451,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "stopped",
+  "healthyStreak": 0,
+  "nextCheck": "2026-08-27T03:00:29.883Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": true,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/metrics.json",
+      "size": 224,
+      "mtime": "1787738525"
+    },
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/.survey-tool-exit-code",
+      "size": 2,
+      "mtime": "1787738526"
+    }
+  ],
+  "notifiedIncidentSignature": "process:stopped",
+  "observationFailureNotified": false
+}

@@ -18,8 +18,8 @@
   "completionStableCount": 0,
   "restartCount": 0,
   "archiveId": "",
-  "lastReason": "Pi entered bounded Trial repair mode",
-  "pausedAfterRestart": false,
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": true,
   "lastCompletionArtifacts": [
     {
       "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-008/003/metrics.json",

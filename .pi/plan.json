@@ -1,31 +1,19 @@
 {
   "version": 1,
-  "explanation": "已先提交当前框架快照，再实现并提交一卡一完整模型的双进程 LoRA DDP。原 train.py/config 入口保留；DDP 使用新 model type/config/torchrun launcher。静态编译、4 单测、bs1/2/4/8 processor contract、双 GPU NCCL collectives 和旧接口 inspect 均通过；未实际加载两份 8B 权重或跑容量 sweep。",
+  "explanation": "已核验先前登记已完整落盘，并写入一次幂等重启核验事件，避免重复创建 Q-006。",
   "steps": [
     {
-      "step": "核验 iploc-szy Git 边界、状态与当前测试，提交重构前快照",
+      "step": "核验 Q-006 文件、索引与 E-010 登记事件",
       "status": "completed"
     },
     {
-      "step": "设计并实现单卡完整模型加载与双进程 LoRA DDP 封装",
+      "step": "按核验结果重启或补全登记",
       "status": "completed"
     },
     {
-      "step": "扩展 Runner 的 rank-aware 数据分片、指标聚合和 rank-0 保存",
-      "status": "completed"
-    },
-    {
-      "step": "新增保留原接口的 DDP 配置与 torchrun batch ladder launcher",
-      "status": "completed"
-    },
-    {
-      "step": "运行静态、单元、processor 和分布式轻量契约测试",
-      "status": "completed"
-    },
-    {
-      "step": "提交 DDP 实现并说明运行方式、batch 语义与风险",
+      "step": "回报可审计登记状态",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-08-25T08:40:18.984Z"
+  "updatedAt": "2026-08-27T03:57:40.016Z"
 }

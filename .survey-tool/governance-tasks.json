@@ -217,6 +217,114 @@
         }
       },
       "created_at": "2026-08-25T13:46:56"
+    },
+    {
+      "task_id": "classify-7355586398ece591a522",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "run_type": "analysis",
+          "variant": "IPLoc-ID固定注意力头稳定性与新样本定位检查",
+          "purpose": "一次提取IPLoc-ID自然回答及对应注意力，依次检查位置读取、名单稳定性、新样本定位、多数图片覆盖、答对与答错差异，以及参考图和待查图是否需要不同的头。目标是排除名单由少数图片偶然决定或只在挑头数据上有效。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-26T14:30:59"
+    },
+    {
+      "task_id": "classify-55839438566f7520c064",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-002-identity-spatial-controls-and-head-necessity",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-002-identity-spatial-controls-and-head-necessity",
+          "run_type": "intervention",
+          "variant": "IPLoc-ID身份与位置排除检查及注意力头必要性验证",
+          "purpose": "在同一批未参与挑头的样本上，依次更换错误参考身份、单独变换参考图或待查图，并在内部条件通过后关闭固定注意力头。目标是排除身份无关和位置规律等简单解释，并区分“热图能显示物体”与“模型完成任务需要这些头”。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-26T14:32:02"
+    },
+    {
+      "task_id": "classify-26074d8cee318f9db26b",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "run_type": "analysis",
+          "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "purpose": "以模型自然生成的Query bbox token prediction rows为唯一query rows，分别读取其到Query image tokens和Reference image tokens的逐头注意力，使用同一套LocalizationHeads式无GT算法独立发现query heads与reference heads，并验证二者在20图重复抽样、较大子集和sequence-held-out样本上的显著性、稳定性与空间有效性。明确禁止使用Reference bbox token rows定义任何head。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-26T16:54:36"
+    },
+    {
+      "task_id": "classify-51f6757698d6446422d4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "run_type": "analysis",
+          "variant": "冻结Query heads投向Reference图像的空间偏差与坐标复制审计",
+          "purpose": "冻结R-003仅由Qbbox→Query发现的query heads，在完全相同的自然Query bbox prediction rows上把key span切换到Reference image，测量其注意力是否相对R-003 reference heads表现出系统目标错位、Query坐标复制、固定位置/边界偏置或仅仅较弱的Reference目标信号。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-26T16:54:36"
     }
   ]
 }

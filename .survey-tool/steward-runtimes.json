@@ -39,6 +39,48 @@
       "finished_at": "",
       "message": "等待新 Pi 读取批准上下文并调用 Steward 扩展",
       "updated_at": "2026-08-25T14:08:27"
+    },
+    "E010-R-001-fixed-head-stability-and-heldout-localization": {
+      "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+      "phase": "agent_running",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+      "error_class": "",
+      "finished_at": "",
+      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
+      "updated_at": "2026-08-26T15:29:51",
+      "started_at": "2026-08-26T15:29:46",
+      "internal_agent_name": "steward-e010-r-001-e00b2debe6",
+      "internal_pane_id": "w1:p18",
+      "agent_status": "idle"
+    },
+    "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability": {
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "phase": "agent_running",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+      "error_class": "",
+      "finished_at": "",
+      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
+      "updated_at": "2026-08-26T17:20:59",
+      "started_at": "2026-08-26T17:20:52",
+      "internal_agent_name": "steward-e010-r-003-0e7cdc83ce",
+      "internal_pane_id": "w1:p19",
+      "agent_status": "idle"
+    },
+    "E010-R-004-frozen-query-head-reference-span-bias-audit": {
+      "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+      "phase": "agent_running",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-e57fc834344208913e9dbba8",
+      "error_class": "",
+      "finished_at": "",
+      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
+      "updated_at": "2026-08-27T10:59:14",
+      "started_at": "2026-08-27T10:59:10",
+      "internal_agent_name": "steward-e010-r-004-b53d669df4",
+      "internal_pane_id": "w1:p1A",
+      "agent_status": "idle"
     }
   }
 }

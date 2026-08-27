@@ -1,0 +1,175 @@
+{
+  "definition": "natural generated query bbox p-1 rows -> reference image tokens",
+  "split": "E010 held-out evaluation groups only",
+  "green_box": "reference GT, evaluation overlay only; not used for head discovery",
+  "records": [
+    {
+      "index": 1,
+      "group": "airplane-9",
+      "outcome": "correct",
+      "natural_iou": 0.8167084455490112,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0001_correct_airplane-9.png"
+    },
+    {
+      "index": 3,
+      "group": "basketball-6",
+      "outcome": "correct",
+      "natural_iou": 0.6151342988014221,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0003_correct_basketball-6.png"
+    },
+    {
+      "index": 4,
+      "group": "bear-2",
+      "outcome": "correct",
+      "natural_iou": 0.966871440410614,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0004_correct_bear-2.png"
+    },
+    {
+      "index": 5,
+      "group": "bear-4",
+      "outcome": "correct",
+      "natural_iou": 0.7136125564575195,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0005_correct_bear-4.png"
+    },
+    {
+      "index": 15,
+      "group": "bottle-12",
+      "outcome": "error",
+      "natural_iou": 0.0,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0015_error_bottle-12.png"
+    },
+    {
+      "index": 23,
+      "group": "cattle-7",
+      "outcome": "error",
+      "natural_iou": 0.0,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0023_error_cattle-7.png"
+    },
+    {
+      "index": 25,
+      "group": "chameleon-6",
+      "outcome": "error",
+      "natural_iou": 0.0,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0025_error_chameleon-6.png"
+    },
+    {
+      "index": 35,
+      "group": "deer-8",
+      "outcome": "error",
+      "natural_iou": 0.0,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0035_error_deer-8.png"
+    },
+    {
+      "index": 8,
+      "group": "bird-2",
+      "outcome": "other",
+      "natural_iou": 0.888888418674469,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0008_other_bird-2.png"
+    },
+    {
+      "index": 9,
+      "group": "bird-3",
+      "outcome": "other",
+      "natural_iou": 0.9106557965278625,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0009_other_bird-3.png"
+    },
+    {
+      "index": 14,
+      "group": "bottle-1",
+      "outcome": "other",
+      "natural_iou": 0.9198866486549377,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0014_other_bottle-1.png"
+    },
+    {
+      "index": 18,
+      "group": "car-2",
+      "outcome": "other",
+      "natural_iou": 0.9100379943847656,
+      "heads": [
+        "L14H04",
+        "L4H29",
+        "L14H25",
+        "L24H17",
+        "L35H08"
+      ],
+      "path": "experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/visualizations/q_to_r_fixed_top5_heldout/sample_0018_other_car-2.png"
+    }
+  ]
+}

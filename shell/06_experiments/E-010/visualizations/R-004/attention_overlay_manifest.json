@@ -1,0 +1,127 @@
+{
+  "purpose": "show where attention lands on original images",
+  "projection_drawn": false,
+  "metrics_or_heads_changed": false,
+  "records": [
+    {
+      "index": 132,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0132_correct_umbrella-2.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0132_correct_umbrella-2.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 39,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0039_error_drone-7.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0039_error_drone-7.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 69,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0069_correct_hippo-7.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0069_correct_hippo-7.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 108,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0108_error_shark-2.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0108_error_shark-2.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 125,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0125_correct_tiger-6.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0125_correct_tiger-6.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 70,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0070_error_horse-1.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0070_error_horse-1.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 98,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0098_correct_rabbit-10.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0098_correct_rabbit-10.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 73,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0073_error_kangaroo-5.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0073_error_kangaroo-5.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 80,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0080_correct_lion-1.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0080_correct_lion-1.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 29,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0029_correct_crab-6.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0029_correct_crab-6.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 5,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0005_correct_bear-4.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0005_correct_bear-4.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    },
+    {
+      "index": 129,
+      "four_grid": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_original_four_grid/sample_0129_correct_truck-6.png",
+      "per_query_head": "experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/visualizations/attention_on_reference_per_query_head/sample_0129_correct_truck-6.png",
+      "green_box": "GT bbox",
+      "white_x": "attention argmax",
+      "normalization": "per-panel min-max for visual audit only",
+      "raw_mass_in_title": true,
+      "projection_drawn": false
+    }
+  ]
+}

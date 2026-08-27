@@ -1,0 +1,37 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 2,
+  "checkCount": 2,
+  "lastCheckTime": 1787730999638,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "stopped",
+  "healthyStreak": 0,
+  "nextCheck": "2026-08-26T07:58:53.278Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": true,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/metrics.json",
+      "size": 57206,
+      "mtime": "1787731056"
+    },
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/.survey-tool-exit-code",
+      "size": 2,
+      "mtime": "1787731057"
+    }
+  ],
+  "notifiedIncidentSignature": "process:stopped",
+  "observationFailureNotified": false
+}

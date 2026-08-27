@@ -1,0 +1,12 @@
+{"time":"2026-08-26T07:41:01.161Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"tmux stopped before completion"}
+{"time":"2026-08-26T07:41:46.781Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-26T07:43:16.848Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"tmux stopped before completion"}
+{"time":"2026-08-26T07:43:55.049Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-26T07:45:35.207Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-26T07:47:53.054Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-26T07:50:08.957Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-26T07:50:50.307Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-26T07:54:39.632Z","event":"phase_transition","from":"monitoring","to":"incident_open","reason":"process verified stopped before completion"}
+{"time":"2026-08-26T07:56:53.277Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-26T07:58:48.100Z","event":"phase_transition","from":"incident_open","to":"stopped","reason":"Pi entered bounded Run repair mode"}
+{"time":"2026-08-26T09:20:58.784Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}

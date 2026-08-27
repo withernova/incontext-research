@@ -53,3 +53,7 @@
 - [[002|可编辑]] ← [[E-008]] · `failed`
 - [[003|query-span attention 置换的自然生成 IoU 对照]] ← [[E-008]] · `approved`
 - [[E009-R-001-qwen3vl8b-lora-sft-capability-smoke|Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验]] ← [[E-009]] · `approved`
+- [[E010-R-001-fixed-head-stability-and-heldout-localization|IPLoc-ID固定注意力头稳定性与新样本定位检查]] ← [[E-010]] · `approved`
+- [[E010-R-002-identity-spatial-controls-and-head-necessity|IPLoc-ID身份与位置排除检查及注意力头必要性验证]] ← [[E-010]] · `planned`
+- [[E010-R-003-natural-query-bbox-dual-span-head-discovery-stability|自然Query-bbox双图Query/Reference head无GT发现与稳定性复核]] ← [[E-010]] · `planned`
+- [[E010-R-004-frozen-query-head-reference-span-bias-audit|冻结Query heads投向Reference图像的空间偏差与坐标复制审计]] ← [[E-010]] · `planned`

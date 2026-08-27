@@ -1,0 +1,37 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": true,
+  "intervalMinutes": 2,
+  "checkCount": 28,
+  "lastCheckTime": 1787803126053,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "incident_open",
+  "healthyStreak": 0,
+  "nextCheck": "2026-08-27T04:00:48.582Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "remediation/attention phase remains blocking; schedule=phase=incident_open",
+  "pausedAfterRestart": false,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/metrics.json",
+      "size": 271,
+      "mtime": "1787799927"
+    },
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/.survey-tool-exit-code",
+      "size": 2,
+      "mtime": "1787799927"
+    }
+  ],
+  "notifiedIncidentSignature": "process:stopped",
+  "observationFailureNotified": false
+}

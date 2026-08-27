@@ -3027,5 +3027,384 @@
       }
     },
     "results": []
+  },
+  {
+    "time": "2026-08-26T15:42:19",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T15:44:34",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T15:53:29",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:28:03",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 1
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:29:42",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:31:06",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:32:54",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:34:41",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:36:59",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:41:52",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:47:14",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:53:34",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-26T17:58:55",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [],
+      "totals": {
+        "actions": 0,
+        "anomalies": 2,
+        "unchanged": 0
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-27T11:03:19",
+    "experiment_id": "E-010",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-d6f9d678acd005321b1297fc"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 1,
+        "unchanged": 2
+      }
+    },
+    "results": []
   }
 ]

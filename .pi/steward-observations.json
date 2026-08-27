@@ -92,6 +92,85 @@
         "since": "2026-08-25T06:17:35.497Z",
         "pendingLine": ""
       }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization/logs/train.log|incontext-E-010-E010-R-001-fixed-head-stability-and-heldout-localization": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:22313985124",
+        "byteOffset": 7040,
+        "since": "2026-08-26T07:56:43.410Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/logs/train.log|incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability": {
+      "fingerprints": {
+        "ERR-e62782b84a09": {
+          "id": "ERR-e62782b84a09",
+          "exceptionType": "FileNotFoundError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in open",
+          "command": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "runId": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "firstSeen": "2026-08-26T09:28:48.187Z",
+          "lastSeen": "2026-08-26T09:31:37.957Z",
+          "occurrences": 3,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 194, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-a1d3c99668da": {
+          "id": "ERR-a1d3c99668da",
+          "exceptionType": "FileNotFoundError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in _opener",
+          "command": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "runId": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "firstSeen": "2026-08-26T09:28:48.187Z",
+          "lastSeen": "2026-08-26T09:31:37.957Z",
+          "occurrences": 3,
+          "status": "open",
+          "lastContext": "  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/pathlib.py\", line 1078, in _opener\n    return self._accessor.open(self, flags, mode)\nFileNotFoundError: [Errno 2] No such file or directory: 'mechanism/iplocid/configs/e010_r003.json'\n"
+        },
+        "ERR-eb947cab6372": {
+          "id": "ERR-eb947cab6372",
+          "exceptionType": "UnboundLocalError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "runId": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "firstSeen": "2026-08-26T09:35:18.975Z",
+          "lastSeen": "2026-08-26T09:35:18.975Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 194, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-8c872412d73b": {
+          "id": "ERR-8c872412d73b",
+          "exceptionType": "NameError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in visualize",
+          "command": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "runId": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "firstSeen": "2026-08-26T09:36:07.530Z",
+          "lastSeen": "2026-08-26T09:36:07.530Z",
+          "occurrences": 1,
+          "status": "resolved",
+          "lastContext": "Traceback (most recent call last):\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 194, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/root/miniconda3/envs/DIGEO/lib/python3.8/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)",
+          "remediation": "Changed visualize title lookup from undefined records[index][sample_id] to records[index]['sample_id']; added focused mocked visualization regression test. py_compile and 3/3 focused tests pass.",
+          "remediationAppliedAt": "2026-08-26T09:36:54.209Z",
+          "resolvedAt": "2026-08-26T09:38:57.019Z"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:28420605813",
+        "byteOffset": 9619,
+        "since": "2026-08-26T10:01:57.814Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/logs/train.log|incontext-E-010-E010-R-004-frozen-query-head-reference-span-bias-audit": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:26340318029",
+        "byteOffset": 287,
+        "since": "2026-08-27T03:05:41.819Z",
+        "pendingLine": ""
+      }
     }
   }
 }
