@@ -11645,18 +11645,15 @@
     "expected_outcome": "给出GT监督固定化是否可能的判别：A频率集中且held-out超过随机，说明R-005无GT代理失配；B频率分散或held-out无优势，支持动态/不可固定化；C discovery集中但held-out衰减，提示选择集特异。任何情形都不证明身份选择或因果必要性。",
     "acceptance_criteria": "140条输入契约通过；discovery/evaluation各70条及零sequence overlap；逐图GT ranking、频率/集中度/Jaccard原始记录齐全；冻结Top3/5及其层匹配随机名单可追溯；held-out各方法全部空间指标和bootstrap CI齐全；至少12个固定统一色标案例；明确GT监督边界。",
     "dependencies": "依赖已完成R-005与其核验过的R-003/R-001只读artifacts；无需模型、数据下载或R-003重跑。R-005保持analysis_pending，不能修改其结果或状态。",
-    "limitations": "GT进入discovery ranking，因此不是无GT或部署算法；70/70仅为selection-held-out sequence split，训练暴露未知；attention heatmap/readout与原图overlay均是诊断，不证明信息写入residual/KV、身份选择或因果必要性；per-panel min-max overlay只用于可视审计，不能跨panel比较绝对色强。",
     "claim_boundary": "仅回答GT监督的空间oracle/near-oracle head能否跨sequence固定化；不能把结果外推为LocalizationHeads无GT方法有效、模型依赖这些heads、或模型完成identity binding。",
-    "audit_paths": "代码=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/gt_supervised_reference_stability.py；config=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r006.json；launcher=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e010_r006.sh；overlay renderer=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/render_e010_r006_attention_overlays.py；summary=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json；metrics=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json；overlay manifest=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json；overlays=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/。",
-    "status": "analysis_pending",
+    "status": "failed",
     "workspace_id": "02",
     "git_commit": "",
     "config": "",
-    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh",
     "log_path": "",
     "output_dir": "",
     "artifact_dir": "",
-    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/",
     "tmux_session": "",
     "seed": "20260828",
     "group_id": "",
@@ -11668,11 +11665,11 @@
     "id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
     "experiment_id": "E-010",
     "workflow_version": 2,
-    "workflow_stage": "analysis_pending",
+    "workflow_stage": "failed",
     "review_status": "approved",
     "review_round": 0,
     "created": "2026-08-27T14:59:52",
-    "updated": "2026-08-27T15:17:01",
+    "updated": "2026-08-27T19:19:42",
     "organization_snapshot": {
       "time": "2026-08-27T14:59:52",
       "policy_version": "run-organization/v1",
@@ -11681,12 +11678,12 @@
       "reason": "ambiguous",
       "task_id": "classify-679b38ef33794d25e56b"
     },
-    "approved_at": "2026-08-27T15:01:29.891656",
-    "approved_by": "human:web-v2",
+    "approved_at": "2026-08-27T15:56:22.027947",
+    "approved_by": "pi-steward:447496",
     "approved_spec": {
       "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
       "artifact_dir": "",
-      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh",
       "config": "",
       "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
       "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
@@ -11707,14 +11704,44 @@
       "seed": "20260828",
       "server_id": null,
       "tmux_session": "",
-      "trial_manifest": null,
-      "trial_plan": null,
+      "trial_manifest": {
+        "contract": "survey-tool.run-trial-manifest/v1",
+        "trials": [
+          {
+            "id": "T-001",
+            "parameters": {
+              "reward_form": "multiplicative_iou_plus_max_token_hit",
+              "iou_metric": "support50_fiou",
+              "entropy_weight": 1,
+              "iou_reward_weight": 2,
+              "iou_threshold": 0,
+              "max_token_hit_reward_weight": 0.25,
+              "max_token_metric": "pointing_hit",
+              "rank_score": "(1-normalized_entropy) * (1 + 2 * support50_fiou) + 0.25 * pointing_hit"
+            }
+          }
+        ]
+      },
+      "trial_plan": {
+        "contract": "survey-tool.run-trial-plan/v1",
+        "planning_mode": "ai_planned",
+        "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
+        "trial_budget": 1,
+        "axes": [],
+        "trials": [],
+        "planning_status": "awaiting_ai",
+        "concurrency": 1,
+        "max_retries": 1,
+        "created_at": "2026-08-27T15:56:21",
+        "updated_at": "2026-08-27T15:56:21",
+        "campaign_id": "C-002"
+      },
       "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
       "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
       "workspace_id": "02"
     },
-    "execution_authorized_at": "2026-08-27T15:01:29.891656",
-    "execution_authorized_by": "human:web-v2",
+    "execution_authorized_at": "2026-08-27T15:56:22.027947",
+    "execution_authorized_by": "pi-steward:447496",
     "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
     "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
     "workflow_history": [
@@ -11724,6 +11751,77 @@
         "from": "code_planning",
         "to": "ready_to_run",
         "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-27T15:33:20",
+        "action": "trial-campaign-prepared",
+        "campaign_id": "C-001",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 3,
+        "concurrency": 1,
+        "replaced_dispatch_ids": []
+      },
+      {
+        "time": "2026-08-27T15:33:20.150920",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-27T15:41:31",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+        "reason": "批量 launcher 已成功产生三份 `trials/T-00x/metrics.json` 和 `trial_summary.json`，但 complete 表示后端未找到逐 Trial metrics contract；请检查并报告其期望路径或可接受的修复入口，以便在同一受管 Run 内最小修复。"
+      },
+      {
+        "time": "2026-08-27T15:45:16",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+        "reason": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。"
+      },
+      {
+        "time": "2026-08-27T15:56:21",
+        "action": "trial-campaign-created",
+        "campaign_id": "C-002",
+        "actor": "pi-steward:447496",
+        "trial_count": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-039d4cd11278b6b81563353b"
+        ]
+      },
+      {
+        "time": "2026-08-27T15:56:22.027947",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "pi-steward:447496"
+      },
+      {
+        "time": "2026-08-27T15:59:35",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+        "reason": "C-002 的科学 Trial 已完成但 root completion validator 未定位 campaign 子目录的聚合 metrics。最小修复：将同一 C-002 `trial_metrics.json` 镜像到受管 root 的 `metrics.json`，不改 Trial 参数、heads 或逐条 metrics；随后使用 C-002 允许的唯一 retry。"
+      },
+      {
+        "time": "2026-08-27T16:02:00",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+        "reason": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。"
       }
     ],
     "review_history": [
@@ -11761,17 +11859,104 @@
           "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
           "workspace_id": "02"
         }
+      },
+      {
+        "time": "2026-08-27T15:33:20.150920",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh",
+          "config": "",
+          "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
+          "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "若discovery逐图GT-top-k head ID的频率集中、固定Top3/5在held-out优于同层随机，则固定化在监督诊断下可行而R-005失败主要是无GT代理失配；若频率分散且冻结held-out不优于随机，则reference空间信号主要为逐图动态，不能压缩为少数固定heads。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "复用R-005/R-003的pointing、enrichment、target mass、S50 fIoU及sequence-bootstrap，新增GT-discovery频率稳定性；这样只改变监督可见性，而不改变输入、row、grid或评分定义。",
+          "metrics_path": null,
+          "model_config": "不加载模型；仅读取由R-001中Qwen3-VL-8B-Instruct + IPLoc-ID LoRA自然生成过程保存的attention artifacts与记录。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。",
+          "research_question": "在R-005已证明逐图GT oracle存在的自然Qbbox→Reference maps中，GT监督的逐图空间评分能否跨70条R-003 discovery sequences收敛为一组固定Top3/5 reference heads，并在严格序列不重叠的70条held-out sequences上优于同层随机与all-head mean？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "我觉得目前的实验偏离Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding有风险，我们可不可以尝试一种在原算法的熵值框架下，加入一个gt iou相关的奖励项呢，如果和reference gt相关度高给更多的奖励，你可以多规划几种形式，然后我们和目前006的算法进行对比看看。",
+            "trial_budget": 3,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-27T15:33:20",
+            "updated_at": "2026-08-27T15:33:20",
+            "campaign_id": "C-001"
+          },
+          "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
+          "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-27T15:56:22.027947",
+        "action": "direct-steward",
+        "actor": "pi-steward:447496",
+        "snapshot": {
+          "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_trials.sh",
+          "config": "",
+          "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
+          "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "若discovery逐图GT-top-k head ID的频率集中、固定Top3/5在held-out优于同层随机，则固定化在监督诊断下可行而R-005失败主要是无GT代理失配；若频率分散且冻结held-out不优于随机，则reference空间信号主要为逐图动态，不能压缩为少数固定heads。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "复用R-005/R-003的pointing、enrichment、target mass、S50 fIoU及sequence-bootstrap，新增GT-discovery频率稳定性；这样只改变监督可见性，而不改变输入、row、grid或评分定义。",
+          "metrics_path": null,
+          "model_config": "不加载模型；仅读取由R-001中Qwen3-VL-8B-Instruct + IPLoc-ID LoRA自然生成过程保存的attention artifacts与记录。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。",
+          "research_question": "在R-005已证明逐图GT oracle存在的自然Qbbox→Reference maps中，GT监督的逐图空间评分能否跨70条R-003 discovery sequences收敛为一组固定Top3/5 reference heads，并在严格序列不重叠的70条held-out sequences上优于同层随机与all-head mean？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
+            "trial_budget": 1,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-27T15:56:21",
+            "updated_at": "2026-08-27T15:56:21",
+            "campaign_id": "C-002"
+          },
+          "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
+          "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+          "workspace_id": "02"
+        }
       }
     ],
-    "execution_authorization_consumed_at": "2026-08-27T15:04:46",
-    "execution_dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
-    "execution_dispatch_latest_status": "completed",
-    "execution_dispatch_completed_at": "2026-08-27T15:06:22",
-    "execution_dispatch_completion_evidence": {
-      "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
-      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
-      "result_message": "managed execution exited 0; metrics parsed; human analysis required"
-    },
     "steward_summary": {
       "execution_completed_at": "2026-08-27T15:06:22",
       "evidence": {
@@ -11781,32 +11966,231 @@
       },
       "note": "程序已结束，等待科研结果分析"
     },
-    "metric_observations": [],
-    "auxiliary_metric_observations": [
+    "conclusion_scope": "该Run只支持：在冻结R-003自然Qbbox→Reference attention artifacts上，GT空间监督频率能构建一个在sequence-disjoint held-out上优于层匹配随机的固定Top3/5 readout ensemble。不能支持：GT-free selector可部署、模型利用GT、identity binding、任何head的因果必要性、训练外泛化。",
+    "trial_campaigns": [
       {
-        "metric_id": "evaluation_records",
-        "value": 70,
-        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+        "id": "C-001",
+        "contract": "survey-tool.run-trial-campaign/v1",
+        "request": "我觉得目前的实验偏离Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding有风险，我们可不可以尝试一种在原算法的熵值框架下，加入一个gt iou相关的奖励项呢，如果和reference gt相关度高给更多的奖励，你可以多规划几种形式，然后我们和目前006的算法进行对比看看。",
+        "status": "failed",
+        "created_at": "2026-08-27T15:33:20",
+        "plan": {
+          "contract": "survey-tool.run-trial-plan/v1",
+          "planning_mode": "ai_planned",
+          "request": "我觉得目前的实验偏离Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding有风险，我们可不可以尝试一种在原算法的熵值框架下，加入一个gt iou相关的奖励项呢，如果和reference gt相关度高给更多的奖励，你可以多规划几种形式，然后我们和目前006的算法进行对比看看。",
+          "trial_budget": 3,
+          "axes": [],
+          "trials": [],
+          "planning_status": "awaiting_ai",
+          "concurrency": 1,
+          "max_retries": 1,
+          "created_at": "2026-08-27T15:33:20",
+          "updated_at": "2026-08-27T15:33:20",
+          "campaign_id": "C-001"
+        },
+        "previous_workflow_stage": "analysis_pending",
+        "previous_result": {
+          "auxiliary_metric_observations": [
+            {
+              "metric_id": "evaluation_records",
+              "value": 70,
+              "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+            },
+            {
+              "metric_id": "fixed_top3_pointing_rate",
+              "value": 0.6142857142857143,
+              "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+            },
+            {
+              "metric_id": "fixed_top5_pointing_rate",
+              "value": 0.6,
+              "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+            },
+            {
+              "metric_id": "gt_top1_effective_head_count",
+              "value": 10.425531914893613,
+              "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+            }
+          ],
+          "result_analysis": "结果支持“GT监督下存在可跨序列冻结的core reference-head ensemble”，而非“reference空间信号完全逐图随机”。同时，discovery GT-top10 Jaccard=0.048、Top1 effective head count=10.43、Top5对held-out逐图oracle精确覆盖=0.357，说明逐图最佳head仍动态；固定ensemble有效不等于每图均由同一oracle head完成。结合R-005无GT Top10 oracle recall=0，最直接解释是当前无GT image-attention/component-entropy代理与此GT空间质量失配。",
+          "limitations": "GT进入discovery ranking，因此不是无GT或部署算法；70/70仅为selection-held-out sequence split，训练暴露未知；attention heatmap/readout与原图overlay均是诊断，不证明信息写入residual/KV、身份选择或因果必要性；per-panel min-max overlay只用于可视审计，不能跨panel比较绝对色强。",
+          "audit_paths": "代码=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/gt_supervised_reference_stability.py；config=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r006.json；launcher=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e010_r006.sh；overlay renderer=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/render_e010_r006_attention_overlays.py；summary=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json；metrics=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json；overlay manifest=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json；overlays=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/。",
+          "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/",
+          "result_summary": "R-006完成：GT-supervised discovery 固定 Top3=L18H05,L20H12,L20H15，Top5再加L20H08,L14H02；held-out 70条中固定Top3/Top5 pointing=0.614/0.600，层匹配随机=0.199/0.137，all-head mean=0，逐图GT oracle=0.671。Top3 fixed-random pointing差=+0.415 CI[+0.318,+0.510]；Top5=+0.463 CI[+0.359,+0.566]。已额外生成12张Reference原图attention overlay；不改任何指标或head选择。"
+        },
+        "manifest": {
+          "contract": "survey-tool.run-trial-manifest/v1",
+          "trials": [
+            {
+              "id": "T-001",
+              "parameters": {
+                "reward_form": "linear_iou_reward",
+                "iou_metric": "support50_fiou",
+                "entropy_weight": 1,
+                "iou_reward_weight": 1,
+                "iou_threshold": 0,
+                "rank_score": "-normalized_entropy + iou_reward_weight * support50_fiou"
+              },
+              "rationale": "直接检验线性 GT S50-fIoU 奖励是否能使低熵 reference maps 固定化。"
+            },
+            {
+              "id": "T-002",
+              "parameters": {
+                "reward_form": "multiplicative_iou_reward",
+                "iou_metric": "support50_fiou",
+                "entropy_weight": 1,
+                "iou_reward_weight": 2,
+                "iou_threshold": 0,
+                "rank_score": "(1-normalized_entropy) * (1 + iou_reward_weight * support50_fiou)"
+              },
+              "rationale": "要求低熵和 GT 重合协同，避免单独尖峰或单独 IoU 主导。"
+            },
+            {
+              "id": "T-003",
+              "parameters": {
+                "reward_form": "thresholded_iou_bonus",
+                "iou_metric": "support50_fiou",
+                "entropy_weight": 1,
+                "iou_reward_weight": 2,
+                "iou_threshold": 0.1,
+                "rank_score": "-normalized_entropy + iou_reward_weight * max(0, support50_fiou-iou_threshold)"
+              },
+              "rationale": "仅奖励超过最小 GT 重合的 maps，检验稀疏强监督是否提高冻结稳定性。"
+            }
+          ]
+        },
+        "updated_at": "2026-08-27T15:45:16",
+        "failure": {
+          "failure_class": "environment",
+          "reason": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。",
+          "retryable": true
+        }
       },
       {
-        "metric_id": "fixed_top3_pointing_rate",
-        "value": 0.6142857142857143,
-        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
-      },
-      {
-        "metric_id": "fixed_top5_pointing_rate",
-        "value": 0.6,
-        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
-      },
-      {
-        "metric_id": "gt_top1_effective_head_count",
-        "value": 10.425531914893613,
-        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+        "id": "C-002",
+        "contract": "survey-tool.run-trial-campaign/v1",
+        "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
+        "status": "failed",
+        "created_at": "2026-08-27T15:56:21",
+        "plan": {
+          "contract": "survey-tool.run-trial-plan/v1",
+          "planning_mode": "ai_planned",
+          "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
+          "trial_budget": 1,
+          "axes": [],
+          "trials": [],
+          "planning_status": "awaiting_ai",
+          "concurrency": 1,
+          "max_retries": 1,
+          "created_at": "2026-08-27T15:56:21",
+          "updated_at": "2026-08-27T15:56:21",
+          "campaign_id": "C-002"
+        },
+        "manifest": {
+          "contract": "survey-tool.run-trial-manifest/v1",
+          "trials": [
+            {
+              "id": "T-001",
+              "parameters": {
+                "reward_form": "multiplicative_iou_plus_max_token_hit",
+                "iou_metric": "support50_fiou",
+                "entropy_weight": 1,
+                "iou_reward_weight": 2,
+                "iou_threshold": 0,
+                "max_token_hit_reward_weight": 0.25,
+                "max_token_metric": "pointing_hit",
+                "rank_score": "(1-normalized_entropy) * (1 + 2 * support50_fiou) + 0.25 * pointing_hit"
+              }
+            }
+          ]
+        },
+        "previous_workflow_stage": "ready_to_run",
+        "previous_result": {},
+        "updated_at": "2026-08-27T16:04:30",
+        "failure": {
+          "failure_class": "environment",
+          "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+          "retryable": false
+        }
       }
     ],
-    "key_results": [],
-    "result_analysis": "结果支持“GT监督下存在可跨序列冻结的core reference-head ensemble”，而非“reference空间信号完全逐图随机”。同时，discovery GT-top10 Jaccard=0.048、Top1 effective head count=10.43、Top5对held-out逐图oracle精确覆盖=0.357，说明逐图最佳head仍动态；固定ensemble有效不等于每图均由同一oracle head完成。结合R-005无GT Top10 oracle recall=0，最直接解释是当前无GT image-attention/component-entropy代理与此GT空间质量失配。",
-    "result_summary": "R-006完成：GT-supervised discovery 固定 Top3=L18H05,L20H12,L20H15，Top5再加L20H08,L14H02；held-out 70条中固定Top3/Top5 pointing=0.614/0.600，层匹配随机=0.199/0.137，all-head mean=0，逐图GT oracle=0.671。Top3 fixed-random pointing差=+0.415 CI[+0.318,+0.510]；Top5=+0.463 CI[+0.359,+0.566]。已额外生成12张Reference原图attention overlay；不改任何指标或head选择。",
-    "conclusion_scope": "该Run只支持：在冻结R-003自然Qbbox→Reference attention artifacts上，GT空间监督频率能构建一个在sequence-disjoint held-out上优于层匹配随机的固定Top3/5 readout ensemble。不能支持：GT-free selector可部署、模型利用GT、identity binding、任何head的因果必要性、训练外泛化。"
+    "active_trial_campaign_id": "C-002",
+    "trial_plan": {
+      "contract": "survey-tool.run-trial-plan/v1",
+      "planning_mode": "ai_planned",
+      "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
+      "trial_budget": 1,
+      "axes": [],
+      "trials": [],
+      "planning_status": "awaiting_ai",
+      "concurrency": 1,
+      "max_retries": 1,
+      "created_at": "2026-08-27T15:56:21",
+      "updated_at": "2026-08-27T15:56:21",
+      "campaign_id": "C-002"
+    },
+    "implementation_history": [
+      {
+        "time": "2026-08-27T15:36:08",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:d2b0c3ecb31c9cabae972130903da2c6fe00824df602cdd98895967a4c73566b",
+        "approval_continues": true
+      },
+      {
+        "time": "2026-08-27T15:56:34",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:64de85af900f050cf71c39a5b4adb732f3d62e4b038754c634f6b6b7d4e1d45c",
+        "approval_continues": true
+      }
+    ],
+    "trial_manifest": {
+      "contract": "survey-tool.run-trial-manifest/v1",
+      "trials": [
+        {
+          "id": "T-001",
+          "parameters": {
+            "reward_form": "multiplicative_iou_plus_max_token_hit",
+            "iou_metric": "support50_fiou",
+            "entropy_weight": 1,
+            "iou_reward_weight": 2,
+            "iou_threshold": 0,
+            "max_token_hit_reward_weight": 0.25,
+            "max_token_metric": "pointing_hit",
+            "rank_score": "(1-normalized_entropy) * (1 + 2 * support50_fiou) + 0.25 * pointing_hit"
+          }
+        }
+      ]
+    },
+    "trial_manifest_hash": "sha256:60c1a05fdfbb772e1f4802dd708cc0cde99e56442fe855678264a90f59feeff7",
+    "execution_authorization_consumed_at": "2026-08-27T15:57:47",
+    "execution_dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+    "execution_dispatch_latest_status": "failed",
+    "execution_dispatch_failed_at": "2026-08-27T16:04:30",
+    "execution_dispatch_failure": {
+      "failure_class": "environment",
+      "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+      "retryable": false
+    },
+    "evidence_label_history": [
+      {
+        "time": "2026-08-27T19:19:42",
+        "action": "set",
+        "label": "solid",
+        "actor": "human:web-v2",
+        "note": "T003的结果十分合理，可以保留"
+      }
+    ],
+    "evidence_label": "solid",
+    "evidence_label_note": "T003的结果十分合理，可以保留",
+    "evidence_labeled_at": "2026-08-27T19:19:42",
+    "evidence_labeled_by": "human:web-v2"
   }
 ]

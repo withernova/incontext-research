@@ -4630,6 +4630,740 @@
         "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
         "result_message": "managed execution exited 0; metrics parsed; human analysis required"
       }
+    },
+    {
+      "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "superseded",
+      "created_at": "2026-08-27T15:33:20",
+      "updated_at": "2026-08-27T15:56:21",
+      "authorization_timestamp": "2026-08-27T15:33:20.150920",
+      "approved_spec_hash": "05e83d99c8cf4f991485ff13916ee0674c49993e13bdffc4c9e26c094af3f647",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "用户为同一 Run 创建 C-002 Trial Campaign",
+      "history": [
+        {
+          "time": "2026-08-27T15:33:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T15:36:08",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-27T15:38:12",
+          "type": "runtime_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-27T15:38:12",
+          "type": "claimed",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:38:12",
+          "type": "acknowledge",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:38:24",
+          "type": "running",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:38:24",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:38:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:38:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:39:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:39:13",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:39:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:39:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:40:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:40:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:40:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:40:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:40:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:40:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:40:50",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:41:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:41:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:41:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:41:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:41:31",
+          "type": "fail",
+          "detail": "批量 launcher 已成功产生三份 `trials/T-00x/metrics.json` 和 `trial_summary.json`，但 complete 表示后端未找到逐 Trial metrics contract；请检查并报告其期望路径或可接受的修复入口，以便在同一受管 Run 内最小修复。"
+        },
+        {
+          "time": "2026-08-27T15:41:31",
+          "type": "retry",
+          "detail": "批量 launcher 已成功产生三份 `trials/T-00x/metrics.json` 和 `trial_summary.json`，但 complete 表示后端未找到逐 Trial metrics contract；请检查并报告其期望路径或可接受的修复入口，以便在同一受管 Run 内最小修复。"
+        },
+        {
+          "time": "2026-08-27T15:42:26",
+          "type": "claimed",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:42:27",
+          "type": "acknowledge",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:42:39",
+          "type": "running",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:42:39",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:42:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:42:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:43:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:43:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:43:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:43:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:43:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:43:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:44:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:44:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:44:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:44:23",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:44:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:44:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:44:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:44:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:45:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:45:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:45:16",
+          "type": "fail",
+          "detail": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。"
+        },
+        {
+          "time": "2026-08-27T15:45:16",
+          "type": "retry",
+          "detail": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。"
+        },
+        {
+          "time": "2026-08-27T15:56:21",
+          "type": "superseded",
+          "detail": "用户为同一 Run 创建 C-002 Trial Campaign"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-27T15:38:12",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:f9eb2e30fb89e98e23b8a386b88191051b1df2db64b15ab4ae1b8324a5ed64cb",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-27T15:45:01",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 889,
+              "mtime": 1787816762.8283904
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 197,
+              "mtime": 1787814413.8141487
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814384.09646
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787816763.179317
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 197,
+          "mtime": 1787814413.8141487
+        }
+      },
+      "failed_at": "2026-08-27T15:45:16",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。",
+      "retry_evidence": "complete 仍未发现 contract，推断 managed validator 从 configured `outputs/` 读取 Trial aggregate；将只添加同一 `survey-tool.run-trial-results/v1` 聚合文件的 outputs 镜像，不重算/改动任何 Trial 参数或指标，并在同一 dispatch retry。"
+    },
+    {
+      "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "failed",
+      "created_at": "2026-08-27T15:56:22",
+      "updated_at": "2026-08-27T16:04:30",
+      "authorization_timestamp": "2026-08-27T15:56:22.027947",
+      "approved_spec_hash": "db84d950623c20044e5cec2bf5208d887c73386c713a41da8912fd425260cfd8",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 3,
+      "last_error": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+      "history": [
+        {
+          "time": "2026-08-27T15:56:22",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T15:56:34",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-27T15:57:35",
+          "type": "claimed",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:57:35",
+          "type": "acknowledge",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:57:47",
+          "type": "running",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:57:47",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:57:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:57:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:58:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:58:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:58:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:58:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:58:40",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:58:41",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:58:58",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:58:59",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:58:59",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:59:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:59:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:59:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:59:27",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:59:35",
+          "type": "fail",
+          "detail": "C-002 的科学 Trial 已完成但 root completion validator 未定位 campaign 子目录的聚合 metrics。最小修复：将同一 C-002 `trial_metrics.json` 镜像到受管 root 的 `metrics.json`，不改 Trial 参数、heads 或逐条 metrics；随后使用 C-002 允许的唯一 retry。"
+        },
+        {
+          "time": "2026-08-27T15:59:35",
+          "type": "retry",
+          "detail": "C-002 的科学 Trial 已完成但 root completion validator 未定位 campaign 子目录的聚合 metrics。最小修复：将同一 C-002 `trial_metrics.json` 镜像到受管 root 的 `metrics.json`，不改 Trial 参数、heads 或逐条 metrics；随后使用 C-002 允许的唯一 retry。"
+        },
+        {
+          "time": "2026-08-27T15:59:52",
+          "type": "claimed",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T15:59:52",
+          "type": "acknowledge",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:03",
+          "type": "running",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:03",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T16:00:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:13",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:00:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:00:37",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:00:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:00:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:01:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:01:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:01:25",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:01:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:01:25",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T16:01:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:01:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:01:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:01:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:02:00",
+          "type": "fail",
+          "detail": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。"
+        },
+        {
+          "time": "2026-08-27T16:02:00",
+          "type": "retry",
+          "detail": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。"
+        },
+        {
+          "time": "2026-08-27T16:02:31",
+          "type": "claimed",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:02:31",
+          "type": "acknowledge",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:02:38",
+          "type": "running",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:02:38",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T16:02:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:02:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:03:03",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:03:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:03:28",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:38",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:03:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:38",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T16:03:55",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:03:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:04:08",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:447496"
+        },
+        {
+          "time": "2026-08-27T16:04:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T16:04:30",
+          "type": "fail",
+          "detail": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-27T15:56:34",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:60c1a05fdfbb772e1f4802dd708cc0cde99e56442fe855678264a90f59feeff7",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-27T16:04:09",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1666,
+              "mtime": 1787817891.3486829
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 1216,
+              "mtime": 1787817891.7012217
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814384.09646
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787817891.712895
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 1216,
+          "mtime": 1787817891.7012217
+        }
+      },
+      "failed_at": "2026-08-27T16:04:30",
+      "failure_class": "environment",
+      "retryable": false,
+      "retry_reason": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。",
+      "retry_evidence": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。",
+      "consumer": "pi-steward:447496",
+      "claimed_at": "2026-08-27T16:02:31",
+      "lease_expires_at": "2026-08-27T16:19:08",
+      "acknowledged_at": "2026-08-27T16:02:31",
+      "running_at": "2026-08-27T16:02:38"
     }
   ]
 }

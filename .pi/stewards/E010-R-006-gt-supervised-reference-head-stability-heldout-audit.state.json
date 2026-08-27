@@ -3,14 +3,14 @@
   "version": 1,
   "active": true,
   "intervalMinutes": 2,
-  "checkCount": 8,
-  "lastCheckTime": 1787815145736,
+  "checkCount": 242,
+  "lastCheckTime": 1787847322832,
   "lastCheckResult": "crash",
   "consecutiveErrors": 0,
   "sessionStartTime": 1787645406827,
   "phase": "incident_open",
   "healthyStreak": 0,
-  "nextCheck": "2026-08-27T07:21:08.226Z",
+  "nextCheck": "2026-08-27T16:17:25.311Z",
   "currentInterval": 2,
   "latestEtaSeconds": null,
   "latestEtaSourceLine": "",
@@ -23,13 +23,13 @@
   "lastCompletionArtifacts": [
     {
       "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
-      "size": 197,
-      "mtime": "1787814413"
+      "size": 1216,
+      "mtime": "1787817891"
     },
     {
       "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-exit-code",
       "size": 2,
-      "mtime": "1787814414"
+      "mtime": "1787817891"
     }
   ],
   "notifiedIncidentSignature": "process:stopped",

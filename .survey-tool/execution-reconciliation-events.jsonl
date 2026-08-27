@@ -4444,5 +4444,1163 @@
       }
     },
     "results": []
+  },
+  {
+    "time": "2026-08-27T15:38:12",
+    "experiment_id": "",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-013-natural-behavior-transform-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        },
+        {
+          "run_id": "003",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+          "status": "queued"
+        },
+        {
+          "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac"
+        },
+        {
+          "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9"
+        },
+        {
+          "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d"
+        },
+        {
+          "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-7d458141203ab1fd247f9305"
+        },
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        },
+        {
+          "run_id": "002",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-1d7377ec071abeee36849be6"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        },
+        {
+          "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-c731f87351460754fe654f0c"
+        },
+        {
+          "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-039d4cd11278b6b81563353b"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 30,
+        "unchanged": 12
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-27T15:42:26",
+    "experiment_id": "",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-013-natural-behavior-transform-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        },
+        {
+          "run_id": "003",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+          "status": "queued"
+        },
+        {
+          "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac"
+        },
+        {
+          "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9"
+        },
+        {
+          "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d"
+        },
+        {
+          "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-7d458141203ab1fd247f9305"
+        },
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        },
+        {
+          "run_id": "002",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-1d7377ec071abeee36849be6"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        },
+        {
+          "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-c731f87351460754fe654f0c"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 31,
+        "unchanged": 11
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-27T15:57:35",
+    "experiment_id": "",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-013-natural-behavior-transform-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        },
+        {
+          "run_id": "003",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+          "status": "queued"
+        },
+        {
+          "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac"
+        },
+        {
+          "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9"
+        },
+        {
+          "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d"
+        },
+        {
+          "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-7d458141203ab1fd247f9305"
+        },
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        },
+        {
+          "run_id": "002",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-1d7377ec071abeee36849be6"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        },
+        {
+          "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-c731f87351460754fe654f0c"
+        },
+        {
+          "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-16abb20df46e7a3656df99a5"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 30,
+        "unchanged": 12
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-27T15:59:52",
+    "experiment_id": "",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-013-natural-behavior-transform-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        },
+        {
+          "run_id": "003",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+          "status": "queued"
+        },
+        {
+          "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac"
+        },
+        {
+          "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9"
+        },
+        {
+          "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d"
+        },
+        {
+          "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-7d458141203ab1fd247f9305"
+        },
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        },
+        {
+          "run_id": "002",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-1d7377ec071abeee36849be6"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        },
+        {
+          "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-c731f87351460754fe654f0c"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 31,
+        "unchanged": 11
+      }
+    },
+    "results": []
+  },
+  {
+    "time": "2026-08-27T16:02:31",
+    "experiment_id": "",
+    "plan": {
+      "actions": [],
+      "anomalies": [
+        {
+          "run_id": "E006-R-006-exact-last-token-bbox-row-alignment-gate-n10-640",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007-refcoco-coco-frozen-manifest-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009-qwen-last-token-bbox-row-refcoco-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-010-outcome-stratified-allhead-discovery-sequence-split",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-012-reference-query-transform-geometric-separability-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-013-natural-behavior-transform-gate",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014-qtor-reference-vs-query-coordinate-equivariance",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014b-r005-sample-aligned-three-row-equivariance-visualization",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-007b-refcoco-train2014-recovery-integrity-gate-n1220",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-014c-prediction-projection-expanded-equivariance-audit",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009b-refcoco-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009c-refcoco-qwen-normalized-natural-bbox-token-head-transfer-n1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009d-refcoco-original-prompt-natural-output-row-audit-n20-1000-200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-009e-refcoco-specific-gt-aligned-head-discovery-viz-fresh200",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E006-R-017b-refcoco-synthetic-icol-format-within-lora-head-transfer",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-000-qwen3vl-attention-probability-rewrite-correctness-smoke",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-001-frozen-source-map-and-online-window-alignment-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002-teacher-replayed-qtor-shape-transplant-controls-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-002v-target-attention-before-after-and-av-visual-audit-n4",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003b-post-null-natural-generation-transplant-pilot-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-003c-source-map-normalization-and-residual-blend-sweep-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006-reference-head-residual-stream-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006b-synchronous-counterfactual-prefix-residual-conditioning-gate-n4-20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-006c-storage-safe-synchronous-residual-phaseb-completion-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-007-natural-query-head-reference-correspondence-chain-audit-n140",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E007-R-008-reference-head-guided-two-pass-reference-masking-gate-n20",
+          "type": "legacy_consumed_untracked",
+          "detail": "consumed timestamp exists without dispatch linkage"
+        },
+        {
+          "run_id": "E008-R-000b-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-50f74faba17cfd6b2b36a306",
+          "status": "queued"
+        },
+        {
+          "run_id": "003",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-4c80b78dceb8df3b88c12bbd",
+          "status": "queued"
+        },
+        {
+          "run_id": "E009-R-001-qwen3vl8b-lora-sft-capability-smoke",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-af1194c524865c4b9bad8a4f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-001-fixed-head-stability-and-heldout-localization",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-410f5211cf4748d45bcdf89f",
+          "status": "queued"
+        },
+        {
+          "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "type": "consumed_dispatch_state_mismatch",
+          "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+          "status": "queued"
+        }
+      ],
+      "unchanged": [
+        {
+          "run_id": "E006-R-010b-outcome-stratified-reference-query-allhead-discovery-viz",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-d620cd6d1f54fd8570d1a9ac"
+        },
+        {
+          "run_id": "E007-R-003-natural-generation-qtor-shape-transplant-pilot-n20",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-cda32a6465ed13af2735fdb9"
+        },
+        {
+          "run_id": "E007-R-005-budget-vs-shape-factorial-and-headset-specificity",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-12bfcb246dddde8f4d02259d"
+        },
+        {
+          "run_id": "E007-R-004b-fresh-top3-mapping-family-joint-f1-n140",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-7d458141203ab1fd247f9305"
+        },
+        {
+          "run_id": "E008-R-000-grounding-heads-query-image-alignment-smoke-n4",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-91529d76a769a0d13ebf37aa"
+        },
+        {
+          "run_id": "E008-R-001-grounding-heads-query-image-role-audit-n140-640",
+          "reason": "same_authorization_dispatch_exists",
+          "dispatch_id": "dispatch-e4562a47d57133493fab7ac5"
+        },
+        {
+          "run_id": "E008-R-000d-grounding-heads-query-image-alignment-smoke-n4-tmux-guarded-runtime-retry-v2",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-0e828a23d12e40efd4f443bf"
+        },
+        {
+          "run_id": "002",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-1d7377ec071abeee36849be6"
+        },
+        {
+          "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997"
+        },
+        {
+          "run_id": "E010-R-004-frozen-query-head-reference-span-bias-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-e57fc834344208913e9dbba8"
+        },
+        {
+          "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "reason": "consumed_dispatch_linked",
+          "dispatch_id": "dispatch-c731f87351460754fe654f0c"
+        }
+      ],
+      "totals": {
+        "actions": 0,
+        "anomalies": 31,
+        "unchanged": 11
+      }
+    },
+    "results": []
   }
 ]

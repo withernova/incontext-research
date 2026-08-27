@@ -6,3 +6,4 @@
 - [[Q-004|E-003低IoU自然错误中，reference-retrieval与bbox-localization attention signature为何不一致？]] · `investigating`
 - [[Q-005|Devil ->Q4]] · `inbox`
 - [[Q-006|已有 Reference bbox 先验时，为何自然 Query-bbox 生成仍难由固定 heads 定位 Reference；GT 辅助的 head 发现能揭示什么？]] · `investigating`
+- [[Q-007|FOCUS 细节]] · `inbox`

@@ -98,3 +98,9 @@ nvidia-smi 与 df -h 的只读摘要；仅表示勘察时快照，不保证执�
   "consumer": "pi-steward"
 }
 ```
+
+## 2026-08-27T19:56:11+08:00 · discovery
+- run: -
+- message: 代码实现路由 Codex/gpt-5.6-sol 因额度耗尽不可用，按既定 fallback 由当前 pi 完成最小 launcher/config 实现；未改变 Run 审核或执行授权。
+
+requested_route=experiment_code_edit; requested_agent=codex; requested_model=gpt-5.6-sol; actual_agent=pi; actual_model=pi; fallback_reason=Codex usage limit exhausted before implementation

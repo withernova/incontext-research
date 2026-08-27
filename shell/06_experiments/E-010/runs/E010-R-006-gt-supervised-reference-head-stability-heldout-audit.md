@@ -1,9 +1,9 @@
 # E010-R-006-gt-supervised-reference-head-stability-heldout-audit · GT监督Reference head跨图稳定性与冻结held-out审计
 
-- workflow: v2 / analysis_pending / 结果分析
+- workflow: v2 / failed / 运行失败
 - review_status: approved
 - group_id: 未分组
-- execution_dispatch: dispatch-18ea3d9fba8632a4bc61dc54 / completed
+- execution_dispatch: dispatch-16abb20df46e7a3656df99a5 / failed
 
 ## 1. 研究设计
 ### 研究问题
@@ -32,7 +32,7 @@
 > 代码应直接修改当前 Workspace 绑定仓库中的实际模块目录；只有仓库已有独立 launcher/adapter 目录时才使用它。工具不要求新建 codespace、实验索引或 runner 目录，科研逻辑不得为了登记 Run 而复制一份。
 
 ## 4. 运行与 Experiment Steward
-- command: `cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh`
+- command: `cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh`
 - commit: ``
 - workspace: 02
 - tmux: incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit
@@ -54,10 +54,10 @@
 （程序完成后登记具体数值、比较对象和结果文件。）
 
 ## 6. 结果分析
-结果支持“GT监督下存在可跨序列冻结的core reference-head ensemble”，而非“reference空间信号完全逐图随机”。同时，discovery GT-top10 Jaccard=0.048、Top1 effective head count=10.43、Top5对held-out逐图oracle精确覆盖=0.357，说明逐图最佳head仍动态；固定ensemble有效不等于每图均由同一oracle head完成。结合R-005无GT Top10 oracle recall=0，最直接解释是当前无GT image-attention/component-entropy代理与此GT空间质量失配。
+（程序结束后由 pi 与研究者分析，Outbox completed 不等于科研分析完成。）
 
 ## 简短局限
-GT进入discovery ranking，因此不是无GT或部署算法；70/70仅为selection-held-out sequence split，训练暴露未知；attention heatmap/readout与原图overlay均是诊断，不证明信息写入residual/KV、身份选择或因果必要性；per-panel min-max overlay只用于可视审计，不能跨panel比较绝对色强。
+（可留空；如有明显的数据、模型或比较限制，请简短记录。）
 
 <details><summary>历史兼容字段与补充执行信息</summary>
 
@@ -73,9 +73,7 @@ GT进入discovery ranking，因此不是无GT或部署算法；70/70仅为select
   "expected_outcome": "给出GT监督固定化是否可能的判别：A频率集中且held-out超过随机，说明R-005无GT代理失配；B频率分散或held-out无优势，支持动态/不可固定化；C discovery集中但held-out衰减，提示选择集特异。任何情形都不证明身份选择或因果必要性。",
   "acceptance_criteria": "140条输入契约通过；discovery/evaluation各70条及零sequence overlap；逐图GT ranking、频率/集中度/Jaccard原始记录齐全；冻结Top3/5及其层匹配随机名单可追溯；held-out各方法全部空间指标和bootstrap CI齐全；至少12个固定统一色标案例；明确GT监督边界。",
   "conclusion_scope": "该Run只支持：在冻结R-003自然Qbbox→Reference attention artifacts上，GT空间监督频率能构建一个在sequence-disjoint held-out上优于层匹配随机的固定Top3/5 readout ensemble。不能支持：GT-free selector可部署、模型利用GT、identity binding、任何head的因果必要性、训练外泛化。",
-  "claim_boundary": "仅回答GT监督的空间oracle/near-oracle head能否跨sequence固定化；不能把结果外推为LocalizationHeads无GT方法有效、模型依赖这些heads、或模型完成identity binding。",
-  "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/",
-  "audit_paths": "代码=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/gt_supervised_reference_stability.py；config=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r006.json；launcher=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e010_r006.sh；overlay renderer=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/render_e010_r006_attention_overlays.py；summary=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json；metrics=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json；overlay manifest=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json；overlays=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/。"
+  "claim_boundary": "仅回答GT监督的空间oracle/near-oracle head能否跨sequence固定化；不能把结果外推为LocalizationHeads无GT方法有效、模型依赖这些heads、或模型完成identity binding。"
 }
 ```
 

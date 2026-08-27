@@ -587,3 +587,116 @@ requested_route=experiment_code_edit；requested_agent=codex；requested_model=s
 ## 2026-08-27T15:17:01+08:00 · run_update
 - run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
 - message: 补充完成R-006原图attention overlays与算法/实现/指标/完整性登记；为只读后处理，未改指标、冻结head或R-006完成状态。
+
+## 2026-08-27T15:33:20 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-27T15:33:20",
+  "updated_at": "2026-08-27T15:33:20",
+  "authorization_timestamp": "2026-08-27T15:33:20.150920",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-27T15:33:20",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-27T15:33:20 · run_direct_steward
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-27T15:36:08 · run_runtime_command_prepared
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-27T15:38:12 · run_runtime_command_prepared
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-27T15:56:22 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-27T15:56:22",
+  "updated_at": "2026-08-27T15:56:22",
+  "authorization_timestamp": "2026-08-27T15:56:22.027947",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-27T15:56:22",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-27T15:56:22 · run_direct_steward
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+  "actor": "pi-steward:447496"
+}
+```
+
+## 2026-08-27T15:56:34 · run_runtime_command_prepared
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+  "consumer": "pi-steward"
+}
+```
