@@ -27,3 +27,4 @@
 {"time":"2026-08-27T03:54:43.539Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
 {"time":"2026-08-27T03:56:46.012Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
 {"time":"2026-08-27T03:58:48.581Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-27T04:00:51.277Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
