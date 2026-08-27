@@ -1,16 +1,16 @@
 {
   "schema": "survey-tool.experiment-steward-state/v1",
   "version": 1,
-  "active": false,
+  "active": true,
   "intervalMinutes": 2,
-  "checkCount": 498,
-  "lastCheckTime": 1787799507451,
+  "checkCount": 4,
+  "lastCheckTime": 1787815101550,
   "lastCheckResult": "crash",
   "consecutiveErrors": 0,
   "sessionStartTime": 1787645406827,
-  "phase": "stopped",
+  "phase": "incident_open",
   "healthyStreak": 0,
-  "nextCheck": "2026-08-27T03:00:29.883Z",
+  "nextCheck": "2026-08-27T07:20:23.957Z",
   "currentInterval": 2,
   "latestEtaSeconds": null,
   "latestEtaSourceLine": "",
@@ -18,18 +18,18 @@
   "completionStableCount": 0,
   "restartCount": 0,
   "archiveId": "",
-  "lastReason": "pi restarted; explicit /steward start required",
-  "pausedAfterRestart": true,
+  "lastReason": "remediation/attention phase remains blocking; schedule=phase=incident_open",
+  "pausedAfterRestart": false,
   "lastCompletionArtifacts": [
     {
       "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/metrics.json",
-      "size": 224,
-      "mtime": "1787738525"
+      "size": 402,
+      "mtime": "1787814898"
     },
     {
       "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/.survey-tool-exit-code",
       "size": 2,
-      "mtime": "1787738526"
+      "mtime": "1787814898"
     }
   ],
   "notifiedIncidentSignature": "process:stopped",

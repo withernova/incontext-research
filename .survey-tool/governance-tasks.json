@@ -325,6 +325,60 @@
         }
       },
       "created_at": "2026-08-26T16:54:36"
+    },
+    {
+      "task_id": "classify-68c41923cd2778622ae7",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "run_type": "analysis",
+          "variant": "自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+          "purpose": "在不重跑模型、不改写R-003、不让GT进入无GT选头的前提下，分解固定Qbbox→Reference head失败：比较逐图无GT Top-k、同层随机、all-head mean与事后GT oracle；区分候选过滤、候选内排序和跨样本固定化三个环节。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-27T13:04:55"
+    },
+    {
+      "task_id": "classify-679b38ef33794d25e56b",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+          "run_type": "analysis",
+          "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+          "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-27T14:59:52"
     }
   ]
 }

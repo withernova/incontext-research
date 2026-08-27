@@ -6,8 +6,10 @@
 |---|---|---:|---|---|
 | [E010-R-001-fixed-head-stability-and-heldout-localization](runs/E010-R-001-fixed-head-stability-and-heldout-localization.md) | IPLoc-ID固定注意力头稳定性与新样本定位检查 |  | approved | （尚无结构化观测） |
 | [E010-R-002-identity-spatial-controls-and-head-necessity](runs/E010-R-002-identity-spatial-controls-and-head-necessity.md) | IPLoc-ID身份与位置排除检查及注意力头必要性验证 |  | planned | （尚无结构化观测） |
-| [E010-R-003-natural-query-bbox-dual-span-head-discovery-stability](runs/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability.md) | 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核 | 20260826 | planned | （尚无结构化观测） |
-| [E010-R-004-frozen-query-head-reference-span-bias-audit](runs/E010-R-004-frozen-query-head-reference-span-bias-audit.md) | 冻结Query heads投向Reference图像的空间偏差与坐标复制审计 | 20260826 | planned | （尚无结构化观测） |
+| [E010-R-003-natural-query-bbox-dual-span-head-discovery-stability](runs/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability.md) | 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核 | 20260826 | failed | （尚无结构化观测） |
+| [E010-R-004-frozen-query-head-reference-span-bias-audit](runs/E010-R-004-frozen-query-head-reference-span-bias-audit.md) | 冻结Query heads投向Reference图像的空间偏差与坐标复制审计 | 20260826 | analysis_pending | （尚无结构化观测） |
+| [E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit](runs/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit.md) | 自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解 | 20260827 | analysis_pending | （尚无结构化观测） |
+| [E010-R-006-gt-supervised-reference-head-stability-heldout-audit](runs/E010-R-006-gt-supervised-reference-head-stability-heldout-audit.md) | GT监督Reference head跨图稳定性与冻结held-out审计 | 20260828 | analysis_pending | （尚无结构化观测） |
 
 
 ## 指标观测（survey-tool 管理）

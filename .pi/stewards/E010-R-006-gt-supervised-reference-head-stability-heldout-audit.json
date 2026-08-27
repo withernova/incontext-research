@@ -2,7 +2,7 @@
   "version": 2,
   "identity": {
     "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
-    "runId": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "runId": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
     "experimentId": "E-010",
     "managedExecution": true
   },
@@ -11,10 +11,10 @@
     "projectDir": "/defaultShare/archive/liuwenchu/projects/IPLoc"
   },
   "experiment": {
-    "tmuxSession": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
-    "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/logs/train.log",
-    "description": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
-    "processPattern": "run_e010_r003_trial_batch\\.sh"
+    "tmuxSession": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
+    "description": "E-010 / E010-R-006-gt-supervised-reference-head-stability-heldout-audit / GT监督Reference head跨图稳定性与冻结held-out审计",
+    "processPattern": "run_e010_r006\\.sh"
   },
   "monitoring": {
     "errorPatterns": [
@@ -48,8 +48,8 @@
       "SURVEY_TOOL_RUN_COMPLETE"
     ],
     "requiredArtifacts": [],
-    "metricsFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/metrics.json",
-    "exitCodeFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/.survey-tool-exit-code",
+    "metricsFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-exit-code",
     "stableChecks": 2,
     "requireProcessExit": true,
     "allowNonzeroExit": false

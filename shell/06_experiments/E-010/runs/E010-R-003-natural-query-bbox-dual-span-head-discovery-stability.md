@@ -3,7 +3,7 @@
 - workflow: v2 / failed / 运行失败
 - review_status: approved
 - group_id: 未分组
-- execution_dispatch: dispatch-d6f9d678acd005321b1297fc / failed
+- execution_dispatch: dispatch-5fb6dbf618ffe284e2331997 / failed
 
 ## 1. 研究设计
 ### 研究问题
@@ -32,7 +32,7 @@ query heads将呈现高inclusion probability、较高Top-k一致性和held-out Q
 > 代码应直接修改当前 Workspace 绑定仓库中的实际模块目录；只有仓库已有独立 launcher/adapter 目录时才使用它。工具不要求新建 codespace、实验索引或 runner 目录，科研逻辑不得为了登记 Run 而复制一份。
 
 ## 4. 运行与 Experiment Steward
-- command: `PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json`
+- command: `cd /defaultShare/archive/liuwenchu/projects/IPLoc && PYTHON_BIN=/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/bin/python3.9 bash mechanism/iplocid/tools/run_e010_r003_trial_batch.sh`
 - commit: ``
 - workspace: 02
 - tmux: incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability
@@ -47,7 +47,7 @@ query heads将呈现高inclusion probability、较高Top-k一致性和held-out Q
 （程序结束后由 pi 与研究者分析，Outbox completed 不等于科研分析完成。）
 
 ## 简短局限
-自然bbox token rows可能混合坐标数字、标点和格式生成；对rows求平均可能掩盖token阶段差异，本Run先固定该定义并把逐token结果作为附录，不事后挑token。训练暴露未知；attention显著性不证明因果或身份选择性。
+（可留空；如有明显的数据、模型或比较限制，请简短记录。）
 
 <details><summary>历史兼容字段与补充执行信息</summary>
 
@@ -62,8 +62,7 @@ query heads将呈现高inclusion probability、较高Top-k一致性和held-out Q
   "integrity_gates": "G1 所有map必须由同一自然Query bbox p−1 rows生成，禁止Reference bbox rows、GT Query bbox teacher forcing或GT-conditioned rows；G2 双image spans与token grids逐样本精确核验，row/span契约哈希保存；G3 discovery/evaluation sequence零重叠；G4严格使用二值连通域token-count entropy并以单元测试对手算例验证；G5 n=20抽样seed和100个subset IDs预先物化；G6 GT、correct/error、自然IoU不得进入发现；G7负结果不得通过改阈值、改rows或改head数挽救。",
   "expected_outcome": "分别给出query heads与reference heads是否存在少数显著高频核心、每次20图会不会换名单、随样本量增加是否收敛，以及冻结名单能否在selection-held-out图上定位各自目标。允许出现query heads稳定有效而reference heads稳定但无效，或reference heads完全不稳定等负面结果。",
   "acceptance_criteria": "140条rows/spans契约全通过且零静默失败；70/70 sequence隔离；query/reference两套严格论文式发现结果齐全；n=20/40/56各100次稳定性结果及inclusion/Jaccard/rank表齐全；冻结Top3/5对同层随机与held-out GT指标齐全；至少保存12张query-head Q→Q和12张reference-head Q→R逐头热图；完整结果、配置、subset manifest与哈希可追溯。",
-  "claim_boundary": "只回答自然生成Query bbox rows下，Qbbox→Query与Qbbox→Reference两批固定heads的无GT发现显著性、20图/更大样本稳定性和selection-held-out空间有效性；不使用或支持Reference bbox→Reference head概念，不证明这些head为任务必要电路。",
-  "audit_paths": "旧R-001 records.json/artifacts/analysis/summary.json；mechanism/iplocid/iplocid/attention/selection.py；新增严格entropy与resampling模块；用户原始定义（2026-08-26，逐字保留）：首先我们的实验都是去测量Query bbox token对query/reference image token的注意力，不存在找reference bbox对reference image token的。然后通过query bbox token对两个不同image的注意力经过算法可以得到两批head，一个是query head一个是reference head，指的是模型在生成query bbox token时，看了query/reference图像的哪些区域。所以我指的query head和reference head都是query bbox token对前面的图像的注意力。我现在想确定的是，这两个head是否显著且稳定，而让query head在reference image token的注意力是否有偏差？"
+  "claim_boundary": "只回答自然生成Query bbox rows下，Qbbox→Query与Qbbox→Reference两批固定heads的无GT发现显著性、20图/更大样本稳定性和selection-held-out空间有效性；不使用或支持Reference bbox→Reference head概念，不证明这些head为任务必要电路。"
 }
 ```
 

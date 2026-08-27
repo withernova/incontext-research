@@ -10594,18 +10594,15 @@
     "expected_outcome": "分别给出query heads与reference heads是否存在少数显著高频核心、每次20图会不会换名单、随样本量增加是否收敛，以及冻结名单能否在selection-held-out图上定位各自目标。允许出现query heads稳定有效而reference heads稳定但无效，或reference heads完全不稳定等负面结果。",
     "acceptance_criteria": "140条rows/spans契约全通过且零静默失败；70/70 sequence隔离；query/reference两套严格论文式发现结果齐全；n=20/40/56各100次稳定性结果及inclusion/Jaccard/rank表齐全；冻结Top3/5对同层随机与held-out GT指标齐全；至少保存12张query-head Q→Q和12张reference-head Q→R逐头热图；完整结果、配置、subset manifest与哈希可追溯。",
     "dependencies": "旧E010-R-001仅作为自然回答与全头artifact数据源；不继承其G→R定义、residual-mass entropy排名或科学结论。",
-    "limitations": "自然bbox token rows可能混合坐标数字、标点和格式生成；对rows求平均可能掩盖token阶段差异，本Run先固定该定义并把逐token结果作为附录，不事后挑token。训练暴露未知；attention显著性不证明因果或身份选择性。",
     "claim_boundary": "只回答自然生成Query bbox rows下，Qbbox→Query与Qbbox→Reference两批固定heads的无GT发现显著性、20图/更大样本稳定性和selection-held-out空间有效性；不使用或支持Reference bbox→Reference head概念，不证明这些head为任务必要电路。",
-    "audit_paths": "旧R-001 records.json/artifacts/analysis/summary.json；mechanism/iplocid/iplocid/attention/selection.py；新增严格entropy与resampling模块；用户原始定义（2026-08-26，逐字保留）：首先我们的实验都是去测量Query bbox token对query/reference image token的注意力，不存在找reference bbox对reference image token的。然后通过query bbox token对两个不同image的注意力经过算法可以得到两批head，一个是query head一个是reference head，指的是模型在生成query bbox token时，看了query/reference图像的哪些区域。所以我指的query head和reference head都是query bbox token对前面的图像的注意力。我现在想确定的是，这两个head是否显著且稳定，而让query head在reference image token的注意力是否有偏差？",
     "status": "failed",
     "workspace_id": "02",
     "git_commit": "",
     "config": "",
-    "command": "PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && PYTHON_BIN=/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/bin/python3.9 bash mechanism/iplocid/tools/run_e010_r003_trial_batch.sh",
     "log_path": "",
     "output_dir": "",
     "artifact_dir": "",
-    "artifacts": "",
     "tmux_session": "",
     "seed": "20260826",
     "group_id": "",
@@ -10621,7 +10618,7 @@
     "review_status": "approved",
     "review_round": 0,
     "created": "2026-08-26T16:54:36",
-    "updated": "2026-08-27T10:59:25",
+    "updated": "2026-08-27T15:14:47",
     "organization_snapshot": {
       "time": "2026-08-26T16:54:36",
       "policy_version": "run-organization/v1",
@@ -10630,12 +10627,12 @@
       "reason": "ambiguous",
       "task_id": "classify-26074d8cee318f9db26b"
     },
-    "approved_at": "2026-08-26T17:20:43.205473",
+    "approved_at": "2026-08-27T14:53:29.245080",
     "approved_by": "human:web-v2",
     "approved_spec": {
       "architecture_plan": "新增只读artifact审计与严格论文entropy/resampling分析入口，输出双角色selection manifests、subset manifests、metrics和逐头可视化；不得调用Reference bbox rows或旧G→R分支。",
       "artifact_dir": "",
-      "command": "PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && PYTHON_BIN=/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/bin/python3.9 bash mechanism/iplocid/tools/run_e010_r003_trial_batch.sh",
       "config": "",
       "data_definition": "沿用旧R-001的140条IPLoc-ID positive自然回答及对应精确replay attention，按LaSOT sequence_cluster隔离。固定seed先划70 discovery/70 evaluation；evaluation在所有head名单、阈值和重采样规则冻结前不可用于选择。训练暴露未知，evaluation只能称selection-held-out sequences。",
       "data_scale": "主发现70条、最终评价70条。稳定性在70条discovery内部执行100次无放回n=20重采样，并补n=40、n=56各100次形成样本量曲线；不得从evaluation补足。每个角色、每个样本量都完整保存Top3/Top5名单和全排名。",
@@ -10656,13 +10653,66 @@
       "seed": "20260826",
       "server_id": null,
       "tmux_session": "",
-      "trial_manifest": null,
-      "trial_plan": null,
+      "trial_manifest": {
+        "contract": "survey-tool.run-trial-manifest/v1",
+        "trials": [
+          {
+            "id": "T-001",
+            "parameters": {
+              "dataset_scope": "all_140_natural_query_bbox_records",
+              "seed": 20260826,
+              "discovery_count": 70,
+              "evaluation_count": 70,
+              "split_unit": "sequence_group",
+              "discovery_gt_used": false,
+              "discovery_outcome_used": false,
+              "sample_sizes": "20,40,56",
+              "resamples": 100,
+              "per_sample": 10,
+              "fixed_head_counts": "3,5",
+              "random_repeats": 100
+            },
+            "rationale": "全量 140 条自然 query-bbox 双图记录的基准复核；固定 70/70 sequence-disjoint discovery/held-out split，分别发现 q_to_q 与 q_to_r head 并比较 layer-matched random。"
+          },
+          {
+            "id": "T-002",
+            "parameters": {
+              "dataset_scope": "all_140_natural_query_bbox_records",
+              "seed": 20260827,
+              "discovery_count": 70,
+              "evaluation_count": 70,
+              "split_unit": "sequence_group",
+              "discovery_gt_used": false,
+              "discovery_outcome_used": false,
+              "sample_sizes": "20,40,56",
+              "resamples": 100,
+              "per_sample": 10,
+              "fixed_head_counts": "3,5",
+              "random_repeats": 100
+            },
+            "rationale": "只改变独立 split seed 的完整全量复核，直接检验 Query-head 的 held-out 效果和 head 发现稳定性是否依赖原单一划分。"
+          }
+        ]
+      },
+      "trial_plan": {
+        "contract": "survey-tool.run-trial-plan/v1",
+        "planning_mode": "ai_planned",
+        "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+        "trial_budget": 2,
+        "axes": [],
+        "trials": [],
+        "planning_status": "awaiting_ai",
+        "concurrency": 1,
+        "max_retries": 1,
+        "created_at": "2026-08-27T14:53:29",
+        "updated_at": "2026-08-27T14:53:29",
+        "campaign_id": "C-002"
+      },
       "variables_controls": "角色A query heads=Qbbox→Query；角色B reference heads=Qbbox→Reference。相同rows、相同样本、相同selection参数，唯一变化是image key span。控制包括同层随机Top3/5、image-attention-sum-only、entropy-only、all-head mean、per-image oracle；oracle只作上限不得进入固定名单。",
       "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
       "workspace_id": "02"
     },
-    "execution_authorized_at": "2026-08-26T17:20:43.205473",
+    "execution_authorized_at": "2026-08-27T14:53:29.245080",
     "execution_authorized_by": "human:web-v2",
     "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
     "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
@@ -10754,6 +10804,84 @@
         "actor": "pi-steward",
         "dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
         "reason": "Completion contract still reports 'metrics contain undeclared IDs' for stable 356-byte scalar-only metrics with exit_code=0 and no NEW/REOPENED runtime fingerprint. Changed evidence rules out schema/hash/path/head strings; likely validator interprets integer count fields or status as undeclared result IDs. Inspect exact 356-byte JSON and reduce to only floating scientific metric values, with detailed counts/status retained in analysis/summary.json."
+      },
+      {
+        "time": "2026-08-27T14:52:35.680046",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": ""
+      },
+      {
+        "time": "2026-08-27T14:53:14",
+        "action": "trial-campaign-prepared",
+        "campaign_id": "C-001",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 2,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-8a1e22d58277d27e55850467"
+        ]
+      },
+      {
+        "time": "2026-08-27T14:53:14.275989",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-27T14:53:29",
+        "action": "trial-campaign-prepared",
+        "campaign_id": "C-002",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 2,
+        "concurrency": 1,
+        "replaced_dispatch_ids": [
+          "dispatch-87b78d3ac4b3a44110b5e92d"
+        ]
+      },
+      {
+        "time": "2026-08-27T14:53:29.245080",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-27T15:00:01",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+        "reason": "完成被拒绝：根级 metrics 尚未提供每个计划 Trial 的指标；需在不更改数据、head、指标或样本的前提下，最小补写由 T-001/T-002 已产出 metrics 聚合的批次 metrics contract，然后重试 complete。"
+      },
+      {
+        "time": "2026-08-27T15:03:45",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+        "reason": "根 metrics 已有 T-001/T-002 但 completion validator 未识别；最小兼容性修复为保留逐Trial scalar内容并写为 validator 预期的顶层 metrics 映射，不改变任何 Trial 配置、数据、head或结果。"
+      },
+      {
+        "time": "2026-08-27T15:11:32",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+        "reason": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。"
       }
     ],
     "review_history": [
@@ -10791,16 +10919,341 @@
           "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
           "workspace_id": "02"
         }
+      },
+      {
+        "time": "2026-08-27T14:52:35.680046",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": "",
+        "snapshot": {
+          "architecture_plan": "新增只读artifact审计与严格论文entropy/resampling分析入口，输出双角色selection manifests、subset manifests、metrics和逐头可视化；不得调用Reference bbox rows或旧G→R分支。",
+          "artifact_dir": "",
+          "command": "PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json",
+          "config": "",
+          "data_definition": "沿用旧R-001的140条IPLoc-ID positive自然回答及对应精确replay attention，按LaSOT sequence_cluster隔离。固定seed先划70 discovery/70 evaluation；evaluation在所有head名单、阈值和重采样规则冻结前不可用于选择。训练暴露未知，evaluation只能称selection-held-out sequences。",
+          "data_scale": "主发现70条、最终评价70条。稳定性在70条discovery内部执行100次无放回n=20重采样，并补n=40、n=56各100次形成样本量曲线；不得从evaluation补足。每个角色、每个样本量都完整保存Top3/Top5名单和全排名。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "query heads将呈现高inclusion probability、较高Top-k一致性和held-out Query GT定位；reference heads若真实存在，也应在n=20重复抽样中收敛且在held-out Reference GT上优于同层随机，否则应判为不稳定或稳定偏置头。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标为n=20×100 inclusion/Jaccard/rank稳定性与held-out固定Top3/5相对同层随机的pointing/enrichment/S50 fIoU；n=40/56为样本量曲线；query/reference使用完全相同参数且独立排名。",
+          "metrics_path": null,
+          "model_config": "冻结Qwen3-VL-8B-Instruct + IPLoc-ID LoRA、max_side=640及旧R-001自然回答/replay artifacts；不重新自然生成、不teacher-force GT bbox。必须记录模型、LoRA、manifest、自然输出和artifact manifest哈希。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "以模型自然生成的Query bbox token prediction rows为唯一query rows，分别读取其到Query image tokens和Reference image tokens的逐头注意力，使用同一套LocalizationHeads式无GT算法独立发现query heads与reference heads，并验证二者在20图重复抽样、较大子集和sequence-held-out样本上的显著性、稳定性与空间有效性。明确禁止使用Reference bbox token rows定义任何head。",
+          "research_question": "仅使用模型自然生成Query bbox token的p−1 rows时，分别对Query和Reference image spans运行严格LocalizationHeads式无GT算法，能否找到显著且在独立20图重采样及selection-held-out序列上稳定有效的query heads与reference heads？",
+          "run_type": "analysis",
+          "seed": "20260826",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "角色A query heads=Qbbox→Query；角色B reference heads=Qbbox→Reference。相同rows、相同样本、相同selection参数，唯一变化是image key span。控制包括同层随机Top3/5、image-attention-sum-only、entropy-only、all-head mean、per-image oracle；oracle只作上限不得进入固定名单。",
+          "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-27T14:53:14.275989",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "新增只读artifact审计与严格论文entropy/resampling分析入口，输出双角色selection manifests、subset manifests、metrics和逐头可视化；不得调用Reference bbox rows或旧G→R分支。",
+          "artifact_dir": "",
+          "command": "PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json",
+          "config": "",
+          "data_definition": "沿用旧R-001的140条IPLoc-ID positive自然回答及对应精确replay attention，按LaSOT sequence_cluster隔离。固定seed先划70 discovery/70 evaluation；evaluation在所有head名单、阈值和重采样规则冻结前不可用于选择。训练暴露未知，evaluation只能称selection-held-out sequences。",
+          "data_scale": "主发现70条、最终评价70条。稳定性在70条discovery内部执行100次无放回n=20重采样，并补n=40、n=56各100次形成样本量曲线；不得从evaluation补足。每个角色、每个样本量都完整保存Top3/Top5名单和全排名。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "query heads将呈现高inclusion probability、较高Top-k一致性和held-out Query GT定位；reference heads若真实存在，也应在n=20重复抽样中收敛且在held-out Reference GT上优于同层随机，否则应判为不稳定或稳定偏置头。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标为n=20×100 inclusion/Jaccard/rank稳定性与held-out固定Top3/5相对同层随机的pointing/enrichment/S50 fIoU；n=40/56为样本量曲线；query/reference使用完全相同参数且独立排名。",
+          "metrics_path": null,
+          "model_config": "冻结Qwen3-VL-8B-Instruct + IPLoc-ID LoRA、max_side=640及旧R-001自然回答/replay artifacts；不重新自然生成、不teacher-force GT bbox。必须记录模型、LoRA、manifest、自然输出和artifact manifest哈希。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "以模型自然生成的Query bbox token prediction rows为唯一query rows，分别读取其到Query image tokens和Reference image tokens的逐头注意力，使用同一套LocalizationHeads式无GT算法独立发现query heads与reference heads，并验证二者在20图重复抽样、较大子集和sequence-held-out样本上的显著性、稳定性与空间有效性。明确禁止使用Reference bbox token rows定义任何head。",
+          "research_question": "仅使用模型自然生成Query bbox token的p−1 rows时，分别对Query和Reference image spans运行严格LocalizationHeads式无GT算法，能否找到显著且在独立20图重采样及selection-held-out序列上稳定有效的query heads与reference heads？",
+          "run_type": "analysis",
+          "seed": "20260826",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+            "trial_budget": 2,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-27T14:53:14",
+            "updated_at": "2026-08-27T14:53:14",
+            "campaign_id": "C-001"
+          },
+          "variables_controls": "角色A query heads=Qbbox→Query；角色B reference heads=Qbbox→Reference。相同rows、相同样本、相同selection参数，唯一变化是image key span。控制包括同层随机Top3/5、image-attention-sum-only、entropy-only、all-head mean、per-image oracle；oracle只作上限不得进入固定名单。",
+          "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-27T14:53:29.245080",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "新增只读artifact审计与严格论文entropy/resampling分析入口，输出双角色selection manifests、subset manifests、metrics和逐头可视化；不得调用Reference bbox rows或旧G→R分支。",
+          "artifact_dir": "",
+          "command": "PYTHON_BIN=/root/miniconda3/envs/DIGEO/bin/python bash mechanism/iplocid/tools/run_e010_r003.sh --config mechanism/iplocid/configs/e010_r003.json",
+          "config": "",
+          "data_definition": "沿用旧R-001的140条IPLoc-ID positive自然回答及对应精确replay attention，按LaSOT sequence_cluster隔离。固定seed先划70 discovery/70 evaluation；evaluation在所有head名单、阈值和重采样规则冻结前不可用于选择。训练暴露未知，evaluation只能称selection-held-out sequences。",
+          "data_scale": "主发现70条、最终评价70条。稳定性在70条discovery内部执行100次无放回n=20重采样，并补n=40、n=56各100次形成样本量曲线；不得从evaluation补足。每个角色、每个样本量都完整保存Top3/Top5名单和全排名。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "query heads将呈现高inclusion probability、较高Top-k一致性和held-out Query GT定位；reference heads若真实存在，也应在n=20重复抽样中收敛且在held-out Reference GT上优于同层随机，否则应判为不稳定或稳定偏置头。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标为n=20×100 inclusion/Jaccard/rank稳定性与held-out固定Top3/5相对同层随机的pointing/enrichment/S50 fIoU；n=40/56为样本量曲线；query/reference使用完全相同参数且独立排名。",
+          "metrics_path": null,
+          "model_config": "冻结Qwen3-VL-8B-Instruct + IPLoc-ID LoRA、max_side=640及旧R-001自然回答/replay artifacts；不重新自然生成、不teacher-force GT bbox。必须记录模型、LoRA、manifest、自然输出和artifact manifest哈希。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "以模型自然生成的Query bbox token prediction rows为唯一query rows，分别读取其到Query image tokens和Reference image tokens的逐头注意力，使用同一套LocalizationHeads式无GT算法独立发现query heads与reference heads，并验证二者在20图重复抽样、较大子集和sequence-held-out样本上的显著性、稳定性与空间有效性。明确禁止使用Reference bbox token rows定义任何head。",
+          "research_question": "仅使用模型自然生成Query bbox token的p−1 rows时，分别对Query和Reference image spans运行严格LocalizationHeads式无GT算法，能否找到显著且在独立20图重采样及selection-held-out序列上稳定有效的query heads与reference heads？",
+          "run_type": "analysis",
+          "seed": "20260826",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": {
+            "contract": "survey-tool.run-trial-plan/v1",
+            "planning_mode": "ai_planned",
+            "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+            "trial_budget": 2,
+            "axes": [],
+            "trials": [],
+            "planning_status": "awaiting_ai",
+            "concurrency": 1,
+            "max_retries": 1,
+            "created_at": "2026-08-27T14:53:29",
+            "updated_at": "2026-08-27T14:53:29",
+            "campaign_id": "C-002"
+          },
+          "variables_controls": "角色A query heads=Qbbox→Query；角色B reference heads=Qbbox→Reference。相同rows、相同样本、相同selection参数，唯一变化是image key span。控制包括同层随机Top3/5、image-attention-sum-only、entropy-only、all-head mean、per-image oracle；oracle只作上限不得进入固定名单。",
+          "variant": "自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
+          "workspace_id": "02"
+        }
       }
     ],
-    "execution_authorization_consumed_at": "2026-08-26T17:28:39",
-    "execution_dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+    "evidence_label_history": [
+      {
+        "time": "2026-08-27T14:52:30",
+        "action": "set",
+        "label": "solid",
+        "actor": "human:web-v2",
+        "note": "澄清了相关的定义，但是reference找到的head还不算好"
+      }
+    ],
+    "evidence_label": "solid",
+    "evidence_label_note": "澄清了相关的定义，但是reference找到的head还不算好",
+    "evidence_labeled_at": "2026-08-27T14:52:30",
+    "evidence_labeled_by": "human:web-v2",
+    "trial_campaigns": [
+      {
+        "id": "C-001",
+        "contract": "survey-tool.run-trial-campaign/v1",
+        "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+        "status": "prepared",
+        "created_at": "2026-08-27T14:53:14",
+        "plan": {
+          "contract": "survey-tool.run-trial-plan/v1",
+          "planning_mode": "ai_planned",
+          "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+          "trial_budget": 2,
+          "axes": [],
+          "trials": [],
+          "planning_status": "awaiting_ai",
+          "concurrency": 1,
+          "max_retries": 1,
+          "created_at": "2026-08-27T14:53:14",
+          "updated_at": "2026-08-27T14:53:14",
+          "campaign_id": "C-001"
+        },
+        "previous_workflow_stage": "ready_to_run",
+        "previous_result": {
+          "limitations": "自然bbox token rows可能混合坐标数字、标点和格式生成；对rows求平均可能掩盖token阶段差异，本Run先固定该定义并把逐token结果作为附录，不事后挑token。训练暴露未知；attention显著性不证明因果或身份选择性。",
+          "audit_paths": "旧R-001 records.json/artifacts/analysis/summary.json；mechanism/iplocid/iplocid/attention/selection.py；新增严格entropy与resampling模块；用户原始定义（2026-08-26，逐字保留）：首先我们的实验都是去测量Query bbox token对query/reference image token的注意力，不存在找reference bbox对reference image token的。然后通过query bbox token对两个不同image的注意力经过算法可以得到两批head，一个是query head一个是reference head，指的是模型在生成query bbox token时，看了query/reference图像的哪些区域。所以我指的query head和reference head都是query bbox token对前面的图像的注意力。我现在想确定的是，这两个head是否显著且稳定，而让query head在reference image token的注意力是否有偏差？"
+        }
+      },
+      {
+        "id": "C-002",
+        "contract": "survey-tool.run-trial-campaign/v1",
+        "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+        "status": "failed",
+        "created_at": "2026-08-27T14:53:29",
+        "plan": {
+          "contract": "survey-tool.run-trial-plan/v1",
+          "planning_mode": "ai_planned",
+          "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+          "trial_budget": 2,
+          "axes": [],
+          "trials": [],
+          "planning_status": "awaiting_ai",
+          "concurrency": 1,
+          "max_retries": 1,
+          "created_at": "2026-08-27T14:53:29",
+          "updated_at": "2026-08-27T14:53:29",
+          "campaign_id": "C-002"
+        },
+        "previous_workflow_stage": "ready_to_run",
+        "previous_result": {},
+        "manifest": {
+          "contract": "survey-tool.run-trial-manifest/v1",
+          "trials": [
+            {
+              "id": "T-001",
+              "parameters": {
+                "dataset_scope": "all_140_natural_query_bbox_records",
+                "seed": 20260826,
+                "discovery_count": 70,
+                "evaluation_count": 70,
+                "split_unit": "sequence_group",
+                "discovery_gt_used": false,
+                "discovery_outcome_used": false,
+                "sample_sizes": "20,40,56",
+                "resamples": 100,
+                "per_sample": 10,
+                "fixed_head_counts": "3,5",
+                "random_repeats": 100
+              },
+              "rationale": "全量 140 条自然 query-bbox 双图记录的基准复核；固定 70/70 sequence-disjoint discovery/held-out split，分别发现 q_to_q 与 q_to_r head 并比较 layer-matched random。"
+            },
+            {
+              "id": "T-002",
+              "parameters": {
+                "dataset_scope": "all_140_natural_query_bbox_records",
+                "seed": 20260827,
+                "discovery_count": 70,
+                "evaluation_count": 70,
+                "split_unit": "sequence_group",
+                "discovery_gt_used": false,
+                "discovery_outcome_used": false,
+                "sample_sizes": "20,40,56",
+                "resamples": 100,
+                "per_sample": 10,
+                "fixed_head_counts": "3,5",
+                "random_repeats": 100
+              },
+              "rationale": "只改变独立 split seed 的完整全量复核，直接检验 Query-head 的 held-out 效果和 head 发现稳定性是否依赖原单一划分。"
+            }
+          ]
+        },
+        "updated_at": "2026-08-27T15:14:47",
+        "failure": {
+          "failure_class": "environment",
+          "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
+          "retryable": true
+        }
+      }
+    ],
+    "active_trial_campaign_id": "C-002",
+    "trial_plan": {
+      "contract": "survey-tool.run-trial-plan/v1",
+      "planning_mode": "ai_planned",
+      "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
+      "trial_budget": 2,
+      "axes": [],
+      "trials": [],
+      "planning_status": "awaiting_ai",
+      "concurrency": 1,
+      "max_retries": 1,
+      "created_at": "2026-08-27T14:53:29",
+      "updated_at": "2026-08-27T14:53:29",
+      "campaign_id": "C-002"
+    },
+    "trial_manifest": {
+      "contract": "survey-tool.run-trial-manifest/v1",
+      "trials": [
+        {
+          "id": "T-001",
+          "parameters": {
+            "dataset_scope": "all_140_natural_query_bbox_records",
+            "seed": 20260826,
+            "discovery_count": 70,
+            "evaluation_count": 70,
+            "split_unit": "sequence_group",
+            "discovery_gt_used": false,
+            "discovery_outcome_used": false,
+            "sample_sizes": "20,40,56",
+            "resamples": 100,
+            "per_sample": 10,
+            "fixed_head_counts": "3,5",
+            "random_repeats": 100
+          },
+          "rationale": "全量 140 条自然 query-bbox 双图记录的基准复核；固定 70/70 sequence-disjoint discovery/held-out split，分别发现 q_to_q 与 q_to_r head 并比较 layer-matched random。"
+        },
+        {
+          "id": "T-002",
+          "parameters": {
+            "dataset_scope": "all_140_natural_query_bbox_records",
+            "seed": 20260827,
+            "discovery_count": 70,
+            "evaluation_count": 70,
+            "split_unit": "sequence_group",
+            "discovery_gt_used": false,
+            "discovery_outcome_used": false,
+            "sample_sizes": "20,40,56",
+            "resamples": 100,
+            "per_sample": 10,
+            "fixed_head_counts": "3,5",
+            "random_repeats": 100
+          },
+          "rationale": "只改变独立 split seed 的完整全量复核，直接检验 Query-head 的 held-out 效果和 head 发现稳定性是否依赖原单一划分。"
+        }
+      ]
+    },
+    "trial_manifest_hash": "sha256:08e64e6c729290f4e509127c48aa869019df16bbebbbb78948c12da414b2addc",
+    "implementation_history": [
+      {
+        "time": "2026-08-27T14:56:45",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:76dfdec7866ea35524cd73f7dc6d85401920522900ad131586f5fcea7e659c27",
+        "approval_continues": true
+      },
+      {
+        "time": "2026-08-27T14:57:08",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:f940111648361de977391ad23fade49881e6acf35fe25406f0e457cdc5ef420a",
+        "approval_continues": true
+      }
+    ],
+    "execution_authorization_consumed_at": "2026-08-27T14:57:20",
+    "execution_dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
     "execution_dispatch_latest_status": "failed",
-    "execution_dispatch_failed_at": "2026-08-27T10:59:25",
+    "execution_dispatch_failed_at": "2026-08-27T15:14:47",
     "execution_dispatch_failure": {
       "failure_class": "environment",
-      "reason": "Release stale expired managed lease after successful exit_code=0 computation; completion remains blocked only by metrics declaration contract. R-004 is separately approved and must use its own claim.",
-      "retryable": false
+      "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
+      "retryable": true
     }
   },
   {
@@ -10986,5 +11439,374 @@
     ],
     "key_results": [],
     "result_analysis": "Managed execution exited successfully with 0 declared and 5 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft."
+  },
+  {
+    "variant": "自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+    "run_type": "analysis",
+    "purpose": "在不重跑模型、不改写R-003、不让GT进入无GT选头的前提下，分解固定Qbbox→Reference head失败：比较逐图无GT Top-k、同层随机、all-head mean与事后GT oracle；区分候选过滤、候选内排序和跨样本固定化三个环节。",
+    "necessity": "Q-006记录显示：R-003的固定Qbbox→Reference heads在70条selection-held-out样本上空间有效性很低，而旧R-001的per-image GT oracle在同类maps中可读出部分Reference-responsive单头信号。仅看固定名单无法区分“信号不存在”“head随样本变化”与“LocalizationHeads无GT准则漏选”。R-004仅审计冻结query heads跨span偏差，不能替代该误差分解。",
+    "evidence_basis": "Q-006 §已有证据与边界、§当前关键缺口、§建议实验1；[[localizationheads2025]] §4.1–4.2的无GT候选/频率思路。R-003已生成artifact summary但其completion受metrics declaration contract阻断，因此本Run必须先独立核验artifact契约，不能将历史数值直接升级为结论。",
+    "implementation_summary": "纯离线读取R-003自然Query bbox p−1 rows与Qbbox→Reference全头maps。对70条selection-held-out记录逐图重跑严格LocalizationHeads式无GT选择，产生Top1/3/5/10及head-level特征；冻结选择结果后以Reference GT做空间评分，并与同层随机、all-head mean和事后GT oracle比较。不得重新生成、teacher-force或训练校准模型。",
+    "implementation_details": "每条样本：复用R-003层排除、image-attention threshold、按自身均值二值化、8邻域component-token-count entropy与排序参数；无GT阶段输出Top1、Top3/5等权map、Top10集合、完整rank及budget/entropy。随后才计算pointing、area-normalized enrichment、target mass、S50 fIoU，并记录Top10是否包含oracle/有效head、oracle在无GT排名的位置和候选内排序损失。随机对照按入选head层匹配、固定seed并保存抽样清单。",
+    "data_definition": "仅使用R-003的70条selection-held-out LaSOT sequence records、自然生成Query bbox p−1 rows及Qbbox→Reference 1152-head attention artifacts；不从R-003 discovery或其他数据补样本。每条同时需要Reference GT、Reference token grid、row/span契约与自然输出身份。训练暴露未知，样本只能称selection-held-out。",
+    "data_scale": "70条selection-held-out sequences；每条比较无GT Top1/3/5/10、同层随机Top1/3/5/10、all-head mean和GT oracle Top1。bootstrap按sequence重采样，次数与R-003/R-004既有统计设置一致并在实现前物化。",
+    "model_config": "不加载模型；冻结R-003所用Qwen3-VL-8B-Instruct + IPLoc-ID LoRA产生的自然回答和attention artifacts。运行前核验artifact、自然输出、rows/spans、token grids、manifest与Reference GT的哈希/契约。",
+    "variables_controls": "主变量为head选择方式：逐图严格无GT Top1/3/5/10 vs layer-matched random vs all-head mean vs GT oracle上限；附加分解为Top10候选召回与候选内rank。GT只在选择结束后评分；correct/error、自然IoU、对象大小和grid coverage仅作预注册分层解释，不进入选头。",
+    "metric_definition": "主指标：Top1/3/5 pointing rate、area-normalized enrichment、target mass、S50 fIoU；Top10至少一头/多数head的pointing-hit；Top10对GT-oracle或预定义有效head集合的候选召回；oracle head rank与Top1/3/5相对Top10的损失；head ID inclusion probability、pairwise Jaccard、集中度和effective head count。所有主要效应报告相对同层随机的sequence bootstrap CI。",
+    "integrity_gates": "G1 R-003全头artifact、自然回答、70 IDs、rows/spans、token-grid与Reference GT契约/哈希均须通过，否则dependency_stop；G2 无GT选择阶段严禁读取GT、自然IoU、correct/error或任何空间评分；G3 所有70条均输出完整结果，空map/coverage不足/解析失败单列而不删除；G4 随机头层匹配、seed和名单持久化；G5 oracle仅作事后上限，不得进入固定名单或部署选择；G6 本Run不得改成GT监督固定head discovery或无GT校准。",
+    "expected_outcome": "可判别四类结果：(1) Top10召回高但Top1/3/5低，候选过滤可用而熵/排序失配；(2) 逐图无GT优于固定名单但head ID低集中，sample-specific dynamic routing；(3) 无GT低而oracle经随机极值校正仍高，当前准则漏选单图信号；(4) 无GT和oracle均近随机，自然Qbbox rows的Reference空间信号弱。任何结果均不证明身份选择性或因果必要性。",
+    "acceptance_criteria": "70条输入契约均核验或明确dependency_stop；每条的无GT/随机/all-head/oracle原始指标和head名单齐全；Top1/3/5/10及Top10候选召回/候选内排序汇总和sequence bootstrap CI齐全；head集中度/Jaccard分析齐全；至少12个统一色标案例展示无GT Top-k、oracle、Reference GT和Top10候选；失败样本完整清单、配置与随机seed可追溯。",
+    "dependencies": "依赖R-003可读的自然Qbbox→Reference全头artifacts、自然输出、rows/spans和70条selection-held-out manifest；R-003当前workflow=failed且completion受metrics declaration contract阻断，故R-005执行前必须独立核验，失败即停止且不将缺失记为零。R-004的科研分析可并列参考，但不构成执行依赖。",
+    "limitations": "Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.",
+    "claim_boundary": "只回答自然Query bbox rows下Qbbox→Reference attention中，严格无GT逐图选择相对GT oracle、随机和固定化的误差来源；不改变R-003/R-004结论，不证明模型完全未使用Reference、不证明身份匹配，也不证明任何head为因果必要电路。",
+    "audit_paths": "shell/01_questions/Q-006.md；shell/06_experiments/E-010/runs/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability.md；shell/06_experiments/E-010/runs/E010-R-004-frozen-query-head-reference-span-bias-audit.md；R-003 artifact manifest、records、全头Qbbox→Reference maps与analysis summary（执行前定位并核验）。",
+    "status": "analysis_pending",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r005.sh",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/logs/train.log",
+    "tmux_session": "",
+    "seed": "20260827",
+    "group_id": "",
+    "research_question": "在自然Query bbox生成的相同p−1 rows与Qbbox→Reference全头attention maps中，LocalizationHeads式逐图无GT选头能否找回GT oracle证明存在的Reference-responsive head？固定名单失败主要来自动态head routing、无GT候选过滤/排序失配，还是Reference空间信号弱？",
+    "hypothesis": "若GT oracle高而逐图无GT Top10召回/排序低，则无GT准则遗漏Reference-responsive信号；若逐图无GT高但head ID不集中，则有效head动态变化；若GT监督以外的oracle优势也不稳定，则固定Reference spatial head路线应停止。",
+    "metric_plan": "以逐图无GT Top1/3/5/10的空间评分与Top10候选召回为主，GT oracle为上限，同层随机为主对照，head-ID集中度/Jaccard为动态routing诊断；所有比较按70条sequence bootstrap置信区间报告。",
+    "architecture_plan": "在IPLoc现有attention analysis模块新增只读per-image Qbbox→Reference selector/oracle audit入口；复用R-003 artifact reader与空间指标，不复制runner或重载模型。实现完成前不得启动；本次登记不涉及代码修改。",
+    "created_by": "terminal_pi",
+    "id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "experiment_id": "E-010",
+    "workflow_version": 2,
+    "workflow_stage": "analysis_pending",
+    "review_status": "approved",
+    "review_round": 0,
+    "created": "2026-08-27T13:04:55",
+    "updated": "2026-08-27T13:22:25",
+    "organization_snapshot": {
+      "time": "2026-08-27T13:04:55",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-68c41923cd2778622ae7"
+    },
+    "approved_at": "2026-08-27T13:15:24.378316",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "在IPLoc现有attention analysis模块新增只读per-image Qbbox→Reference selector/oracle audit入口；复用R-003 artifact reader与空间指标，不复制runner或重载模型。实现完成前不得启动；本次登记不涉及代码修改。",
+      "artifact_dir": "",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r005.sh",
+      "config": "",
+      "data_definition": "仅使用R-003的70条selection-held-out LaSOT sequence records、自然生成Query bbox p−1 rows及Qbbox→Reference 1152-head attention artifacts；不从R-003 discovery或其他数据补样本。每条同时需要Reference GT、Reference token grid、row/span契约与自然输出身份。训练暴露未知，样本只能称selection-held-out。",
+      "data_scale": "70条selection-held-out sequences；每条比较无GT Top1/3/5/10、同层随机Top1/3/5/10、all-head mean和GT oracle Top1。bootstrap按sequence重采样，次数与R-003/R-004既有统计设置一致并在实现前物化。",
+      "git_commit": "",
+      "group_id": "",
+      "hypothesis": "若GT oracle高而逐图无GT Top10召回/排序低，则无GT准则遗漏Reference-responsive信号；若逐图无GT高但head ID不集中，则有效head动态变化；若GT监督以外的oracle优势也不稳定，则固定Reference spatial head路线应停止。",
+      "implementation_ref": null,
+      "launcher": null,
+      "log_path": "",
+      "metric_plan": "以逐图无GT Top1/3/5/10的空间评分与Top10候选召回为主，GT oracle为上限，同层随机为主对照，head-ID集中度/Jaccard为动态routing诊断；所有比较按70条sequence bootstrap置信区间报告。",
+      "metrics_path": null,
+      "model_config": "不加载模型；冻结R-003所用Qwen3-VL-8B-Instruct + IPLoc-ID LoRA产生的自然回答和attention artifacts。运行前核验artifact、自然输出、rows/spans、token grids、manifest与Reference GT的哈希/契约。",
+      "output_dir": "",
+      "project_dir": null,
+      "purpose": "在不重跑模型、不改写R-003、不让GT进入无GT选头的前提下，分解固定Qbbox→Reference head失败：比较逐图无GT Top-k、同层随机、all-head mean与事后GT oracle；区分候选过滤、候选内排序和跨样本固定化三个环节。",
+      "research_question": "在自然Query bbox生成的相同p−1 rows与Qbbox→Reference全头attention maps中，LocalizationHeads式逐图无GT选头能否找回GT oracle证明存在的Reference-responsive head？固定名单失败主要来自动态head routing、无GT候选过滤/排序失配，还是Reference空间信号弱？",
+      "run_type": "analysis",
+      "seed": "20260827",
+      "server_id": null,
+      "tmux_session": "",
+      "trial_manifest": null,
+      "trial_plan": null,
+      "variables_controls": "主变量为head选择方式：逐图严格无GT Top1/3/5/10 vs layer-matched random vs all-head mean vs GT oracle上限；附加分解为Top10候选召回与候选内rank。GT只在选择结束后评分；correct/error、自然IoU、对象大小和grid coverage仅作预注册分层解释，不进入选头。",
+      "variant": "自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+      "workspace_id": "02"
+    },
+    "execution_authorized_at": "2026-08-27T13:15:24.378316",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "workflow_history": [
+      {
+        "time": "2026-08-27T13:15:24.378316",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-27T13:21:03",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-c731f87351460754fe654f0c",
+        "reason": "Fixed concrete post-visualization cleanup KeyError in the new offline R-005 pipeline; recompilation and a fresh 70-record smoke with two rendered cases now pass."
+      }
+    ],
+    "review_history": [
+      {
+        "time": "2026-08-27T13:15:24.378316",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在IPLoc现有attention analysis模块新增只读per-image Qbbox→Reference selector/oracle audit入口；复用R-003 artifact reader与空间指标，不复制runner或重载模型。实现完成前不得启动；本次登记不涉及代码修改。",
+          "artifact_dir": "",
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": "",
+          "data_definition": "仅使用R-003的70条selection-held-out LaSOT sequence records、自然生成Query bbox p−1 rows及Qbbox→Reference 1152-head attention artifacts；不从R-003 discovery或其他数据补样本。每条同时需要Reference GT、Reference token grid、row/span契约与自然输出身份。训练暴露未知，样本只能称selection-held-out。",
+          "data_scale": "70条selection-held-out sequences；每条比较无GT Top1/3/5/10、同层随机Top1/3/5/10、all-head mean和GT oracle Top1。bootstrap按sequence重采样，次数与R-003/R-004既有统计设置一致并在实现前物化。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "若GT oracle高而逐图无GT Top10召回/排序低，则无GT准则遗漏Reference-responsive信号；若逐图无GT高但head ID不集中，则有效head动态变化；若GT监督以外的oracle优势也不稳定，则固定Reference spatial head路线应停止。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "以逐图无GT Top1/3/5/10的空间评分与Top10候选召回为主，GT oracle为上限，同层随机为主对照，head-ID集中度/Jaccard为动态routing诊断；所有比较按70条sequence bootstrap置信区间报告。",
+          "metrics_path": null,
+          "model_config": "不加载模型；冻结R-003所用Qwen3-VL-8B-Instruct + IPLoc-ID LoRA产生的自然回答和attention artifacts。运行前核验artifact、自然输出、rows/spans、token grids、manifest与Reference GT的哈希/契约。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重跑模型、不改写R-003、不让GT进入无GT选头的前提下，分解固定Qbbox→Reference head失败：比较逐图无GT Top-k、同层随机、all-head mean与事后GT oracle；区分候选过滤、候选内排序和跨样本固定化三个环节。",
+          "research_question": "在自然Query bbox生成的相同p−1 rows与Qbbox→Reference全头attention maps中，LocalizationHeads式逐图无GT选头能否找回GT oracle证明存在的Reference-responsive head？固定名单失败主要来自动态head routing、无GT候选过滤/排序失配，还是Reference空间信号弱？",
+          "run_type": "analysis",
+          "seed": "20260827",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "主变量为head选择方式：逐图严格无GT Top1/3/5/10 vs layer-matched random vs all-head mean vs GT oracle上限；附加分解为Top10候选召回与候选内rank。GT只在选择结束后评分；correct/error、自然IoU、对象大小和grid coverage仅作预注册分层解释，不进入选头。",
+          "variant": "自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+          "workspace_id": "02"
+        }
+      }
+    ],
+    "execution_authorization_consumed_at": "2026-08-27T13:19:42",
+    "execution_dispatch_id": "dispatch-c731f87351460754fe654f0c",
+    "execution_dispatch_latest_status": "completed",
+    "execution_dispatch_completed_at": "2026-08-27T13:22:25",
+    "execution_dispatch_completion_evidence": {
+      "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/logs/train.log",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json",
+      "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+    },
+    "steward_summary": {
+      "execution_completed_at": "2026-08-27T13:22:25",
+      "evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      },
+      "note": "程序已结束，等待科研结果分析"
+    },
+    "metric_observations": [],
+    "auxiliary_metric_observations": [
+      {
+        "metric_id": "evaluation_records",
+        "value": 70,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json"
+      },
+      {
+        "metric_id": "top10_oracle_candidate_recall",
+        "value": 0.0,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json"
+      },
+      {
+        "metric_id": "top5_nogt_pointing_rate",
+        "value": 0.07142857142857142,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json"
+      },
+      {
+        "metric_id": "top5_oracle_pointing_rate",
+        "value": 0.6714285714285714,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json"
+      }
+    ],
+    "key_results": [],
+    "result_analysis": "Managed execution exited successfully with 0 declared and 4 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft."
+  },
+  {
+    "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+    "run_type": "analysis",
+    "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。",
+    "necessity": "R-005显示70条evaluation中单图GT oracle pointing=0.671而无GT Top10对oracle召回=0，说明强单图信号与无GT筛选失配；但R-005没有检验GT监督的oracle/near-oracle head是否跨图稳定，故不能判断固定化是否根本不可行。",
+    "evidence_basis": "R-005 analysis/summary.json：GT oracle、Top10 candidate recall、routing统计；R-003 manifests/subsets.json定义的70/70 sequence-disjoint split与自然Qbbox→Reference artifacts。",
+    "implementation_summary": "已实现并受管完成纯离线 GT-supervised stability pipeline。读取 R-001 的 140 个 q_to_r artifacts 与 R-003 的哈希锁定 70/70 sequence-disjoint split；不加载模型、不重跑生成、不改写既有 artifact。discovery 的 GT 空间排序仅用 Reference occupancy；按 Top1 频率冻结 Top3/5 后，在 evaluation 70 条上禁止重选。",
+    "implementation_details": "代码：公共空间指标 iplocid.attention.metrics（normalize_nonnegative、fractional_mass、area_normalized_enrichment、pointing_hit、retained_mass_support、fractional_token_iou）；R-006 pipeline=iplocid.pipelines.gt_supervised_reference_stability；配置=mechanism/iplocid/configs/e010_r006.json；薄启动=mechanism/iplocid/tools/run_e010_r006.sh；可视化后处理=mechanism/iplocid/tools/render_e010_r006_attention_overlays.py。单图排序按 S50 fIoU 降序、enrichment 降序、target mass 降序、head ID 升序。Top1 frequency 在 discovery 70 条确定冻结集合。Top3/5 分别为 L18H05,L20H12,L20H15 与加 L20H08,L14H02。随机对照逐层匹配冻结集合的 layer composition，seed=20260828、100 repeats；差异按70条sequence有放回bootstrap=2000。",
+    "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
+    "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
+    "model_config": "不加载模型；仅读取由R-001中Qwen3-VL-8B-Instruct + IPLoc-ID LoRA自然生成过程保存的attention artifacts与记录。",
+    "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
+    "metric_definition": "对非负 attention map A 归一化 P=A/sum(A)。pointing=1[argmax(P) 落入 fractional Reference-GT occupancy]；mass=sum(P*G)；enrichment=mass/mean(G)；S50 fIoU=取最小 top-P token support 使累计质量>=0.5，再与 fractional G 计算 token-grid IoU。GT rank 使用 (S50 fIoU,enrichment,mass,-head_id) 字典序。稳定性：Top10 pairwise Jaccard=|Ti∩Tj|/|Ti∪Tj|；effective head count=1/sum_h(F(h)/70)^2。held-out 对冻结聚合 map、层匹配随机均值、1152-head mean、逐图GT oracle统一评分；报告 fixed-random paired sequence-bootstrap 95% CI。",
+    "integrity_gates": "正式运行核验：140 records；discovery=70、evaluation=70、sequence overlap=0；R-003 summary/subsets/row-span contract 哈希一致；自然Qbbox rows、token grid、artifact非负有限和 Reference occupancy 均通过；no_model_load=true；gt_used_in_discovery=true；heldout_reselection=false；outcome_used_in_ranking=false；failures=0。实现前 py_compile 通过；140-record smoke 通过（含12张诊断图）；受管正式运行 exit=0、metrics稳定、completion marker存在。可视化为运行后只读后处理，manifest 声明 metrics_or_heads_changed=false。",
+    "expected_outcome": "给出GT监督固定化是否可能的判别：A频率集中且held-out超过随机，说明R-005无GT代理失配；B频率分散或held-out无优势，支持动态/不可固定化；C discovery集中但held-out衰减，提示选择集特异。任何情形都不证明身份选择或因果必要性。",
+    "acceptance_criteria": "140条输入契约通过；discovery/evaluation各70条及零sequence overlap；逐图GT ranking、频率/集中度/Jaccard原始记录齐全；冻结Top3/5及其层匹配随机名单可追溯；held-out各方法全部空间指标和bootstrap CI齐全；至少12个固定统一色标案例；明确GT监督边界。",
+    "dependencies": "依赖已完成R-005与其核验过的R-003/R-001只读artifacts；无需模型、数据下载或R-003重跑。R-005保持analysis_pending，不能修改其结果或状态。",
+    "limitations": "GT进入discovery ranking，因此不是无GT或部署算法；70/70仅为selection-held-out sequence split，训练暴露未知；attention heatmap/readout与原图overlay均是诊断，不证明信息写入residual/KV、身份选择或因果必要性；per-panel min-max overlay只用于可视审计，不能跨panel比较绝对色强。",
+    "claim_boundary": "仅回答GT监督的空间oracle/near-oracle head能否跨sequence固定化；不能把结果外推为LocalizationHeads无GT方法有效、模型依赖这些heads、或模型完成identity binding。",
+    "audit_paths": "代码=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/gt_supervised_reference_stability.py；config=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r006.json；launcher=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/run_e010_r006.sh；overlay renderer=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tools/render_e010_r006_attention_overlays.py；summary=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json；metrics=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json；overlay manifest=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json；overlays=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/。",
+    "status": "analysis_pending",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_overlay_manifest.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/visualizations/attention_on_reference_original/",
+    "tmux_session": "",
+    "seed": "20260828",
+    "group_id": "",
+    "research_question": "在R-005已证明逐图GT oracle存在的自然Qbbox→Reference maps中，GT监督的逐图空间评分能否跨70条R-003 discovery sequences收敛为一组固定Top3/5 reference heads，并在严格序列不重叠的70条held-out sequences上优于同层随机与all-head mean？",
+    "hypothesis": "若discovery逐图GT-top-k head ID的频率集中、固定Top3/5在held-out优于同层随机，则固定化在监督诊断下可行而R-005失败主要是无GT代理失配；若频率分散且冻结held-out不优于随机，则reference空间信号主要为逐图动态，不能压缩为少数固定heads。",
+    "metric_plan": "复用R-005/R-003的pointing、enrichment、target mass、S50 fIoU及sequence-bootstrap，新增GT-discovery频率稳定性；这样只改变监督可见性，而不改变输入、row、grid或评分定义。",
+    "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
+    "created_by": "terminal_pi",
+    "id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "experiment_id": "E-010",
+    "workflow_version": 2,
+    "workflow_stage": "analysis_pending",
+    "review_status": "approved",
+    "review_round": 0,
+    "created": "2026-08-27T14:59:52",
+    "updated": "2026-08-27T15:17:01",
+    "organization_snapshot": {
+      "time": "2026-08-27T14:59:52",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-679b38ef33794d25e56b"
+    },
+    "approved_at": "2026-08-27T15:01:29.891656",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
+      "artifact_dir": "",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006.sh",
+      "config": "",
+      "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
+      "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
+      "git_commit": "",
+      "group_id": "",
+      "hypothesis": "若discovery逐图GT-top-k head ID的频率集中、固定Top3/5在held-out优于同层随机，则固定化在监督诊断下可行而R-005失败主要是无GT代理失配；若频率分散且冻结held-out不优于随机，则reference空间信号主要为逐图动态，不能压缩为少数固定heads。",
+      "implementation_ref": null,
+      "launcher": null,
+      "log_path": "",
+      "metric_plan": "复用R-005/R-003的pointing、enrichment、target mass、S50 fIoU及sequence-bootstrap，新增GT-discovery频率稳定性；这样只改变监督可见性，而不改变输入、row、grid或评分定义。",
+      "metrics_path": null,
+      "model_config": "不加载模型；仅读取由R-001中Qwen3-VL-8B-Instruct + IPLoc-ID LoRA自然生成过程保存的attention artifacts与记录。",
+      "output_dir": "",
+      "project_dir": null,
+      "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。",
+      "research_question": "在R-005已证明逐图GT oracle存在的自然Qbbox→Reference maps中，GT监督的逐图空间评分能否跨70条R-003 discovery sequences收敛为一组固定Top3/5 reference heads，并在严格序列不重叠的70条held-out sequences上优于同层随机与all-head mean？",
+      "run_type": "analysis",
+      "seed": "20260828",
+      "server_id": null,
+      "tmux_session": "",
+      "trial_manifest": null,
+      "trial_plan": null,
+      "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
+      "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+      "workspace_id": "02"
+    },
+    "execution_authorized_at": "2026-08-27T15:01:29.891656",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "workflow_history": [
+      {
+        "time": "2026-08-27T15:01:29.891656",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      }
+    ],
+    "review_history": [
+      {
+        "time": "2026-08-27T15:01:29.891656",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
+          "artifact_dir": "",
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": "",
+          "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
+          "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "若discovery逐图GT-top-k head ID的频率集中、固定Top3/5在held-out优于同层随机，则固定化在监督诊断下可行而R-005失败主要是无GT代理失配；若频率分散且冻结held-out不优于随机，则reference空间信号主要为逐图动态，不能压缩为少数固定heads。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "复用R-005/R-003的pointing、enrichment、target mass、S50 fIoU及sequence-bootstrap，新增GT-discovery频率稳定性；这样只改变监督可见性，而不改变输入、row、grid或评分定义。",
+          "metrics_path": null,
+          "model_config": "不加载模型；仅读取由R-001中Qwen3-VL-8B-Instruct + IPLoc-ID LoRA自然生成过程保存的attention artifacts与记录。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "把GT限定为离线诊断监督：区分“oracle信号逐图存在但动态路由、无法固定化”与“现有无GT entropy代理错配但GT频率可恢复固定reference heads”。不修改R-005的无GT结论，也不把GT-IoU纳入可部署selector。",
+          "research_question": "在R-005已证明逐图GT oracle存在的自然Qbbox→Reference maps中，GT监督的逐图空间评分能否跨70条R-003 discovery sequences收敛为一组固定Top3/5 reference heads，并在严格序列不重叠的70条held-out sequences上优于同层随机与all-head mean？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
+          "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
+          "workspace_id": "02"
+        }
+      }
+    ],
+    "execution_authorization_consumed_at": "2026-08-27T15:04:46",
+    "execution_dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
+    "execution_dispatch_latest_status": "completed",
+    "execution_dispatch_completed_at": "2026-08-27T15:06:22",
+    "execution_dispatch_completion_evidence": {
+      "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
+      "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+    },
+    "steward_summary": {
+      "execution_completed_at": "2026-08-27T15:06:22",
+      "evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      },
+      "note": "程序已结束，等待科研结果分析"
+    },
+    "metric_observations": [],
+    "auxiliary_metric_observations": [
+      {
+        "metric_id": "evaluation_records",
+        "value": 70,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+      },
+      {
+        "metric_id": "fixed_top3_pointing_rate",
+        "value": 0.6142857142857143,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+      },
+      {
+        "metric_id": "fixed_top5_pointing_rate",
+        "value": 0.6,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+      },
+      {
+        "metric_id": "gt_top1_effective_head_count",
+        "value": 10.425531914893613,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json"
+      }
+    ],
+    "key_results": [],
+    "result_analysis": "结果支持“GT监督下存在可跨序列冻结的core reference-head ensemble”，而非“reference空间信号完全逐图随机”。同时，discovery GT-top10 Jaccard=0.048、Top1 effective head count=10.43、Top5对held-out逐图oracle精确覆盖=0.357，说明逐图最佳head仍动态；固定ensemble有效不等于每图均由同一oracle head完成。结合R-005无GT Top10 oracle recall=0，最直接解释是当前无GT image-attention/component-entropy代理与此GT空间质量失配。",
+    "result_summary": "R-006完成：GT-supervised discovery 固定 Top3=L18H05,L20H12,L20H15，Top5再加L20H08,L14H02；held-out 70条中固定Top3/Top5 pointing=0.614/0.600，层匹配随机=0.199/0.137，all-head mean=0，逐图GT oracle=0.671。Top3 fixed-random pointing差=+0.415 CI[+0.318,+0.510]；Top5=+0.463 CI[+0.359,+0.566]。已额外生成12张Reference原图attention overlay；不改任何指标或head选择。",
+    "conclusion_scope": "该Run只支持：在冻结R-003自然Qbbox→Reference attention artifacts上，GT空间监督频率能构建一个在sequence-disjoint held-out上优于层匹配随机的固定Top3/5 readout ensemble。不能支持：GT-free selector可部署、模型利用GT、identity binding、任何head的因果必要性、训练外泛化。"
   }
 ]

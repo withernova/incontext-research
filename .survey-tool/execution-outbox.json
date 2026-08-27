@@ -3586,6 +3586,1050 @@
         "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/metrics.json",
         "result_message": "managed execution exited 0; metrics parsed; human analysis required"
       }
+    },
+    {
+      "dispatch_id": "dispatch-c731f87351460754fe654f0c",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+      "status": "completed",
+      "created_at": "2026-08-27T13:15:24",
+      "updated_at": "2026-08-27T13:22:25",
+      "authorization_timestamp": "2026-08-27T13:15:24.378316",
+      "approved_spec_hash": "7e9710e5dc5b2f503900570b044acacf83f4d1121206374c01e2c65e571aa796",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T13:15:24",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T13:19:21",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-08-27T13:19:26",
+          "type": "claimed",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:19:26",
+          "type": "acknowledge",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:19:42",
+          "type": "running",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:19:42",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T13:19:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:19:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:20:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:20:03",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:20:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:20:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:20:21",
+          "type": "fail",
+          "detail": "Managed status reports terminal exit_code=1 with no metrics.json; inspect the managed log after release to identify and repair the concrete launcher/environment failure."
+        },
+        {
+          "time": "2026-08-27T13:21:03",
+          "type": "retry",
+          "detail": "Fixed concrete post-visualization cleanup KeyError in the new offline R-005 pipeline; recompilation and a fresh 70-record smoke with two rendered cases now pass."
+        },
+        {
+          "time": "2026-08-27T13:21:07",
+          "type": "claimed",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:07",
+          "type": "acknowledge",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:23",
+          "type": "running",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:23",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T13:21:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:21:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:21:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:21:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:22:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:22:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:22:05",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T13:22:14",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:22:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:22:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T13:22:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T13:22:25",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-27T13:19:21",
+      "runtime_command_prepared_by": "pi-steward",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-27T13:22:25",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1444,
+              "mtime": 1787808204.0402098
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 199,
+              "mtime": 1787808204.0400736
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787808079.750129
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787808204.355425
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 199,
+          "mtime": 1787808204.0400736
+        }
+      },
+      "failed_at": "2026-08-27T13:20:21",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "Fixed concrete post-visualization cleanup KeyError in the new offline R-005 pipeline; recompilation and a fresh 70-record smoke with two rendered cases now pass.",
+      "retry_evidence": "Fixed concrete post-visualization cleanup KeyError in the new offline R-005 pipeline; recompilation and a fresh 70-record smoke with two rendered cases now pass.",
+      "consumer": "pi-steward:434545",
+      "claimed_at": "2026-08-27T13:21:07",
+      "lease_expires_at": "2026-08-27T13:37:24",
+      "acknowledged_at": "2026-08-27T13:21:07",
+      "running_at": "2026-08-27T13:21:23",
+      "completed_at": "2026-08-27T13:22:25",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-8a1e22d58277d27e55850467",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "superseded",
+      "created_at": "2026-08-27T14:52:35",
+      "updated_at": "2026-08-27T14:53:14",
+      "authorization_timestamp": "2026-08-27T14:52:35.680046",
+      "approved_spec_hash": "b506ff6ecacd671e0e7355a5cc41e8ba5781db22306f2ad9785874336b54db63",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了 C-001 Trial Campaign；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-27T14:52:35",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-27T14:53:14",
+          "type": "superseded",
+          "detail": "用户提交了 C-001 Trial Campaign；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-87b78d3ac4b3a44110b5e92d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "superseded",
+      "created_at": "2026-08-27T14:53:14",
+      "updated_at": "2026-08-27T14:53:29",
+      "authorization_timestamp": "2026-08-27T14:53:14.275989",
+      "approved_spec_hash": "3e586da50c1d584e119fe80f02b657f1c7cf397e2e97da38f6374e6e8b213dfd",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户提交了 C-002 Trial Campaign；旧 attempt 不再拥有此 Run",
+      "history": [
+        {
+          "time": "2026-08-27T14:53:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T14:53:29",
+          "type": "superseded",
+          "detail": "用户提交了 C-002 Trial Campaign；旧 attempt 不再拥有此 Run"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "failed",
+      "created_at": "2026-08-27T14:53:29",
+      "updated_at": "2026-08-27T15:14:47",
+      "authorization_timestamp": "2026-08-27T14:53:29.245080",
+      "approved_spec_hash": "631cf82128b8b5ee82aa9e91ed7720d0bdd38104f555dc164ec0b8b27fcec552",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 4,
+      "last_error": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
+      "history": [
+        {
+          "time": "2026-08-27T14:53:29",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T14:56:45",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-27T14:57:08",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-27T14:57:08",
+          "type": "claimed",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:57:08",
+          "type": "acknowledge",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:57:20",
+          "type": "running",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:57:20",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T14:57:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:57:48",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:58:08",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:58:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:58:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:58:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:58:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:58:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:59:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:59:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:59:22",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T14:59:34",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:59:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T14:59:51",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T14:59:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:00:01",
+          "type": "fail",
+          "detail": "完成被拒绝：根级 metrics 尚未提供每个计划 Trial 的指标；需在不更改数据、head、指标或样本的前提下，最小补写由 T-001/T-002 已产出 metrics 聚合的批次 metrics contract，然后重试 complete。"
+        },
+        {
+          "time": "2026-08-27T15:00:01",
+          "type": "retry",
+          "detail": "完成被拒绝：根级 metrics 尚未提供每个计划 Trial 的指标；需在不更改数据、head、指标或样本的前提下，最小补写由 T-001/T-002 已产出 metrics 聚合的批次 metrics contract，然后重试 complete。"
+        },
+        {
+          "time": "2026-08-27T15:00:56",
+          "type": "claimed",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:00:56",
+          "type": "acknowledge",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:01:04",
+          "type": "running",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:01:04",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:01:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:01:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:01:39",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:01:40",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:01:56",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:01:56",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:02:09",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:02:10",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:02:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:02:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:02:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:02:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:03:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:03:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:03:01",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:03:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:03:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:03:34",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:03:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:03:45",
+          "type": "fail",
+          "detail": "根 metrics 已有 T-001/T-002 但 completion validator 未识别；最小兼容性修复为保留逐Trial scalar内容并写为 validator 预期的顶层 metrics 映射，不改变任何 Trial 配置、数据、head或结果。"
+        },
+        {
+          "time": "2026-08-27T15:03:45",
+          "type": "retry",
+          "detail": "根 metrics 已有 T-001/T-002 但 completion validator 未识别；最小兼容性修复为保留逐Trial scalar内容并写为 validator 预期的顶层 metrics 映射，不改变任何 Trial 配置、数据、head或结果。"
+        },
+        {
+          "time": "2026-08-27T15:08:46",
+          "type": "claimed",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:08:46",
+          "type": "acknowledge",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:08:58",
+          "type": "running",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:08:58",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:09:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:09:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:09:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:09:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:10:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:10:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:10:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:10:27",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:10:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:10:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:10:45",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:11:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:11:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:11:20",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:11:21",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:11:32",
+          "type": "fail",
+          "detail": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。"
+        },
+        {
+          "time": "2026-08-27T15:11:32",
+          "type": "retry",
+          "detail": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。"
+        },
+        {
+          "time": "2026-08-27T15:12:05",
+          "type": "claimed",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:05",
+          "type": "acknowledge",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:12",
+          "type": "running",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:12",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:12:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:23",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:12:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:12:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:12:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:12:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:13:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:13:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:13:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:13:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:13:37",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:13:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:13:56",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:13:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:13:57",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:14:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:14:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:14:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:443321"
+        },
+        {
+          "time": "2026-08-27T15:14:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:14:47",
+          "type": "fail",
+          "detail": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-27T14:57:08",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:08e64e6c729290f4e509127c48aa869019df16bbebbbb78948c12da414b2addc",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-27T15:14:19",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 10795,
+              "mtime": 1787814898.1653402
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 402,
+              "mtime": 1787814898.509895
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787736614.552727
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814898.516724
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 402,
+          "mtime": 1787814898.509895
+        }
+      },
+      "failed_at": "2026-08-27T15:14:47",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。",
+      "retry_evidence": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。",
+      "consumer": "pi-steward:443321",
+      "claimed_at": "2026-08-27T15:12:05",
+      "lease_expires_at": "2026-08-27T15:29:18",
+      "acknowledged_at": "2026-08-27T15:12:05",
+      "running_at": "2026-08-27T15:12:12"
+    },
+    {
+      "dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "completed",
+      "created_at": "2026-08-27T15:01:29",
+      "updated_at": "2026-08-27T15:06:22",
+      "authorization_timestamp": "2026-08-27T15:01:29.891656",
+      "approved_spec_hash": "97bbd6298aeb32de6122b6857161bf2c159a0c2be642ee45ce102280f05c1f1c",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T15:01:29",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-27T15:04:17",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-08-27T15:04:26",
+          "type": "claimed",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:04:26",
+          "type": "acknowledge",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:04:46",
+          "type": "running",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:04:46",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-27T15:05:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:05:03",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:05:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:05:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:05:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:05:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:05:41",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:05:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:05:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:05:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:05:55",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-27T15:06:08",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:06:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:06:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:434545"
+        },
+        {
+          "time": "2026-08-27T15:06:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-27T15:06:22",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-27T15:04:17",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:434545",
+      "claimed_at": "2026-08-27T15:04:26",
+      "lease_expires_at": "2026-08-27T15:21:21",
+      "acknowledged_at": "2026-08-27T15:04:26",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-27T15:04:46",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-27T15:06:22",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 263,
+              "mtime": 1787814413.8142784
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 197,
+              "mtime": 1787814413.8141487
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814384.09646
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814414.164273
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 197,
+          "mtime": 1787814413.8141487
+        }
+      },
+      "completed_at": "2026-08-27T15:06:22",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
     }
   ]
 }

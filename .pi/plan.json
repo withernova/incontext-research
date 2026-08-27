@@ -1,19 +1,23 @@
 {
   "version": 1,
-  "explanation": "已核验先前登记已完整落盘，并写入一次幂等重启核验事件，避免重复创建 Q-006。",
+  "explanation": "已完成12张 R-006 held-out Reference 原图 overlays，并已将算法、代码架构、指标公式、随机/统计设置、完整性检查、结果与路径写回 canonical R-006；此为可视化-only 后处理，冻结head与指标未变。",
   "steps": [
     {
-      "step": "核验 Q-006 文件、索引与 E-010 登记事件",
+      "step": "核验 R-006 产物、原图路径和现有 overlay renderer",
       "status": "completed"
     },
     {
-      "step": "按核验结果重启或补全登记",
+      "step": "生成固定Top5/oracle/all-head的 Reference attention overlays，不改指标",
       "status": "completed"
     },
     {
-      "step": "回报可审计登记状态",
+      "step": "将算法、实现、检查和可视化路径详细登记到 R-006",
+      "status": "completed"
+    },
+    {
+      "step": "核验 overlays 与登记结果并报告",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-08-27T03:57:40.016Z"
+  "updatedAt": "2026-08-27T07:17:12.149Z"
 }

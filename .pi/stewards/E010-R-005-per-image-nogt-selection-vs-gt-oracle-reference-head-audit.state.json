@@ -3,14 +3,14 @@
   "version": 1,
   "active": true,
   "intervalMinutes": 2,
-  "checkCount": 120,
-  "lastCheckTime": 1787814411879,
+  "checkCount": 51,
+  "lastCheckTime": 1787814214872,
   "lastCheckResult": "crash",
   "consecutiveErrors": 0,
   "sessionStartTime": 1787645406827,
   "phase": "incident_open",
   "healthyStreak": 0,
-  "nextCheck": "2026-08-27T07:08:54.210Z",
+  "nextCheck": "2026-08-27T07:05:37.193Z",
   "currentInterval": 2,
   "latestEtaSeconds": null,
   "latestEtaSourceLine": "",
@@ -22,14 +22,14 @@
   "pausedAfterRestart": false,
   "lastCompletionArtifacts": [
     {
-      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/metrics.json",
-      "size": 271,
-      "mtime": "1787799927"
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/metrics.json",
+      "size": 199,
+      "mtime": "1787808204"
     },
     {
-      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-004-frozen-query-head-reference-span-bias-audit/.survey-tool-exit-code",
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/.survey-tool-exit-code",
       "size": 2,
-      "mtime": "1787799927"
+      "mtime": "1787808204"
     }
   ],
   "notifiedIncidentSignature": "process:stopped",

@@ -158,8 +158,8 @@
       },
       "cursor": {
         "logIdentity": "168:28420605813",
-        "byteOffset": 9619,
-        "since": "2026-08-26T10:01:57.814Z",
+        "byteOffset": 10795,
+        "since": "2026-08-27T07:14:17.130Z",
         "pendingLine": ""
       }
     },
@@ -169,6 +169,37 @@
         "logIdentity": "168:26340318029",
         "byteOffset": 287,
         "since": "2026-08-27T03:05:41.819Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit/logs/train.log|incontext-E-010-E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit": {
+      "fingerprints": {
+        "ERR-d0ab7d0702e1": {
+          "id": "ERR-d0ab7d0702e1",
+          "exceptionType": "KeyError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-010-E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+          "runId": "E-010 / E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit / 自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+          "firstSeen": "2026-08-27T05:21:24.088Z",
+          "lastSeen": "2026-08-27T05:21:24.088Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:52345220381",
+        "byteOffset": 1444,
+        "since": "2026-08-27T05:23:29.065Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log|incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:26373808736",
+        "byteOffset": 263,
+        "since": "2026-08-27T07:06:51.520Z",
         "pendingLine": ""
       }
     }

@@ -4627,5 +4627,304 @@
     "type": "question_registration_restart_verified",
     "message": "Q-006 登记重启核验：问题文件、Questions 索引和原 question_registered 事件均已持久化；不重复创建问题，登记状态恢复为已完成。",
     "details": "{\"question_id\":\"Q-006\",\"question_path\":\"shell/01_questions/Q-006.md\",\"index_path\":\"index/Questions.md\",\"original_event_timestamp\":\"2026-08-27T11:53:39+08:00\",\"idempotent_action\":\"verified-existing-registration\",\"status\":\"investigating\"}"
+  },
+  {
+    "time": "2026-08-27T13:04:55",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "type": "run_organization",
+    "message": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit: microtask",
+    "details": {
+      "time": "2026-08-27T13:04:55",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-68c41923cd2778622ae7"
+    }
+  },
+  {
+    "time": "2026-08-27T13:04:55+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit · 自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解",
+    "details": ""
+  },
+  {
+    "time": "2026-08-27T13:15:24",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-c731f87351460754fe654f0c",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+      "status": "queued",
+      "created_at": "2026-08-27T13:15:24",
+      "updated_at": "2026-08-27T13:15:24",
+      "authorization_timestamp": "2026-08-27T13:15:24.378316",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T13:15:24",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-27T13:15:24",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-c731f87351460754fe654f0c",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-27T13:19:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-c731f87351460754fe654f0c",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-27T14:52:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-8a1e22d58277d27e55850467",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "queued",
+      "created_at": "2026-08-27T14:52:35",
+      "updated_at": "2026-08-27T14:52:35",
+      "authorization_timestamp": "2026-08-27T14:52:35.680046",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T14:52:35",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-27T14:52:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_execution_restarted",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-d6f9d678acd005321b1297fc",
+      "new_dispatch_id": "dispatch-8a1e22d58277d27e55850467",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-27T14:53:14",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-87b78d3ac4b3a44110b5e92d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "queued",
+      "created_at": "2026-08-27T14:53:14",
+      "updated_at": "2026-08-27T14:53:14",
+      "authorization_timestamp": "2026-08-27T14:53:14.275989",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T14:53:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-27T14:53:14",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_direct_steward",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-87b78d3ac4b3a44110b5e92d",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-27T14:53:29",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+      "status": "queued",
+      "created_at": "2026-08-27T14:53:29",
+      "updated_at": "2026-08-27T14:53:29",
+      "authorization_timestamp": "2026-08-27T14:53:29.245080",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T14:53:29",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-27T14:53:29",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_direct_steward",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-27T14:56:45",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-27T14:57:08",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-27T14:59:52",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_organization",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: microtask",
+    "details": {
+      "time": "2026-08-27T14:59:52",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-679b38ef33794d25e56b"
+    }
+  },
+  {
+    "time": "2026-08-27T14:59:52+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E010-R-006-gt-supervised-reference-head-stability-heldout-audit · GT监督Reference head跨图稳定性与冻结held-out审计",
+    "details": ""
+  },
+  {
+    "time": "2026-08-27T15:01:29",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "queued",
+      "created_at": "2026-08-27T15:01:29",
+      "updated_at": "2026-08-27T15:01:29",
+      "authorization_timestamp": "2026-08-27T15:01:29.891656",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-27T15:01:29",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-27T15:01:29",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-27T15:04:17",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-27T15:17:01+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_update",
+    "message": "补充完成R-006原图attention overlays与算法/实现/指标/完整性登记；为只读后处理，未改指标、冻结head或R-006完成状态。",
+    "details": ""
   }
 ]

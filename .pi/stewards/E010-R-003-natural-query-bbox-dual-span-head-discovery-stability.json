@@ -14,7 +14,7 @@
     "tmuxSession": "incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
     "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/logs/train.log",
     "description": "E-010 / E010-R-003-natural-query-bbox-dual-span-head-discovery-stability / 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核",
-    "processPattern": "run_e010_r003\\.sh"
+    "processPattern": "run_e010_r003_trial_batch\\.sh"
   },
   "monitoring": {
     "errorPatterns": [
