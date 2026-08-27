@@ -5,3 +5,4 @@
 {"time":"2026-08-27T07:13:01.005Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
 {"time":"2026-08-27T07:15:03.372Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
 {"time":"2026-08-27T07:17:05.731Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
+{"time":"2026-08-27T07:19:08.224Z","event":"phase_transition","from":"incident_open","to":"incident_open","reason":"remediation/attention phase remains blocking"}
