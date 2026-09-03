@@ -14,7 +14,7 @@
     "tmuxSession": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
     "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
     "description": "E-010 / E010-R-006-gt-supervised-reference-head-stability-heldout-audit / GT监督Reference head跨图稳定性与冻结held-out审计",
-    "processPattern": "run_e010_r006_gt_iou_maxhit_trial\\.sh"
+    "processPattern": "run_e010_r006_dual_span_topn_trial\\.sh"
   },
   "monitoring": {
     "errorPatterns": [
@@ -55,15 +55,15 @@
     "allowNonzeroExit": false
   },
   "remediation": {
-    "enabled": false,
-    "maxRestarts": 0,
+    "enabled": true,
+    "maxRestarts": 2,
     "playbooks": []
   },
   "automation": {
-    "mode": "off",
+    "mode": "careful",
     "allowedCodeRoots": [],
     "testCommands": [],
-    "maxRepairs": 0,
+    "maxRepairs": 2,
     "timeBudgetMinutes": 30,
     "autoRerun": false,
     "installDeclaredDependencies": false,

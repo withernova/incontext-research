@@ -1,9 +1,9 @@
 # E010-R-003-natural-query-bbox-dual-span-head-discovery-stability · 自然Query-bbox双图Query/Reference head无GT发现与稳定性复核
 
-- workflow: v2 / failed / 运行失败
+- workflow: v2 / analysis_pending / 结果分析
 - review_status: approved
 - group_id: 未分组
-- execution_dispatch: dispatch-5fb6dbf618ffe284e2331997 / failed
+- execution_dispatch: dispatch-5fb6dbf618ffe284e2331997 / completed
 
 ## 1. 研究设计
 ### 研究问题
@@ -38,7 +38,17 @@ query heads将呈现高inclusion probability、较高Top-k一致性和held-out Q
 - tmux: incontext-E-010-E010-R-003-natural-query-bbox-dual-span-head-discovery-stability
 - log: /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/logs/train.log
 - output: /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/outputs
-- Steward 摘要：尚未启动；浏览器不会自动启动 Extension
+- Steward 摘要：```json
+{
+  "execution_completed_at": "2026-08-28T15:58:12",
+  "evidence": {
+    "log": "",
+    "artifact": "",
+    "result_message": "已核验过结果"
+  },
+  "note": "人工确认程序已结束，等待科研结果分析"
+}
+```
 
 ## 5. 关键结果
 （程序完成后登记具体数值、比较对象和结果文件。）

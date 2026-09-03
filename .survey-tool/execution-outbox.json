@@ -3891,9 +3891,9 @@
       "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
       "experiment_id": "E-010",
       "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
-      "status": "failed",
+      "status": "completed",
       "created_at": "2026-08-27T14:53:29",
-      "updated_at": "2026-08-27T15:14:47",
+      "updated_at": "2026-08-28T15:58:12",
       "authorization_timestamp": "2026-08-27T14:53:29.245080",
       "approved_spec_hash": "631cf82128b8b5ee82aa9e91ed7720d0bdd38104f555dc164ec0b8b27fcec552",
       "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
@@ -3902,7 +3902,6 @@
       "requested_model": "gpt-5.6-sol",
       "delivery_attempts": 0,
       "claim_attempts": 4,
-      "last_error": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
       "history": [
         {
           "time": "2026-08-27T14:53:29",
@@ -4383,6 +4382,11 @@
           "time": "2026-08-27T15:14:47",
           "type": "fail",
           "detail": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。"
+        },
+        {
+          "time": "2026-08-28T15:58:12",
+          "type": "human_corrected_failed_to_analysis_pending",
+          "detail": "失败来源于误判"
         }
       ],
       "runtime_command_prepared_at": "2026-08-27T14:57:08",
@@ -4433,16 +4437,37 @@
           "mtime": 1787814898.509895
         }
       },
-      "failed_at": "2026-08-27T15:14:47",
-      "failure_class": "environment",
-      "retryable": true,
       "retry_reason": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。",
       "retry_evidence": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。",
       "consumer": "pi-steward:443321",
       "claimed_at": "2026-08-27T15:12:05",
-      "lease_expires_at": "2026-08-27T15:29:18",
       "acknowledged_at": "2026-08-27T15:12:05",
-      "running_at": "2026-08-27T15:12:12"
+      "running_at": "2026-08-27T15:12:12",
+      "status_correction_history": [
+        {
+          "time": "2026-08-28T15:58:12",
+          "actor": "human:web-v2",
+          "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+          "from": "failed",
+          "to": "analysis_pending",
+          "reason": "失败来源于误判",
+          "prior_failure": {
+            "failed_at": "2026-08-27T15:14:47",
+            "failure_class": "environment",
+            "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
+            "retryable": true
+          },
+          "completion_evidence": {
+            "result_message": "已核验过结果"
+          }
+        }
+      ],
+      "completed_at": "2026-08-28T15:58:12",
+      "completion_evidence": {
+        "log": "",
+        "artifact": "",
+        "result_message": "已核验过结果"
+      }
     },
     {
       "dispatch_id": "dispatch-18ea3d9fba8632a4bc61dc54",
@@ -4962,9 +4987,9 @@
       "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
       "experiment_id": "E-010",
       "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
-      "status": "failed",
+      "status": "completed",
       "created_at": "2026-08-27T15:56:22",
-      "updated_at": "2026-08-27T16:04:30",
+      "updated_at": "2026-08-28T15:59:08",
       "authorization_timestamp": "2026-08-27T15:56:22.027947",
       "approved_spec_hash": "db84d950623c20044e5cec2bf5208d887c73386c713a41da8912fd425260cfd8",
       "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
@@ -4973,7 +4998,6 @@
       "requested_model": "gpt-5.6-sol",
       "delivery_attempts": 0,
       "claim_attempts": 3,
-      "last_error": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
       "history": [
         {
           "time": "2026-08-27T15:56:22",
@@ -5304,6 +5328,11 @@
           "time": "2026-08-27T16:04:30",
           "type": "fail",
           "detail": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。"
+        },
+        {
+          "time": "2026-08-28T15:59:08",
+          "type": "human_corrected_failed_to_analysis_pending",
+          "detail": "来源为误判"
         }
       ],
       "runtime_command_prepared_at": "2026-08-27T15:56:34",
@@ -5354,16 +5383,1868 @@
           "mtime": 1787817891.7012217
         }
       },
-      "failed_at": "2026-08-27T16:04:30",
-      "failure_class": "environment",
-      "retryable": false,
       "retry_reason": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。",
       "retry_evidence": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。",
       "consumer": "pi-steward:447496",
       "claimed_at": "2026-08-27T16:02:31",
-      "lease_expires_at": "2026-08-27T16:19:08",
       "acknowledged_at": "2026-08-27T16:02:31",
-      "running_at": "2026-08-27T16:02:38"
+      "running_at": "2026-08-27T16:02:38",
+      "status_correction_history": [
+        {
+          "time": "2026-08-28T15:59:08",
+          "actor": "human:web-v2",
+          "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+          "from": "failed",
+          "to": "analysis_pending",
+          "reason": "来源为误判",
+          "prior_failure": {
+            "failed_at": "2026-08-27T16:04:30",
+            "failure_class": "environment",
+            "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+            "retryable": false
+          },
+          "completion_evidence": {
+            "result_message": "已确认日志"
+          }
+        }
+      ],
+      "completed_at": "2026-08-28T15:59:08",
+      "completion_evidence": {
+        "log": "",
+        "artifact": "",
+        "result_message": "已确认日志"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "completed",
+      "created_at": "2026-08-28T15:59:21",
+      "updated_at": "2026-08-28T16:06:33",
+      "authorization_timestamp": "2026-08-28T15:59:21.189327",
+      "approved_spec_hash": "82822e5c50a0fb7f371a4d1b749e6361c54fe15779950cce4ad0fe3486a4f2c6",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-28T15:59:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-28T16:05:25",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-08-28T16:05:31",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:05:31",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:05:49",
+          "type": "running",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:05:49",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-28T16:05:58",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:05:59",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:06:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:06:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:06:11",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-28T16:06:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:06:21",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:06:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:06:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:06:33",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-28T16:05:25",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:562215",
+      "claimed_at": "2026-08-28T16:05:31",
+      "lease_expires_at": "2026-08-28T16:21:32",
+      "acknowledged_at": "2026-08-28T16:05:31",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-28T16:05:49",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-28T16:06:33",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 263,
+              "mtime": 1787904450.5615726
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 185,
+              "mtime": 1787904450.5614038
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787904446.616798
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787904450.586518
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 185,
+          "mtime": 1787904450.5614038
+        }
+      },
+      "completed_at": "2026-08-28T16:06:33",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-05dc969947f466eeb288b7fe",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "completed",
+      "created_at": "2026-08-28T16:34:21",
+      "updated_at": "2026-08-28T16:39:02",
+      "authorization_timestamp": "2026-08-28T16:34:21.135006",
+      "approved_spec_hash": "5d52bc778f5204f236351a4adce3d5d54becb946f43c2ff34ddc0d389ba5db73",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-28T16:34:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-28T16:37:30",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:37:31",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:37:49",
+          "type": "running",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:37:49",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-28T16:38:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:38:00",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:38:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:38:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:38:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:38:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:38:32",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-28T16:38:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:38:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:39:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-28T16:39:02",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-28T16:39:02",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "consumer": "pi-steward:562215",
+      "claimed_at": "2026-08-28T16:37:30",
+      "lease_expires_at": "2026-08-28T16:54:01",
+      "acknowledged_at": "2026-08-28T16:37:31",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-28T16:37:49",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-28T16:39:02",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 527,
+              "mtime": 1787906375.0286007
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 499,
+              "mtime": 1787906375.0272171
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787904446.616798
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787906375.107591
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 499,
+          "mtime": 1787906375.0272171
+        }
+      },
+      "completed_at": "2026-08-28T16:39:02",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "failed",
+      "created_at": "2026-08-28T17:12:12",
+      "updated_at": "2026-08-28T17:15:34",
+      "authorization_timestamp": "2026-08-28T17:12:12.032419",
+      "approved_spec_hash": "5d52bc778f5204f236351a4adce3d5d54becb946f43c2ff34ddc0d389ba5db73",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "1",
+      "history": [
+        {
+          "time": "2026-08-28T17:12:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-28T17:15:34",
+          "type": "human_marked_failed",
+          "detail": "1"
+        }
+      ],
+      "failed_at": "2026-08-28T17:15:34",
+      "failure_class": "human_adjudicated",
+      "retryable": true,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2"
+    },
+    {
+      "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "failed",
+      "created_at": "2026-08-29T14:21:25",
+      "updated_at": "2026-08-29T14:22:19",
+      "authorization_timestamp": "2026-08-29T14:21:25.774548",
+      "approved_spec_hash": "73746b20db90c3604d3beff7cc8d7f8dc98dd64fd636ef03a010038a741047aa",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "代码有问题",
+      "history": [
+        {
+          "time": "2026-08-29T14:21:25",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-29T14:22:19",
+          "type": "human_marked_failed",
+          "detail": "代码有问题"
+        }
+      ],
+      "failed_at": "2026-08-29T14:22:19",
+      "failure_class": "human_adjudicated",
+      "retryable": true,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2"
+    },
+    {
+      "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "completed",
+      "created_at": "2026-08-29T14:23:30",
+      "updated_at": "2026-08-29T14:27:46",
+      "authorization_timestamp": "2026-08-29T14:23:30.954254",
+      "approved_spec_hash": "860bcc478bfb62fecb336f47a9cf8e04b9793655fc843eef89fed0da7c26465f",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T14:23:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-29T14:24:10",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:24:10",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:24:32",
+          "type": "running",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:24:32",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T14:24:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:24:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:24:56",
+          "type": "fail",
+          "detail": "Managed status observed exit_code=1. The corrected pipeline has a local variable shadowing defect while loading the R-006 summary, so its hash path operation cannot execute; no scientific output from this attempt is valid. A bounded code repair is required before retry."
+        },
+        {
+          "time": "2026-08-29T14:26:08",
+          "type": "retry",
+          "detail": "Applied bounded code repair for the failed local summary-path shadowing defect. Verification: py_compile, 3 focused tests, and the corrected complete offline run passed with canonical head assertions. Retry same approved snapshot."
+        },
+        {
+          "time": "2026-08-29T14:26:14",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:26:14",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:26:31",
+          "type": "running",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:26:31",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T14:26:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:26:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:26:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:26:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:27:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:27:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:27:07",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-29T14:27:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:27:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:27:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T14:27:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T14:27:46",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-29T14:27:45",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 2196,
+              "mtime": 1787984895.9209838
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 499,
+              "mtime": 1787984895.9193597
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787904446.616798
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787984896.005126
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 499,
+          "mtime": 1787984895.9193597
+        }
+      },
+      "failed_at": "2026-08-29T14:24:56",
+      "failure_class": "invalid_spec",
+      "retryable": true,
+      "retry_reason": "Applied bounded code repair for the failed local summary-path shadowing defect. Verification: py_compile, 3 focused tests, and the corrected complete offline run passed with canonical head assertions. Retry same approved snapshot.",
+      "retry_evidence": "Applied bounded code repair for the failed local summary-path shadowing defect. Verification: py_compile, 3 focused tests, and the corrected complete offline run passed with canonical head assertions. Retry same approved snapshot.",
+      "consumer": "pi-steward:562215",
+      "claimed_at": "2026-08-29T14:26:14",
+      "lease_expires_at": "2026-08-29T14:42:45",
+      "acknowledged_at": "2026-08-29T14:26:14",
+      "running_at": "2026-08-29T14:26:31",
+      "completed_at": "2026-08-29T14:27:46",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "failed",
+      "created_at": "2026-08-29T19:41:36",
+      "updated_at": "2026-08-29T19:42:01",
+      "authorization_timestamp": "2026-08-29T19:41:36.387850",
+      "approved_spec_hash": "679624e1534d828e6c7e5846c1c78489a693b7b4ffbd661b6abca075106b8e14",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "1",
+      "history": [
+        {
+          "time": "2026-08-29T19:41:36",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-29T19:42:01",
+          "type": "human_marked_failed",
+          "detail": "1"
+        }
+      ],
+      "failed_at": "2026-08-29T19:42:01",
+      "failure_class": "human_adjudicated",
+      "retryable": true,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2"
+    },
+    {
+      "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "completed",
+      "created_at": "2026-08-29T19:44:47",
+      "updated_at": "2026-08-29T19:49:39",
+      "authorization_timestamp": "2026-08-29T19:44:47.723999",
+      "approved_spec_hash": "67bb6368bd65ece846a9a702a156c8c07e9062b3f9e47bda1f2dfe1cd9e9d148",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 2,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T19:44:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-29T19:47:30",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:47:30",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:47:44",
+          "type": "fail",
+          "detail": "Focused verification found an implementation-only Python scope defect before managed start: run() assigns a local variable named metrics at the end, shadowing the metrics() helper and raising UnboundLocalError at the first per-head call. Changed evidence: py_compile and 5 unit tests pass, but complete offline dry run fails deterministically at outcome_stratified_core30.py line 109. Repair will rename the output dict, rerun the approved checks, then start through this same managed dispatch."
+        },
+        {
+          "time": "2026-08-29T19:47:44",
+          "type": "retry",
+          "detail": "Focused verification found an implementation-only Python scope defect before managed start: run() assigns a local variable named metrics at the end, shadowing the metrics() helper and raising UnboundLocalError at the first per-head call. Changed evidence: py_compile and 5 unit tests pass, but complete offline dry run fails deterministically at outcome_stratified_core30.py line 109. Repair will rename the output dict, rerun the approved checks, then start through this same managed dispatch."
+        },
+        {
+          "time": "2026-08-29T19:48:19",
+          "type": "claimed",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:48:19",
+          "type": "acknowledge",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:48:37",
+          "type": "running",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:48:37",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T19:48:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:48:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:48:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:48:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:49:08",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:49:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:19",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:49:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:38",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:562215"
+        },
+        {
+          "time": "2026-08-29T19:49:39",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T19:49:39",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "failed_at": "2026-08-29T19:47:44",
+      "failure_class": "environment",
+      "retryable": true,
+      "retry_reason": "Focused verification found an implementation-only Python scope defect before managed start: run() assigns a local variable named metrics at the end, shadowing the metrics() helper and raising UnboundLocalError at the first per-head call. Changed evidence: py_compile and 5 unit tests pass, but complete offline dry run fails deterministically at outcome_stratified_core30.py line 109. Repair will rename the output dict, rerun the approved checks, then start through this same managed dispatch.",
+      "retry_evidence": "Focused verification found an implementation-only Python scope defect before managed start: run() assigns a local variable named metrics at the end, shadowing the metrics() helper and raising UnboundLocalError at the first per-head call. Changed evidence: py_compile and 5 unit tests pass, but complete offline dry run fails deterministically at outcome_stratified_core30.py line 109. Repair will rename the output dict, rerun the approved checks, then start through this same managed dispatch.",
+      "consumer": "pi-steward:562215",
+      "claimed_at": "2026-08-29T19:48:19",
+      "lease_expires_at": "2026-08-29T20:04:38",
+      "acknowledged_at": "2026-08-29T19:48:19",
+      "running_at": "2026-08-29T19:48:37",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-29T19:49:39",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 2460,
+              "mtime": 1788004223.3994653
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 811,
+              "mtime": 1788004223.3971517
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787904446.616798
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788004223.465142
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 811,
+          "mtime": 1788004223.3971517
+        }
+      },
+      "completed_at": "2026-08-29T19:49:39",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "failed",
+      "created_at": "2026-08-29T20:26:20",
+      "updated_at": "2026-08-30T14:27:33",
+      "authorization_timestamp": "2026-08-29T20:26:20.891661",
+      "approved_spec_hash": "b308c9acbdba0de40c3003982206f9fd30640ab0d6655decf6efc8e2e3880ce0",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 6,
+      "last_error": "受管 start 被存留 tmux session 阻断；尚未执行协议修正或旧产物清理，故不能宣称已清除或已开始 canonical 重提取。需先进入 repair 模式处理受管会话状态，再做修正与启动。",
+      "history": [
+        {
+          "time": "2026-08-29T20:26:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-29T21:23:04",
+          "type": "runtime_command_prepared",
+          "detail": "Pi confirmed the exact approved proposed command"
+        },
+        {
+          "time": "2026-08-29T21:26:50",
+          "type": "claimed",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:26:50",
+          "type": "acknowledge",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:27:11",
+          "type": "running",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:27:11",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T21:27:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:27:21",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T21:29:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:29:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T21:32:38",
+          "type": "fail",
+          "detail": "用户明确要求直接修复。当前 attempt exit=1：`RuntimeError: operator torchvision::nms does not exist`，由 `iplocid.utils.boxes` 顶层导入 `torchvision.ops.box_iou` 触发；R-008 manifest/occupancy preflight 不需要 torchvision NMS。申请结束本 attempt并重排同一dispatch，以实施最小延迟导入/纯Torch IoU兼容修复并在IPLoc环境测试。"
+        },
+        {
+          "time": "2026-08-29T21:32:38",
+          "type": "retry",
+          "detail": "用户明确要求直接修复。当前 attempt exit=1：`RuntimeError: operator torchvision::nms does not exist`，由 `iplocid.utils.boxes` 顶层导入 `torchvision.ops.box_iou` 触发；R-008 manifest/occupancy preflight 不需要 torchvision NMS。申请结束本 attempt并重排同一dispatch，以实施最小延迟导入/纯Torch IoU兼容修复并在IPLoc环境测试。"
+        },
+        {
+          "time": "2026-08-29T21:35:15",
+          "type": "claimed",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:35:15",
+          "type": "acknowledge",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:35:33",
+          "type": "running",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:35:34",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T21:35:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:35:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T21:36:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:36:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T21:37:58",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T21:37:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T23:18:39",
+          "type": "fail",
+          "detail": "用户明确授权直接修改。修复后的attempt在加载模型时仍失败：PEFT/Transformers 导入 torchvision.transforms，torchvision 在注册 fake NMS 前发现缺失 `torchvision::nms` schema，导致 `PreTrainedModel` 导入失败。此前项目内 boxes.py 修复无法覆盖第三方导入链。申请结束attempt并重排同一dispatch，以在项目模型加载入口实施最小、进程内兼容性预注册并聚焦验证真实PEFT/Transformers导入。"
+        },
+        {
+          "time": "2026-08-29T23:18:39",
+          "type": "retry",
+          "detail": "用户明确授权直接修改。修复后的attempt在加载模型时仍失败：PEFT/Transformers 导入 torchvision.transforms，torchvision 在注册 fake NMS 前发现缺失 `torchvision::nms` schema，导致 `PreTrainedModel` 导入失败。此前项目内 boxes.py 修复无法覆盖第三方导入链。申请结束attempt并重排同一dispatch，以在项目模型加载入口实施最小、进程内兼容性预注册并聚焦验证真实PEFT/Transformers导入。"
+        },
+        {
+          "time": "2026-08-29T23:21:17",
+          "type": "claimed",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:21:17",
+          "type": "acknowledge",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:21:39",
+          "type": "running",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:21:39",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T23:21:51",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:21:52",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T23:22:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:22:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T23:24:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:24:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T23:26:59",
+          "type": "fail",
+          "detail": "用户明确要求继续修复并要求充分委派Codex分析。当前attempt已加载base checkpoint 10/10 shards，但PEFT收到的lora_path错误指向base模型目录，缺少adapter_config.json。申请结束attempt并重排同一dispatch，以只读定位实际IPLoc-ID adapter目录和配置传参，再以最小配置/loader修复及真实本地adapter完整性测试。"
+        },
+        {
+          "time": "2026-08-29T23:26:59",
+          "type": "retry",
+          "detail": "用户明确要求继续修复并要求充分委派Codex分析。当前attempt已加载base checkpoint 10/10 shards，但PEFT收到的lora_path错误指向base模型目录，缺少adapter_config.json。申请结束attempt并重排同一dispatch，以只读定位实际IPLoc-ID adapter目录和配置传参，再以最小配置/loader修复及真实本地adapter完整性测试。"
+        },
+        {
+          "time": "2026-08-29T23:30:12",
+          "type": "claimed",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:30:12",
+          "type": "acknowledge",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:30:31",
+          "type": "running",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:30:31",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-29T23:30:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:30:43",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-29T23:31:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:665791"
+        },
+        {
+          "time": "2026-08-29T23:31:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T02:19:31",
+          "type": "managed_reattached",
+          "detail": "pi-steward:canonical-recovery"
+        },
+        {
+          "time": "2026-08-30T02:19:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:canonical-recovery"
+        },
+        {
+          "time": "2026-08-30T02:19:43",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T02:29:15",
+          "type": "managed_steward_force_revoked",
+          "detail": "human:canonical-recovery-release"
+        },
+        {
+          "time": "2026-08-30T02:41:18",
+          "type": "managed_steward_force_revoked",
+          "detail": "human:web-v2"
+        },
+        {
+          "time": "2026-08-30T02:41:55",
+          "type": "managed_reattached",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T02:41:55",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T02:42:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T02:42:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T02:42:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T02:42:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T02:42:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T02:42:42",
+          "type": "fail",
+          "detail": "完成合约缺少非空 metrics 文件。请仅诊断既有已退出 run 的日志与已有产物，确认是否有结果文件位于其他路径或是否属于无指标完成；不得启动第二份实验。"
+        },
+        {
+          "time": "2026-08-30T02:42:42",
+          "type": "retry",
+          "detail": "完成合约缺少非空 metrics 文件。请仅诊断既有已退出 run 的日志与已有产物，确认是否有结果文件位于其他路径或是否属于无指标完成；不得启动第二份实验。"
+        },
+        {
+          "time": "2026-08-30T13:24:09",
+          "type": "human_marked_failed",
+          "detail": "没有按照 003 006 007 的结果，统计了完全错误的 head"
+        },
+        {
+          "time": "2026-08-30T13:25:15",
+          "type": "retry",
+          "detail": "R-008 现有产物证明实验已完成但协议/结果提取错误；用户明确要求在同一 Run 目标上修正并重新提取。"
+        },
+        {
+          "time": "2026-08-30T13:25:20",
+          "type": "claimed",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T13:25:20",
+          "type": "acknowledge",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T13:25:37",
+          "type": "running",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T13:25:37",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-30T13:25:46",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T13:25:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T13:26:03",
+          "type": "fail",
+          "detail": "受管启动后确认 launcher 尚未应用用户要求的 R-003/T-003/R-007 canonical head/metric 修正，继续将重跑错误协议。立即终止本次错误 attempt；不得将其产物作为 R-008 结果。"
+        },
+        {
+          "time": "2026-08-30T13:53:17",
+          "type": "retry",
+          "detail": "用户明确要求大幅修正同一 R-008 协议并清除旧错误产物；修正 canonical R-003/T-003/R-007 定义后才允许重新启动。"
+        },
+        {
+          "time": "2026-08-30T14:08:30",
+          "type": "claimed",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T14:08:30",
+          "type": "acknowledge",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T14:09:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:704351"
+        },
+        {
+          "time": "2026-08-30T14:09:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T14:09:25",
+          "type": "fail",
+          "detail": "受管 start 被存留 tmux session 阻断；尚未执行协议修正或旧产物清理，故不能宣称已清除或已开始 canonical 重提取。需先进入 repair 模式处理受管会话状态，再做修正与启动。"
+        },
+        {
+          "time": "2026-08-30T14:27:33",
+          "type": "revision_invalidated_retry",
+          "detail": "Run 已由用户退回修改；旧执行授权与 retry 路径永久失效，等待当前修订形成新快照"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-29T21:23:04",
+      "runtime_command_prepared_by": "pi-steward",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-08-30T14:09:16",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1981,
+              "mtime": 1788067727.6983662
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788067635.457515
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788070225.855518
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": ""
+        }
+      },
+      "failed_at": "2026-08-30T14:09:25",
+      "failure_class": "transient",
+      "retryable": false,
+      "retry_reason": "用户明确要求大幅修正同一 R-008 协议并清除旧错误产物；修正 canonical R-003/T-003/R-007 定义后才允许重新启动。",
+      "retry_evidence": "用户明确要求大幅修正同一 R-008 协议并清除旧错误产物；修正 canonical R-003/T-003/R-007 定义后才允许重新启动。",
+      "reattached_at": "2026-08-30T02:41:55",
+      "steward_force_revoked_at": "2026-08-30T02:41:18",
+      "steward_force_revoked_by": "human:web-v2",
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2",
+      "consumer": "pi-steward:704351",
+      "claimed_at": "2026-08-30T14:08:30",
+      "lease_expires_at": "2026-08-30T14:24:04",
+      "acknowledged_at": "2026-08-30T14:08:30",
+      "revision_invalidated_at": "2026-08-30T14:27:33",
+      "revision_invalidation_reason": "Run 已由用户退回修改；旧执行授权与 retry 路径永久失效，等待当前修订形成新快照"
+    },
+    {
+      "dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "failed",
+      "created_at": "2026-08-30T14:16:42",
+      "updated_at": "2026-08-30T14:27:33",
+      "authorization_timestamp": "2026-08-30T14:16:42.328558",
+      "approved_spec_hash": "b308c9acbdba0de40c3003982206f9fd30640ab0d6655decf6efc8e2e3880ce0",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "bug",
+      "history": [
+        {
+          "time": "2026-08-30T14:16:42",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-30T14:16:48",
+          "type": "human_marked_failed",
+          "detail": "bug"
+        },
+        {
+          "time": "2026-08-30T14:27:33",
+          "type": "revision_invalidated_retry",
+          "detail": "Run 已由用户退回修改；旧执行授权与 retry 路径永久失效，等待当前修订形成新快照"
+        }
+      ],
+      "failed_at": "2026-08-30T14:16:48",
+      "failure_class": "human_adjudicated",
+      "retryable": false,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2",
+      "revision_invalidated_at": "2026-08-30T14:27:33",
+      "revision_invalidation_reason": "Run 已由用户退回修改；旧执行授权与 retry 路径永久失效，等待当前修订形成新快照"
+    },
+    {
+      "dispatch_id": "dispatch-18d44abb4888cb2e3d8fb7e9",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "failed",
+      "created_at": "2026-08-30T15:02:19",
+      "updated_at": "2026-08-30T15:59:12",
+      "authorization_timestamp": "2026-08-30T15:02:19.314724",
+      "approved_spec_hash": "b308c9acbdba0de40c3003982206f9fd30640ab0d6655decf6efc8e2e3880ce0",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "受管实例已退出并留下完成标记（exit 0），但 metrics/artifacts 均不存在，无法满足 Run 产物完整性；按用户要求释放当前 lease 以直接重启。",
+      "history": [
+        {
+          "time": "2026-08-30T15:02:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-30T15:40:17",
+          "type": "claimed",
+          "detail": "pi-steward:771337"
+        },
+        {
+          "time": "2026-08-30T15:40:17",
+          "type": "acknowledge",
+          "detail": "pi-steward:771337"
+        },
+        {
+          "time": "2026-08-30T15:40:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:771337"
+        },
+        {
+          "time": "2026-08-30T15:40:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T15:51:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:771337"
+        },
+        {
+          "time": "2026-08-30T15:51:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-30T15:52:16",
+          "type": "fail",
+          "detail": "受管实例已退出并留下完成标记（exit 0），但 metrics/artifacts 均不存在，无法满足 Run 产物完整性；按用户要求释放当前 lease 以直接重启。"
+        },
+        {
+          "time": "2026-08-30T15:59:12",
+          "type": "revision_invalidated_retry",
+          "detail": "Human discarded the rejected canonical Run specification"
+        }
+      ],
+      "consumer": "pi-steward:771337",
+      "claimed_at": "2026-08-30T15:40:17",
+      "lease_expires_at": "2026-08-30T16:06:47",
+      "acknowledged_at": "2026-08-30T15:40:17",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-30T15:51:58",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1981,
+              "mtime": 1788067727.6983662
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788067635.457515
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788075788.526568
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": ""
+        }
+      },
+      "failed_at": "2026-08-30T15:52:16",
+      "failure_class": "transient",
+      "retryable": false,
+      "revision_invalidated_at": "2026-08-30T15:59:12",
+      "revision_invalidation_reason": "Human discarded the rejected canonical Run specification"
+    },
+    {
+      "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "failed",
+      "created_at": "2026-08-30T16:15:35",
+      "updated_at": "2026-08-30T16:15:44",
+      "authorization_timestamp": "2026-08-30T16:15:35.110541",
+      "approved_spec_hash": "ea717dbc5118174e894129a473e6e5c8f965d6ab43682e4582bb0b2e22a15afb",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "1",
+      "history": [
+        {
+          "time": "2026-08-30T16:15:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-30T16:15:39",
+          "type": "human_marked_failed",
+          "detail": "1"
+        },
+        {
+          "time": "2026-08-30T16:15:44",
+          "type": "revision_invalidated_retry",
+          "detail": "Run spec reopened by request_changes"
+        }
+      ],
+      "failed_at": "2026-08-30T16:15:39",
+      "failure_class": "human_adjudicated",
+      "retryable": false,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2",
+      "revision_invalidated_at": "2026-08-30T16:15:44",
+      "revision_invalidation_reason": "Run spec reopened by request_changes"
+    },
+    {
+      "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "cancelled",
+      "created_at": "2026-08-30T16:53:35",
+      "updated_at": "2026-08-30T23:27:48",
+      "authorization_timestamp": "2026-08-30T16:53:35.456846",
+      "approved_spec_hash": "38f4884ea547b8d9d6d5228dc403ad82fb00f7ffdc02edf2a533a17d00a6424f",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Run research design reopened",
+      "history": [
+        {
+          "time": "2026-08-30T16:53:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-30T23:27:48",
+          "type": "cancelled",
+          "detail": "Run research design reopened"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "failed",
+      "created_at": "2026-08-31T14:55:21",
+      "updated_at": "2026-08-31T15:00:37",
+      "authorization_timestamp": "2026-08-31T14:55:21.367780",
+      "approved_spec_hash": "36fd0feb99bf005ee1a0e655e9df12adb510b3bcced0a6ef2c0dc92213f6436b",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "T-001 offline analysis completed its 140-record computation, but the managed launcher exited 1 while assembling the required Trial aggregate because its embedded Python used an unquoted hyphenated path (`root/trials/T-001/metrics.json`), parsed as arithmetic. The Trial metrics and summary were created under C-003, but the required batch contract was not finalized. The claimed managed lease prohibits the required launcher-only code repair; no second Trial was started.",
+      "history": [
+        {
+          "time": "2026-08-31T14:55:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-31T14:59:16",
+          "type": "trial_batch_command_prepared",
+          "detail": "Pi prepared the validated Trial batch launcher"
+        },
+        {
+          "time": "2026-08-31T14:59:16",
+          "type": "claimed",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T14:59:16",
+          "type": "acknowledge",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T14:59:28",
+          "type": "running",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T14:59:28",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-31T14:59:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T14:59:40",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-31T14:59:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T14:59:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-31T15:00:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:00:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-31T15:00:37",
+          "type": "fail",
+          "detail": "T-001 offline analysis completed its 140-record computation, but the managed launcher exited 1 while assembling the required Trial aggregate because its embedded Python used an unquoted hyphenated path (`root/trials/T-001/metrics.json`), parsed as arithmetic. The Trial metrics and summary were created under C-003, but the required batch contract was not finalized. The claimed managed lease prohibits the required launcher-only code repair; no second Trial was started."
+        }
+      ],
+      "runtime_command_prepared_at": "2026-08-31T14:59:16",
+      "runtime_command_prepared_by": "pi-steward",
+      "trial_manifest_hash": "sha256:654bcf120b4e865843e2933737c7d563474f3228041e15466fd88662189f298d",
+      "consumer": "pi-steward:9102",
+      "claimed_at": "2026-08-31T14:59:16",
+      "lease_expires_at": "2026-08-31T15:15:00",
+      "acknowledged_at": "2026-08-31T14:59:16",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-31T14:59:28",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-31T15:00:05",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 2231,
+              "mtime": 1788159695.6597934
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 1216,
+              "mtime": 1787817891.7012217
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814384.09646
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788159695.664879
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-31T15:00:37",
+      "failure_class": "invalid_spec",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "failed",
+      "created_at": "2026-08-31T15:26:30",
+      "updated_at": "2026-08-31T15:35:36",
+      "authorization_timestamp": "2026-08-31T15:26:30.627866",
+      "approved_spec_hash": "c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "The restarted T-001 again completed its 140-record offline audit but exited 1 while creating the aggregate. Managed execution log shows the embedded Python aggregate block arrived with all string quotes stripped (e.g. `p={contract:...}` and `root/trials/T-001/...`), so the current inline-heredoc launcher transport is not safe for the required JSON/path literals. No scientific Trial parameters or metrics changed; stop rather than claim a valid aggregate.",
+      "history": [
+        {
+          "time": "2026-08-31T15:26:30",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-31T15:27:21",
+          "type": "claimed",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:27:21",
+          "type": "acknowledge",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:27:33",
+          "type": "running",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:27:33",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-08-31T15:35:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:35:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T15:35:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-31T15:35:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-08-31T15:35:36",
+          "type": "fail",
+          "detail": "The restarted T-001 again completed its 140-record offline audit but exited 1 while creating the aggregate. Managed execution log shows the embedded Python aggregate block arrived with all string quotes stripped (e.g. `p={contract:...}` and `root/trials/T-001/...`), so the current inline-heredoc launcher transport is not safe for the required JSON/path literals. No scientific Trial parameters or metrics changed; stop rather than claim a valid aggregate."
+        }
+      ],
+      "consumer": "pi-steward:9102",
+      "claimed_at": "2026-08-31T15:27:21",
+      "lease_expires_at": "2026-08-31T15:50:15",
+      "acknowledged_at": "2026-08-31T15:27:21",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-31T15:27:33",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-08-31T15:35:26",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 3066,
+              "mtime": 1788161382.704962
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 1216,
+              "mtime": 1787817891.7012217
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1787814384.09646
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1788161382.710201
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-08-31T15:35:36",
+      "failure_class": "invalid_spec",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-f4a92ed10a84934ad75f8e93",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "superseded",
+      "created_at": "2026-08-31T15:48:12",
+      "updated_at": "2026-08-31T18:45:14",
+      "authorization_timestamp": "2026-08-31T15:48:12.824107",
+      "approved_spec_hash": "c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "用户明确创建了新的 Steward attempt",
+      "history": [
+        {
+          "time": "2026-08-31T15:48:12",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-08-31T18:45:14",
+          "type": "superseded",
+          "detail": "用户明确创建了新的 Steward attempt"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "running",
+      "created_at": "2026-08-31T18:45:14",
+      "updated_at": "2026-08-31T18:46:07",
+      "authorization_timestamp": "2026-08-31T18:45:14.656189",
+      "approved_spec_hash": "c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-31T18:45:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-08-31T18:45:53",
+          "type": "claimed",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T18:45:53",
+          "type": "acknowledge",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T18:46:06",
+          "type": "running",
+          "detail": "pi-steward:9102"
+        },
+        {
+          "time": "2026-08-31T18:46:07",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        }
+      ],
+      "lease_token_hash": "718bc79551bbe7962b287cafd55492fa36e7b936cae640981c5116331b59459a",
+      "consumer": "pi-steward:9102",
+      "claimed_at": "2026-08-31T18:45:53",
+      "lease_expires_at": "2026-08-31T19:15:53",
+      "acknowledged_at": "2026-08-31T18:45:53",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-08-31T18:46:06",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit"
+      }
     }
   ]
 }

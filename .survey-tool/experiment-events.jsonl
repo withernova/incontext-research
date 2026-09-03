@@ -5047,5 +5047,1790 @@
     "type": "discovery",
     "message": "代码实现路由 Codex/gpt-5.6-sol 因额度耗尽不可用，按既定 fallback 由当前 pi 完成最小 launcher/config 实现；未改变 Run 审核或执行授权。",
     "details": "requested_route=experiment_code_edit; requested_agent=codex; requested_model=gpt-5.6-sol; actual_agent=pi; actual_model=pi; fallback_reason=Codex usage limit exhausted before implementation"
+  },
+  {
+    "time": "2026-08-28T00:38:29+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "代码实现路由 Codex 未在规定时间内响应，按 fallback 由当前 pi 完成四卡切分配置修改；不改变 Run 审核或执行授权。",
+    "details": "requested_route=experiment_code_edit; requested_agent=codex; requested_model=gpt-5.6-sol; actual_agent=pi; actual_model=pi; fallback_reason=agent_prompt_stalled"
+  },
+  {
+    "time": "2026-08-28T01:59:53+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "Codex 实现代理因远端补丁工具不可用而未能完成修改，按既定 fallback 由当前 pi 实现视觉 patch-token 上限；保留用户授权的受限诊断范围。",
+    "details": "requested_route=experiment_code_edit; requested_agent=codex; requested_model=gpt-5.6-sol; actual_agent=pi; actual_model=pi; fallback_reason=agent blocked after unavailable remote patch tooling"
+  },
+  {
+    "time": "2026-08-28T15:33:07",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_organization",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: microtask",
+    "details": {
+      "time": "2026-08-28T15:33:07",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ac71a4c5bd2c5f3d0a8c"
+    }
+  },
+  {
+    "time": "2026-08-28T15:33:07+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit · 答对/答错分层的Reference与Query head前30%核心token命中统计",
+    "details": ""
+  },
+  {
+    "time": "2026-08-28T15:58:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
+    "type": "run_failed_status_corrected",
+    "message": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: failed status corrected to analysis_pending",
+    "details": {
+      "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+      "target_stage": "analysis_pending",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T15:59:08",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_failed_status_corrected",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed status corrected to analysis_pending",
+    "details": {
+      "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+      "target_stage": "analysis_pending",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T15:59:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-28T15:59:21",
+      "updated_at": "2026-08-28T15:59:21",
+      "authorization_timestamp": "2026-08-28T15:59:21.189327",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-28T15:59:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-28T15:59:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T16:05:25",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-28T16:12:40",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed",
+    "details": {
+      "version": 2,
+      "stage": "failed",
+      "legacy": false,
+      "step": 3,
+      "total": 6,
+      "label": "运行失败"
+    }
+  },
+  {
+    "time": "2026-08-28T16:18:55+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_update",
+    "message": "按人类要求修订同一失败 R-007：补齐 Q→R、三角色正确/错误分层、命中率汇总及同图多面板可视化；需重新审核和授权后运行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-28T16:25:39+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "项目本地源码编译 FlashAttention 已在 RTX3090 完成 bf16 forward/backward kernel 验证；xformers.ops 因其版本约束仅接受 flash-attn<=2.8.2，当前 2.8.3.post1 不兼容。",
+    "details": "runtime-site=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/build/flash-attn-2.8.3.post1/runtime-site; flash_attn=2.8.3.post1; kernel_shape=(2,128,8,128); finite_forward_backward=true; xformers=0.0.32.post2 rejects flash-attn 2.8.3.post1"
+  },
+  {
+    "time": "2026-08-28T16:34:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-05dc969947f466eeb288b7fe",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-28T16:34:21",
+      "updated_at": "2026-08-28T16:34:21",
+      "authorization_timestamp": "2026-08-28T16:34:21.135006",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-28T16:34:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-28T16:34:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-05dc969947f466eeb288b7fe",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T16:47:13",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed",
+    "details": {
+      "version": 2,
+      "stage": "failed",
+      "legacy": false,
+      "step": 3,
+      "total": 6,
+      "label": "运行失败"
+    }
+  },
+  {
+    "time": "2026-08-28T16:59:29+08:00",
+    "experiment_id": "E-009",
+    "run_id": "",
+    "type": "discovery",
+    "message": "显式 device-map 实现委派被代理交互阻塞，按既定 fallback 由当前 pi 完成最小 cfg 修改并执行用户授权的 smoke。",
+    "details": "requested_route=experiment_code_edit; requested_agent=codex; requested_model=gpt-5.6-sol; actual_agent=pi; actual_model=pi; fallback_reason=agent blocked before edit"
+  },
+  {
+    "time": "2026-08-28T17:12:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-28T17:12:12",
+      "updated_at": "2026-08-28T17:12:12",
+      "authorization_timestamp": "2026-08-28T17:12:12.032419",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-28T17:12:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-28T17:12:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T17:15:34",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-28T17:16:01+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_update",
+    "message": "纠正R-007错误reference名单：改为R-006实际完成Top3 L18H05/L20H12/L20H15、Top5加L20H08/L14H02；query维持R-003实际名单；增加summary→config exact-match assertion。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T14:21:25",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-29T14:21:25",
+      "updated_at": "2026-08-29T14:21:25",
+      "authorization_timestamp": "2026-08-29T14:21:25.774548",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T14:21:25",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-29T14:21:25",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T14:22:19",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T14:23:02+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_update",
+    "message": "修订已完整写入：R-006 actual reference heads替换旧错误名单，R-003 actual query heads保持；model config、变量控制、完整性门禁、依赖、实现细节与验收条件均要求上游summary→config exact-match。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T14:23:30",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-29T14:23:30",
+      "updated_at": "2026-08-29T14:23:30",
+      "authorization_timestamp": "2026-08-29T14:23:30.954254",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T14:23:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-29T14:23:30",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T19:17:50",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed",
+    "details": {
+      "version": 2,
+      "stage": "failed",
+      "legacy": false,
+      "step": 3,
+      "total": 6,
+      "label": "运行失败"
+    }
+  },
+  {
+    "time": "2026-08-29T19:33:30",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-29T19:34:25",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-29T19:35:17+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_update",
+    "message": "按用户要求重新登记：保留原 Core30Hit，新增 S30 binary token-grid IoU、S30 最大4邻域连通块 Cmax 的 Hit/IoU及逐图 token-count/交并字段与橙色 Cmax 可视化；范围仍为只读 frozen artifacts，待重新审核。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T19:35:32",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-29T19:35:33",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-29T19:35:33+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_review_submitted",
+    "message": "已按用户要求补全最大4邻域连通块与 binary token-grid IoU 的严格定义、tie-break、逐图字段、汇总、可视化与测试/完整性门禁；不改变冻结 heads、样本、自然 outcome 或模型执行范围，现提交重新审核。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T19:41:36",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-29T19:41:36",
+      "updated_at": "2026-08-29T19:41:36",
+      "authorization_timestamp": "2026-08-29T19:41:36.387850",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T19:41:36",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-29T19:41:36",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T19:42:01",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T19:42:49+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_update",
+    "message": "同步遗留 metric_plan 字段：与已登记 metric_definition 一致地纳入 S30 token-grid IoU、最大4邻域连通块 Hit/IoU、确定性 tie-break、逐图字段、汇总与可视化；不改变冻结输入/heads/样本/outcome。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T19:43:09",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-29T19:43:09",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-29T19:43:09",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_workflow",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-29T19:43:10+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_review_submitted",
+    "message": "已同步 metric_plan 与 metric_definition：S30 binary token-grid IoU、最大4邻域连通块 Hit/IoU、确定性 tie-break、逐图字段、汇总与可视化均在同一审核快照中；不执行至获得新批准和授权。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T19:44:47",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "status": "queued",
+      "created_at": "2026-08-29T19:44:47",
+      "updated_at": "2026-08-29T19:44:47",
+      "authorization_timestamp": "2026-08-29T19:44:47.723999",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T19:44:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-29T19:44:47",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T20:23:47",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_organization",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: microtask",
+    "details": {
+      "time": "2026-08-29T20:23:47",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-b3f4103b80ee4df7b8c2"
+    }
+  },
+  {
+    "time": "2026-08-29T20:23:47+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 · 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T20:26:20",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "queued",
+      "created_at": "2026-08-29T20:26:20",
+      "updated_at": "2026-08-29T20:26:20",
+      "authorization_timestamp": "2026-08-29T20:26:20.891661",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-29T20:26:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-29T20:26:20",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_direct_steward",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-29T20:26:58+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_update",
+    "message": "用户已要求推进；当前工具生命周期显示 ready_to_run。先请求/等待执行授权；在 dispatch 前不修改远端代码或启动模型。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T20:50:53+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_update",
+    "message": "用户询问当前是否可执行；正在只读核验 execution authorization/dispatch。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-29T21:23:04",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-30T13:24:09",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T14:16:42",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "queued",
+      "created_at": "2026-08-30T14:16:42",
+      "updated_at": "2026-08-30T14:16:42",
+      "authorization_timestamp": "2026-08-30T14:16:42.328558",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-30T14:16:42",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-30T14:16:42",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_execution_restarted",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+      "new_dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+      "actor": "human:web-v2:auto-restart"
+    }
+  },
+  {
+    "time": "2026-08-30T14:16:48",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T15:02:19",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-18d44abb4888cb2e3d8fb7e9",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "queued",
+      "created_at": "2026-08-30T15:02:19",
+      "updated_at": "2026-08-30T15:02:19",
+      "authorization_timestamp": "2026-08-30T15:02:19.314724",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-30T15:02:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-30T15:02:19",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_direct_steward",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-18d44abb4888cb2e3d8fb7e9",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T15:59:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_rejected_spec_discarded",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: rejected specification content deleted",
+    "details": {
+      "actor": "human:explicit-discard",
+      "discarded_snapshot_count": 4,
+      "invalidated_dispatch_ids": [
+        "dispatch-18d44abb4888cb2e3d8fb7e9"
+      ],
+      "content_retained": false
+    }
+  },
+  {
+    "time": "2026-08-30T16:02:53",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_rejected_spec_discarded",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: rejected specification content deleted",
+    "details": {
+      "actor": "human:explicit-discard",
+      "discarded_snapshot_count": 0,
+      "invalidated_dispatch_ids": [],
+      "content_retained": false
+    }
+  },
+  {
+    "time": "2026-08-30T16:15:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "queued",
+      "created_at": "2026-08-30T16:15:35",
+      "updated_at": "2026-08-30T16:15:35",
+      "authorization_timestamp": "2026-08-30T16:15:35.110541",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-30T16:15:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-30T16:15:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_direct_steward",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T16:15:39",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_execution_human_failed",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T16:28:47+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_update",
+    "message": "按用户最新规范重建R-008：完整LaSOT上的R-007冻结Query Top-5 Q→Q/Q→R自然生成与exact replay扩展；旧E008/G-L role audit规格已排除。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-30T16:28:55",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-30T16:28:55",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-30T16:33:41+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_update",
+    "message": "已完成正确R-008最小实现：冻结R-003 Query Top-5，完整LaSOT natural→exact replay，仅Q→Q/Q→R；不使用旧G/L、reference heads或E008 role audit。py_compile和3项测试通过；prepare-only验证1400=70×20、evaluation/discovery各700且零重叠。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-30T16:33:41",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-30T16:33:41+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_review_submitted",
+    "message": "已按最新用户规范完成R-008：完整LaSOT n=1400自然生成与exact replay，R-003冻结Query Top-5仅作Q→Q/Q→R outcome-stratified空间审计；evaluation 700为主、all1400描述性；包含随机/all-head对照和bootstrap。实现与3项聚焦测试通过，未启动模型正式运行。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-30T16:53:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "status": "queued",
+      "created_at": "2026-08-30T16:53:35",
+      "updated_at": "2026-08-30T16:53:35",
+      "authorization_timestamp": "2026-08-30T16:53:35.456846",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-30T16:53:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-30T16:53:35",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_direct_steward",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-30T23:27:48",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-08-30T23:27:48+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_update",
+    "message": "用户纠正R→R定义后修订：R→R不是Reference bbox rows；它是同一自然Query-bbox p−1 rows→Reference span，换用R-006冻结Reference Top-5。已实现最小扩展，4项测试通过，并精确核验R-006 authority。需审核后以既有1400 natural记录重放评分，不重跑自然生成。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-30T23:27:48",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-08-30T23:27:48",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_workflow",
+    "message": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-08-30T23:27:48+08:00",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "type": "run_review_submitted",
+    "message": "已补全用户定义的R→R：同一natural Query-bbox p−1 rows→Reference tokens，R-006 frozen Reference Top-5；不含Reference bbox rows。R-008完整1400 existing natural JSONL将复用，只重跑exact-replay评分，输出Q→Q/Q→R/R→R。4项聚焦测试和R-006名单精确断言均通过。请审核运行修订。",
+    "details": ""
+  },
+  {
+    "time": "2026-08-31T14:53:16",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_workflow",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: mark-failed → failed",
+    "details": {
+      "version": 2,
+      "stage": "failed",
+      "legacy": false,
+      "step": 3,
+      "total": 6,
+      "label": "运行失败"
+    }
+  },
+  {
+    "time": "2026-08-31T14:55:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "queued",
+      "created_at": "2026-08-31T14:55:21",
+      "updated_at": "2026-08-31T14:55:21",
+      "authorization_timestamp": "2026-08-31T14:55:21.367780",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-31T14:55:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-31T14:55:21",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-31T14:59:16",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_runtime_command_prepared",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+      "consumer": "pi-steward"
+    }
+  },
+  {
+    "time": "2026-08-31T15:26:30",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "queued",
+      "created_at": "2026-08-31T15:26:30",
+      "updated_at": "2026-08-31T15:26:30",
+      "authorization_timestamp": "2026-08-31T15:26:30.627866",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-31T15:26:30",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-31T15:26:30",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_execution_restarted",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+      "new_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-31T15:48:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f4a92ed10a84934ad75f8e93",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "queued",
+      "created_at": "2026-08-31T15:48:12",
+      "updated_at": "2026-08-31T15:48:12",
+      "authorization_timestamp": "2026-08-31T15:48:12.824107",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-31T15:48:12",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-31T15:48:12",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_execution_restarted",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+      "new_dispatch_id": "dispatch-f4a92ed10a84934ad75f8e93",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-08-31T18:45:14",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "execution_dispatch_enqueue",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+      "status": "queued",
+      "created_at": "2026-08-31T18:45:14",
+      "updated_at": "2026-08-31T18:45:14",
+      "authorization_timestamp": "2026-08-31T18:45:14.656189",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-08-31T18:45:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    }
+  },
+  {
+    "time": "2026-08-31T18:45:14",
+    "experiment_id": "E-010",
+    "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+    "type": "run_direct_steward",
+    "message": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+      "actor": "human:web-v2"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:29",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-headscreen-step1400",
+    "type": "run_organization",
+    "message": "E009-R-002-headscreen-step1400: microtask",
+    "details": {
+      "time": "2026-09-01T16:27:29",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-d513212b574ef9f63608"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:29+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-headscreen-step1400",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-002-headscreen-step1400 · 训练后段 checkpoint 1400 的固定样本 head screening",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:27:30",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_organization",
+    "message": "E009-R-003-headscreen-step1482: microtask",
+    "details": {
+      "time": "2026-09-01T16:27:29",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-785da322857c8f378eba"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:30+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-003-headscreen-step1482 · 训练后段 checkpoint 1482 的固定样本 head screening",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:27:30",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_organization",
+    "message": "E009-R-004-headscreen-step1564: microtask",
+    "details": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a5be731292b73931ee91"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:30+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-004-headscreen-step1564 · 训练后段 checkpoint 1564 的固定样本 head screening",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:27:30",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_organization",
+    "message": "E009-R-005-headscreen-step1646: microtask",
+    "details": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f311608b8c89cdcaa0a2"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:30+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-005-headscreen-step1646 · 训练后段 checkpoint 1646 的固定样本 head screening",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:27:30",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_organization",
+    "message": "E009-R-006-headscreen-step1729: microtask",
+    "details": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-73a0e4572fb02a98f1df"
+    }
+  },
+  {
+    "time": "2026-09-01T16:27:30+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-006-headscreen-step1729 · 训练后段 checkpoint 1729 的固定样本 head screening",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:27:56",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-headscreen-step1400",
+    "type": "run_workflow",
+    "message": "E009-R-002-headscreen-step1400: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:28:07",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_workflow",
+    "message": "E009-R-003-headscreen-step1482: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:28:07",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_workflow",
+    "message": "E009-R-004-headscreen-step1564: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:28:07",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_workflow",
+    "message": "E009-R-005-headscreen-step1646: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:28:08",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_workflow",
+    "message": "E009-R-006-headscreen-step1729: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:28:15+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-headscreen-step1400",
+    "type": "run_review_submitted",
+    "message": "固定 100 样本的后段 checkpoint head screening 已完成代码方案与聚焦测试；仅提交人工审核，不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:28:15+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_review_submitted",
+    "message": "固定 100 样本的后段 checkpoint head screening 已完成代码方案与聚焦测试；仅提交人工审核，不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:28:16+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_review_submitted",
+    "message": "固定 100 样本的后段 checkpoint head screening 已完成代码方案与聚焦测试；仅提交人工审核，不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:28:16+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_review_submitted",
+    "message": "固定 100 样本的后段 checkpoint head screening 已完成代码方案与聚焦测试；仅提交人工审核，不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:28:16+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_review_submitted",
+    "message": "固定 100 样本的后段 checkpoint head screening 已完成代码方案与聚焦测试；仅提交人工审核，不执行。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:38:47",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-headscreen-step1400",
+    "type": "run_workflow",
+    "message": "E009-R-002-headscreen-step1400: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T16:38:47",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_workflow",
+    "message": "E009-R-003-headscreen-step1482: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T16:38:47",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_workflow",
+    "message": "E009-R-004-headscreen-step1564: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T16:38:47",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_workflow",
+    "message": "E009-R-005-headscreen-step1646: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T16:38:48",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_workflow",
+    "message": "E009-R-006-headscreen-step1729: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T16:38:57+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-003-headscreen-step1482",
+    "type": "run_update",
+    "message": "已从审核队列撤回，改由单一 checkpoint suite 管理。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:38:57+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-004-headscreen-step1564",
+    "type": "run_update",
+    "message": "已从审核队列撤回，改由单一 checkpoint suite 管理。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:38:57+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-005-headscreen-step1646",
+    "type": "run_update",
+    "message": "已从审核队列撤回，改由单一 checkpoint suite 管理。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:38:58+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-006-headscreen-step1729",
+    "type": "run_update",
+    "message": "已从审核队列撤回，改由单一 checkpoint suite 管理。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:39:02+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-head-stability-last5",
+    "type": "run_rekey",
+    "message": "Run registry 已从 E009-R-002-headscreen-step1400 迁移为 canonical ID E009-R-002-head-stability-last5",
+    "details": "legacy_registry_id=E009-R-002-headscreen-step1400"
+  },
+  {
+    "time": "2026-09-01T16:50:43+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-002-head-stability-last5",
+    "type": "run_update",
+    "message": "旧单-checkpoint 草案已取消，将新建唯一 suite Run。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:52:19",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_organization",
+    "message": "E009-R-007-head-stability-last5: microtask",
+    "details": {
+      "time": "2026-09-01T16:52:18",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a1f743573e6fa3caffed"
+    }
+  },
+  {
+    "time": "2026-09-01T16:52:19+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-007-head-stability-last5 · 训练后段最后五个 checkpoint 的单 Run head 稳定性核验",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T16:52:27",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_workflow",
+    "message": "E009-R-007-head-stability-last5: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T16:52:27+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_review_submitted",
+    "message": "已合并为单一 last5 checkpoint suite；五次 heads 与最终稳定性均记录在同一总日志和产物根，聚焦测试 17 passed。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T17:07:08",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_workflow",
+    "message": "E009-R-007-head-stability-last5: reopen-design → research_design",
+    "details": {
+      "version": 2,
+      "stage": "research_design",
+      "legacy": false,
+      "step": 1,
+      "total": 6,
+      "label": "研究设计"
+    }
+  },
+  {
+    "time": "2026-09-01T17:07:42+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_update",
+    "message": "已按用户决定改为保序 valid96，补充可追溯 audit、独立 attempt-002 和 n=96 完整性门禁。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T17:07:50",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_workflow",
+    "message": "E009-R-007-head-stability-last5: confirm-design → code_planning",
+    "details": {
+      "version": 2,
+      "stage": "code_planning",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案"
+    }
+  },
+  {
+    "time": "2026-09-01T17:07:50",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_workflow",
+    "message": "E009-R-007-head-stability-last5: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    }
+  },
+  {
+    "time": "2026-09-01T17:07:50+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_review_submitted",
+    "message": "已按用户确认改为原 val100 剩余 valid96；四条无效框有独立 audit，attempt-001 不入分析，attempt-002 待重新审核授权。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T19:03:19+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "run_update",
+    "message": "登记 attempt-002-valid96 的 head 稳定性结果及用户确认的后续 Query Top-5 / Reference Top-3 选择；未改变审核、授权或 Claim 状态。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-01T19:03:19+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-007-head-stability-last5",
+    "type": "head_selection_recorded",
+    "message": "用户确认后续采用 Query Top-5 与 Reference Top-3 head 集合。",
+    "details": "{\"evidence_attempt\":\"attempt-002-valid96\",\"query_top5\":[\"L21H10\",\"L17H04\",\"L17H07\",\"L24H16\",\"L18H15\"],\"reference_top3\":[\"L20H15\",\"L20H20\",\"L14H23\"],\"query_top5_occurrence\":{\"L21H10\":\"5/5\",\"L17H04\":\"5/5\",\"L17H07\":\"4/5\",\"L24H16\":\"4/5\",\"L18H15\":\"3/5\"},\"reference_top5_occurrence\":{\"L20H15\":\"5/5\",\"L20H20\":\"4/5\",\"L14H23\":\"4/5\"},\"decision_scope\":\"downstream head selection; descriptive valid96 evidence only\"}"
+  },
+  {
+    "time": "2026-09-01T20:10:13",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-008-reference-top3-query-top5-ensemble-distill",
+    "type": "run_organization",
+    "message": "E009-R-008-reference-top3-query-top5-ensemble-distill: microtask",
+    "details": {
+      "time": "2026-09-01T20:10:13",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-516d8a04010e4a49ea42"
+    }
+  },
+  {
+    "time": "2026-09-01T20:10:13+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-008-reference-top3-query-top5-ensemble-distill",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-008-reference-top3-query-top5-ensemble-distill · Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏",
+    "details": ""
+  },
+  {
+    "time": "2026-09-03T01:17:11",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "type": "run_organization",
+    "message": "E009-R-009-dynamic-reference-top3-query-top5-online-distill: microtask",
+    "details": {
+      "time": "2026-09-03T01:17:11",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-955d70c9e3107e6883b9"
+    }
+  },
+  {
+    "time": "2026-09-03T01:17:11+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run E009-R-009-dynamic-reference-top3-query-top5-online-distill · 动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）",
+    "details": ""
+  },
+  {
+    "time": "2026-09-03T01:17:11+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "type": "run_update",
+    "message": "已汇总dynamic teacher训练、held-out评估、head漂移、valid96全-head诊断与错误案例可视化；独立于R008固定四臂登记。",
+    "details": ""
+  },
+  {
+    "time": "2026-09-03T01:17:12+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "type": "discovery",
+    "message": "Dynamic在线蒸馏显著降低Teacher→Student KL但未改善combined held-out自然定位，并出现Reference head排序漂移。",
+    "details": "combined mIoU 0.689856，较step1729 -0.003611、较continued-SFT -0.004508；valid96 KL 0.7776→0.1713、student S50 0.1479→0.2956，但attention指标与IoU delta无显著Spearman相关。该探索性Run不替代R008离线fixed-correct。审计：dynamic branch diagnostics/valid96_attention/{summary.json,per_sample.csv,per_head_summary.csv,*_per_head.png}。"
+  },
+  {
+    "time": "2026-09-03T01:17:42+08:00",
+    "experiment_id": "E-009",
+    "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "type": "run_update",
+    "message": "复核并再次保存结果摘要与分析字段。",
+    "details": ""
   }
 ]

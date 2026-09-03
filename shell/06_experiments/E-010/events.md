@@ -700,3 +700,1146 @@ requested_route=experiment_code_edit；requested_agent=codex；requested_model=s
   "consumer": "pi-steward"
 }
 ```
+
+## 2026-08-28T15:33:07 · run_organization
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: microtask
+
+```json
+{
+  "time": "2026-08-28T15:33:07",
+  "policy_version": "run-organization/v1",
+  "action": "microtask",
+  "group_id": "",
+  "reason": "ambiguous",
+  "task_id": "classify-ac71a4c5bd2c5f3d0a8c"
+}
+```
+
+## 2026-08-28T15:33:07+08:00 · run_created
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: Agent 创建 canonical Run E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit · 答对/答错分层的Reference与Query head前30%核心token命中统计
+
+## 2026-08-28T15:58:12 · run_failed_status_corrected
+- run: E010-R-003-natural-query-bbox-dual-span-head-discovery-stability
+- message: E010-R-003-natural-query-bbox-dual-span-head-discovery-stability: failed status corrected to analysis_pending
+
+```json
+{
+  "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+  "target_stage": "analysis_pending",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T15:59:08 · run_failed_status_corrected
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed status corrected to analysis_pending
+
+```json
+{
+  "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+  "target_stage": "analysis_pending",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T15:59:21 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-28T15:59:21",
+  "updated_at": "2026-08-28T15:59:21",
+  "authorization_timestamp": "2026-08-28T15:59:21.189327",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-28T15:59:21",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-28T15:59:21 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T16:05:25 · run_runtime_command_prepared
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-d41108bc9e6885301438d59d",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-28T16:12:40 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed
+
+```json
+{
+  "version": 2,
+  "stage": "failed",
+  "legacy": false,
+  "step": 3,
+  "total": 6,
+  "label": "运行失败"
+}
+```
+
+## 2026-08-28T16:18:55+08:00 · run_update
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 按人类要求修订同一失败 R-007：补齐 Q→R、三角色正确/错误分层、命中率汇总及同图多面板可视化；需重新审核和授权后运行。
+
+## 2026-08-28T16:34:21 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-05dc969947f466eeb288b7fe",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-28T16:34:21",
+  "updated_at": "2026-08-28T16:34:21",
+  "authorization_timestamp": "2026-08-28T16:34:21.135006",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-28T16:34:21",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-28T16:34:21 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-05dc969947f466eeb288b7fe",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T16:47:13 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed
+
+```json
+{
+  "version": 2,
+  "stage": "failed",
+  "legacy": false,
+  "step": 3,
+  "total": 6,
+  "label": "运行失败"
+}
+```
+
+## 2026-08-28T17:12:12 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-28T17:12:12",
+  "updated_at": "2026-08-28T17:12:12",
+  "authorization_timestamp": "2026-08-28T17:12:12.032419",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-28T17:12:12",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-28T17:12:12 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T17:15:34 · run_execution_human_failed
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-28T17:16:01+08:00 · run_update
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 纠正R-007错误reference名单：改为R-006实际完成Top3 L18H05/L20H12/L20H15、Top5加L20H08/L14H02；query维持R-003实际名单；增加summary→config exact-match assertion。
+
+## 2026-08-29T14:21:25 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-29T14:21:25",
+  "updated_at": "2026-08-29T14:21:25",
+  "authorization_timestamp": "2026-08-29T14:21:25.774548",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-29T14:21:25",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-29T14:21:25 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T14:22:19 · run_execution_human_failed
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T14:23:02+08:00 · run_update
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 修订已完整写入：R-006 actual reference heads替换旧错误名单，R-003 actual query heads保持；model config、变量控制、完整性门禁、依赖、实现细节与验收条件均要求上游summary→config exact-match。
+
+## 2026-08-29T14:23:30 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-29T14:23:30",
+  "updated_at": "2026-08-29T14:23:30",
+  "authorization_timestamp": "2026-08-29T14:23:30.954254",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-29T14:23:30",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-29T14:23:30 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T19:17:50 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: mark-failed → failed
+
+```json
+{
+  "version": 2,
+  "stage": "failed",
+  "legacy": false,
+  "step": 3,
+  "total": 6,
+  "label": "运行失败"
+}
+```
+
+## 2026-08-29T19:33:30 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-29T19:34:25 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-29T19:35:17+08:00 · run_update
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 按用户要求重新登记：保留原 Core30Hit，新增 S30 binary token-grid IoU、S30 最大4邻域连通块 Cmax 的 Hit/IoU及逐图 token-count/交并字段与橙色 Cmax 可视化；范围仍为只读 frozen artifacts，待重新审核。
+
+## 2026-08-29T19:35:32 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-29T19:35:33 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-29T19:35:33+08:00 · run_review_submitted
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 已按用户要求补全最大4邻域连通块与 binary token-grid IoU 的严格定义、tie-break、逐图字段、汇总、可视化与测试/完整性门禁；不改变冻结 heads、样本、自然 outcome 或模型执行范围，现提交重新审核。
+
+## 2026-08-29T19:41:36 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-29T19:41:36",
+  "updated_at": "2026-08-29T19:41:36",
+  "authorization_timestamp": "2026-08-29T19:41:36.387850",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-29T19:41:36",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-29T19:41:36 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T19:42:01 · run_execution_human_failed
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T19:42:49+08:00 · run_update
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 同步遗留 metric_plan 字段：与已登记 metric_definition 一致地纳入 S30 token-grid IoU、最大4邻域连通块 Hit/IoU、确定性 tie-break、逐图字段、汇总与可视化；不改变冻结输入/heads/样本/outcome。
+
+## 2026-08-29T19:43:09 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-29T19:43:09 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-29T19:43:09 · run_workflow
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-29T19:43:10+08:00 · run_review_submitted
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: 已同步 metric_plan 与 metric_definition：S30 binary token-grid IoU、最大4邻域连通块 Hit/IoU、确定性 tie-break、逐图字段、汇总与可视化均在同一审核快照中；不执行至获得新批准和授权。
+
+## 2026-08-29T19:44:47 · execution_dispatch_enqueue
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+  "status": "queued",
+  "created_at": "2026-08-29T19:44:47",
+  "updated_at": "2026-08-29T19:44:47",
+  "authorization_timestamp": "2026-08-29T19:44:47.723999",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-29T19:44:47",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-29T19:44:47 · run_direct_steward
+- run: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit
+- message: E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T20:23:47 · run_organization
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: microtask
+
+```json
+{
+  "time": "2026-08-29T20:23:47",
+  "policy_version": "run-organization/v1",
+  "action": "microtask",
+  "group_id": "",
+  "reason": "ambiguous",
+  "task_id": "classify-b3f4103b80ee4df7b8c2"
+}
+```
+
+## 2026-08-29T20:23:47+08:00 · run_created
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: Agent 创建 canonical Run E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 · 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）
+
+## 2026-08-29T20:26:20 · execution_dispatch_enqueue
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "status": "queued",
+  "created_at": "2026-08-29T20:26:20",
+  "updated_at": "2026-08-29T20:26:20",
+  "authorization_timestamp": "2026-08-29T20:26:20.891661",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-29T20:26:20",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-29T20:26:20 · run_direct_steward
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-29T20:26:58+08:00 · run_update
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 用户已要求推进；当前工具生命周期显示 ready_to_run。先请求/等待执行授权；在 dispatch 前不修改远端代码或启动模型。
+
+## 2026-08-29T20:50:53+08:00 · run_update
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 用户询问当前是否可执行；正在只读核验 execution authorization/dispatch。
+
+## 2026-08-29T21:23:04 · run_runtime_command_prepared
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-30T13:24:09 · run_execution_human_failed
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T14:16:42 · execution_dispatch_enqueue
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "status": "queued",
+  "created_at": "2026-08-30T14:16:42",
+  "updated_at": "2026-08-30T14:16:42",
+  "authorization_timestamp": "2026-08-30T14:16:42.328558",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-30T14:16:42",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-30T14:16:42 · run_execution_restarted
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-015d8adcb5f0865bc5463eba",
+  "new_dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+  "actor": "human:web-v2:auto-restart"
+}
+```
+
+## 2026-08-30T14:16:48 · run_execution_human_failed
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-f74765dfbbeb9d3746c1b953",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T15:02:19 · execution_dispatch_enqueue
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-18d44abb4888cb2e3d8fb7e9",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "status": "queued",
+  "created_at": "2026-08-30T15:02:19",
+  "updated_at": "2026-08-30T15:02:19",
+  "authorization_timestamp": "2026-08-30T15:02:19.314724",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-30T15:02:19",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-30T15:02:19 · run_direct_steward
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-18d44abb4888cb2e3d8fb7e9",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T15:59:12 · run_rejected_spec_discarded
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: rejected specification content deleted
+
+```json
+{
+  "actor": "human:explicit-discard",
+  "discarded_snapshot_count": 4,
+  "invalidated_dispatch_ids": [
+    "dispatch-18d44abb4888cb2e3d8fb7e9"
+  ],
+  "content_retained": false
+}
+```
+
+## 2026-08-30T16:02:53 · run_rejected_spec_discarded
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: rejected specification content deleted
+
+```json
+{
+  "actor": "human:explicit-discard",
+  "discarded_snapshot_count": 0,
+  "invalidated_dispatch_ids": [],
+  "content_retained": false
+}
+```
+
+## 2026-08-30T16:15:35 · execution_dispatch_enqueue
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "status": "queued",
+  "created_at": "2026-08-30T16:15:35",
+  "updated_at": "2026-08-30T16:15:35",
+  "authorization_timestamp": "2026-08-30T16:15:35.110541",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-30T16:15:35",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-30T16:15:35 · run_direct_steward
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T16:15:39 · run_execution_human_failed
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: human marked current execution attempt failed
+
+```json
+{
+  "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T16:28:47+08:00 · run_update
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 按用户最新规范重建R-008：完整LaSOT上的R-007冻结Query Top-5 Q→Q/Q→R自然生成与exact replay扩展；旧E008/G-L role audit规格已排除。
+
+## 2026-08-30T16:28:55 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-30T16:28:55 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-30T16:33:41+08:00 · run_update
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 已完成正确R-008最小实现：冻结R-003 Query Top-5，完整LaSOT natural→exact replay，仅Q→Q/Q→R；不使用旧G/L、reference heads或E008 role audit。py_compile和3项测试通过；prepare-only验证1400=70×20、evaluation/discovery各700且零重叠。
+
+## 2026-08-30T16:33:41 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-30T16:33:41+08:00 · run_review_submitted
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 已按最新用户规范完成R-008：完整LaSOT n=1400自然生成与exact replay，R-003冻结Query Top-5仅作Q→Q/Q→R outcome-stratified空间审计；evaluation 700为主、all1400描述性；包含随机/all-head对照和bootstrap。实现与3项聚焦测试通过，未启动模型正式运行。
+
+## 2026-08-30T16:53:35 · execution_dispatch_enqueue
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "status": "queued",
+  "created_at": "2026-08-30T16:53:35",
+  "updated_at": "2026-08-30T16:53:35",
+  "authorization_timestamp": "2026-08-30T16:53:35.456846",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-30T16:53:35",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-30T16:53:35 · run_direct_steward
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-30T23:27:48 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: reopen-design → research_design
+
+```json
+{
+  "version": 2,
+  "stage": "research_design",
+  "legacy": false,
+  "step": 1,
+  "total": 6,
+  "label": "研究设计"
+}
+```
+
+## 2026-08-30T23:27:48+08:00 · run_update
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 用户纠正R→R定义后修订：R→R不是Reference bbox rows；它是同一自然Query-bbox p−1 rows→Reference span，换用R-006冻结Reference Top-5。已实现最小扩展，4项测试通过，并精确核验R-006 authority。需审核后以既有1400 natural记录重放评分，不重跑自然生成。
+
+## 2026-08-30T23:27:48 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: confirm-design → code_planning
+
+```json
+{
+  "version": 2,
+  "stage": "code_planning",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案"
+}
+```
+
+## 2026-08-30T23:27:48 · run_workflow
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640: implementation-ready → ready_for_review
+
+```json
+{
+  "version": 2,
+  "stage": "ready_for_review",
+  "legacy": false,
+  "step": 2,
+  "total": 6,
+  "label": "代码方案待审核"
+}
+```
+
+## 2026-08-30T23:27:48+08:00 · run_review_submitted
+- run: E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640
+- message: 已补全用户定义的R→R：同一natural Query-bbox p−1 rows→Reference tokens，R-006 frozen Reference Top-5；不含Reference bbox rows。R-008完整1400 existing natural JSONL将复用，只重跑exact-replay评分，输出Q→Q/Q→R/R→R。4项聚焦测试和R-006名单精确断言均通过。请审核运行修订。
+
+## 2026-08-31T14:53:16 · run_workflow
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: mark-failed → failed
+
+```json
+{
+  "version": 2,
+  "stage": "failed",
+  "legacy": false,
+  "step": 3,
+  "total": 6,
+  "label": "运行失败"
+}
+```
+
+## 2026-08-31T14:55:21 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-31T14:55:21",
+  "updated_at": "2026-08-31T14:55:21",
+  "authorization_timestamp": "2026-08-31T14:55:21.367780",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-31T14:55:21",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-31T14:55:21 · run_direct_steward
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-31T14:59:16 · run_runtime_command_prepared
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: Pi resolved launch placeholders
+
+```json
+{
+  "dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+  "consumer": "pi-steward"
+}
+```
+
+## 2026-08-31T15:26:30 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-31T15:26:30",
+  "updated_at": "2026-08-31T15:26:30",
+  "authorization_timestamp": "2026-08-31T15:26:30.627866",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-31T15:26:30",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-31T15:26:30 · run_execution_restarted
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+  "new_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-31T15:48:12 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-f4a92ed10a84934ad75f8e93",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-31T15:48:12",
+  "updated_at": "2026-08-31T15:48:12",
+  "authorization_timestamp": "2026-08-31T15:48:12.824107",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-31T15:48:12",
+      "type": "queued",
+      "detail": "restart_failed_execution"
+    }
+  ]
+}
+```
+
+## 2026-08-31T15:48:12 · run_execution_restarted
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: failed attempt preserved; new authorization created
+
+```json
+{
+  "prior_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+  "new_dispatch_id": "dispatch-f4a92ed10a84934ad75f8e93",
+  "actor": "human:web-v2"
+}
+```
+
+## 2026-08-31T18:45:14 · execution_dispatch_enqueue
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit outbox=queued
+
+```json
+{
+  "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+  "experiment_id": "E-010",
+  "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
+  "status": "queued",
+  "created_at": "2026-08-31T18:45:14",
+  "updated_at": "2026-08-31T18:45:14",
+  "authorization_timestamp": "2026-08-31T18:45:14.656189",
+  "requested_route": "experiment_code_edit",
+  "requested_agent": "codex",
+  "requested_model": "gpt-5.6-sol",
+  "delivery_attempts": 0,
+  "claim_attempts": 0,
+  "last_error": "",
+  "history": [
+    {
+      "time": "2026-08-31T18:45:14",
+      "type": "queued",
+      "detail": "direct_steward"
+    }
+  ]
+}
+```
+
+## 2026-08-31T18:45:14 · run_direct_steward
+- run: E010-R-006-gt-supervised-reference-head-stability-heldout-audit
+- message: E010-R-006-gt-supervised-reference-head-stability-heldout-audit: current snapshot sent directly to Steward
+
+```json
+{
+  "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+  "actor": "human:web-v2"
+}
+```

@@ -98,17 +98,45 @@
     },
     "E010-R-006-gt-supervised-reference-head-stability-heldout-audit": {
       "run_id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
-      "phase": "agent_running",
+      "phase": "handoff_ready",
       "runtime_kind": "herdr_pi",
-      "dispatch_id": "dispatch-039d4cd11278b6b81563353b",
+      "dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
       "error_class": "",
       "finished_at": "",
-      "message": "专属 Pi Steward 已接收 Run；将通过受控工具启动、监控、修复并收集结果",
-      "updated_at": "2026-08-27T15:33:42",
-      "internal_agent_name": "steward-e010-r-006-3393d8608d",
-      "internal_pane_id": "w5:p2",
-      "agent_status": "idle",
-      "started_at": "2026-08-27T15:33:37"
+      "message": "等待新 Pi 读取批准上下文并调用 Steward 扩展",
+      "updated_at": "2026-08-31T18:45:14",
+      "internal_agent_name": "",
+      "internal_pane_id": "",
+      "agent_status": "superseded",
+      "started_at": "2026-08-31T14:55:29"
+    },
+    "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit": {
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "phase": "handoff_ready",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+      "error_class": "",
+      "finished_at": "",
+      "message": "等待新 Pi 读取批准上下文并调用 Steward 扩展",
+      "updated_at": "2026-08-29T19:44:48",
+      "started_at": "2026-08-28T15:59:37",
+      "internal_agent_name": "",
+      "internal_pane_id": "",
+      "agent_status": "superseded"
+    },
+    "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640": {
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "phase": "handoff_ready",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-4cf06caa9d7f735665cbb4d2",
+      "error_class": "",
+      "finished_at": "",
+      "message": "等待新 Pi 读取批准上下文并调用 Steward 扩展",
+      "updated_at": "2026-08-30T16:53:35",
+      "started_at": "2026-08-30T15:17:20",
+      "internal_agent_name": "",
+      "internal_pane_id": "",
+      "agent_status": "superseded"
     }
   }
 }

@@ -1,19 +1,23 @@
 {
   "version": 1,
-  "explanation": "已通过路由尝试委派；Codex 额度耗尽后按登记 fallback 由 pi 完成最小 cfg/launcher，并完成静态和单元检查。未启动训练。",
+  "explanation": "dynamic 训练已完成；已在 valid96 对 step1729/dynamic final 完成全-head screen、自然生成 paired 分层、集合与逐-head热图，并量化 attention 与 IoU 变化关系。",
   "steps": [
     {
-      "step": "核验现有单进程 batch-scaling launcher、配置和训练入口的可复用参数",
+      "step": "检查 dynamic 训练进度、checkpoint 与现有 head-screen/可视化工具",
       "status": "completed"
     },
     {
-      "step": "按 E-009 路由委派最小 launcher/配置实现，固定双卡切分与默认 batch 16",
+      "step": "设计 step1729 对 dynamic checkpoint 的固定-head诊断与错误样本分层",
       "status": "completed"
     },
     {
-      "step": "检查脚本语法和配置覆盖接口，报告运行方式与未执行边界",
+      "step": "在不干扰训练的时机运行 valid96 head 分析并生成可视化",
+      "status": "completed"
+    },
+    {
+      "step": "汇总 attention 变化、失败模式与是否值得调整训练",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-08-27T11:58:27.866Z"
+  "updatedAt": "2026-09-02T16:24:00.610Z"
 }

@@ -1,9 +1,9 @@
 # E010-R-006-gt-supervised-reference-head-stability-heldout-audit · GT监督Reference head跨图稳定性与冻结held-out审计
 
-- workflow: v2 / failed / 运行失败
+- workflow: v2 / running / 运行与监控
 - review_status: approved
 - group_id: 未分组
-- execution_dispatch: dispatch-16abb20df46e7a3656df99a5 / failed
+- execution_dispatch: dispatch-605478682ab04898ccc8b1a4 / running
 
 ## 1. 研究设计
 ### 研究问题
@@ -32,7 +32,7 @@
 > 代码应直接修改当前 Workspace 绑定仓库中的实际模块目录；只有仓库已有独立 launcher/adapter 目录时才使用它。工具不要求新建 codespace、实验索引或 runner 目录，科研逻辑不得为了登记 Run 而复制一份。
 
 ## 4. 运行与 Experiment Steward
-- command: `cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh`
+- command: `cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_dual_span_topn_trial.sh`
 - commit: ``
 - workspace: 02
 - tmux: incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit
@@ -40,13 +40,13 @@
 - output: /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/outputs
 - Steward 摘要：```json
 {
-  "execution_completed_at": "2026-08-27T15:06:22",
+  "execution_completed_at": "2026-08-28T15:59:08",
   "evidence": {
-    "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
-    "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
-    "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+    "log": "",
+    "artifact": "",
+    "result_message": "已确认日志"
   },
-  "note": "程序已结束，等待科研结果分析"
+  "note": "人工确认程序已结束，等待科研结果分析"
 }
 ```
 

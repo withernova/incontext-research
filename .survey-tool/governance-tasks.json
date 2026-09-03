@@ -379,6 +379,276 @@
         }
       },
       "created_at": "2026-08-27T14:59:52"
+    },
+    {
+      "task_id": "classify-ac71a4c5bd2c5f3d0a8c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+          "run_type": "analysis",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "purpose": "在不重新挑头、不重跑模型的前提下，把固定reference heads与query heads分别按自然预测正确/错误分层，统计每个head及固定head集合在多少张Reference图或Query图上命中GT。该统计直接回答两类head的逐图覆盖是否随预测结果变化，避免只看总体平均。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-28T15:33:07"
+    },
+    {
+      "task_id": "classify-b3f4103b80ee4df7b8c2",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-010",
+      "run_id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "run_type": "experiment_code_edit",
+          "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "purpose": "尽可能复刻已批准但未执行的 E008-R-001 role audit 协议到完整可核验 LaSOT：先对每个 sequence 自然生成并归档 response/IoU/attention，再仅对精确 replay 对齐样本提取同一自然 Query-bbox p−1 rows 的 Q→Q[G]、Q→R[G]、G→R[G]、Q→Q[L] 注意力，检验冻结 grounding heads 在 query image 上的空间角色。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-08-29T20:23:47"
+    },
+    {
+      "task_id": "classify-d513212b574ef9f63608",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-002-headscreen-step1400",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-002-headscreen-step1400",
+          "run_type": "main",
+          "variant": "训练后段 checkpoint 1400 的固定样本 head screening",
+          "purpose": "只对 step 1400 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:27:29"
+    },
+    {
+      "task_id": "classify-785da322857c8f378eba",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-003-headscreen-step1482",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-003-headscreen-step1482",
+          "run_type": "main",
+          "variant": "训练后段 checkpoint 1482 的固定样本 head screening",
+          "purpose": "只对 step 1482 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:27:29"
+    },
+    {
+      "task_id": "classify-a5be731292b73931ee91",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-004-headscreen-step1564",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-004-headscreen-step1564",
+          "run_type": "main",
+          "variant": "训练后段 checkpoint 1564 的固定样本 head screening",
+          "purpose": "只对 step 1564 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:27:30"
+    },
+    {
+      "task_id": "classify-f311608b8c89cdcaa0a2",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-005-headscreen-step1646",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-005-headscreen-step1646",
+          "run_type": "main",
+          "variant": "训练后段 checkpoint 1646 的固定样本 head screening",
+          "purpose": "只对 step 1646 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:27:30"
+    },
+    {
+      "task_id": "classify-73a0e4572fb02a98f1df",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-006-headscreen-step1729",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-006-headscreen-step1729",
+          "run_type": "main",
+          "variant": "训练后段 checkpoint 1729 的固定样本 head screening",
+          "purpose": "只对 step 1729 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:27:30"
+    },
+    {
+      "task_id": "classify-a1f743573e6fa3caffed",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-007-head-stability-last5",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-007-head-stability-last5",
+          "run_type": "main",
+          "variant": "训练后段最后五个 checkpoint 的单 Run head 稳定性核验",
+          "purpose": "在一个 Run 内按训练顺序依次筛选五个 checkpoint，并在同一日志和产物根目录中记录每次选出的 heads 与最终跨 checkpoint 稳定性，避免拆成五条 Run 后难以统一管理。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T16:52:18"
+    },
+    {
+      "task_id": "classify-516d8a04010e4a49ea42",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-008-reference-top3-query-top5-ensemble-distill",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-008-reference-top3-query-top5-ensemble-distill",
+          "run_type": "main",
+          "variant": "Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏",
+          "purpose": "从同一 step1729 父 checkpoint 出发，比较普通 continued-SFT、正确 Reference Top-3 教师蒸馏、空间滚动的伪教师以及直接 GT-mask 监督，检验 Query Top-5 集合读取正确 reference 目标区域是否改善自然生成的 query bbox，而不是只产生额外正则化或普通框监督效果。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-01T20:10:13"
+    },
+    {
+      "task_id": "classify-955d70c9e3107e6883b9",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-009",
+      "run_id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+          "run_type": "exploratory",
+          "variant": "动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）",
+          "purpose": "独立检验固定 head ID、当前模型在线 Reference teacher、stop-gradient target 的单向蒸馏是否改善自然生成定位；该 Run 是 R008 之外的探索性扩展，不替代其离线固定 correct/cyclic_roll/gt_mask 四臂。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-03T01:17:11"
     }
   ]
 }

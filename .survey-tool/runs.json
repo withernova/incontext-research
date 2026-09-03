@@ -10595,7 +10595,7 @@
     "acceptance_criteria": "140条rows/spans契约全通过且零静默失败；70/70 sequence隔离；query/reference两套严格论文式发现结果齐全；n=20/40/56各100次稳定性结果及inclusion/Jaccard/rank表齐全；冻结Top3/5对同层随机与held-out GT指标齐全；至少保存12张query-head Q→Q和12张reference-head Q→R逐头热图；完整结果、配置、subset manifest与哈希可追溯。",
     "dependencies": "旧E010-R-001仅作为自然回答与全头artifact数据源；不继承其G→R定义、residual-mass entropy排名或科学结论。",
     "claim_boundary": "只回答自然生成Query bbox rows下，Qbbox→Query与Qbbox→Reference两批固定heads的无GT发现显著性、20图/更大样本稳定性和selection-held-out空间有效性；不使用或支持Reference bbox→Reference head概念，不证明这些head为任务必要电路。",
-    "status": "failed",
+    "status": "analysis_pending",
     "workspace_id": "02",
     "git_commit": "",
     "config": "",
@@ -10614,11 +10614,11 @@
     "id": "E010-R-003-natural-query-bbox-dual-span-head-discovery-stability",
     "experiment_id": "E-010",
     "workflow_version": 2,
-    "workflow_stage": "failed",
+    "workflow_stage": "analysis_pending",
     "review_status": "approved",
     "review_round": 0,
     "created": "2026-08-26T16:54:36",
-    "updated": "2026-08-27T15:14:47",
+    "updated": "2026-08-28T15:58:12",
     "organization_snapshot": {
       "time": "2026-08-26T16:54:36",
       "policy_version": "run-organization/v1",
@@ -10882,6 +10882,15 @@
         "actor": "pi-steward",
         "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
         "reason": "仍被 Trial metrics contract 拒绝；将只调整根级结果封装为连续 Trial ID 的数组（每项含 id 与原始 scalar metrics），不重新计算、不改动数据或实验参数。"
+      },
+      {
+        "time": "2026-08-28T15:58:12",
+        "action": "human-correct-failed-run",
+        "from": "failed",
+        "to": "analysis_pending",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+        "reason": "失败来源于误判"
       }
     ],
     "review_history": [
@@ -11100,7 +11109,7 @@
         "id": "C-002",
         "contract": "survey-tool.run-trial-campaign/v1",
         "request": "可以试试用完整的数据集，然后证明一下query head在完整的测试数据集下也生效吗",
-        "status": "failed",
+        "status": "execution_completed",
         "created_at": "2026-08-27T14:53:29",
         "plan": {
           "contract": "survey-tool.run-trial-plan/v1",
@@ -11159,12 +11168,7 @@
             }
           ]
         },
-        "updated_at": "2026-08-27T15:14:47",
-        "failure": {
-          "failure_class": "environment",
-          "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
-          "retryable": true
-        }
+        "updated_at": "2026-08-28T15:58:12"
       }
     ],
     "active_trial_campaign_id": "C-002",
@@ -11248,12 +11252,40 @@
     ],
     "execution_authorization_consumed_at": "2026-08-27T14:57:20",
     "execution_dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
-    "execution_dispatch_latest_status": "failed",
-    "execution_dispatch_failed_at": "2026-08-27T15:14:47",
-    "execution_dispatch_failure": {
-      "failure_class": "environment",
-      "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
-      "retryable": true
+    "execution_dispatch_latest_status": "completed",
+    "status_correction_history": [
+      {
+        "time": "2026-08-28T15:58:12",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-5fb6dbf618ffe284e2331997",
+        "from": "failed",
+        "to": "analysis_pending",
+        "reason": "失败来源于误判",
+        "prior_failure": {
+          "failed_at": "2026-08-27T15:14:47",
+          "failure_class": "environment",
+          "reason": "两项 Trial 均已成功生成完整科学产物且受管运行退出码0；但 Survey Tool completion validator 对根级逐Trial metrics 的三种兼容封装（映射、顶层metrics映射、连续id数组）均报“Trial metrics must contain every planned Trial”。这属于完成契约解析器环境阻塞，继续同一无数据改动重跑无新增科学信息。",
+          "retryable": true
+        },
+        "completion_evidence": {
+          "result_message": "已核验过结果"
+        }
+      }
+    ],
+    "execution_dispatch_completed_at": "2026-08-28T15:58:12",
+    "execution_dispatch_completion_evidence": {
+      "log": "",
+      "artifact": "",
+      "result_message": "已核验过结果"
+    },
+    "steward_summary": {
+      "execution_completed_at": "2026-08-28T15:58:12",
+      "evidence": {
+        "log": "",
+        "artifact": "",
+        "result_message": "已核验过结果"
+      },
+      "note": "人工确认程序已结束，等待科研结果分析"
     }
   },
   {
@@ -11646,11 +11678,11 @@
     "acceptance_criteria": "140条输入契约通过；discovery/evaluation各70条及零sequence overlap；逐图GT ranking、频率/集中度/Jaccard原始记录齐全；冻结Top3/5及其层匹配随机名单可追溯；held-out各方法全部空间指标和bootstrap CI齐全；至少12个固定统一色标案例；明确GT监督边界。",
     "dependencies": "依赖已完成R-005与其核验过的R-003/R-001只读artifacts；无需模型、数据下载或R-003重跑。R-005保持analysis_pending，不能修改其结果或状态。",
     "claim_boundary": "仅回答GT监督的空间oracle/near-oracle head能否跨sequence固定化；不能把结果外推为LocalizationHeads无GT方法有效、模型依赖这些heads、或模型完成identity binding。",
-    "status": "failed",
+    "status": "running",
     "workspace_id": "02",
     "git_commit": "",
     "config": "",
-    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_dual_span_topn_trial.sh",
     "log_path": "",
     "output_dir": "",
     "artifact_dir": "",
@@ -11665,11 +11697,11 @@
     "id": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
     "experiment_id": "E-010",
     "workflow_version": 2,
-    "workflow_stage": "failed",
+    "workflow_stage": "running",
     "review_status": "approved",
     "review_round": 0,
     "created": "2026-08-27T14:59:52",
-    "updated": "2026-08-27T19:19:42",
+    "updated": "2026-08-31T18:46:06",
     "organization_snapshot": {
       "time": "2026-08-27T14:59:52",
       "policy_version": "run-organization/v1",
@@ -11678,12 +11710,12 @@
       "reason": "ambiguous",
       "task_id": "classify-679b38ef33794d25e56b"
     },
-    "approved_at": "2026-08-27T15:56:22.027947",
-    "approved_by": "pi-steward:447496",
+    "approved_at": "2026-08-31T18:45:14.656189",
+    "approved_by": "human:web-v2",
     "approved_spec": {
       "architecture_plan": "审批后在IPLoc现有attention analysis模块新增只读离线pipeline，复用R-005 artifact reader、空间评分与R-003 split；不复制模型runner，不修改R-003/R-005 artifacts。",
       "artifact_dir": "",
-      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_gt_iou_maxhit_trial.sh",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && mechanism/iplocid/tools/run_e010_r006_dual_span_topn_trial.sh",
       "config": "",
       "data_definition": "仅复用R-001 records/artifacts与R-003 manifests/subsets.json；discovery和evaluation各70条LaSOT sequence records且sequence overlap=0，训练暴露仍未知。仅审计自然生成Query bbox p−1 rows到Reference visual token span的1152-head q_to_r maps。",
       "data_scale": "R-003既有140条records，冻结为70条GT-supervised discovery与70条held-out evaluation；每条1152 heads；固定Top3/5、random repeats=100、sequence bootstrap=2000。",
@@ -11704,46 +11736,12 @@
       "seed": "20260828",
       "server_id": null,
       "tmux_session": "",
-      "trial_manifest": {
-        "contract": "survey-tool.run-trial-manifest/v1",
-        "trials": [
-          {
-            "id": "T-001",
-            "parameters": {
-              "reward_form": "multiplicative_iou_plus_max_token_hit",
-              "iou_metric": "support50_fiou",
-              "entropy_weight": 1,
-              "iou_reward_weight": 2,
-              "iou_threshold": 0,
-              "max_token_hit_reward_weight": 0.25,
-              "max_token_metric": "pointing_hit",
-              "rank_score": "(1-normalized_entropy) * (1 + 2 * support50_fiou) + 0.25 * pointing_hit"
-            }
-          }
-        ]
-      },
-      "trial_plan": {
-        "contract": "survey-tool.run-trial-plan/v1",
-        "planning_mode": "ai_planned",
-        "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
-        "trial_budget": 1,
-        "axes": [],
-        "trials": [],
-        "planning_status": "awaiting_ai",
-        "concurrency": 1,
-        "max_retries": 1,
-        "created_at": "2026-08-27T15:56:21",
-        "updated_at": "2026-08-27T15:56:21",
-        "campaign_id": "C-002"
-      },
+      "trial_manifest": null,
+      "trial_plan": null,
       "variables_controls": "发现变量是GT监督逐图head rank；评估变量是冻结GT-frequency Top3/5 vs layer-matched random vs all-head mean vs per-image GT oracle。R-003 sequence split、自然row/span、grid和空间指标保持不变。GT允许进入discovery和评估，但严禁进入held-out固定head重选；correct/error、自然IoU不进入head ranking。",
       "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
       "workspace_id": "02"
     },
-    "execution_authorized_at": "2026-08-27T15:56:22.027947",
-    "execution_authorized_by": "pi-steward:447496",
-    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
-    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
     "workflow_history": [
       {
         "time": "2026-08-27T15:01:29.891656",
@@ -11822,6 +11820,69 @@
         "actor": "pi-steward",
         "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
         "reason": "C-002 的唯一 Trial 已成功计算；validator 现报告 aggregate Trial metric shape invalid。将仅把 aggregate 中的 `metrics` 投影为有限标量（pointing rates、相对随机均值差、相对 Base 均值差、evaluation_records），保留逐 Trial 完整原始 metrics 文件不变；使用当前唯一 retry 内的最小 contract 修复。"
+      },
+      {
+        "time": "2026-08-28T15:59:08",
+        "action": "human-correct-failed-run",
+        "from": "failed",
+        "to": "analysis_pending",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+        "reason": "来源为误判"
+      },
+      {
+        "time": "2026-08-31T14:53:16",
+        "action": "mark-failed",
+        "from": "analysis_pending",
+        "to": "failed",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-31T14:55:21",
+        "action": "trial-campaign-prepared",
+        "campaign_id": "C-003",
+        "actor": "human:web-v2",
+        "planning_mode": "ai_planned",
+        "trial_count": 0,
+        "trial_budget": 1,
+        "concurrency": 1,
+        "replaced_dispatch_ids": []
+      },
+      {
+        "time": "2026-08-31T14:55:21.367780",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-31T15:26:30.627866",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": "C-003"
+      },
+      {
+        "time": "2026-08-31T15:48:12.824107",
+        "action": "restart-failed-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": ""
+      },
+      {
+        "time": "2026-08-31T18:45:14.656189",
+        "action": "direct-steward",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
       }
     ],
     "review_history": [
@@ -11955,16 +12016,52 @@
           "variant": "GT监督Reference head跨图稳定性与冻结held-out审计",
           "workspace_id": "02"
         }
+      },
+      {
+        "time": "2026-08-31T14:55:21.367780",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot_hash": "sha256:76c4b4e27bd5e1d191f5520a8ddb9a29c9253a0c0d029d03e2e1fcd8e04a58bf",
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-08-31T15:26:30.627866",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-3e4d0537086edc690c4b8b2d",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": "C-003",
+        "snapshot_hash": "sha256:c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-08-31T15:48:12.824107",
+        "action": "restart_failed_execution",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-a669092a7ba9c0878265591e",
+        "replaced_dispatch_ids": [],
+        "execution_mode": "single",
+        "cancelled_campaign_id": "",
+        "snapshot_hash": "sha256:c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-08-31T18:45:14.656189",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot_hash": "sha256:c24a99241421d82dec959fc5478fcad17f78d6a633fe4e0efa0a5a66dc2aa9b4",
+        "snapshot_content_retained": false
       }
     ],
     "steward_summary": {
-      "execution_completed_at": "2026-08-27T15:06:22",
+      "execution_completed_at": "2026-08-28T15:59:08",
       "evidence": {
-        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/logs/train.log",
-        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
-        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+        "log": "",
+        "artifact": "",
+        "result_message": "已确认日志"
       },
-      "note": "程序已结束，等待科研结果分析"
+      "note": "人工确认程序已结束，等待科研结果分析"
     },
     "conclusion_scope": "该Run只支持：在冻结R-003自然Qbbox→Reference attention artifacts上，GT空间监督频率能构建一个在sequence-disjoint held-out上优于层匹配随机的固定Top3/5 readout ensemble。不能支持：GT-free selector可部署、模型利用GT、identity binding、任何head的因果必要性、训练外泛化。",
     "trial_campaigns": [
@@ -12070,7 +12167,7 @@
         "id": "C-002",
         "contract": "survey-tool.run-trial-campaign/v1",
         "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
-        "status": "failed",
+        "status": "execution_completed",
         "created_at": "2026-08-27T15:56:21",
         "plan": {
           "contract": "survey-tool.run-trial-plan/v1",
@@ -12106,29 +12203,60 @@
         },
         "previous_workflow_stage": "ready_to_run",
         "previous_result": {},
-        "updated_at": "2026-08-27T16:04:30",
+        "updated_at": "2026-08-28T15:59:08"
+      },
+      {
+        "id": "C-003",
+        "contract": "survey-tool.run-trial-campaign/v1",
+        "request": "目前T003的结果很好，但是为了让实验更有说法力，能不能补充一下，绘制一个表格，大概把head top-k计算的值可视化一下，来看看我们的指标的区分度是不是很明显，比如topn之后出现断层，表明我们算法的有效性呢。把query head和reference head都计算一下（注意他们的定义，都是值query bbox计算得到的head）",
+        "status": "cancelled_for_single_run",
+        "created_at": "2026-08-31T14:55:21",
+        "plan": {
+          "contract": "survey-tool.run-trial-plan/v1",
+          "planning_mode": "ai_planned",
+          "request": "目前T003的结果很好，但是为了让实验更有说法力，能不能补充一下，绘制一个表格，大概把head top-k计算的值可视化一下，来看看我们的指标的区分度是不是很明显，比如topn之后出现断层，表明我们算法的有效性呢。把query head和reference head都计算一下（注意他们的定义，都是值query bbox计算得到的head）",
+          "trial_budget": 1,
+          "axes": [],
+          "trials": [],
+          "planning_status": "awaiting_ai",
+          "concurrency": 1,
+          "max_retries": 1,
+          "created_at": "2026-08-31T14:55:21",
+          "updated_at": "2026-08-31T14:55:21",
+          "campaign_id": "C-003"
+        },
+        "previous_workflow_stage": "failed",
+        "previous_result": {},
+        "manifest": {
+          "contract": "survey-tool.run-trial-manifest/v1",
+          "trials": [
+            {
+              "id": "T-001",
+              "parameters": {
+                "analysis": "dual_span_topn_frequency_and_heldout_curve",
+                "artifact_roles": "q_to_r,q_to_q",
+                "discovery_records": 70,
+                "evaluation_records": 70,
+                "head_count": 1152,
+                "head_rank_limit": 20,
+                "rank_score": "-normalized_entropy + 2 * max(0, support50_fiou-0.1)",
+                "reward_form": "thresholded_iou_bonus",
+                "row_contract": "natural_query_bbox_pminus1/v1",
+                "seed": 20260831,
+                "target_spans": "reference_gt,query_gt"
+              },
+              "rationale": "唯一且最有信息量的补充：在不增加模型 forward、不改变 R003 的冻结 sequence-disjoint 70/70 split、并严格使用同一 natural query-bbox p−1 rows 的条件下，复用 T003 thresholded support50-fIoU GT 诊断排序，平行审计 q_to_r/reference-GT 与 q_to_q/query-GT。输出 top-n head-frequency/gap/coverage 与 held-out n=1..20 曲线，以直接检验排名是否存在可解释的频率断层和区分度。"
+            }
+          ]
+        },
+        "updated_at": "2026-08-31T15:26:30.627866",
         "failure": {
-          "failure_class": "environment",
-          "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+          "failure_class": "invalid_spec",
+          "reason": "T-001 offline analysis completed its 140-record computation, but the managed launcher exited 1 while assembling the required Trial aggregate because its embedded Python used an unquoted hyphenated path (`root/trials/T-001/metrics.json`), parsed as arithmetic. The Trial metrics and summary were created under C-003, but the required batch contract was not finalized. The claimed managed lease prohibits the required launcher-only code repair; no second Trial was started.",
           "retryable": false
         }
       }
     ],
-    "active_trial_campaign_id": "C-002",
-    "trial_plan": {
-      "contract": "survey-tool.run-trial-plan/v1",
-      "planning_mode": "ai_planned",
-      "request": "在 E010-R-006-gt-supervised-reference-head-stability-heldout-audit 下追加一个独立补充 Trial campaign（仅 1 Trial）：固定使用同一 R-003 70/70 sequence-disjoint split、自然 query-bbox prediction rows→reference image-token q_to_r artifacts。以既完成 T-002 的 multiplicative entropy×GT-S50-fIoU reward 为基础，加入低权重 Reference-GT argmax/max-token pointing-hit 奖励：score=(1-normalized_entropy)*(1+2*support50_fiou)+0.25*pointing_hit。GT 仅用于 discovery，held-out 严禁重选；比较 Base R-006/T-002 与新增 Trial 的 frozen Top3/Top5、层匹配随机和 bootstrap。",
-      "trial_budget": 1,
-      "axes": [],
-      "trials": [],
-      "planning_status": "awaiting_ai",
-      "concurrency": 1,
-      "max_retries": 1,
-      "created_at": "2026-08-27T15:56:21",
-      "updated_at": "2026-08-27T15:56:21",
-      "campaign_id": "C-002"
-    },
     "implementation_history": [
       {
         "time": "2026-08-27T15:36:08",
@@ -12149,36 +12277,18 @@
         "reason": "trial_batch_launcher_replaced_single_command",
         "previous_command_hash": "sha256:64de85af900f050cf71c39a5b4adb732f3d62e4b038754c634f6b6b7d4e1d45c",
         "approval_continues": true
+      },
+      {
+        "time": "2026-08-31T14:59:16",
+        "fields": [
+          "command",
+          "trial_manifest"
+        ],
+        "reason": "trial_batch_launcher_replaced_single_command",
+        "previous_command_hash": "sha256:d25bd00c08da238fcb83304af9f688ceaba8a1b3f08684928fb91cba84dbfb24",
+        "approval_continues": true
       }
     ],
-    "trial_manifest": {
-      "contract": "survey-tool.run-trial-manifest/v1",
-      "trials": [
-        {
-          "id": "T-001",
-          "parameters": {
-            "reward_form": "multiplicative_iou_plus_max_token_hit",
-            "iou_metric": "support50_fiou",
-            "entropy_weight": 1,
-            "iou_reward_weight": 2,
-            "iou_threshold": 0,
-            "max_token_hit_reward_weight": 0.25,
-            "max_token_metric": "pointing_hit",
-            "rank_score": "(1-normalized_entropy) * (1 + 2 * support50_fiou) + 0.25 * pointing_hit"
-          }
-        }
-      ]
-    },
-    "trial_manifest_hash": "sha256:60c1a05fdfbb772e1f4802dd708cc0cde99e56442fe855678264a90f59feeff7",
-    "execution_authorization_consumed_at": "2026-08-27T15:57:47",
-    "execution_dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
-    "execution_dispatch_latest_status": "failed",
-    "execution_dispatch_failed_at": "2026-08-27T16:04:30",
-    "execution_dispatch_failure": {
-      "failure_class": "environment",
-      "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
-      "retryable": false
-    },
     "evidence_label_history": [
       {
         "time": "2026-08-27T19:19:42",
@@ -12191,6 +12301,1965 @@
     "evidence_label": "solid",
     "evidence_label_note": "T003的结果十分合理，可以保留",
     "evidence_labeled_at": "2026-08-27T19:19:42",
+    "evidence_labeled_by": "human:web-v2",
+    "status_correction_history": [
+      {
+        "time": "2026-08-28T15:59:08",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+        "from": "failed",
+        "to": "analysis_pending",
+        "reason": "来源为误判",
+        "prior_failure": {
+          "failed_at": "2026-08-27T16:04:30",
+          "failure_class": "environment",
+          "reason": "C-002 唯一 Trial 已三次受管执行且均 exit=0、140 records 完整；completion validator 仍以 `Trial metric result shape invalid` 拒绝标量聚合。C-002 的 max_retries=1 已超出，停止重试；保留完整原始 per-Trial metrics 与聚合供审计。",
+          "retryable": false
+        },
+        "completion_evidence": {
+          "result_message": "已确认日志"
+        }
+      }
+    ],
+    "review_requirements": "自动修复策略已改变，请重新确认执行范围与预算。",
+    "revision_history": [
+      {
+        "time": "2026-08-31T14:53:16",
+        "action": "results-unsatisfactory",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-16abb20df46e7a3656df99a5",
+        "prior_approved_at": "2026-08-27T15:56:22.027947",
+        "prior_authorization_timestamp": "2026-08-27T15:56:22.027947"
+      }
+    ],
+    "automation_policy": {
+      "mode": "careful",
+      "allowed_code_roots": [],
+      "test_commands": [],
+      "max_repairs": 2,
+      "time_budget_minutes": 30,
+      "auto_rerun": false,
+      "install_declared_dependencies": false,
+      "dependency_files": [],
+      "prohibited_actions": [
+        "修改 Workspace",
+        "修改数据 manifest",
+        "修改 head、指标、样本或假设",
+        "创建替代 Conda 环境",
+        "使用旧环境路径"
+      ]
+    },
+    "execution_authorized_at": "2026-08-31T18:45:14.656189",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "execution_authorization_consumed_at": "2026-08-31T18:46:06",
+    "execution_dispatch_id": "dispatch-605478682ab04898ccc8b1a4",
+    "execution_dispatch_latest_status": "running"
+  },
+  {
+    "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+    "run_type": "analysis",
+    "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+    "necessity": "R-003澄清了query/reference head的定义，R-006与用户选定T-003给出了可保留的GT监督reference固定名单，但现有结果没有用统一的30% token支持集，在自然预测正确与错误两组中分别报告逐head、逐图覆盖计数。缺少这张交叉表就无法判断总体效果是否主要由答对图片或少数head贡献。",
+    "evidence_basis": "唯一冻结head authority为实际完成的上游summary：R-003 query Top3=L20H15,L24H16,L25H10；Top5加L15H13,L21H10。R-006 reference Top3=L18H05,L20H12,L20H15；Top5加L20H08,L14H02。此前R-007使用的reference集合错误，其结果无效。",
+    "implementation_summary": "",
+    "implementation_details": "预期修改远端仓库 /defaultShare/archive/liuwenchu/projects/IPLoc 的 mechanism/iplocid/iplocid/pipelines/outcome_stratified_core30.py、对应 tests/test_e010_r007.py，必要时 configs/e010_r007.json 和 launcher 中仅与输出 schema/版本有关的字段。新增测试至少覆盖：4-邻接（对角不连）、最大块选择、并列最小 token-index tie-break、IoU 分母/空集契约、S30 旧 stable tie-break 不变、canonical heads/hash assertion 不变。审批后由现有 tools/run_e010_r007.sh 经受管 executor 重跑。",
+    "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+    "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+    "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+    "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+    "metric_definition": "定义：对每张非负有限 attention map，以降序 attention、flattened token index stable tie-break 取 k=ceil(0.30×visual-token-count) 个 S30 token；G 为同 grid 上 occupancy>0 的二值 GT token mask。保留 Core30Hit=1[S30∩G非空]。新增 S30IoU=|S30∩G|/|S30∪G|。在 S30 上按上下左右 4-邻接求连通块，取 token count 最大的 Cmax；若并列，以该块最小 flattened token index 最小者取胜。新增 Largest4NHit=1[Cmax∩G非空]，Largest4NIoU=|Cmax∩G|/|Cmax∪G|。每图还记录 s30_token_count、gt_token_count、s30_intersection_tokens、s30_union_tokens、largest4n_token_count、largest4n_fraction_of_s30、largest4n_intersection_tokens、largest4n_union_tokens。每个 role×cohort×outcome×head/ensemble 报 n、Core30Hit hits/rate、Largest4NHit hits/rate，以及 S30IoU/Largest4NIoU 的 mean、median、q25、q75；不把 binary token-grid IoU 与像素 IoU、fractional occupancy 或 strict argmax pointing 混同。",
+    "integrity_gates": "G1 140 records、R-003/R-006 summary hash 和 canonical frozen exact-head assertion 不变；不符即停止。G2 每张 attention/GT grid shape、有限性、非负性、GT非空、S30 selected_token_count=k 均须通过。G3 Cmax 必须为 S30 的单一 4-connected component，最大 size 与并列最小 index 规则可由单元测试复算；每图 intersection≤各 mask size、union=sizeA+sizeB−intersection，IoU∈[0,1]。G4 输出 JSONL 的每个 map 有原/新增全部字段，summary 的分组 n 与逐图记录一致；固定图及汇总图存在。G5 旧 Core30Hit 输出可作为宽松对照保留，但不得覆盖/解释为新 IoU 输出，旧错误 reference-head 结果仍无效。",
+    "expected_outcome": "该修订将产生比 Core30Hit 更不易饱和的空间贴合读出。允许 Largest4NIoU 很低、最大块未命中、组间无差/反向或所有角色仍饱和；结果只如实报告，不以任何结果改动冻结集合或阈值。",
+    "acceptance_criteria": "审核通过并受管运行后：summary 写明 schema、上游 hashes、canonical heads、S30/4-neighborhood/tie-break 定义；per_image JSONL 对每个角色、单 head、Top3/5 含所有新增 token count、hit、IoU 字段；all 与 frozen heldout 各 role×outcome×head/ensemble 同时报 Core30Hit 与 Largest4NHit 的 n/hits/rate、S30IoU/Largest4NIoU 分布汇总；overview/fixed panels 可读取；focused test suite 通过；无 model load/new generation/head or sample reselection。",
+    "dependencies": "R-003 actual roles.query_heads.fixed_heads 和 R-006 actual discovery.fixed_heads 是唯一名单authority；此前审批文字中的另一reference名单无效。",
+    "limitations": "Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.",
+    "claim_boundary": "仅为冻结 attention artifacts 上的离线、观察性、二值 token-grid 空间读出。S30IoU 与 Largest4NIoU 不等于像素分割 IoU、严格 argmax pointing 或模型实际定位准确率；correct/error 分层不证明 head 导致预测、identity matching/routing 或因果必要性。",
+    "audit_paths": "inputs=R-001 records.json/artifacts；head authority=R-003 analysis/summary.json+manifests/subsets.json、R-006 analysis/summary.json；implementation=mechanism/iplocid/iplocid/pipelines/outcome_stratified_core30.py；tests=mechanism/iplocid/tests/test_e010_r007.py；new outputs=R-007 analysis/summary.json、analysis/per_image_core30.jsonl、metrics.json、visualizations/overview_all.png、overview_heldout.png、fixed_cases_correct.png、fixed_cases_error.png。",
+    "status": "analysis_pending",
+    "workspace_id": "02",
+    "git_commit": "a5ba066",
+    "config": "",
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json\n/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+    "tmux_session": "",
+    "seed": "20260828",
+    "group_id": "",
+    "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+    "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+    "metric_plan": "每 map 取 k=ceil(0.30×visual-token-count) 个 S30 token，按 attention 降序并以 flattened token index stable tie-break；G 为 occupancy>0 的二值 GT token mask。保留宽松 Core30Hit=1[S30∩G非空] 与 Top3/Top5 每图 hit-head count、any-hit、majority-hit。新增完整 S30 binary token-grid IoU=|S30∩G|/|S30∪G|。将 S30 以上下左右 4-邻接划分连通块，Cmax 为 token 数最大的块；并列时取块内最小 flattened token index 最小者。新增 Largest4NHit=1[Cmax∩G非空] 与 Largest4NIoU=|Cmax∩G|/|Cmax∪G|。逐图记录 S30/GT/Cmax sizes、S30/Cmax intersection 与 union token counts、IoUs；按 role×all/heldout×correct/error×单head/Top3/Top5 报 n、Core30Hit/Largest4NHit hits/rate，以及 S30IoU/Largest4NIoU mean、median、q25、q75。汇总图标注分母/命中；fixed panels 显示白=S30、橙=Cmax、绿=G。按 sequence bootstrap 输出 correct−error 差异的 95% CI；binary token-grid IoU 不等同像素IoU、fractional occupancy 或 strict argmax pointing。",
+    "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+    "created_by": "terminal_pi",
+    "id": "E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+    "experiment_id": "E-010",
+    "workflow_version": 2,
+    "workflow_stage": "analysis_pending",
+    "review_status": "approved",
+    "review_round": 2,
+    "created": "2026-08-28T15:33:07",
+    "updated": "2026-08-29T19:49:39",
+    "organization_snapshot": {
+      "time": "2026-08-28T15:33:07",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ac71a4c5bd2c5f3d0a8c"
+    },
+    "approved_at": "2026-08-29T19:44:47.723999",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+      "artifact_dir": "",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+      "config": "",
+      "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+      "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+      "git_commit": "a5ba066",
+      "group_id": "",
+      "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+      "implementation_ref": null,
+      "launcher": null,
+      "log_path": "",
+      "metric_plan": "每 map 取 k=ceil(0.30×visual-token-count) 个 S30 token，按 attention 降序并以 flattened token index stable tie-break；G 为 occupancy>0 的二值 GT token mask。保留宽松 Core30Hit=1[S30∩G非空] 与 Top3/Top5 每图 hit-head count、any-hit、majority-hit。新增完整 S30 binary token-grid IoU=|S30∩G|/|S30∪G|。将 S30 以上下左右 4-邻接划分连通块，Cmax 为 token 数最大的块；并列时取块内最小 flattened token index 最小者。新增 Largest4NHit=1[Cmax∩G非空] 与 Largest4NIoU=|Cmax∩G|/|Cmax∪G|。逐图记录 S30/GT/Cmax sizes、S30/Cmax intersection 与 union token counts、IoUs；按 role×all/heldout×correct/error×单head/Top3/Top5 报 n、Core30Hit/Largest4NHit hits/rate，以及 S30IoU/Largest4NIoU mean、median、q25、q75。汇总图标注分母/命中；fixed panels 显示白=S30、橙=Cmax、绿=G。按 sequence bootstrap 输出 correct−error 差异的 95% CI；binary token-grid IoU 不等同像素IoU、fractional occupancy 或 strict argmax pointing。",
+      "metrics_path": null,
+      "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+      "output_dir": "",
+      "project_dir": null,
+      "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+      "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+      "run_type": "analysis",
+      "seed": "20260828",
+      "server_id": null,
+      "tmux_session": "",
+      "trial_manifest": null,
+      "trial_plan": null,
+      "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+      "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+      "workspace_id": "02"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-08-28T15:59:21.189327",
+        "action": "direct-steward",
+        "from": "code_planning",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-28T16:12:39",
+        "action": "mark-failed",
+        "from": "analysis_pending",
+        "to": "failed",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-28T16:34:21.135006",
+        "action": "direct-steward",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-28T16:47:12",
+        "action": "mark-failed",
+        "from": "analysis_pending",
+        "to": "failed",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-28T17:12:09",
+        "action": "request-changes",
+        "actor": "human:web-v2",
+        "to": "failed"
+      },
+      {
+        "time": "2026-08-28T17:12:12.032419",
+        "action": "direct-steward",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-28T17:15:34",
+        "action": "human-mark-execution-failed",
+        "from": "ready_to_run",
+        "to": "failed",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-55b48346dafbc7abaab005ff",
+        "reason": "1"
+      },
+      {
+        "time": "2026-08-28T17:15:45",
+        "action": "request-changes",
+        "actor": "human:web-v2",
+        "to": "failed"
+      },
+      {
+        "time": "2026-08-29T14:21:25.774548",
+        "action": "direct-steward",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T14:22:19",
+        "action": "human-mark-execution-failed",
+        "from": "ready_to_run",
+        "to": "failed",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-0bb2e18e3b201871ab84bd09",
+        "reason": "代码有问题"
+      },
+      {
+        "time": "2026-08-29T14:22:27",
+        "action": "request-changes",
+        "actor": "human:web-v2",
+        "to": "failed"
+      },
+      {
+        "time": "2026-08-29T14:23:30.954254",
+        "action": "direct-steward",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T14:26:08",
+        "action": "retry-execution",
+        "from": "failed",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+        "reason": "Applied bounded code repair for the failed local summary-path shadowing defect. Verification: py_compile, 3 focused tests, and the corrected complete offline run passed with canonical head assertions. Retry same approved snapshot."
+      },
+      {
+        "time": "2026-08-29T19:17:50",
+        "action": "mark-failed",
+        "from": "analysis_pending",
+        "to": "failed",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T19:33:30",
+        "action": "reopen-design",
+        "from": "failed",
+        "to": "research_design",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T19:34:25",
+        "action": "reopen-design",
+        "from": "research_design",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:35:32",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:35:33",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:35:33",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-29T19:41:36.387850",
+        "action": "direct-steward",
+        "from": "awaiting_review",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T19:42:01",
+        "action": "human-mark-execution-failed",
+        "from": "ready_to_run",
+        "to": "failed",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-cabea4f37a444577f06db6fa",
+        "reason": "1"
+      },
+      {
+        "time": "2026-08-29T19:42:12",
+        "action": "request-changes",
+        "actor": "human:web-v2",
+        "to": "failed"
+      },
+      {
+        "time": "2026-08-29T19:43:09",
+        "action": "reopen-design",
+        "from": "failed",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:43:09",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:43:09",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-29T19:43:10",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-29T19:44:47.723999",
+        "action": "direct-steward",
+        "from": "awaiting_review",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-29T19:47:44",
+        "action": "retry-execution",
+        "from": "ready_to_run",
+        "to": "ready_to_run",
+        "actor": "pi-steward",
+        "dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+        "reason": "Focused verification found an implementation-only Python scope defect before managed start: run() assigns a local variable named metrics at the end, shadowing the metrics() helper and raising UnboundLocalError at the first per-head call. Changed evidence: py_compile and 5 unit tests pass, but complete offline dry run fails deterministically at outcome_stratified_core30.py line 109. Repair will rename the output dict, rerun the approved checks, then start through this same managed dispatch."
+      }
+    ],
+    "review_history": [
+      {
+        "time": "2026-08-28T15:59:21.189327",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "审批后在IPLoc现有attention analysis包增加纯离线outcome-stratified core-support汇总入口，复用R-003 artifact reader、R-006 manifest reader与公共GT occupancy；只新增最小配置和launcher，不复制模型runner、不加载模型、不改上游artifact。",
+          "artifact_dir": "",
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": "",
+          "data_definition": "只读复用R-003的140条IPLoc-ID positive自然回答及对应自然Query-bbox p−1 rows的q_to_q/q_to_r attention artifacts、Reference/Query token grids与GT occupancy；沿用R-003已有自然预测correct/error标签及其原始判定，不重新生成、不teacher-force、不改阈值。主表覆盖全部有可核验自然结果与双图artifact的记录，并同时单列R-003的70条selection-held-out evaluation；任何other/unparsed/partial标签单列，不并入correct或error。训练暴露未知。",
+          "data_scale": "最多140条既有记录；角色为reference与query，结局为correct与error，head集合为各自Frozen Top3/Top5。输出每个固定head、Top3等权ensemble、Top5等权ensemble的图片数分母、命中数与命中率；若有效分母不足140，必须逐原因列出。",
+          "git_commit": "",
+          "group_id": "",
+          "hypothesis": "若两类head确与自然定位成功相关，则correct组的逐head与ensemble core30 pointing-hit图片比例应高于error组；若reference只在总体上可读但与预测结果弱相关，则reference组间差可能小，而query heads可能仍有明显差异。任一方向均完整报告，不以结果重选head。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标core30 pointing-hit：对每个非负有限attention map按值从高到低排序，确定性取ceil(0.30×该图有效visual-token数)个token作为核心支持集；并列按token index稳定断开，使选中数严格等于k。若核心支持集与对应GT fractional occupancy中occupancy>0的token至少有一个交集则hit=1。分别报告reference/query×correct/error的n、hits、rate及逐head表；Top3/Top5 ensemble先对各head的归一化map等权平均再取core30。附带报告每图命中head数、至少1个head命中的图片数、过半head命中的图片数及correct-error rate difference的sequence bootstrap 95% CI。这里30%指token数量比例，不是累计attention质量30%，也不等同于argmax pointing或S50。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，把固定reference heads与query heads分别按自然预测正确/错误分层，统计每个head及固定head集合在多少张Reference图或Query图上命中GT。该统计直接回答两类head的逐图覆盖是否随预测结果变化，避免只看总体平均。",
+          "research_question": "复用R-003与R-006的可靠结果时，固定reference heads和query heads在模型自然预测正确与错误的图片中，各有多少张图的前30%核心注意力token触及对应GT物体？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "固定行位置、样本、attention map与head名单，只改变图像key span对应的角色和自然预测结果分层。Reference head在q_to_r map上对Reference GT计分；Query head在q_to_q map上对Query GT计分。correct/error不参与head选择；同时报告Top3/Top5、单head和ensemble，避免集合平均掩盖单head差异。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-28T16:34:21.135006",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 rows、samples、artifacts、outcome thresholds 与 head 名单；Reference Top3=L18H05/L12H00/L20H12，Top5 加 L7H25/L20H15；Query Top3=L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10。R→R=reference heads/q_to_r/Reference GT；Q→Q=query heads/q_to_q/Query GT；Q→R=query heads/q_to_r/Reference GT。ensemble 对每 head 非负归一化 map 等权平均后再取 core30。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-28T17:12:09",
+        "action": "request_changes",
+        "actor": "human:web-v2",
+        "requirements": "严格按照 003 006T3的结果选择",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 rows、samples、artifacts、outcome thresholds 与 head 名单；Reference Top3=L18H05/L12H00/L20H12，Top5 加 L7H25/L20H15；Query Top3=L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10。R→R=reference heads/q_to_r/Reference GT；Q→Q=query heads/q_to_q/Query GT；Q→R=query heads/q_to_r/Reference GT。ensemble 对每 head 非负归一化 map 等权平均后再取 core30。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-28T17:12:12.032419",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 rows、samples、artifacts、outcome thresholds 与 head 名单；Reference Top3=L18H05/L12H00/L20H12，Top5 加 L7H25/L20H15；Query Top3=L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10。R→R=reference heads/q_to_r/Reference GT；Q→Q=query heads/q_to_q/Query GT；Q→R=query heads/q_to_r/Reference GT。ensemble 对每 head 非负归一化 map 等权平均后再取 core30。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-28T17:15:45",
+        "action": "request_changes",
+        "actor": "human:web-v2",
+        "requirements": "严格按照 003 006T3的结果选择",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 rows、samples、artifacts、outcome thresholds 与 head 名单；Reference Top3=L18H05/L12H00/L20H12，Top5 加 L7H25/L20H15；Query Top3=L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10。R→R=reference heads/q_to_r/Reference GT；Q→Q=query heads/q_to_q/Query GT；Q→R=query heads/q_to_r/Reference GT。ensemble 对每 head 非负归一化 map 等权平均后再取 core30。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T14:21:25.774548",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结R-003实际query sets与R-006实际reference sets：R→R使用R-006 Top3=L18H05/L20H12/L20H15、Top5加L20H08/L14H02；Q→Q及Q→R使用R-003 Top3=L20H15/L24H16/L25H10、Top5加L15H13/L21H10。运行前从summary读取并精确断言名单/hash。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T14:22:27",
+        "action": "request_changes",
+        "actor": "human:web-v2",
+        "requirements": "修改",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads读取R-006用户选定T-003 Frozen Top3=L18H05,L12H00,L20H12及Top5再加L7H25,L20H15；Query heads从R-003冻结selection manifest及哈希读取，禁止手工替换或在本Run按GT/结果重选。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结R-003实际query sets与R-006实际reference sets：R→R使用R-006 Top3=L18H05/L20H12/L20H15、Top5加L20H08/L14H02；Q→Q及Q→R使用R-003 Top3=L20H15/L24H16/L25H10、Top5加L15H13/L21H10。运行前从summary读取并精确断言名单/hash。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T14:23:30.954254",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "在现有纯离线 R-007 pipeline 上最小扩展：新增 Q→R 固定 query-head 角色、全140与 R-003-held-out 分层汇总、逐图 JSONL/recomputable records，以及 matplotlib 总览与固定样本面板入口。复用 artifact reader/occupancy；不复制模型 runner、不加载模型、不修改 R-003/R-006 upstream artifact。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "最多 140 条既有 record；3 个角色×2 个结局×每个固定单 head、Top3、Top5 ensemble。每个 cell 均报告 n、hits、core30 hit rate，并给出 all-records 与 selection-held-out 两套汇总。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "若 query heads 与自然 Query-side localization 相关，Q→Q 的 correct 命中率可能高于 error；Q→R 可以与 Q→Q 相同、较弱或反向，均完整报告。R→R 作为固定 reference-head 基线。三角色均不参与 head 选择。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在不重新挑头、不重跑模型的前提下，使用固定的 reference heads 与 query heads，把自然 Query-bbox p−1 rows 的三种预注册读出按自然预测 correct/error 分层：R→R（reference heads 的 q_to_r→Reference GT）、Q→Q（query heads 的 q_to_q→Query GT）、Q→R（query heads 的 q_to_r→Reference GT）。统计单 head 与固定 Top3/Top5 ensemble 的 core30 token 命中，并交付同图汇总和多张固定样本可视化。",
+          "research_question": "固定 reference heads 与 query heads 在 R→R、Q→Q、Q→R 三种图像-span/GT 配对下的 core30 命中率，是否随自然预测 correct/error 发生变化；query heads 跨到 Reference 图时的逐图覆盖相对其 Query 图覆盖如何？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结R-003实际query sets与R-006实际reference sets：R→R使用R-006 Top3=L18H05/L20H12/L20H15、Top5加L20H08/L14H02；Q→Q及Q→R使用R-003 Top3=L20H15/L24H16/L25H10、Top5加L15H13/L21H10。运行前从summary读取并精确断言名单/hash。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T19:35:33",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+          "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T19:41:36.387850",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+          "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T19:42:12",
+        "action": "request_changes",
+        "actor": "human:web-v2",
+        "requirements": "1",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "主指标：每 map 取 k=ceil(0.30×有效 visual token 数)，按 attention 降序并以 token index stable tie-break 的 S30；S30 与 occupancy>0 的 GT token 有交集即 Core30Hit=1。每个角色×correct/error×单 head/Top3/Top5 报告 n、hits、rate；ensemble 同时报每图 hit-head count、any-hit 与 majority-hit 的 hits/rate。汇总图展示三角色×两组的 Top3/Top5 hit rate（含分母/命中数）；按 sequence bootstrap 报 correct−error rate difference 95% CI。补充同一 Query-head 集合 Q→Q 与 Q→R 的 paired per-image hit transition 表。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+          "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T19:43:10",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "每 map 取 k=ceil(0.30×visual-token-count) 个 S30 token，按 attention 降序并以 flattened token index stable tie-break；G 为 occupancy>0 的二值 GT token mask。保留宽松 Core30Hit=1[S30∩G非空] 与 Top3/Top5 每图 hit-head count、any-hit、majority-hit。新增完整 S30 binary token-grid IoU=|S30∩G|/|S30∪G|。将 S30 以上下左右 4-邻接划分连通块，Cmax 为 token 数最大的块；并列时取块内最小 flattened token index 最小者。新增 Largest4NHit=1[Cmax∩G非空] 与 Largest4NIoU=|Cmax∩G|/|Cmax∪G|。逐图记录 S30/GT/Cmax sizes、S30/Cmax intersection 与 union token counts、IoUs；按 role×all/heldout×correct/error×单head/Top3/Top5 报 n、Core30Hit/Largest4NHit hits/rate，以及 S30IoU/Largest4NIoU mean、median、q25、q75。汇总图标注分母/命中；fixed panels 显示白=S30、橙=Cmax、绿=G。按 sequence bootstrap 输出 correct−error 差异的 95% CI；binary token-grid IoU 不等同像素IoU、fractional occupancy 或 strict argmax pointing。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+          "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-29T19:44:47.723999",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "最小扩展既有 mechanism/iplocid 的 outcome_stratified_core30 离线 pipeline：实现可单测的 4-邻域 connected-components 与确定性最大块选择；在单 head 与 ensemble map 处产生 S30/GT 的二值 token-grid overlap/union/IoU 和最大块字段；扩展 JSONL、summary aggregation、metrics、overview 和 fixed-case panels。固定图仍显示 attention heatmap，白色轮廓=S30、橙色轮廓=Cmax、绿色轮廓=G，并显示 S30IoU/Largest4NIoU、hit、token counts。只读复用 artifacts/occupancy，不修改 R-001/R-003/R-006，不复制或调用模型 runner。",
+          "artifact_dir": "",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r007.sh",
+          "config": "",
+          "data_definition": "只读复用 R-003/R-006 所核验的 R-001 140 条 natural positive attention artifacts、自然 response/IoU 标签、Reference/Query grids 与 fractional GT occupancy；不生成、不 teacher-force、不改自然判定。correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；IoU∈[0.1,0.7)、nonpositive、缺失/不可解析均显式单列，绝不混入 correct/error。同步报告全140与 R-003 frozen 70 条 selection-held-out 子集。",
+          "data_scale": "固定最多 140 条既有 R-001 records；correct=positive 且 IoU≥0.7，error=positive 且 IoU<0.1；nonpositive、IoU∈[0.1,0.7)、缺失/不可解析显式排除。三角色×两结局×单 head/固定 Top3/Top5，分别在 all-140 与 R-003 frozen selection-held-out 70 条子集上统计。每个有效 map 输出原 Core30Hit、S30IoU、Largest4NHit、Largest4NIoU 及连通块/交并 token counts。",
+          "git_commit": "a5ba066",
+          "group_id": "",
+          "hypothesis": "相比现有任一 S30 token 与 GT 相交的宽松 Core30Hit，最大 4-邻域块的 IoU/Hit 将更严格地惩罚零散小岛与宽支持集；Q→Q 的 correct/error 差异可能更清楚、减弱、消失或反向，R→R/Q→R 也完整报告。所有方向均可接受，新增指标不参与 head、样本、阈值或 outcome 重选。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "",
+          "metric_plan": "每 map 取 k=ceil(0.30×visual-token-count) 个 S30 token，按 attention 降序并以 flattened token index stable tie-break；G 为 occupancy>0 的二值 GT token mask。保留宽松 Core30Hit=1[S30∩G非空] 与 Top3/Top5 每图 hit-head count、any-hit、majority-hit。新增完整 S30 binary token-grid IoU=|S30∩G|/|S30∪G|。将 S30 以上下左右 4-邻接划分连通块，Cmax 为 token 数最大的块；并列时取块内最小 flattened token index 最小者。新增 Largest4NHit=1[Cmax∩G非空] 与 Largest4NIoU=|Cmax∩G|/|Cmax∪G|。逐图记录 S30/GT/Cmax sizes、S30/Cmax intersection 与 union token counts、IoUs；按 role×all/heldout×correct/error×单head/Top3/Top5 报 n、Core30Hit/Largest4NHit hits/rate，以及 S30IoU/Largest4NIoU mean、median、q25、q75。汇总图标注分母/命中；fixed panels 显示白=S30、橙=Cmax、绿=G。按 sequence bootstrap 输出 correct−error 差异的 95% CI；binary token-grid IoU 不等同像素IoU、fractional occupancy 或 strict argmax pointing。",
+          "metrics_path": null,
+          "model_config": "不加载模型；严格复用R-003自然回答与attention artifacts。Reference heads唯一读取R-006实际完成summary.discovery.fixed_heads：Top3=L18H05,L20H12,L20H15，Top5=L18H05,L20H12,L20H15,L20H08,L14H02。Query heads唯一读取R-003实际完成summary.roles.query_heads.fixed_heads：Top3=L20H15,L24H16,L25H10，Top5=L20H15,L24H16,L25H10,L15H13,L21H10。运行前对R-003/R-006 summary SHA-256和上述完整名单作精确断言，禁止手工替换、重选或使用旧R-007错误名单。",
+          "output_dir": "",
+          "project_dir": null,
+          "purpose": "在保持 R-003/R-006 canonical frozen head sets、140 条既有自然 attention artifacts、自然 outcome 与三种 R→R/Q→Q/Q→R 读出不变的前提下，扩展离线空间评价，避免 Core30Hit 的“任意一个零散 token 接触 GT”饱和。新增完整 S30 与最大 4-邻域连通块的 binary token-grid IoU 及 hit，并以逐图字段和固定图直接审计主 attention 块是否覆盖 GT。",
+          "research_question": "在冻结 reference/query heads 的 R→R、Q→Q、Q→R 注意力图中，correct/error 的差异在完整 S30 token-grid IoU、S30 最大 4-邻域连通块 IoU 与最大块命中率上是否仍存在；最大 attention 连通块是否真正覆盖对应 GT，而不是仅由零散 token 接触造成 Core30Hit？",
+          "run_type": "analysis",
+          "seed": "20260828",
+          "server_id": null,
+          "tmux_session": "",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "冻结 R-003 actual Query heads：Top3 L20H15/L24H16/L25H10，Top5 加 L15H13/L21H10；冻结 R-006 actual Reference heads：Top3 L18H05/L20H12/L20H15，Top5 加 L20H08/L14H02。沿用同一自然 Query-bbox p−1 rows、同一 q_to_q/q_to_r arrays、同一 R→R/Q→Q/Q→R role→GT pairing、同一 outcome cutoffs、同一 all/heldout split、同一等权归一化 ensemble。运行前仍精确断言 R-003/R-006 summary SHA-256 和完整名单；绝不加载模型、重跑 generation、teacher-force、重选 heads/样本或改 S30=30% token-count 定义。",
+          "variant": "答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "workspace_id": "02"
+        }
+      }
+    ],
+    "steward_summary": {
+      "execution_completed_at": "2026-08-29T19:49:39",
+      "evidence": {
+        "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      },
+      "note": "程序已结束，等待科研结果分析"
+    },
+    "metric_observations": [],
+    "auxiliary_metric_observations": [
+      {
+        "metric_id": "r_to_r_top3_correct_largest4n_iou_mean",
+        "value": 0.36058747523893553,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "r_to_r_top3_error_largest4n_iou_mean",
+        "value": 0.16919776721755234,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "r_to_r_top5_correct_largest4n_iou_mean",
+        "value": 0.3298019492671173,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "r_to_r_top5_error_largest4n_iou_mean",
+        "value": 0.14879680072524257,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_q_top3_correct_largest4n_iou_mean",
+        "value": 0.38046908856830985,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_q_top3_error_largest4n_iou_mean",
+        "value": 0.11426087351208374,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_q_top5_correct_largest4n_iou_mean",
+        "value": 0.3490820476220115,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_q_top5_error_largest4n_iou_mean",
+        "value": 0.10978292893992303,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_r_top3_correct_largest4n_iou_mean",
+        "value": 0.23599643376158375,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_r_top3_error_largest4n_iou_mean",
+        "value": 0.14114599292081512,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_r_top5_correct_largest4n_iou_mean",
+        "value": 0.2900314593358643,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      },
+      {
+        "metric_id": "q_to_r_top5_error_largest4n_iou_mean",
+        "value": 0.15717360764701116,
+        "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json"
+      }
+    ],
+    "key_results": [],
+    "result_analysis": "Managed execution exited successfully with 0 declared and 12 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft.",
+    "review_requirements": "1",
+    "automation_policy": {
+      "mode": "careful",
+      "allowed_code_roots": [],
+      "test_commands": [],
+      "max_repairs": 3,
+      "time_budget_minutes": 30,
+      "auto_rerun": true,
+      "install_declared_dependencies": false,
+      "dependency_files": [],
+      "prohibited_actions": [
+        "修改 Workspace",
+        "修改数据 manifest",
+        "修改 head、指标、样本或假设",
+        "创建替代 Conda 环境",
+        "使用旧环境路径"
+      ]
+    },
+    "review_questions": "",
+    "revision_history": [
+      {
+        "time": "2026-08-29T19:17:50",
+        "action": "results-unsatisfactory",
+        "actor": "human:web-v2",
+        "prior_dispatch_id": "dispatch-5462a11c1d51c5de5ca279dd",
+        "prior_approved_at": "2026-08-29T14:23:30.954254",
+        "prior_authorization_timestamp": "2026-08-29T14:23:30.954254"
+      }
+    ],
+    "submitted_for_review_at": "2026-08-29T19:43:10",
+    "execution_authorized_at": "2026-08-29T19:44:47.723999",
+    "execution_authorized_by": "human:web-v2",
+    "execution_authorization_note": "用户直接交给 Steward；当前快照即本次执行边界",
+    "authorized_workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+    "execution_dispatch_latest_status": "completed",
+    "execution_authorization_consumed_at": "2026-08-29T19:48:37",
+    "execution_dispatch_id": "dispatch-1e7a58d6828405681174dbc1",
+    "execution_dispatch_completed_at": "2026-08-29T19:49:39",
+    "execution_dispatch_completion_evidence": {
+      "log": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/metrics.json",
+      "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+    }
+  },
+  {
+    "id": "E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "experiment_id": "E-010",
+    "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+    "run_type": "analysis",
+    "workspace_id": "02",
+    "created": "2026-08-29T20:23:47",
+    "created_by": "terminal_pi",
+    "workflow_version": 2,
+    "status": "approved",
+    "workflow_stage": "awaiting_review",
+    "review_status": "pending_review",
+    "review_requirements": "1",
+    "review_questions": "",
+    "updated": "2026-08-30T23:27:48",
+    "review_history": [
+      {
+        "time": "2026-08-30T16:02:53",
+        "action": "discard-rejected-spec",
+        "actor": "human:explicit-discard",
+        "reason": "用户明确否决此前全部规格；旧内容不得恢复、引用或推断。等待从最新用户要求重新登记 canonical。",
+        "discarded_snapshot_count": 0,
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-08-30T16:15:35.110541",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": null,
+          "artifact_dir": null,
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": null,
+          "data_definition": null,
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": null,
+          "hypothesis": null,
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": null,
+          "metric_plan": null,
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": null,
+          "project_dir": null,
+          "purpose": null,
+          "research_question": null,
+          "run_type": "experiment_code_edit",
+          "seed": null,
+          "server_id": null,
+          "tmux_session": null,
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": null,
+          "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-30T16:15:44",
+        "action": "request_changes",
+        "actor": "human:web-v2",
+        "requirements": "1",
+        "questions": "",
+        "snapshot": {
+          "architecture_plan": null,
+          "artifact_dir": null,
+          "command": "<PI_STEWARD_PREPARE_RUNTIME_COMMAND>",
+          "config": null,
+          "data_definition": null,
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": null,
+          "hypothesis": null,
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": null,
+          "metric_plan": null,
+          "metrics_path": null,
+          "model_config": null,
+          "output_dir": null,
+          "project_dir": null,
+          "purpose": null,
+          "research_question": null,
+          "run_type": "experiment_code_edit",
+          "seed": null,
+          "server_id": null,
+          "tmux_session": null,
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": null,
+          "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-30T16:33:41",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:38f4884ea547b8d9d6d5228dc403ad82fb00f7ffdc02edf2a533a17d00a6424f",
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-08-30T16:53:35.456846",
+        "action": "direct-steward",
+        "actor": "human:web-v2",
+        "snapshot": {
+          "architecture_plan": "远端公共入口为mechanism/iplocid/iplocid/pipelines/full_lasot_role_audit.py；配置=mechanism/iplocid/configs/e010_r008.json；launcher=mechanism/iplocid/tools/run_e010_r008_full_lasot.sh；测试=mechanism/iplocid/tests/test_e010_r008.py。该入口只实现冻结R-003 Query Top-5的完整LaSOT Q→Q/Q→R审计，不导入旧E008 G/L role-audit集合或reference heads。",
+          "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r008_full_lasot.sh",
+          "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r008.json",
+          "data_definition": "完整LaSOT n=1400（70类×20 sequence）。先自然生成Query bbox，再仅对同一自然response精确对齐的样本exact replay；每类按确定性hash切分10条evaluation与10条non-evaluation。correct=positive且natural IoU≥0.7；error=positive且natural IoU<0.1；middle、No/nonpositive、unparsed与replay failure单列分母。",
+          "data_scale": null,
+          "git_commit": null,
+          "group_id": null,
+          "hypothesis": "若R-007的Query-head信号可推广，则evaluation 700条中冻结Top-5在Q→Q或Q→R的空间指标及correct−error差异将优于层匹配随机与all-head mean；若无优势或差异不稳，则完整数据不支持该冻结Query-head readout。",
+          "implementation_ref": null,
+          "launcher": null,
+          "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/logs/train.log",
+          "metric_plan": "逐head和冻结Top-5等权ensemble，在Q→Q与Q→R报告pointing、fractional mass、enrichment、S50 fIoU、Core30Hit、S30IoU、Largest4NHit、Largest4NIoU；primary为evaluation 700条的sequence-bootstrap correct−error 95% CI，all1400仅描述性，并与layer-matched random及all-head mean比较。",
+          "metrics_path": null,
+          "model_config": "Qwen3-VL-8B-Instruct加IPLoc-ID LoRA，既有IPLoc prompt/processor，bf16 eager attention，max_side=640；自然阶段贪婪生成，replay使用同一完整自然response。",
+          "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/outputs",
+          "project_dir": null,
+          "purpose": "将R-007的冻结Query Top-5、自然outcome分层和空间读出从既有140条扩展到完整LaSOT。比较Q→Q与Q→R，排除小样本、旧reference-head集合和E008 role-audit混入造成的错误解释。",
+          "research_question": "在完整LaSOT 1400条sequence的自然Query bbox生成与exact replay中，R-003冻结Query Top-5在Q→Q和Q→R空间读出上，correct与error是否仍存在差异，并是否优于同层随机与all-head mean？",
+          "run_type": "analysis",
+          "seed": null,
+          "server_id": null,
+          "tmux_session": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "trial_manifest": null,
+          "trial_plan": null,
+          "variables_controls": "唯一冻结head集合为R-003 actual Query Top-5：L20H15/L24H16/L25H10/L15H13/L21H10。仅审计自然Query-bbox p−1 rows到Query span(Q→Q)和Reference span(Q→R)；不使用reference heads、G/L集合、E008 role audit、GT进行生成或head重选。Top-5等权归一化；对照为层组成匹配的随机Top-5与all-head mean。",
+          "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "workspace_id": "02"
+        }
+      },
+      {
+        "time": "2026-08-30T23:27:48",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:25822e67f59bac404368acafb119879588ad53bd239ab9a1a58d1617e331a6c2",
+        "snapshot_content_retained": false
+      }
+    ],
+    "workflow_history": [
+      {
+        "time": "2026-08-30T16:02:53",
+        "action": "discard-rejected-spec",
+        "actor": "human:explicit-discard",
+        "to": "research_design",
+        "reason": "用户明确否决此前全部规格；旧内容不得恢复、引用或推断。等待从最新用户要求重新登记 canonical。"
+      },
+      {
+        "time": "2026-08-30T16:15:35.110541",
+        "action": "direct-steward",
+        "from": "research_design",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-30T16:15:39",
+        "action": "human-mark-execution-failed",
+        "from": "ready_to_run",
+        "to": "failed",
+        "actor": "human:web-v2",
+        "dispatch_id": "dispatch-b743c3bf41d9ddd9f63d2283",
+        "reason": "1"
+      },
+      {
+        "time": "2026-08-30T16:15:44",
+        "action": "request-changes",
+        "actor": "human:web-v2",
+        "to": "failed"
+      },
+      {
+        "time": "2026-08-30T16:28:55",
+        "action": "reopen-design",
+        "from": "failed",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T16:28:55",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T16:33:41",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T16:33:41",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-08-30T16:53:35.456846",
+        "action": "direct-steward",
+        "from": "awaiting_review",
+        "to": "ready_to_run",
+        "actor": "human:web-v2"
+      },
+      {
+        "time": "2026-08-30T23:27:48",
+        "action": "reopen-design",
+        "from": "ready_to_run",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T23:27:48",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T23:27:48",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-08-30T23:27:48",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      }
+    ],
+    "revision_history": [
+      {
+        "time": "2026-08-30T16:02:53",
+        "action": "discard-rejected-spec",
+        "actor": "human:explicit-discard",
+        "reason": "用户明确否决此前全部规格；旧内容不得恢复、引用或推断。等待从最新用户要求重新登记 canonical。",
+        "prior_content_retained": false
+      }
+    ],
+    "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r008_full_lasot.sh",
+    "approved_at": "2026-08-30T16:53:35.456846",
+    "approved_by": "human:web-v2",
+    "approved_spec": {
+      "architecture_plan": "远端公共入口为mechanism/iplocid/iplocid/pipelines/full_lasot_role_audit.py；配置=mechanism/iplocid/configs/e010_r008.json；launcher=mechanism/iplocid/tools/run_e010_r008_full_lasot.sh；测试=mechanism/iplocid/tests/test_e010_r008.py。该入口只实现冻结R-003 Query Top-5的完整LaSOT Q→Q/Q→R审计，不导入旧E008 G/L role-audit集合或reference heads。",
+      "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "command": "cd /defaultShare/archive/liuwenchu/projects/IPLoc && bash mechanism/iplocid/tools/run_e010_r008_full_lasot.sh",
+      "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r008.json",
+      "data_definition": "完整LaSOT n=1400（70类×20 sequence）。先自然生成Query bbox，再仅对同一自然response精确对齐的样本exact replay；每类按确定性hash切分10条evaluation与10条non-evaluation。correct=positive且natural IoU≥0.7；error=positive且natural IoU<0.1；middle、No/nonpositive、unparsed与replay failure单列分母。",
+      "data_scale": null,
+      "git_commit": null,
+      "group_id": null,
+      "hypothesis": "若R-007的Query-head信号可推广，则evaluation 700条中冻结Top-5在Q→Q或Q→R的空间指标及correct−error差异将优于层匹配随机与all-head mean；若无优势或差异不稳，则完整数据不支持该冻结Query-head readout。",
+      "implementation_ref": null,
+      "launcher": null,
+      "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/logs/train.log",
+      "metric_plan": "逐head和冻结Top-5等权ensemble，在Q→Q与Q→R报告pointing、fractional mass、enrichment、S50 fIoU、Core30Hit、S30IoU、Largest4NHit、Largest4NIoU；primary为evaluation 700条的sequence-bootstrap correct−error 95% CI，all1400仅描述性，并与layer-matched random及all-head mean比较。",
+      "metrics_path": null,
+      "model_config": "Qwen3-VL-8B-Instruct加IPLoc-ID LoRA，既有IPLoc prompt/processor，bf16 eager attention，max_side=640；自然阶段贪婪生成，replay使用同一完整自然response。",
+      "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/outputs",
+      "project_dir": null,
+      "purpose": "将R-007的冻结Query Top-5、自然outcome分层和空间读出从既有140条扩展到完整LaSOT。比较Q→Q与Q→R，排除小样本、旧reference-head集合和E008 role-audit混入造成的错误解释。",
+      "research_question": "在完整LaSOT 1400条sequence的自然Query bbox生成与exact replay中，R-003冻结Query Top-5在Q→Q和Q→R空间读出上，correct与error是否仍存在差异，并是否优于同层随机与all-head mean？",
+      "run_type": "analysis",
+      "seed": null,
+      "server_id": null,
+      "tmux_session": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+      "trial_manifest": null,
+      "trial_plan": null,
+      "variables_controls": "唯一冻结head集合为R-003 actual Query Top-5：L20H15/L24H16/L25H10/L15H13/L21H10。仅审计自然Query-bbox p−1 rows到Query span(Q→Q)和Reference span(Q→R)；不使用reference heads、G/L集合、E008 role audit、GT进行生成或head重选。Top-5等权归一化；对照为层组成匹配的随机Top-5与all-head mean。",
+      "variant": "完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+      "workspace_id": "02"
+    },
+    "purpose": "将已完成的完整LaSOT Q→Q/Q→R Query-head审计补全为用户定义的R→R：同一自然Query bbox p−1 rows到Reference image tokens，但使用R-006冻结Reference Top-5。",
+    "necessity": "R-007仅在既有140条artifact上离线统计，无法回答其冻结Query-head readout能否在完整LaSOT自然生成与严格exact replay中复现，也无法以700条evaluation为主要推断单位。",
+    "evidence_basis": "R-007 canonical定义outcome、S30/最大4邻域指标和同层随机/all-head对照；R-003 actual Query Top-5是唯一head authority。",
+    "implementation_summary": "复用已完成R-008的1400 natural response与精确replay行/双图span契约；仅重新执行replay空间评分，新增R→R分支。该分支把R-006固定Reference Top-5应用于同一自然Query-bbox p−1 rows和Reference span，绝不构造Reference bbox rows。",
+    "implementation_details": "远端pipeline full_lasot_role_audit.py schema升级为v2，READOUTS明确q_to_q/q_to_r/r_to_r；config精确记录R-006 authority；每readout独立同层随机种子。输出summary保留row_contract和两套冻结head名单。",
+    "data_definition": "完整LaSOT n=1400（70类×20）；每类deterministic hash 10 evaluation/10 discovery，evaluation=700为主。已完成natural JSONL与exact replay per-image基础产物将作为不可变输入；不重跑生成，不使用Reference bbox token rows。correct=positive且natural IoU≥0.7；error=positive且natural IoU<0.1；middle/nonpositive/unparsed/replay failure分列。",
+    "model_config": "Qwen3-VL-8B-Instruct加IPLoc-ID LoRA，既有IPLoc prompt/processor，bf16 eager attention，max_side=640；自然阶段贪婪生成，replay使用同一完整自然response。",
+    "variables_controls": "三类读出均固定同一自然Query bbox p−1 rows：Q→Q=R-003 Query Top-5到Query span/Query GT；Q→R=同Query Top-5到Reference span/Reference GT；R→R=R-006冻结Reference Top-5(L18H05,L20H12,L20H15,L20H08,L14H02)到Reference span/Reference GT。无Reference-bbox rows、无GT参与自然生成/heads重选。各readout仅和其同层组成匹配random及all-head mean比较。",
+    "metric_definition": "attention map在目标span内归一化。pointing为argmax落入fractional occupancy；mass为attention×occupancy和；enrichment为mass除occupancy平均面积；S50 fIoU为累计50%质量support与fractional occupancy的token-grid IoU。S30取ceil(30% token)且attention降序/flattened index稳定并列规则；Core30Hit为S30与二值GT相交；S30IoU为二值交并比；Largest4N为S30最大上下左右连通块，块大小并列时取最小flattened index，报告其Hit/IoU。correct−error以sequence bootstrap 95% CI。",
+    "integrity_gates": "精确断言R-006 discovery.fixed_heads[5]等于配置Reference Top-5；READOUTS必须包含r_to_r且target=reference；所有readout使用同一natural Query-bbox p−1 replay rows；禁止Reference-bbox rows；1400 natural与1400 replay产物不变、70×20与10/10 split不变、per-image replay/分母守恒。",
+    "expected_outcome": "允许Q→Q或Q→R在correct−error、随机对照或all-head比较上支持、无差或反向；不以结果修改heads、cutoff、split或指标。",
+    "acceptance_criteria": "审核后运行时交付1400 manifest/split哈希、natural JSONL、exact replay failure表、per-image JSONL/maps、evaluation与all1400的Q→Q/Q→R×head/Top-5结果、layer-matched random/all-head对照、bootstrap CI和固定可视化。",
+    "dependencies": "R-003实际完成summary中的Query Top-5为唯一冻结head authority；R-007只提供结果定义，不提供reference-head或旧140条artifact作为输入。",
+    "claim_boundary": "仅评估完整LaSOT上冻结Query-head attention readout与自然outcome的观察性空间关联；不证明因果必要性、identity routing、reference grounding或训练外泛化。",
+    "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r008.json",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/logs/train.log",
+    "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/outputs",
+    "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "tmux_session": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+    "research_question": "在完整LaSOT 1400条自然Query bbox生成与exact replay中，R-003 Query Top-5的Q→Q/Q→R及R-006冻结Reference Top-5的R→R（均使用相同自然Query-bbox p−1 rows）在correct/error之间是否稳定分离，并相对层匹配随机和all-head mean如何？",
+    "hypothesis": "若R-007的Query-head信号可推广，则evaluation 700条中冻结Top-5在Q→Q或Q→R的空间指标及correct−error差异将优于层匹配随机与all-head mean；若无优势或差异不稳，则完整数据不支持该冻结Query-head readout。",
+    "metric_plan": "每个单head与Top-5等权归一化ensemble，在Q→Q/Q→R/R→R报告pointing、fractional mass、enrichment、S50 fIoU、Core30Hit、S30IoU、Largest4NHit、Largest4NIoU；evaluation-700 primary sequence bootstrap correct−error 95% CI，all1400仅描述性；补充R→R相对random/all-head。",
+    "audit_paths": "pipeline=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/full_lasot_role_audit.py；config=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/configs/e010_r008.json；R006-authority=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/analysis/summary.json；base-natural=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/outputs/natural_records.jsonl；tests=/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/tests/test_e010_r008.py",
+    "architecture_plan": "入口=mechanism/iplocid/iplocid/pipelines/full_lasot_role_audit.py；config=mechanism/iplocid/configs/e010_r008.json；launcher=mechanism/iplocid/tools/run_e010_r008_full_lasot.sh；tests=mechanism/iplocid/tests/test_e010_r008.py。最小扩展是在既有natural Query rows的exact-replay中增加R-006冻结Reference Top-5的R→R。",
+    "review_round": 2,
+    "submitted_for_review_at": "2026-08-30T23:27:48"
+  },
+  {
+    "variant": "训练后段 checkpoint 1400 的固定样本 head screening",
+    "run_type": "main",
+    "purpose": "只对 step 1400 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。",
+    "necessity": "单个 checkpoint 的 head 集合无法区分稳定结构与偶然排序；必须沿同一可信父训练轨迹对多个相邻后段 checkpoint 做同协议测量。",
+    "evidence_basis": "只读文件核验确认 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00089539_step_001400/adapter 下存在 adapter_config.json 与非空 adapter_model.safetensors；当前没有 Solid Run，因此这里只作为可执行输入定位，不作为效果证据。",
+    "implementation_summary": "复用 E-009 branch 的 standalone head_screen 动作，加载该 checkpoint 的 adapter，在冻结的 100 行验证 manifest 上一次性采集全部样本；不恢复优化器、不训练、不读取预留测试集。",
+    "implementation_details": "4 个 rank 各处理固定索引切片；probe 使用 teacher_forced_query_bbox_pminus1/v1 row contract，临时 eager attention，仅保存 float16 attention map；finder 同时输出无 GT 的 query R003 集合与使用 reference GT reward 的 T003 reference 集合。跨 checkpoint 稳定性由 tools/analyze_head_stability.py 离线核验样本身份和参数一致后汇总，不能使用单次运行的 stable_candidate。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_fixed100_1shot_focus.json；固定 100 行、target_role=positive-image、prompt_protocol=focus。该 manifest 用于 head 发现/核验，预留 combined test 不参与。",
+    "data_scale": "100 个样本全部使用；4 rank 确定性分片；不做随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 父训练轨迹 step 1400 的 NF4 LoRA adapter；4 GPU DDP 仅用于并行采集；正常模型保持 SDPA，probe forward 临时切 eager attention。",
+    "variables_controls": "五条计划 Run 中唯一变化是 parent_checkpoint；本 Run 固定 step=1400。manifest、100 个样本身份、seed=20260901、row contract、excluded layers、Top-k、finder reward 与 artifact dtype 全部一致。",
+    "metric_definition": "每个 Run 输出 query R003 Top-3/Top-5 与 reference T003 Top-3/Top-5、完整 ranking 和 100 条 probe records。五条 Run 完成后报告相邻 checkpoint Jaccard、相对首 checkpoint 的 exact-match fraction、全 checkpoint 交集/并集和逐 head 出现频率；query 与 reference 分开报告。",
+    "integrity_gates": "运行前 adapter_config.json、adapter_model.safetensors、trainer_state.pt 与 100 行 manifest 均存在；运行后 status=completed、records=100、failures 为空、所有样本身份与另外四条 Run 一致、schema/row contract/head shape/finder parameters 完全相同、Top-3/Top-5 均为唯一合法 head。任一失败则该 checkpoint 不进入稳定性汇总。",
+    "expected_outcome": "得到该 checkpoint 的两类 Top-3/Top-5 集合和完整 ranking，为后续跨 checkpoint 比较提供一个等协议观测点；本 Run 自身不预设其一定稳定。",
+    "acceptance_criteria": "standalone screening 正常完成且 100/100 records 有效；输出 latest.json 可被 analyze_head_stability.py 与其余四条 Run 一起通过 comparability gate。",
+    "dependencies": "依赖其余四条后段 checkpoint screening 使用同一代码快照完成后才能给出跨 checkpoint 稳定性结论；实际 4-GPU 执行需另行人工批准和授权。",
+    "limitations": "teacher-forced attention 排序是描述性、非因果诊断；reference T003 在发现中使用 GT；单一 100 行 manifest 不能证明预留测试集泛化。",
+    "claim_boundary": "只允许判断同一父训练轨迹后五个 checkpoint 在固定验证样本上的 attention head 集合稳定性；不得声称这些 head 具有因果功能、对测试集稳定，或自动决定最佳 checkpoint。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/analyze_head_stability.py; tests/test_analyze_head_stability.py; head_screening/latest.json",
+    "status": "cancelled",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_branch.sh branch.action=head_screen named_run.parent_checkpoint=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00089539_step_001400 named_run.run_name=head-stability-step1400",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "父训练轨迹在 step 1400 保存的 LoRA checkpoint，是否在同一冻结样本集上产生可与相邻后段 checkpoint 直接比较的 query/reference Top-3 与 Top-5 attention head 集合？",
+    "hypothesis": "若训练后段已形成稳定的 attention head 排序，则相邻 checkpoints 的 query/reference Top-3 与 Top-5 集合应保持较高重合；否则集合会持续替换。",
+    "metric_plan": "本 Run 只产生可比较的固定 Top-k 集合和完整性字段；最终稳定性不由单 Run 判定，而由五条 completed 输出经 analyze_head_stability.py 汇总。",
+    "architecture_plan": "复用 configs/sft/e009_qwen3vl8b_1shot_branch.py、tools/run/run_e009_branch.sh 和现有 probe/finder；新增 tools/analyze_head_stability.py 仅做离线集合一致性核验与汇总，不修改训练器。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-002-head-stability-last5",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "research_design",
+    "review_status": "changes_requested",
+    "review_round": 1,
+    "created": "2026-09-01T16:27:29",
+    "updated": "2026-09-01T16:50:43",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:27:29",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-d513212b574ef9f63608"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:27:56",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:28:15",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T16:38:47",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T16:28:15",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:28:15",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:1fa4223d9a134949d56884bb4cfa34cd25f7ce4be15d069d9564ba2d7515009e",
+        "snapshot_content_retained": false
+      }
+    ],
+    "legacy_registry_ids": [
+      "E009-R-002-headscreen-step1400"
+    ],
+    "notes": "Survey Tool 不支持修改既有 Run 标题；为避免 step1400 名称与 suite 内容不一致，本草案取消并由 E009-R-007-head-stability-last5 取代。"
+  },
+  {
+    "variant": "训练后段 checkpoint 1482 的固定样本 head screening",
+    "run_type": "main",
+    "purpose": "只对 step 1482 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。",
+    "necessity": "单个 checkpoint 的 head 集合无法区分稳定结构与偶然排序；必须沿同一可信父训练轨迹对多个相邻后段 checkpoint 做同协议测量。",
+    "evidence_basis": "只读文件核验确认 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00094806_step_001482/adapter 下存在 adapter_config.json 与非空 adapter_model.safetensors；当前没有 Solid Run，因此这里只作为可执行输入定位，不作为效果证据。",
+    "implementation_summary": "复用 E-009 branch 的 standalone head_screen 动作，加载该 checkpoint 的 adapter，在冻结的 100 行验证 manifest 上一次性采集全部样本；不恢复优化器、不训练、不读取预留测试集。",
+    "implementation_details": "4 个 rank 各处理固定索引切片；probe 使用 teacher_forced_query_bbox_pminus1/v1 row contract，临时 eager attention，仅保存 float16 attention map；finder 同时输出无 GT 的 query R003 集合与使用 reference GT reward 的 T003 reference 集合。跨 checkpoint 稳定性由 tools/analyze_head_stability.py 离线核验样本身份和参数一致后汇总，不能使用单次运行的 stable_candidate。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_fixed100_1shot_focus.json；固定 100 行、target_role=positive-image、prompt_protocol=focus。该 manifest 用于 head 发现/核验，预留 combined test 不参与。",
+    "data_scale": "100 个样本全部使用；4 rank 确定性分片；不做随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 父训练轨迹 step 1482 的 NF4 LoRA adapter；4 GPU DDP 仅用于并行采集；正常模型保持 SDPA，probe forward 临时切 eager attention。",
+    "variables_controls": "五条计划 Run 中唯一变化是 parent_checkpoint；本 Run 固定 step=1482。manifest、100 个样本身份、seed=20260901、row contract、excluded layers、Top-k、finder reward 与 artifact dtype 全部一致。",
+    "metric_definition": "每个 Run 输出 query R003 Top-3/Top-5 与 reference T003 Top-3/Top-5、完整 ranking 和 100 条 probe records。五条 Run 完成后报告相邻 checkpoint Jaccard、相对首 checkpoint 的 exact-match fraction、全 checkpoint 交集/并集和逐 head 出现频率；query 与 reference 分开报告。",
+    "integrity_gates": "运行前 adapter_config.json、adapter_model.safetensors、trainer_state.pt 与 100 行 manifest 均存在；运行后 status=completed、records=100、failures 为空、所有样本身份与另外四条 Run 一致、schema/row contract/head shape/finder parameters 完全相同、Top-3/Top-5 均为唯一合法 head。任一失败则该 checkpoint 不进入稳定性汇总。",
+    "expected_outcome": "得到该 checkpoint 的两类 Top-3/Top-5 集合和完整 ranking，为后续跨 checkpoint 比较提供一个等协议观测点；本 Run 自身不预设其一定稳定。",
+    "acceptance_criteria": "standalone screening 正常完成且 100/100 records 有效；输出 latest.json 可被 analyze_head_stability.py 与其余四条 Run 一起通过 comparability gate。",
+    "dependencies": "依赖其余四条后段 checkpoint screening 使用同一代码快照完成后才能给出跨 checkpoint 稳定性结论；实际 4-GPU 执行需另行人工批准和授权。",
+    "limitations": "teacher-forced attention 排序是描述性、非因果诊断；reference T003 在发现中使用 GT；单一 100 行 manifest 不能证明预留测试集泛化。",
+    "claim_boundary": "只允许判断同一父训练轨迹后五个 checkpoint 在固定验证样本上的 attention head 集合稳定性；不得声称这些 head 具有因果功能、对测试集稳定，或自动决定最佳 checkpoint。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/analyze_head_stability.py; tests/test_analyze_head_stability.py; head_screening/latest.json",
+    "status": "cancelled",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_branch.sh branch.action=head_screen named_run.parent_checkpoint=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00094806_step_001482 named_run.run_name=head-stability-step1482",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "父训练轨迹在 step 1482 保存的 LoRA checkpoint，是否在同一冻结样本集上产生可与相邻后段 checkpoint 直接比较的 query/reference Top-3 与 Top-5 attention head 集合？",
+    "hypothesis": "若训练后段已形成稳定的 attention head 排序，则相邻 checkpoints 的 query/reference Top-3 与 Top-5 集合应保持较高重合；否则集合会持续替换。",
+    "metric_plan": "本 Run 只产生可比较的固定 Top-k 集合和完整性字段；最终稳定性不由单 Run 判定，而由五条 completed 输出经 analyze_head_stability.py 汇总。",
+    "architecture_plan": "复用 configs/sft/e009_qwen3vl8b_1shot_branch.py、tools/run/run_e009_branch.sh 和现有 probe/finder；新增 tools/analyze_head_stability.py 仅做离线集合一致性核验与汇总，不修改训练器。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-003-headscreen-step1482",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "research_design",
+    "review_status": "changes_requested",
+    "review_round": 1,
+    "created": "2026-09-01T16:27:29",
+    "updated": "2026-09-01T16:38:57",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:27:29",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-785da322857c8f378eba"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:28:07",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:28:15",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T16:38:47",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T16:28:15",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:28:15",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:045bed53429d39298682552a8eff4067677eb6dc70797ac1c4a89d8d8608a77e",
+        "snapshot_content_retained": false
+      }
+    ],
+    "notes": "用户要求将五个 checkpoint 合并到一个 suite Run；本草案取消并由 E009-R-002-head-stability-last5 取代。"
+  },
+  {
+    "variant": "训练后段 checkpoint 1564 的固定样本 head screening",
+    "run_type": "main",
+    "purpose": "只对 step 1564 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。",
+    "necessity": "单个 checkpoint 的 head 集合无法区分稳定结构与偶然排序；必须沿同一可信父训练轨迹对多个相邻后段 checkpoint 做同协议测量。",
+    "evidence_basis": "只读文件核验确认 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00100073_step_001564/adapter 下存在 adapter_config.json 与非空 adapter_model.safetensors；当前没有 Solid Run，因此这里只作为可执行输入定位，不作为效果证据。",
+    "implementation_summary": "复用 E-009 branch 的 standalone head_screen 动作，加载该 checkpoint 的 adapter，在冻结的 100 行验证 manifest 上一次性采集全部样本；不恢复优化器、不训练、不读取预留测试集。",
+    "implementation_details": "4 个 rank 各处理固定索引切片；probe 使用 teacher_forced_query_bbox_pminus1/v1 row contract，临时 eager attention，仅保存 float16 attention map；finder 同时输出无 GT 的 query R003 集合与使用 reference GT reward 的 T003 reference 集合。跨 checkpoint 稳定性由 tools/analyze_head_stability.py 离线核验样本身份和参数一致后汇总，不能使用单次运行的 stable_candidate。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_fixed100_1shot_focus.json；固定 100 行、target_role=positive-image、prompt_protocol=focus。该 manifest 用于 head 发现/核验，预留 combined test 不参与。",
+    "data_scale": "100 个样本全部使用；4 rank 确定性分片；不做随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 父训练轨迹 step 1564 的 NF4 LoRA adapter；4 GPU DDP 仅用于并行采集；正常模型保持 SDPA，probe forward 临时切 eager attention。",
+    "variables_controls": "五条计划 Run 中唯一变化是 parent_checkpoint；本 Run 固定 step=1564。manifest、100 个样本身份、seed=20260901、row contract、excluded layers、Top-k、finder reward 与 artifact dtype 全部一致。",
+    "metric_definition": "每个 Run 输出 query R003 Top-3/Top-5 与 reference T003 Top-3/Top-5、完整 ranking 和 100 条 probe records。五条 Run 完成后报告相邻 checkpoint Jaccard、相对首 checkpoint 的 exact-match fraction、全 checkpoint 交集/并集和逐 head 出现频率；query 与 reference 分开报告。",
+    "integrity_gates": "运行前 adapter_config.json、adapter_model.safetensors、trainer_state.pt 与 100 行 manifest 均存在；运行后 status=completed、records=100、failures 为空、所有样本身份与另外四条 Run 一致、schema/row contract/head shape/finder parameters 完全相同、Top-3/Top-5 均为唯一合法 head。任一失败则该 checkpoint 不进入稳定性汇总。",
+    "expected_outcome": "得到该 checkpoint 的两类 Top-3/Top-5 集合和完整 ranking，为后续跨 checkpoint 比较提供一个等协议观测点；本 Run 自身不预设其一定稳定。",
+    "acceptance_criteria": "standalone screening 正常完成且 100/100 records 有效；输出 latest.json 可被 analyze_head_stability.py 与其余四条 Run 一起通过 comparability gate。",
+    "dependencies": "依赖其余四条后段 checkpoint screening 使用同一代码快照完成后才能给出跨 checkpoint 稳定性结论；实际 4-GPU 执行需另行人工批准和授权。",
+    "limitations": "teacher-forced attention 排序是描述性、非因果诊断；reference T003 在发现中使用 GT；单一 100 行 manifest 不能证明预留测试集泛化。",
+    "claim_boundary": "只允许判断同一父训练轨迹后五个 checkpoint 在固定验证样本上的 attention head 集合稳定性；不得声称这些 head 具有因果功能、对测试集稳定，或自动决定最佳 checkpoint。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/analyze_head_stability.py; tests/test_analyze_head_stability.py; head_screening/latest.json",
+    "status": "cancelled",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_branch.sh branch.action=head_screen named_run.parent_checkpoint=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00100073_step_001564 named_run.run_name=head-stability-step1564",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "父训练轨迹在 step 1564 保存的 LoRA checkpoint，是否在同一冻结样本集上产生可与相邻后段 checkpoint 直接比较的 query/reference Top-3 与 Top-5 attention head 集合？",
+    "hypothesis": "若训练后段已形成稳定的 attention head 排序，则相邻 checkpoints 的 query/reference Top-3 与 Top-5 集合应保持较高重合；否则集合会持续替换。",
+    "metric_plan": "本 Run 只产生可比较的固定 Top-k 集合和完整性字段；最终稳定性不由单 Run 判定，而由五条 completed 输出经 analyze_head_stability.py 汇总。",
+    "architecture_plan": "复用 configs/sft/e009_qwen3vl8b_1shot_branch.py、tools/run/run_e009_branch.sh 和现有 probe/finder；新增 tools/analyze_head_stability.py 仅做离线集合一致性核验与汇总，不修改训练器。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-004-headscreen-step1564",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "research_design",
+    "review_status": "changes_requested",
+    "review_round": 1,
+    "created": "2026-09-01T16:27:30",
+    "updated": "2026-09-01T16:38:57",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a5be731292b73931ee91"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:28:07",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T16:38:47",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T16:28:16",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:5b17b6a6281a8c7159d7d371675b41596b06931d0158ac82d0613b50d33f8418",
+        "snapshot_content_retained": false
+      }
+    ],
+    "notes": "用户要求将五个 checkpoint 合并到一个 suite Run；本草案取消并由 E009-R-002-head-stability-last5 取代。"
+  },
+  {
+    "variant": "训练后段 checkpoint 1646 的固定样本 head screening",
+    "run_type": "main",
+    "purpose": "只对 step 1646 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。",
+    "necessity": "单个 checkpoint 的 head 集合无法区分稳定结构与偶然排序；必须沿同一可信父训练轨迹对多个相邻后段 checkpoint 做同协议测量。",
+    "evidence_basis": "只读文件核验确认 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00105340_step_001646/adapter 下存在 adapter_config.json 与非空 adapter_model.safetensors；当前没有 Solid Run，因此这里只作为可执行输入定位，不作为效果证据。",
+    "implementation_summary": "复用 E-009 branch 的 standalone head_screen 动作，加载该 checkpoint 的 adapter，在冻结的 100 行验证 manifest 上一次性采集全部样本；不恢复优化器、不训练、不读取预留测试集。",
+    "implementation_details": "4 个 rank 各处理固定索引切片；probe 使用 teacher_forced_query_bbox_pminus1/v1 row contract，临时 eager attention，仅保存 float16 attention map；finder 同时输出无 GT 的 query R003 集合与使用 reference GT reward 的 T003 reference 集合。跨 checkpoint 稳定性由 tools/analyze_head_stability.py 离线核验样本身份和参数一致后汇总，不能使用单次运行的 stable_candidate。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_fixed100_1shot_focus.json；固定 100 行、target_role=positive-image、prompt_protocol=focus。该 manifest 用于 head 发现/核验，预留 combined test 不参与。",
+    "data_scale": "100 个样本全部使用；4 rank 确定性分片；不做随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 父训练轨迹 step 1646 的 NF4 LoRA adapter；4 GPU DDP 仅用于并行采集；正常模型保持 SDPA，probe forward 临时切 eager attention。",
+    "variables_controls": "五条计划 Run 中唯一变化是 parent_checkpoint；本 Run 固定 step=1646。manifest、100 个样本身份、seed=20260901、row contract、excluded layers、Top-k、finder reward 与 artifact dtype 全部一致。",
+    "metric_definition": "每个 Run 输出 query R003 Top-3/Top-5 与 reference T003 Top-3/Top-5、完整 ranking 和 100 条 probe records。五条 Run 完成后报告相邻 checkpoint Jaccard、相对首 checkpoint 的 exact-match fraction、全 checkpoint 交集/并集和逐 head 出现频率；query 与 reference 分开报告。",
+    "integrity_gates": "运行前 adapter_config.json、adapter_model.safetensors、trainer_state.pt 与 100 行 manifest 均存在；运行后 status=completed、records=100、failures 为空、所有样本身份与另外四条 Run 一致、schema/row contract/head shape/finder parameters 完全相同、Top-3/Top-5 均为唯一合法 head。任一失败则该 checkpoint 不进入稳定性汇总。",
+    "expected_outcome": "得到该 checkpoint 的两类 Top-3/Top-5 集合和完整 ranking，为后续跨 checkpoint 比较提供一个等协议观测点；本 Run 自身不预设其一定稳定。",
+    "acceptance_criteria": "standalone screening 正常完成且 100/100 records 有效；输出 latest.json 可被 analyze_head_stability.py 与其余四条 Run 一起通过 comparability gate。",
+    "dependencies": "依赖其余四条后段 checkpoint screening 使用同一代码快照完成后才能给出跨 checkpoint 稳定性结论；实际 4-GPU 执行需另行人工批准和授权。",
+    "limitations": "teacher-forced attention 排序是描述性、非因果诊断；reference T003 在发现中使用 GT；单一 100 行 manifest 不能证明预留测试集泛化。",
+    "claim_boundary": "只允许判断同一父训练轨迹后五个 checkpoint 在固定验证样本上的 attention head 集合稳定性；不得声称这些 head 具有因果功能、对测试集稳定，或自动决定最佳 checkpoint。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/analyze_head_stability.py; tests/test_analyze_head_stability.py; head_screening/latest.json",
+    "status": "cancelled",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_branch.sh branch.action=head_screen named_run.parent_checkpoint=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00105340_step_001646 named_run.run_name=head-stability-step1646",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "父训练轨迹在 step 1646 保存的 LoRA checkpoint，是否在同一冻结样本集上产生可与相邻后段 checkpoint 直接比较的 query/reference Top-3 与 Top-5 attention head 集合？",
+    "hypothesis": "若训练后段已形成稳定的 attention head 排序，则相邻 checkpoints 的 query/reference Top-3 与 Top-5 集合应保持较高重合；否则集合会持续替换。",
+    "metric_plan": "本 Run 只产生可比较的固定 Top-k 集合和完整性字段；最终稳定性不由单 Run 判定，而由五条 completed 输出经 analyze_head_stability.py 汇总。",
+    "architecture_plan": "复用 configs/sft/e009_qwen3vl8b_1shot_branch.py、tools/run/run_e009_branch.sh 和现有 probe/finder；新增 tools/analyze_head_stability.py 仅做离线集合一致性核验与汇总，不修改训练器。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-005-headscreen-step1646",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "research_design",
+    "review_status": "changes_requested",
+    "review_round": 1,
+    "created": "2026-09-01T16:27:30",
+    "updated": "2026-09-01T16:38:57",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f311608b8c89cdcaa0a2"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:28:07",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T16:38:47",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T16:28:16",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:bd3c7c83aa4ab11c5258affaa054ef2a03da2844fd726dae17b2769b22bf649a",
+        "snapshot_content_retained": false
+      }
+    ],
+    "notes": "用户要求将五个 checkpoint 合并到一个 suite Run；本草案取消并由 E009-R-002-head-stability-last5 取代。"
+  },
+  {
+    "variant": "训练后段 checkpoint 1729 的固定样本 head screening",
+    "run_type": "main",
+    "purpose": "只对 step 1729 做一次不更新参数的 teacher-forced head screening；与另外四个后段 checkpoint 保持数据、seed、probe 和 finder 完全一致，用于后续判断找到的 head 是否随训练后段稳定。",
+    "necessity": "单个 checkpoint 的 head 集合无法区分稳定结构与偶然排序；必须沿同一可信父训练轨迹对多个相邻后段 checkpoint 做同协议测量。",
+    "evidence_basis": "只读文件核验确认 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00110607_step_001729/adapter 下存在 adapter_config.json 与非空 adapter_model.safetensors；当前没有 Solid Run，因此这里只作为可执行输入定位，不作为效果证据。",
+    "implementation_summary": "复用 E-009 branch 的 standalone head_screen 动作，加载该 checkpoint 的 adapter，在冻结的 100 行验证 manifest 上一次性采集全部样本；不恢复优化器、不训练、不读取预留测试集。",
+    "implementation_details": "4 个 rank 各处理固定索引切片；probe 使用 teacher_forced_query_bbox_pminus1/v1 row contract，临时 eager attention，仅保存 float16 attention map；finder 同时输出无 GT 的 query R003 集合与使用 reference GT reward 的 T003 reference 集合。跨 checkpoint 稳定性由 tools/analyze_head_stability.py 离线核验样本身份和参数一致后汇总，不能使用单次运行的 stable_candidate。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_fixed100_1shot_focus.json；固定 100 行、target_role=positive-image、prompt_protocol=focus。该 manifest 用于 head 发现/核验，预留 combined test 不参与。",
+    "data_scale": "100 个样本全部使用；4 rank 确定性分片；不做随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 父训练轨迹 step 1729 的 NF4 LoRA adapter；4 GPU DDP 仅用于并行采集；正常模型保持 SDPA，probe forward 临时切 eager attention。",
+    "variables_controls": "五条计划 Run 中唯一变化是 parent_checkpoint；本 Run 固定 step=1729。manifest、100 个样本身份、seed=20260901、row contract、excluded layers、Top-k、finder reward 与 artifact dtype 全部一致。",
+    "metric_definition": "每个 Run 输出 query R003 Top-3/Top-5 与 reference T003 Top-3/Top-5、完整 ranking 和 100 条 probe records。五条 Run 完成后报告相邻 checkpoint Jaccard、相对首 checkpoint 的 exact-match fraction、全 checkpoint 交集/并集和逐 head 出现频率；query 与 reference 分开报告。",
+    "integrity_gates": "运行前 adapter_config.json、adapter_model.safetensors、trainer_state.pt 与 100 行 manifest 均存在；运行后 status=completed、records=100、failures 为空、所有样本身份与另外四条 Run 一致、schema/row contract/head shape/finder parameters 完全相同、Top-3/Top-5 均为唯一合法 head。任一失败则该 checkpoint 不进入稳定性汇总。",
+    "expected_outcome": "得到该 checkpoint 的两类 Top-3/Top-5 集合和完整 ranking，为后续跨 checkpoint 比较提供一个等协议观测点；本 Run 自身不预设其一定稳定。",
+    "acceptance_criteria": "standalone screening 正常完成且 100/100 records 有效；输出 latest.json 可被 analyze_head_stability.py 与其余四条 Run 一起通过 comparability gate。",
+    "dependencies": "依赖其余四条后段 checkpoint screening 使用同一代码快照完成后才能给出跨 checkpoint 稳定性结论；实际 4-GPU 执行需另行人工批准和授权。",
+    "limitations": "teacher-forced attention 排序是描述性、非因果诊断；reference T003 在发现中使用 GT；单一 100 行 manifest 不能证明预留测试集泛化。",
+    "claim_boundary": "只允许判断同一父训练轨迹后五个 checkpoint 在固定验证样本上的 attention head 集合稳定性；不得声称这些 head 具有因果功能、对测试集稳定，或自动决定最佳 checkpoint。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/analyze_head_stability.py; tests/test_analyze_head_stability.py; head_screening/latest.json",
+    "status": "cancelled",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_branch.sh branch.action=head_screen named_run.parent_checkpoint=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00110607_step_001729 named_run.run_name=head-stability-step1729",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "父训练轨迹在 step 1729 保存的 LoRA checkpoint，是否在同一冻结样本集上产生可与相邻后段 checkpoint 直接比较的 query/reference Top-3 与 Top-5 attention head 集合？",
+    "hypothesis": "若训练后段已形成稳定的 attention head 排序，则相邻 checkpoints 的 query/reference Top-3 与 Top-5 集合应保持较高重合；否则集合会持续替换。",
+    "metric_plan": "本 Run 只产生可比较的固定 Top-k 集合和完整性字段；最终稳定性不由单 Run 判定，而由五条 completed 输出经 analyze_head_stability.py 汇总。",
+    "architecture_plan": "复用 configs/sft/e009_qwen3vl8b_1shot_branch.py、tools/run/run_e009_branch.sh 和现有 probe/finder；新增 tools/analyze_head_stability.py 仅做离线集合一致性核验与汇总，不修改训练器。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-006-headscreen-step1729",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "research_design",
+    "review_status": "changes_requested",
+    "review_round": 1,
+    "created": "2026-09-01T16:27:30",
+    "updated": "2026-09-01T16:38:58",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:27:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-73a0e4572fb02a98f1df"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:28:07",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T16:38:48",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T16:28:16",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:28:16",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:56faf1d48298a3988b25361378418722893b18e33f2732f271cd4fe68cb7116e",
+        "snapshot_content_retained": false
+      }
+    ],
+    "notes": "用户要求将五个 checkpoint 合并到一个 suite Run；本草案取消并由 E009-R-002-head-stability-last5 取代。"
+  },
+  {
+    "variant": "训练后段最后五个 checkpoint 的单 Run head 稳定性核验",
+    "run_type": "main",
+    "purpose": "在一个 Run 内按训练顺序依次筛选五个 checkpoint；使用原 val100 中经审计保留的 96 条正面积样本，并在同一日志和产物根记录每次 heads 与最终稳定性。",
+    "necessity": "单个 checkpoint 不能判断 head 是否稳定；五条独立 Run 又会分散日志、授权和汇总。一个顺序 suite 可在保持每个 checkpoint 独立子产物的同时，形成唯一审核、执行与结论单元。",
+    "evidence_basis": "attempt-001 在 step1400 收集 96 条后因 source indices 40、41、58、61 的 query bbox 为零面积而 gate failed；无科学 head 输出。valid96 audit 固定删除这四条且不补样本，剩余 96 条归一化后 query/reference 框全部为正面积。当前没有 Solid Run。",
+    "implementation_summary": "单次 torchrun 加载一次模型，按 step1400→1482→1564→1646→1729 依次替换 adapter；每次在同一 valid96 manifest 上 screening。失败的 attempt-001 原样保留，修订输出写入 attempt-002-valid96。",
+    "implementation_details": "新增 filter_e009_valid_bbox_manifest.py 生成不可覆盖的 valid96 manifest/audit，记录 source/output SHA-256 和 dropped indices。suite 每完成一个 checkpoint 仍打印完整 query/reference Top-3/Top-5；attempt-002 独立目录避免覆盖失败产物。",
+    "data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/val_lasot_posthoc_valid96_1shot_focus.json；由原 fixed100 保序删除 source indices 40、41、58、61 得到，不补入新 sequence。audit=val_lasot_posthoc_valid96_1shot_focus.audit.json，output SHA-256=7c27581bd6e960e7933523cdeba7991e693e2078b1122dc5c8cfb1132d65cf47。",
+    "data_scale": "5 个 checkpoint × 同一 96 个有效样本，共 480 个 checkpoint-sample probe；4 rank 确定性分片；不随机子采样。",
+    "model_config": "Qwen3-VL-8B-Instruct + 同一父训练轨迹的五个 NF4 LoRA adapters；4 GPU torchrun。模型构建一次，五次只替换 adapter；正常模型保持 SDPA，每个 probe forward 临时切 eager attention。",
+    "variables_controls": "suite 内唯一变化是 parent checkpoint。valid96 样本身份/顺序、seed=20260901、row contract、excluded layers、Top-k、finder reward、artifact dtype 和代码快照固定；不补替代样本。",
+    "metric_definition": "每 checkpoint 记录 query/reference Top-3/Top-5 与 96 条 probe records；跨 checkpoint 报告相邻 Jaccard、相对首 checkpoint exact-match fraction、五 checkpoint 交集/并集及逐 head 出现频率。",
+    "integrity_gates": "valid96 audit 必须 source_rows=100、output_rows=96、dropped=[40,41,58,61] 且所有归一化 query/reference 框正面积；每个 screen 必须 status=completed、records=96、failures 为空并打印四组 heads。汇总前五次样本身份、schema、row contract、head shape、finder 参数和 Top-k 必须完全一致。",
+    "expected_outcome": "总日志按 step 列出五次 query/reference Top-3/Top-5，每次 records=96，并生成一个跨 checkpoint 稳定性 summary。",
+    "acceptance_criteria": "五个 checkpoint 均完成 96/96 records；总日志含五条 HEAD_STABILITY_CHECKPOINT 和四条 HEAD_STABILITY_AGGREGATE；attempt-002 suite_manifest 为 completed，summary 通过 comparability gate。",
+    "dependencies": "依赖 valid96 manifest 及其 audit、4 张可用 RTX 3090、IPLoc conda 环境和父实验五个 checkpoint；修订后的 GPU attempt 需重新审核与执行授权。",
+    "limitations": "只覆盖原 val100 中 96 条有正面积框的样本，四个无效框 sequence 被排除且未替换；结果不代表完整 val100。teacher-forced attention 非因果，reference T003 使用 GT，不能外推预留测试集。",
+    "claim_boundary": "只允许判断最后五个 checkpoint 在固定 valid96 manifest 上的 attention head 集合稳定性；不得把 attempt-001 部分 records 当结果，不得声称完整 val100、测试集或因果 head 稳定。",
+    "audit_paths": "configs/sft/e009_qwen3vl8b_1shot_branch.py; tools/filter_e009_valid_bbox_manifest.py; tests/test_filter_e009_valid_bbox_manifest.py; val_lasot_posthoc_valid96_1shot_focus.audit.json; tools/screen_head_stability_suite.py; tools/analyze_head_stability.py; attempt-002-valid96/suite_manifest.json; attempt-002-valid96/head_stability_summary.json",
+    "status": "draft",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "mechanism/iploc-szy/configs/sft/e009_qwen3vl8b_1shot_branch.py",
+    "command": "bash tools/run/run_e009_head_stability_suite.sh",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-007-head-stability-last5/logs/train.log",
+    "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-007-head-stability-last5",
+    "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-007-head-stability-last5",
+    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-007-head-stability-last5/attempt-002-valid96/suite_manifest.json; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-R-007-head-stability-last5/attempt-002-valid96/head_stability_summary.json",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "同一父训练轨迹最后五个保留 checkpoint（step 1400、1482、1564、1646、1729）在固定验证样本上的 query/reference Top-3 与 Top-5 attention head 集合是否稳定？",
+    "hypothesis": "若训练后段形成稳定的 attention head 排序，则相邻 checkpoint 的 query/reference Top-3 与 Top-5 应有较高 Jaccard，且部分 heads 在五个 checkpoint 中持续出现；否则集合会持续替换。",
+    "metric_plan": "主输出为五个 checkpoint 在同一 valid96 上的固定 Top-3/Top-5 集合和稳定性汇总；attempt-001 的 96 个部分 records 因整轮 gate failed 不进入分析。",
+    "architecture_plan": "复用现有 checkpoint loader、HeadScreeningHook、probe/finder 和离线 analyzer；新增一个公共 suite CLI 与薄 shell launcher。一个 torchrun 管理五个顺序 screen，产物集中在 E009-R-007-head-stability-last5 下。",
+    "implementation_ref": {
+      "schema": "survey-tool.run-implementation/v1",
+      "package_root": ".",
+      "entrypoint": "",
+      "config_path": "configs/sft/e009_qwen3vl8b_1shot_branch.py",
+      "launcher_path": "tools/run/run_e009_head_stability_suite.sh",
+      "reused_modules": [
+        "iploc_szy/checkpointing.py",
+        "iploc_szy/head_screening/hooks.py",
+        "iploc_szy/head_screening/probes.py",
+        "iploc_szy/head_screening/finders.py",
+        "tools/analyze_head_stability.py"
+      ],
+      "added_modules": [
+        "tools/screen_head_stability_suite.py",
+        "tools/run/run_e009_head_stability_suite.sh",
+        "tools/filter_e009_valid_bbox_manifest.py"
+      ],
+      "tests": [
+        "tests/test_filter_e009_valid_bbox_manifest.py",
+        "tests/test_head_stability_suite.py",
+        "tests/test_analyze_head_stability.py",
+        "tests/test_branching.py",
+        "tests/test_head_screening.py"
+      ]
+    },
+    "created_by": "terminal_pi",
+    "id": "E009-R-007-head-stability-last5",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "awaiting_review",
+    "review_status": "pending_review",
+    "review_round": 2,
+    "created": "2026-09-01T16:52:18",
+    "updated": "2026-09-01T19:04:27",
+    "organization_snapshot": {
+      "time": "2026-09-01T16:52:18",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a1f743573e6fa3caffed"
+    },
+    "workflow_history": [
+      {
+        "time": "2026-09-01T16:52:27",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T16:52:27",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      },
+      {
+        "time": "2026-09-01T17:07:08",
+        "action": "reopen-design",
+        "from": "awaiting_review",
+        "to": "research_design",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T17:07:50",
+        "action": "confirm-design",
+        "from": "research_design",
+        "to": "code_planning",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T17:07:50",
+        "action": "implementation-ready",
+        "from": "code_planning",
+        "to": "ready_for_review",
+        "actor": "terminal_pi"
+      },
+      {
+        "time": "2026-09-01T17:07:50",
+        "action": "submit-review",
+        "actor": "terminal_pi",
+        "to": "awaiting_review"
+      }
+    ],
+    "submitted_for_review_at": "2026-09-01T17:07:50",
+    "review_history": [
+      {
+        "time": "2026-09-01T16:52:27",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:6c40583993604c8e92d24383bbfa1a56eb5b2fc4f5059bb42ca950a47e30b88c",
+        "snapshot_content_retained": false
+      },
+      {
+        "time": "2026-09-01T17:07:50",
+        "action": "submit",
+        "actor": "terminal_pi",
+        "requirements": "",
+        "questions": "",
+        "snapshot_hash": "sha256:3e3e567d53aa97dc44dde7aecec69a7f7e957748fc905c10ed3db28f6b327f70",
+        "snapshot_content_retained": false
+      }
+    ],
+    "notes": "用户确认保留原 val100 中剩余 96 条，不补样本。attempt-001 因四条零面积框失败且不作为结果；attempt-002 使用 valid96。",
+    "result_summary": "attempt-002-valid96 已完成 5 个训练后段 checkpoint × 96 个相同有效样本，comparability gate 通过。人工确认后续采用 Query Top-5=[L21H10,L17H04,L17H07,L24H16,L18H15]，Reference Top-3=[L20H15,L20H20,L14H23]。",
+    "result_analysis": "有效结果来自 attempt-002-valid96；attempt-001 因零面积 bbox gate failed，不进入分析。Query Top-5 频次：L21H10=5/5，L17H04=5/5，L17H07=4/5，L24H16=4/5，L18H15=3/5（连续出现在最后三个 checkpoint），L20H15=3/5，L17H25=1/5；相邻集合平均 Jaccard=0.6667。Reference Top-5 频次：L20H15=5/5，L20H20=4/5，L14H23=4/5，L18H05=2/5，其余各 1/5；相邻集合平均 Jaccard=0.2946。Reference 最后两个 checkpoint 的 Top-3 集合均为 {L20H15,L20H20,L14H23}。用户据此明确选择后续实验 head：Query Top-5 为 [L21H10,L17H04,L17H07,L24H16,L18H15]；Reference Top-3 为 [L20H15,L20H20,L14H23]。这是基于固定 valid96、同一训练轨迹末五个 checkpoint 的描述性筛选决策，不代表因果重要性、跨 seed 稳定性或测试集泛化。",
+    "evidence_label_history": [
+      {
+        "time": "2026-09-01T19:04:27",
+        "action": "set",
+        "label": "solid",
+        "actor": "human:web-v2",
+        "note": "head的结果暂时可信服，但是注意实验的ckpt边界"
+      }
+    ],
+    "evidence_label": "solid",
+    "evidence_label_note": "head的结果暂时可信服，但是注意实验的ckpt边界",
+    "evidence_labeled_at": "2026-09-01T19:04:27",
     "evidence_labeled_by": "human:web-v2"
+  },
+  {
+    "variant": "Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏",
+    "run_type": "main",
+    "purpose": "从同一 step1729 父 checkpoint 出发，比较普通 continued-SFT、正确 Reference Top-3 教师蒸馏、空间滚动的伪教师以及直接 GT-mask 监督，检验 Query Top-5 集合读取正确 reference 目标区域是否改善自然生成的 query bbox，而不是只产生额外正则化或普通框监督效果。",
+    "necessity": "Solid Run E009-R-007 只在固定 valid96 和同一训练轨迹最后五个 checkpoint 上给出了描述性稳定的 head 集合，尚未检验这些 heads 能否通过训练改变跨图读取，也未证明该变化对 Query localization 有因果或泛化作用。",
+    "evidence_basis": "唯一结果依据为 Solid Run E009-R-007-head-stability-last5：Query Top-5=[L21H10,L17H04,L17H07,L24H16,L18H15]，Reference Top-3=[L20H15,L20H20,L14H23]。该结果仅覆盖固定 valid96、单父训练轨迹后段 checkpoint；不把 attempt-001、其他 Run、因果性、跨 seed 或测试集泛化作为已知证据。",
+    "implementation_summary": "先用固定 step1729 父模型为每个训练样本离线生成 teacher：三个 Reference Head 各自在 BQ 的 p-1 行上提取到 reference visual span 的注意力，逐 head 做 span 内归一化后等权平均。训练时五个 Query Head 用相同行和 span 构成等权 student ensemble，并优化集合级 KL、reference-span mass 匹配和 reference-object mass 匹配；teacher 全程 stop-gradient。四个训练臂从相同父 checkpoint 重启并使用相同样本顺序与预算。",
+    "implementation_details": "固定 H_R={L20H15,L20H20,L14H23}，H_Q={L21H10,L17H04,L17H07,L24H16,L18H15}。对每个 head 先平均全部 query bbox token 的 p-1 rows，再在 reference token span 内归一化；T_R=(1/3)sum_h p_h，S_Q=(1/5)sum_q p_q，L_shape=KL(T_R||S_Q)。另以三个教师 raw maps 的均值定义 reference-span 与 reference-GT-object mass，student 用五个 raw maps 的均值匹配，L_ref=L_shape+SmoothL1(m_span_Q,m_span_R)+SmoothL1(m_obj_Q,m_obj_R)，主处理组 L_total=L_SFT+0.1*L_ref。四臂为 A 普通 continued-SFT；B 正确固定 teacher；C 对 teacher map 在原 token-grid 做 seeded nonzero cyclic roll，保持 mass、grid 与熵但破坏目标位置；D 用归一化 reference bbox occupancy 替换 teacher shape、其余训练预算一致。第一版不加 Q→Q preservation loss，只记录其变化。teacher 必须离线预计算并按 sample_id、bbox rows、reference span、token-grid 一一匹配；不得在线共同漂移。",
+    "data_definition": "训练使用 train_only_1shot_focus.json，10534 条，SHA-256=c607700075de7eba1b0dc8237a32eb1760d3864a4e320f01a41bce8aec94ba78。valid96 仅用于实现完整性与开发诊断，因为它已参与 R007 head 选择，不作独立效果证据。最终主评估使用 val_lasot_posthoc_test600_1shot_focus.json，600 条，SHA-256=1cc952ffb23aa841b01737dd2989521ec56222651d97a3666a762e84ba7ce74a；补充评估使用 combined test 中 GOT10k-val 180 与 TAO-val 986，按数据集分别报告，sample-weighted combined 仅作次要汇总。",
+    "data_scale": "离线 teacher 覆盖全部 10534 个训练样本且每个样本只生成一份冻结记录。四个训练臂均从 step1729 继续至原配置 12-epoch 总上限，即各自约 1.5 个额外 nominal epochs、相同 effective global batch 64；实际 optimizer updates、samples_seen 与重复取样必须逐臂记录。最终自然生成评估为每臂 LaSOT 600、GOT10k 180、TAO 986。",
+    "model_config": "Qwen3-VL-8B-Instruct + NF4 QLoRA + 4-GPU DDP；父 adapter 固定为 E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00110607_step_001729。语言侧 LoRA target modules 保持现状，不训练 visual encoder。新增可微的选定 head/row attention slice 提取，主 forward 保持 SDPA；禁止为主训练保存全部 layer×head×sequence² attention。",
+    "variables_controls": "四臂固定父 checkpoint 及其文件哈希、训练 manifest/hash、seed=20260901、样本顺序、图像预处理、token-grid、global batch、optimizer、学习率、训练终点与评估解码。唯一处理差异为 auxiliary target：无 teacher、正确 Top-3 ensemble、同 grid 空间滚动 teacher、GT-mask teacher。正确与伪 teacher 使用完全相同 loss 形式和权重；测试集在四臂训练及 checkpoint 固定前不得访问。",
+    "metric_definition": "主指标为自然逐 token 生成 BQ 的 per-dataset mean IoU、bbox parse rate、IoU@0.25/0.5/0.75，以及相对普通 SFT 的同样本 paired IoU delta；LaSOT、GOT10k、TAO 分开报告，按 sequence cluster bootstrap 95% CI，combined sample-weighted 值仅为次要。机制诊断为 Query Top-5 ensemble 的 Q→R teacher KL、reference-span mass、reference-object mass、Q→Q query-object mass，以及这些量相对父 checkpoint 的变化。teacher-forced bbox IoU 不作为主结果。",
+    "integrity_gates": "运行前验证父 adapter/config/trainer_state、三个数据 manifest 及其 SHA-256；teacher 记录必须 10534/10534、sample_id 唯一、bbox rows 与 reference span 合法、token-grid 精确一致、数值有限。四臂必须从同一父 hash 开始且配置除 treatment 字段外完全一致。训练中 total/SFT/shape/mass losses 与 gradients 全部有限；selected attention slices 必须在同一 batch 上通过全 eager attention 的数值对照。任何臂失败不得用其他臂替代。所有臂 checkpoint 固定前不得读取 test600 或 combined test 输出。",
+    "expected_outcome": "若正确 teacher 使自然生成 query IoU 优于普通 SFT 和空间滚动 teacher，同时 Q→R alignment 改善且 Q→Q 未明显崩塌，则结果支持继续研究 reference-reading 辅助训练。若 GT-mask 与正确 teacher 相当或更好，只能支持区域监督而不能支持 Reference Head 特有知识；若滚动 teacher 同样改善，则收益更可能来自正则化。",
+    "acceptance_criteria": "工程完整性要求 teacher 10534/10534、四臂均到达相同训练终点、自然生成评估无缺失且审计字段齐全。机制假设只有在正确 teacher 相对普通 SFT 与滚动 teacher 的 paired IoU delta 方向为正、Q→R KL/mass 按预注册方向改变且 GT-mask 对照不能完全解释收益时才获得支持；否则记为不支持或证据不足，不因单个数据集或 teacher-forced 指标事后改写结论。",
+    "dependencies": "依赖 step1729 父 checkpoint、R007 固定 heads、完整训练与测试 manifests、4 张 24GiB GPU，以及对 Qwen3-VL SDPA 内选定 layers/heads/bbox rows 的可微 attention slice 实现。正式训练前必须先通过单 batch forward/backward 显存与数值一致性 smoke gate；本 Run 仍需代码实现、人工审核和单独执行授权。",
+    "limitations": "单 seed、head 由 valid96 和单一父轨迹筛选；Reference Top-3 的选择使用 GT reward；LoRA q/k/v/o projection 为跨 heads 共享的低秩参数，因此损失虽读取指定 head，更新并非物理隔离于这些 heads。attention alignment 不等于信息流或因果作用；跨数据集测试也不是 IPLoc/FOCUS 官方协议。",
+    "claim_boundary": "只允许判断从固定 step1729 出发时，R007 指定的 Reference Top-3 平均 attention teacher 对 Query Top-5 student ensemble 的辅助训练是否改变自然 query localization，并通过同 Run 对照区分正确空间 teacher、伪 teacher 与 GT-mask supervision。不得声称复制了 head 参数、形成了通用跨图匹配能力、证明单个 head 因果、跨 seed 稳定或复现官方 benchmark。",
+    "audit_paths": "planned: configs/sft/e009_qwen3vl8b_reference_query_ensemble_distill.py; iploc_szy/attention_distillation/; tools/precompute_e009_reference_teacher.py; tools/run/run_e009_reference_query_ensemble_distill.sh; tests/test_attention_distillation.py; tests/test_e009_distillation_suite.py",
+    "status": "planned",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "configs/sft/e009_qwen3vl8b_reference_query_ensemble_distill.py",
+    "command": "bash tools/run/run_e009_reference_query_ensemble_distill.sh",
+    "log_path": "",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "将 R007 的 Reference Top-3 在 BQ 预测行对 reference visual span 的等权平均分布，蒸馏给 Query Top-5 的集合级 student attention，是否能在保持 Query localization 的同时提升 held-out 自然生成 BQ 的定位表现？",
+    "hypothesis": "正确且冻结的 Reference Top-3 ensemble teacher 会使 Query Top-5 student ensemble 在生成 BQ 时增加对 reference 目标区域的有效读取，并使自然生成 query bbox IoU 相对普通 SFT 与空间滚动 teacher 改善；若改善只在 GT-mask 组出现，则不支持 Reference Head 特有知识蒸馏。",
+    "metric_plan": "主结论基于 held-out 自然生成 query bbox 的 per-dataset IoU 与 paired delta；attention KL/mass 和 teacher-forced IoU 仅解释机制与训练完整性。四臂共享同一父 checkpoint、数据与预算，GT-mask 和空间滚动 teacher 分别控制标签区域监督与普通注意力正则化。",
+    "architecture_plan": "复用现有 Qwen3VLLoRADDP、SFTLoRARunner、Qwen3VLSFTCollator、checkpointing 和 LocalizationEvaluator。新增通用 attention-distillation 模块：离线 teacher artifact builder、按 sample_id/token-grid 读取器、仅计算 selected query rows 对全部可见 keys 的精确 softmax slice、集合损失与指标；通过 runner 可选 auxiliary-loss 接口接入，不复制 SFT runner。新增一个 E009 config 和薄 launcher，四臂由显式 treatment 配置依次产生独立子目录。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-008-reference-top3-query-top5-ensemble-distill",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "code_planning",
+    "review_status": "draft",
+    "review_round": 0,
+    "created": "2026-09-01T20:10:13",
+    "updated": "2026-09-01T20:10:13",
+    "organization_snapshot": {
+      "time": "2026-09-01T20:10:13",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-516d8a04010e4a49ea42"
+    }
+  },
+  {
+    "variant": "动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）",
+    "run_type": "exploratory",
+    "purpose": "独立检验固定 head ID、当前模型在线 Reference teacher、stop-gradient target 的单向蒸馏是否改善自然生成定位；该 Run 是 R008 之外的探索性扩展，不替代其离线固定 correct/cyclic_roll/gt_mask 四臂。",
+    "necessity": "R008 预注册的是离线冻结 teacher，无法回答 teacher 随当前模型更新时的行为；因此必须单独记录 dynamic teacher，避免把在线共同漂移误报为 fixed-correct 结果。",
+    "evidence_basis": "继承 Solid R007 固定 heads：Reference Top-3=[L20H15,L20H20,L14H23]，Query Top-5=[L21H10,L17H04,L17H07,L24H16,L18H15]。训练与诊断产物来自独立 dynamic branch；不读取离线 teacher artifact。",
+    "implementation_summary": "同一次当前模型 forward 捕获固定 Reference Top-3 与 Query Top-5 selected attention；Reference shape/span/object targets 在 auxiliary loss 前 detach，Query student 保持可微。仅训练语言 decoder LoRA，父 adapter 为 step1729；lr=4e-5，3 epochs，4 GPU，per-rank batch1，gradient accumulation16，global batch64，gradient checkpointing use_reentrant=False。",
+    "implementation_details": "正式轨迹从 step1729 干净初始化，不从先前 lr=1e-5 尝试 resume；完成495个 optimizer steps。teacher target 分支无直接 auxiliary gradient，但 teacher heads 可经 SFT、共享上游参数和 student 路径间接漂移，因此结果不能解释成冻结老师监督。",
+    "data_definition": "训练使用过滤后的 train_only_1shot_focus_valid10522.json（10522条，SHA-256=bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7）。held-out 自然生成评估使用 combined manifest 1766条（LaSOT 600、GOT10k 180、TAO 986）。valid96 已参与 head 发现，只用于开发诊断。",
+    "data_scale": "训练3 epochs/495 optimizer steps；combined test 1766条且 parse rate=1.0；valid96 对 step1729 与 dynamic final 各做96条自然生成评估和全-head teacher-forced probe。",
+    "model_config": "Qwen3-VL-8B-Instruct + NF4 QLoRA；可训练21,823,488参数（0.433840%），visual encoder与原始8B权重冻结；父 checkpoint=samples_00110607_step_001729，final checkpoint=samples_00031566_step_000494。",
+    "variables_controls": "固定 Reference/Query head ID、训练 manifest、父 checkpoint和动态单向 stop-gradient 定义。与 continued-SFT baseline/step1729作事后自然生成比较；由于没有同 Run cyclic_roll/gt_mask 控制且评估 vision token cap=4096，不得冒充 R008 预注册四臂检验。",
+    "metric_definition": "主结果为 combined test 及 LaSOT/GOT10k/TAO 的自然生成 mIoU与 paired delta。valid96 的 teacher-student KL、reference object mass、S50-fIoU、head ranking和错误样本热图只作 teacher-forced、post-hoc、非因果机制诊断。",
+    "integrity_gates": "正式训练495/495完成、final checkpoint完整、finite_grad_fraction=1.0、adapter_delta_norm=5.4528；4-GPU one-step smoke 无 DDP ready-twice；combined 1766/1766与valid96 96/96全部解析；诊断对两个 checkpoint 均保存96份全-head maps。",
+    "expected_outcome": "若在线蒸馏既降低 teacher-student KL，又在 held-out per-dataset IoU 上稳定优于父 checkpoint和continued-SFT，才支持继续研究 dynamic reference-reading 辅助训练；仅 alignment 改善而自然生成无增益则不支持性能假设。",
+    "acceptance_criteria": "工程完整性已满足；科学性能假设要求 combined/per-dataset 自然生成稳定改善。实际 combined mIoU 下降，故性能假设不支持；valid96改善不能覆盖 held-out负结果。",
+    "dependencies": "",
+    "limitations": "单 seed；heads由valid96和单一父轨迹筛选；teacher与student共享LoRA参数；valid96不是独立效果证据；attention来自GT bbox teacher-forced rows而非自由生成因果轨迹；combined评估vision_max_patch_tokens=4096，与后续拟统一的1024配置不同；无dynamic专属roll/GT-mask对照。",
+    "claim_boundary": "可支持：dynamic训练显著提高固定集合的teacher-student attention对齐，但在当前单seed combined test上未改善自然定位，并伴随head ranking漂移。不可支持：Reference信息无用、attention对齐必然无效、fixed teacher无效、单head具有因果作用或跨seed/官方benchmark泛化。",
+    "audit_paths": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/run_manifest.json; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/checkpoints/samples_00031566_step_000494; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/diagnostics/valid96_attention/{summary.json,per_sample.csv,per_head_summary.csv,*_per_head.png}; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T153749921589Z--focus-qwen3vl8b-1shot-nf4-ddp4-ft-correct-459/evaluation/{metrics.json,predictions.jsonl}; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-dynamic-reference-query-online-distill/train-lr4e-5.log",
+    "status": "completed",
+    "workspace_id": "02",
+    "git_commit": "",
+    "config": "configs/sft/e009_qwen3vl8b_reference_query_ensemble_distill.py",
+    "command": "bash tools/run/run_e009_dynamic_reference_query_distill.sh",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-dynamic-reference-query-online-distill/train-lr4e-5.log",
+    "output_dir": "",
+    "artifact_dir": "",
+    "artifacts": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/checkpoints/samples_00031566_step_000494; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/diagnostics/valid96_attention/summary.json; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/diagnostics/valid96_attention/per_sample.csv; /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T123511662352Z--E009-dynamic-reference-top3-query-top5-online-distill/diagnostics/valid96_attention/per_head_summary.csv",
+    "tmux_session": "",
+    "seed": "20260901",
+    "group_id": "",
+    "research_question": "固定 head ID 下，使用当前模型在线 Reference Top-3 stop-gradient teacher 蒸馏 Query Top-5，能否把跨图 attention 对齐转化为 held-out 自然生成定位增益？",
+    "hypothesis": "在线单向蒸馏会降低 teacher-student KL并提高student对Reference目标区域的读取；只有该机制变化同时带来held-out自然生成IoU改善时才支持性能假设。",
+    "metric_plan": "combined test自然生成per-dataset mIoU为效果证据；valid96全-head probe、KL/mass/S50和12个错误案例热图仅作开发机制解释。",
+    "architecture_plan": "复用R008 selected-attention与auxiliary loss接口，新增dynamic_teacher treatment和独立launcher；不调用FixedTeacherStore，不读取teacher_manifest。",
+    "created_by": "terminal_pi",
+    "id": "E009-R-009-dynamic-reference-top3-query-top5-online-distill",
+    "experiment_id": "E-009",
+    "workflow_version": 2,
+    "workflow_stage": "code_planning",
+    "review_status": "draft",
+    "review_round": 0,
+    "created": "2026-09-03T01:17:11",
+    "updated": "2026-09-03T01:17:42",
+    "organization_snapshot": {
+      "time": "2026-09-03T01:17:11",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-955d70c9e3107e6883b9"
+    },
+    "result_summary": "正式 dynamic 训练 495/495 完成且工程门禁通过。combined test 自然生成 mIoU=0.689856，较 step1729 下降 0.003611、较 continued-SFT 下降 0.004508；LaSOT/GOT10k/TAO 分别为 0.643779/0.806002/0.696692。valid96 开发集 mIoU 反而 +0.011892，不能覆盖 held-out 负结果。",
+    "conclusion_scope": "在固定step1729、固定heads、单seed与当前QLoRA实现下，在线stop-gradient dynamic teacher显著增强attention集合对齐，但未转化为combined held-out自然定位增益。该结果不等价于R008 fixed-correct，不判断fixed teacher、cyclic_roll或GT-mask。",
+    "metrics": "{\"combined_miou\":0.6898559879709187,\"combined_delta_vs_step1729\":-0.003610976090163,\"combined_delta_vs_continued_sft\":-0.0045075633861894,\"lasot_miou\":0.6437786603235646,\"got10k_miou\":0.8060018501439319,\"tao_miou\":0.6966918311730198,\"valid96_miou\":0.6368614597544191,\"valid96_delta_vs_step1729\":0.0118924547982592,\"valid96_kl_step1729\":0.7775546718215257,\"valid96_kl_dynamic\":0.1712954231229419,\"valid96_student_object_mass_step1729\":0.0070086600398713,\"valid96_student_object_mass_dynamic\":0.0092745197034326,\"valid96_student_s50_step1729\":0.147932584566592,\"valid96_student_s50_dynamic\":0.2955626129208515,\"valid96_teacher_s50_step1729\":0.2637000610488339,\"valid96_teacher_s50_dynamic\":0.2597615372372236}",
+    "notes": "后验探索性Run；review_status保持draft，不补写或伪造审核/执行授权。combined评估使用vision_max_patch_tokens=4096；valid96 heatmap为GT bbox teacher-forced rows，与自然生成错误仅作关联对齐。",
+    "result_analysis": "机制诊断显示蒸馏被真实优化：valid96 Teacher→Student KL 从 0.7776 降至 0.1713，Student object mass 从 0.00701 升至 0.00927，Student S50-fIoU 从 0.1479 升至 0.2956；Teacher S50-fIoU 从 0.2637 微降至 0.2598。dynamic final Reference Top-5 被多个原 student heads 占据，原 teacher L20H20/L14H23 跌出 Top-5，支持共享参数下 teacher 功能漂移。逐样本 attention 指标与 IoU delta 的 Spearman 相关均不显著；错误案例说明更低 KL 不充分保证 Query 候选实例选择正确。"
   }
 ]

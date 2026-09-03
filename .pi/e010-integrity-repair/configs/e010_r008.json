@@ -1,0 +1,15 @@
+{
+  "schema": "iplocid.e010.full-lasot-frozen-query-and-reference-top5/v3",
+  "dataset_root": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT",
+  "sequence_ids_sha256": "3a3b8834337bdab6d8a8595f81fef848bacecb7f312dc8d3941a6ef62e37d760",
+  "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "model_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+  "lora_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+  "model_id": "Qwen/Qwen3-VL-8B-Instruct", "max_side": 640, "max_new_tokens": 128,
+  "seed": 20260830, "bootstrap_repeats": 2000, "random_repeats": 100,
+  "natural_records_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/outputs/natural_records.jsonl",
+  "query_head_authority": {"summary_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-003-natural-query-bbox-dual-span-head-discovery-stability/analysis/summary.json", "summary_sha256": "b56533824fb6f1b860caaac9386ae62aae2eec4a67d74803198e7e79ce6344e4", "role": "query_heads", "sets": {"3": ["L20H15", "L24H16", "L25H10"], "5": ["L20H15", "L24H16", "L25H10", "L15H13", "L21H10"]}},
+  "reference_head_authority": {"summary_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/trials/T-003/analysis/summary.json", "summary_sha256": "992464304533990ce27b851c4a6e9ef1f07b80fb6932222d1d45e283e7f48152", "trial_id": "T-003", "parameters": {"reward_form": "thresholded_iou_bonus", "iou_metric": "support50_fiou", "entropy_weight": 1, "iou_reward_weight": 2, "iou_threshold": 0.1, "rank_score": "-normalized_entropy + iou_reward_weight * max(0, support50_fiou-iou_threshold)"}, "sets": {"3": ["L18H05", "L12H00", "L20H12"], "5": ["L18H05", "L12H00", "L20H12", "L7H25", "L20H15"]}},
+  "overlap_r007_source_run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-001-fixed-head-stability-and-heldout-localization",
+  "overlap_r007_expected_records": 140
+}

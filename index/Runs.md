@@ -55,7 +55,17 @@
 - [[E009-R-001-qwen3vl8b-lora-sft-capability-smoke|Qwen3-VL-8B 基础 LoRA 微调能力烟雾实验]] ← [[E-009]] · `approved`
 - [[E010-R-001-fixed-head-stability-and-heldout-localization|IPLoc-ID固定注意力头稳定性与新样本定位检查]] ← [[E-010]] · `approved`
 - [[E010-R-002-identity-spatial-controls-and-head-necessity|IPLoc-ID身份与位置排除检查及注意力头必要性验证]] ← [[E-010]] · `planned`
-- [[E010-R-003-natural-query-bbox-dual-span-head-discovery-stability|自然Query-bbox双图Query/Reference head无GT发现与稳定性复核]] ← [[E-010]] · `failed`
+- [[E010-R-003-natural-query-bbox-dual-span-head-discovery-stability|自然Query-bbox双图Query/Reference head无GT发现与稳定性复核]] ← [[E-010]] · `analysis_pending`
 - [[E010-R-004-frozen-query-head-reference-span-bias-audit|冻结Query heads投向Reference图像的空间偏差与坐标复制审计]] ← [[E-010]] · `analysis_pending`
 - [[E010-R-005-per-image-nogt-selection-vs-gt-oracle-reference-head-audit|自然Qbbox→Reference逐图无GT选头与GT-oracle误差分解]] ← [[E-010]] · `analysis_pending`
-- [[E010-R-006-gt-supervised-reference-head-stability-heldout-audit|GT监督Reference head跨图稳定性与冻结held-out审计]] ← [[E-010]] · `failed`
+- [[E010-R-006-gt-supervised-reference-head-stability-heldout-audit|GT监督Reference head跨图稳定性与冻结held-out审计]] ← [[E-010]] · `running`
+- [[E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit|答对/答错分层的Reference与Query head前30%核心token命中统计]] ← [[E-010]] · `analysis_pending`
+- [[E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640|完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）]] ← [[E-010]] · `approved`
+- [[E009-R-002-head-stability-last5|训练后段 checkpoint 1400 的固定样本 head screening]] ← [[E-009]] · `cancelled`
+- [[E009-R-003-headscreen-step1482|训练后段 checkpoint 1482 的固定样本 head screening]] ← [[E-009]] · `cancelled`
+- [[E009-R-004-headscreen-step1564|训练后段 checkpoint 1564 的固定样本 head screening]] ← [[E-009]] · `cancelled`
+- [[E009-R-005-headscreen-step1646|训练后段 checkpoint 1646 的固定样本 head screening]] ← [[E-009]] · `cancelled`
+- [[E009-R-006-headscreen-step1729|训练后段 checkpoint 1729 的固定样本 head screening]] ← [[E-009]] · `cancelled`
+- [[E009-R-007-head-stability-last5|训练后段最后五个 checkpoint 的单 Run head 稳定性核验]] ← [[E-009]] · `draft`
+- [[E009-R-008-reference-top3-query-top5-ensemble-distill|Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏]] ← [[E-009]] · `planned`
+- [[E009-R-009-dynamic-reference-top3-query-top5-online-distill|动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）]] ← [[E-009]] · `completed`

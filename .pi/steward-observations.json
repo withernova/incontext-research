@@ -198,8 +198,162 @@
       "fingerprints": {},
       "cursor": {
         "logIdentity": "168:26373808736",
-        "byteOffset": 1666,
-        "since": "2026-08-27T08:04:42.726Z",
+        "byteOffset": 3349,
+        "since": "2026-08-31T10:48:11.453Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/build/flash-attn-2.8.3.post1/src/flash_attn-2.8.3.post1|/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/build/flash-attn-2.8.3.post1/logs/build.log|e009-flashattn-source-build": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:17381554761",
+        "byteOffset": 241395,
+        "since": "2026-08-28T07:26:56.128Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit/logs/train.log|incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit": {
+      "fingerprints": {
+        "ERR-68a92356f936": {
+          "id": "ERR-68a92356f936",
+          "exceptionType": "TypeError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+          "runId": "E-010 / E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit / 答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "firstSeen": "2026-08-29T06:24:34.422Z",
+          "lastSeen": "2026-08-29T06:24:34.422Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "SURVEY_TOOL_ACTIVATION_OK\nSURVEY_TOOL_PROJECT_CWD_OK\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-a1be1dafc29b": {
+          "id": "ERR-a1be1dafc29b",
+          "exceptionType": "RuntimeError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-010-E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit",
+          "runId": "E-010 / E010-R-007-outcome-stratified-reference-query-head-core30-pointing-audit / 答对/答错分层的Reference与Query head前30%核心token命中统计",
+          "firstSeen": "2026-08-29T06:24:34.422Z",
+          "lastSeen": "2026-08-29T06:24:34.422Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "    p=argparse.ArgumentParser();p.add_argument(\"--config\",required=True);a=p.parse_args();run(load(a.config))\n  File \"/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/iplocid/pipelines/outcome_stratified_core30.py\", line 75, in run\n    if len(records)!=140 or sha(r3/\"analysis/summary.json\")!=c[\"r003_summary_sha256\"] or sha(r6/\"analysis/summary.json\")!=c[\"r006_summary_sha256\"]: raise RuntimeError(\"frozen input hash/record contract\")\nTypeError: unsupported operand type(s) for /: 'dict' and 'str'\n"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:28018416491",
+        "byteOffset": 2460,
+        "since": "2026-08-29T11:50:41.827Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/logs/train.log|incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640": {
+      "fingerprints": {
+        "ERR-c5ef786d9102": {
+          "id": "ERR-c5ef786d9102",
+          "exceptionType": "RuntimeError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in <module>",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T13:29:16.135Z",
+          "lastSeen": "2026-08-29T13:29:16.135Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-01506d7bba16": {
+          "id": "ERR-01506d7bba16",
+          "exceptionType": "RuntimeError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in register",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T13:29:16.135Z",
+          "lastSeen": "2026-08-29T13:29:16.135Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/_library/fake_impl.py\", line 50, in register\n    if torch._C._dispatch_has_kernel_for_dispatch_key(self.qualname, \"Meta\"):\nRuntimeError: operator torchvision::nms does not exist\n"
+        },
+        "ERR-6c1f94154117": {
+          "id": "ERR-6c1f94154117",
+          "exceptionType": "Traceback",
+          "normalizedStackRoot": "File <PATH>, line <N>, in _call_with_frames_removed",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T13:37:38.628Z",
+          "lastSeen": "2026-08-29T13:37:38.628Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/transformers/utils/import_utils.py\", line 2317, in __getattr__\n    module = self._get_module(self._class_to_module[name])\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/transformers/utils/import_utils.py\", line 2347, in _get_module\n    raise e"
+        },
+        "ERR-45aa41d50580": {
+          "id": "ERR-45aa41d50580",
+          "exceptionType": "RuntimeError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T13:37:38.628Z",
+          "lastSeen": "2026-08-29T13:37:38.628Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/_library/fake_impl.py\", line 50, in register\n    if torch._C._dispatch_has_kernel_for_dispatch_key(self.qualname, \"Meta\"):\nRuntimeError: operator torchvision::nms does not exist\n\nThe above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):"
+        },
+        "ERR-83260f6f7145": {
+          "id": "ERR-83260f6f7145",
+          "exceptionType": "ModuleNotFoundError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in <module>",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T13:37:38.628Z",
+          "lastSeen": "2026-08-29T13:37:38.628Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "The above exception was the direct cause of the following exception:\n\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-b9a4ad4daf2a": {
+          "id": "ERR-b9a4ad4daf2a",
+          "exceptionType": "ValueError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in _run_code",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T15:23:44.257Z",
+          "lastSeen": "2026-08-29T15:23:44.257Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "  warn(\n\rLoading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]\rLoading checkpoint shards:  10%|█         | 1/10 [00:03<00:34,  3.80s/it]\rLoading checkpoint shards:  20%|██        | 2/10 [00:05<00:22,  2.84s/it]\rLoading checkpoint shards:  30%|███       | 3/10 [00:08<00:17,  2.49s/it]\rLoading checkpoint shards:  40%|████      | 4/10 [00:10<00:14,  2.38s/it]\rLoading checkpoint shards:  50%|█████     | 5/10 [00:12<00:11,  2.32s/it]\rLoading checkpoint shards:  60%|██████    | 6/10 [00:14<00:09,  2.30s/it]\rLoading checkpoint shards:  70%|███████   | 7/10 [00:16<00:06,  2.23s/it]\rLoading checkpoint shards:  80%|████████  | 8/10 [00:19<00:04,  2.25s/it]\rLoading checkpoint shards:  90%|█████████ | 9/10 [00:21<00:02,  2.25s/it]\rLoading checkpoint shards: 100%|██████████| 10/10 [00:22<00:00,  1.87s/it]\rLoading checkpoint shards: 100%|██████████| 10/10 [00:22<00:00,  2.24s/it]\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/peft/config.py\", line 262, in _get_peft_type\n    config_file = hf_hub_download(\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/huggingface_hub/utils/_validators.py\", line 106, in _inner_fn\n    validate_repo_id(arg_value)"
+        },
+        "ERR-ec3b972b8a84": {
+          "id": "ERR-ec3b972b8a84",
+          "exceptionType": "ValueError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in from_pretrained",
+          "command": "incontext-E-010-E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+          "runId": "E-010 / E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640 / 完整LaSOT自然重放的E008 grounding/query角色审计（n=1400，640）",
+          "firstSeen": "2026-08-29T15:23:44.257Z",
+          "lastSeen": "2026-08-29T15:23:44.257Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "During handling of the above exception, another exception occurred:\n\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:6879057289",
+        "byteOffset": 1981,
+        "since": "2026-08-30T05:27:42.872Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-dynamic-reference-query-online-distill/train.log|incontext-E-009-E009-R-008-reference-top3-query-top5-ensemble-distill": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:2718198529",
+        "byteOffset": 9376,
+        "since": "2026-09-02T12:25:32.883Z"
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-dynamic-reference-query-online-distill/train-lr4e-5.log|incontext-E-009-E009-R-008-reference-top3-query-top5-ensemble-distill": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:2718198574",
+        "byteOffset": 424540,
+        "since": "2026-09-02T15:36:13.539Z",
         "pendingLine": ""
       }
     }

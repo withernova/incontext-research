@@ -1,0 +1,37 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 2,
+  "checkCount": 297,
+  "lastCheckTime": 1788103787542,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "stopped",
+  "healthyStreak": 0,
+  "nextCheck": "2026-08-30T15:31:50.059Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": true,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/metrics.json",
+      "size": 30302,
+      "mtime": "1788088610"
+    },
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640/.survey-tool-exit-code",
+      "size": 2,
+      "mtime": "1788075788"
+    }
+  ],
+  "notifiedIncidentSignature": "process:stopped",
+  "observationFailureNotified": false
+}

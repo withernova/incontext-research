@@ -1,0 +1,28 @@
+{
+  "schema": "iplocid.e010.full-lasot-frozen-query-and-reference-top5/v2",
+  "dataset_root": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT",
+  "sequence_ids_sha256": "3a3b8834337bdab6d8a8595f81fef848bacecb7f312dc8d3941a6ef62e37d760",
+  "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-008-full-lasot-natural-replay-grounding-query-role-audit-n1400-640",
+  "model_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+  "lora_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iplocid/pretrained_weights/Qwen3-VL-8B-Instruct_1shot_iplocid",
+  "model_id": "Qwen/Qwen3-VL-8B-Instruct",
+  "max_side": 640,
+  "max_new_tokens": 128,
+  "seed": 20260830,
+  "bootstrap_repeats": 2000,
+  "query_top5": [
+    "L20H15",
+    "L24H16",
+    "L25H10",
+    "L15H13",
+    "L21H10"
+  ],
+  "reference_top5": [
+    "L18H05",
+    "L20H12",
+    "L20H15",
+    "L20H08",
+    "L14H02"
+  ],
+  "reference_head_authority": "E010-R-006 analysis/summary.json discovery.fixed_heads[\"5\"] / heldout[\"5\"]"
+}
