@@ -10,3 +10,4 @@
 - [[E-008|Reference-grounding heads on query-image attention]] · `planned`
 - [[E-009|目前环境是否支持SFT]] · `planned`
 - [[E-010|验证Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding的可靠性]] · `planned`
+- [[E-011|baseline-验证]] · `planned`

@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "explanation": "dynamic 训练已完成；已在 valid96 对 step1729/dynamic final 完成全-head screen、自然生成 paired 分层、集合与逐-head热图，并量化 attention 与 IoU 变化关系。",
+  "explanation": "扩大机制诊断开发集，目标是获得更多 recover/degraded 样本并对 high-lr GT-mask 与 step1729 做同协议自然生成和平均 attention 对齐；先查找可用、未用于测试的验证 manifest，再执行扩大评估与 probe。",
   "steps": [
     {
-      "step": "检查 dynamic 训练进度、checkpoint 与现有 head-screen/可视化工具",
-      "status": "completed"
+      "step": "核验可用 validation manifests、样本规模及是否已有对应对照结果",
+      "status": "in_progress"
     },
     {
-      "step": "设计 step1729 对 dynamic checkpoint 的固定-head诊断与错误样本分层",
-      "status": "completed"
+      "step": "选择不接触 combined test 的扩大开发集并运行 step1729/high-lr 自然生成评估",
+      "status": "pending"
     },
     {
-      "step": "在不干扰训练的时机运行 valid96 head 分析并生成可视化",
-      "status": "completed"
+      "step": "对两 checkpoint 运行同协议 attention probe并生成ensemble平均热图",
+      "status": "pending"
     },
     {
-      "step": "汇总 attention 变化、失败模式与是否值得调整训练",
-      "status": "completed"
+      "step": "按recover/degraded/retained/failure分组汇总并报告样本与可视化路径",
+      "status": "pending"
     }
   ],
-  "updatedAt": "2026-09-02T16:24:00.610Z"
+  "updatedAt": "2026-09-04T04:18:22.135Z"
 }
