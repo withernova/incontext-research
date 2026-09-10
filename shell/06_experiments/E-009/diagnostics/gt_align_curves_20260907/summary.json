@@ -1,0 +1,336 @@
+{
+  "schema": "e009.exploratory-gt-align-curves/v1",
+  "seed": 20260907,
+  "bootstrap_replicates": 4000,
+  "bootstrap_unit": "dataset-stratified (dataset, sequence) cluster; paired arms; pointwise percentile intervals",
+  "n": 1766,
+  "clusters": 1766,
+  "gates": "unique identities, equal targets, all parsed, finite [0,1], decomposition and exact survival integral PASS",
+  "primary_contrast": "high494 minus baseline494; not an isolated align effect",
+  "grouping": "fixed parent1729 IoU; low-performance = parent IoU < 0.5, posthoc diagnostic definition",
+  "provenance": {
+    "parent1729": {
+      "sha256": "9824b200b82dd5400dbc90e1154dafb876721d57d691435cb6e4f2268f2454b5",
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/baseline-nonft-eval/evaluation/predictions.jsonl"
+    },
+    "baseline494": {
+      "sha256": "a9acb35c6dc3e32bab0919c066dc297e0c8dedc0103e75a41f84e8521703c81a",
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260902T003556220809Z--focus-qwen3vl8b-1shot-nf4-ddp4-ft-459/evaluation/predictions.jsonl"
+    },
+    "gt247": {
+      "sha256": "0e650d50eee2ef8ba937b7f9eace69bf79d3e4cee14aaa60ea817f31fcadfe04",
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260903T084429173021Z--gt-mask-247-eval/evaluation/predictions.jsonl"
+    },
+    "high494": {
+      "sha256": "210b670ffcf9e445c5afec4193c0076efc3d4dbab545a61390c2866386ea6ceb",
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260903T162400978300Z--highlr-gt-mask-494-eval/evaluation/predictions.jsonl"
+    }
+  },
+  "miou": {
+    "parent1729": 0.6934669640610833,
+    "baseline494": 0.6943635513571087,
+    "gt247": 0.6950063544617806,
+    "high494": 0.6875831101008306
+  },
+  "groups": {
+    "all": {
+      "n": 1766,
+      "mean": -0.006780441256278114,
+      "lo": -0.015099955792199048,
+      "hi": 0.001604217180638019,
+      "median": 0.0,
+      "wins": 670,
+      "losses": 799,
+      "ties": 297,
+      "trim_largest_abs_5pct_mean": -0.0036843063967298083,
+      "top_5pct_samples_share_positive_gain": 0.7331563178553614,
+      "parent_miou": 0.6934669640610833,
+      "baseline_miou": 0.6943635513571087,
+      "high_miou": 0.6875831101008306
+    },
+    "parent_lt_0.5": {
+      "n": 432,
+      "mean": 0.03374595598063902,
+      "lo": 0.011395946967211797,
+      "hi": 0.05672151591474639,
+      "median": 0.0,
+      "wins": 103,
+      "losses": 97,
+      "ties": 232,
+      "trim_largest_abs_5pct_mean": 0.011095203080798215,
+      "top_5pct_samples_share_positive_gain": 0.6690867871218905,
+      "parent_miou": 0.07999631266942372,
+      "baseline_miou": 0.14041207219782478,
+      "high_miou": 0.1741580281784638
+    },
+    "parent_ge_0.75": {
+      "n": 1177,
+      "mean": -0.01674274536111773,
+      "lo": -0.02474198013189734,
+      "hi": -0.008821279809877588,
+      "median": -0.0012666366124542972,
+      "wins": 498,
+      "losses": 619,
+      "ties": 60,
+      "trim_largest_abs_5pct_mean": -0.003953980904003479,
+      "top_5pct_samples_share_positive_gain": 0.6643571347633647,
+      "parent_miou": 0.9251612345588917,
+      "baseline_miou": 0.9045849488494498,
+      "high_miou": 0.8878422034883321
+    },
+    "GOT10k_parent_lt_0.5": {
+      "n": 18,
+      "mean": -0.013021111236541384,
+      "lo": -0.16410771988073364,
+      "hi": 0.14744881598446097,
+      "median": 0.0,
+      "wins": 5,
+      "losses": 6,
+      "ties": 7,
+      "trim_largest_abs_5pct_mean": -0.013021111236541384,
+      "top_5pct_samples_share_positive_gain": 0.6781746304231502,
+      "parent_miou": 0.1273030009767473,
+      "baseline_miou": 0.24870972287115645,
+      "high_miou": 0.23568861163461502
+    },
+    "LaSOT_parent_lt_0.5": {
+      "n": 161,
+      "mean": 0.0480663792631276,
+      "lo": 0.012999281342003505,
+      "hi": 0.08616631099591866,
+      "median": 0.0,
+      "wins": 46,
+      "losses": 36,
+      "ties": 79,
+      "trim_largest_abs_5pct_mean": 0.018398869492943646,
+      "top_5pct_samples_share_positive_gain": 0.589698617654482,
+      "parent_miou": 0.09431508386541412,
+      "baseline_miou": 0.1442417723848068,
+      "high_miou": 0.1923081516479344
+    },
+    "TAO_parent_lt_0.5": {
+      "n": 253,
+      "mean": 0.027960260571265844,
+      "lo": -0.00022747489194349766,
+      "hi": 0.05883268216843927,
+      "median": 0.0,
+      "wins": 52,
+      "losses": 55,
+      "ties": 146,
+      "trim_largest_abs_5pct_mean": 0.005913568339525731,
+      "top_5pct_samples_share_positive_gain": 0.7727402606442985,
+      "parent_miou": 0.06751867412362814,
+      "baseline_miou": 0.13027001906650434,
+      "high_miou": 0.15823027963777017
+    }
+  },
+  "transitions": [
+    {
+      "group": "all",
+      "threshold": 0.1,
+      "rescued": 37,
+      "lost": 46,
+      "n": 1766,
+      "mean": -0.005096262740656852,
+      "lo": -0.015288788221970554,
+      "hi": 0.005096262740656852
+    },
+    {
+      "group": "all",
+      "threshold": 0.25,
+      "rescued": 36,
+      "lost": 46,
+      "n": 1766,
+      "mean": -0.0056625141562853904,
+      "lo": -0.015855039637599093,
+      "hi": 0.0039779161947905385
+    },
+    {
+      "group": "all",
+      "threshold": 0.5,
+      "rescued": 52,
+      "lost": 63,
+      "n": 1766,
+      "mean": -0.00622876557191393,
+      "lo": -0.01812004530011325,
+      "hi": 0.0056625141562853904
+    },
+    {
+      "group": "all",
+      "threshold": 0.75,
+      "rescued": 55,
+      "lost": 96,
+      "n": 1766,
+      "mean": -0.0232163080407701,
+      "lo": -0.03737259343148358,
+      "hi": -0.009060022650056626
+    },
+    {
+      "group": "parent_lt_0.5",
+      "threshold": 0.1,
+      "rescued": 32,
+      "lost": 17,
+      "n": 432,
+      "mean": 0.034722222222222224,
+      "lo": 0.00248725432244717,
+      "hi": 0.06652613445217527
+    },
+    {
+      "group": "parent_lt_0.5",
+      "threshold": 0.25,
+      "rescued": 30,
+      "lost": 17,
+      "n": 432,
+      "mean": 0.03009259259259259,
+      "lo": 0.0,
+      "hi": 0.06132075471698113
+    },
+    {
+      "group": "parent_lt_0.5",
+      "threshold": 0.5,
+      "rescued": 41,
+      "lost": 17,
+      "n": 432,
+      "mean": 0.05555555555555555,
+      "lo": 0.022120918709565746,
+      "hi": 0.0890592325609072
+    },
+    {
+      "group": "parent_lt_0.5",
+      "threshold": 0.75,
+      "rescued": 18,
+      "lost": 8,
+      "n": 432,
+      "mean": 0.023148148148148147,
+      "lo": 0.0,
+      "hi": 0.047087317031897793
+    },
+    {
+      "group": "GOT10k",
+      "threshold": 0.1,
+      "rescued": 2,
+      "lost": 2,
+      "n": 180,
+      "mean": 0.0,
+      "lo": -0.022222222222222223,
+      "hi": 0.022222222222222223
+    },
+    {
+      "group": "GOT10k",
+      "threshold": 0.25,
+      "rescued": 1,
+      "lost": 2,
+      "n": 180,
+      "mean": -0.005555555555555556,
+      "lo": -0.027777777777777776,
+      "hi": 0.011111111111111112
+    },
+    {
+      "group": "GOT10k",
+      "threshold": 0.5,
+      "rescued": 2,
+      "lost": 5,
+      "n": 180,
+      "mean": -0.016666666666666666,
+      "lo": -0.044444444444444446,
+      "hi": 0.011111111111111112
+    },
+    {
+      "group": "GOT10k",
+      "threshold": 0.75,
+      "rescued": 3,
+      "lost": 8,
+      "n": 180,
+      "mean": -0.027777777777777776,
+      "lo": -0.06666666666666667,
+      "hi": 0.005555555555555556
+    },
+    {
+      "group": "LaSOT",
+      "threshold": 0.1,
+      "rescued": 17,
+      "lost": 14,
+      "n": 600,
+      "mean": 0.005,
+      "lo": -0.013333333333333334,
+      "hi": 0.023333333333333334
+    },
+    {
+      "group": "LaSOT",
+      "threshold": 0.25,
+      "rescued": 15,
+      "lost": 15,
+      "n": 600,
+      "mean": 0.0,
+      "lo": -0.018333333333333333,
+      "hi": 0.018333333333333333
+    },
+    {
+      "group": "LaSOT",
+      "threshold": 0.5,
+      "rescued": 28,
+      "lost": 23,
+      "n": 600,
+      "mean": 0.008333333333333333,
+      "lo": -0.015,
+      "hi": 0.03166666666666667
+    },
+    {
+      "group": "LaSOT",
+      "threshold": 0.75,
+      "rescued": 18,
+      "lost": 38,
+      "n": 600,
+      "mean": -0.03333333333333333,
+      "lo": -0.058333333333333334,
+      "hi": -0.008333333333333333
+    },
+    {
+      "group": "TAO",
+      "threshold": 0.1,
+      "rescued": 18,
+      "lost": 30,
+      "n": 986,
+      "mean": -0.012170385395537525,
+      "lo": -0.02636916835699797,
+      "hi": 0.0010141987829614604
+    },
+    {
+      "group": "TAO",
+      "threshold": 0.25,
+      "rescued": 20,
+      "lost": 29,
+      "n": 986,
+      "mean": -0.009127789046653144,
+      "lo": -0.02332657200811359,
+      "hi": 0.005070993914807302
+    },
+    {
+      "group": "TAO",
+      "threshold": 0.5,
+      "rescued": 22,
+      "lost": 35,
+      "n": 986,
+      "mean": -0.013184584178498986,
+      "lo": -0.028397565922920892,
+      "hi": 0.002028397565922921
+    },
+    {
+      "group": "TAO",
+      "threshold": 0.75,
+      "rescued": 34,
+      "lost": 50,
+      "n": 986,
+      "mean": -0.016227180527383367,
+      "lo": -0.035496957403651115,
+      "hi": 0.002028397565922921
+    }
+  ],
+  "limitations": [
+    "No training config matching or seed replication; learning rate may confound contrast.",
+    "gt247 has a different training endpoint; sensitivity comparison only.",
+    "Parent scores anchor groups but are noisy and not independent repeated difficulty estimates.",
+    "Pointwise intervals are exploratory, not simultaneous confidence bands; no causal mechanism claim.",
+    "Dataset identities and targets match; original image hashes, preprocessing and split independence not audited here."
+  ]
+}

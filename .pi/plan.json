@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "explanation": "扩大机制诊断开发集，目标是获得更多 recover/degraded 样本并对 high-lr GT-mask 与 step1729 做同协议自然生成和平均 attention 对齐；先查找可用、未用于测试的验证 manifest，再执行扩大评估与 probe。",
+  "explanation": "已完成论文与本地官方快照的逐段核对；指定的项目 head_screening 源码在当前可访问文件系统中不存在，且受控工作区的只读探测未能连通，因此没有对未读取到的源文件进行臆测性注释或修改。",
   "steps": [
     {
-      "step": "核验可用 validation manifests、样本规模及是否已有对应对照结果",
-      "status": "in_progress"
+      "step": "读取 E-010 资料并明确原文、项目与官方实现的比较范围",
+      "status": "completed"
     },
     {
-      "step": "选择不接触 combined test 的扩大开发集并运行 step1729/high-lr 自然生成评估",
-      "status": "pending"
+      "step": "定位指定项目与官方源码，逐段核对算法实现",
+      "status": "completed"
     },
     {
-      "step": "对两 checkpoint 运行同协议 attention probe并生成ensemble平均热图",
-      "status": "pending"
+      "step": "在项目源码中补充最小且可验证的差异注释，并做聚焦检查",
+      "status": "completed"
     },
     {
-      "step": "按recover/degraded/retained/failure分组汇总并报告样本与可视化路径",
-      "status": "pending"
+      "step": "复核变更并报告严重差异与剩余风险",
+      "status": "completed"
     }
   ],
-  "updatedAt": "2026-09-04T04:18:22.135Z"
+  "updatedAt": "2026-09-08T08:55:23.920Z"
 }

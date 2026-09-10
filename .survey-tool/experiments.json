@@ -453,12 +453,14 @@
     "updated": "2026-08-26T13:04:30"
   },
   {
-    "title": "baseline-验证",
-    "objective": "在train数据集上对IPLoc的baseline进行评估的复现",
+    "title": "关于目前已有的补充实验",
+    "objective": "在train数据集上对IPLoc的baseline进行评估的复现以及后续的一系列其他实验",
     "workspace_id": "02",
     "code_repository_workspace_id": "02",
     "constraints": "",
-    "evidence_refs": [],
+    "evidence_refs": [
+      "[]"
+    ],
     "hypothesis": "",
     "success_criteria": "",
     "failure_criteria": "",
@@ -467,12 +469,74 @@
     "id": "E-011",
     "status": "planned",
     "kind": "standalone",
-    "workflow_stage": "draft",
+    "workflow_stage": "awaiting_confirmation",
     "agent_level": "2",
     "brief_objective": "在train数据集上对IPLoc的baseline进行评估的复现",
     "brief_constraints": "",
     "claim_refs": [],
     "created": "2026-09-04T13:50:54",
-    "updated": "2026-09-04T13:50:54"
+    "updated": "2026-09-08T15:52:35",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-011",
+      "verified_facts": [
+        {
+          "label": "基线评估入口",
+          "value": "IPLoc 基线通过 `mechanism/IPLoc/run_e011_iploc_baseline.sh` 选择数据 manifest，并调用 `Loc_Qwen2VL7B.py`。",
+          "evidence": "远程只读检查：`mechanism/IPLoc/run_e011_iploc_baseline.sh` 第 10–37 行。"
+        },
+        {
+          "label": "模型输出路径",
+          "value": "评估脚本加载 Qwen2-VL 与 LoRA 后，以 `model.generate` 逐 token 生成边界框文本；解析有效框后计算 IoU。",
+          "evidence": "远程只读检查：`mechanism/IPLoc/Loc_Qwen2VL7B.py` 第 60–70、137–188、235–256 行。"
+        },
+        {
+          "label": "现有 E-011 资产",
+          "value": "远程 E-011 已有 LaSOT、TAO、GOT10k 的 manifest，以及训练/基线运行目录；尚未验证其结果是否可直接作为本次干预的对照。",
+          "evidence": "远程只读列举：`experiments/E-011/manifests/`、`experiments/E-011/code-runs/`。"
+        },
+        {
+          "label": "注意力干预现状",
+          "value": "当前基线代码未暴露 attention hook；若要让选定 query head 的 attention map 与 GT 对齐，需要在模型注意力计算处增加显式、可开关的干预实现。",
+          "evidence": "远程只读检查：`Loc_Qwen2VL7B.py` 仅调用 `model.generate`，未发现项目源码中的 attention hook 入口。"
+        },
+        {
+          "label": "运行环境限制",
+          "value": "远端 shell 中 `conda` 命令不可用，但基线 launcher 固定使用 `/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/bin/python`；GPU 可见但均已有显著显存占用。",
+          "evidence": "远程只读检查：launcher 第 6 行；`nvidia-smi` 返回四张 RTX 3090，各已使用 16324 MiB。"
+        }
+      ],
+      "proposal": {
+        "objective": "在已验证的 IPLoc 基线评估流程中，检验将预先指定的 query attention head 对 query 图像视觉 token 的注意力分布强制改写为 GT 区域分布后，模型逐 token 生成的边界框预测是否随该改写发生可测变化。",
+        "implementation_scope": "在实际 Qwen2-VL 注意力概率计算位置增加最小、可开关的 hook：只对预先声明的 query head、预先定义的生成行和 query 图像 token 区域改写概率；同时保留原始基线与同 hook 不改写的对照。实现前须先确认 head、行位置、GT token-grid 映射和归一化规则，且不得修改数据。",
+        "evaluation": "对同一冻结样本分别运行原始基线、no-op hook 与 GT 对齐干预，记录生成文本、有效框率、IoU、预测框相对 GT 的位移；只有干预生效审计和 no-op 等价检查都通过时，才讨论预测是否跟随 attention map。"
+      },
+      "questions": [
+        {
+          "key": "intervention_scope",
+          "label": "GT 对齐应改写哪些 attention head 与哪些生成 token 行？",
+          "why": "当前目标只说“query head”，但没有指定 head 或生成阶段；不同选择会对应不同机制问题，不能事后按结果选择。",
+          "suggested": "先做小规模可审计 smoke：固定一个预注册 head 和边界框输出前的生成行；确认 hook 能稳定改变该 map 后，再决定是否扩展。"
+        },
+        {
+          "key": "gt_alignment_rule",
+          "label": "GT 区域在视觉 token-grid 上采用全覆盖、任意重叠，还是按重叠面积加权？",
+          "why": "该规则决定被改写的注意力目标，必须在运行前固定。",
+          "suggested": "采用按 token 与 GT 框重叠面积归一化的分布，并保留 token-grid 与 selected-token-counts 审计。"
+        },
+        {
+          "key": "comparison_dataset",
+          "label": "首个可审核 Run 应使用哪一个已有 manifest 作为冻结的小样本对照？",
+          "why": "远端已有多个数据 manifest，但当前实验目标没有指定数据身份或样本规模，不能从相邻实验推断。",
+          "suggested": "先选一个已有 E-011 manifest 的固定小样本子集，仅作机制 smoke；通过后再设计 train 集完整评估。"
+        }
+      ],
+      "risks": [
+        "该干预会使用 GT，因此只能检验模型输出对指定注意力分布的敏感性，不能证明自然预测时模型自发使用了该注意力机制。",
+        "`generate` 的自回归过程、图像 token span 与每个输出行的对应关系尚未实测；实现前需加入行/span 对齐审计。",
+        "GPU 当前已有显存占用，正式运行前需确认可用资源；本阶段未启动任务。",
+        "远程 Git 因 ownership safe-directory 检查无法直接读取状态；不得用全局 Git 配置绕过该限制。"
+      ]
+    }
   }
 ]

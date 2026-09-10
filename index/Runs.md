@@ -69,3 +69,4 @@
 - [[E009-R-007-head-stability-last5|训练后段最后五个 checkpoint 的单 Run head 稳定性核验]] ← [[E-009]] · `draft`
 - [[E009-R-008-reference-top3-query-top5-ensemble-distill|Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏]] ← [[E-009]] · `planned`
 - [[E009-R-009-dynamic-reference-top3-query-top5-online-distill|动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）]] ← [[E-009]] · `completed`
+- [[E011-R-001-query-attention-gt-alignment-smoke|1]] ← [[E-011]] · `draft`

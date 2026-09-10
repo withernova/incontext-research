@@ -4,13 +4,14 @@
 
 ## 概况
 - state: E002_PLANNING · iteration: 1
-- 论文: 8 · 声明: 1 · Idea: 3
+- 论文: 9 · 声明: 1 · Idea: 3
 - 目标会议/领域: 见 INTAKE.md / AGENTS.md
 
 ## 论文
 - [[detpoinc2026]] DetPO: In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection (2026)
 - [[devilsin2024]] Devils in Middle Layers of Large Vision-Language Models  Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens (2024)
 - [[focusfor2026]] FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization (2026)
+- [[makelvlm2025]] Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning (2025)
 - [[mechanis2026]] Mechanisms of Object Localization in Vision-Language Models (2026)
 - [[personal2026]] Personalized Object Identification and Localization via In-Context Inference with Vision-Language Models (2026)
 - [[teaching2024]] Teaching VLMs to Localize Specific Objects from In-context Examples (2024)

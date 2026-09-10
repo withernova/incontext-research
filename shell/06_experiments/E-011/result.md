@@ -1,7 +1,11 @@
 # E-011 · 实验结果
 
 ## 运行汇总（survey-tool 管理）
-（尚无 Run）
+### 历史未分组 (`legacy`)
+| Run | Variant | Seed | 状态 | 指标摘要 |
+|---|---|---:|---|---|
+| [E011-R-001-query-attention-gt-alignment-smoke](runs/E011-R-001-query-attention-gt-alignment-smoke.md) | 1 |  | draft | （尚无结构化观测） |
+
 
 ## 指标观测（survey-tool 管理）
 （尚无结构化观测）

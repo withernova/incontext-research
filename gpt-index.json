@@ -1,7 +1,7 @@
 {
   "format": "survey-gpt-index",
   "version": 1,
-  "generatedAt": "2026-09-07T10:49:39",
+  "generatedAt": "2026-09-10T10:59:46",
   "project": {
     "id": "incontext",
     "name": "incontext"
@@ -39,6 +39,20 @@
       "title": "FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization",
       "paperPath": "papers/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026/hybrid_auto/FOCUS_ Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization_2026.md",
       "sevenPath": "shell/03_evidence/papers/focusfor2026.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "makelvlm2025": {
+      "title": "Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning",
+      "paperPath": "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025.md",
+      "sevenPath": "shell/03_evidence/papers/makelvlm2025.md",
       "questions": {
         "q1": "① 解决了什么问题？",
         "q2": "② 方法具体怎么做？",

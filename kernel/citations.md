@@ -68,3 +68,13 @@ Never invent an entry by hand; if a paper can't be fetched, mark it [UNVERIFIED]
 - fetched_at: 2026-08-16T19:46:36
 - local_pdf: shell/03_evidence/papers/jiang2024devilsin.pdf
 - mineru_md: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Devils in Middle Layers of Large Vision-Language Models  Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens_2024/hybrid_auto/jiang2024devilsin.md | mineru_images: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Devils in Middle Layers of Large Vision-Language Models  Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens_2024/hybrid_auto/images  # 优先阅读对象（C2）
+## [makelvlm2025]
+- title: Make LVLMs Focus: Context-Aware Attention Modulation for Better Multimodal In-Context Learning
+- authors: Yanshu Li, Jianjiang Yang, Ziteng Yang, Bozheng Li, Ligong Han, Hongyang He, Zhengtao Yao, Yingjie Victor Chen, Songlin Fei, Dongfang Liu, Ruixiang Tang
+- year: 2025
+- doi: 10.48550/arXiv.2505.17097
+- source_url: https://www.zotero.org/items/350
+- content_hash: sha256:46ecbfd76c2ab92b132f8cd29da7cf46fae56e9547a1b023ecb5da5c7e217e22
+- fetched_at: 2026-09-10T10:57:12
+- local_pdf: shell/03_evidence/papers/makelvlm2025.pdf
+- mineru_md: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025.md | mineru_images: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images  # 优先阅读对象（C2）

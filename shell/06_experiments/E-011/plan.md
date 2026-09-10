@@ -1,4 +1,4 @@
-# E-011 · baseline-验证
+# E-011 · 关于目前已有的补充实验
 
 - status: planned
 - kind: standalone
@@ -6,10 +6,10 @@
 - claim_refs: 
 - priority: medium
 - created: 2026-09-04T13:50:54
-- updated: 2026-09-04T13:50:54
+- updated: 2026-09-08T15:52:35
 
 ## 实验目标
-在train数据集上对IPLoc的baseline进行评估的复现
+在train数据集上对IPLoc的baseline进行评估的复现以及后续的一系列其他实验
 
 ## 假设
 （待补充）

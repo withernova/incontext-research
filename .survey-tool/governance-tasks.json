@@ -649,6 +649,33 @@
         }
       },
       "created_at": "2026-09-03T01:17:11"
+    },
+    {
+      "task_id": "classify-84a857b685bda8218205",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-011",
+      "run_id": "1",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "1",
+          "run_type": "",
+          "variant": "1",
+          "purpose": "1"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-08T15:51:57"
     }
   ]
 }

@@ -14261,5 +14261,50 @@
     "metrics": "{\"combined_miou\":0.6898559879709187,\"combined_delta_vs_step1729\":-0.003610976090163,\"combined_delta_vs_continued_sft\":-0.0045075633861894,\"lasot_miou\":0.6437786603235646,\"got10k_miou\":0.8060018501439319,\"tao_miou\":0.6966918311730198,\"valid96_miou\":0.6368614597544191,\"valid96_delta_vs_step1729\":0.0118924547982592,\"valid96_kl_step1729\":0.7775546718215257,\"valid96_kl_dynamic\":0.1712954231229419,\"valid96_student_object_mass_step1729\":0.0070086600398713,\"valid96_student_object_mass_dynamic\":0.0092745197034326,\"valid96_student_s50_step1729\":0.147932584566592,\"valid96_student_s50_dynamic\":0.2955626129208515,\"valid96_teacher_s50_step1729\":0.2637000610488339,\"valid96_teacher_s50_dynamic\":0.2597615372372236}",
     "notes": "后验探索性Run；review_status保持draft，不补写或伪造审核/执行授权。combined评估使用vision_max_patch_tokens=4096；valid96 heatmap为GT bbox teacher-forced rows，与自然生成错误仅作关联对齐。",
     "result_analysis": "机制诊断显示蒸馏被真实优化：valid96 Teacher→Student KL 从 0.7776 降至 0.1713，Student object mass 从 0.00701 升至 0.00927，Student S50-fIoU 从 0.1479 升至 0.2956；Teacher S50-fIoU 从 0.2637 微降至 0.2598。dynamic final Reference Top-5 被多个原 student heads 占据，原 teacher L20H20/L14H23 跌出 Top-5，支持共享参数下 teacher 功能漂移。逐样本 attention 指标与 IoU delta 的 Spearman 相关均不显著；错误案例说明更低 KL 不充分保证 Query 候选实例选择正确。"
+  },
+  {
+    "variant": "1",
+    "group_id": "",
+    "research_question": "当把预先指定的 query attention head 在边界框生成行、对 query 图像视觉 token 的注意力概率改写为 GT 框分布时，IPLoc 生成的边界框是否相对于原始基线向 GT 移动？",
+    "purpose": "在同一批冻结样本上比较原始基线、已安装但不改变数值的 no-op hook、以及 GT 对齐干预，排除单纯增加 hook 或重放误差造成的预测变化。该 Run 只验证预测对指定注意力分布改写的敏感性。",
+    "hypothesis": "若该 query head 的注意力分布在该生成行对边界框决策具有直接影响，则 GT 对齐干预相对原始和 no-op 对照会使预测框 IoU 或中心点距离朝 GT 方向变化；无变化或 no-op 同样变化均不支持该解释。",
+    "metric_plan": "使用现有基线 IoU 与有效框率，并增加预测框中心距离及 attention-map 对齐审计；只比较同一冻结样本的三条件配对差异。",
+    "data_definition": "待确认：从一个已存在的 E-011 manifest 中，在运行前固定小规模样本及其顺序；不写入或修改数据集。",
+    "variables_controls": "三条件：原始 baseline；no-op hook（执行同一路径但保持原 attention 概率）；GT 对齐 hook。固定同一模型、LoRA、输入、生成设置、样本顺序和随机种子。待确认：目标 layer/head、bbox 输出的生成行、GT→token-grid 重叠面积归一化规则。",
+    "workspace_id": "",
+    "id": "E011-R-001-query-attention-gt-alignment-smoke",
+    "experiment_id": "E-011",
+    "workflow_version": 2,
+    "workflow_stage": "code_planning",
+    "status": "draft",
+    "review_status": "draft",
+    "review_round": 0,
+    "created": "2026-09-08T15:51:57",
+    "updated": "2026-09-08T15:54:27",
+    "organization_snapshot": {
+      "time": "2026-09-08T15:51:57",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-84a857b685bda8218205"
+    },
+    "legacy_registry_ids": [
+      "1"
+    ],
+    "run_type": "机制干预 smoke",
+    "necessity": "当前 IPLoc 评估脚本直接调用 `model.generate`，未暴露 attention hook；因此尚无法判断 query-head attention map 与预测框之间是否存在可操作的关联。",
+    "evidence_basis": "已验证 `mechanism/IPLoc/run_e011_iploc_baseline.sh` 调用 `Loc_Qwen2VL7B.py`；后者加载 Qwen2-VL+LoRA 后通过 `model.generate` 生成并以 IoU 评估边界框。",
+    "data_scale": "待确认：仅机制 smoke 的固定小样本；样本数在审核前确定，运行中不再更改。",
+    "model_config": "IPLoc 当前 Qwen2-VL 基线与其现有 LoRA；模型、adapter revision、图像预处理和生成参数须在代码实现后记录。",
+    "metric_definition": "逐样本保存生成文本、有效框状态、IoU、预测框中心至 GT 中心的距离；另审计干预前后目标 head 对 GT token 的 attention mass、token-grid、selected-token-counts 和行/span 对齐。主比较为 GT 对齐条件相对原始与 no-op 条件的配对变化。",
+    "integrity_gates": "1) 原始和 no-op 在逐 token 输出与 logits/attention 审计允许误差内一致；2) GT token-grid 非空且 selected-token-counts 已记录；3) hook 仅作用于预注册 layer/head、生成行、query image token span；4) 三条件均保存完整逐样本记录，禁止以零有效框得出结论；5) 在结果前固定样本、head、行和归一化规则。",
+    "expected_outcome": "若干预确实将目标 head 的 query-image attention mass 移至 GT 且预测框同步改善，可证明该预测对这一受控改写敏感；若无同步变化，则在本实现和条件下不支持该 head 的直接充分作用。",
+    "acceptance_criteria": "可复现运行三条件；no-op 等价 gate 通过；GT 对齐 attention 审计通过；每个样本均有可解析状态和完整比较记录；仅在上述 gate 通过后报告配对预测变化。",
+    "dependencies": "需在实际 Qwen2-VL attention 概率计算位置实现最小可开关 hook，并在远端确认可用 GPU 后才可运行。",
+    "limitations": "GT 强制对齐是干预，不反映模型自然注意力；单个预指定 head/行的结果不可推广为整个模型机制，也不构成因果电路的充分证明。",
+    "claim_boundary": "本 Run 只回答受控 attention 概率改写是否伴随预测变化；不证明 IPLoc 自然预测时使用 GT、不证明 identity 理解，也不修改任何 Claim verdict。",
+    "audit_paths": "远端待实现：`mechanism/IPLoc/` 的最小 hook 模块、基线入口及 `experiments/E-011/E011-R-001-query-attention-gt-alignment-smoke/` 下的配置、逐样本审计和结果。",
+    "architecture_plan": "在 Qwen2-VL 实际 attention 概率计算后、attention×V 之前插入可开关 hook；新增实现须被 IPLoc 现有评估入口显式调用，不复制基线评估逻辑。"
   }
 ]

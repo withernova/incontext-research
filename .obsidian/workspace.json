@@ -11,14 +11,12 @@
             "id": "29e10cc5d5323e76",
             "type": "leaf",
             "state": {
-              "type": "markdown",
+              "type": "image",
               "state": {
-                "file": "shell/01_questions/Q-008.md",
-                "mode": "source",
-                "source": false
+                "file": "shell/06_experiments/E-009/diagnostics/gt_align_curves_20260907/gt_align_curves.png"
               },
-              "icon": "lucide-file",
-              "title": "Q-008"
+              "icon": "lucide-image",
+              "title": "gt_align_curves"
             }
           }
         ]
@@ -190,18 +188,41 @@
   },
   "active": "29e10cc5d5323e76",
   "lastOpenFiles": [
+    "shell/03_evidence/papers/makelvlm2025.md",
+    "shell/03_evidence/papers/makelvlm2025.pdf",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/f5e2cfd646559f078482ef8f4a7259f946ebb87d22ff70db1a9ed3c35b51e445.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/f35a4ab0994c332c4273d8e9fe26ee2515cf69ef3b4aaac29fecea30acbb49f5.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/e5057c6a27c1652b57060837f9caaa1493612fd70b99a52f4485583b41cc789d.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/e0335ca6ebcaa8268af5c371333d534958bb973213226d1671bd4ecebec71186.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/df86585d2e6717aca831e32ab7ca5df2445a063578fc0ab72348ac870c4b3d69.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/df3face646cfa6f4de25548607fdfe71f9f5f474aedd5ae8bf903e505324c7df.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/ce1e72023b9dc8445350de131d09474b35b51161d2ea8fb78db939769c7d84e0.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/c16e7e898bc1d8f5352f5b8b70f6d547ba43bd8965bae5a8dc9542462a0676fb.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/bf1785f7af52fbe303fd555dbfa782bac949f66a833ed5f5bfdc87750b6840a0.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images/b9bf2f980018b2cd12a6cab3d852e2b656c0da04db2cb5a71f52e3fb3daf92ec.jpg",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_span.pdf",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_origin.pdf",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_model.json",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_middle.json",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_layout.pdf",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_content_list_v2.json",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025_content_list.json",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025.md",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images",
+    "papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto",
+    "shell/06_experiments/E-011/runs/E011-R-001-query-attention-gt-alignment-smoke.md",
+    "shell/06_experiments/E-011/runs/1.md",
+    "shell/06_experiments/E-011/events.md",
+    "shell/06_experiments/E-009/diagnostics/gt_align_curves_20260907/report.md",
+    "shell/01_questions/Q-008.md",
     "shell/06_experiments/E-011/review.md",
     "shell/06_experiments/E-011/result.md",
     "shell/06_experiments/E-011/plan.md",
     "shell/06_experiments/E-011/mission.md",
     "shell/06_experiments/E-011/brief.md",
     "shell/06_experiments/E-011/E-011.md",
-    "shell/06_experiments/E-011",
-    "2026-09-01T12-41-21-637Z_01a05cfd-07e5-7ad2-bd1b-7e627d25bf75.copyable.html",
     "state.md",
-    "shell/01_questions/Q-008.md",
     "INTAKE.md",
-    "AGENTS.md",
-    "papers/Teaching VLMs to Localize Specific Objects from In-context Examples_2024.pdf"
+    "AGENTS.md"
   ]
 }

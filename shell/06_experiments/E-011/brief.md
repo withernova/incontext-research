@@ -9,6 +9,6 @@
 ## 来源
 - kind: standalone
 - source_ref: 
-- evidence_refs: 
+- evidence_refs: []
 - claim_refs: 
 - workspace_id: 02
