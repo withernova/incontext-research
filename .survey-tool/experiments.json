@@ -538,5 +538,143 @@
         "远程 Git 因 ownership safe-directory 检查无法直接读取状态；不得用全局 Git 配置绕过该限制。"
       ]
     }
+  },
+  {
+    "title": "探索新的head确定方案",
+    "objective": "验证高梯度敏感 head 与高 A@V 可解码 head 是否通过跨层路径共同影响 bbox，而不是要求同一个 head 同时承担路由、编码与输出控制。",
+    "workspace_id": "02",
+    "code_repository_workspace_id": "02",
+    "constraints": "",
+    "evidence_refs": [],
+    "hypothesis": "",
+    "success_criteria": "",
+    "failure_criteria": "",
+    "metric_definitions": [
+      {
+        "id": "bbox_grad_abs_contrib_mean",
+        "name": "bbox梯度绝对贡献（逐head样本均值）",
+        "formula": "C_lh = mean_n sum_{p,j in query} |A_lh[p-1,j] * dL_bbox/dA_lh[p-1,j]|",
+        "meaning": "teacher-forced bbox token平均CE对指定query->query视觉注意力边的局部敏感度绝对量；只表示当前输入下的敏感度大小，不是因果必要性，也不是增强方向证据",
+        "direction": "higher",
+        "unit": "CE*prob",
+        "aggregation": "每条边先取绝对值，再按样本求和，最后样本等权平均；不除以视觉token数",
+        "scope": "Qwen3-VL-8B+LoRA、36层x32 query heads=1152 heads；20条先导与690条扩展两轮eval子集"
+      },
+      {
+        "id": "bbox_grad_signed_contrib_mean",
+        "name": "bbox梯度signed贡献（逐head样本均值）",
+        "formula": "S_lh = mean_n sum_{p,j in query} A_lh[p-1,j] * dL_bbox/dA_lh[p-1,j]",
+        "meaning": "对post-softmax指定边做不重归一化乘法缩放时的一阶CE导数方向；本轮有限差分与反传符号不一致，方向暂不可用于增强/抑制决策",
+        "direction": "target",
+        "unit": "CE*prob",
+        "aggregation": "样本等权平均",
+        "scope": "同上1152 heads；20条与690条两轮eval子集"
+      },
+      {
+        "id": "bbox_token_ce_mean",
+        "name": "平均bbox token CE",
+        "formula": "mean_n mean_i CE(logits[p_i-1], token[p_i])",
+        "meaning": "teacher-forced query bbox片段（含标点）平均交叉熵，仅表示损失量级，不是IoU或定位准确率",
+        "direction": "lower",
+        "unit": "nats",
+        "aggregation": "样本等权平均",
+        "scope": "690条（LaSOT 300/GOT10k 90/TAO 300）与20条先导"
+      },
+      {
+        "id": "head_ranking_jaccard",
+        "name": "头部排名集合Jaccard",
+        "formula": "|A∩B|/|A∪B|",
+        "meaning": "不同样本子集或旧固定head集合在固定Top-k上的重合度，用于稳定性观察，不证明因果或泛化提升",
+        "direction": "higher",
+        "unit": "ratio",
+        "aggregation": "对固定Top-k集合直接计算",
+        "scope": "20条vs690条、690条对旧固定5 head；Top-5/Top-10/Top-50"
+      },
+      {
+        "id": "finite_difference_sign_agreement",
+        "name": "有限差分与反传符号一致",
+        "formula": "sign(central_difference) == sign(signed_derivative)",
+        "meaning": "首样本指定边±epsilon缩放的中央差分是否与反传signed导数同号；本轮为false，说明梯度方向链路校验未通过",
+        "direction": "target",
+        "unit": "bool",
+        "aggregation": "首样本单一诊断，不参与排名",
+        "scope": "690条run首样本dataset_index=0 L24H25，epsilon=0.02"
+      }
+    ],
+    "run_groups": [],
+    "id": "E-012",
+    "status": "planned",
+    "kind": "standalone",
+    "workflow_stage": "runs_ready",
+    "agent_level": "2",
+    "brief_objective": "结合多篇论文的多种方法，不仅关注attention map好不好看，还要注重attention weight x V的output是否对模型梯度影响大",
+    "brief_constraints": "",
+    "claim_refs": [],
+    "created": "2026-09-10T11:01:05",
+    "updated": "2026-09-12T15:02:22",
+    "agent_handoff": {
+      "contract": "survey-tool.experiment-handoff/v1",
+      "experiment_id": "E-012",
+      "verified_facts": [
+        {
+          "label": "代码与权重入口",
+          "value": "远端仓库为 /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy，当前 main@4411686f；使用 E-011 step1973 checkpoint。",
+          "evidence": "ssh NKU-LWC 后执行 git rev-parse HEAD；configs/head_screening/e012_bbox_gradient_initial.py"
+        },
+        {
+          "label": "可复用的干预位置",
+          "value": "现有 eager-attention hook 可以在文本 attention 的 A@V 输出、o_proj 之前，按 bbox prediction rows 和单 head 的 128 维切片进行捕获或替换。",
+          "evidence": "iploc_szy/head_screening/head_criteria.py:capture_head_outputs/steer_rows；shell/06_experiments/E-004/runs/E004-R-010-single-head-activation-patching-correctness-smoke.md"
+        },
+        {
+          "label": "候选分工信号",
+          "value": "A 与 B 的 1152-head 排名仅中等相关（Spearman 约 0.51）；L26H25 为 A#1/B#390，L23H19 为 A#841/B#1，L23H30 为 A#4/B#3；单 head steering 最大 slope 约 0.079。",
+          "evidence": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/summary.json；head-criteria-b-full690-v2/summary_b.json；head-criteria-c-smoke40/summary_c.json"
+        },
+        {
+          "label": "算力与工作区状态",
+          "value": "4 张 RTX3090 当前空闲；仓库存在 E-011/E-012 在途修改，新实现必须限定为独立模块、config、test 和 launcher。",
+          "evidence": "nvidia-smi；git status --short"
+        }
+      ],
+      "proposal": {
+        "objective": "验证高梯度敏感 head 与高 A@V 可解码 head 是否通过跨层路径共同影响 bbox，而不是要求同一个 head 同时承担路由、编码与输出控制。",
+        "implementation_scope": "新增独立 head-circuit/path-patching config 与公共模块。对上游 head 的 query 视觉 attention 做保持质量和熵的水平空间翻转；分别记录 clean 与 corrupt 的下游单-head A@V 输出；比较 clean、上游扰动、clean 下游输出 rescue、corrupt 下游输出 damage-transfer，以及同层低分 head 对照。首轮固定两条路径：L21敏感组到L23可解码组，以及L23可解码组到L24/L26敏感组。",
+        "evaluation": "主指标为 bbox-token CE 的 upstream damage、downstream rescue fraction 与 damage-transfer fraction；同时报告 teacher-forced argmax bbox IoU/中心变化、下游 head-output 相对变化、identity patch 数值一致性、hook firing/层序/样本完整性。只有上游扰动先产生非零损害，且候选下游 patch 相比同层控制显著 rescue，同时 corrupt 下游能向 clean 迁移损害，才支持串联中介。"
+      },
+      "questions": [],
+      "risks": [
+        "attention 空间翻转仍可能形成分布外状态；通过保持 query mass、注意力值集合和熵，并加入低分 head 与 identity/no-op 对照缓解，但不能完全消除。",
+        "只 patch bbox prediction rows，结论局限于该 teacher-forced 读出阶段；若信息在更早 token 或 MLP/residual 中传递，head-to-head 检验可能出现假阴性。",
+        "现有 690 条样本参与过 A/B 排名；首轮用于机制筛查，不能作为独立泛化证据。",
+        "当前 E-012 workflow_stage=draft；必须先完成人类确认、Run 审核与执行授权，不能把本次用户口头执行要求当成已打开的治理 gate。"
+      ]
+    },
+    "implementation_scope": "新增独立 head-circuit/path-patching config 与公共模块。对上游 head 的 query 视觉 attention 做保持质量和熵的水平空间翻转；分别记录 clean 与 corrupt 的下游单-head A@V 输出；比较 clean、上游扰动、clean 下游输出 rescue、corrupt 下游输出 damage-transfer，以及同层低分 head 对照。首轮固定两条路径：L21敏感组到L23可解码组，以及L23可解码组到L24/L26敏感组。",
+    "evaluation": "主指标为 bbox-token CE 的 upstream damage、downstream rescue fraction 与 damage-transfer fraction；同时报告 teacher-forced argmax bbox IoU/中心变化、下游 head-output 相对变化、identity patch 数值一致性、hook firing/层序/样本完整性。只有上游扰动先产生非零损害，且候选下游 patch 相比同层控制显著 rescue，同时 corrupt 下游能向 clean 迁移损害，才支持串联中介。",
+    "user_answers": {}
+  },
+  {
+    "title": "GRPO-置信度",
+    "objective": "探索是否鼓励大模型预测更多的框，并主动输出置信度再依据置信度选择最终框是否有益",
+    "workspace_id": "02",
+    "code_repository_workspace_id": "02",
+    "constraints": "",
+    "evidence_refs": [],
+    "hypothesis": "",
+    "success_criteria": "",
+    "failure_criteria": "",
+    "metric_definitions": [],
+    "run_groups": [],
+    "id": "E-013",
+    "status": "planned",
+    "kind": "standalone",
+    "workflow_stage": "draft",
+    "agent_level": "2",
+    "brief_objective": "探索是否鼓励大模型预测更多的框，并主动输出置信度再依据置信度选择最终框是否有益",
+    "brief_constraints": "",
+    "claim_refs": [],
+    "created": "2026-09-18T16:16:30",
+    "updated": "2026-09-18T16:16:30"
   }
 ]

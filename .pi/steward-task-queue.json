@@ -5,99 +5,64 @@
   "currentTaskId": null,
   "tasks": [
     {
-      "id": "r004",
-      "instruction": "E-008 R004：修正 Run 003 干预窗口，只在 bbox 坐标生成窗口内对 main4 的 query-image attention 做确定性置换；复用固定 n111、三条件、配对 IoU 与完整性门禁。完成最小实现、聚焦测试、managed execution 和产物核验，停在 analysis_pending。",
+      "id": "query-r005-implementation",
+      "instruction": "在远端 IPLoc 仓库完成 Query 版 R-005 target-grounded screening 与自动衔接迁移训练的实现、聚焦测试、代码审阅和精确提交。不得覆盖已有实验产物或混入其他用户改动。",
       "acceptance": [
-        "canonical Run 设计与用户批准范围一致",
-        "远端最小实现及聚焦测试通过",
-        "managed execution 完成且 exit 0",
-        "111×全部条件有显式记录，identity 与保持性门禁通过，metrics.json 可审计"
+        "Query screening 使用 bbox 坐标 p-1 rows 到 Query visual span 与 Query GT occupancy",
+        "训练自动读取 Query E_null_calibrated frozen heads 和 Reference R-005 E_null_calibrated frozen heads",
+        "训练超参数除 head set/由数量导致的集合形状外匹配 ref10-query5-correct-step247-3ep-v1",
+        "聚焦测试通过、code_change_review 通过并提交精确任务文件"
       ],
       "dependsOn": [],
-      "capability": "execute_approved",
+      "capability": "implement",
       "maxAttempts": 2,
       "attempts": 1,
       "onFailure": "pause",
-      "status": "failed",
-      "failureClass": "environment",
+      "status": "completed",
+      "startedAt": "2026-09-15T02:02:52.974Z",
+      "result": "代码审阅 review_id=fd47b01fe1d01074 passed、无 blocking findings；聚焦测试 15 passed；正式仓库精确任务 commit=b5abe811c91c2163e3aaf8f21b1062455c36ca3b，仅包含 5 个任务文件；R-008 未提交文件保持未跟踪且未混入。",
+      "finishedAt": "2026-09-15T02:03:15.857Z"
+    },
+    {
+      "id": "query-r005-execute",
+      "instruction": "通过正式 managed Run 启动已审阅的 590 样本 Query R-005 screening，并在成功后由已审阅编排自动写入新 head set、预计算 teacher、执行完整 3 epoch 迁移训练。",
+      "acceptance": [
+        "正式执行由 survey_run_execution continue 消费授权",
+        "Query screening 590/590 且 integrity passed",
+        "训练 resolved plan 保存确切 Ref/Query heads",
+        "完整训练启动且输出位于新目录、不覆盖旧 ref10-query5"
+      ],
+      "dependsOn": [
+        "query-r005-implementation"
+      ],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "blocked",
+      "failureClass": "authorization",
       "retryBasis": {},
-      "startedAt": "2026-08-24T17:53:36.302Z",
-      "result": "前一 Run 003 的 managed lease/state 卡在不一致状态：dispatch 已 retry 为 queued，但当前 Pi 被判定仍持有过期 lease；claim/reattach 均返回 already holds lease，start/status 返回 lease expired，fail 又因 queued 不允许迁移。该 lease 全局禁止 bash，因此无法调用 surveyctl 创建 canonical R004，也无法经 SSH 实现/测试。未执行 R004，未修改代码或治理状态。",
-      "finishedAt": "2026-08-24T17:54:14.189Z"
+      "startedAt": "2026-09-15T02:03:15.863Z",
+      "result": "survey_run_execution continue 拒绝启动：R-006 当前 review_status=draft，非 approved + authorized workflow-v2；用户文字要求忽略门禁不能由代理修改或伪造正式审核/授权状态。",
+      "finishedAt": "2026-09-15T02:03:54.691Z"
     },
     {
-      "id": "r005",
-      "instruction": "E-008 R005：在严格 bbox 窗口内，将 main4 Q→Q attention 分别按 0.5、0.1、0 缩放，降低 query-span attention mass；复用 n111、baseline/identity、配对 IoU 与坐标变化指标。完成实现、测试、managed execution 和核验，停在 analysis_pending。",
+      "id": "query-r005-monitor",
+      "instruction": "持续监控 Query 筛选与迁移训练，发生真实错误时记录错误证据；完成后汇总 frozen heads、训练状态和最终产物。",
       "acceptance": [
-        "缩放因子、绝对 mass 变化、row sum 与非目标区域行为逐条记录",
-        "远端聚焦测试通过",
-        "managed execution exit 0",
-        "111×全部条件显式记录且 metrics.json 可审计"
+        "筛选和训练最终状态均被检查",
+        "失败则提供精确错误与阶段，成功则提供 frozen heads、checkpoint 和 metrics 路径"
       ],
       "dependsOn": [
-        "r004"
+        "query-r005-execute"
       ],
-      "capability": "execute_approved",
-      "maxAttempts": 2,
+      "capability": "inspect",
+      "maxAttempts": 1,
       "attempts": 0,
-      "onFailure": "pause",
-      "status": "pending"
-    },
-    {
-      "id": "r006",
-      "instruction": "E-008 R006：在严格 bbox 窗口内，将从 main4 Q→Q 移除的 attention mass 分别重分配到 reference-image span、文本 token 和 query-image 均匀分布；复用 n111 与配对定位指标。完成实现、测试、managed execution 和核验，停在 analysis_pending。",
-      "acceptance": [
-        "三种 donor/recipient 路由定义、守恒误差、selected-token counts 与 seed 可审计",
-        "远端聚焦测试通过",
-        "managed execution exit 0",
-        "111×全部条件显式记录且 metrics.json 可审计"
-      ],
-      "dependsOn": [
-        "r005"
-      ],
-      "capability": "execute_approved",
-      "maxAttempts": 2,
-      "attempts": 0,
-      "onFailure": "pause",
-      "status": "pending"
-    },
-    {
-      "id": "r007",
-      "instruction": "E-008 R007：在严格 bbox 窗口内，对 main4 Q→Q attention 做水平翻转、垂直翻转、180度旋转、spatial block shuffle、完全随机置换；固定至少 3 个 permutation seeds，并报告 IoU 与 bbox 中心/宽高/面积及逐坐标变化。完成实现、测试、managed execution 和核验，停在 analysis_pending。",
-      "acceptance": [
-        "几何/token-grid 映射、block 定义、3 seeds 与置换双射逐条可复算",
-        "远端聚焦测试通过",
-        "managed execution exit 0",
-        "111×全部条件显式记录且 metrics.json 可审计"
-      ],
-      "dependsOn": [
-        "r006"
-      ],
-      "capability": "execute_approved",
-      "maxAttempts": 2,
-      "attempts": 0,
-      "onFailure": "pause",
-      "status": "pending"
-    },
-    {
-      "id": "r008",
-      "instruction": "E-008 R008：在严格 bbox 窗口内依次干预 main4、main4 所在层全部 heads、已登记 localization-head 扩展集合、所有层 query-image attention destructive control；复用 n111 与配对定位指标。完成实现、测试、managed execution 和核验，停在 analysis_pending。",
-      "acceptance": [
-        "每个 scope 的精确 head 列表与 selected-token counts 可审计",
-        "远端聚焦测试通过",
-        "managed execution exit 0",
-        "111×全部条件显式记录且 metrics.json 可审计"
-      ],
-      "dependsOn": [
-        "r007"
-      ],
-      "capability": "execute_approved",
-      "maxAttempts": 2,
-      "attempts": 0,
-      "onFailure": "pause",
+      "onFailure": "continue",
       "status": "pending"
     }
   ],
-  "createdAt": "2026-08-24T17:51:41.900Z",
-  "updatedAt": "2026-08-24T17:54:14.189Z"
+  "createdAt": "2026-09-14T17:38:54.276Z",
+  "updatedAt": "2026-09-15T02:03:54.691Z"
 }

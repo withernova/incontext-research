@@ -7245,6 +7245,280 @@
         "ssh_host": "NKU-LWC",
         "tmux_session": "incontext-E-010-E010-R-006-gt-supervised-reference-head-stability-heldout-audit"
       }
+    },
+    {
+      "dispatch_id": "dispatch-05fc6928ba6c6e3a10f6e147",
+      "experiment_id": "E-012",
+      "run_id": "R-004-contribution-calculation-check",
+      "status": "failed",
+      "created_at": "2026-09-14T13:55:43",
+      "updated_at": "2026-09-14T20:12:31",
+      "authorization_timestamp": "2026-09-14T13:55:43.002306",
+      "approved_spec_hash": "24f4f733e232b68392b8e0809a6b476f32ae33862e0808fba3709eb5e138a870",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "Managed execution exited before model loading: tools/launch.py rejected the canonical work_dir because the managed executor had already created it. No metrics or scientific result were produced. Repair budget is 0, so this attempt cannot be patched/restarted in place.",
+      "history": [
+        {
+          "time": "2026-09-14T13:55:43",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-09-14T20:11:24",
+          "type": "claimed",
+          "detail": "pi-steward:1276486"
+        },
+        {
+          "time": "2026-09-14T20:11:24",
+          "type": "acknowledge",
+          "detail": "pi-steward:1276486"
+        },
+        {
+          "time": "2026-09-14T20:11:37",
+          "type": "running",
+          "detail": "pi-steward:1276486"
+        },
+        {
+          "time": "2026-09-14T20:11:37",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-09-14T20:11:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:1276486"
+        },
+        {
+          "time": "2026-09-14T20:11:48",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-09-14T20:12:31",
+          "type": "fail",
+          "detail": "Managed execution exited before model loading: tools/launch.py rejected the canonical work_dir because the managed executor had already created it. No metrics or scientific result were produced. Repair budget is 0, so this attempt cannot be patched/restarted in place."
+        }
+      ],
+      "consumer": "pi-steward:1276486",
+      "claimed_at": "2026-09-14T20:11:24",
+      "lease_expires_at": "2026-09-14T20:26:43",
+      "acknowledged_at": "2026-09-14T20:11:24",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-09-14T20:11:37",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-004-contribution-calculation-check/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-012-R-004-contribution-calculation-check",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-09-14T20:11:48",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 746,
+              "mtime": 1789388010.5833948
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1789388011.042726
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1789388011.042726
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-09-14T20:12:31",
+      "failure_class": "implementation",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-bc73de6ba38fc3e4eae19260",
+      "experiment_id": "E-012",
+      "run_id": "R-008-target-vs-background-causal-ablation",
+      "status": "queued",
+      "created_at": "2026-09-14T22:09:35",
+      "updated_at": "2026-09-14T22:09:35",
+      "authorization_timestamp": "2026-09-14T22:09:35.495671",
+      "approved_spec_hash": "a09c4e73dad9e1e0c69f6e2cdf90f3d0fc3bf64bf33108e63be10ded3a317602",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-09-14T22:09:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-cafc59151523398a6c375cb6",
+      "experiment_id": "E-012",
+      "run_id": "R-011-query-keepset-large-pruning",
+      "status": "failed",
+      "created_at": "2026-09-17T10:43:38",
+      "updated_at": "2026-09-17T11:14:19",
+      "authorization_timestamp": "2026-09-17T10:43:38.114856",
+      "approved_spec_hash": "23cbe5dbdec2c07d68e4abbe657f465ea91d3d278d54c663475e611dbe4e73f4",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "runtime_command 用仓库内相对路径（tools/run/...），在工作区根目录下不存在，bash 返回 127；进程未启动。将用绝对路径重跑。",
+      "history": [
+        {
+          "time": "2026-09-17T10:43:38",
+          "type": "blocked",
+          "detail": "Workspace gate/policy 未通过"
+        },
+        {
+          "time": "2026-09-17T11:11:48",
+          "type": "unblocked",
+          "detail": "steward_handoff"
+        },
+        {
+          "time": "2026-09-17T11:13:41",
+          "type": "claimed",
+          "detail": "pi-steward:1888692"
+        },
+        {
+          "time": "2026-09-17T11:13:41",
+          "type": "acknowledge",
+          "detail": "pi-steward:1888692"
+        },
+        {
+          "time": "2026-09-17T11:13:53",
+          "type": "running",
+          "detail": "pi-steward:1888692"
+        },
+        {
+          "time": "2026-09-17T11:13:53",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-09-17T11:14:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:1888692"
+        },
+        {
+          "time": "2026-09-17T11:14:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-09-17T11:14:19",
+          "type": "fail",
+          "detail": "runtime_command 用仓库内相对路径（tools/run/...），在工作区根目录下不存在，bash 返回 127；进程未启动。将用绝对路径重跑。"
+        }
+      ],
+      "consumer": "pi-steward:1888692",
+      "claimed_at": "2026-09-17T11:13:41",
+      "lease_expires_at": "2026-09-17T11:29:10",
+      "acknowledged_at": "2026-09-17T11:13:41",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-09-17T11:13:53",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-011-query-keepset-large-pruning/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "NKU-LWC",
+        "tmux_session": "incontext-E-012-R-011-query-keepset-large-pruning",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-09-17T11:14:14",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 332,
+              "mtime": 1789614942.1176193
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1789614941.797017
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1789614942.124462
+            }
+          },
+          "exit_code": "127",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-09-17T11:14:19",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-e44712efaabeab017c1f158f",
+      "experiment_id": "E-012",
+      "run_id": "R-011-query-keepset-large-pruning",
+      "status": "cancelled",
+      "created_at": "2026-09-17T12:30:15",
+      "updated_at": "2026-09-17T12:40:38",
+      "authorization_timestamp": "2026-09-17T12:30:14.986808",
+      "approved_spec_hash": "ae4c9265f41799f03b9d90d54df52a7c9729f3937f74c13222451f89887963ed",
+      "workspace_execution_hash": "sha256:276264004fbfc694c1d24f0c2437179dcc013e9c8b6f635168d4754100412c43",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "Workspace gate/policy 未通过",
+      "history": [
+        {
+          "time": "2026-09-17T12:30:15",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-09-17T12:40:38",
+          "type": "cancelled",
+          "detail": "Workspace gate/policy 未通过"
+        }
+      ]
     }
   ]
 }

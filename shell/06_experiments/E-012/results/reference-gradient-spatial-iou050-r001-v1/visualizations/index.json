@@ -1,0 +1,32 @@
+[
+  {
+    "dataset_index": 0,
+    "dataset": "LaSOT",
+    "filename": "sample_000000_LaSOT_old_vs_iou050.png"
+  },
+  {
+    "dataset_index": 1,
+    "dataset": "LaSOT",
+    "filename": "sample_000001_LaSOT_old_vs_iou050.png"
+  },
+  {
+    "dataset_index": 600,
+    "dataset": "GOT10k",
+    "filename": "sample_000600_GOT10k_old_vs_iou050.png"
+  },
+  {
+    "dataset_index": 601,
+    "dataset": "GOT10k",
+    "filename": "sample_000601_GOT10k_old_vs_iou050.png"
+  },
+  {
+    "dataset_index": 780,
+    "dataset": "TAO",
+    "filename": "sample_000780_TAO_old_vs_iou050.png"
+  },
+  {
+    "dataset_index": 782,
+    "dataset": "TAO",
+    "filename": "sample_000782_TAO_old_vs_iou050.png"
+  }
+]

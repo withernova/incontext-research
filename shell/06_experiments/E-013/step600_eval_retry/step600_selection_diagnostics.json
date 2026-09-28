@@ -1,0 +1,43 @@
+{
+  "rows": 1766,
+  "valid": 1757,
+  "selected_nonfirst": 2,
+  "oracle_nonfirst": 162,
+  "first_worse_by_iou_0_1": 136,
+  "failed_rescue_at_0_5": 99,
+  "better_nonfirst_lower_score": 135,
+  "first_tied_for_highest_score": 316,
+  "all_three_scores_identical": 314,
+  "first_wrong_with_score_ge_0_8": 253,
+  "mean_scores_by_index": [
+    0.8175981787137232,
+    0.015532157085942242,
+    0.012885600455321737
+  ],
+  "mean_ious_by_index": [
+    0.6856336168405722,
+    0.0642771336366265,
+    0.03465779932838457
+  ],
+  "selected_score_correct": {
+    "n": 1308,
+    "mean": 0.9076834862385392,
+    "median": 0.99
+  },
+  "selected_score_wrong": {
+    "n": 449,
+    "mean": 0.5595768374164828,
+    "median": 0.99
+  },
+  "score_ge_0_8_correct": 1199,
+  "score_ge_0_8_wrong": 254,
+  "selected_index_counts": {
+    "0": 1755,
+    "1": 2
+  },
+  "best_iou_index_counts": {
+    "0": 1595,
+    "1": 113,
+    "2": 49
+  }
+}

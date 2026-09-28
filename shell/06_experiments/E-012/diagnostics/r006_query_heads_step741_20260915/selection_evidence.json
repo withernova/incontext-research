@@ -1,0 +1,167 @@
+{
+  "schema": "e012.r006-headset-review/v1",
+  "solid_run_ids": [],
+  "explicit_sources": {
+    "selection": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-006-redetermine-reference-heads/attempt-001",
+    "transfer": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-006-query-r005-ref3-transfer-step247-3ep-v1",
+    "evaluation": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/branches/20260915T071307686259Z--baseline-eval-741-new-ft"
+  },
+  "actual_selection_target_role": "query",
+  "selector": "E_null_calibrated",
+  "split_counts": {
+    "discovery": 354,
+    "calibration": 118,
+    "confirmation": 118
+  },
+  "thresholds": {
+    "tau_c": 0.01035145689611583,
+    "tau_a": 0.11241768910726586,
+    "tau_d": 0.1315072766072884
+  },
+  "calibration": {
+    "strategy": "pooled_null_quantile/v1",
+    "tau_c_quantile": 0.9,
+    "null_preference_quantile": 0.95,
+    "null_names": [
+      "same_size_shifted",
+      "radial_matched",
+      "fixed_center"
+    ],
+    "valid_null_a": 407808,
+    "valid_null_d": 407808
+  },
+  "selected_query_heads": [
+    {
+      "rank": 1,
+      "layer": 24,
+      "head": 13,
+      "score": 0.3160367937804831,
+      "discovery_qualification_frequency": 0.8983050847457628,
+      "confirmation": {
+        "layer": 24,
+        "head": 13,
+        "n_total": 118,
+        "n_valid": 118,
+        "selector_score_mean": 0.28649444839960597,
+        "selector_score_ci95": [
+          0.2469934240068179,
+          0.32575736457235527
+        ],
+        "strict_qualification_frequency": 0.847457627118644
+      }
+    },
+    {
+      "rank": 2,
+      "layer": 23,
+      "head": 30,
+      "score": 0.18160560194123668,
+      "discovery_qualification_frequency": 0.9548022598870056,
+      "confirmation": {
+        "layer": 23,
+        "head": 30,
+        "n_total": 118,
+        "n_valid": 118,
+        "selector_score_mean": 0.17394068239232857,
+        "selector_score_ci95": [
+          0.14610804013678663,
+          0.2044021096282588
+        ],
+        "strict_qualification_frequency": 0.9067796610169492
+      }
+    },
+    {
+      "rank": 3,
+      "layer": 26,
+      "head": 20,
+      "score": 0.1621382443469784,
+      "discovery_qualification_frequency": 0.8898305084745762,
+      "confirmation": {
+        "layer": 26,
+        "head": 20,
+        "n_total": 118,
+        "n_valid": 118,
+        "selector_score_mean": 0.15804204104462544,
+        "selector_score_ci95": [
+          0.13125519241712777,
+          0.18893881935200563
+        ],
+        "strict_qualification_frequency": 0.8389830508474576
+      }
+    },
+    {
+      "rank": 4,
+      "layer": 21,
+      "head": 11,
+      "score": 0.15331147876640985,
+      "discovery_qualification_frequency": 0.963276836158192,
+      "confirmation": {
+        "layer": 21,
+        "head": 11,
+        "n_total": 118,
+        "n_valid": 118,
+        "selector_score_mean": 0.141027468021549,
+        "selector_score_ci95": [
+          0.11997700065801598,
+          0.16400019086434928
+        ],
+        "strict_qualification_frequency": 0.9322033898305084
+      }
+    },
+    {
+      "rank": 5,
+      "layer": 23,
+      "head": 13,
+      "score": 0.13670914001121495,
+      "discovery_qualification_frequency": 0.943502824858757,
+      "confirmation": {
+        "layer": 23,
+        "head": 13,
+        "n_total": 118,
+        "n_valid": 118,
+        "selector_score_mean": 0.13214884849891015,
+        "selector_score_ci95": [
+          0.110944556367076,
+          0.15318635761358826
+        ],
+        "strict_qualification_frequency": 0.9322033898305084
+      }
+    }
+  ],
+  "transfer": {
+    "checkpoint": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247",
+    "teacher_heads": [
+      "L17H24",
+      "L17H27",
+      "L21H17"
+    ],
+    "student_heads": [
+      "L24H13",
+      "L23H30",
+      "L26H20",
+      "L21H11",
+      "L23H13"
+    ],
+    "epochs": 3,
+    "learning_rate": 0.0001,
+    "coefficient": 0.1,
+    "train_samples": 10522,
+    "seed": 20260901,
+    "attention_edge": "bbox prediction rows p-1 -> reference image tokens for both teacher and student",
+    "optimizer_and_epoch_counters": "reset",
+    "query_selection_sha256": "0a87d700b1b7fe05b5fa42fb369e656b49495c035330b9ebe9dcc32863e28bf2",
+    "reference_selection_sha256": "fde1fb7887faf19a58dcfc199e5f4672361e32543e07ea8b14088594e07f9b1f"
+  },
+  "checks": {
+    "query_frozen_hash_matches_transfer_plan": true,
+    "selected_top5_reproduced_from_archived_eligibility_and_combined_scores": true,
+    "reference_source_not_independently_opened": "R-005未获显式引用；只报告派生run直接保存的teacher head名单，不递归读取其来源run"
+  },
+  "input_hashes": {
+    "selection_summary.json": "f20dc8e994b633710c16c2a113998e168fface6f2ff68dbdf1ff4849a58577fc",
+    "frozen_heads.json": "0a87d700b1b7fe05b5fa42fb369e656b49495c035330b9ebe9dcc32863e28bf2",
+    "transfer_plan.json": "0c0cf8cb6e1412b00bf7da19e4f8198a9220edacd6c41fb1d24b1272a8e341d6",
+    "reference_target_screening.py": "21b980025bd815c6c9adb70c62eb1c070b960b63de863c1fd68a440c35976e76",
+    "reference_target_collector.py": "867d1a80f8fe45f86628fe50ca7206f5c84d6d403762e62fa0cf64e82f3fa5d3"
+  },
+  "source_code_note": "读取的是当前remote工作树实现；运行时配置与冻结统计来自R006归档。未把当前实现的hash冒充历史运行时hash。"
+}

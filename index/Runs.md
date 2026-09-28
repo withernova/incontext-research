@@ -70,3 +70,22 @@
 - [[E009-R-008-reference-top3-query-top5-ensemble-distill|Reference Top-3 教师到 Query Top-5 集合的跨图注意力蒸馏]] ← [[E-009]] · `planned`
 - [[E009-R-009-dynamic-reference-top3-query-top5-online-distill|动态 Reference Top-3 到 Query Top-5 在线蒸馏（探索性扩展）]] ← [[E-009]] · `completed`
 - [[E011-R-001-query-attention-gt-alignment-smoke|1]] ← [[E-011]] · `draft`
+- [[R-001-bbox-gradient-initial|bbox 梯度初筛：指定 checkpoint 与三数据集 eval 样本]] ← [[E-012]] · `draft`
+- [[R-001-bbox-gradient-halffull|bbox 梯度初筛扩展：690 条三数据集 eval 样本（R-001 产物补充登记）]] ← [[E-012]] · `draft`
+- [[R-002-two-stage-head-path-patching-smoke|两阶段 head 协作：跨层路径 patching smoke]] ← [[E-012]] · `draft`
+- [[R-003-zero-query-attention-head-path-patching|直接抹除 query attention 的两阶段 head 路径测试]] ← [[E-012]] · `draft`
+- [[gradient-gated-spatial-frequency-r001-v2|query 图像：梯度候选与空间频率选头]] ← [[E-012]] · `draft`
+- [[reference-gradient-gated-spatial-frequency-r001-v1|reference 图像：梯度候选与空间频率选头]] ← [[E-012]] · `draft`
+- [[R-004-contribution-calculation-check|Reference contribution 链式法则与梯度正确性门禁]] ← [[E-012]] · `failed`
+- [[R-005-reference-target-grounded-screening|Reference target-grounded screening：C_R、T(a)、T(d) 与冻结确认]] ← [[E-012]] · `completed`
+- [[R-006-redetermine-reference-heads|冻结 Query/Reference 候选的独立目标贡献确认]] ← [[E-012]] · `draft`
+- [[R-007-confirm-query-reference-heads|Query/Reference 目标区域对质量匹配背景的局部因果干预]] ← [[E-012]] · `draft`
+- [[R-008-target-vs-background-causal-ablation|Target-specific causal validation：逐head与集合、CE与自由生成]] ← [[E-012]] · `approved`
+- [[R-009-optional-generation-validation|双角色目标特异干预的自由生成外部效度]] ← [[E-012]] · `draft`
+- [[R-010-optional-cross-layer-path|后续跨层路径：Reference target-grounded heads 到下游A@V读出]] ← [[E-012]] · `draft`
+- [[R-011-query-keepset-large-pruning|只留选中注意力头的大幅裁剪曲线]] ← [[E-012]] · `approved`
+- [[R-012-query-heads-reference-channel|同一批查询头改删参考图像通道]] ← [[E-012]] · `draft`
+- [[R-013-reference-key-source-sweep|扫哪类来源 token 读到参考图会崩]] ← [[E-012]] · `draft`
+- [[R-014-support-box-probe|强行改写参考帧框坐标的影响]] ← [[E-012]] · `completed`
+- [[R-015-query-key-control|正面对照：删查询图键是否崩塌]] ← [[E-012]] · `draft`
+- [[R-016-reference-frame-replacement|换掉参考帧图像看影响]] ← [[E-012]] · `completed`

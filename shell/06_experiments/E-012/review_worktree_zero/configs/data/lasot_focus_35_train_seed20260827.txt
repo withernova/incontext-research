@@ -1,0 +1,40 @@
+# Fixed 35/35 LaSOT category split for E-009.
+# Source: mechanism/dataset/LaSOT/LaSOT (70 categories, official train archive).
+# Selection: sorted category names, random.Random(20260827).sample(..., 35).
+# This is a project-frozen reproducible split, not a claim about FOCUS authors'
+# unpublished category assignment.
+airplane
+bear
+bicycle
+cat
+cattle
+chameleon
+crab
+crocodile
+cup
+deer
+drone
+gametarget
+gecko
+giraffe
+gorilla
+guitar
+helmet
+hippo
+kangaroo
+lion
+lizard
+microphone
+motorcycle
+mouse
+person
+pool
+rabbit
+rubicCube
+shark
+spider
+tiger
+truck
+turtle
+volleyball
+yoyo

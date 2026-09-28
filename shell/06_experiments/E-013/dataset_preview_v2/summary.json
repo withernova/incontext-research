@@ -1,0 +1,24 @@
+{
+  "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus.json",
+  "source_sha256": "c607700075de7eba1b0dc8237a32eb1760d3864a4e320f01a41bce8aec94ba78",
+  "seed": 11451,
+  "candidates": 9272,
+  "trainable_rows": 0,
+  "splits": {
+    "train": 7846,
+    "validation": 687,
+    "test": 739
+  },
+  "datasets": {
+    "GOT10k": 8601,
+    "LaSOT": 671
+  },
+  "skipped": {
+    "invalid_box": 11,
+    "missing_category": 499,
+    "no_same_category_donor_in_split": 225,
+    "no_different_source_donor_in_split": 527
+  },
+  "status": "review_required",
+  "limitation": "GOT10k source-video-disjoint, other datasets sequence-disjoint; real identity duplication still requires review. All source sequences were used by prior SFT; held-out splits here are GRPO-only."
+}

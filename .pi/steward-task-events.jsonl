@@ -2,3 +2,9 @@
 {"time":"2026-08-24T17:53:36.297Z","event":"queue_started"}
 {"time":"2026-08-24T17:53:36.302Z","event":"task_started","taskId":"r004","attempt":1}
 {"time":"2026-08-24T17:54:14.189Z","event":"task_retry_denied","taskId":"r004","reason":"前一 Run 003 的 managed lease/state 卡在不一致状态：dispatch 已 retry 为 queued，但当前 Pi 被判定仍持有过期 lease；claim/reattach 均返回 already holds lease，start/status 返回 lease expired，fail 又因 queued 不允许迁移。该 lease 全局禁止 bash，因此无法调用 surveyctl 创建 canonical R004，也无法经 SSH 实现/测试。未执行 R004，未修改代码或治理状态。","failureClass":"environment","retryBasis":{},"noRetryReason":"retry_basis contains no changed input/config/environment or new evidence","status":"failed"}
+{"time":"2026-09-14T17:38:54.276Z","event":"queue_set","tasks":["query-r005-implementation","query-r005-execute","query-r005-monitor"]}
+{"time":"2026-09-15T02:02:52.924Z","event":"queue_started"}
+{"time":"2026-09-15T02:02:52.974Z","event":"task_started","taskId":"query-r005-implementation","attempt":1}
+{"time":"2026-09-15T02:03:15.857Z","event":"task_completed","taskId":"query-r005-implementation","evidence":"代码审阅 review_id=fd47b01fe1d01074 passed、无 blocking findings；聚焦测试 15 passed；正式仓库精确任务 commit=b5abe811c91c2163e3aaf8f21b1062455c36ca3b，仅包含 5 个任务文件；R-008 未提交文件保持未跟踪且未混入。"}
+{"time":"2026-09-15T02:03:15.863Z","event":"task_started","taskId":"query-r005-execute","attempt":1}
+{"time":"2026-09-15T02:03:54.691Z","event":"task_retry_denied","taskId":"query-r005-execute","reason":"survey_run_execution continue 拒绝启动：R-006 当前 review_status=draft，非 approved + authorized workflow-v2；用户文字要求忽略门禁不能由代理修改或伪造正式审核/授权状态。","failureClass":"authorization","retryBasis":{},"noRetryReason":"authorization failures are not automatically retryable","status":"blocked"}

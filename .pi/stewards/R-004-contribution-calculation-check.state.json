@@ -1,0 +1,37 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 2,
+  "checkCount": 603,
+  "lastCheckTime": 1789461765391,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "stopped",
+  "healthyStreak": 0,
+  "nextCheck": "2026-09-15T08:44:47.936Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": true,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-004-contribution-calculation-check/metrics.json",
+      "size": 0,
+      "mtime": ""
+    },
+    {
+      "path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-004-contribution-calculation-check/.survey-tool-exit-code",
+      "size": 2,
+      "mtime": "1789388011"
+    }
+  ],
+  "notifiedIncidentSignature": "process:unverified",
+  "observationFailureNotified": false
+}

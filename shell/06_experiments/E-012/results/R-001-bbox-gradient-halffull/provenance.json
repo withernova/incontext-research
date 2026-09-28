@@ -1,0 +1,78 @@
+{
+  "schema": "e012.result-provenance/v1",
+  "recorded_date": "2026-09-11",
+  "run_id": "R-001-bbox-gradient-halffull",
+  "remote_root": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull",
+  "files": [
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-halffull/summary.json",
+      "remote": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/summary.json",
+      "sha256": "00cf37ece39f9bb126a65802e2a150983d53321b031d151464933df66941c73b"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-halffull/ranking.csv",
+      "remote": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/ranking.csv",
+      "sha256": "6be84c53839f157309ed768d40ce8c2eb35de423a6db1edc0a5a4f59c28af4d6"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-halffull/frozen_input.json",
+      "remote": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/frozen_input.json",
+      "sha256": "df4771e68875722ed962e96240f2c9ffe2ead71e64976908b4459c797ffebf0d"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-halffull/runtime.json",
+      "remote": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/runtime.json",
+      "sha256": "a7d5ca705749b590669a20eab93a41ce57d6ee9cb76ef9ef61d1192110569dc0"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-halffull/records.json",
+      "remote": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-halffull/probe/records.json",
+      "sha256": "34bbeca91e2767c9692632bbadf9def6d322e0d1e646a4d6712814b4890ae62f"
+    }
+  ],
+  "comparison_files": [
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-initial/summary.json",
+      "sha256": "283761619fd8595eb79c60bd20764bebd1a782191c93177f64a12d5bfb899232"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/R-001-bbox-gradient-initial/frozen_input.json",
+      "sha256": "24c6af64be1f8e3fbec6e528bc2d3997ecff02bb336fc8bf512ed49e17f951b5"
+    },
+    {
+      "local": "shell/06_experiments/E-012/results/reference-fixed-heads/selection.json",
+      "sha256": "4f3dd0a680764e3e1ef95cf24d979379d2ef6a87a88319b6dceaebc1f47ae2ab"
+    }
+  ],
+  "config_sources_sha256": {
+    "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/configs/head_screening/e012_bbox_gradient_initial.py": "2d19e84978fde20a5d75a1bcb47686b3991f9ba164eb88d1cf4010527e2e62cf"
+  },
+  "manifests_sha256": {
+    "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b"
+  },
+  "training_manifest_sha256": "bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7",
+  "checkpoint": {
+    "requested_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973",
+    "adapter_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973/adapter",
+    "processor_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973/adapter_processor",
+    "adapter_config_sha256": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+    "adapter_weights_sha256": "f805d978616e3e8b8366e24734f7e811bb7ca6c0c176677e3779c399732b6a34"
+  },
+  "executed_source_code_hash": null,
+  "source_code_hash_note": "执行时源代码版本哈希未在当前冻结产物中提供，不以当前文件哈希替代。",
+  "per_sample_arrays": "690 个 sample_*.npz 留在远端 probe/；本地 records.json 保留定位路径，本轮没有逐个复制或重算。",
+  "integrity_checks": {
+    "sample_coverage": true,
+    "indices_match": true,
+    "indices_unique": true,
+    "head_coverage": true,
+    "row_contract": true,
+    "sample_counts": true,
+    "bbox_ce_mean": true,
+    "rank_order": true,
+    "score_decomposition": true,
+    "same_adapter_initial_vs_690": true,
+    "finite_difference_arithmetic": true,
+    "mirror_hashes_match_remote": true
+  }
+}

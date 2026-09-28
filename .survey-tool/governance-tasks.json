@@ -676,6 +676,519 @@
         }
       },
       "created_at": "2026-09-08T15:51:57"
+    },
+    {
+      "task_id": "classify-a4f20dafe843708384a4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-001-bbox-gradient-initial",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-001-bbox-gradient-initial",
+          "run_type": "screening",
+          "variant": "bbox 梯度贡献初筛：原始 Qwen3-VL 与 20 个 LaSOT 视频",
+          "purpose": "对每个注意力头计算查询图像到边界框预测位置的梯度贡献，并输出排名。先检验分数能否反映边界框预测损失的局部敏感度，再决定后续干预候选。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-10T17:07:26"
+    },
+    {
+      "task_id": "classify-025002f69b68639d9faa",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-001-bbox-gradient-halffull",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-001-bbox-gradient-halffull",
+          "run_type": "analysis",
+          "variant": "bbox 梯度初筛扩展：690 条三数据集 eval 样本（R-001 产物补充登记）",
+          "purpose": "把 R-001 的 20 条先导扩展为 690 条（LaSOT 300/GOT10k 90/TAO 300）再排名，检查候选 head 是否随样本量/数据集改变；本次只登记已有产物，不发起新计算。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-11T15:14:11"
+    },
+    {
+      "task_id": "classify-73a2abefbb2abe3c6a0f",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-002-two-stage-head-path-patching-smoke",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-002-two-stage-head-path-patching-smoke",
+          "run_type": "screening",
+          "variant": "两阶段 head 协作：跨层路径 patching smoke",
+          "purpose": "比较上游注意力空间损坏、下游 clean 输出救回和 corrupt 输出损害迁移，区分两批 head 只是各自相关，还是存在方向明确的跨层中介关系。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-12T14:47:31"
+    },
+    {
+      "task_id": "classify-8985f983e089b2114fd8",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-003-zero-query-attention-head-path-patching",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-003-zero-query-attention-head-path-patching",
+          "run_type": "screening",
+          "variant": "直接抹除 query attention 的两阶段 head 路径测试",
+          "purpose": "把 R-002 的保质量空间翻转改为更直接的必要性消融：将指定 query-visual attention edges 置零且不重归一化，再比较候选下游 clean rescue、corrupt transfer 与同层低分控制。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-12T15:30:49"
+    },
+    {
+      "task_id": "classify-bbdfb37b611615f57319",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "gradient-gated-spatial-frequency-r001-v2",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "gradient-gated-spatial-frequency-r001-v2",
+          "run_type": "screening",
+          "variant": "query 图像：梯度候选与空间频率选头",
+          "purpose": "在 R-001 的冻结样本上，为 bbox 预测行到 query 图像 token 的 attention 边重新选择稳定的定位 head。比较梯度敏感度筛选与空间质量和跨样本频率筛选后的排序差异。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-13T23:37:01"
+    },
+    {
+      "task_id": "classify-02c9f07fdca8c83a0180",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "reference-gradient-gated-spatial-frequency-r001-v1",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "reference-gradient-gated-spatial-frequency-r001-v1",
+          "run_type": "screening",
+          "variant": "reference 图像：梯度候选与空间频率选头",
+          "purpose": "在同一冻结样本上，为 bbox 预测行到 reference 图像 token 的 attention 边选择稳定 head，并与 query-image 选择结果比较视觉角色差异。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-13T23:37:02"
+    },
+    {
+      "task_id": "classify-8933c7943ddcf974e4a3",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-004-dual-role-gradient-correctness-gate",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-004-dual-role-gradient-correctness-gate",
+          "run_type": "screening",
+          "variant": "Query/Reference 双角色梯度与 A@V 正确性门禁",
+          "purpose": "在重新选 head 前验证 bbox coordinate-token 行上的 attention→A@V 梯度、区域聚合和局部缩放有限差分链路，关闭现有 signed finite-difference 单点不一致风险。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:30"
+    },
+    {
+      "task_id": "classify-c85b708350e37fa3a6e7",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-005-dual-role-target-contribution-discovery",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-005-dual-role-target-contribution-discovery",
+          "run_type": "screening",
+          "variant": "Query/Reference 目标特异视觉贡献全 head 发现",
+          "purpose": "在独立 Discovery split 上，以完全对称口径重算 1152 heads 对 Query 和 Reference 的 role relevance、GT 目标贡献与空间 null enrichment，冻结两套候选。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:30"
+    },
+    {
+      "task_id": "classify-ccbb048d38ac79644ea6",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-006-dual-role-candidate-confirmation",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-006-dual-role-candidate-confirmation",
+          "run_type": "screening",
+          "variant": "冻结 Query/Reference 候选的独立目标贡献确认",
+          "purpose": "在未参与选头的 Confirmation split 上检验 R-005 冻结候选是否保留 role relevance 和 target-vs-null contribution，并与同层随机 head 控制比较。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:30"
+    },
+    {
+      "task_id": "classify-a8f609c375f306e8eea6",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-007-dual-role-target-vs-background-causal",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-007-dual-role-target-vs-background-causal",
+          "run_type": "screening",
+          "variant": "Query/Reference 目标区域对质量匹配背景的局部因果干预",
+          "purpose": "仅对 R-006 通过的冻结候选，在独立 Causal-Generation split 上比较移除 GT target edges 与移除等 attention mass 背景 edges 的 bbox CE 损害。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:30"
+    },
+    {
+      "task_id": "classify-aef60a3b5b20e6144413",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-008-dual-role-factorial-interaction",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-008-dual-role-factorial-interaction",
+          "run_type": "screening",
+          "variant": "Query×Reference 目标贡献 2×2 因果分解",
+          "purpose": "对 R-007 通过的 Query/Reference 候选做 Q removal、R removal、both removal 与 baseline，区分加性、冗余/饱和和超加性损害。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:31"
+    },
+    {
+      "task_id": "classify-8c9a57cb1b3bab99c8ec",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-009-dual-role-generation-validity",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-009-dual-role-generation-validity",
+          "run_type": "screening",
+          "variant": "双角色目标特异干预的自由生成外部效度",
+          "purpose": "检验 teacher-forced CE 上的 target-specific damage 是否传递到自由生成 bbox IoU、坐标和有效输出，而不是仅改变局部监督损失。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:31"
+    },
+    {
+      "task_id": "classify-f92fea9c2f4844982e5c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-010-dual-role-cross-layer-mediation",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-010-dual-role-cross-layer-mediation",
+          "run_type": "screening",
+          "variant": "目标特异 Query/Reference Head 到下游 A@V Head 的跨层中介测试",
+          "purpose": "仅在前置证据成立后，检验冻结的 Q/R target-specific 上游 heads 是否通过独立发现的下游 A@V 可解码 heads 影响 bbox。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-14T11:14:31"
+    },
+    {
+      "task_id": "classify-e1878cb968080e4a75c3",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-011-query-keepset-large-pruning",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-011-query-keepset-large-pruning",
+          "run_type": "analysis",
+          "variant": "只留选中注意力头的大幅裁剪曲线",
+          "purpose": "直接比较「只留少数注意力头」与「随机也只留同样多个」在同一删除比例下的定位性能差异，用来判断被选中的头是否真的承载定位能力，而不是让结论继续依赖交叉熵敏感度。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-17T10:24:55"
+    },
+    {
+      "task_id": "classify-c46b5e58a061be947ede",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-012-query-heads-reference-channel",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-012-query-heads-reference-channel",
+          "run_type": "analysis",
+          "variant": "同一批查询头改删参考图像通道",
+          "purpose": "只改一处：清零 bbox 坐标预测行到 reference 图像视觉 token 的注意力边（R-011 清的是 query 图像那侧）。用来判断这些 head 的\"充分性\"是不是角色特异的，还是两个图像通道共用同一批路由头。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-18T10:51:49"
+    },
+    {
+      "task_id": "classify-11ff99d1afac347a59ec",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-013-reference-key-source-sweep",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-013-reference-key-source-sweep",
+          "run_type": "analysis",
+          "variant": "扫哪类来源 token 读到参考图会崩",
+          "purpose": "不再按 head 分组，改为扫来源 token 本身：全部行 / prompt 行 / 答案行 / 文本行 / bbox 坐标预测行 / 图像 pad 行 / reference 自身行 / query 图像行，各删一条通道，看哪一条是定位读出的命脉。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-18T11:47:17"
+    },
+    {
+      "task_id": "classify-17045d213374e9269ba6",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-014-support-box-probe",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-014-support-box-probe",
+          "run_type": "analysis",
+          "variant": "强行改写参考帧框坐标的影响",
+          "purpose": "不改注意力、不动 head，只改输入里的 support 框文本：分别用保持数值只改写法、退化框、随机框、平移 5%/25%、换成别的样本的框、以及换成 query 的 GT 框，测量对自由生成定位与 teacher-forced 读出的影响。用来判断前面\"删参考图通道几乎不掉点\"是不是因为模型其实主要依赖 support 框给出的空间先验。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-18T12:59:13"
+    },
+    {
+      "task_id": "classify-150f8269e59e8c35ead1",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-015-query-key-control",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-015-query-key-control",
+          "run_type": "analysis",
+          "variant": "正面对照：删查询图键是否崩塌",
+          "purpose": "这是机制自检而非新结论：R-013 显示删到 reference 图像 key 只掉 0.12，必须证明同一种删法砍在 query 图像通道上会显著崩塌，否则说明 span 取错或 prefill/解码覆盖不全，R-012/R-013 的结论必须撤回。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-18T14:21:07"
+    },
+    {
+      "task_id": "classify-08f920e10b8276a0171c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-012",
+      "run_id": "R-016-reference-frame-replacement",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "R-016-reference-frame-replacement",
+          "run_type": "analysis",
+          "variant": "换掉参考帧图像看影响",
+          "purpose": "前面已确认：删注意力时 reference 图像通道只值 0.12 mIoU，而 support 框文本被改坏要掉 0.12–0.36。本 Run 从输入侧做最后一刀：文本完全不动、只换图像本身，用来判断模型到底有没有把\"框里的东西\"当外观模板用。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-18T14:46:18"
     }
   ]
 }

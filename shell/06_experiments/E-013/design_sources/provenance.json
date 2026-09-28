@@ -1,0 +1,25 @@
+{
+  "commit": "2ffad63b25ddd79bfe25d3e046645401201c89d6",
+  "sources": [
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/README.md",
+      "sha256": "14479d9f6edadb546649c739ef78be2cec8a41cc5e0b8018367bc9e94787e909"
+    },
+    {
+      "path": "src/virft/src/open_r1/grpo.py",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/src/virft/src/open_r1/grpo.py",
+      "sha256": "488285fb67bcfd14c94eb68ba31f5982ab5f802eee3ad250f32f5ea588ab9bcb"
+    },
+    {
+      "path": "src/virft/src/open_r1/trainer/grpo_trainer.py",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/src/virft/src/open_r1/trainer/grpo_trainer.py",
+      "sha256": "138f15aabf846751fc0ddbc9fe9da9224173a4f4342312213995917b2b12a0c1"
+    },
+    {
+      "path": "src/virft/src/open_r1/trainer/grpo_trainer_mp.py",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/src/virft/src/open_r1/trainer/grpo_trainer_mp.py",
+      "sha256": "34649c071ef71571f8d48444f96afebd4e20d7a6cfb00eb28ac3e11cc1ac09ef"
+    }
+  ]
+}

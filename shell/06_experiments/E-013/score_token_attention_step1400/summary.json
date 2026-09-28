@@ -1,0 +1,2923 @@
+{
+  "schema": "e013-score-token-attention/v1",
+  "checkpoint": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260926T153209Z--multi3-collage-coverage-grpo-lr8e5-3ep/eval-checkpoints/step1400",
+  "evaluation": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260928T061742Z--collage-full3ep-step1400-spatial-eval/evaluation/predictions.jsonl",
+  "cases": [
+    {
+      "case": "correct_first",
+      "dataset_index": 3,
+      "id": "3-1",
+      "selected_index": 0,
+      "final_iou": 0.856657223796034,
+      "prompt_length": 2057,
+      "completion_tokens": 91,
+      "image_geometry": [
+        {
+          "span": [
+            244,
+            1124
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        },
+        {
+          "span": [
+            1149,
+            2029
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        }
+      ],
+      "layers": [
+        8,
+        17,
+        26,
+        35
+      ],
+      "attention_map_layers": [
+        26,
+        35
+      ],
+      "average_heads_per_layer": 32,
+      "score_diagnostics": [
+        {
+          "ref_mass": 0.01644551008939743,
+          "query_mass": 0.038490720093250275,
+          "prompt_text_mass": 0.7241728901863098,
+          "generated_text_mass": 0.22089073061943054,
+          "ref_target_mass": 0.0007294378265067653,
+          "query_gt_mass": 0.0008960166247264716,
+          "query_candidate_mass": 0.000844796949560405,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.04435483135163077,
+          "query_gt_given_query": 0.0232787701179848,
+          "query_candidate_given_query": 0.02194806819705481,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.024342915043234825,
+              "query_mass": 0.02506578341126442,
+              "prompt_text_mass": 0.7046212907880545,
+              "generated_text_mass": 0.24597002565860748,
+              "ref_target_mass": 0.0010582283279970592,
+              "query_gt_mass": 0.0006994346656952984,
+              "query_candidate_mass": 0.0006439065942980233,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.04347171758672152,
+              "query_gt_given_query": 0.02790396191570763,
+              "query_candidate_given_query": 0.02568866824280686
+            },
+            "17": {
+              "ref_mass": 0.020517710596323013,
+              "query_mass": 0.05162963271141052,
+              "prompt_text_mass": 0.6611066125333309,
+              "generated_text_mass": 0.26674604415893555,
+              "ref_target_mass": 0.0004099168521584949,
+              "query_gt_mass": 0.0008846297931621666,
+              "query_candidate_mass": 0.0008391052924038378,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.01997868379291578,
+              "query_gt_given_query": 0.017134148486139766,
+              "query_candidate_given_query": 0.016252397089363557
+            },
+            "26": {
+              "ref_mass": 0.014767022803425789,
+              "query_mass": 0.043469011783599854,
+              "prompt_text_mass": 0.837087718769908,
+              "generated_text_mass": 0.10467632114887238,
+              "ref_target_mass": 0.0012373871920835532,
+              "query_gt_mass": 0.0014286813403943965,
+              "query_candidate_mass": 0.0013458673889386414,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0837939514657276,
+              "query_gt_given_query": 0.03286666252057321,
+              "query_candidate_given_query": 0.030961536361551592
+            },
+            "35": {
+              "ref_mass": 0.018123995512723923,
+              "query_mass": 0.0335124246776104,
+              "prompt_text_mass": 0.6112585440278053,
+              "generated_text_mass": 0.3371051251888275,
+              "ref_target_mass": 0.0002214884352611264,
+              "query_gt_mass": 0.0003633519250608515,
+              "query_candidate_mass": 0.00034372652649137316,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.012220728873257047,
+              "query_gt_given_query": 0.010842304863234991,
+              "query_candidate_given_query": 0.010256689266683123
+            }
+          },
+          "candidate": 1,
+          "score": 0.98,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "9",
+            "8"
+          ],
+          "predictor_rows": [
+            2079,
+            2080,
+            2081,
+            2082
+          ],
+          "candidate_iou": 0.856657223796034,
+          "head_visual_mass_quantiles": {
+            "median": 0.027952594682574272,
+            "p90": 0.1679865639656782,
+            "maximum": 0.3951577991247177
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 25,
+              "ref_mass": 0.06372641026973724,
+              "query_mass": 0.33143138885498047,
+              "visual_mass": 0.3951577991247177,
+              "ref_target_given_ref": 0.04083521303065921,
+              "query_candidate_given_query": 0.020449375088405934
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.16814029216766357,
+              "query_mass": 0.16131149232387543,
+              "visual_mass": 0.329451784491539,
+              "ref_target_given_ref": 0.02562042823307265,
+              "query_candidate_given_query": 0.017647160955668584
+            },
+            {
+              "layer": 35,
+              "head": 9,
+              "ref_mass": 0.0985642522573471,
+              "query_mass": 0.15890763700008392,
+              "visual_mass": 0.25747188925743103,
+              "ref_target_given_ref": 0.008420459781998456,
+              "query_candidate_given_query": 0.0029117960979989557
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.07380786538124084,
+              "query_mass": 0.18037888407707214,
+              "visual_mass": 0.254186749458313,
+              "ref_target_given_ref": 0.008417726315110495,
+              "query_candidate_given_query": 0.010716967463857668
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.08120988309383392,
+              "query_mass": 0.1428217589855194,
+              "visual_mass": 0.22403164207935333,
+              "ref_target_given_ref": 0.04124359838515638,
+              "query_candidate_given_query": 0.015570026907087064
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 25,
+            "ref_mass": 0.06372641026973724,
+            "query_mass": 0.33143138885498047,
+            "visual_mass": 0.3951577991247177,
+            "ref_target_given_ref": 0.04083521303065921,
+            "query_candidate_given_query": 0.020449375088405934
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.5100356340408325,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.0962257832288742,
+              "source": "prompt"
+            },
+            {
+              "position": 2079,
+              "token": ">",
+              "mass": 0.05165751650929451,
+              "source": "generated"
+            },
+            {
+              "position": 2078,
+              "token": "score",
+              "mass": 0.04131493344902992,
+              "source": "generated"
+            },
+            {
+              "position": 2080,
+              "token": "0",
+              "mass": 0.03135902062058449,
+              "source": "generated"
+            },
+            {
+              "position": 2081,
+              "token": ".",
+              "mass": 0.029301974922418594,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "9",
+              "mass": 0.016231589019298553,
+              "source": "generated"
+            },
+            {
+              "position": 170,
+              "token": " decimal",
+              "mass": 0.010794375091791153,
+              "source": "prompt"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.014500672928988934,
+          "query_mass": 0.03476012498140335,
+          "prompt_text_mass": 0.6145560117438436,
+          "generated_text_mass": 0.3361832797527313,
+          "ref_target_mass": 0.00021403803928704324,
+          "query_gt_mass": 0.0002091965492626332,
+          "query_candidate_mass": 0.0006577753272914568,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.014760559067514058,
+          "query_gt_given_query": 0.006018291055470981,
+          "query_candidate_given_query": 0.018923272791549695,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.01946272887289524,
+              "query_mass": 0.01652367413043976,
+              "prompt_text_mass": 0.5988996829837561,
+              "generated_text_mass": 0.36511385440826416,
+              "ref_target_mass": 0.0009217095344375422,
+              "query_gt_mass": 0.0004392617745356983,
+              "query_candidate_mass": 0.00024977898573211885,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.04735767221836813,
+              "query_gt_given_query": 0.026583783429043446,
+              "query_candidate_given_query": 0.015116431355419818
+            },
+            "17": {
+              "ref_mass": 0.022959064692258835,
+              "query_mass": 0.0861135870218277,
+              "prompt_text_mass": 0.46488097682595253,
+              "generated_text_mass": 0.42604631185531616,
+              "ref_target_mass": 0.0007087554902675047,
+              "query_gt_mass": 0.0022033505371509814,
+              "query_candidate_mass": 0.003870130388126712,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.030870399111096087,
+              "query_gt_given_query": 0.025586560882575774,
+              "query_candidate_given_query": 0.044942157468666685
+            },
+            "26": {
+              "ref_mass": 0.016815192997455597,
+              "query_mass": 0.048084184527397156,
+              "prompt_text_mass": 0.707099623978138,
+              "generated_text_mass": 0.22800101339817047,
+              "ref_target_mass": 0.0002716128802270763,
+              "query_gt_mass": 0.0002884162947563164,
+              "query_candidate_mass": 0.0011264895177009763,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.016152825618366413,
+              "query_gt_given_query": 0.005998152980882603,
+              "query_candidate_given_query": 0.02342744352998502
+            },
+            "35": {
+              "ref_mass": 0.012186150997877121,
+              "query_mass": 0.021436069160699844,
+              "prompt_text_mass": 0.5220122188329697,
+              "generated_text_mass": 0.44436556100845337,
+              "ref_target_mass": 0.0001564631957374515,
+              "query_gt_mass": 0.00012997679774271094,
+              "query_candidate_mass": 0.00018906111905831513,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.01283942696629215,
+              "query_gt_given_query": 0.006063462324566761,
+              "query_candidate_given_query": 0.008819766237969288
+            }
+          },
+          "candidate": 2,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2109,
+            2110,
+            2111,
+            2112
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.025690828450024128,
+            "p90": 0.1664245594292879,
+            "maximum": 0.4046627879142761
+          },
+          "top_visual_heads": [
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.08340722322463989,
+              "query_mass": 0.32125556468963623,
+              "visual_mass": 0.4046627879142761,
+              "ref_target_given_ref": 0.009585726784372034,
+              "query_candidate_given_query": 0.029210378290922455
+            },
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.12420356273651123,
+              "query_mass": 0.25380152463912964,
+              "visual_mass": 0.37800508737564087,
+              "ref_target_given_ref": 0.015747866754980768,
+              "query_candidate_given_query": 0.04700717196257433
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.07238608598709106,
+              "query_mass": 0.293626070022583,
+              "visual_mass": 0.3660121560096741,
+              "ref_target_given_ref": 0.04551855546363613,
+              "query_candidate_given_query": 0.1482770550380409
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.061770036816596985,
+              "query_mass": 0.28137287497520447,
+              "visual_mass": 0.34314291179180145,
+              "ref_target_given_ref": 0.007665912156910059,
+              "query_candidate_given_query": 0.007110123187232087
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.08038996160030365,
+              "query_mass": 0.2529562711715698,
+              "visual_mass": 0.3333462327718735,
+              "ref_target_given_ref": 0.03445848356060794,
+              "query_candidate_given_query": 0.04284341340042139
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.12420356273651123,
+            "query_mass": 0.25380152463912964,
+            "visual_mass": 0.37800508737564087,
+            "ref_target_given_ref": 0.015747866754980768,
+            "query_candidate_given_query": 0.04700717196257433
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.4369790554046631,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.09181816130876541,
+              "source": "prompt"
+            },
+            {
+              "position": 2108,
+              "token": "score",
+              "mass": 0.05679585039615631,
+              "source": "generated"
+            },
+            {
+              "position": 2109,
+              "token": ">",
+              "mass": 0.04030381143093109,
+              "source": "generated"
+            },
+            {
+              "position": 2111,
+              "token": ".",
+              "mass": 0.03752325102686882,
+              "source": "generated"
+            },
+            {
+              "position": 2110,
+              "token": "0",
+              "mass": 0.03299578279256821,
+              "source": "generated"
+            },
+            {
+              "position": 2083,
+              "token": "8",
+              "mass": 0.024698879569768906,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "9",
+              "mass": 0.01973627135157585,
+              "source": "generated"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.014274259097874165,
+          "query_mass": 0.02462461031973362,
+          "prompt_text_mass": 0.5949080148711801,
+          "generated_text_mass": 0.3661930561065674,
+          "ref_target_mass": 0.00014850635015387542,
+          "query_gt_mass": 0.00010426536359096646,
+          "query_candidate_mass": 7.434120235266164e-06,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.010403786924113782,
+          "query_gt_given_query": 0.00423419344457242,
+          "query_candidate_given_query": 0.0003018979849321158,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.019368838518857956,
+              "query_mass": 0.019680961966514587,
+              "prompt_text_mass": 0.5712717212736607,
+              "generated_text_mass": 0.3896784484386444,
+              "ref_target_mass": 0.0007282454931922993,
+              "query_gt_mass": 0.0005685414085650699,
+              "query_candidate_mass": 2.904381634667516e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.03759882103840467,
+              "query_gt_given_query": 0.028887887163868958,
+              "query_candidate_given_query": 0.0014757315417859474
+            },
+            "17": {
+              "ref_mass": 0.02529972419142723,
+              "query_mass": 0.08006526529788971,
+              "prompt_text_mass": 0.38228045776486397,
+              "generated_text_mass": 0.5123545527458191,
+              "ref_target_mass": 0.0010463768063457986,
+              "query_gt_mass": 0.0028409685685328446,
+              "query_candidate_mass": 5.1422334909439086e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.04135921792777336,
+              "query_gt_given_query": 0.03548315936958151,
+              "query_candidate_given_query": 0.0006422552241364325
+            },
+            "26": {
+              "ref_mass": 0.012909026816487312,
+              "query_mass": 0.030286993831396103,
+              "prompt_text_mass": 0.6886127013713121,
+              "generated_text_mass": 0.26819121837615967,
+              "ref_target_mass": 0.00011074447946341038,
+              "query_gt_mass": 7.9087973784699e-05,
+              "query_candidate_mass": 7.744009111702326e-06,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.008578840298167818,
+              "query_gt_given_query": 0.0026112850362426804,
+              "query_candidate_given_query": 0.0002556876114814251
+            },
+            "35": {
+              "ref_mass": 0.015639493241906166,
+              "query_mass": 0.018962223082780838,
+              "prompt_text_mass": 0.5012033898383379,
+              "generated_text_mass": 0.4641948938369751,
+              "ref_target_mass": 0.00018626822365746217,
+              "query_gt_mass": 0.00012944275302674216,
+              "query_candidate_mass": 7.1242314668779724e-06,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.011910118875102344,
+              "query_gt_given_query": 0.006826349023616654,
+              "query_candidate_given_query": 0.00037570655274841297
+            }
+          },
+          "candidate": 3,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2139,
+            2140,
+            2141,
+            2142
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.023650434333831072,
+            "p90": 0.1447668343782425,
+            "maximum": 0.4555971771478653
+          },
+          "top_visual_heads": [
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.08097229897975922,
+              "query_mass": 0.3746248781681061,
+              "visual_mass": 0.4555971771478653,
+              "ref_target_given_ref": 0.02285124031244491,
+              "query_candidate_given_query": 0.0012636753549281742
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.11021508276462555,
+              "query_mass": 0.29878443479537964,
+              "visual_mass": 0.4089995175600052,
+              "ref_target_given_ref": 0.049323770100015416,
+              "query_candidate_given_query": 0.00023153878653572735
+            },
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.1270374357700348,
+              "query_mass": 0.26466014981269836,
+              "visual_mass": 0.39169758558273315,
+              "ref_target_given_ref": 0.00580704090514151,
+              "query_candidate_given_query": 0.0004071193292565549
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.06720565259456635,
+              "query_mass": 0.2690367102622986,
+              "visual_mass": 0.33624236285686493,
+              "ref_target_given_ref": 0.01191512691685655,
+              "query_candidate_given_query": 0.00027450225162032173
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.09431715309619904,
+              "query_mass": 0.2377120554447174,
+              "visual_mass": 0.33202920854091644,
+              "ref_target_given_ref": 0.060679825031228755,
+              "query_candidate_given_query": 0.0010039449479186321
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.1270374357700348,
+            "query_mass": 0.26466014981269836,
+            "visual_mass": 0.39169758558273315,
+            "ref_target_given_ref": 0.00580704090514151,
+            "query_candidate_given_query": 0.0004071193292565549
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.43122774362564087,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.09348656982183456,
+              "source": "prompt"
+            },
+            {
+              "position": 2138,
+              "token": "score",
+              "mass": 0.05207597836852074,
+              "source": "generated"
+            },
+            {
+              "position": 2141,
+              "token": ".",
+              "mass": 0.03252682089805603,
+              "source": "generated"
+            },
+            {
+              "position": 2139,
+              "token": ">",
+              "mass": 0.03231281787157059,
+              "source": "generated"
+            },
+            {
+              "position": 2140,
+              "token": "0",
+              "mass": 0.02991638518869877,
+              "source": "generated"
+            },
+            {
+              "position": 2113,
+              "token": "0",
+              "mass": 0.020021487027406693,
+              "source": "generated"
+            },
+            {
+              "position": 2083,
+              "token": "8",
+              "mass": 0.019667457789182663,
+              "source": "generated"
+            }
+          ]
+        }
+      ],
+      "reproduced_prediction": true
+    },
+    {
+      "case": "wrong_high",
+      "dataset_index": 7,
+      "id": "7-1",
+      "selected_index": 0,
+      "final_iou": 0.25360230547550433,
+      "prompt_length": 737,
+      "completion_tokens": 83,
+      "image_geometry": [
+        {
+          "span": [
+            244,
+            464
+          ],
+          "grid": [
+            11,
+            20
+          ]
+        },
+        {
+          "span": [
+            489,
+            709
+          ],
+          "grid": [
+            11,
+            20
+          ]
+        }
+      ],
+      "layers": [
+        8,
+        17,
+        26,
+        35
+      ],
+      "attention_map_layers": [
+        26,
+        35
+      ],
+      "average_heads_per_layer": 32,
+      "score_diagnostics": [
+        {
+          "ref_mass": 0.011239772662520409,
+          "query_mass": 0.029306191951036453,
+          "prompt_text_mass": 0.7341774459928274,
+          "generated_text_mass": 0.2252766340970993,
+          "ref_target_mass": 6.710849569062693e-05,
+          "query_gt_mass": 4.632885430619356e-05,
+          "query_candidate_mass": 0.00012379170520580377,
+          "ref_grid": [
+            11,
+            20
+          ],
+          "query_grid": [
+            11,
+            20
+          ],
+          "ref_target_given_ref": 0.005970627494486931,
+          "query_gt_given_query": 0.0015808554855437325,
+          "query_candidate_given_query": 0.004224080201638948,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.016702381893992424,
+              "query_mass": 0.015960384160280228,
+              "prompt_text_mass": 0.7314912509173155,
+              "generated_text_mass": 0.23584595322608948,
+              "ref_target_mass": 0.0001662511566188184,
+              "query_gt_mass": 5.363655405380999e-06,
+              "query_candidate_mass": 1.4305895892903215e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.009953739393218895,
+              "query_gt_given_query": 0.0003360605453801825,
+              "query_candidate_given_query": 0.000896337816761676
+            },
+            "17": {
+              "ref_mass": 0.012048283591866493,
+              "query_mass": 0.030650967732071877,
+              "prompt_text_mass": 0.6511254571378231,
+              "generated_text_mass": 0.30617526173591614,
+              "ref_target_mass": 4.1210018677520515e-05,
+              "query_gt_mass": 4.286501358146774e-05,
+              "query_candidate_mass": 0.00015918414073530575,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0034204057667882592,
+              "query_gt_given_query": 0.0013984880985214573,
+              "query_candidate_given_query": 0.0051934458359284424
+            },
+            "26": {
+              "ref_mass": 0.009740499779582024,
+              "query_mass": 0.0325411893427372,
+              "prompt_text_mass": 0.8495618682354689,
+              "generated_text_mass": 0.10815642774105072,
+              "ref_target_mass": 0.00010946941934176706,
+              "query_gt_mass": 8.232719601946887e-05,
+              "query_candidate_mass": 0.00021196763706393548,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.011238583421688094,
+              "query_gt_given_query": 0.0025299381393951207,
+              "query_candidate_given_query": 0.006513825749618587
+            },
+            "35": {
+              "ref_mass": 0.012739047408103943,
+              "query_mass": 0.02607119083404541,
+              "prompt_text_mass": 0.6187929064035416,
+              "generated_text_mass": 0.3423967957496643,
+              "ref_target_mass": 2.474757125310131e-05,
+              "query_gt_mass": 1.0330512265500138e-05,
+              "query_candidate_mass": 3.5615773922472715e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0019426547731785774,
+              "query_gt_given_query": 0.00039624243983554065,
+              "query_candidate_given_query": 0.0013660969362382705
+            }
+          },
+          "candidate": 1,
+          "score": 0.88,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "8",
+            "8"
+          ],
+          "predictor_rows": [
+            759,
+            760,
+            761,
+            762
+          ],
+          "candidate_iou": 0.25360230547550433,
+          "head_visual_mass_quantiles": {
+            "median": 0.018333778716623783,
+            "p90": 0.09701451621949672,
+            "maximum": 0.2937392592430115
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 25,
+              "ref_mass": 0.03205299377441406,
+              "query_mass": 0.2616862654685974,
+              "visual_mass": 0.2937392592430115,
+              "ref_target_given_ref": 0.00986905379360099,
+              "query_candidate_given_query": 0.0030795418074531147
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.11606034636497498,
+              "query_mass": 0.10610897839069366,
+              "visual_mass": 0.22216932475566864,
+              "ref_target_given_ref": 0.003501120363991805,
+              "query_candidate_given_query": 0.0012429441328210623
+            },
+            {
+              "layer": 8,
+              "head": 6,
+              "ref_mass": 0.08725371956825256,
+              "query_mass": 0.08270115405321121,
+              "visual_mass": 0.16995487362146378,
+              "ref_target_given_ref": 0.00859189470477147,
+              "query_candidate_given_query": 0.0002589566892502765
+            },
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.06264510750770569,
+              "query_mass": 0.10725801438093185,
+              "visual_mass": 0.16990312188863754,
+              "ref_target_given_ref": 0.02879096805407744,
+              "query_candidate_given_query": 0.012323978565690848
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.040674448013305664,
+              "query_mass": 0.12823206186294556,
+              "visual_mass": 0.16890650987625122,
+              "ref_target_given_ref": 0.00039971752231257585,
+              "query_candidate_given_query": 0.0023411093506732826
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 25,
+            "ref_mass": 0.03205299377441406,
+            "query_mass": 0.2616862654685974,
+            "visual_mass": 0.2937392592430115,
+            "ref_target_given_ref": 0.00986905379360099,
+            "query_candidate_given_query": 0.0030795418074531147
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.4945676922798157,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.1006251871585846,
+              "source": "prompt"
+            },
+            {
+              "position": 759,
+              "token": ">",
+              "mass": 0.05150038003921509,
+              "source": "generated"
+            },
+            {
+              "position": 758,
+              "token": "score",
+              "mass": 0.04126989468932152,
+              "source": "generated"
+            },
+            {
+              "position": 760,
+              "token": "0",
+              "mass": 0.031379155814647675,
+              "source": "generated"
+            },
+            {
+              "position": 761,
+              "token": ".",
+              "mass": 0.02918381057679653,
+              "source": "generated"
+            },
+            {
+              "position": 762,
+              "token": "8",
+              "mass": 0.015092229470610619,
+              "source": "generated"
+            },
+            {
+              "position": 170,
+              "token": " decimal",
+              "mass": 0.014477069489657879,
+              "source": "prompt"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.008105546236038208,
+          "query_mass": 0.02079072594642639,
+          "prompt_text_mass": 0.6474352478981018,
+          "generated_text_mass": 0.32366836071014404,
+          "ref_target_mass": 9.774711961654233e-06,
+          "query_gt_mass": 5.627093369184877e-06,
+          "query_candidate_mass": 7.028796978294851e-05,
+          "ref_grid": [
+            11,
+            20
+          ],
+          "query_grid": [
+            11,
+            20
+          ],
+          "ref_target_given_ref": 0.00120592883897136,
+          "query_gt_given_query": 0.0002706540110087925,
+          "query_candidate_given_query": 0.00338073667865503,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.014794998802244663,
+              "query_mass": 0.010810164734721184,
+              "prompt_text_mass": 0.5759297991171479,
+              "generated_text_mass": 0.398465096950531,
+              "ref_target_mass": 0.00014127110655535926,
+              "query_gt_mass": 1.1192936161023692e-05,
+              "query_candidate_mass": 2.390086438506842e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.009548571679095097,
+              "query_gt_given_query": 0.0010354084730155022,
+              "query_candidate_given_query": 0.002210962087219744
+            },
+            "17": {
+              "ref_mass": 0.016270574182271957,
+              "query_mass": 0.05616633594036102,
+              "prompt_text_mass": 0.4509771056473255,
+              "generated_text_mass": 0.4765859842300415,
+              "ref_target_mass": 9.508822418632906e-05,
+              "query_gt_mass": 6.084861861309026e-05,
+              "query_candidate_mass": 9.033391103148462e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.005844183685289668,
+              "query_gt_given_query": 0.0010833645740697955,
+              "query_candidate_given_query": 0.001608328361091663
+            },
+            "26": {
+              "ref_mass": 0.007838836871087551,
+              "query_mass": 0.02636447176337242,
+              "prompt_text_mass": 0.7413942636922002,
+              "generated_text_mass": 0.22440244257450104,
+              "ref_target_mass": 6.886312420028835e-06,
+              "query_gt_mass": 4.390388604588228e-06,
+              "query_candidate_mass": 0.00010518780536949636,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0008784865067709255,
+              "query_gt_given_query": 0.00016652670472570204,
+              "query_candidate_given_query": 0.003989755846943668
+            },
+            "35": {
+              "ref_mass": 0.008372255600988865,
+              "query_mass": 0.015216981060802937,
+              "prompt_text_mass": 0.55347646959126,
+              "generated_text_mass": 0.422934353351593,
+              "ref_target_mass": 1.2663111651345373e-05,
+              "query_gt_mass": 6.863797787809741e-06,
+              "query_candidate_mass": 3.538813952356578e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0015125089647107413,
+              "query_gt_given_query": 0.00045106172902390184,
+              "query_candidate_given_query": 0.002325569006241406
+            }
+          },
+          "candidate": 2,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            785,
+            786,
+            787,
+            788
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.014995945384725928,
+            "p90": 0.10478354766964912,
+            "maximum": 0.29023677483201027
+          },
+          "top_visual_heads": [
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.051816049963235855,
+              "query_mass": 0.23842072486877441,
+              "visual_mass": 0.29023677483201027,
+              "ref_target_given_ref": 0.0038663326852191636,
+              "query_candidate_given_query": 0.00047645294317351155
+            },
+            {
+              "layer": 17,
+              "head": 4,
+              "ref_mass": 0.04287939891219139,
+              "query_mass": 0.23778945207595825,
+              "visual_mass": 0.28066885098814964,
+              "ref_target_given_ref": 4.014030329406395e-05,
+              "query_candidate_given_query": 0.0032012304117490036
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.050618067383766174,
+              "query_mass": 0.1861112415790558,
+              "visual_mass": 0.23672930896282196,
+              "ref_target_given_ref": 0.002871955135644342,
+              "query_candidate_given_query": 0.002341754988144645
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.05374705046415329,
+              "query_mass": 0.1764490008354187,
+              "visual_mass": 0.230196051299572,
+              "ref_target_given_ref": 0.00038547001950565025,
+              "query_candidate_given_query": 0.002664736207839483
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.05187167227268219,
+              "query_mass": 0.15805158019065857,
+              "visual_mass": 0.20992325246334076,
+              "ref_target_given_ref": 0.012043888730631183,
+              "query_candidate_given_query": 0.0008224203260177427
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 30,
+            "ref_mass": 0.02883891388773918,
+            "query_mass": 0.12763848900794983,
+            "visual_mass": 0.156477402895689,
+            "ref_target_given_ref": 3.895919282894447e-05,
+            "query_candidate_given_query": 0.017075100910914895
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.45998409390449524,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.0851883664727211,
+              "source": "prompt"
+            },
+            {
+              "position": 784,
+              "token": "score",
+              "mass": 0.04660356044769287,
+              "source": "generated"
+            },
+            {
+              "position": 785,
+              "token": ">",
+              "mass": 0.04259577393531799,
+              "source": "generated"
+            },
+            {
+              "position": 787,
+              "token": ".",
+              "mass": 0.038612574338912964,
+              "source": "generated"
+            },
+            {
+              "position": 786,
+              "token": "0",
+              "mass": 0.031170545145869255,
+              "source": "generated"
+            },
+            {
+              "position": 763,
+              "token": "8",
+              "mass": 0.02253449708223343,
+              "source": "generated"
+            },
+            {
+              "position": 762,
+              "token": "8",
+              "mass": 0.01786966808140278,
+              "source": "generated"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.007406007498502731,
+          "query_mass": 0.013399617746472359,
+          "prompt_text_mass": 0.6046173293143511,
+          "generated_text_mass": 0.37457701563835144,
+          "ref_target_mass": 1.1530515249760341e-05,
+          "query_gt_mass": 5.512605912008439e-06,
+          "query_candidate_mass": 3.3649057168513544e-05,
+          "ref_grid": [
+            11,
+            20
+          ],
+          "query_grid": [
+            11,
+            20
+          ],
+          "ref_target_given_ref": 0.0015569137962784213,
+          "query_gt_given_query": 0.00041140023665672934,
+          "query_candidate_given_query": 0.0025111953046102484,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.01469075120985508,
+              "query_mass": 0.009850414469838142,
+              "prompt_text_mass": 0.5420558787882328,
+              "generated_text_mass": 0.43340301513671875,
+              "ref_target_mass": 0.00011402996256598257,
+              "query_gt_mass": 8.402615158775012e-06,
+              "query_candidate_mass": 2.3398001305758956e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.007762023938536731,
+              "query_gt_given_query": 0.0008530214829542172,
+              "query_candidate_given_query": 0.0023753316550692736
+            },
+            "17": {
+              "ref_mass": 0.01576911099255085,
+              "query_mass": 0.031332794576883316,
+              "prompt_text_mass": 0.3607798609882593,
+              "generated_text_mass": 0.5921182632446289,
+              "ref_target_mass": 2.65334583300864e-05,
+              "query_gt_mass": 1.5580327691714018e-05,
+              "query_candidate_mass": 0.00010027570098638536,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0016826223331562892,
+              "query_gt_given_query": 0.0004972530507447574,
+              "query_candidate_given_query": 0.0032003433571918508
+            },
+            "26": {
+              "ref_mass": 0.006088930182158947,
+              "query_mass": 0.014594241045415401,
+              "prompt_text_mass": 0.7071189265698195,
+              "generated_text_mass": 0.2721978425979614,
+              "ref_target_mass": 1.0416105943295391e-05,
+              "query_gt_mass": 4.105012467334748e-06,
+              "query_candidate_mass": 4.000750286504627e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.001710662732480562,
+              "query_gt_given_query": 0.00028127618658349394,
+              "query_candidate_given_query": 0.002741321233529587
+            },
+            "35": {
+              "ref_mass": 0.008723083883523941,
+              "query_mass": 0.012204994447529316,
+              "prompt_text_mass": 0.5021157329902053,
+              "generated_text_mass": 0.47695618867874146,
+              "ref_target_mass": 1.2644923530460783e-05,
+              "query_gt_mass": 6.920199356682129e-06,
+              "query_candidate_mass": 2.7290611471980815e-05,
+              "ref_grid": [
+                11,
+                20
+              ],
+              "query_grid": [
+                11,
+                20
+              ],
+              "ref_target_given_ref": 0.0014495932515729176,
+              "query_gt_given_query": 0.0005669973375598709,
+              "query_candidate_given_query": 0.0022360199825822383
+            }
+          },
+          "candidate": 3,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            811,
+            812,
+            813,
+            814
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.012003050884231925,
+            "p90": 0.06772786118090152,
+            "maximum": 0.19205369800329208
+          },
+          "top_visual_heads": [
+            {
+              "layer": 17,
+              "head": 4,
+              "ref_mass": 0.06163797527551651,
+              "query_mass": 0.13041572272777557,
+              "visual_mass": 0.19205369800329208,
+              "ref_target_given_ref": 8.997759980375013e-06,
+              "query_candidate_given_query": 0.005302262703907919
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.06119542568922043,
+              "query_mass": 0.12803317606449127,
+              "visual_mass": 0.1892286017537117,
+              "ref_target_given_ref": 0.003058207967278697,
+              "query_candidate_given_query": 0.0037448305379752553
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.1080789864063263,
+              "query_mass": 0.06604905426502228,
+              "visual_mass": 0.17412804067134857,
+              "ref_target_given_ref": 0.005178038451031613,
+              "query_candidate_given_query": 0.0009351228246644035
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.06339101493358612,
+              "query_mass": 0.10971847176551819,
+              "visual_mass": 0.1731094866991043,
+              "ref_target_given_ref": 0.001916618335844659,
+              "query_candidate_given_query": 0.0015954673939526955
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.060306522995233536,
+              "query_mass": 0.09812898188829422,
+              "visual_mass": 0.15843550488352776,
+              "ref_target_given_ref": 0.0007035845342240695,
+              "query_candidate_given_query": 0.0031322231880904277
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.027931049466133118,
+            "query_mass": 0.07551724463701248,
+            "visual_mass": 0.1034482941031456,
+            "ref_target_given_ref": 0.0024929729368137186,
+            "query_candidate_given_query": 0.00025898243598674914
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.42803311347961426,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.09306363761425018,
+              "source": "prompt"
+            },
+            {
+              "position": 810,
+              "token": "score",
+              "mass": 0.050599247217178345,
+              "source": "generated"
+            },
+            {
+              "position": 813,
+              "token": ".",
+              "mass": 0.03042197972536087,
+              "source": "generated"
+            },
+            {
+              "position": 812,
+              "token": "0",
+              "mass": 0.030202891677618027,
+              "source": "generated"
+            },
+            {
+              "position": 811,
+              "token": ">",
+              "mass": 0.029586106538772583,
+              "source": "generated"
+            },
+            {
+              "position": 789,
+              "token": "0",
+              "mass": 0.019420620054006577,
+              "source": "generated"
+            },
+            {
+              "position": 763,
+              "token": "8",
+              "mass": 0.01428348571062088,
+              "source": "generated"
+            }
+          ]
+        }
+      ],
+      "reproduced_prediction": true
+    },
+    {
+      "case": "missed_later",
+      "dataset_index": 10,
+      "id": "10-1",
+      "selected_index": 0,
+      "final_iou": 0.0,
+      "prompt_length": 2057,
+      "completion_tokens": 89,
+      "image_geometry": [
+        {
+          "span": [
+            244,
+            1124
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        },
+        {
+          "span": [
+            1149,
+            2029
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        }
+      ],
+      "layers": [
+        8,
+        17,
+        26,
+        35
+      ],
+      "attention_map_layers": [
+        26,
+        35
+      ],
+      "average_heads_per_layer": 32,
+      "score_diagnostics": [
+        {
+          "ref_mass": 0.01480516605079174,
+          "query_mass": 0.0403672456741333,
+          "prompt_text_mass": 0.7055552322417498,
+          "generated_text_mass": 0.23927241563796997,
+          "ref_target_mass": 0.00016896857924584752,
+          "query_gt_mass": 0.0005495650727127214,
+          "query_candidate_mass": 0.000619624254670926,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.011412812167467147,
+          "query_gt_given_query": 0.013614133526699199,
+          "query_candidate_given_query": 0.015349678788413635,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.022361956536769867,
+              "query_mass": 0.022418152540922165,
+              "prompt_text_mass": 0.7116030119359493,
+              "generated_text_mass": 0.24361693859100342,
+              "ref_target_mass": 0.00014301860159379417,
+              "query_gt_mass": 0.00010692694339581066,
+              "query_candidate_mass": 0.0008827098383977144,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.006395621123698547,
+              "query_gt_given_query": 0.004769659016309479,
+              "query_candidate_given_query": 0.0393747806286184
+            },
+            "17": {
+              "ref_mass": 0.02022586017847061,
+              "query_mass": 0.05013752728700638,
+              "prompt_text_mass": 0.6406214386224747,
+              "generated_text_mass": 0.2890152037143707,
+              "ref_target_mass": 2.9712250445536464e-05,
+              "query_gt_mass": 0.0002078253537474666,
+              "query_candidate_mass": 0.0016159077431337223,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.001469022834300201,
+              "query_gt_given_query": 0.004145105771925983,
+              "query_candidate_given_query": 0.032229506131876993
+            },
+            "26": {
+              "ref_mass": 0.015908226370811462,
+              "query_mass": 0.045907776802778244,
+              "prompt_text_mass": 0.8235501386225224,
+              "generated_text_mass": 0.11463373899459839,
+              "ref_target_mass": 0.00030357052705076037,
+              "query_gt_mass": 0.0009044696613319684,
+              "query_candidate_mass": 0.000926984307785752,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.019082612981152564,
+              "query_gt_given_query": 0.01970188330438236,
+              "query_candidate_given_query": 0.020192315384125786
+            },
+            "35": {
+              "ref_mass": 0.013702105730772018,
+              "query_mass": 0.03482671082019806,
+              "prompt_text_mass": 0.5875600315630436,
+              "generated_text_mass": 0.36391109228134155,
+              "ref_target_mass": 3.436662589992918e-05,
+              "query_gt_mass": 0.00019466045429231602,
+              "query_candidate_mass": 0.0003122642011549036,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0025081273327755044,
+              "query_gt_given_query": 0.005589401057633642,
+              "query_candidate_given_query": 0.008966227180253934
+            }
+          },
+          "candidate": 1,
+          "score": 0.88,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "8",
+            "8"
+          ],
+          "predictor_rows": [
+            2079,
+            2080,
+            2081,
+            2082
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.03092113765887916,
+            "p90": 0.1745585821568966,
+            "maximum": 0.403993159532547
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 25,
+              "ref_mass": 0.06972751021385193,
+              "query_mass": 0.33426564931869507,
+              "visual_mass": 0.403993159532547,
+              "ref_target_given_ref": 0.0035364014293311746,
+              "query_candidate_given_query": 0.009900901474512535
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.1343361735343933,
+              "query_mass": 0.1472848504781723,
+              "visual_mass": 0.2816210240125656,
+              "ref_target_given_ref": 0.0025791180014286767,
+              "query_candidate_given_query": 0.011927988913777063
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.07725776731967926,
+              "query_mass": 0.1687515825033188,
+              "visual_mass": 0.24600934982299805,
+              "ref_target_given_ref": 0.001884761597135342,
+              "query_candidate_given_query": 0.04450298807930498
+            },
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.1152627021074295,
+              "query_mass": 0.12857785820960999,
+              "visual_mass": 0.2438405603170395,
+              "ref_target_given_ref": 0.06902185780487222,
+              "query_candidate_given_query": 0.024929500975563637
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.07081495970487595,
+              "query_mass": 0.16305184364318848,
+              "visual_mass": 0.23386680334806442,
+              "ref_target_given_ref": 0.0007684143665180705,
+              "query_candidate_given_query": 0.028458468428463186
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 25,
+            "ref_mass": 0.06972751021385193,
+            "query_mass": 0.33426564931869507,
+            "visual_mass": 0.403993159532547,
+            "ref_target_given_ref": 0.0035364014293311746,
+            "query_candidate_given_query": 0.009900901474512535
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.5121519565582275,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.08307898044586182,
+              "source": "prompt"
+            },
+            {
+              "position": 2079,
+              "token": ">",
+              "mass": 0.05664993077516556,
+              "source": "generated"
+            },
+            {
+              "position": 2078,
+              "token": "score",
+              "mass": 0.04480111598968506,
+              "source": "generated"
+            },
+            {
+              "position": 2080,
+              "token": "0",
+              "mass": 0.03347101807594299,
+              "source": "generated"
+            },
+            {
+              "position": 2081,
+              "token": ".",
+              "mass": 0.029376735910773277,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "8",
+              "mass": 0.017133312299847603,
+              "source": "generated"
+            },
+            {
+              "position": 2077,
+              "token": "><",
+              "mass": 0.011683020740747452,
+              "source": "generated"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.01565052941441536,
+          "query_mass": 0.03787374496459961,
+          "prompt_text_mass": 0.6071880869567394,
+          "generated_text_mass": 0.3392876982688904,
+          "ref_target_mass": 4.656681853084588e-05,
+          "query_gt_mass": 0.0004453541604208294,
+          "query_candidate_mass": 0.0003768269035906997,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.002975414907559242,
+          "query_gt_given_query": 0.011758915334015678,
+          "query_candidate_given_query": 0.009949554868231748,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.01809930056333542,
+              "query_mass": 0.014408545568585396,
+              "prompt_text_mass": 0.5884237196296453,
+              "generated_text_mass": 0.3790685534477234,
+              "ref_target_mass": 0.00011168746510636986,
+              "query_gt_mass": 6.213146173919085e-05,
+              "query_candidate_mass": 5.1930949489760686e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.006170816640982264,
+              "query_gt_given_query": 0.004312125845279941,
+              "query_candidate_given_query": 0.00360417706579521
+            },
+            "17": {
+              "ref_mass": 0.021540429443120956,
+              "query_mass": 0.09186887741088867,
+              "prompt_text_mass": 0.44273242726922035,
+              "generated_text_mass": 0.4438582956790924,
+              "ref_target_mass": 0.00024422034263006924,
+              "query_gt_mass": 0.0032060580532927998,
+              "query_candidate_mass": 0.0026657810854248238,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.011337765724446234,
+              "query_gt_given_query": 0.03489819559842368,
+              "query_candidate_given_query": 0.02901723805225103
+            },
+            "26": {
+              "ref_mass": 0.02022213116288185,
+              "query_mass": 0.04988180845975876,
+              "prompt_text_mass": 0.699599627405405,
+              "generated_text_mass": 0.23029635846614838,
+              "ref_target_mass": 6.937578287237552e-05,
+              "query_gt_mass": 0.0008071838923258475,
+              "query_candidate_mass": 0.0006841237301836372,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.003430686029755174,
+              "query_gt_given_query": 0.01618192918921591,
+              "query_candidate_given_query": 0.013714894293288135
+            },
+            "35": {
+              "ref_mass": 0.01107892394065857,
+              "query_mass": 0.02586567960679531,
+              "prompt_text_mass": 0.5147763732820749,
+              "generated_text_mass": 0.4482790231704712,
+              "ref_target_mass": 2.375785381234889e-05,
+              "query_gt_mass": 8.352444391988683e-05,
+              "query_candidate_mass": 6.953008902608417e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0021444188929901293,
+              "query_gt_given_query": 0.0032291610036777724,
+              "query_candidate_given_query": 0.0026881214831029434
+            }
+          },
+          "candidate": 2,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2107,
+            2108,
+            2109,
+            2110
+          ],
+          "candidate_iou": 0.8417391304347827,
+          "head_visual_mass_quantiles": {
+            "median": 0.02488867612555623,
+            "p90": 0.1774304319173097,
+            "maximum": 0.5266487151384354
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.21562187373638153,
+              "query_mass": 0.31102684140205383,
+              "visual_mass": 0.5266487151384354,
+              "ref_target_given_ref": 0.004347129424819274,
+              "query_candidate_given_query": 0.036480606364376306
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.0638483390212059,
+              "query_mass": 0.3089492917060852,
+              "visual_mass": 0.3727976307272911,
+              "ref_target_given_ref": 0.04012257464214949,
+              "query_candidate_given_query": 0.07391215164901026
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.07251035422086716,
+              "query_mass": 0.2880166172981262,
+              "visual_mass": 0.3605269715189934,
+              "ref_target_given_ref": 0.0049723182374844885,
+              "query_candidate_given_query": 0.026113016196692363
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.07459056377410889,
+              "query_mass": 0.262015700340271,
+              "visual_mass": 0.3366062641143799,
+              "ref_target_given_ref": 0.0013637033266595561,
+              "query_candidate_given_query": 0.0059780364777442035
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.06994480639696121,
+              "query_mass": 0.26148271560668945,
+              "visual_mass": 0.33142752200365067,
+              "ref_target_given_ref": 0.012813808598129415,
+              "query_candidate_given_query": 0.03277840885566377
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.21562187373638153,
+            "query_mass": 0.31102684140205383,
+            "visual_mass": 0.5266487151384354,
+            "ref_target_given_ref": 0.004347129424819274,
+            "query_candidate_given_query": 0.036480606364376306
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.4496300220489502,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.08194485306739807,
+              "source": "prompt"
+            },
+            {
+              "position": 2106,
+              "token": "score",
+              "mass": 0.05986064299941063,
+              "source": "generated"
+            },
+            {
+              "position": 2107,
+              "token": ">",
+              "mass": 0.04040313512086868,
+              "source": "generated"
+            },
+            {
+              "position": 2109,
+              "token": ".",
+              "mass": 0.03517935425043106,
+              "source": "generated"
+            },
+            {
+              "position": 2108,
+              "token": "0",
+              "mass": 0.03435715287923813,
+              "source": "generated"
+            },
+            {
+              "position": 2083,
+              "token": "8",
+              "mass": 0.02136302925646305,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "8",
+              "mass": 0.01982576586306095,
+              "source": "generated"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.015023811720311642,
+          "query_mass": 0.03032407909631729,
+          "prompt_text_mass": 0.5876441383734345,
+          "generated_text_mass": 0.3670079708099365,
+          "ref_target_mass": 2.6487982543476368e-05,
+          "query_gt_mass": 0.00010991722636827035,
+          "query_candidate_mass": 0.00018818799241213132,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.0017630667261135595,
+          "query_gt_given_query": 0.003624750681435178,
+          "query_candidate_given_query": 0.006205893073105254,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.017557814717292786,
+              "query_mass": 0.015086314640939236,
+              "prompt_text_mass": 0.5769960517063737,
+              "generated_text_mass": 0.3903597593307495,
+              "ref_target_mass": 9.401032647030655e-05,
+              "query_gt_mass": 5.702042616867402e-05,
+              "query_candidate_mass": 2.053652178612538e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.005354329566863197,
+              "query_gt_given_query": 0.003779612683798836,
+              "query_candidate_given_query": 0.0013612682934767977
+            },
+            "17": {
+              "ref_mass": 0.02928279899060726,
+              "query_mass": 0.06844116747379303,
+              "prompt_text_mass": 0.4112722221761942,
+              "generated_text_mass": 0.4910038709640503,
+              "ref_target_mass": 0.0004322912114541393,
+              "query_gt_mass": 0.0008270004839252216,
+              "query_candidate_mass": 0.0018353600884228947,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.01476263288877545,
+              "query_gt_given_query": 0.01208337780389106,
+              "query_candidate_given_query": 0.02681660988798411
+            },
+            "26": {
+              "ref_mass": 0.01630697399377823,
+              "query_mass": 0.038056712597608566,
+              "prompt_text_mass": 0.6801168136298656,
+              "generated_text_mass": 0.26551949977874756,
+              "ref_target_mass": 2.5522283626705744e-05,
+              "query_gt_mass": 0.00012940881066868313,
+              "query_candidate_mass": 0.00030051361829973766,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0015651146335576133,
+              "query_gt_given_query": 0.003400420105566738,
+              "query_candidate_given_query": 0.007896468133682718
+            },
+            "35": {
+              "ref_mass": 0.01374064851552248,
+              "query_mass": 0.022591445595026016,
+              "prompt_text_mass": 0.495171464048326,
+              "generated_text_mass": 0.4684964418411255,
+              "ref_target_mass": 2.745368127634717e-05,
+              "query_gt_mass": 9.042563795723253e-05,
+              "query_candidate_mass": 7.586237329640425e-05,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0019979902146054756,
+              "query_gt_given_query": 0.004002649479727922,
+              "query_candidate_given_query": 0.0033580132345805685
+            }
+          },
+          "candidate": 3,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2137,
+            2138,
+            2139,
+            2140
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.022812314331531525,
+            "p90": 0.14134499989449978,
+            "maximum": 0.47774629294872284
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.15716879069805145,
+              "query_mass": 0.3205775022506714,
+              "visual_mass": 0.47774629294872284,
+              "ref_target_given_ref": 0.0023570224706528312,
+              "query_candidate_given_query": 0.02071578372825887
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.11122199892997742,
+              "query_mass": 0.2592235803604126,
+              "visual_mass": 0.37044557929039,
+              "ref_target_given_ref": 0.044065888552842394,
+              "query_candidate_given_query": 0.08394618562617125
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.10770329087972641,
+              "query_mass": 0.2572598457336426,
+              "visual_mass": 0.364963136613369,
+              "ref_target_given_ref": 0.010998641423860327,
+              "query_candidate_given_query": 0.016229444006243824
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.11361557245254517,
+              "query_mass": 0.21324487030506134,
+              "visual_mass": 0.3268604427576065,
+              "ref_target_given_ref": 0.013468197641749663,
+              "query_candidate_given_query": 0.014252976040487694
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.08617448806762695,
+              "query_mass": 0.20495086908340454,
+              "visual_mass": 0.2911253571510315,
+              "ref_target_given_ref": 0.0094184181903153,
+              "query_candidate_given_query": 0.00980016430041908
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.15716879069805145,
+            "query_mass": 0.3205775022506714,
+            "visual_mass": 0.47774629294872284,
+            "ref_target_given_ref": 0.0023570224706528312,
+            "query_candidate_given_query": 0.02071578372825887
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.43125972151756287,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.08865875750780106,
+              "source": "prompt"
+            },
+            {
+              "position": 2136,
+              "token": "score",
+              "mass": 0.05145755037665367,
+              "source": "generated"
+            },
+            {
+              "position": 2137,
+              "token": ">",
+              "mass": 0.032707229256629944,
+              "source": "generated"
+            },
+            {
+              "position": 2139,
+              "token": ".",
+              "mass": 0.03169424086809158,
+              "source": "generated"
+            },
+            {
+              "position": 2138,
+              "token": "0",
+              "mass": 0.031226374208927155,
+              "source": "generated"
+            },
+            {
+              "position": 2111,
+              "token": "0",
+              "mass": 0.02434944547712803,
+              "source": "generated"
+            },
+            {
+              "position": 2110,
+              "token": "0",
+              "mass": 0.015273012220859528,
+              "source": "generated"
+            }
+          ]
+        }
+      ],
+      "reproduced_prediction": true
+    },
+    {
+      "case": "nonfirst_selected",
+      "dataset_index": 86,
+      "id": "86-1",
+      "selected_index": 1,
+      "final_iou": 0.0,
+      "prompt_length": 2056,
+      "completion_tokens": 89,
+      "image_geometry": [
+        {
+          "span": [
+            244,
+            1124
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        },
+        {
+          "span": [
+            1148,
+            2028
+          ],
+          "grid": [
+            22,
+            40
+          ]
+        }
+      ],
+      "layers": [
+        8,
+        17,
+        26,
+        35
+      ],
+      "attention_map_layers": [
+        26,
+        35
+      ],
+      "average_heads_per_layer": 32,
+      "score_diagnostics": [
+        {
+          "ref_mass": 0.015807881951332092,
+          "query_mass": 0.04056740179657936,
+          "prompt_text_mass": 0.691296499222517,
+          "generated_text_mass": 0.25232815742492676,
+          "ref_target_mass": 0.001502195252220482,
+          "query_gt_mass": 0.005275609474504452,
+          "query_candidate_mass": 0.005292238729867202,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.09502824330579566,
+          "query_gt_given_query": 0.1300455351062017,
+          "query_candidate_given_query": 0.13045545180350798,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.02207958698272705,
+              "query_mass": 0.01854010298848152,
+              "prompt_text_mass": 0.7162293009459972,
+              "generated_text_mass": 0.24315106868743896,
+              "ref_target_mass": 0.0034350352185089296,
+              "query_gt_mass": 0.0010699426840392696,
+              "query_candidate_mass": 0.0010817322694728316,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.15557515732500665,
+              "query_gt_given_query": 0.05770964080965445,
+              "query_candidate_given_query": 0.05834553724673932
+            },
+            "17": {
+              "ref_mass": 0.022474776953458786,
+              "query_mass": 0.047730885446071625,
+              "prompt_text_mass": 0.6724258922040462,
+              "generated_text_mass": 0.25736838579177856,
+              "ref_target_mass": 0.001451727263296644,
+              "query_gt_mass": 0.0030830287096058596,
+              "query_candidate_mass": 0.003097962061079524,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.06459362272217026,
+              "query_gt_given_query": 0.06459190272280191,
+              "query_candidate_given_query": 0.0649047683093944
+            },
+            "26": {
+              "ref_mass": 0.016027839854359627,
+              "query_mass": 0.051259320229291916,
+              "prompt_text_mass": 0.8085364568978548,
+              "generated_text_mass": 0.12417642772197723,
+              "ref_target_mass": 0.0013317043300037773,
+              "query_gt_mass": 0.008943649955832224,
+              "query_candidate_mass": 0.008965575237227384,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.0830869500883832,
+              "query_gt_given_query": 0.1744785127041426,
+              "query_candidate_given_query": 0.17490624528618007
+            },
+            "35": {
+              "ref_mass": 0.015587924048304558,
+              "query_mass": 0.029875487089157104,
+              "prompt_text_mass": 0.574056776240468,
+              "generated_text_mass": 0.3804798722267151,
+              "ref_target_mass": 0.0016726861701523018,
+              "query_gt_mass": 0.001607568976596958,
+              "query_candidate_mass": 0.00161890220425088,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.10730653837989632,
+              "query_gt_given_query": 0.05380896290659652,
+              "query_candidate_given_query": 0.05418831162215388
+            }
+          },
+          "candidate": 1,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2078,
+            2079,
+            2080,
+            2081
+          ],
+          "candidate_iou": 0.9781800549539357,
+          "head_visual_mass_quantiles": {
+            "median": 0.03024953603744507,
+            "p90": 0.14551205504685638,
+            "maximum": 0.32838255167007446
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.08361536264419556,
+              "query_mass": 0.2447671890258789,
+              "visual_mass": 0.32838255167007446,
+              "ref_target_given_ref": 0.1777049824321228,
+              "query_candidate_given_query": 0.4964565467037337
+            },
+            {
+              "layer": 26,
+              "head": 25,
+              "ref_mass": 0.06040404736995697,
+              "query_mass": 0.264356791973114,
+              "visual_mass": 0.324760839343071,
+              "ref_target_given_ref": 0.10575499211904417,
+              "query_candidate_given_query": 0.06263644656598633
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.1165216863155365,
+              "query_mass": 0.1201300323009491,
+              "visual_mass": 0.2366517186164856,
+              "ref_target_given_ref": 0.14445899543496932,
+              "query_candidate_given_query": 0.0829176362630526
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.08296860754489899,
+              "query_mass": 0.14385078847408295,
+              "visual_mass": 0.22681939601898193,
+              "ref_target_given_ref": 0.048660037619004885,
+              "query_candidate_given_query": 0.04840992592457197
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.07308043539524078,
+              "query_mass": 0.1477462351322174,
+              "visual_mass": 0.2208266705274582,
+              "ref_target_given_ref": 0.04523747220365078,
+              "query_candidate_given_query": 0.07188703861829679
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.08361536264419556,
+            "query_mass": 0.2447671890258789,
+            "visual_mass": 0.32838255167007446,
+            "ref_target_given_ref": 0.1777049824321228,
+            "query_candidate_given_query": 0.4964565467037337
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.4734167456626892,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.09722862392663956,
+              "source": "prompt"
+            },
+            {
+              "position": 2078,
+              "token": ">",
+              "mass": 0.058046117424964905,
+              "source": "generated"
+            },
+            {
+              "position": 2077,
+              "token": "score",
+              "mass": 0.04641973599791527,
+              "source": "generated"
+            },
+            {
+              "position": 2079,
+              "token": "0",
+              "mass": 0.03949875012040138,
+              "source": "generated"
+            },
+            {
+              "position": 2080,
+              "token": ".",
+              "mass": 0.033631205558776855,
+              "source": "generated"
+            },
+            {
+              "position": 2081,
+              "token": "0",
+              "mass": 0.015945985913276672,
+              "source": "generated"
+            },
+            {
+              "position": 170,
+              "token": " decimal",
+              "mass": 0.010508733801543713,
+              "source": "prompt"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.011432135477662086,
+          "query_mass": 0.02459988370537758,
+          "prompt_text_mass": 0.6877150554209948,
+          "generated_text_mass": 0.2762528955936432,
+          "ref_target_mass": 0.001376981969010086,
+          "query_gt_mass": 0.0011472809383177808,
+          "query_candidate_mass": 0.004832517475409588,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.12044835994995431,
+          "query_gt_given_query": 0.0466376569929468,
+          "query_candidate_given_query": 0.1964447284908583,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.018173925578594208,
+              "query_mass": 0.012920185923576355,
+              "prompt_text_mass": 0.5993561968207359,
+              "generated_text_mass": 0.36954963207244873,
+              "ref_target_mass": 0.0028465006582994107,
+              "query_gt_mass": 0.0008897688136512441,
+              "query_candidate_mass": 0.0028580950116567877,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.15662552627881915,
+              "query_gt_given_query": 0.0688665642208462,
+              "query_candidate_given_query": 0.2212116008672464
+            },
+            "17": {
+              "ref_mass": 0.018073368817567825,
+              "query_mass": 0.06417010724544525,
+              "prompt_text_mass": 0.5180042050778866,
+              "generated_text_mass": 0.39975231885910034,
+              "ref_target_mass": 0.0010579481073898483,
+              "query_gt_mass": 0.003852115330132946,
+              "query_candidate_mass": 0.013938341323387506,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.05853629824460246,
+              "query_gt_given_query": 0.06002974742427856,
+              "query_candidate_given_query": 0.21720925710899197
+            },
+            "26": {
+              "ref_mass": 0.010666046291589737,
+              "query_mass": 0.0257812961935997,
+              "prompt_text_mass": 0.7963966764509678,
+              "generated_text_mass": 0.16715583205223083,
+              "ref_target_mass": 0.0016713205179926915,
+              "query_gt_mass": 0.00102362296362091,
+              "query_candidate_mass": 0.006195284516980704,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.1566954119925901,
+              "query_gt_given_query": 0.03970409229754041,
+              "query_candidate_given_query": 0.24030151434041183
+            },
+            "35": {
+              "ref_mass": 0.012198223732411861,
+              "query_mass": 0.023418471217155457,
+              "prompt_text_mass": 0.5790333757176995,
+              "generated_text_mass": 0.38534995913505554,
+              "ref_target_mass": 0.0010826434384942699,
+              "query_gt_mass": 0.0012709389130368069,
+              "query_candidate_mass": 0.0034697504110961113,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.08875418767878322,
+              "query_gt_given_query": 0.05427078912417505,
+              "query_candidate_given_query": 0.14816297694762876
+            }
+          },
+          "candidate": 2,
+          "score": 0.98,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "9",
+            "8"
+          ],
+          "predictor_rows": [
+            2107,
+            2108,
+            2109,
+            2110
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.02335981884971261,
+            "p90": 0.11972998827695845,
+            "maximum": 0.3676043599843979
+          },
+          "top_visual_heads": [
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.08846335113048553,
+              "query_mass": 0.27914100885391235,
+              "visual_mass": 0.3676043599843979,
+              "ref_target_given_ref": 0.055995654761337124,
+              "query_candidate_given_query": 0.2652546475131617
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.054401665925979614,
+              "query_mass": 0.2218729853630066,
+              "visual_mass": 0.2762746512889862,
+              "ref_target_given_ref": 0.04682000833348907,
+              "query_candidate_given_query": 0.22421332066007246
+            },
+            {
+              "layer": 17,
+              "head": 24,
+              "ref_mass": 0.07301686704158783,
+              "query_mass": 0.19675526022911072,
+              "visual_mass": 0.26977212727069855,
+              "ref_target_given_ref": 0.0747077500524383,
+              "query_candidate_given_query": 0.19021226942293304
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.07142849266529083,
+              "query_mass": 0.19312599301338196,
+              "visual_mass": 0.2645544856786728,
+              "ref_target_given_ref": 0.054912580969900746,
+              "query_candidate_given_query": 0.16404408028325124
+            },
+            {
+              "layer": 8,
+              "head": 7,
+              "ref_mass": 0.12292627990245819,
+              "query_mass": 0.09286107122898102,
+              "visual_mass": 0.2157873511314392,
+              "ref_target_given_ref": 0.13653615907549715,
+              "query_candidate_given_query": 0.21390324520043374
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 35,
+            "head": 9,
+            "ref_mass": 0.0570429190993309,
+            "query_mass": 0.12378734350204468,
+            "visual_mass": 0.18083026260137558,
+            "ref_target_given_ref": 0.057123357646348884,
+            "query_candidate_given_query": 0.12933579029497086
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.5108514428138733,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.08044396340847015,
+              "source": "prompt"
+            },
+            {
+              "position": 2106,
+              "token": "score",
+              "mass": 0.038370370864868164,
+              "source": "generated"
+            },
+            {
+              "position": 2107,
+              "token": ">",
+              "mass": 0.03731166571378708,
+              "source": "generated"
+            },
+            {
+              "position": 2109,
+              "token": ".",
+              "mass": 0.0303377415984869,
+              "source": "generated"
+            },
+            {
+              "position": 2108,
+              "token": "0",
+              "mass": 0.028258556500077248,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "0",
+              "mass": 0.018501227721571922,
+              "source": "generated"
+            },
+            {
+              "position": 2110,
+              "token": "9",
+              "mass": 0.014414145611226559,
+              "source": "generated"
+            }
+          ]
+        },
+        {
+          "ref_mass": 0.012481415644288063,
+          "query_mass": 0.029339341446757317,
+          "prompt_text_mass": 0.5861304476857185,
+          "generated_text_mass": 0.37204891443252563,
+          "ref_target_mass": 0.0010095538468349336,
+          "query_gt_mass": 0.002212018255955772,
+          "query_candidate_mass": 0.0037862330063797634,
+          "ref_grid": [
+            22,
+            40
+          ],
+          "query_grid": [
+            22,
+            40
+          ],
+          "ref_target_given_ref": 0.08088456274564826,
+          "query_gt_given_query": 0.07539427086221295,
+          "query_candidate_given_query": 0.1290496929950086,
+          "by_layer": {
+            "8": {
+              "ref_mass": 0.0152778010815382,
+              "query_mass": 0.012380551546812057,
+              "prompt_text_mass": 0.5876511242240667,
+              "generated_text_mass": 0.384690523147583,
+              "ref_target_mass": 0.0023836905057043264,
+              "query_gt_mass": 0.0008972973188927423,
+              "query_candidate_mass": 0.0019855142796714343,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.15602314056731595,
+              "query_gt_given_query": 0.07247636064515985,
+              "query_candidate_given_query": 0.1603736531578592
+            },
+            "17": {
+              "ref_mass": 0.019114799797534943,
+              "query_mass": 0.0598764643073082,
+              "prompt_text_mass": 0.46127286553382874,
+              "generated_text_mass": 0.4597359299659729,
+              "ref_target_mass": 0.0011539703034052586,
+              "query_gt_mass": 0.003930467558133459,
+              "query_candidate_mass": 0.007169145536288128,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.06037051476490355,
+              "query_gt_given_query": 0.06564294675051023,
+              "query_candidate_given_query": 0.1197322791054164
+            },
+            "26": {
+              "ref_mass": 0.012341728433966637,
+              "query_mass": 0.04105750843882561,
+              "prompt_text_mass": 0.6570216100662947,
+              "generated_text_mass": 0.2895791530609131,
+              "ref_target_mass": 0.0007636938088810081,
+              "query_gt_mass": 0.0031725020269879308,
+              "query_candidate_mass": 0.0060708720824718,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.061878999604235874,
+              "query_gt_given_query": 0.07726971624970519,
+              "query_candidate_given_query": 0.1478626520047413
+            },
+            "35": {
+              "ref_mass": 0.012621104717254639,
+              "query_mass": 0.017621172592043877,
+              "prompt_text_mass": 0.5152391064912081,
+              "generated_text_mass": 0.4545186758041382,
+              "ref_target_mass": 0.0012554138817158314,
+              "query_gt_mass": 0.0012515344724387248,
+              "query_candidate_mass": 0.0015015939974628058,
+              "ref_grid": [
+                22,
+                40
+              ],
+              "query_grid": [
+                22,
+                40
+              ],
+              "ref_target_given_ref": 0.09946941332318736,
+              "query_gt_given_query": 0.07102447160660603,
+              "query_candidate_given_query": 0.08521532773254768
+            }
+          },
+          "candidate": 3,
+          "score": 0.0,
+          "generated_score_tokens": [
+            "0",
+            ".",
+            "0",
+            "0"
+          ],
+          "predictor_rows": [
+            2136,
+            2137,
+            2138,
+            2139
+          ],
+          "candidate_iou": 0.0,
+          "head_visual_mass_quantiles": {
+            "median": 0.019592534750699997,
+            "p90": 0.1409400819800794,
+            "maximum": 0.35510537028312683
+          },
+          "top_visual_heads": [
+            {
+              "layer": 26,
+              "head": 26,
+              "ref_mass": 0.08356615900993347,
+              "query_mass": 0.27153921127319336,
+              "visual_mass": 0.35510537028312683,
+              "ref_target_given_ref": 0.11897499655486882,
+              "query_candidate_given_query": 0.21035786405438178
+            },
+            {
+              "layer": 17,
+              "head": 27,
+              "ref_mass": 0.06786677986383438,
+              "query_mass": 0.2282729595899582,
+              "visual_mass": 0.29613973945379257,
+              "ref_target_given_ref": 0.05796588626236573,
+              "query_candidate_given_query": 0.1620960374649035
+            },
+            {
+              "layer": 17,
+              "head": 26,
+              "ref_mass": 0.06487683206796646,
+              "query_mass": 0.22782886028289795,
+              "visual_mass": 0.2927056923508644,
+              "ref_target_given_ref": 0.052724602605208115,
+              "query_candidate_given_query": 0.12191418212798968
+            },
+            {
+              "layer": 17,
+              "head": 5,
+              "ref_mass": 0.05154882371425629,
+              "query_mass": 0.21439087390899658,
+              "visual_mass": 0.26593969762325287,
+              "ref_target_given_ref": 0.028966627206713225,
+              "query_candidate_given_query": 0.11235952732823687
+            },
+            {
+              "layer": 17,
+              "head": 4,
+              "ref_mass": 0.025558821856975555,
+              "query_mass": 0.21774929761886597,
+              "visual_mass": 0.24330811947584152,
+              "ref_target_given_ref": 0.025450415629688458,
+              "query_candidate_given_query": 0.12240722700849814
+            }
+          ],
+          "selected_visual_head": {
+            "layer": 26,
+            "head": 26,
+            "ref_mass": 0.08356615900993347,
+            "query_mass": 0.27153921127319336,
+            "visual_mass": 0.35510537028312683,
+            "ref_target_given_ref": 0.11897499655486882,
+            "query_candidate_given_query": 0.21035786405438178
+          },
+          "top_text_tokens": [
+            {
+              "position": 0,
+              "token": "<|im_start|>",
+              "mass": 0.4287610650062561,
+              "source": "prompt"
+            },
+            {
+              "position": 70,
+              "token": " ",
+              "mass": 0.09828369319438934,
+              "source": "prompt"
+            },
+            {
+              "position": 2135,
+              "token": "score",
+              "mass": 0.04571149870753288,
+              "source": "generated"
+            },
+            {
+              "position": 2137,
+              "token": "0",
+              "mass": 0.035913608968257904,
+              "source": "generated"
+            },
+            {
+              "position": 2136,
+              "token": ">",
+              "mass": 0.03497599437832832,
+              "source": "generated"
+            },
+            {
+              "position": 2138,
+              "token": ".",
+              "mass": 0.034369565546512604,
+              "source": "generated"
+            },
+            {
+              "position": 2082,
+              "token": "0",
+              "mass": 0.02422650344669819,
+              "source": "generated"
+            },
+            {
+              "position": 2139,
+              "token": "0",
+              "mass": 0.017026731744408607,
+              "source": "generated"
+            }
+          ]
+        }
+      ],
+      "reproduced_prediction": true
+    }
+  ]
+}

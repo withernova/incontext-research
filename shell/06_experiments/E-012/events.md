@@ -1,0 +1,160 @@
+# E-012 事件日志
+
+> 本文件只保留单行摘要；完整 details 保存在工具内部的 experiment-events.jsonl 中。
+> 需要展开某条事件时运行：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project <proj> experiment event-detail <E-ID> <EVENT-ID>`。
+
+- 2026-09-10T17:07:26 · run_organization · R-001-bbox-gradient-initial: microtask · run=R-001-bbox-gradient-initial · detail=evt-37ec4d5502e6
+- 2026-09-10T17:07:26+08:00 · run_created · Agent 创建 canonical Run R-001-bbox-gradient-initial · bbox 梯度贡献初筛：原始 Qwen3-VL 与 20 个 LaSOT 视频 · run=R-001-bbox-gradient-initial · detail=evt-31a4c18b3782
+- 2026-09-10T17:07:38 · run_workflow · R-001-bbox-gradient-initial: implementation-ready → ready_for_review · run=R-001-bbox-gradient-initial · detail=evt-17cbd7ac2f25
+- 2026-09-10T17:07:55+08:00 · run_review_submitted · 首轮bbox梯度筛查已实现并同步远端：公共探针、原始Qwen3-VL配置、薄Shell及独立20视频清单齐备。CPU测试6项通过，真实processor/collator预检20/20通过，架构检查无警告。本轮仅提交人工审核，未启动正式筛查；GPU峰值显存与8B实测梯度结果待执行。 · run=R-001-bbox-gradient-initial · detail=evt-e8c4ddd586d1
+- 2026-09-10T19:19:06 · run_workflow · R-001-bbox-gradient-initial: reopen-design → research_design · run=R-001-bbox-gradient-initial · detail=evt-57000f815538
+- 2026-09-10T19:30:35+08:00 · run_revision · 按用户要求复用三数据集eval清单，支持指定checkpoint并加入中文配置注释；9项CPU测试及20/20实际输入预检通过。 · run=R-001-bbox-gradient-initial · detail=evt-a855f2be715c
+- 2026-09-11T14:04:40+08:00 · run_update · 按用户要求重新核验并修正：统一预检/采集校验，真实小型双图Qwen3-VL+LoRA端到端测试通过；10项CPU测试与20/20实际eval输入预检通过，准备重新提交。 · run=R-001-bbox-gradient-initial · detail=evt-76ee56139b9a
+- 2026-09-11T14:04:53 · run_workflow · R-001-bbox-gradient-initial: confirm-design → code_planning · run=R-001-bbox-gradient-initial · detail=evt-6c8e4ced7a8e
+- 2026-09-11T14:04:54 · run_workflow · R-001-bbox-gradient-initial: implementation-ready → ready_for_review · run=R-001-bbox-gradient-initial · detail=evt-2e2d207f3ae0
+- 2026-09-11T14:04:54+08:00 · run_review_submitted · 已按用户要求重新核验并完善：指定checkpoint + 已有三数据集eval manifest（7/7/6），中文配置注释，统一输入校验。10项CPU测试通过，实际20/20样本预检通过，已保存原始检查输出和代码哈希；本轮未启动正式8B筛查。 · run=R-001-bbox-gradient-initial · detail=evt-65d22a213890
+- 2026-09-11T15:14:11 · run_organization · R-001-bbox-gradient-halffull: microtask · run=R-001-bbox-gradient-halffull · detail=evt-b0fd7b822bbe
+- 2026-09-11T15:14:11+08:00 · run_created · Agent 创建 canonical Run R-001-bbox-gradient-halffull · bbox 梯度初筛扩展：690 条三数据集 eval 样本（R-001 产物补充登记） · run=R-001-bbox-gradient-halffull · detail=evt-b1141254463a
+- 2026-09-11T15:14:29+08:00 · run_update · 按用户要求登记 R-001-bbox-gradient-halffull（690条）已有产物与检查结论；未启动新计算、未推进审批/授权/Claim。 · run=R-001-bbox-gradient-halffull · detail=evt-c2116fbd532e
+- 2026-09-11T15:14:29+08:00 · run_update · 登记 R-001 20条先导结果；690条扩展单独登记在 R-001-bbox-gradient-halffull。未推进审批/授权/Claim。 · run=R-001-bbox-gradient-initial · detail=evt-64870590df0e
+- 2026-09-11T15:15:20+08:00 · run_update · E-012 实现已提交 git：iploc-szy commit 4411686（5个新增文件，未push）；核验 py_compile/bash -n/pytest 10项通过。 · run=R-001-bbox-gradient-halffull · detail=evt-efc197e22b97
+- 2026-09-12T14:27:50+08:00 · discovery · 已核验现有hook可在文本attention的A@V输出、o_proj之前按预测行和head捕获或替换128维输出，能够实现跨层clean/corrupt path patching。 · run=- · detail=evt-ecdd54ea5e9e
+- 2026-09-12T14:27:50+08:00 · discovery · 已核验远端仓库与算力：实际代码仓库为 mechanism/iploc-szy，main@4411686f；4张RTX3090当前显存占用均约2MiB。 · run=- · detail=evt-f8010e3c3c40
+- 2026-09-12T14:30:33+08:00 · handoff · Agent 已提交勘察结果与待确认表单 · run=- · detail=evt-ba9af5b57323
+- 2026-09-12T14:43:51 · handoff_confirmed · 用户确认实验勘察方案；未批准或执行 Run · run=- · detail=evt-180d0c9e913d
+- 2026-09-12T14:47:31 · run_organization · R-002-two-stage-head-path-patching-smoke: microtask · run=R-002-two-stage-head-path-patching-smoke · detail=evt-4ff9483789ef
+- 2026-09-12T14:47:31+08:00 · run_created · Agent 创建 canonical Run R-002-two-stage-head-path-patching-smoke · 两阶段 head 协作：跨层路径 patching smoke · run=R-002-two-stage-head-path-patching-smoke · detail=evt-dacbd4fab1f9
+- 2026-09-12T15:02:21+08:00 · run_update · 独立head circuit模块/config/launcher/test已实现并提交；仅含4个新增文件，未纳入E-011/E-012其他在途修改。代码审查与6项聚焦测试通过。 · run=R-002-two-stage-head-path-patching-smoke · detail=evt-1dd170b56588
+- 2026-09-12T15:02:21 · run_workflow · R-002-two-stage-head-path-patching-smoke: implementation-ready → ready_for_review · run=R-002-two-stage-head-path-patching-smoke · detail=evt-1f322495a4b8
+- 2026-09-12T15:02:22+08:00 · run_review_submitted · 两阶段head path-patching smoke已完成独立实现：固定P1/P2路径、12条三数据集分层输入、candidate/control rescue与transfer、原生/identity/mass-preservation gates。review b1c2307e82c9e1ff与6项测试通过，远端commit 5364dab；尚未加载8B或启动Run。 · run=R-002-two-stage-head-path-patching-smoke · detail=evt-8fd8c4942cc6
+- 2026-09-12T15:17:49+08:00 · discovery · 修复 R-002 launcher 仓库根路径：tools/run 脚本应回退两级而非三级；模块导入检查通过。 · run=- · detail=evt-dc86f2d632d0
+- 2026-09-12T15:30:49 · run_organization · R-003-zero-query-attention-head-path-patching: microtask · run=R-003-zero-query-attention-head-path-patching · detail=evt-b8ebd1f3d711
+- 2026-09-12T15:30:49+08:00 · run_created · Agent 创建 canonical Run R-003-zero-query-attention-head-path-patching · 直接抹除 query attention 的两阶段 head 路径测试 · run=R-003-zero-query-attention-head-path-patching · detail=evt-9ab5e3c4274a
+- 2026-09-12T15:34:33+08:00 · run_update · 已新增zero-query-attention模式及可手填screening_counts的独立60条config；审查和测试通过，未启动模型运行。 · run=R-003-zero-query-attention-head-path-patching · detail=evt-ffb0294a8506
+- 2026-09-12T15:34:33 · run_workflow · R-003-zero-query-attention-head-path-patching: implementation-ready → ready_for_review · run=R-003-zero-query-attention-head-path-patching · detail=evt-f71570c729b9
+- 2026-09-12T15:34:33+08:00 · run_review_submitted · 直接抹除query attention版本已实现：默认20/20/20共60条，顶部配额可手改；不重归一化并记录removed mass/full-row drop；复用两条路径的rescue/transfer与controls。review 74493a21、6项测试通过，commit 7e11b2f；未启动运行。 · run=R-003-zero-query-attention-head-path-patching · detail=evt-68dbf433acf4
+- 2026-09-12T15:39:19+08:00 · discovery · R-003 首次手动运行在首条记录前被 BF16 完整性诊断误拦截；已改为FP32求和并保留2e-5门槛，失败目录原样保留，默认输出切换到-v2。 · run=- · detail=evt-098c81ef6424
+- 2026-09-13T23:37:01 · run_organization · gradient-gated-spatial-frequency-r001-v2: microtask · run=gradient-gated-spatial-frequency-r001-v2 · detail=evt-a14bb2099688
+- 2026-09-13T23:37:01+08:00 · run_created · Agent 创建 canonical Run gradient-gated-spatial-frequency-r001-v2 · query 图像：梯度候选与空间频率选头 · run=gradient-gated-spatial-frequency-r001-v2 · detail=evt-e5d8bcc0e242
+- 2026-09-13T23:37:01+08:00 · run_update · 已登记完成的 query-image 探索性选头产物；保持 draft，不触发审核或执行授权。 · run=gradient-gated-spatial-frequency-r001-v2 · detail=evt-3452088b8dea
+- 2026-09-13T23:37:02 · run_organization · reference-gradient-gated-spatial-frequency-r001-v1: microtask · run=reference-gradient-gated-spatial-frequency-r001-v1 · detail=evt-86f87bf7b53c
+- 2026-09-13T23:37:02+08:00 · run_created · Agent 创建 canonical Run reference-gradient-gated-spatial-frequency-r001-v1 · reference 图像：梯度候选与空间频率选头 · run=reference-gradient-gated-spatial-frequency-r001-v1 · detail=evt-e4f5a710c97a
+- 2026-09-13T23:37:02+08:00 · run_update · 已登记完成的 reference-image 探索性选头产物；保持 draft，不触发审核或执行授权。 · run=reference-gradient-gated-spatial-frequency-r001-v1 · detail=evt-2cf5e7a16d45
+- 2026-09-13T23:37:23+08:00 · discovery · 已核验 query-image 空间频率选头结果：686条有效样本，Top-10 与 R-001 原梯度 Top-10 重合3个。 · run=gradient-gated-spatial-frequency-r001-v2 · detail=evt-55f5e33b2e1f
+- 2026-09-13T23:37:23+08:00 · discovery · 已核验 reference-image 空间频率选头结果：690条样本，Top-10 与 query Top-10 重合2个，Jaccard=0.111。 · run=reference-gradient-gated-spatial-frequency-r001-v1 · detail=evt-ad8cdfa6d672
+- 2026-09-13T23:37:58+08:00 · run_update · 补充登记 query Top-10 与 R-001 纯梯度 Top-10 的集合重合观测；保持 draft。 · run=gradient-gated-spatial-frequency-r001-v2 · detail=evt-3a30debb0d24
+- 2026-09-13T23:37:58+08:00 · run_update · 补充登记 reference/query Top-10 的集合重合观测；保持 draft。 · run=reference-gradient-gated-spatial-frequency-r001-v1 · detail=evt-40bc77258ba8
+- 2026-09-14T11:14:30 · run_organization · R-004-dual-role-gradient-correctness-gate: microtask · run=R-004-dual-role-gradient-correctness-gate · detail=evt-9c6097a4dd9e
+- 2026-09-14T11:14:30+08:00 · run_created · Agent 创建 canonical Run R-004-dual-role-gradient-correctness-gate · Query/Reference 双角色梯度与 A@V 正确性门禁 · run=R-004-dual-role-gradient-correctness-gate · detail=evt-331d9b1a133e
+- 2026-09-14T11:14:30 · run_organization · R-005-dual-role-target-contribution-discovery: microtask · run=R-005-dual-role-target-contribution-discovery · detail=evt-97592eb335fc
+- 2026-09-14T11:14:30+08:00 · run_created · Agent 创建 canonical Run R-005-dual-role-target-contribution-discovery · Query/Reference 目标特异视觉贡献全 head 发现 · run=R-005-dual-role-target-contribution-discovery · detail=evt-46c68f88a82b
+- 2026-09-14T11:14:30 · run_organization · R-006-dual-role-candidate-confirmation: microtask · run=R-006-dual-role-candidate-confirmation · detail=evt-f828bac0e036
+- 2026-09-14T11:14:30+08:00 · run_created · Agent 创建 canonical Run R-006-dual-role-candidate-confirmation · 冻结 Query/Reference 候选的独立目标贡献确认 · run=R-006-dual-role-candidate-confirmation · detail=evt-79a0aea76fac
+- 2026-09-14T11:14:30 · run_organization · R-007-dual-role-target-vs-background-causal: microtask · run=R-007-dual-role-target-vs-background-causal · detail=evt-4c494b95fead
+- 2026-09-14T11:14:30+08:00 · run_created · Agent 创建 canonical Run R-007-dual-role-target-vs-background-causal · Query/Reference 目标区域对质量匹配背景的局部因果干预 · run=R-007-dual-role-target-vs-background-causal · detail=evt-10e0438e7563
+- 2026-09-14T11:14:31 · run_organization · R-008-dual-role-factorial-interaction: microtask · run=R-008-dual-role-factorial-interaction · detail=evt-e29cc95784e4
+- 2026-09-14T11:14:31+08:00 · run_created · Agent 创建 canonical Run R-008-dual-role-factorial-interaction · Query×Reference 目标贡献 2×2 因果分解 · run=R-008-dual-role-factorial-interaction · detail=evt-6cb1de6d425c
+- 2026-09-14T11:14:31 · run_organization · R-009-dual-role-generation-validity: microtask · run=R-009-dual-role-generation-validity · detail=evt-0de47439f4f1
+- 2026-09-14T11:14:31+08:00 · run_created · Agent 创建 canonical Run R-009-dual-role-generation-validity · 双角色目标特异干预的自由生成外部效度 · run=R-009-dual-role-generation-validity · detail=evt-d414badd919d
+- 2026-09-14T11:14:31 · run_organization · R-010-dual-role-cross-layer-mediation: microtask · run=R-010-dual-role-cross-layer-mediation · detail=evt-dd5c5527edf0
+- 2026-09-14T11:14:31+08:00 · run_created · Agent 创建 canonical Run R-010-dual-role-cross-layer-mediation · 目标特异 Query/Reference Head 到下游 A@V Head 的跨层中介测试 · run=R-010-dual-role-cross-layer-mediation · detail=evt-863ad8ae4708
+- 2026-09-14T11:24:44+08:00 · run_rekey · Run registry 已从 R-004-dual-role-gradient-correctness-gate 迁移为 canonical ID R-004-contribution-calculation-check · run=R-004-contribution-calculation-check · detail=evt-d8ce39fdded1
+- 2026-09-14T11:24:44+08:00 · run_rekey · Run registry 已从 R-005-dual-role-target-contribution-discovery 迁移为 canonical ID R-005-redetermine-query-heads · run=R-005-redetermine-query-heads · detail=evt-e34ef2f01e3b
+- 2026-09-14T11:24:44+08:00 · run_rekey · Run registry 已从 R-006-dual-role-candidate-confirmation 迁移为 canonical ID R-006-redetermine-reference-heads · run=R-006-redetermine-reference-heads · detail=evt-8608b6fed81f
+- 2026-09-14T11:24:44+08:00 · run_rekey · Run registry 已从 R-007-dual-role-target-vs-background-causal 迁移为 canonical ID R-007-confirm-query-reference-heads · run=R-007-confirm-query-reference-heads · detail=evt-134e4986d19d
+- 2026-09-14T11:24:44+08:00 · run_rekey · Run registry 已从 R-008-dual-role-factorial-interaction 迁移为 canonical ID R-008-target-vs-background-causal-ablation · run=R-008-target-vs-background-causal-ablation · detail=evt-9e1c9adf5320
+- 2026-09-14T11:24:45+08:00 · run_rekey · Run registry 已从 R-009-dual-role-generation-validity 迁移为 canonical ID R-009-optional-generation-validation · run=R-009-optional-generation-validation · detail=evt-e63e5b24fe52
+- 2026-09-14T11:24:45+08:00 · run_rekey · Run registry 已从 R-010-dual-role-cross-layer-mediation 迁移为 canonical ID R-010-optional-cross-layer-path · run=R-010-optional-cross-layer-path · detail=evt-d0bf693e235b
+- 2026-09-14T11:26:36+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-004-contribution-calculation-check · detail=evt-2244c68b06e6
+- 2026-09-14T11:26:36+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-005-redetermine-query-heads · detail=evt-4a92e27a4375
+- 2026-09-14T11:26:36+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-006-redetermine-reference-heads · detail=evt-5d9bef4921f5
+- 2026-09-14T11:26:36+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-007-confirm-query-reference-heads · detail=evt-2e2690956833
+- 2026-09-14T11:26:36+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-008-target-vs-background-causal-ablation · detail=evt-be1c054c986b
+- 2026-09-14T11:26:37+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-009-optional-generation-validation · detail=evt-65e38605dad3
+- 2026-09-14T11:26:37+08:00 · run_update · 按用户原始问题重写：先检查计算，再分别重做 Query Head 和 Reference Head，之后独立确认及因果消融；技术缩写降为指标细节。未送审、未授权、未执行。 · run=R-010-optional-cross-layer-path · detail=evt-221407e1ee0a
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-004-contribution-calculation-check · detail=evt-742bf7deee5a
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-005-redetermine-query-heads · detail=evt-c31b0a28c0a2
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-006-redetermine-reference-heads · detail=evt-fb0c09c062ae
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-007-confirm-query-reference-heads · detail=evt-cf66699b388f
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-008-target-vs-background-causal-ablation · detail=evt-0de5d08b9681
+- 2026-09-14T11:35:09+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-009-optional-generation-validation · detail=evt-dbf69e8664bd
+- 2026-09-14T11:35:10+08:00 · run_update · 冻结 e012.dual-role-head-metrics/v1 实现合同路径与 SHA-256；补齐公式、聚合顺序、方向、缺失值、统计单位和最低产物。未送审、未授权、未执行。 · run=R-010-optional-cross-layer-path · detail=evt-124103931c42
+- 2026-09-14T11:37:51+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-004-contribution-calculation-check · detail=evt-4989dcff19b8
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-005-redetermine-query-heads · detail=evt-e245b7c77b05
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-006-redetermine-reference-heads · detail=evt-edae6523b0df
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-007-confirm-query-reference-heads · detail=evt-8f0f8f4c3e46
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-008-target-vs-background-causal-ablation · detail=evt-5fd44c6891e8
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-009-optional-generation-validation · detail=evt-ea4cbc70c7af
+- 2026-09-14T11:37:52+08:00 · run_update · 将指标合同路径与 SHA-256 写入受支持的 metric_definition 字段；未修改审核/授权/执行状态。 · run=R-010-optional-cross-layer-path · detail=evt-b71319d7ffe5
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-004-contribution-calculation-check · detail=evt-f8991ba520b6
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-005-redetermine-query-heads · detail=evt-de12bc551ad9
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-006-redetermine-reference-heads · detail=evt-a0ef18f6201f
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-007-confirm-query-reference-heads · detail=evt-c694cb9daebb
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-008-target-vs-background-causal-ablation · detail=evt-73bfd11f9383
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-009-optional-generation-validation · detail=evt-e72e390977be
+- 2026-09-14T13:28:30+08:00 · run_update · 统一标记Shell+Config+公共launcher+统一日志/快照/status流程；禁止专用tee和绕过launcher。未送审、未授权、未执行。 · run=R-010-optional-cross-layer-path · detail=evt-2bb373ffb26e
+- 2026-09-14T13:30:07+08:00 · run_update · 记录本地已审查commit与统一启动骨架；明确尚未部署、未完成真实模型hook，Run继续保持code_planning/draft，未送审、未授权、未执行。 · run=R-004-contribution-calculation-check · detail=evt-0f92d3da9a4a
+- 2026-09-14T13:55:43 · execution_dispatch_enqueue · R-004-contribution-calculation-check outbox=queued · run=R-004-contribution-calculation-check · detail=evt-7769194dd66f
+- 2026-09-14T13:55:43 · run_direct_steward · R-004-contribution-calculation-check: current snapshot sent directly to Steward · run=R-004-contribution-calculation-check · detail=evt-d0b9c3d331d1
+- 2026-09-14T16:37:32 · run_rekey · Run registry 已从 R-005-redetermine-query-heads 迁移为 canonical ID R-005-reference-target-grounded-screening · run=R-005-reference-target-grounded-screening · detail=evt-fb7c28603e07
+- 2026-09-14T17:01:53 · run_update · 补齐R005实际工作树实现与坐标字段token门禁；不改变Run审批、授权或Claim状态。 · run=R-005-reference-target-grounded-screening · detail=evt-be4791d86d0c
+- 2026-09-14T17:02:38 · run_update · 修正R005门禁措辞并同步实际实现引用；R004真实checkpoint检查仍是执行前置条件。 · run=R-005-reference-target-grounded-screening · detail=evt-b89b8933c545
+- 2026-09-14T20:23:36 · run_update · 按用户明确授权补全R-005方法：保留T(a)/T(d)、A-E递进、null calibration、公式、Confirmation隔离和结论边界；不改变review/authorization状态。 · run=R-005-reference-target-grounded-screening · detail=evt-3a7f3f441d8b
+- 2026-09-14T20:23:36 · run_update · 按用户明确授权补全R-008目标/背景因果干预、公式、controls、生成验证及单head结论门槛；保持draft且不授权执行。 · run=R-008-target-vs-background-causal-ablation · detail=evt-6f87558260ce
+- 2026-09-14T20:23:36 · run_update · 按用户明确授权补全R-010跨层A@V双向rescue/transfer方法、公式、identity/random controls和结论边界；保持draft且不授权执行。 · run=R-010-optional-cross-layer-path · detail=evt-131e79f623be
+- 2026-09-14T22:06:58 · run_update · 登记 R-005 attempt-003 完成结果；不修改审批、授权、Claim 或 Solid 标签。 · run=R-005-reference-target-grounded-screening · detail=evt-d49d46bd1a4a
+- 2026-09-14T22:07:28 · run_update · 修正 R-005 已完成实现信息，移除真实 GPU collector 尚未接入的过期描述。 · run=R-005-reference-target-grounded-screening · detail=evt-e17e8a6f817b
+- 2026-09-14T22:09:35 · execution_dispatch_enqueue · R-008-target-vs-background-causal-ablation outbox=queued · run=R-008-target-vs-background-causal-ablation · detail=evt-10573f8e141e
+- 2026-09-14T22:09:35 · run_direct_steward · R-008-target-vs-background-causal-ablation: current snapshot sent directly to Steward · run=R-008-target-vs-background-causal-ablation · detail=evt-83a88583b965
+- 2026-09-17T10:24:55 · run_organization · R-011-query-keepset-large-pruning: microtask · run=R-011-query-keepset-large-pruning · detail=evt-fb9ce2ab91d7
+- 2026-09-17T10:24:55 · run_created · Agent 创建 canonical Run R-011-query-keepset-large-pruning · 只留选中注意力头的大幅裁剪曲线 · run=R-011-query-keepset-large-pruning · detail=evt-1322e2de002f
+- 2026-09-17T10:25:02 · decision · 新建 R-011：只留选中注意力头的大幅裁剪定位曲线（draft，未送审、未授权） · run=R-011-query-keepset-large-pruning · detail=evt-8a69307768b1
+- 2026-09-17T10:28:55 · run_update · 按用户 2026-09-17 决定：干预口径由整头置零改为细删（bbox 预测行 × query 图像视觉 token 的注意力边置零），结论边界相应收窄；生成阶段行选择方式仍待冻结。未送审、未授权、未执行。 · run=R-011-query-keepset-large-pruning · detail=evt-8c20063e1165
+- 2026-09-17T10:29:04 · run_update · 补充细删口径下的完整性门禁：必须审计实际干预行数/边数/移除质量。 · run=R-011-query-keepset-large-pruning · detail=evt-0cf14a5c60f1
+- 2026-09-17T10:29:07 · decision · R-011 干预口径由整头置零改为细删（bbox 预测行 × query 图像视觉键），结论边界相应收窄 · run=R-011-query-keepset-large-pruning · detail=evt-dad207274c2b
+- 2026-09-17T10:30:42 · run_update · 写入自由生成阶段的行选择前缀规则（首个 [ 到配对 ] 之间的行）与对应审计门禁；严格/放宽、跑偏兜底两个取值标为待确认。 · run=R-011-query-keepset-large-pruning · detail=evt-0cb11a8c4446
+- 2026-09-17T10:34:48 · run_update · 按用户授权冻结剩余小参数：样本 180（pilot 60）、3 seed、四档删除规模、容差 1 个 mIoU 点、行选择取放宽口径（括号内全部行）。Run 设计视为完成，等人类确认后进入实现。 · run=R-011-query-keepset-large-pruning · detail=evt-bc0f607166c3
+- 2026-09-17T10:34:52 · run_update · 修正局限：生成阶段行选择已冻结，不再是未决项；补充放宽口径与 invalid 比例的残留风险。 · run=R-011-query-keepset-large-pruning · detail=evt-19adf821d70a
+- 2026-09-17T10:42:14 · run_update · 实现完成并提交 5a2c794；写入 command/config/output-dir。未送审、未授权、未执行。 · run=R-011-query-keepset-large-pruning · detail=evt-baf089307787
+- 2026-09-17T10:42:21 · run_update · 同步 Run 数据规模为 150 条与实现一致的条件数（49）及逐层移除量 2/3/6。 · run=R-011-query-keepset-large-pruning · detail=evt-bdc6375a3cb0
+- 2026-09-17T10:43:38 · execution_dispatch_enqueue · R-011-query-keepset-large-pruning outbox=blocked · run=R-011-query-keepset-large-pruning · detail=evt-d2559bbcd17a
+- 2026-09-17T11:03:46 · run_update · 修正 output_dir 为绝对路径（Workspace 项目根目录下的实验输出位置）。 · run=R-011-query-keepset-large-pruning · detail=evt-717abad29bc6
+- 2026-09-17T11:15:27 · execution · 首次受管启动失败：launcher 在工作区根目录下找不到仓库内相对路径，exit 127；未产生任何计算结果 · run=R-011-query-keepset-large-pruning · detail=evt-b4dc4742ef92
+- 2026-09-17T11:15:33 · run_update · 把 command 改为绝对路径（受管执行器 cwd 是工作区根目录，仓库内相对路径会 127）。 · run=R-011-query-keepset-large-pruning · detail=evt-fff29031bcd8
+- 2026-09-17T12:30:15 · execution_dispatch_enqueue · R-011-query-keepset-large-pruning outbox=queued · run=R-011-query-keepset-large-pruning · detail=evt-4bb56db3ebac
+- 2026-09-17T12:30:15 · run_execution_restarted · R-011-query-keepset-large-pruning: failed attempt preserved; new authorization created · run=R-011-query-keepset-large-pruning · detail=evt-c7e78259a606
+- 2026-09-17T12:39:59 · run_update · 把 output_dir 记录退回批准快照中的取值，使已冻结的批准仍然有效（受管执行器以工作区根目录为 cwd，两种写法指向同一绝对位置；实际输出路径来自 config，仍为绝对路径）。 · run=R-011-query-keepset-large-pruning · detail=evt-2188999e279c
+- 2026-09-17T12:41:25 · run_update · output_dir 必须是绝对路径（Workspace policy 违规项：路径必须是绝对路径），否则受管 dispatch 会被 gate 取消；恢复为用户要求的绝对路径。 · run=R-011-query-keepset-large-pruning · detail=evt-2aaa87a86f1c
+- 2026-09-17T12:41:53 · execution · 第二次启动被 Workspace gate 取消：output_dir 必须是绝对路径（我先前的回退触发了策略违规）；已修复，但当前 ssh 公钥认证失效挡住启动 · run=R-011-query-keepset-large-pruning · detail=evt-8abada75dd7d
+- 2026-09-17T13:20:39 · execution · 已修复两个环境/策略阻塞（ssh 端口转发冲突、output_dir 绝对路径），R-011 只差一次人工重启：同授权 dispatch 已被取消，工具无法原地复活 · run=R-011-query-keepset-large-pruning · detail=evt-14ca50809806
+- 2026-09-17T13:40:47 · run_update · 受管 dispatch 因 workspace gate 被取消后，经用户明确授权改为直接 tmux 运行同一份批准规范（commit 5a2c794）；已开始跑 49 条件 × 150 样本。 · run=R-011-query-keepset-large-pruning · detail=evt-e663fbd6a912
+- 2026-09-17T13:40:47 · execution · R-011 直接 tmux 启动成功：修复 pre-hook 挂错模块的 bug 后，49 条件 × 150 样本开始运行 · run=R-011-query-keepset-large-pruning · detail=evt-68d0372e4779
+- 2026-09-17T18:55:27 · run_update · 按用户决定提前停止：77/150（快照 70 条），已写出 failure.json(KeyboardInterrupt) 作为停机记录；tmux 会话已结束、GPU 显存已释放；停机产生的 Traceback/KeyboardInterrupt 两条指纹按「人工主动停机」标记 resolved；Steward 监控已停。 · run=R-011-query-keepset-large-pruning · detail=evt-436f7da2f7f1
+- 2026-09-17T18:55:35 · execution · R-011 按用户决定提前停止于 77/150（可用快照 70 条），留下 3430 条记录；停机为人工主动，产生的指纹按主动停机解决 · run=R-011-query-keepset-large-pruning · detail=evt-ade9d45f1b84
+- 2026-09-17T18:56:01 · execution · [AUTOCHECK #168] 无新错误指纹：受管检查把「运行已按用户决定停止」误判为新错误；已把待验指纹按已修复证据结清 · run=R-011-query-keepset-large-pruning · detail=evt-95068e5b575c
+- 2026-09-18T10:51:49 · run_organization · R-012-query-heads-reference-channel: microtask · run=R-012-query-heads-reference-channel · detail=evt-e87c3b7861bb
+- 2026-09-18T10:51:49 · run_created · Agent 创建 canonical Run R-012-query-heads-reference-channel · 同一批查询头改删参考图像通道 · run=R-012-query-heads-reference-channel · detail=evt-11fd10cca3d7
+- 2026-09-18T10:55:29 · run_update · 受管 dispatch 通道仍不可用（R-011 的授权已被取消的 dispatch 占住），经用户既有授权改为直接 tmux 运行同一份规范；已跑到 1/100。 · run=R-012-query-heads-reference-channel · detail=evt-5f873f56bccb
+- 2026-09-18T11:47:17 · run_organization · R-013-reference-key-source-sweep: microtask · run=R-013-reference-key-source-sweep · detail=evt-65814bd41add
+- 2026-09-18T11:47:17 · run_created · Agent 创建 canonical Run R-013-reference-key-source-sweep · 扫哪类来源 token 读到参考图会崩 · run=R-013-reference-key-source-sweep · detail=evt-8fcd03375c5b
+- 2026-09-18T11:51:13 · run_update · 受管通道不可用，按用户既有授权直接 tmux 启动；已跑到 3/100，日志无错误。 · run=R-013-reference-key-source-sweep · detail=evt-c9251759ccf7
+- 2026-09-18T12:59:13 · run_organization · R-014-support-box-probe: microtask · run=R-014-support-box-probe · detail=evt-d5ef86ad58ce
+- 2026-09-18T12:59:13 · run_created · Agent 创建 canonical Run R-014-support-box-probe · 强行改写参考帧框坐标的影响 · run=R-014-support-box-probe · detail=evt-b04a94bc99dd
+- 2026-09-18T13:03:29 · run_update · 直接 tmux 启动，已跑到 9/100，日志无错误；support 框原文已落盘 support_boxes.json。 · run=R-014-support-box-probe · detail=evt-469e6f4cb848
+- 2026-09-18T13:03:29 · execution · R-013 按用户决定提前停止于 71/100（快照 50 条），保留来源行扫描结果；随后启动 R-014（support 框坐标改写） · run=R-013-reference-key-source-sweep · detail=evt-8a3b9abc9114
+- 2026-09-18T13:40:22 · run_update · R-014 完成（汇总 bug 已修复并离线重算）；监控已停。指纹 ERR-4662f8af7931 标记 remediation_applied。 · run=R-014-support-box-probe · detail=evt-4d5b9bc20aa4
+- 2026-09-18T13:40:22 · result · R-014 完成：support 框坐标改写对定位有强因果影响（错框掉 0.12–0.36 mIoU），但塞入 query GT 框并不提升自由生成 mIoU · run=R-014-support-box-probe · detail=evt-f213a316acc2
+- 2026-09-18T14:21:07 · run_organization · R-015-query-key-control: microtask · run=R-015-query-key-control · detail=evt-e64e6dbccedc
+- 2026-09-18T14:21:07 · run_created · Agent 创建 canonical Run R-015-query-key-control · 正面对照：删查询图键是否崩塌 · run=R-015-query-key-control · detail=evt-e4628b351b00
+- 2026-09-18T14:21:07 · execution · R-015 正面对照已直接 tmux 启动（全 head 删 query 图像 key），用于验证细删机制有效性 · run=R-015-query-key-control · detail=evt-dd341d759c5a
+- 2026-09-18T14:39:48 · run_update · 按用户决定在 53/100 提前停止（快照 50 条 = LaSOT 全部）：对照结论已决定性——切 query 图像通道 ΔmIoU −0.594(all)/−0.538(target_rows)，切 reference 图像通道仅 −0.122/−0.017，机制有效性确认；tmux 已结束、GPU 已释放、监控已停。 · run=R-015-query-key-control · detail=evt-f736892893e4
+- 2026-09-18T14:39:48 · result · R-015 提前停止于 53/100；正面对照结论：同一刀法砍 query 图像通道崩得远多于 reference 通道 · run=R-015-query-key-control · detail=evt-9342122ba940
+- 2026-09-18T14:46:18 · run_organization · R-016-reference-frame-replacement: microtask · run=R-016-reference-frame-replacement · detail=evt-5ac445608c57
+- 2026-09-18T14:46:18 · run_created · Agent 创建 canonical Run R-016-reference-frame-replacement · 换掉参考帧图像看影响 · run=R-016-reference-frame-replacement · detail=evt-6526f448fe3f
+- 2026-09-18T14:51:41 · run_update · 修正 output_dir 为实际路径（配置里的目录名 r016-black-reference-step741-v1 是加 swap 模式之前取的，实际输出即在此；不改运行中的任务）。已跑到 21/100，日志无错误。 · run=R-016-reference-frame-replacement · detail=evt-4fe90207cb61
+- 2026-09-18T14:51:42 · execution · R-016 已直接 tmux 启动：保留 support 框文本、只换图像本身（跨序列换图 + 涂黑），21/100 无错误 · run=R-016-reference-frame-replacement · detail=evt-5b344c3fcdf3
+- 2026-09-18T15:12:34 · run_update · v1（r016-black-reference-step741-v1）判为无效：collator 从 sample[image_paths] 读图，而 v1 只改了 messages 里的图像路径，换图完全没生效（ΔCE/ΔTF-IoU 恰为 0、swap_query 正对照未崩塌，只有生成噪声）。已修（commit 7cb9484）：同时替换 image_paths，并在分支内 fail-closed 校验；v2 已重新启动。 · run=R-016-reference-frame-replacement · detail=evt-5b614614fafe
+- 2026-09-18T15:12:34 · execution · R-016 v1 无效（换图未生效，正对照抓到）；已修复 image_paths 并启动 v2 · run=R-016-reference-frame-replacement · detail=evt-4690a6f1edcf
+- 2026-09-18T15:12:34 · decision · 记录一条方法论要点：输入侧干预必须核对模型实际读取的字段 · run=R-016-reference-frame-replacement · detail=evt-4e480342e99c
+- 2026-09-18T15:34:37 · run_update · R-016 v2 完成：换图干预生效，参考帧像素值约 0.10–0.16 mIoU（远小于 query 帧的 0.68；纯文本下界 0.16）。 · run=R-016-reference-frame-replacement · detail=evt-8a2cb5262e92
+- 2026-09-18T15:34:37 · result · R-016 v2 结果：参考帧像素贡献 0.10–0.16 mIoU，query 帧 0.68，纯框文本 0.16 —— 三条独立干预互证 · run=R-016-reference-frame-replacement · detail=evt-88639020a5f4

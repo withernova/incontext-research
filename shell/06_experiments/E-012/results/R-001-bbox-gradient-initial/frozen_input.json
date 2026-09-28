@@ -1,0 +1,190 @@
+{
+  "config": {
+    "work_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-initial",
+    "model": {
+      "type": "Qwen3VLNative",
+      "model_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+      "dtype": "bfloat16",
+      "device_map": "auto",
+      "attn_implementation": "eager",
+      "local_files_only": true
+    },
+    "checkpoint_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973",
+    "input_manifest": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
+    "manifest_preparation": null,
+    "screen_dataloader": {
+      "batch_size": 1,
+      "dataset": {
+        "type": "IPLocManifestDataset",
+        "ann_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
+        "prompt_protocol": "focus",
+        "normalized_scale": 1000
+      },
+      "collator": {
+        "type": "Qwen3VLSFTCollator",
+        "assistant_only": true,
+        "vision_max_patch_tokens": 1024
+      }
+    },
+    "eval_selection": {
+      "training_manifest": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus_valid10522.json",
+      "training_manifest_sha256": "bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7",
+      "samples_per_dataset": {
+        "LaSOT": 7,
+        "GOT10k": 7,
+        "TAO": 6
+      }
+    },
+    "head_screening": {
+      "probe": {
+        "type": "BBoxGradientAttentionProbe",
+        "samples": 20,
+        "seed": 20260910,
+        "max_sequence_tokens": 2048,
+        "parity_atol": 0.002,
+        "parity_rtol": 0.002,
+        "finite_difference_epsilon": 0.02
+      },
+      "finder": {
+        "type": "BBoxGradientHeadFinder"
+      }
+    }
+  },
+  "config_sources_sha256": {
+    "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/configs/head_screening/e012_bbox_gradient_initial.py": "121d6b84d41996f35a2e72e3ba131c1784ce49a72cd3267e01aaafc1258d10bd"
+  },
+  "manifests_sha256": {
+    "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b"
+  },
+  "selected_indices": [
+    214,
+    279,
+    307,
+    341,
+    364,
+    386,
+    441,
+    625,
+    632,
+    674,
+    681,
+    685,
+    695,
+    735,
+    787,
+    811,
+    838,
+    859,
+    1214,
+    1615
+  ],
+  "checkpoint": {
+    "requested_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973",
+    "adapter_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973/adapter",
+    "processor_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/checkpoints/samples_00126264_step_001973/adapter_processor",
+    "adapter_config_sha256": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+    "adapter_weights_sha256": "f805d978616e3e8b8366e24734f7e811bb7ca6c0c176677e3779c399732b6a34"
+  },
+  "split_audit": {
+    "training_manifest": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus_valid10522.json",
+    "training_manifest_sha256": "bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7",
+    "training_sequences": 10522,
+    "excluded_eval_rows": 0,
+    "eligible_rows_per_dataset": {
+      "LaSOT": 600,
+      "GOT10k": 180,
+      "TAO": 986
+    },
+    "selected_per_dataset": {
+      "LaSOT": 7,
+      "GOT10k": 7,
+      "TAO": 6
+    },
+    "selected_sequences": [
+      [
+        "GOT10k",
+        "GOT-10k_Val_000026"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000033"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000075"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000082"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000086"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000096"
+      ],
+      [
+        "GOT10k",
+        "GOT-10k_Val_000136"
+      ],
+      [
+        "LaSOT",
+        "flag-9"
+      ],
+      [
+        "LaSOT",
+        "hat-12"
+      ],
+      [
+        "LaSOT",
+        "horse-7"
+      ],
+      [
+        "LaSOT",
+        "leopard-9"
+      ],
+      [
+        "LaSOT",
+        "monkey-17"
+      ],
+      [
+        "LaSOT",
+        "pig-4"
+      ],
+      [
+        "LaSOT",
+        "sepia-5"
+      ],
+      [
+        "TAO",
+        "10b3a1d8-e56c-38be-aaf7-ef2f862a5c4e"
+      ],
+      [
+        "TAO",
+        "Drum_corps_v_gY0MK_PAfps_scene_0_47-3186"
+      ],
+      [
+        "TAO",
+        "Making_a_lemonade_v_LWbt2xGpkJA_scene_0_0-1542"
+      ],
+      [
+        "TAO",
+        "Playing_racquetball_v_OWBhxJXWO7c_scene_0_0-3897"
+      ],
+      [
+        "TAO",
+        "rear_right_9da4ca63-f524-3b38-8c8b-624f17518574"
+      ],
+      [
+        "TAO",
+        "v_699e127a3fba14b5f2cd92538dcf96bc"
+      ]
+    ],
+    "selected_train_sequence_overlap": 0,
+    "scope": "relative to the specified current training manifest; eval samples used for head discovery"
+  },
+  "seed": 20260910,
+  "parameter_updates": false
+}

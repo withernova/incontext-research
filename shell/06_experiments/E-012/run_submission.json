@@ -1,0 +1,59 @@
+{
+  "experiment_id": "E-012",
+  "id": "R-001-bbox-gradient-initial",
+  "fields": {
+    "variant": "bbox 梯度初筛：指定 checkpoint 与三数据集 eval 样本",
+    "run_type": "screening",
+    "purpose": "使用指定训练 checkpoint，在三个数据集训练清单之外的视频上计算 bbox 梯度贡献并排名。比较总排名与分数据集排名，初步观察候选注意力头是否依赖某一数据集。",
+    "necessity": "已有公共探针只提取注意力图，使用 inference_mode 且不计算 bbox 专用损失；缺少经过真实 attention×V 路径的梯度排名。",
+    "research_question": "给定 checkpoint 在未见视频的 bbox 预测中依赖哪些 query→bbox 注意力边？这些 head 的梯度排名在 LaSOT、GOT10k 和 TAO 样本上是否一致？",
+    "hypothesis": "在训练清单未出现的视频上仍可得到非零且有区分度的梯度贡献；不同数据集排名的一致性可为后续独立样本验证提供候选，但不预设泛化提升。",
+    "evidence_basis": "显式参考 [[makelvlm2025]] §2式（16）–（17）；用户本轮明确指定checkpoint目录，并要求使用已有eval样本。该目录仅用于定位/加载模型和核对输入配置，没有使用其训练结果或其他Run结论。Solid Run：无。",
+    "implementation_summary": "在现有框架的注册器和Config上增加可配置checkpoint加载、已有manifest子集筛查及中文注释。加载已有LoRA结构与权重，逐张量检查加载一致性，复用adapter保存的processor；不恢复optimizer或训练干预。",
+    "implementation_details": "保留bbox-only CE、p−1预测行、真实post-softmax A→AV梯度hook与逐边绝对值聚合。checkpoint_path支持训练目录/具体checkpoint/adapter目录或None，验证adapter底座匹配及权重完全加载；保存adapter配置和权重哈希。已有manifest可大于samples，按eval_selection配额选取训练清单之外的不同视频；--check-only仅处理实际选中20条，--prepare-only在复用模式拒绝。输出全体20样本排名和LaSOT/GOT10k/TAO各自排名。首样本仍保留原生前向一致性与±0.02概率边缩放中央差分诊断；不加载GT-mask训练hook，不更新参数。 预检与正式采集统一调用encode_sample，对bbox位置排序/唯一性/p−1有效性、监督label一致性、两张图像、query范围和merged网格做同一套校验。",
+    "data_definition": "直接复用已有 eval manifest：/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json；SHA256=48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b。1766条记录，LaSOT=600、GOT10k=180、TAO=986。对照该 checkpoint 配置指向的当前训练清单 /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus_valid10522.json（10522条；SHA256=bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7），以(dataset,视频目录名)检查reference和query序列，当前1766条eval记录均无训练视频重叠；运行时重新检查训练清单哈希和重叠。",
+    "data_scale": "固定seed=20260910，按数据集分层抽取20个不同视频：LaSOT=7、GOT10k=7、TAO=6；复用原manifest帧对，不重采样帧、不修改原清单。每个样本一张reference与一张query；focus协议，坐标0–1000；patch上限1024，spatial merge=2。选中的原清单索引、视频标识和数据划分审核信息保存在frozen_input.json。 已通过真实checkpoint processor预检：序列391–675 tokens，bbox为15–19 tokens。",
+    "model_config": "完整底座为 /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct；checkpoint_path=/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline，加载该目录最终adapter。支持具体checkpoint目录或直接adapter目录，None使用原始模型；不自动选择latest。36层×32 query heads，8 KV heads；BF16底座+LoRA、eager、device_map=auto，拒绝CPU/disk offload。本次不复现训练时4bit量化数值路径。",
+    "variables_controls": "运行前固定指定checkpoint、原始eval清单、训练清单哈希、分层配额7/7/6、seed20260910、focus协议、patch上限1024和bbox字符串token范围。每个视频最多一条，reference/query都与训练视频做重叠检查。主筛查没有干预；首样本的小幅指定边缩放仅作方向诊断。",
+    "metric_plan": "C_lh=mean_sample sum_{p,j∈query}|A_lh[p−1,j]·dL_bbox/dA_lh[p−1,j]|，L_bbox为每样本bbox token平均CE。同时输出signed、正/负贡献、分数标准差、signed为正的样本比例、平均bbox CE；总排名与三数据集各自排名使用同一公式。首样本报告前向误差及中央差分方向/相对误差。各数据集仅6–7条，排名比较为探索性观察。",
+    "metric_definition": "absolute贡献越大表示当前输入下指定边对bbox CE越敏感；signed>0表示后softmax指定边局部放大会提高loss，signed<0表示会降低loss。样本先独立mean CE再等权聚合，不能先平均梯度再取绝对值。方向只对应不重归一化的概率边缩放；不等价于logits干预方向或完整head因果贡献。",
+    "integrity_gates": "checkpoint存在且为LoRA，adapter底座路径匹配，全部saved tensor逐一加载一致；训练清单哈希匹配且选中reference/query均无训练视频重叠；配额恰好7/7/6且20个不同视频。继承完整bbox/p−1/token-grid/有限梯度/36层覆盖校验、2048序列预算、拒绝输出目录覆盖和拒绝部分成功排名。前向一致性必须通过；中央差分方向单独报告，失败不得声称方向验证通过。",
+    "expected_outcome": "得到1152个(layer,head)的完整排名及逐样本分数，选出后续候选；不预先声称任何head已被验证有效或有害。",
+    "acceptance_criteria": "聚焦CPU测试10项通过（含LoRA权重精确重载及梯度、已有大清单子集、视频排重与分层配额、完整双图Qwen3-VL+LoRA采集/反向/落盘/排名），真实checkpoint processor预检20/20通过，Shell语法和本地/远端内容哈希一致。正式运行要求20/20完整结果、全36层有限分数和原生前向一致；中央差分诊断单独解释。",
+    "dependencies": "已同步当前config和模块，直接读取现有eval/train清单与指定adapter文件，预检使用adapter_processor；不生成新数据清单。正式8B权重加载与反向未执行，GPU显存和真实adapter加载须在运行时再次校验；CPU测试验证相同加载路径的精确权重恢复与梯度，并跑通小型真实双图模型的完整采集和排名。",
+    "limitations": "与当前指定训练清单在视频目录标识上无重叠，不证明模型预训练未见过这些视频，也不能还原训练清单历史变动。20条eval样本实际参与选head，后续验证定位收益应另留未参与筛查的样本。BF16重建底座与训练时4bit量化路径不同；各域6–7条不足以确认跨域泛化；实际8B反向显存及效果未测试。",
+    "claim_boundary": "仅支持固定checkpoint与未出现在指定当前训练清单中的eval视频上的query→bbox边局部敏感度排名，以及三数据集的探索性比较；不能据同一批选head样本宣称泛化收益。signed只对应不重归一化的概率边缩放；不修改Claim。",
+    "architecture_plan": "继续复用Config、注册器、Qwen3VLNative、IPLocManifestDataset、Qwen3VLSFTCollator。公共bbox_gradient模块增加LoRA检查/加载与分层eval选样；不修改训练包。原lasot_screen_manifest工具保留但当前config中manifest_preparation=None，不再生成新清单；config和薄Shell均有中文注释。",
+    "implementation_ref": {
+      "schema": "survey-tool.run-implementation/v1",
+      "package_root": "mechanism/iploc-szy/iploc_szy/head_screening",
+      "entrypoint": "iploc_szy.head_screening.bbox_gradient:main",
+      "config_path": "mechanism/iploc-szy/configs/head_screening/e012_bbox_gradient_initial.py",
+      "launcher_path": "mechanism/iploc-szy/tools/run/e012_bbox_gradient_initial.sh",
+      "reused_modules": [
+        "mechanism/iploc-szy/iploc_szy/config.py",
+        "mechanism/iploc-szy/iploc_szy/registry.py",
+        "mechanism/iploc-szy/iploc_szy/models/qwen3vl_native.py",
+        "mechanism/iploc-szy/iploc_szy/datasets/iploc.py",
+        "mechanism/iploc-szy/iploc_szy/datasets/collator.py",
+        "mechanism/iploc-szy/iploc_szy/head_screening/probes.py"
+      ],
+      "added_modules": [
+        "mechanism/iploc-szy/iploc_szy/head_screening/bbox_gradient.py",
+        "mechanism/iploc-szy/iploc_szy/head_screening/lasot_screen_manifest.py"
+      ],
+      "tests": [
+        "mechanism/iploc-szy/tests/test_bbox_gradient_screen.py"
+      ]
+    },
+    "audit_paths": "本地 shell/06_experiments/E-012/implementation/source_hashes.json、verification.md、eval_preflight.json；远端run输出frozen_input.json含manifest/checkpoint哈希与选中索引、split_audit；probe/records.json、逐样本npz、ranking.csv和summary.json（含per_dataset）。早先生成的LaSOT20清单不再由当前配置使用。",
+    "workspace_id": "02",
+    "config": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/configs/head_screening/e012_bbox_gradient_initial.py",
+    "command": "bash /defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/tools/run/e012_bbox_gradient_initial.sh",
+    "log_path": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/logs/R-001-bbox-gradient-initial.log",
+    "output_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-initial",
+    "artifact_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-001-bbox-gradient-initial",
+    "seed": "20260910",
+    "status": "draft"
+  }
+}

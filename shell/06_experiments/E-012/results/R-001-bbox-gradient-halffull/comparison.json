@@ -1,0 +1,156 @@
+{
+  "schema": "e012.result-comparison/v1",
+  "evidence_status": "preliminary_unvalidated",
+  "run_id": "R-001-bbox-gradient-halffull",
+  "comparison_run_id": "R-001-bbox-gradient-initial",
+  "sample_count": 690,
+  "overlaps": {
+    "5": {
+      "initial_intersection": [
+        "L21H31",
+        "L23H30",
+        "L24H13",
+        "L26H25"
+      ],
+      "initial_intersection_count": 4,
+      "initial_jaccard": 0.6666666666666666,
+      "old_intersection": [],
+      "old_intersection_count": 0
+    },
+    "10": {
+      "initial_intersection": [
+        "L21H11",
+        "L21H31",
+        "L22H02",
+        "L23H28",
+        "L23H30",
+        "L24H13",
+        "L26H20",
+        "L26H24",
+        "L26H25"
+      ],
+      "initial_intersection_count": 9,
+      "initial_jaccard": 0.8181818181818182,
+      "old_intersection": [],
+      "old_intersection_count": 0
+    },
+    "50": {
+      "initial_intersection": [
+        "L16H23",
+        "L17H04",
+        "L17H07",
+        "L18H13",
+        "L18H14",
+        "L18H19",
+        "L18H22",
+        "L19H03",
+        "L19H12",
+        "L19H13",
+        "L20H08",
+        "L20H16",
+        "L20H17",
+        "L20H19",
+        "L20H28",
+        "L20H29",
+        "L20H31",
+        "L21H08",
+        "L21H10",
+        "L21H11",
+        "L21H17",
+        "L21H18",
+        "L21H25",
+        "L21H26",
+        "L21H31",
+        "L22H00",
+        "L22H02",
+        "L22H04",
+        "L23H10",
+        "L23H13",
+        "L23H14",
+        "L23H15",
+        "L23H28",
+        "L23H30",
+        "L24H13",
+        "L24H14",
+        "L24H16",
+        "L24H19",
+        "L24H29",
+        "L25H10",
+        "L26H20",
+        "L26H22",
+        "L26H24",
+        "L26H25",
+        "L28H19"
+      ],
+      "initial_intersection_count": 45,
+      "initial_jaccard": 0.8181818181818182,
+      "old_intersection": [
+        "L17H04",
+        "L21H10",
+        "L21H18"
+      ],
+      "old_intersection_count": 3
+    }
+  },
+  "old_fixed_heads": [
+    {
+      "head": "L21H10",
+      "rank_initial": 24,
+      "rank_690": 29
+    },
+    {
+      "head": "L20H15",
+      "rank_initial": 252,
+      "rank_690": 135
+    },
+    {
+      "head": "L21H18",
+      "rank_initial": 8,
+      "rank_690": 11
+    },
+    {
+      "head": "L17H04",
+      "rank_initial": 46,
+      "rank_690": 39
+    },
+    {
+      "head": "L20H18",
+      "rank_initial": 289,
+      "rank_690": 199
+    }
+  ],
+  "old_selection_completed_steps": 1482,
+  "initial_samples_in_690": 20,
+  "finite_difference": {
+    "layer": 24,
+    "head": 25,
+    "epsilon": 0.02,
+    "loss_minus": 0.7162207961082458,
+    "loss_plus": 0.7319397926330566,
+    "signed_derivative": -0.11289753019809723,
+    "central_difference": 0.3929749131202698,
+    "sign_agreement": false,
+    "relative_error": 1.2872894081244952,
+    "interpretation": "post-softmax edge scaling without renormalization; diagnostic only"
+  },
+  "record_integrity_checks": {
+    "sample_coverage": true,
+    "indices_match": true,
+    "indices_unique": true,
+    "head_coverage": true,
+    "row_contract": true,
+    "sample_counts": true,
+    "bbox_ce_mean": true,
+    "rank_order": true,
+    "score_decomposition": true,
+    "same_adapter_initial_vs_690": true,
+    "finite_difference_arithmetic": true,
+    "mirror_hashes_match_remote": true
+  },
+  "limitations": [
+    "finite_difference sign mismatch; derivative correctness remains unresolved",
+    "initial samples are nested in 690 and dataset weights differ",
+    "fixed heads selected at step 1482; gradient probe uses step 1973",
+    "no generation metrics, no causal head intervention, no independent generalization test"
+  ]
+}

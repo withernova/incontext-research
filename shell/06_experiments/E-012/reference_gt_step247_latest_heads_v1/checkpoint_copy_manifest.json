@@ -1,0 +1,83 @@
+{
+  "status": "verified",
+  "files": [
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter/README.md",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter/README.md",
+      "sha256": "1b74b22b63c44ed35f4e92c2cc5f00965c0b3739c5ed9ead449971954108a055",
+      "bytes": 5322
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter/adapter_config.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter/adapter_config.json",
+      "sha256": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+      "bytes": 964
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter/adapter_model.safetensors",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter/adapter_model.safetensors",
+      "sha256": "921e647d0d5b11a2a1b8586120901f9dd2142c24417a4eb9e81d862370d54fa8",
+      "bytes": 87368144
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/added_tokens.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/added_tokens.json",
+      "sha256": "c0284b582e14987fbd3d5a2cb2bd139084371ed9acbae488829a1c900833c680",
+      "bytes": 707
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/chat_template.jinja",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/chat_template.jinja",
+      "sha256": "3636d0f0bd6bef02654cdffdc447b79cb2cef8ab02cc75267345946291a489e4",
+      "bytes": 5292
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/merges.txt",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/merges.txt",
+      "sha256": "8831e4f1a044471340f7c0a83d7bd71306a5b867e95fd870f74d0c5308a904d5",
+      "bytes": 1671853
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/preprocessor_config.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/preprocessor_config.json",
+      "sha256": "d37f6832cdf83bbe375216eee58b1afd4724ba3f64f612dc7593b4952f8b679f",
+      "bytes": 780
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/special_tokens_map.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/special_tokens_map.json",
+      "sha256": "76862e765266b85aa9459767e33cbaf13970f327a0e88d1c65846c2ddd3a1ecd",
+      "bytes": 613
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/tokenizer.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/tokenizer.json",
+      "sha256": "f54b55fa0c3aba0c91ce09ea79ae4e62da24e2a1a630f96c4bae34aba25e234a",
+      "bytes": 11422822
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/tokenizer_config.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/tokenizer_config.json",
+      "sha256": "81ec7bb9530159b326c0bef1d0b6c33d392090524014ea3f0123a3c1eb9c2af5",
+      "bytes": 5445
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/video_preprocessor_config.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/video_preprocessor_config.json",
+      "sha256": "59c5c9eb52182eb14c06ffb10ca9effd29adce5f238a95de23ca14a38dbd2cb1",
+      "bytes": 817
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/adapter_processor/vocab.json",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/adapter_processor/vocab.json",
+      "sha256": "ca10d7e9fb3ed18575dd1e277a2579c16d108e32f27439684afa0e10b1440910",
+      "bytes": 2776833
+    },
+    {
+      "source": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00015801_step_000247/trainer_state.pt",
+      "destination": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checkpoints/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/samples_00015801_step_000247/trainer_state.pt",
+      "sha256": "f96045bd9cfe4873125d83c7a757a81b768c6ed086fbf198ecbb358f56c417d0",
+      "bytes": 175021251
+    }
+  ]
+}

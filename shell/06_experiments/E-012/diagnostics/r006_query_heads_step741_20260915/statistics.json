@@ -1,0 +1,1017 @@
+{
+  "schema": "e012.r006-query-head-reference-outcome-reanalysis/v1",
+  "status": "offline_reanalysis_completed_on_available_118",
+  "heads": [
+    "L24H13",
+    "L23H30",
+    "L26H20",
+    "L21H11",
+    "L23H13"
+  ],
+  "attention_rows": "teacher-forced bbox coordinate p-1 rows",
+  "checkpoint": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-focus-qwen3vl8b-lora-1shot-nf4-ddp4/checkpoints/samples_00047403_step_000741",
+  "checkpoint_adapter_sha256": "68eb3fab704d5ff4df49554b1f7267db5289d427f0558b7cb4fd56a3f9dde711",
+  "manifest_sha256": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
+  "assignments_sha256": "61f5d5b93976e7f1c633eaa0f64d7f8d06195d36f4897f6ce4cc17b0a181cd89",
+  "input_sha256": {
+    "attention": "76b47106e4916eef2de0c98630470e3251ada373877696463f620020710b3b07",
+    "predictions": "c013e704d50ba7fa039d7c6a8e23b62c3b01bacbb6362c8e10598d940601326c"
+  },
+  "method": {
+    "correct": "IoU >= 0.5",
+    "error": "IoU < 0.5",
+    "aggregation": "先对5个head的reference条件分布等权平均，再样本等权；原始GT mass另按head乘积后平均",
+    "bootstrap": "在正确/错误组内独立有放回抽样；每条记录对应唯一sequence/component",
+    "seed": 20260915,
+    "replicates": 10000,
+    "ci": "未作多重比较校正的描述性95% percentile CI"
+  },
+  "integrity": {
+    "matched_by_dataset_index_sample_id_dataset": 118,
+    "unique_sequences": 118,
+    "unique_components": 118,
+    "attention_hash_matches_remote_integrity": true,
+    "predictions_hash_matches_remote": true,
+    "missing_attention_in_full_eval": 1648
+  },
+  "full_eval": {
+    "n": 1766,
+    "correct": 1365,
+    "error": 401,
+    "miou": 0.708971648515628,
+    "acc_iou050": 0.7729331823329558
+  },
+  "ensemble": {
+    "conditional_gt_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.13882142481097123,
+        "median": 0.12808723896562324
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.11934484060371495,
+        "median": 0.06305289070041784
+      },
+      "delta_correct_minus_error": 0.019476584207256287,
+      "ci95_mean_delta": [
+        -0.0554126095264455,
+        0.08177533287085482
+      ]
+    },
+    "log_gt_enrichment": {
+      "correct": {
+        "n": 100,
+        "mean": 0.9258683331385309,
+        "median": 0.7155448049332424
+      },
+      "error": {
+        "n": 18,
+        "mean": 1.3300912414142916,
+        "median": 0.806946860828925
+      },
+      "delta_correct_minus_error": -0.4042229082757607,
+      "ci95_mean_delta": [
+        -1.3462672587127797,
+        0.5036711494730766
+      ]
+    },
+    "pointing_hit": {
+      "correct": {
+        "n": 100,
+        "mean": 0.08,
+        "median": 0.0
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.2222222222222222,
+        "median": 0.0
+      },
+      "delta_correct_minus_error": -0.1422222222222222,
+      "ci95_mean_delta": [
+        -0.35444444444444445,
+        0.04444444444444445
+      ]
+    },
+    "span_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.004159276130376383,
+        "median": 0.003391444683074951
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.019163503738430638,
+        "median": 0.009108939208090305
+      },
+      "delta_correct_minus_error": -0.015004227608054255,
+      "ci95_mean_delta": [
+        -0.028981272835960328,
+        -0.003946827939572461
+      ]
+    },
+    "gt_area_fraction": {
+      "correct": {
+        "n": 100,
+        "mean": 0.09750798,
+        "median": 0.04629900000000001
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.050438611111111115,
+        "median": 0.0195585
+      },
+      "delta_correct_minus_error": 0.04706936888888888,
+      "ci95_mean_delta": [
+        -0.008505715055555559,
+        0.08862310186111114
+      ]
+    },
+    "mean_head_absolute_gt_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.0005592922513369046,
+        "median": 0.0003933946077749648
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.002799982087938741,
+        "median": 0.0003484332768549133
+      },
+      "delta_correct_minus_error": -0.002240689836601836,
+      "ci95_mean_delta": [
+        -0.005740007854046125,
+        1.1942452891153274e-05
+      ]
+    }
+  },
+  "per_head": {
+    "L24H13": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.08765491435642034,
+          "median": 0.057987596460210594
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.08960710298349021,
+          "median": 0.01858533523446909
+        },
+        "delta_correct_minus_error": -0.0019521886270698757,
+        "ci95_mean_delta": [
+          -0.08824961881768703,
+          0.0658117878864008
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 100,
+          "mean": 0.005950685038338995,
+          "median": -0.1035262818141179
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.31478285785552385,
+          "median": 0.44116214154405575
+        },
+        "delta_correct_minus_error": -0.30883217281718484,
+        "ci95_mean_delta": [
+          -1.3621792497965757,
+          0.7359356040528928
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 100,
+          "mean": 0.06,
+          "median": 0.0
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.1111111111111111,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.05111111111111111,
+        "ci95_mean_delta": [
+          -0.2277777777777778,
+          0.08
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.002619494754471816,
+          "median": 0.0018399431719444692
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.015233471860281296,
+          "median": 0.005259562050923705
+        },
+        "delta_correct_minus_error": -0.01261397710580948,
+        "ci95_mean_delta": [
+          -0.02909007175398276,
+          -0.0021024198764126698
+        ]
+      }
+    },
+    "L23H30": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.12133944822558732,
+          "median": 0.08760183645326533
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.13123729368656958,
+          "median": 0.05111399811510143
+        },
+        "delta_correct_minus_error": -0.009897845460982269,
+        "ci95_mean_delta": [
+          -0.10375760104669599,
+          0.06956721676462198
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 100,
+          "mean": 0.5395638794862261,
+          "median": 0.37515613828606287
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.8728331513083342,
+          "median": 0.9140432458395792
+        },
+        "delta_correct_minus_error": -0.3332692718221081,
+        "ci95_mean_delta": [
+          -1.5752830694122213,
+          0.9127652049631036
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 100,
+          "mean": 0.19,
+          "median": 0.0
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.2222222222222222,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.03222222222222221,
+        "ci95_mean_delta": [
+          -0.2544444444444444,
+          0.16444444444444445
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.002990034591057338,
+          "median": 0.002012197393923998
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.022198842857809115,
+          "median": 0.004929309478029609
+        },
+        "delta_correct_minus_error": -0.019208808266751778,
+        "ci95_mean_delta": [
+          -0.041318566770200654,
+          -0.0029202210156751493
+        ]
+      }
+    },
+    "L26H20": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.0341228195384346,
+          "median": 0.014948061790846567
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.05848868432566248,
+          "median": 0.014985657945101538
+        },
+        "delta_correct_minus_error": -0.02436586478722788,
+        "ci95_mean_delta": [
+          -0.08293350022781355,
+          0.019154411096550496
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 100,
+          "mean": -1.2010095540075467,
+          "median": -1.3275491811618574
+        },
+        "error": {
+          "n": 18,
+          "mean": -0.4425173498206291,
+          "median": -0.17140794849646232
+        },
+        "delta_correct_minus_error": -0.7584922041869175,
+        "ci95_mean_delta": [
+          -2.316751894587204,
+          0.8073107808089457
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 100,
+          "mean": 0.02,
+          "median": 0.0
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.1111111111111111,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.0911111111111111,
+        "ci95_mean_delta": [
+          -0.2577777777777778,
+          0.03
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.0075488306710030885,
+          "median": 0.00433282763697207
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.01650699724106946,
+          "median": 0.008233693428337574
+        },
+        "delta_correct_minus_error": -0.00895816657006637,
+        "ci95_mean_delta": [
+          -0.016918022126286004,
+          -0.001828515291015116
+        ]
+      }
+    },
+    "L21H11": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.26412419477525323,
+          "median": 0.21420124068973237
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.15362859245016403,
+          "median": 0.07913782301055815
+        },
+        "delta_correct_minus_error": 0.1104956023250892,
+        "ci95_mean_delta": [
+          0.00809744052293409,
+          0.1964687256348172
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 100,
+          "mean": 1.5153628058763011,
+          "median": 1.382792996562471
+        },
+        "error": {
+          "n": 18,
+          "mean": 1.738300225572077,
+          "median": 1.1042199331108198
+        },
+        "delta_correct_minus_error": -0.22293741969577585,
+        "ci95_mean_delta": [
+          -1.0790119445579132,
+          0.5756820936879684
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 100,
+          "mean": 0.41,
+          "median": 0.0
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.3333333333333333,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": 0.07666666666666666,
+        "ci95_mean_delta": [
+          -0.16555555555555557,
+          0.30333333333333334
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.004108745592529886,
+          "median": 0.0032692644745111465
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.017481553225985005,
+          "median": 0.005933809094130993
+        },
+        "delta_correct_minus_error": -0.013372807633455119,
+        "ci95_mean_delta": [
+          -0.028069920836079593,
+          -0.002859002847922969
+        ]
+      }
+    },
+    "L23H13": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.18686574866453007,
+          "median": 0.16414250060000202
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.16376253072705801,
+          "median": 0.10428368117401379
+        },
+        "delta_correct_minus_error": 0.023103217937472054,
+        "ci95_mean_delta": [
+          -0.06872378663659534,
+          0.1044218176277203
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 100,
+          "mean": 1.185636179950713,
+          "median": 0.942127958580526
+        },
+        "error": {
+          "n": 18,
+          "mean": 1.5711067372818415,
+          "median": 1.5135500832180067
+        },
+        "delta_correct_minus_error": -0.38547055733112856,
+        "ci95_mean_delta": [
+          -1.345000405590994,
+          0.5885362850871939
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 100,
+          "mean": 0.22,
+          "median": 0.0
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.3333333333333333,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.11333333333333331,
+        "ci95_mean_delta": [
+          -0.35555555555555557,
+          0.11333333333333337
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 100,
+          "mean": 0.0035292749461950735,
+          "median": 0.0024542980827391148
+        },
+        "error": {
+          "n": 18,
+          "mean": 0.024396655964665115,
+          "median": 0.007959929527714849
+        },
+        "delta_correct_minus_error": -0.020867381018470042,
+        "ci95_mean_delta": [
+          -0.03947552447361199,
+          -0.005917421926306113
+        ]
+      }
+    }
+  },
+  "by_dataset": {
+    "GOT10k": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 18,
+          "mean": 0.13466604060379156,
+          "median": 0.11105228482810467
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 18,
+          "mean": 0.6908665829917471,
+          "median": 0.6144800083967464
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 18,
+          "mean": 0.16666666666666666,
+          "median": 0.0
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      },
+      "span_mass": {
+        "correct": {
+          "n": 18,
+          "mean": 0.0034186819296640656,
+          "median": 0.003023255616426468
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      },
+      "gt_area_fraction": {
+        "correct": {
+          "n": 18,
+          "mean": 0.08179033333333334,
+          "median": 0.06409800000000002
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      },
+      "mean_head_absolute_gt_mass": {
+        "correct": {
+          "n": 18,
+          "mean": 0.0005394346182617912,
+          "median": 0.0003582833623297088
+        },
+        "error": {
+          "n": 0,
+          "mean": null,
+          "median": null
+        },
+        "delta_correct_minus_error": null,
+        "ci95_mean_delta": null,
+        "reason": "至少一组为空，不估计组差异"
+      }
+    },
+    "LaSOT": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 49,
+          "mean": 0.12697643705940556,
+          "median": 0.10193194497928025
+        },
+        "error": {
+          "n": 11,
+          "mean": 0.09060707074843165,
+          "median": 0.056173268554274694
+        },
+        "delta_correct_minus_error": 0.036369366310973913,
+        "ci95_mean_delta": [
+          -0.03192273901816589,
+          0.09140964860897735
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 49,
+          "mean": 1.1202266694983032,
+          "median": 0.7986036729579155
+        },
+        "error": {
+          "n": 11,
+          "mean": 1.176498755405726,
+          "median": 0.7002505165053364
+        },
+        "delta_correct_minus_error": -0.05627208590742283,
+        "ci95_mean_delta": [
+          -1.0212582005981228,
+          0.8874574153814793
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 49,
+          "mean": 0.08163265306122448,
+          "median": 0.0
+        },
+        "error": {
+          "n": 11,
+          "mean": 0.09090909090909091,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.009276437847866428,
+        "ci95_mean_delta": [
+          -0.23191094619666047,
+          0.14285714285714285
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 49,
+          "mean": 0.0033481185376758173,
+          "median": 0.002769305370748043
+        },
+        "error": {
+          "n": 11,
+          "mean": 0.021365953334183854,
+          "median": 0.0059374477714300156
+        },
+        "delta_correct_minus_error": -0.018017834796508037,
+        "ci95_mean_delta": [
+          -0.04106983200849745,
+          -0.0011955059697458035
+        ]
+      },
+      "gt_area_fraction": {
+        "correct": {
+          "n": 49,
+          "mean": 0.08261800000000002,
+          "median": 0.023478000000000006
+        },
+        "error": {
+          "n": 11,
+          "mean": 0.05942990909090909,
+          "median": 0.01275
+        },
+        "delta_correct_minus_error": 0.023188090909090936,
+        "ci95_mean_delta": [
+          -0.060336330241187376,
+          0.08582798631725408
+        ]
+      },
+      "mean_head_absolute_gt_mass": {
+        "correct": {
+          "n": 49,
+          "mean": 0.00044472795187549234,
+          "median": 0.00025601710019270747
+        },
+        "error": {
+          "n": 11,
+          "mean": 0.0016595292570213667,
+          "median": 0.0004842221733530177
+        },
+        "delta_correct_minus_error": -0.0012148013051458744,
+        "ci95_mean_delta": [
+          -0.00339934736596177,
+          0.0001707982788981136
+        ]
+      }
+    },
+    "TAO": {
+      "conditional_gt_mass": {
+        "correct": {
+          "n": 33,
+          "mean": 0.15867601013084856,
+          "median": 0.16871388618102645
+        },
+        "error": {
+          "n": 7,
+          "mean": 0.1645041932334458,
+          "median": 0.06993251284656099
+        },
+        "delta_correct_minus_error": -0.005828183102597251,
+        "ci95_mean_delta": [
+          -0.1634543977333363,
+          0.12079596393996883
+        ]
+      },
+      "log_gt_enrichment": {
+        "correct": {
+          "n": 33,
+          "mean": 0.7654584246843882,
+          "median": 0.1824118036204025
+        },
+        "error": {
+          "n": 7,
+          "mean": 1.5714508622848942,
+          "median": 2.061918420747842
+        },
+        "delta_correct_minus_error": -0.805992437600506,
+        "ci95_mean_delta": [
+          -2.673536724647293,
+          1.0536151573403034
+        ]
+      },
+      "pointing_hit": {
+        "correct": {
+          "n": 33,
+          "mean": 0.030303030303030304,
+          "median": 0.0
+        },
+        "error": {
+          "n": 7,
+          "mean": 0.42857142857142855,
+          "median": 0.0
+        },
+        "delta_correct_minus_error": -0.3982683982683982,
+        "ci95_mean_delta": [
+          -0.7965367965367964,
+          -0.05194805194805194
+        ]
+      },
+      "span_mass": {
+        "correct": {
+          "n": 33,
+          "mean": 0.005767682725986974,
+          "median": 0.005645806901156902
+        },
+        "error": {
+          "n": 7,
+          "mean": 0.01570251151653273,
+          "median": 0.010701361112296581
+        },
+        "delta_correct_minus_error": -0.009934828790545754,
+        "ci95_mean_delta": [
+          -0.020508633703079062,
+          -0.0016123696461292744
+        ]
+      },
+      "gt_area_fraction": {
+        "correct": {
+          "n": 33,
+          "mean": 0.12819060606060606,
+          "median": 0.078524
+        },
+        "error": {
+          "n": 7,
+          "mean": 0.03630942857142857,
+          "median": 0.022819999999999993
+        },
+        "delta_correct_minus_error": 0.09188117748917748,
+        "ci95_mean_delta": [
+          0.04238690909090909,
+          0.14348908863636362
+        ]
+      },
+      "mean_head_absolute_gt_mass": {
+        "correct": {
+          "n": 33,
+          "mean": 0.0007402343140326997,
+          "median": 0.0005985637675692782
+        },
+        "error": {
+          "n": 7,
+          "mean": 0.0045921222508089,
+          "median": 0.00021264438035680888
+        },
+        "delta_correct_minus_error": -0.0038518879367762005,
+        "ci95_mean_delta": [
+          -0.011472135346202231,
+          0.00046592716256447445
+        ]
+      }
+    }
+  },
+  "strict_error_iou_lt010": {
+    "conditional_gt_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.13882142481097123,
+        "median": 0.12808723896562324
+      },
+      "error": {
+        "n": 12,
+        "mean": 0.08394065643605464,
+        "median": 0.04727002032836085
+      },
+      "delta_correct_minus_error": 0.054880768374916594,
+      "ci95_mean_delta": [
+        -0.013352813968518593,
+        0.11087012033662152
+      ]
+    },
+    "log_gt_enrichment": {
+      "correct": {
+        "n": 100,
+        "mean": 0.9258683331385309,
+        "median": 0.7155448049332424
+      },
+      "error": {
+        "n": 12,
+        "mean": 1.1558852720675161,
+        "median": 0.6309312283284576
+      },
+      "delta_correct_minus_error": -0.23001693892898523,
+      "ci95_mean_delta": [
+        -1.4824830980912065,
+        0.8918240290263088
+      ]
+    },
+    "pointing_hit": {
+      "correct": {
+        "n": 100,
+        "mean": 0.08,
+        "median": 0.0
+      },
+      "error": {
+        "n": 12,
+        "mean": 0.16666666666666666,
+        "median": 0.0
+      },
+      "delta_correct_minus_error": -0.08666666666666666,
+      "ci95_mean_delta": [
+        -0.33666666666666667,
+        0.1
+      ]
+    },
+    "span_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.004159276130376383,
+        "median": 0.003391444683074951
+      },
+      "error": {
+        "n": 12,
+        "mean": 0.015175220595362285,
+        "median": 0.007304816972464323
+      },
+      "delta_correct_minus_error": -0.011015944464985902,
+      "ci95_mean_delta": [
+        -0.026794593270218076,
+        -0.0010334430995183848
+      ]
+    },
+    "gt_area_fraction": {
+      "correct": {
+        "n": 100,
+        "mean": 0.09750798,
+        "median": 0.04629900000000001
+      },
+      "error": {
+        "n": 12,
+        "mean": 0.05967424999999999,
+        "median": 0.016291
+      },
+      "delta_correct_minus_error": 0.03783373,
+      "ci95_mean_delta": [
+        -0.03538007891666664,
+        0.0918106165
+      ]
+    },
+    "mean_head_absolute_gt_mass": {
+      "correct": {
+        "n": 100,
+        "mean": 0.0005592922513369046,
+        "median": 0.0003933946077749648
+      },
+      "error": {
+        "n": 12,
+        "mean": 0.0016080537982823921,
+        "median": 0.0001645307862400065
+      },
+      "delta_correct_minus_error": -0.0010487615469454876,
+      "ci95_mean_delta": [
+        -0.003137157294622294,
+        0.00036540124200714583
+      ]
+    }
+  },
+  "strict_correct_iou_ge075": {
+    "conditional_gt_mass": {
+      "correct": {
+        "n": 85,
+        "mean": 0.14495573222219127,
+        "median": 0.1340922987114056
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.11934484060371495,
+        "median": 0.06305289070041784
+      },
+      "delta_correct_minus_error": 0.025610891618476322,
+      "ci95_mean_delta": [
+        -0.05246016113851485,
+        0.09013207616667523
+      ]
+    },
+    "log_gt_enrichment": {
+      "correct": {
+        "n": 85,
+        "mean": 0.7649983434001302,
+        "median": 0.6710424348233012
+      },
+      "error": {
+        "n": 18,
+        "mean": 1.3300912414142916,
+        "median": 0.806946860828925
+      },
+      "delta_correct_minus_error": -0.5650928980141614,
+      "ci95_mean_delta": [
+        -1.5202231461474247,
+        0.3439891575903909
+      ]
+    },
+    "pointing_hit": {
+      "correct": {
+        "n": 85,
+        "mean": 0.07058823529411765,
+        "median": 0.0
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.2222222222222222,
+        "median": 0.0
+      },
+      "delta_correct_minus_error": -0.15163398692810456,
+      "ci95_mean_delta": [
+        -0.3738562091503268,
+        0.030065359477124187
+      ]
+    },
+    "span_mass": {
+      "correct": {
+        "n": 85,
+        "mean": 0.004225828184965341,
+        "median": 0.0033629569225013256
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.019163503738430638,
+        "median": 0.009108939208090305
+      },
+      "delta_correct_minus_error": -0.014937675553465297,
+      "ci95_mean_delta": [
+        -0.029077621878998268,
+        -0.00375302166733556
+      ]
+    },
+    "gt_area_fraction": {
+      "correct": {
+        "n": 85,
+        "mean": 0.1080953176470588,
+        "median": 0.06366600000000001
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.050438611111111115,
+        "median": 0.0195585
+      },
+      "delta_correct_minus_error": 0.05765670653594769,
+      "ci95_mean_delta": [
+        0.0027050208823529293,
+        0.10162876949346403
+      ]
+    },
+    "mean_head_absolute_gt_mass": {
+      "correct": {
+        "n": 85,
+        "mean": 0.0005895952344477847,
+        "median": 0.0004058277031246969
+      },
+      "error": {
+        "n": 18,
+        "mean": 0.002799982087938741,
+        "median": 0.0003484332768549133
+      },
+      "delta_correct_minus_error": -0.0022103868534909562,
+      "ci95_mean_delta": [
+        -0.0058011258348728435,
+        6.307558151909868e-05
+      ]
+    }
+  },
+  "limitations": [
+    "仅118条confirmation有归档attention，不能代表1766全量比较",
+    "attention采用GT teacher-forced坐标rows，不是归档自然预测的生成rows",
+    "正确/错误组的reference GT面积与dataset组成不同，相关性不等于因果",
+    "attention记录未完整提供重放精度/量化/图像token预算，不能确认与自然评估完全同设置",
+    "仅18条错误；GOT10k子集中没有错误；多head比较只作描述"
+  ]
+}

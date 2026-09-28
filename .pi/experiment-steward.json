@@ -2,33 +2,33 @@
   "version": 2,
   "identity": {
     "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
-    "runId": "E010-R-006-gt-supervised-reference-head-stability-heldout-audit",
-    "experimentId": "E-010",
+    "runId": "R-011-query-keepset-large-pruning",
+    "experimentId": "E-012",
     "managedExecution": true
   },
   "remote": {
     "host": "NKU-LWC",
-    "projectDir": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy"
+    "projectDir": "/defaultShare/archive/liuwenchu/projects/IPLoc"
   },
   "experiment": {
-    "tmuxSession": "incontext-E-009-E009-R-008-reference-top3-query-top5-ensemble-distill",
-    "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-dynamic-reference-query-online-distill/train-lr4e-5.log",
-    "description": "E009 dynamic online Reference Top-3 -> Query Top-5 stop-gradient distillation，lr=4e-5，4-GPU，3 epochs / 495 steps",
-    "processPattern": "run_e010_r006_dual_span_topn_trial\\.sh"
+    "tmuxSession": "incontext-E-012-R-015-query-key-control",
+    "logFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-015-query-key-control/logs/train.log",
+    "description": "E-012 / R-015-query-key-control / 正面对照：删查询图键是否崩塌",
+    "processPattern": "e012_r011_query_keepset_pruning_step741\\.sh"
   },
   "monitoring": {
     "errorPatterns": [
-      "Traceback",
-      "RuntimeError",
-      "OutOfMemoryError",
+      "FileNotFoundError",
       "CUDA out of memory",
-      "Expected to mark a variable ready only once",
-      "non-finite",
-      "ChildFailedError"
+      "RuntimeError",
+      "KeyboardInterrupt",
+      "Traceback",
+      "AssertionError"
     ],
     "progressPatterns": [
-      "\\[TRAIN\\] step=",
-      "\\[DONE\\]"
+      "KEEPSET_PRUNING",
+      "Traceback",
+      "KeyError"
     ],
     "gpuWarningPercent": 95,
     "etaRegex": "ETA:\\s*(?:(\\d+):)?(\\d{1,2}):(\\d{2}):(\\d{2})|ETA:\\s*(\\d+(?:\\.\\d+)?)\\s*([mh])"
@@ -47,15 +47,15 @@
       "SURVEY_TOOL_RUN_COMPLETE"
     ],
     "requiredArtifacts": [],
-    "metricsFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/metrics.json",
-    "exitCodeFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-010/E010-R-006-gt-supervised-reference-head-stability-heldout-audit/.survey-tool-exit-code",
+    "metricsFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-011-query-keepset-large-pruning/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-011-query-keepset-large-pruning/.survey-tool-exit-code",
     "stableChecks": 2,
     "requireProcessExit": true,
     "allowNonzeroExit": false
   },
   "remediation": {
-    "enabled": true,
-    "maxRestarts": 2,
+    "enabled": false,
+    "maxRestarts": 0,
     "playbooks": []
   },
   "archive": {

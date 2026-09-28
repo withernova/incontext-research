@@ -1,0 +1,69 @@
+{
+  "run_dir": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260924T101025752001Z--multi3-rank-step600-instance-eval-retry",
+  "checkpoint": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260923T135503296295Z--multi3-instances-grpo-rank-lr8e5-3ep/grpo/checkpoints/step_000600_eval_compatible",
+  "samples": 1766,
+  "metrics": {
+    "miou": 0.6826126798809656,
+    "acc_iou_0.5": 0.7406568516421291,
+    "acc_iou_0.75": 0.6517553793884485,
+    "confidence_format_valid_rate": 0.9949037372593431,
+    "requested_count_compliance": 0.9949037372593431,
+    "candidate_count_histogram": {
+      "0": 9,
+      "1": 0,
+      "2": 0,
+      "3": 1757
+    },
+    "multiple_candidate_rate": 0.9949037372593431,
+    "near_duplicate_rate": 0.10702151755379388,
+    "first_candidate_miou": 0.6821394477853259,
+    "oracle_miou": 0.7343658144854429,
+    "oracle_acc_iou_0.5": 0.796149490373726,
+    "oracle_acc_iou_0.75": 0.6970554926387316,
+    "selected_nonfirst_rate": 0.0011325028312570782,
+    "selection_success_given_oracle_0.5": 0.930298719772404
+  },
+  "prediction_sha256": "c29cce505bebfe95cf0d2f08da2392b32d62e37caadeb890b027c8a1fb0cec47",
+  "valid_gt_ap": {
+    "AP25": 0.6789474677188385,
+    "AP50": 0.6114956253190447,
+    "AP75": 0.47959538215771935,
+    "AP50_95_all_points": 0.4481986934278245,
+    "samples": 1756,
+    "invalid_predictions": 9
+  },
+  "legacy_all_query_ap": {
+    "AP25": 0.6739228010127035,
+    "AP50": 0.606994251351749,
+    "AP75": 0.4760862603457976,
+    "AP50_95_all_points": 0.4449177252026651,
+    "samples": 1766,
+    "invalid_predictions": 9
+  },
+  "by_dataset": {
+    "GOT10k": {
+      "AP25": 0.8696836419753087,
+      "AP50": 0.8130499438832773,
+      "AP75": 0.6728535353535353,
+      "AP50_95_all_points": 0.615856874298541,
+      "samples": 180,
+      "invalid_predictions": 0
+    },
+    "LaSOT": {
+      "AP25": 0.6640099932883828,
+      "AP50": 0.5639806301269249,
+      "AP75": 0.3882000243783264,
+      "AP50_95_all_points": 0.3685563122229089,
+      "samples": 590,
+      "invalid_predictions": 0
+    },
+    "TAO": {
+      "AP25": 0.6526473413868764,
+      "AP50": 0.6037941564434338,
+      "AP75": 0.5032376182962592,
+      "AP50_95_all_points": 0.47157062381446185,
+      "samples": 986,
+      "invalid_predictions": 9
+    }
+  }
+}

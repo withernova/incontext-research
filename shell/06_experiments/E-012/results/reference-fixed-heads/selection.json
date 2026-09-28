@@ -1,0 +1,7595 @@
+{
+  "schema": "iploc-szy.head-screening.r003-query/v1",
+  "status": "completed",
+  "records": 96,
+  "head_shape": {
+    "layers": 36,
+    "heads_per_layer": 32
+  },
+  "row_contract": "teacher_forced_query_bbox_pminus1/v1",
+  "selected_sets": {
+    "query": {
+      "5": [
+        "L21H10",
+        "L20H15",
+        "L21H18",
+        "L17H04",
+        "L20H18"
+      ]
+    }
+  },
+  "roles": {
+    "r003_query_nogt": {
+      "gt_used_in_ranking": false,
+      "eligible_head_count": 271,
+      "image_attention_threshold": 0.12177777290344238,
+      "fixed_heads": {
+        "5": [
+          "L21H10",
+          "L20H15",
+          "L21H18",
+          "L17H04",
+          "L20H18"
+        ]
+      },
+      "ranking": [
+        {
+          "head": "L21H10",
+          "selection_frequency": 72,
+          "mean_image_attention_sum": 0.38967062905430794,
+          "mean_component_entropy": 0.22084538982906962
+        },
+        {
+          "head": "L20H15",
+          "selection_frequency": 65,
+          "mean_image_attention_sum": 0.28196454606950283,
+          "mean_component_entropy": 0.28001813394103864
+        },
+        {
+          "head": "L21H18",
+          "selection_frequency": 63,
+          "mean_image_attention_sum": 0.4698868989944458,
+          "mean_component_entropy": 0.27723109219994985
+        },
+        {
+          "head": "L17H04",
+          "selection_frequency": 46,
+          "mean_image_attention_sum": 0.17152138551076254,
+          "mean_component_entropy": 0.40985777313167066
+        },
+        {
+          "head": "L20H18",
+          "selection_frequency": 41,
+          "mean_image_attention_sum": 0.22564632507661977,
+          "mean_component_entropy": 0.3841603660701775
+        },
+        {
+          "head": "L21H11",
+          "selection_frequency": 40,
+          "mean_image_attention_sum": 0.6494176189104716,
+          "mean_component_entropy": 0.5013233658044441
+        },
+        {
+          "head": "L21H08",
+          "selection_frequency": 39,
+          "mean_image_attention_sum": 0.5178440244247516,
+          "mean_component_entropy": 0.5139255645588577
+        },
+        {
+          "head": "L18H15",
+          "selection_frequency": 35,
+          "mean_image_attention_sum": 0.17015082637468973,
+          "mean_component_entropy": 0.4913123774939197
+        },
+        {
+          "head": "L21H25",
+          "selection_frequency": 28,
+          "mean_image_attention_sum": 0.6034549729277691,
+          "mean_component_entropy": 0.7121821281414418
+        },
+        {
+          "head": "L21H28",
+          "selection_frequency": 20,
+          "mean_image_attention_sum": 0.3166714683175087,
+          "mean_component_entropy": 0.7947636469092236
+        },
+        {
+          "head": "L18H12",
+          "selection_frequency": 18,
+          "mean_image_attention_sum": 0.21568171804149947,
+          "mean_component_entropy": 0.655940802175485
+        },
+        {
+          "head": "L18H19",
+          "selection_frequency": 18,
+          "mean_image_attention_sum": 0.6850566727419695,
+          "mean_component_entropy": 0.6373160863440693
+        },
+        {
+          "head": "L18H14",
+          "selection_frequency": 16,
+          "mean_image_attention_sum": 0.19396360466877619,
+          "mean_component_entropy": 0.691004643439943
+        },
+        {
+          "head": "L21H23",
+          "selection_frequency": 16,
+          "mean_image_attention_sum": 0.4445542134344578,
+          "mean_component_entropy": 0.9282921086355239
+        },
+        {
+          "head": "L24H25",
+          "selection_frequency": 16,
+          "mean_image_attention_sum": 0.17833905791242918,
+          "mean_component_entropy": 1.5167318325533088
+        },
+        {
+          "head": "L17H07",
+          "selection_frequency": 14,
+          "mean_image_attention_sum": 0.1732068738589684,
+          "mean_component_entropy": 0.6953297235700083
+        },
+        {
+          "head": "L21H19",
+          "selection_frequency": 14,
+          "mean_image_attention_sum": 0.4299012863387664,
+          "mean_component_entropy": 0.7618682831684547
+        },
+        {
+          "head": "L24H16",
+          "selection_frequency": 14,
+          "mean_image_attention_sum": 0.3501387381305297,
+          "mean_component_entropy": 0.7881330463032836
+        },
+        {
+          "head": "L23H13",
+          "selection_frequency": 13,
+          "mean_image_attention_sum": 0.6618512012064457,
+          "mean_component_entropy": 0.8566998829729261
+        },
+        {
+          "head": "L24H19",
+          "selection_frequency": 13,
+          "mean_image_attention_sum": 0.29775942613681156,
+          "mean_component_entropy": 0.8402277268255341
+        },
+        {
+          "head": "L20H16",
+          "selection_frequency": 12,
+          "mean_image_attention_sum": 0.6608978118747473,
+          "mean_component_entropy": 0.7514367376593302
+        },
+        {
+          "head": "L21H26",
+          "selection_frequency": 12,
+          "mean_image_attention_sum": 0.4081236645579338,
+          "mean_component_entropy": 0.8342069333211439
+        },
+        {
+          "head": "L16H23",
+          "selection_frequency": 11,
+          "mean_image_attention_sum": 0.5094282894084851,
+          "mean_component_entropy": 0.7773288159124396
+        },
+        {
+          "head": "L18H30",
+          "selection_frequency": 11,
+          "mean_image_attention_sum": 0.2648214294264714,
+          "mean_component_entropy": 0.7970471147217332
+        },
+        {
+          "head": "L20H14",
+          "selection_frequency": 11,
+          "mean_image_attention_sum": 0.3873301073908806,
+          "mean_component_entropy": 0.7735189962759028
+        },
+        {
+          "head": "L20H21",
+          "selection_frequency": 10,
+          "mean_image_attention_sum": 0.1932967926065127,
+          "mean_component_entropy": 0.8500774247010274
+        },
+        {
+          "head": "L21H31",
+          "selection_frequency": 10,
+          "mean_image_attention_sum": 0.4225663058459759,
+          "mean_component_entropy": 0.7970943113959419
+        },
+        {
+          "head": "L17H05",
+          "selection_frequency": 9,
+          "mean_image_attention_sum": 0.2121337279677391,
+          "mean_component_entropy": 0.8233468640118901
+        },
+        {
+          "head": "L20H08",
+          "selection_frequency": 9,
+          "mean_image_attention_sum": 0.5082236745705208,
+          "mean_component_entropy": 0.9328039076157827
+        },
+        {
+          "head": "L22H03",
+          "selection_frequency": 9,
+          "mean_image_attention_sum": 0.19195964622000852,
+          "mean_component_entropy": 0.8869591352820431
+        },
+        {
+          "head": "L25H30",
+          "selection_frequency": 9,
+          "mean_image_attention_sum": 0.30125358266135055,
+          "mean_component_entropy": 0.9863368538628029
+        },
+        {
+          "head": "L17H15",
+          "selection_frequency": 8,
+          "mean_image_attention_sum": 0.33334800973534584,
+          "mean_component_entropy": 0.7274929413878408
+        },
+        {
+          "head": "L18H21",
+          "selection_frequency": 8,
+          "mean_image_attention_sum": 0.5429380182176828,
+          "mean_component_entropy": 0.8508800287992826
+        },
+        {
+          "head": "L19H14",
+          "selection_frequency": 8,
+          "mean_image_attention_sum": 0.4256384962548812,
+          "mean_component_entropy": 0.8765420275695327
+        },
+        {
+          "head": "L20H04",
+          "selection_frequency": 8,
+          "mean_image_attention_sum": 0.20303436430792013,
+          "mean_component_entropy": 0.888531347283778
+        },
+        {
+          "head": "L15H15",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.166948227211833,
+          "mean_component_entropy": 0.9492581049034253
+        },
+        {
+          "head": "L18H08",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.45912528907259303,
+          "mean_component_entropy": 0.8702253042486628
+        },
+        {
+          "head": "L19H03",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.6165690453102192,
+          "mean_component_entropy": 0.9051676188248937
+        },
+        {
+          "head": "L20H17",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.603052856400609,
+          "mean_component_entropy": 0.8340876301695985
+        },
+        {
+          "head": "L20H31",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.428235216687123,
+          "mean_component_entropy": 0.7962742389258971
+        },
+        {
+          "head": "L23H09",
+          "selection_frequency": 7,
+          "mean_image_attention_sum": 0.2569633151094119,
+          "mean_component_entropy": 0.9341293697218555
+        },
+        {
+          "head": "L15H13",
+          "selection_frequency": 6,
+          "mean_image_attention_sum": 0.22546999777356783,
+          "mean_component_entropy": 0.8805297637717514
+        },
+        {
+          "head": "L19H00",
+          "selection_frequency": 6,
+          "mean_image_attention_sum": 0.43693042484422523,
+          "mean_component_entropy": 0.8642750329654184
+        },
+        {
+          "head": "L19H05",
+          "selection_frequency": 6,
+          "mean_image_attention_sum": 0.192636851221323,
+          "mean_component_entropy": 1.6833491155876719
+        },
+        {
+          "head": "L22H04",
+          "selection_frequency": 6,
+          "mean_image_attention_sum": 0.7161359122643868,
+          "mean_component_entropy": 0.9662847212937589
+        },
+        {
+          "head": "L16H22",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.505627648284038,
+          "mean_component_entropy": 0.9782827079341058
+        },
+        {
+          "head": "L18H13",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.3060393414149682,
+          "mean_component_entropy": 0.8617970950416031
+        },
+        {
+          "head": "L18H26",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.29359982535243034,
+          "mean_component_entropy": 1.0174521883126317
+        },
+        {
+          "head": "L19H13",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.5627271061142286,
+          "mean_component_entropy": 1.0096631532682967
+        },
+        {
+          "head": "L21H27",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.4660414730509122,
+          "mean_component_entropy": 0.9768676184944468
+        },
+        {
+          "head": "L22H00",
+          "selection_frequency": 5,
+          "mean_image_attention_sum": 0.5518306326121092,
+          "mean_component_entropy": 0.9886049407882208
+        },
+        {
+          "head": "L15H07",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.2819088026881218,
+          "mean_component_entropy": 0.9452298019345436
+        },
+        {
+          "head": "L16H02",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.15685425015787283,
+          "mean_component_entropy": 0.8527229928811387
+        },
+        {
+          "head": "L17H17",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.27203428000211716,
+          "mean_component_entropy": 0.9656361909657466
+        },
+        {
+          "head": "L20H19",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.38891896108786267,
+          "mean_component_entropy": 0.9739863632578589
+        },
+        {
+          "head": "L20H23",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.28979615432520706,
+          "mean_component_entropy": 0.9783681079553347
+        },
+        {
+          "head": "L21H09",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.3549789221336444,
+          "mean_component_entropy": 1.1203145819094413
+        },
+        {
+          "head": "L21H17",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.31577128420273465,
+          "mean_component_entropy": 0.8369453887461696
+        },
+        {
+          "head": "L23H28",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.4841754014293353,
+          "mean_component_entropy": 0.9215366428832112
+        },
+        {
+          "head": "L25H10",
+          "selection_frequency": 4,
+          "mean_image_attention_sum": 0.2962607604761918,
+          "mean_component_entropy": 1.0159861978424014
+        },
+        {
+          "head": "L15H12",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.1514966245740652,
+          "mean_component_entropy": 1.072608574076815
+        },
+        {
+          "head": "L18H06",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.15829321555793285,
+          "mean_component_entropy": 0.906083178188528
+        },
+        {
+          "head": "L19H09",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.15738079013923803,
+          "mean_component_entropy": 1.0406952263937856
+        },
+        {
+          "head": "L19H30",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.27359032444655895,
+          "mean_component_entropy": 1.0555073576057366
+        },
+        {
+          "head": "L20H30",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.3790387113889058,
+          "mean_component_entropy": 1.0126115971388365
+        },
+        {
+          "head": "L22H05",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.4665294935305913,
+          "mean_component_entropy": 1.0861029278904824
+        },
+        {
+          "head": "L23H30",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.7126359809190035,
+          "mean_component_entropy": 1.1084076836574035
+        },
+        {
+          "head": "L26H20",
+          "selection_frequency": 3,
+          "mean_image_attention_sum": 0.26599982753396034,
+          "mean_component_entropy": 1.1809900059770142
+        },
+        {
+          "head": "L16H21",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.19372184574604034,
+          "mean_component_entropy": 1.3918505538507244
+        },
+        {
+          "head": "L17H01",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.16653402956823507,
+          "mean_component_entropy": 0.9507689742680686
+        },
+        {
+          "head": "L17H06",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.17340147433181605,
+          "mean_component_entropy": 1.204508318942622
+        },
+        {
+          "head": "L17H14",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.30027491350968677,
+          "mean_component_entropy": 0.9613869234461259
+        },
+        {
+          "head": "L17H19",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.1953158521403869,
+          "mean_component_entropy": 1.0717261497328712
+        },
+        {
+          "head": "L18H29",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.47670697420835495,
+          "mean_component_entropy": 0.9979662641305612
+        },
+        {
+          "head": "L19H12",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.5561827390144268,
+          "mean_component_entropy": 1.0948978223387686
+        },
+        {
+          "head": "L19H15",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.31333045723537606,
+          "mean_component_entropy": 1.0371472447451646
+        },
+        {
+          "head": "L20H13",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.2633272831638654,
+          "mean_component_entropy": 0.967527911802364
+        },
+        {
+          "head": "L20H29",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.5996710571149985,
+          "mean_component_entropy": 1.0292220049515735
+        },
+        {
+          "head": "L21H20",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.25956924508015317,
+          "mean_component_entropy": 1.3552363466898412
+        },
+        {
+          "head": "L21H22",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.14515430542329946,
+          "mean_component_entropy": 1.2855174151371414
+        },
+        {
+          "head": "L21H30",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.28023430829246837,
+          "mean_component_entropy": 1.1909636876615028
+        },
+        {
+          "head": "L22H01",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.18808786571025848,
+          "mean_component_entropy": 1.11275078899234
+        },
+        {
+          "head": "L22H06",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.33441139198839664,
+          "mean_component_entropy": 1.1128766010663387
+        },
+        {
+          "head": "L24H08",
+          "selection_frequency": 2,
+          "mean_image_attention_sum": 0.17985008098185062,
+          "mean_component_entropy": 1.4083369281493268
+        },
+        {
+          "head": "L4H29",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.36962491025527316,
+          "mean_component_entropy": 1.282523415143311
+        },
+        {
+          "head": "L5H02",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.21747089611987272,
+          "mean_component_entropy": 1.450590665823268
+        },
+        {
+          "head": "L11H24",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.14157571954031786,
+          "mean_component_entropy": 1.2435530920419557
+        },
+        {
+          "head": "L12H18",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.28759058316548664,
+          "mean_component_entropy": 1.7049176091802183
+        },
+        {
+          "head": "L14H13",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.19928922380010286,
+          "mean_component_entropy": 1.7264816494327804
+        },
+        {
+          "head": "L16H20",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.13601006815830866,
+          "mean_component_entropy": 1.047273105215761
+        },
+        {
+          "head": "L16H29",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.2743501216173172,
+          "mean_component_entropy": 1.2116796876007092
+        },
+        {
+          "head": "L17H09",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.15181180648505688,
+          "mean_component_entropy": 1.5329586868398068
+        },
+        {
+          "head": "L17H20",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.14532900974154472,
+          "mean_component_entropy": 1.3775221586762019
+        },
+        {
+          "head": "L17H22",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.20098925940692425,
+          "mean_component_entropy": 1.3422986068353182
+        },
+        {
+          "head": "L18H11",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.3528789797176917,
+          "mean_component_entropy": 1.1578857046202946
+        },
+        {
+          "head": "L18H18",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.5943651230384907,
+          "mean_component_entropy": 1.2966257924711477
+        },
+        {
+          "head": "L18H22",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.5089141428470612,
+          "mean_component_entropy": 1.1041037478622064
+        },
+        {
+          "head": "L18H24",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.2931330588956674,
+          "mean_component_entropy": 1.1011006722064558
+        },
+        {
+          "head": "L18H31",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.2970009253670772,
+          "mean_component_entropy": 1.3159075889695409
+        },
+        {
+          "head": "L19H31",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.5565899641563495,
+          "mean_component_entropy": 1.0236911786821012
+        },
+        {
+          "head": "L21H29",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.17689815536141396,
+          "mean_component_entropy": 1.238386581385159
+        },
+        {
+          "head": "L22H02",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.3579786481956641,
+          "mean_component_entropy": 1.058903371923375
+        },
+        {
+          "head": "L24H13",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.379722594593962,
+          "mean_component_entropy": 1.6720873826648532
+        },
+        {
+          "head": "L24H17",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.31572230408589047,
+          "mean_component_entropy": 1.1484595343882873
+        },
+        {
+          "head": "L24H23",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.12737245174745718,
+          "mean_component_entropy": 1.2825821371280635
+        },
+        {
+          "head": "L24H29",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.33645161986351013,
+          "mean_component_entropy": 1.2863066056037888
+        },
+        {
+          "head": "L26H16",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.22334479913115501,
+          "mean_component_entropy": 1.638448836368143
+        },
+        {
+          "head": "L26H21",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.18944434635341167,
+          "mean_component_entropy": 1.673492681074084
+        },
+        {
+          "head": "L26H27",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.37813813984394073,
+          "mean_component_entropy": 1.3579152245225081
+        },
+        {
+          "head": "L28H18",
+          "selection_frequency": 1,
+          "mean_image_attention_sum": 0.3408035909136136,
+          "mean_component_entropy": 1.7098788643685812
+        },
+        {
+          "head": "L2H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1479349589596192,
+          "mean_component_entropy": 2.6865251309500575
+        },
+        {
+          "head": "L5H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.4483884231497844,
+          "mean_component_entropy": 1.393645881292537
+        },
+        {
+          "head": "L9H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.16674491514762244,
+          "mean_component_entropy": 1.9110778428878146
+        },
+        {
+          "head": "L10H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17453418113291264,
+          "mean_component_entropy": 1.8477911905239843
+        },
+        {
+          "head": "L10H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17558149993419647,
+          "mean_component_entropy": 2.368459161589246
+        },
+        {
+          "head": "L11H12",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15209485155840716,
+          "mean_component_entropy": 2.016976441370717
+        },
+        {
+          "head": "L11H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.295344286908706,
+          "mean_component_entropy": 2.358184942849457
+        },
+        {
+          "head": "L11H26",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17878010869026184,
+          "mean_component_entropy": 1.7076926826469228
+        },
+        {
+          "head": "L12H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.28532511678834754,
+          "mean_component_entropy": 2.3284146981654903
+        },
+        {
+          "head": "L12H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12518051825463772,
+          "mean_component_entropy": 1.9752954331754926
+        },
+        {
+          "head": "L12H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12782622873783112,
+          "mean_component_entropy": 1.7230661636311242
+        },
+        {
+          "head": "L13H00",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1514487980554501,
+          "mean_component_entropy": 2.357828302200462
+        },
+        {
+          "head": "L13H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5199770635614792,
+          "mean_component_entropy": 1.7041685718691806
+        },
+        {
+          "head": "L13H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.34535875854392845,
+          "mean_component_entropy": 2.22988154479662
+        },
+        {
+          "head": "L13H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3711983288327853,
+          "mean_component_entropy": 1.9024528984180133
+        },
+        {
+          "head": "L13H08",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15861846754948297,
+          "mean_component_entropy": 1.9233451449370358
+        },
+        {
+          "head": "L13H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2461098451167345,
+          "mean_component_entropy": 2.159826701008732
+        },
+        {
+          "head": "L13H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.23333942145109177,
+          "mean_component_entropy": 1.9059000992598147
+        },
+        {
+          "head": "L13H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.47457765477399033,
+          "mean_component_entropy": 2.2105956284392487
+        },
+        {
+          "head": "L13H18",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.28265052537123364,
+          "mean_component_entropy": 2.10711819852512
+        },
+        {
+          "head": "L13H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5137463814268509,
+          "mean_component_entropy": 2.034997417608277
+        },
+        {
+          "head": "L14H04",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5835537121941646,
+          "mean_component_entropy": 1.7575989149402726
+        },
+        {
+          "head": "L14H06",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.52039350134631,
+          "mean_component_entropy": 1.851629463577198
+        },
+        {
+          "head": "L14H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.22330012110372385,
+          "mean_component_entropy": 1.6052192177150608
+        },
+        {
+          "head": "L14H12",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13554197549819946,
+          "mean_component_entropy": 1.8755997084519096
+        },
+        {
+          "head": "L14H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13629649889965853,
+          "mean_component_entropy": 1.6907161564924458
+        },
+        {
+          "head": "L14H15",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2123472864429156,
+          "mean_component_entropy": 1.7913031550161318
+        },
+        {
+          "head": "L14H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1689763938387235,
+          "mean_component_entropy": 1.7434958715047246
+        },
+        {
+          "head": "L14H25",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.34577436993519467,
+          "mean_component_entropy": 1.995074110892732
+        },
+        {
+          "head": "L14H27",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5422043552001318,
+          "mean_component_entropy": 1.5615297842336642
+        },
+        {
+          "head": "L15H00",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2496376894414425,
+          "mean_component_entropy": 2.154619069248843
+        },
+        {
+          "head": "L15H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.22769412460426489,
+          "mean_component_entropy": 1.8507467679920608
+        },
+        {
+          "head": "L15H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3103550237913926,
+          "mean_component_entropy": 2.25770747650803
+        },
+        {
+          "head": "L15H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.22536349358657995,
+          "mean_component_entropy": 2.0717049100904745
+        },
+        {
+          "head": "L15H04",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13498769886791706,
+          "mean_component_entropy": 1.409219264474405
+        },
+        {
+          "head": "L15H08",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2574359892557065,
+          "mean_component_entropy": 1.5442246934358703
+        },
+        {
+          "head": "L15H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.31727599911391735,
+          "mean_component_entropy": 1.5361983566768693
+        },
+        {
+          "head": "L15H11",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1907324275622765,
+          "mean_component_entropy": 2.0160436938293613
+        },
+        {
+          "head": "L15H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17768928098181883,
+          "mean_component_entropy": 1.2987598348400133
+        },
+        {
+          "head": "L15H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.35298376219968003,
+          "mean_component_entropy": 1.5496835186322444
+        },
+        {
+          "head": "L15H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2108709073315064,
+          "mean_component_entropy": 1.1432617676679515
+        },
+        {
+          "head": "L16H00",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12240465233723323,
+          "mean_component_entropy": 1.489737059549291
+        },
+        {
+          "head": "L16H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.23827949600915113,
+          "mean_component_entropy": 2.1622321067339736
+        },
+        {
+          "head": "L16H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1617449652403593,
+          "mean_component_entropy": 1.4757314323128536
+        },
+        {
+          "head": "L16H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.20770374747614065,
+          "mean_component_entropy": 1.3481287816611107
+        },
+        {
+          "head": "L16H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.4140820559114218,
+          "mean_component_entropy": 1.2865255235769248
+        },
+        {
+          "head": "L16H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.19049612805247307,
+          "mean_component_entropy": 1.5902510018450509
+        },
+        {
+          "head": "L16H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.21946202156444392,
+          "mean_component_entropy": 1.5896756014129643
+        },
+        {
+          "head": "L17H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2481446291009585,
+          "mean_component_entropy": 1.6357665120394966
+        },
+        {
+          "head": "L17H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.24178520838419595,
+          "mean_component_entropy": 1.220803672640247
+        },
+        {
+          "head": "L17H13",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.19279954520364603,
+          "mean_component_entropy": 1.4011857202386713
+        },
+        {
+          "head": "L17H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.26117567842205364,
+          "mean_component_entropy": 1.4734475635828044
+        },
+        {
+          "head": "L17H18",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2271517775952816,
+          "mean_component_entropy": 1.9147929810125774
+        },
+        {
+          "head": "L18H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17902879665295282,
+          "mean_component_entropy": 1.655467725092512
+        },
+        {
+          "head": "L18H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.20244720578193665,
+          "mean_component_entropy": 1.3297829473797917
+        },
+        {
+          "head": "L18H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2285468652844429,
+          "mean_component_entropy": 1.367088053494718
+        },
+        {
+          "head": "L18H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18739453020195165,
+          "mean_component_entropy": 0.9733982083697849
+        },
+        {
+          "head": "L18H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2802697153141101,
+          "mean_component_entropy": 1.4503684873425418
+        },
+        {
+          "head": "L18H20",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.27680978427330655,
+          "mean_component_entropy": 1.5007406704332311
+        },
+        {
+          "head": "L18H23",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.24388405308127403,
+          "mean_component_entropy": 1.5761518407388653
+        },
+        {
+          "head": "L18H25",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2359316721558571,
+          "mean_component_entropy": 1.1849199849887515
+        },
+        {
+          "head": "L18H27",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2654322950790326,
+          "mean_component_entropy": 1.1209677426209483
+        },
+        {
+          "head": "L19H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.29080279047290486,
+          "mean_component_entropy": 1.2225985050605013
+        },
+        {
+          "head": "L19H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.311807078619798,
+          "mean_component_entropy": 1.0421525470350788
+        },
+        {
+          "head": "L19H06",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1373468271146218,
+          "mean_component_entropy": 1.985091091592049
+        },
+        {
+          "head": "L19H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12592662498354912,
+          "mean_component_entropy": 1.532941486659215
+        },
+        {
+          "head": "L19H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14700787514448166,
+          "mean_component_entropy": 2.3472812207667224
+        },
+        {
+          "head": "L19H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.588731562718749,
+          "mean_component_entropy": 0.9821797275579339
+        },
+        {
+          "head": "L19H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.29010554030537605,
+          "mean_component_entropy": 1.5644641005771422
+        },
+        {
+          "head": "L20H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14554517219463983,
+          "mean_component_entropy": 1.9650938913725895
+        },
+        {
+          "head": "L20H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17637802536288896,
+          "mean_component_entropy": 1.8112179982885241
+        },
+        {
+          "head": "L20H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.47879587051769096,
+          "mean_component_entropy": 1.2172219251632679
+        },
+        {
+          "head": "L21H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.36853362309436005,
+          "mean_component_entropy": 1.3355375208203828
+        },
+        {
+          "head": "L21H21",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2523041299233834,
+          "mean_component_entropy": 1.5103712900262518
+        },
+        {
+          "head": "L21H24",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5745154488831758,
+          "mean_component_entropy": 1.1939719856463376
+        },
+        {
+          "head": "L22H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.525546345859766,
+          "mean_component_entropy": 1.6691960849713616
+        },
+        {
+          "head": "L22H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12572362087666988,
+          "mean_component_entropy": 1.6919531694032812
+        },
+        {
+          "head": "L22H11",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18052384816110134,
+          "mean_component_entropy": 1.6085962626196482
+        },
+        {
+          "head": "L22H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2527566061665614,
+          "mean_component_entropy": 2.212198351995188
+        },
+        {
+          "head": "L23H05",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13710085737208524,
+          "mean_component_entropy": 1.4043570040260025
+        },
+        {
+          "head": "L23H08",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.24357400834560394,
+          "mean_component_entropy": 1.7833052731582342
+        },
+        {
+          "head": "L23H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.6367406162122885,
+          "mean_component_entropy": 1.2748520006092097
+        },
+        {
+          "head": "L23H11",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3079294903824727,
+          "mean_component_entropy": 1.5545625549153768
+        },
+        {
+          "head": "L23H12",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.39306668750941753,
+          "mean_component_entropy": 1.8418373796236374
+        },
+        {
+          "head": "L23H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.5467905054489771,
+          "mean_component_entropy": 1.2817549572868199
+        },
+        {
+          "head": "L23H15",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.44284385939439136,
+          "mean_component_entropy": 1.6481841024451291
+        },
+        {
+          "head": "L23H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2601882877449195,
+          "mean_component_entropy": 1.531511850707498
+        },
+        {
+          "head": "L24H05",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1409919516493877,
+          "mean_component_entropy": 1.5136443600085119
+        },
+        {
+          "head": "L24H12",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13901086648305258,
+          "mean_component_entropy": 1.556042527158566
+        },
+        {
+          "head": "L24H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.27598483798404533,
+          "mean_component_entropy": 1.7993557264175362
+        },
+        {
+          "head": "L24H15",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17394755346079668,
+          "mean_component_entropy": 1.6940665035295475
+        },
+        {
+          "head": "L24H21",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15540312541027865,
+          "mean_component_entropy": 1.4010728063631863
+        },
+        {
+          "head": "L24H22",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1417154831190904,
+          "mean_component_entropy": 1.565447522169654
+        },
+        {
+          "head": "L24H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14403558584551016,
+          "mean_component_entropy": 1.8813485984809806
+        },
+        {
+          "head": "L24H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.16912703588604927,
+          "mean_component_entropy": 1.4669996229618363
+        },
+        {
+          "head": "L26H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.20404129661619663,
+          "mean_component_entropy": 1.3884682641876218
+        },
+        {
+          "head": "L26H22",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18374790685872236,
+          "mean_component_entropy": 1.3127880912304877
+        },
+        {
+          "head": "L26H24",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.6412923416743675,
+          "mean_component_entropy": 1.7727860384335112
+        },
+        {
+          "head": "L26H25",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.6859793669233719,
+          "mean_component_entropy": 2.350605965499813
+        },
+        {
+          "head": "L26H26",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.32192001305520535,
+          "mean_component_entropy": 1.5984424710129623
+        },
+        {
+          "head": "L26H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1534232683479786,
+          "mean_component_entropy": 2.283051304397605
+        },
+        {
+          "head": "L26H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.126767764488856,
+          "mean_component_entropy": 2.0226242416573306
+        },
+        {
+          "head": "L27H15",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1948522962629795,
+          "mean_component_entropy": 1.9397058352796905
+        },
+        {
+          "head": "L27H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.29545117790500325,
+          "mean_component_entropy": 1.6919205627196778
+        },
+        {
+          "head": "L27H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17065553988019624,
+          "mean_component_entropy": 2.0337787300906722
+        },
+        {
+          "head": "L27H18",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.26626026692489785,
+          "mean_component_entropy": 1.7344351600944021
+        },
+        {
+          "head": "L27H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2591600548475981,
+          "mean_component_entropy": 1.808133598214942
+        },
+        {
+          "head": "L28H00",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1499158584823211,
+          "mean_component_entropy": 2.0053063161450946
+        },
+        {
+          "head": "L28H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15885182532171407,
+          "mean_component_entropy": 1.8136492520498122
+        },
+        {
+          "head": "L28H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15003222723801932,
+          "mean_component_entropy": 1.8740074166858929
+        },
+        {
+          "head": "L28H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3112147692590952,
+          "mean_component_entropy": 1.5919117362506519
+        },
+        {
+          "head": "L28H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3331438470631838,
+          "mean_component_entropy": 1.630031340678468
+        },
+        {
+          "head": "L28H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.43409682251513004,
+          "mean_component_entropy": 2.080752467942023
+        },
+        {
+          "head": "L28H23",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14971094392240047,
+          "mean_component_entropy": 2.001838932700368
+        },
+        {
+          "head": "L29H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.19732562514642873,
+          "mean_component_entropy": 2.3394943556361762
+        },
+        {
+          "head": "L29H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.24679637451966605,
+          "mean_component_entropy": 2.2662672059141724
+        },
+        {
+          "head": "L29H04",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.36983574492235977,
+          "mean_component_entropy": 1.8952597889828988
+        },
+        {
+          "head": "L29H06",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2951558530330658,
+          "mean_component_entropy": 1.8382687395238744
+        },
+        {
+          "head": "L29H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.16305901668965816,
+          "mean_component_entropy": 1.9427128171048178
+        },
+        {
+          "head": "L29H08",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1674110802511374,
+          "mean_component_entropy": 1.8406580922429356
+        },
+        {
+          "head": "L29H13",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18721107579767704,
+          "mean_component_entropy": 2.145042549173601
+        },
+        {
+          "head": "L29H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18718591953317323,
+          "mean_component_entropy": 2.2300380874313745
+        },
+        {
+          "head": "L29H15",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14355558902025223,
+          "mean_component_entropy": 2.1257291578157242
+        },
+        {
+          "head": "L29H18",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12177777290344238,
+          "mean_component_entropy": 1.8930516381932971
+        },
+        {
+          "head": "L30H26",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1456180177628994,
+          "mean_component_entropy": 2.1973763705087968
+        },
+        {
+          "head": "L32H05",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.26179281373818714,
+          "mean_component_entropy": 2.0241261366965797
+        },
+        {
+          "head": "L32H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1473078764975071,
+          "mean_component_entropy": 1.987424283604741
+        },
+        {
+          "head": "L32H11",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17925841050843397,
+          "mean_component_entropy": 2.042398144165364
+        },
+        {
+          "head": "L33H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18950684741139412,
+          "mean_component_entropy": 2.3018857107528596
+        },
+        {
+          "head": "L33H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.19536949321627617,
+          "mean_component_entropy": 1.9520432447515128
+        },
+        {
+          "head": "L33H12",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1329523747165998,
+          "mean_component_entropy": 1.9816016313682365
+        },
+        {
+          "head": "L33H13",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.20764981644848982,
+          "mean_component_entropy": 1.822813116853645
+        },
+        {
+          "head": "L33H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1334828045219183,
+          "mean_component_entropy": 2.0775683584027873
+        },
+        {
+          "head": "L33H16",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1614545832077662,
+          "mean_component_entropy": 2.133199979861646
+        },
+        {
+          "head": "L33H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.30924008538325626,
+          "mean_component_entropy": 2.090292933970087
+        },
+        {
+          "head": "L33H18",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.44721693980197114,
+          "mean_component_entropy": 1.9663016418194308
+        },
+        {
+          "head": "L33H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17765313821534315,
+          "mean_component_entropy": 2.1066075149400247
+        },
+        {
+          "head": "L33H23",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.14385249527792135,
+          "mean_component_entropy": 1.8561516979143018
+        },
+        {
+          "head": "L33H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.25998774481316406,
+          "mean_component_entropy": 2.1070090706424627
+        },
+        {
+          "head": "L33H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1732551840444406,
+          "mean_component_entropy": 2.196701216538307
+        },
+        {
+          "head": "L33H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17923646171887717,
+          "mean_component_entropy": 2.226168035985506
+        },
+        {
+          "head": "L33H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.18280553879837194,
+          "mean_component_entropy": 2.216506129347979
+        },
+        {
+          "head": "L34H01",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1856565816948811,
+          "mean_component_entropy": 1.9318242871893088
+        },
+        {
+          "head": "L34H02",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15904645062983036,
+          "mean_component_entropy": 2.4551480124746887
+        },
+        {
+          "head": "L34H03",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.167348800227046,
+          "mean_component_entropy": 2.065242012242327
+        },
+        {
+          "head": "L34H04",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.21586192026734352,
+          "mean_component_entropy": 2.2367444755379498
+        },
+        {
+          "head": "L34H05",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3495412413030863,
+          "mean_component_entropy": 2.3237439410126033
+        },
+        {
+          "head": "L34H06",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3950957177827756,
+          "mean_component_entropy": 2.3895890668996906
+        },
+        {
+          "head": "L34H07",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.2147055771201849,
+          "mean_component_entropy": 2.402670913268812
+        },
+        {
+          "head": "L34H09",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1456879892696937,
+          "mean_component_entropy": 2.2919930544309746
+        },
+        {
+          "head": "L34H10",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13321024489899477,
+          "mean_component_entropy": 2.3768876804211527
+        },
+        {
+          "head": "L34H17",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.17531157843768597,
+          "mean_component_entropy": 2.496017414079324
+        },
+        {
+          "head": "L34H19",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.31994144308070344,
+          "mean_component_entropy": 2.3725661596024143
+        },
+        {
+          "head": "L34H21",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1517207988848289,
+          "mean_component_entropy": 2.3241427264303147
+        },
+        {
+          "head": "L34H28",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.33731815218925476,
+          "mean_component_entropy": 1.9123635586469903
+        },
+        {
+          "head": "L34H29",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.12712551032503447,
+          "mean_component_entropy": 2.0232516454109355
+        },
+        {
+          "head": "L34H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.3359927249451478,
+          "mean_component_entropy": 2.1096642852833587
+        },
+        {
+          "head": "L34H31",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.13591924930612245,
+          "mean_component_entropy": 2.0688801792879463
+        },
+        {
+          "head": "L35H11",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15964333092172941,
+          "mean_component_entropy": 2.130206668149999
+        },
+        {
+          "head": "L35H14",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.15225605914990106,
+          "mean_component_entropy": 2.2432095475170755
+        },
+        {
+          "head": "L35H30",
+          "selection_frequency": 0,
+          "mean_image_attention_sum": 0.1415267481158177,
+          "mean_component_entropy": 1.9272081654152717
+        }
+      ]
+    }
+  },
+  "parameters": {
+    "per_sample": 10,
+    "mean_multiplier": 1.0,
+    "excluded_layers": [
+      0,
+      1
+    ],
+    "fixed_head_counts": [
+      5
+    ]
+  },
+  "heads": [
+    "L21H10",
+    "L20H15",
+    "L21H18",
+    "L17H04",
+    "L20H18"
+  ],
+  "completed_steps": 1482,
+  "dataset_manifest": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus_valid10522.json",
+  "probe_records": [
+    {
+      "dataset_index": 57,
+      "sample_id": "57-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_000057.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 64,
+      "sample_id": "64-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_000064.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 115,
+      "sample_id": "115-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_000115.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 145,
+      "sample_id": "145-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_000145.npz",
+      "bbox_token_positions": [
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624
+      ],
+      "prediction_rows": [
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623
+      ],
+      "spans": {
+        "reference": [
+          100,
+          331,
+          11,
+          21
+        ],
+        "query": [
+          356,
+          587,
+          11,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 332,
+      "sample_id": "332-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_000332.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 363,
+      "sample_id": "363-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_000363.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 544,
+      "sample_id": "544-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_000544.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 660,
+      "sample_id": "660-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_000660.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 779,
+      "sample_id": "779-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_000779.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 1232,
+      "sample_id": "1232-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_001232.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 1327,
+      "sample_id": "1327-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_001327.npz",
+      "bbox_token_positions": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662
+      ],
+      "prediction_rows": [
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          375,
+          627,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 1412,
+      "sample_id": "1412-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_001412.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 1467,
+      "sample_id": "1467-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_001467.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 1507,
+      "sample_id": "1507-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_001507.npz",
+      "bbox_token_positions": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          376,
+          628,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2024,
+      "sample_id": "2024-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_002024.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2049,
+      "sample_id": "2049-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_002049.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2099,
+      "sample_id": "2099-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_002099.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2189,
+      "sample_id": "2189-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_002189.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2262,
+      "sample_id": "2262-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_002262.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2331,
+      "sample_id": "2331-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_002331.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2375,
+      "sample_id": "2375-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_002375.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2493,
+      "sample_id": "2493-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_002493.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2511,
+      "sample_id": "2511-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_002511.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2536,
+      "sample_id": "2536-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_002536.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2552,
+      "sample_id": "2552-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_002552.npz",
+      "bbox_token_positions": [
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621
+      ],
+      "prediction_rows": [
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620
+      ],
+      "spans": {
+        "reference": [
+          100,
+          331,
+          11,
+          21
+        ],
+        "query": [
+          356,
+          587,
+          11,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2580,
+      "sample_id": "2580-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_002580.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2672,
+      "sample_id": "2672-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_002672.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2734,
+      "sample_id": "2734-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_002734.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 2864,
+      "sample_id": "2864-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_002864.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3025,
+      "sample_id": "3025-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_003025.npz",
+      "bbox_token_positions": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "prediction_rows": [
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          375,
+          627,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3032,
+      "sample_id": "3032-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_003032.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3184,
+      "sample_id": "3184-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_003184.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3280,
+      "sample_id": "3280-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_003280.npz",
+      "bbox_token_positions": [
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630
+      ],
+      "prediction_rows": [
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629
+      ],
+      "spans": {
+        "reference": [
+          100,
+          334,
+          13,
+          18
+        ],
+        "query": [
+          359,
+          593,
+          13,
+          18
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3426,
+      "sample_id": "3426-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_003426.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3460,
+      "sample_id": "3460-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_003460.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3605,
+      "sample_id": "3605-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_003605.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3642,
+      "sample_id": "3642-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_003642.npz",
+      "bbox_token_positions": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663
+      ],
+      "prediction_rows": [
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          375,
+          627,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3695,
+      "sample_id": "3695-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_003695.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3815,
+      "sample_id": "3815-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_003815.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 3953,
+      "sample_id": "3953-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_003953.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4166,
+      "sample_id": "4166-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_004166.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4247,
+      "sample_id": "4247-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_004247.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4359,
+      "sample_id": "4359-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_004359.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4414,
+      "sample_id": "4414-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_004414.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4435,
+      "sample_id": "4435-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_004435.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4511,
+      "sample_id": "4511-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_004511.npz",
+      "bbox_token_positions": [
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637,
+        638
+      ],
+      "prediction_rows": [
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630,
+        631,
+        632,
+        633,
+        634,
+        635,
+        636,
+        637
+      ],
+      "spans": {
+        "reference": [
+          100,
+          338,
+          14,
+          17
+        ],
+        "query": [
+          363,
+          601,
+          14,
+          17
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4609,
+      "sample_id": "4609-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_004609.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 4690,
+      "sample_id": "4690-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_004690.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5024,
+      "sample_id": "5024-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_005024.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5209,
+      "sample_id": "5209-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_005209.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5293,
+      "sample_id": "5293-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_005293.npz",
+      "bbox_token_positions": [
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602
+      ],
+      "prediction_rows": [
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601
+      ],
+      "spans": {
+        "reference": [
+          100,
+          320,
+          11,
+          20
+        ],
+        "query": [
+          345,
+          565,
+          11,
+          20
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5308,
+      "sample_id": "5308-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_005308.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5453,
+      "sample_id": "5453-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_005453.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5677,
+      "sample_id": "5677-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_005677.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5984,
+      "sample_id": "5984-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_005984.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 5990,
+      "sample_id": "5990-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_005990.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6074,
+      "sample_id": "6074-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_006074.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6146,
+      "sample_id": "6146-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_006146.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6318,
+      "sample_id": "6318-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_006318.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6399,
+      "sample_id": "6399-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_006399.npz",
+      "bbox_token_positions": [
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624
+      ],
+      "prediction_rows": [
+        607,
+        608,
+        609,
+        610,
+        611,
+        612,
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623
+      ],
+      "spans": {
+        "reference": [
+          100,
+          331,
+          11,
+          21
+        ],
+        "query": [
+          356,
+          587,
+          11,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6494,
+      "sample_id": "6494-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_006494.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6592,
+      "sample_id": "6592-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_006592.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6714,
+      "sample_id": "6714-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_006714.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6819,
+      "sample_id": "6819-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_006819.npz",
+      "bbox_token_positions": [
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630
+      ],
+      "prediction_rows": [
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629
+      ],
+      "spans": {
+        "reference": [
+          100,
+          334,
+          13,
+          18
+        ],
+        "query": [
+          359,
+          593,
+          13,
+          18
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6900,
+      "sample_id": "6900-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_006900.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6901,
+      "sample_id": "6901-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_006901.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 6986,
+      "sample_id": "6986-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_006986.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7165,
+      "sample_id": "7165-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_007165.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7476,
+      "sample_id": "7476-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_007476.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7540,
+      "sample_id": "7540-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_007540.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7634,
+      "sample_id": "7634-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_007634.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7781,
+      "sample_id": "7781-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_007781.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7794,
+      "sample_id": "7794-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_007794.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7842,
+      "sample_id": "7842-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_007842.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 7971,
+      "sample_id": "7971-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_007971.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8188,
+      "sample_id": "8188-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_008188.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8189,
+      "sample_id": "8189-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_008189.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8217,
+      "sample_id": "8217-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_008217.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8263,
+      "sample_id": "8263-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_008263.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8358,
+      "sample_id": "8358-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_008358.npz",
+      "bbox_token_positions": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          376,
+          628,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8651,
+      "sample_id": "8651-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_008651.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 8882,
+      "sample_id": "8882-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_008882.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9164,
+      "sample_id": "9164-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_009164.npz",
+      "bbox_token_positions": [
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629,
+        630
+      ],
+      "prediction_rows": [
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629
+      ],
+      "spans": {
+        "reference": [
+          100,
+          334,
+          13,
+          18
+        ],
+        "query": [
+          359,
+          593,
+          13,
+          18
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9361,
+      "sample_id": "9361-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_009361.npz",
+      "bbox_token_positions": [
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602
+      ],
+      "prediction_rows": [
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601
+      ],
+      "spans": {
+        "reference": [
+          100,
+          320,
+          11,
+          20
+        ],
+        "query": [
+          345,
+          565,
+          11,
+          20
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9423,
+      "sample_id": "9423-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_009423.npz",
+      "bbox_token_positions": [
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492
+      ],
+      "prediction_rows": [
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491
+      ],
+      "spans": {
+        "reference": [
+          100,
+          265,
+          11,
+          15
+        ],
+        "query": [
+          290,
+          455,
+          11,
+          15
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9445,
+      "sample_id": "9445-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_009445.npz",
+      "bbox_token_positions": [
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491,
+        492
+      ],
+      "prediction_rows": [
+        474,
+        475,
+        476,
+        477,
+        478,
+        479,
+        480,
+        481,
+        482,
+        483,
+        484,
+        485,
+        486,
+        487,
+        488,
+        489,
+        490,
+        491
+      ],
+      "spans": {
+        "reference": [
+          100,
+          265,
+          11,
+          15
+        ],
+        "query": [
+          289,
+          454,
+          11,
+          15
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9674,
+      "sample_id": "9674-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_009674.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9685,
+      "sample_id": "9685-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_009685.npz",
+      "bbox_token_positions": [
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602,
+        603
+      ],
+      "prediction_rows": [
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600,
+        601,
+        602
+      ],
+      "spans": {
+        "reference": [
+          100,
+          320,
+          11,
+          20
+        ],
+        "query": [
+          345,
+          565,
+          11,
+          20
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9808,
+      "sample_id": "9808-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_009808.npz",
+      "bbox_token_positions": [
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599,
+        600
+      ],
+      "prediction_rows": [
+        584,
+        585,
+        586,
+        587,
+        588,
+        589,
+        590,
+        591,
+        592,
+        593,
+        594,
+        595,
+        596,
+        597,
+        598,
+        599
+      ],
+      "spans": {
+        "reference": [
+          100,
+          320,
+          11,
+          20
+        ],
+        "query": [
+          344,
+          564,
+          11,
+          20
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9818,
+      "sample_id": "9818-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_009818.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 9876,
+      "sample_id": "9876-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_009876.npz",
+      "bbox_token_positions": [
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321,
+        322
+      ],
+      "prediction_rows": [
+        305,
+        306,
+        307,
+        308,
+        309,
+        310,
+        311,
+        312,
+        313,
+        314,
+        315,
+        316,
+        317,
+        318,
+        319,
+        320,
+        321
+      ],
+      "spans": {
+        "reference": [
+          100,
+          180,
+          8,
+          10
+        ],
+        "query": [
+          205,
+          285,
+          8,
+          10
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 10118,
+      "sample_id": "10118-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_010118.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 10138,
+      "sample_id": "10138-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_00/sample_010138.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 10202,
+      "sample_id": "10202-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_01/sample_010202.npz",
+      "bbox_token_positions": [
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628,
+        629
+      ],
+      "prediction_rows": [
+        613,
+        614,
+        615,
+        616,
+        617,
+        618,
+        619,
+        620,
+        621,
+        622,
+        623,
+        624,
+        625,
+        626,
+        627,
+        628
+      ],
+      "spans": {
+        "reference": [
+          100,
+          334,
+          13,
+          18
+        ],
+        "query": [
+          359,
+          593,
+          13,
+          18
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 10260,
+      "sample_id": "10260-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_02/sample_010260.npz",
+      "bbox_token_positions": [
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662
+      ],
+      "prediction_rows": [
+        647,
+        648,
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          375,
+          627,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    },
+    {
+      "dataset_index": 10441,
+      "sample_id": "10441-1",
+      "group": "target-object",
+      "artifact": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-011/20260907T174853785543Z--focus-early-gt-mask-pipeline/pipeline/fixed/step_001482/probe/rank_03/sample_010441.npz",
+      "bbox_token_positions": [
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665,
+        666
+      ],
+      "prediction_rows": [
+        649,
+        650,
+        651,
+        652,
+        653,
+        654,
+        655,
+        656,
+        657,
+        658,
+        659,
+        660,
+        661,
+        662,
+        663,
+        664,
+        665
+      ],
+      "spans": {
+        "reference": [
+          100,
+          352,
+          12,
+          21
+        ],
+        "query": [
+          377,
+          629,
+          12,
+          21
+        ]
+      },
+      "head_shape": [
+        36,
+        32
+      ]
+    }
+  ]
+}

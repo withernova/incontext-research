@@ -356,6 +356,146 @@
         "since": "2026-09-02T15:36:13.539Z",
         "pendingLine": ""
       }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-004-contribution-calculation-check/logs/console-<uuid>.log|incontext-E-012-R-004-contribution-calculation-check": {
+      "fingerprints": {
+        "ERR-4924e614d8da": {
+          "id": "ERR-4924e614d8da",
+          "exceptionType": "FileExistsError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in main",
+          "command": "incontext-E-012-R-004-contribution-calculation-check",
+          "runId": "E-012 / R-004-contribution-calculation-check / Reference contribution 链式法则与梯度正确性门禁",
+          "firstSeen": "2026-09-14T12:13:42.301Z",
+          "lastSeen": "2026-09-14T12:13:42.301Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "Traceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/tools/launch.py\", line 68, in <module>\n    raise SystemExit(main())\n  File \"/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/tools/launch.py\", line 48, in main\n    raise FileExistsError(f\"choose a new work_dir in config: {work_dir}\")"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:38822479819",
+        "byteOffset": 746,
+        "since": "2026-09-14T12:13:42.301Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-011-query-keepset-large-pruning/logs/train.log|incontext-E-012-R-011-query-keepset-large-pruning": {
+      "fingerprints": {
+        "ERR-db926c4509ab": {
+          "id": "ERR-db926c4509ab",
+          "exceptionType": "ValueError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in run",
+          "command": "incontext-E-012-R-011-query-keepset-large-pruning",
+          "runId": "E-012 / R-011-query-keepset-large-pruning / 只留选中注意力头的大幅裁剪曲线",
+          "firstSeen": "2026-09-17T05:30:42.314Z",
+          "lastSeen": "2026-09-17T05:32:45.081Z",
+          "occurrences": 2,
+          "status": "resolved",
+          "lastContext": "\rLoading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]\rLoading checkpoint shards:  10%|█         | 1/10 [00:03<00:34,  3.78s/it]\rLoading checkpoint shards:  20%|██        | 2/10 [00:05<00:21,  2.69s/it]\rLoading checkpoint shards:  30%|███       | 3/10 [00:07<00:16,  2.33s/it]\rLoading checkpoint shards:  40%|████      | 4/10 [00:09<00:13,  2.17s/it]\rLoading checkpoint shards:  50%|█████     | 5/10 [00:11<00:10,  2.10s/it]\rLoading checkpoint shards:  60%|██████    | 6/10 [00:13<00:08,  2.07s/it]\rLoading checkpoint shards:  70%|███████   | 7/10 [00:15<00:06,  2.06s/it]\rLoading checkpoint shards:  80%|████████  | 8/10 [00:17<00:04,  2.06s/it]\rLoading checkpoint shards:  90%|█████████ | 9/10 [00:19<00:02,  2.07s/it]\rLoading checkpoint shards: 100%|██████████| 10/10 [00:20<00:00,  1.74s/it]\rLoading checkpoint shards: 100%|██████████| 10/10 [00:20<00:00,  2.07s/it]\n`generation_config` default values have been modified to match model-specific defaults: {'do_sample': True, 'temperature': 0.7, 'top_k': 20, 'top_p': 0.8}. If this is not desired, please set these values explicitly.\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)",
+          "remediation": "根因已定位并修复：ValueError（\"prefix rule saw 0 decode rows but the hook saw 21 decode forwards\"）来自前缀规则的 forward pre-hook 挂在了 wrapper 外层模型上，generate 期间该模块未被调用，因此细删在生成阶段一行都没有判定过。修复（commit 追加于 iploc_szy/head_screening/keepset_pruning.py）：pre-hook 改挂到唯一的文本 embedding（按 num_embeddings == text_config.vocab_size 唯一定位，生成时每次前向必经并带 input_ids），并用前向序号区分 prefill（第 1 次）与解码（其后每次取 input_ids 最后一列），不假设解码时 input_ids 的长度；保留 fail-closed 校验 tracker.updates == hook 观测到的解码前向数，并在错误信息中一并给出生成的 token 数。验证：tests/test_keepset_pruning.py 10 passed；重新以直接 tmux 方式启动后日志出现 [KEEPSET_PRUNING] 1/150，49 个条件在第 1 条样本上全部执行且该校验通过；此后日志无该异常再出现（扫描 24 字节无新发生）。",
+          "remediationAppliedAt": "2026-09-17T05:41:16.222Z",
+          "resolvedAt": "2026-09-17T10:55:57.613Z"
+        },
+        "ERR-fc6d626d3330": {
+          "id": "ERR-fc6d626d3330",
+          "exceptionType": "Traceback",
+          "normalizedStackRoot": "File <PATH>, line <N>, in _wrapped_call_impl",
+          "command": "incontext-E-012-R-011-query-keepset-large-pruning",
+          "runId": "E-012 / R-011-query-keepset-large-pruning / 只留选中注意力头的大幅裁剪曲线",
+          "firstSeen": "2026-09-17T10:54:34.546Z",
+          "lastSeen": "2026-09-17T10:54:34.546Z",
+          "occurrences": 1,
+          "status": "resolved",
+          "lastContext": "[KEEPSET_PRUNING] 77/150\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)",
+          "resolvedAt": "2026-09-17T10:55:22.585Z"
+        },
+        "ERR-005118c05f69": {
+          "id": "ERR-005118c05f69",
+          "exceptionType": "KeyboardInterrupt",
+          "normalizedStackRoot": "File <PATH>, line <N>, in send_to_device",
+          "command": "incontext-E-012-R-011-query-keepset-large-pruning",
+          "runId": "E-012 / R-011-query-keepset-large-pruning / 只留选中注意力头的大幅裁剪曲线",
+          "firstSeen": "2026-09-17T10:54:34.546Z",
+          "lastSeen": "2026-09-17T10:54:34.546Z",
+          "occurrences": 1,
+          "status": "resolved",
+          "lastContext": "  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/accelerate/utils/operations.py\", line 153, in send_to_device\n    return tensor.to(device, non_blocking=non_blocking)\nKeyboardInterrupt\n--- launcher exit=1 2026-09-17T10:55:59+00:00 ---\n",
+          "resolvedAt": "2026-09-17T10:55:19.649Z"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:13925266050",
+        "byteOffset": 14381,
+        "since": "2026-09-17T10:54:34.546Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-012-query-heads-reference-channel/logs/train.log|incontext-E-012-R-012-query-heads-reference-channel": {
+      "fingerprints": {},
+      "cursor": {
+        "logIdentity": "168:38822808628",
+        "byteOffset": 2720,
+        "since": "2026-09-18T03:42:02.280Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-013-reference-key-source-sweep/logs/train.log|incontext-E-012-R-013-reference-key-source-sweep": {
+      "fingerprints": {
+        "ERR-1cff46693317": {
+          "id": "ERR-1cff46693317",
+          "exceptionType": "Traceback",
+          "normalizedStackRoot": "File <PATH>, line <N>, in generate",
+          "command": "incontext-E-012-R-013-reference-key-source-sweep",
+          "runId": "E-012 / R-013-reference-key-source-sweep / 扫哪类来源 token 读到参考图会崩",
+          "firstSeen": "2026-09-18T04:56:17.649Z",
+          "lastSeen": "2026-09-18T04:56:17.649Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "[KEEPSET_PRUNING] 70/100\n[KEEPSET_PRUNING] 71/100\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)"
+        },
+        "ERR-744a9d167098": {
+          "id": "ERR-744a9d167098",
+          "exceptionType": "KeyboardInterrupt",
+          "normalizedStackRoot": "File <PATH>, line <N>, in intercepted",
+          "command": "incontext-E-012-R-013-reference-key-source-sweep",
+          "runId": "E-012 / R-013-reference-key-source-sweep / 扫哪类来源 token 读到参考图会崩",
+          "firstSeen": "2026-09-18T04:56:17.649Z",
+          "lastSeen": "2026-09-18T04:56:17.649Z",
+          "occurrences": 1,
+          "status": "open",
+          "lastContext": "  File \"/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/iploc_szy/head_screening/keepset_pruning.py\", line 290, in intercepted\n    block = attention[:, head].float()[:, positions, start:stop]\nKeyboardInterrupt\n--- launcher exit=1 2026-09-18T04:57:29+00:00 ---\n"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:33084768609",
+        "byteOffset": 10502,
+        "since": "2026-09-18T04:56:17.649Z",
+        "pendingLine": ""
+      }
+    },
+    "NKU-LWC|/defaultShare/archive/liuwenchu/projects/IPLoc|/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/R-014-support-box-probe/logs/train.log|incontext-E-012-R-014-support-box-probe": {
+      "fingerprints": {
+        "ERR-4662f8af7931": {
+          "id": "ERR-4662f8af7931",
+          "exceptionType": "KeyError",
+          "normalizedStackRoot": "File <PATH>, line <N>, in paired_verdicts",
+          "command": "incontext-E-012-R-014-support-box-probe",
+          "runId": "E-012 / R-014-support-box-probe / 强行改写参考帧框坐标的影响",
+          "firstSeen": "2026-09-18T05:37:23.289Z",
+          "lastSeen": "2026-09-18T05:37:23.289Z",
+          "occurrences": 1,
+          "status": "remediation_applied",
+          "lastContext": "[KEEPSET_PRUNING] 100/100\nTraceback (most recent call last):\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 197, in _run_module_as_main\n    return _run_code(code, main_globals, None,\n  File \"/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/runpy.py\", line 87, in _run_code\n    exec(code, run_globals)",
+          "remediation": "根因：summarize 之后无条件调用的 paired_verdicts 是按\"按 head 分组\"的网格写死的（直接索引 summary[\"keep_only:<组>\"]），而 R-014 的条件是 support_box:*，因此最后一步汇总抛 KeyError: 'keep_only:union'（记录本身完整：900 条 = 9 条件 × 100 样本）。修复（commit e3fad8139a16d7e11fed7881b6da14e733a83f6f）：paired_verdicts 改为先对每条非基线条件给出逐条件判定（per_condition），仅当存在 keep_only 条件时才追加 protected/同规模随机对照；summary_integrity 也不再对无注意力干预的条件统计\"干预行数为 0\"；并新增 --recompute <output_dir> 入口，从 records.json 离线重算 summary/integrity（合同要求 summary 只能由 records 离线重算），校验 records 数 == 条件数×样本数。验证：tests/test_keepset_pruning.py 19 passed（含非分组网格判定路径）；对 R-014 输出目录执行 --recompute 成功写出 summary.json/integrity.json 并把 records 标记 completed，无需重跑 GPU。",
+          "remediationAppliedAt": "2026-09-18T05:40:13.687Z"
+        }
+      },
+      "cursor": {
+        "logIdentity": "168:38822808647",
+        "byteOffset": 5686,
+        "since": "2026-09-18T05:37:23.289Z",
+        "pendingLine": ""
+      }
     }
   }
 }

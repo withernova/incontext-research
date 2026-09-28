@@ -11,3 +11,5 @@
 - [[E-009|目前环境是否支持SFT]] · `planned`
 - [[E-010|验证Your Large Vision-Language Model Only Needs A Few Attention Heads For Visual Grounding的可靠性]] · `planned`
 - [[E-011|关于目前已有的补充实验]] · `planned`
+- [[E-012|探索新的head确定方案]] · `planned`
+- [[E-013|GRPO-置信度]] · `planned`
