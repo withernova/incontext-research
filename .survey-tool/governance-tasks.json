@@ -1189,6 +1189,60 @@
         }
       },
       "created_at": "2026-09-18T14:46:18"
+    },
+    {
+      "task_id": "classify-83bdb9613095206eaa29",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-013",
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+          "run_type": "main",
+          "variant": "三框分数反事实训练",
+          "purpose": "比较原三框排序GRPO与额外加入score反事实偏好损失的训练，检查选框改善是否同时保留候选框定位质量。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-29T01:12:08"
+    },
+    {
+      "task_id": "classify-a7aa663039f9ce61172e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-013",
+      "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+          "run_type": "validation",
+          "variant": "反事实三框模型验证",
+          "purpose": "对本次 E-013 反事实 GRPO 的最新完整 checkpoint 做一次全量验证，分别报告按分数选框、首框和三框 oracle 的定位表现，并按 GT 最优框位置核查分数排序。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-09-29T14:02:16"
     }
   ]
 }

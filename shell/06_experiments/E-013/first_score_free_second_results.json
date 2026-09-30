@@ -1,0 +1,301 @@
+{
+  "contract": "e013-first-score-free-second/v1",
+  "model_checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep/grpo/checkpoints/step_000450/adapter/policy",
+  "design": "Same images, prompt, first box; force first score to original/0.01/0.99, then greedily continue second box and score.",
+  "cases": [
+    {
+      "sample_id": "63c28a9dda068c4ce7ace6c3-pos",
+      "rollout_step": 412,
+      "original_scores": [
+        0.86,
+        0.19,
+        0.13
+      ],
+      "candidate_ious": [
+        0.0,
+        0.7587714613656564,
+        0.0
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            402,
+            251,
+            604,
+            467
+          ],
+          "second_score": 0.72,
+          "second_iou": 0.8900581737039314,
+          "continuation": "<answer>[402,251,604,467]</answer><score>0.72</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            401,
+            253,
+            604,
+            467
+          ],
+          "second_score": 0.87,
+          "second_iou": 0.8774010331487319,
+          "continuation": "<answer>[401,253,604,467]</answer><score>0.87</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            391,
+            251,
+            604,
+            471
+          ],
+          "second_score": 0.97,
+          "second_iou": 0.8291695895771477,
+          "continuation": "<answer>[391,251,604,471]</answer><score>0.97</score>\n"
+        }
+      }
+    },
+    {
+      "sample_id": "fcf6a13e4064cfc3af89d8b5-pos",
+      "rollout_step": 419,
+      "original_scores": [
+        0.83,
+        0.59,
+        0.06
+      ],
+      "candidate_ious": [
+        0.30456617686329124,
+        0.5049533519284409,
+        0.0
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            541,
+            462,
+            562,
+            503
+          ],
+          "second_score": 0.08,
+          "second_iou": 0.16642113841524575,
+          "continuation": "<answer>[541,462,562,503]</answer><score>0.08</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            541,
+            467,
+            562,
+            517
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.1917808219178082,
+          "continuation": "<answer>[541,467,562,517]</answer><score>0.01</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            541,
+            467,
+            562,
+            517
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.1917808219178082,
+          "continuation": "<answer>[541,467,562,517]</answer><score>0.01</score>\n"
+        }
+      }
+    },
+    {
+      "sample_id": "d69ba511a5a23025054ce952-pos",
+      "rollout_step": 435,
+      "original_scores": [
+        0.67,
+        0.31,
+        0.05
+      ],
+      "candidate_ious": [
+        0.0,
+        0.7789989453552745,
+        0.0
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            108,
+            476,
+            201,
+            731
+          ],
+          "second_score": 0.08,
+          "second_iou": 0.7232881205050722,
+          "continuation": "<answer>[108,476,201,731]</answer><score>0.08</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            108,
+            476,
+            202,
+            731
+          ],
+          "second_score": 0.0,
+          "second_iou": 0.715593566031614,
+          "continuation": "<answer>[108,476,202,731]</answer><score>0.00</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            108,
+            476,
+            201,
+            731
+          ],
+          "second_score": 0.0,
+          "second_iou": 0.7232881205050722,
+          "continuation": "<answer>[108,476,201,731]</answer><score>0.00</score>\n"
+        }
+      }
+    },
+    {
+      "sample_id": "5a53dc4c35c70a61c7ceecc0-pos",
+      "rollout_step": 441,
+      "original_scores": [
+        0.85,
+        0.08,
+        0.04
+      ],
+      "candidate_ious": [
+        0.0,
+        0.6673726577354064,
+        0.0
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            502,
+            267,
+            562,
+            388
+          ],
+          "second_score": 0.08,
+          "second_iou": 0.8460675486824445,
+          "continuation": "<answer>[502,267,562,388]</answer><score>0.08</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            501,
+            267,
+            562,
+            388
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.8606082070351614,
+          "continuation": "<answer>[501,267,562,388]</answer><score>0.01</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            502,
+            267,
+            562,
+            388
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.8460675486824445,
+          "continuation": "<answer>[502,267,562,388]</answer><score>0.01</score>\n"
+        }
+      }
+    },
+    {
+      "sample_id": "618d8019481628fc2baf0f69-pos",
+      "rollout_step": 444,
+      "original_scores": [
+        0.97,
+        0.79,
+        0.06
+      ],
+      "candidate_ious": [
+        0.0,
+        0.9047975310951092,
+        0.0011595952629025652
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            242,
+            473,
+            305,
+            560
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.913719653836314,
+          "continuation": "<answer>[242,473,305,560]</answer><score>0.01</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            242,
+            473,
+            305,
+            560
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.913719653836314,
+          "continuation": "<answer>[242,473,305,560]</answer><score>0.01</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            241,
+            473,
+            305,
+            560
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.8998344219125184,
+          "continuation": "<answer>[241,473,305,560]</answer><score>0.01</score>\n"
+        }
+      }
+    },
+    {
+      "sample_id": "055a99e4e68230aadefcec1b-pos",
+      "rollout_step": 445,
+      "original_scores": [
+        0.95,
+        0.07,
+        0.01
+      ],
+      "candidate_ious": [
+        0.0,
+        0.9070362919138777,
+        0.07269410954763746
+      ],
+      "conditions": {
+        "original": {
+          "second_box": [
+            428,
+            483,
+            538,
+            625
+          ],
+          "second_score": 0.07,
+          "second_iou": 0.9262661265175957,
+          "continuation": "<answer>[428,483,538,625]</answer><score>0.07</score>\n"
+        },
+        "low_001": {
+          "second_box": [
+            428,
+            483,
+            538,
+            625
+          ],
+          "second_score": 0.98,
+          "second_iou": 0.9262661265175957,
+          "continuation": "<answer>[428,483,538,625]</answer><score>0.98</score>\n"
+        },
+        "high_099": {
+          "second_box": [
+            428,
+            483,
+            538,
+            625
+          ],
+          "second_score": 0.01,
+          "second_iou": 0.9262661265175957,
+          "continuation": "<answer>[428,483,538,625]</answer><score>0.01</score>\n"
+        }
+      }
+    }
+  ]
+}

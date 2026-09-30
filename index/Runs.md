@@ -89,3 +89,5 @@
 - [[R-014-support-box-probe|强行改写参考帧框坐标的影响]] ← [[E-012]] · `completed`
 - [[R-015-query-key-control|正面对照：删查询图键是否崩塌]] ← [[E-012]] · `draft`
 - [[R-016-reference-frame-replacement|换掉参考帧图像看影响]] ← [[E-012]] · `completed`
+- [[20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep|三框分数反事实训练]] ← [[E-013]] · `approved`
+- [[20260929T055808Z--multi3-rank-cf-latest-eval|反事实三框模型验证]] ← [[E-013]] · `draft`

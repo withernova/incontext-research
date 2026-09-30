@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "shell/06_experiments/E-013/counterfactual_confidence_note.md",
+                "file": "shell/06_experiments/E-013/first_score_validation_report.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "counterfactual_confidence_note"
+              "title": "first_score_validation_report"
             }
           }
         ]
@@ -83,7 +83,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 608.5
   },
   "right": {
     "id": "de99fe73330fc248",
@@ -190,8 +190,36 @@
   },
   "active": "29e10cc5d5323e76",
   "lastOpenFiles": [
+    "shell/06_experiments/E-013/first_score_validation_050_report.md",
+    "shell/06_experiments/E-013/first_score_validation_050_results.jsonl",
+    "shell/06_experiments/E-013/first_score_intervention_report.md",
+    "shell/06_experiments/E-013/__pycache__/summarize_first_score_validation.cpython-314.pyc",
+    "shell/06_experiments/E-013/first_score_validation_report.md",
+    "shell/06_experiments/E-013/first_score_validation_summary.json",
+    "shell/06_experiments/E-013/summarize_first_score_validation.py",
+    "shell/06_experiments/E-013/first_score_intervention_protocol.md",
+    "shell/06_experiments/E-013/first_score_validation_results.jsonl",
+    "shell/06_experiments/E-013/__pycache__/intervene_first_score_validation.cpython-314.pyc",
+    "shell/06_experiments/E-013/intervene_first_score_validation.py",
+    "shell/06_experiments/E-013/rollout_position_bias_20260926.md",
+    "shell/06_experiments/E-013/first_score_free_second_results.json",
+    "shell/06_experiments/E-013/second_box_collapse_diagnostic_protocol.md",
+    "shell/06_experiments/E-013/second_box_collapse_report.md",
     "shell/06_experiments/E-013/sft_implementation.md",
+    "shell/06_experiments/E-013/first_score_free_second_raw_output.txt",
+    "shell/06_experiments/E-013/__pycache__/intervene_first_score.cpython-314.pyc.133945554619440",
+    "shell/06_experiments/E-013/counterfactual_confidence_note.md",
+    "shell/06_experiments/E-013/collage_step1400_eval_result.md",
     "shell/06_experiments/E-013/E-013.md",
+    "shell/06_experiments/E-013/events.md",
+    "shell/06_experiments/E-013/multi_candidate_evaluation.md",
+    "shell/06_experiments/E-013/no_collage_collapse_step600/score_margin_hist.png",
+    "shell/06_experiments/E-013/no_collage_collapse_step600/reward_comparison.png",
+    "shell/06_experiments/E-013/no_collage_collapse_step600/report.md",
+    "shell/06_experiments/E-013/no_collage_collapse_step600/training_curve.png",
+    "shell/06_experiments/E-013/second_box_collapse_diagnostics/training_curve.svg",
+    "shell/06_experiments/E-013/second_box_collapse_diagnostics/score_margin_and_iou_gap.svg",
+    "shell/06_experiments/E-013/second_box_collapse_diagnostics/reward_advantage.svg",
     "shell/06_experiments/E-012/plan.md",
     "shell/06_experiments/E-012/runs/R-016-reference-frame-replacement.md",
     "shell/06_experiments/E-012/runs/R-015-query-key-control.md",
@@ -200,41 +228,13 @@
     "shell/06_experiments/E-012/runs/R-012-query-heads-reference-channel.md",
     "shell/06_experiments/E-012/runs/R-011-query-keepset-large-pruning.md",
     "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/alignment_interim_n220.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/score_effect_alignment.py",
     "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/joint_686_partial_report.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/joint686_partial_summary.json",
     "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/ce_iou_probe_report.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/ce_iou_probe_analysis.json",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/ce_iou_probe_analysis.py",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/ce_vs_iou_consistency.json",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/ce_vs_iou_consistency.py",
     "shell/06_experiments/E-012/diagnostics/head_selection_algorithms_old_vs_new.md",
     "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/headset_cross_comparison_step741.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/summary_e009fixed5_recomputed.json",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/report.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/summary_recomputed.json",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1/summarize_ablation.py",
-    "shell/06_experiments/E-012/diagnostics/r006_query5_head_ablation_step741_v1",
-    "shell/06_experiments/E-012/diagnostics/r006_query_heads_step741_20260915/independent_recheck.md",
-    "shell/06_experiments/E-012/diagnostics/r006_query_heads_step741_20260915/report.md",
-    "shell/06_experiments/E-012/runs/R-005-reference-target-grounded-screening.md",
-    "shell/06_experiments/E-012/diagnostics/R004_chain_rule_kernel_20260914.md",
-    "shell/06_experiments/E-012/E-012.md",
-    "shell/06_experiments/E-012/dual_role_target_specific_head_program.md",
-    "shell/06_experiments/E-012/dual_role_metric_contract.md",
-    "shell/06_experiments/E-012/brief.md",
     "shell/06_experiments/E-012/visualizations/r001-gradient-top10-attention-maps-v1/sample_000000_LaSOT.png",
     "shell/06_experiments/E-012/visualizations/e012-step1973-newgrad-heads-full/C_base0_still0_idx0021_LaSOT_bird-14.png",
     "shell/06_experiments/E-012/visualizations/e012-step1973-newgrad-heads-full/C_base0_still0_idx0022_LaSOT_bird-15.png",
-    "shell/06_experiments/E-012/implementation/CONFIG_MANAGEMENT.md",
-    "shell/06_experiments/E-012/unified_execution_contract.md",
-    "shell/06_experiments/E-012/review_worktree_dual_role_heads/tools/QUERY_ATTENTION_BRANCH.md",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/frequency_TAO.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/frequency_GOT10k.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/frequency_LaSOT.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/frequency_all.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/visualizations/sample_000780_TAO_old_vs_iou050.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/visualizations/sample_000600_GOT10k_old_vs_iou050.png",
-    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/visualizations/sample_000782_TAO_old_vs_iou050.png"
+    "shell/06_experiments/E-012/results/reference-gradient-spatial-iou050-r001-v1/frequency_TAO.png"
   ]
 }

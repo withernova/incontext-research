@@ -657,7 +657,7 @@
   {
     "title": "GRPO-置信度",
     "objective": "探索是否鼓励大模型预测更多的框，并主动输出置信度再依据置信度选择最终框是否有益",
-    "workspace_id": "02",
+    "workspace_id": "03",
     "code_repository_workspace_id": "02",
     "constraints": "",
     "evidence_refs": [],
@@ -675,6 +675,6 @@
     "brief_constraints": "",
     "claim_refs": [],
     "created": "2026-09-18T16:16:30",
-    "updated": "2026-09-18T16:16:30"
+    "updated": "2026-09-28T19:29:32"
   }
 ]

@@ -174,6 +174,20 @@
       "internal_agent_name": "",
       "internal_pane_id": "",
       "agent_status": "superseded"
+    },
+    "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep": {
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "phase": "attention_required",
+      "runtime_kind": "herdr_pi",
+      "dispatch_id": "dispatch-252ffdf50ea1ca442a760214",
+      "error_class": "remote_provision_failed",
+      "finished_at": "2026-09-29T01:28:08",
+      "message": "remote tmux provisioning failed",
+      "updated_at": "2026-09-29T01:28:08",
+      "started_at": "2026-09-29T01:28:08",
+      "internal_agent_name": "",
+      "internal_pane_id": "",
+      "agent_status": "superseded"
     }
   }
 }

@@ -97,5 +97,102 @@
         "reason": "validated workspace-rule-external/v1"
       }
     }
+  },
+  {
+    "id": "03",
+    "label": "SZY-IPLoc",
+    "server_id": "03",
+    "remote_repo": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy",
+    "remote_data_root": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset",
+    "remote_worktree_root": "/defaultShare/archive/songzhengyue/projects/IPLoc",
+    "remote_experiment_root": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments",
+    "environment_activation": "conda:IPLoc",
+    "launcher": "ssh SZY-3090",
+    "environment_policy": {
+      "allowed_write_roots": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc"
+      ],
+      "forbidden_paths": [
+        "/defaultShare/archive",
+        "/tmp",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset"
+      ],
+      "read_only_roots": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset"
+      ],
+      "forbidden_operations": [
+        "直接删除文件或目录；删除应改为移动至 /defaultShare/archive/songzhengyue/projects/IPLoc 下新建的临时回收站",
+        "触碰 / 下除 /defaultShare/archive/songzhengyue/projects/IPLoc 之外的其他文件夹",
+        "触碰 /defaultShare/archive 下除 /defaultShare/archive/songzhengyue/projects/IPLoc 之外的其他文件夹",
+        "写入或修改只读数据集 /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset",
+        "sudo",
+        "删除未明确列出的目录或数据"
+      ],
+      "temp_policy": "临时文件只能放在 /defaultShare/archive/songzhengyue/projects/IPLoc 下明确创建的临时目录；不得把 /tmp 用作源码或持久产物。",
+      "notes": "默认隐藏 /defaultShare/archive；managed execution 依 environment_policy 重新挂载：允许写入根 /defaultShare/archive/songzhengyue/projects/IPLoc；只读数据集 /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset。",
+      "policy_preset": "custom",
+      "dangerous_exceptions": [
+        "数据根可写：/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset"
+      ],
+      "default_deny_write": true
+    },
+    "execution_isolation": {
+      "mode": "tmux-guarded",
+      "required": true,
+      "network": "host",
+      "deny_read_roots": [],
+      "notes": "隔离模式沿用 Workspace 02（tmux-guarded / network=host）。执行器仍强制审核快照、授权、conda 环境证明、固定 command/tmux 与 allowlist 写路径；尚未在 SZY-3090 上验证 Bubblewrap mount namespace 与断网能力，因此不声明更严格的隔离，也不声称宿主其他可读目录已被隐藏。"
+    },
+    "dataset_bindings": [],
+    "rule_input": {
+      "contract": "survey-tool.workspace-rule-input/v1",
+      "original_request": "和02 lwc-IPLoc类似，不过更换了使用的目录，原先的lwc要废弃了。基本是把03改为和lwc类似的格式，只不过使用了/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism# 以及SZY-3090的服务器。",
+      "preset": "research_safe",
+      "updated_at": "2026-09-28T19:21:58"
+    },
+    "rule_profile": {
+      "contract": "survey-tool.workspace-rule-profile/v1",
+      "original_request": "和02 lwc-IPLoc类似，不过更换了使用的目录，原先的lwc要废弃了。基本是把03改为和lwc类似的格式，只不过使用了/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism# 以及SZY-3090的服务器。",
+      "preset": "research_safe",
+      "rules": [
+        {
+          "id": "default-deny-write",
+          "label": "默认拒绝写入",
+          "detail": "仅已登记的代码、工作与实验目录可写。",
+          "source": "preset"
+        },
+        {
+          "id": "data-read-only",
+          "label": "研究数据只读",
+          "detail": "已登记的数据目录只用于读取，不得修改。",
+          "source": "preset"
+        },
+        {
+          "id": "dangerous-ops",
+          "label": "禁止危险操作",
+          "detail": "禁止 sudo 和删除未明确授权的目录或数据。",
+          "source": "preset"
+        }
+      ],
+      "warnings": [
+        "remote_repo 已按人工确认指向 /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy（代码目录在 iploc-szy）。",
+        "remote_data_root 已按人工确认改为 /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset；该目录位于允许写入根之内，故同时登记为 read_only_roots 并在 forbidden_operations 中显式禁止写入。注意 run_policy_violations 只依据 allowed_write_roots/forbidden_paths 判定：read_only_roots 本身不会自动阻断写入，只读保护依赖 forbidden_operations 与人工审核约束。",
+        "remote_worktree_root 仍按 Workspace 02 同构取工程根 /defaultShare/archive/songzhengyue/projects/IPLoc；remote_experiment_root 按“输出依旧”保留为 /defaultShare/archive/songzhengyue/projects/IPLoc/experiments。",
+        "environment_activation 沿用 Workspace 02 的 conda:IPLoc（已人工确认环境不变）。",
+        "原文未给出数据集内部结构或软连接指向，故 dataset_bindings 留空。",
+        "原文说“原先的 lwc 要废弃了”，未要求显式禁止访问 lwc 路径，因此未把 /defaultShare/archive/liuwenchu 写入 forbidden_paths。"
+      ],
+      "questions": [
+        "remote_worktree_root 是否应为 /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism（而不是工程根 /defaultShare/archive/songzhengyue/projects/IPLoc）？",
+        "实验输出根是否就沿用 /defaultShare/archive/songzhengyue/projects/IPLoc/experiments？",
+        "数据集是否需要登记只读绑定（dataset_bindings）？如需要请给出 source_path / target_path 与 bind_ro 或 symlink_ro。"
+      ],
+      "updated_at": "2026-09-28T19:26:22",
+      "organizer": {
+        "requested": "basic",
+        "used": "basic",
+        "reason": "按 Workspace 02（lwc-IPLoc）同构创建：路径替换为 songzhengyue/mechanism 与 SZY-3090，未调用外部 organizer。"
+      }
+    }
   }
 ]

@@ -9202,5 +9202,260 @@
     "message": "R-016 v2 结果：参考帧像素贡献 0.10–0.16 mIoU，query 帧 0.68，纯框文本 0.16 —— 三条独立干预互证",
     "details": "v2 生效验证：swap_query ΔmIoU −0.681 [−0.731,−0.624]（正对照崩塌）、ΔCE +1.126；v1 的 ΔCE/ΔTF-IoU 恰为 0 的伪造特征消失。完整结果（100 条，基线绝对 mIoU 0.7779）：swap_query −0.681（绝对 0.10）、black_all −0.617（绝对 0.161）、swap_reference −0.158（绝对约 0.62）、black_reference −0.097（绝对 0.681）。三条独立干预的互证：输入侧换图（本 Run）0.10–0.16、注意力层删除（R-013 all）0.122、teacher-forced 一致方向。修正此前过强的表述：\"参考图外观基本没参与\"不准确，准确说法是\"参考帧像素贡献真实但仅为 query 帧的 1/4–1/7，且单靠框文本远不够（0.16）\"。产物：experiments/E-012/r016-image-replacement-step741-v2（有效）；v1 目录保留为失败证据。commit 7cb9484。",
     "event_id": "evt-88639020a5f4"
+  },
+  {
+    "time": "2026-09-29T01:12:08",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_organization",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep: microtask",
+    "details": {
+      "time": "2026-09-29T01:12:08",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-83bdb9613095206eaa29"
+    },
+    "event_id": "evt-bb12a19178fd"
+  },
+  {
+    "time": "2026-09-29T01:12:08",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run 20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep · 三框分数反事实训练",
+    "details": {},
+    "event_id": "evt-a7ce37709459"
+  },
+  {
+    "time": "2026-09-29T01:15:11",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_update",
+    "message": "已核对SZY-3090仅有两张3090，将本Run启动配置和GRPO进程数校验改为双卡；配置解析及输入检查通过。",
+    "details": {},
+    "event_id": "evt-826e49722b9f"
+  },
+  {
+    "time": "2026-09-29T01:15:22",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_update",
+    "message": "双卡配置已提交并同步；因执行门尚未开启，尚未启动训练。",
+    "details": {},
+    "event_id": "evt-f08ebabd5918"
+  },
+  {
+    "time": "2026-09-29T01:17:07",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "execution_dispatch_enqueue",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-c3cc324de14e41e14d95f9de",
+      "experiment_id": "E-013",
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "status": "queued",
+      "created_at": "2026-09-29T01:17:07",
+      "updated_at": "2026-09-29T01:17:07",
+      "authorization_timestamp": "2026-09-29T01:17:07.105282",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-09-29T01:17:07",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-dd04e445f487"
+  },
+  {
+    "time": "2026-09-29T01:17:07",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_direct_steward",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-c3cc324de14e41e14d95f9de",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-462b6996c177"
+  },
+  {
+    "time": "2026-09-29T01:24:00",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "discovery",
+    "message": "SZY-3090 项目目录内已安装并验证 tmux；受控执行器已接入项目内路径和本机既有 SSH 配置。",
+    "details": "Ubuntu focal tmux 3.0a、libevent 与 libutempter 解压至 /defaultShare/archive/songzhengyue/projects/IPLoc/tools/tmux-local；会话创建、查询和结束检查通过。Survey Tool 提交 b1c6488；尚未启动训练。",
+    "event_id": "evt-2ea9f67a63f1"
+  },
+  {
+    "time": "2026-09-29T01:28:02",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_execution_human_failed",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-c3cc324de14e41e14d95f9de",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-b859c1f73789"
+  },
+  {
+    "time": "2026-09-29T01:28:05",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "execution_dispatch_enqueue",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-252ffdf50ea1ca442a760214",
+      "experiment_id": "E-013",
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "status": "queued",
+      "created_at": "2026-09-29T01:28:05",
+      "updated_at": "2026-09-29T01:28:05",
+      "authorization_timestamp": "2026-09-29T01:28:05.409775",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-09-29T01:28:05",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    "event_id": "evt-51d9d5c3b257"
+  },
+  {
+    "time": "2026-09-29T01:28:05",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "run_execution_restarted",
+    "message": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-c3cc324de14e41e14d95f9de",
+      "new_dispatch_id": "dispatch-252ffdf50ea1ca442a760214",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-dd937a55e1ab"
+  },
+  {
+    "time": "2026-09-29T01:31:10",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "progress",
+    "message": "用户明确授权直接运行后，已在SZY-3090启动登记的双卡训练命令；模型权重加载完成，等待首个训练步骤。",
+    "details": "Herdr Steward 创建失败（remote_provision_failed）；使用项目内 tmux 直接启动。Survey Tool 的 Run status 仍显示 approved，直接运行未消费其 Outbox 派发授权，必须防止重复启动。",
+    "event_id": "evt-19676ab5b97f"
+  },
+  {
+    "time": "2026-09-29T01:32:58",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "progress",
+    "message": "SZY-3090 双卡训练已完成首个优化步骤；两张卡各记录 step 1，rollout 文件已写入。",
+    "details": "Run 日志显示 rank 0/1 的 step=1 与 gradient_norm=1.2398；首步 cf_pairs=0，需后续观察是否出现可用反事实配对。直接执行的进度已记事件，但 Survey Tool Run 状态更新接口拒绝从 approved 写入 running，Outbox 仍可能保留待执行派发，不应再次启动同一 Run。",
+    "event_id": "evt-ac83e677b23f"
+  },
+  {
+    "time": "2026-09-29T13:53:02",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "discovery",
+    "message": "当前训练最新完整 checkpoint 已超过 step 450；Run 内尚无独立验证结果。已准备双卡验证配置，尚未读取验证清单或启动推理。",
+    "details": "配置 configs/sft/e013_multi3_rank_cf_step450_eval.py，提交 232acd99630c9da8f7531243c5a185bfe4eb750e；测试配置解析通过。验证清单位于 E-009 实验产物目录，先前任务边界禁止读取其他实验产物，已向用户确认是否授权重新推理。",
+    "event_id": "evt-7c5391894c65"
+  },
+  {
+    "time": "2026-09-29T13:53:15",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "correction",
+    "message": "更正上一条事件：当前训练步数已超过 450，但最新完整保存的 checkpoint 仍是 step_000450。",
+    "details": "只读核对 checkpoints 目录的最大步数为 step_000450；日志当前到 step 462。上一条事件的“最新完整 checkpoint 已超过 step 450”表述不准确。",
+    "event_id": "evt-3521fd0cf457"
+  },
+  {
+    "time": "2026-09-29T14:02:16",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "run_organization",
+    "message": "20260929T055808Z--multi3-rank-cf-latest-eval: microtask",
+    "details": {
+      "time": "2026-09-29T14:02:16",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a7aa663039f9ce61172e"
+    },
+    "event_id": "evt-2b9bb86881b9"
+  },
+  {
+    "time": "2026-09-29T14:02:16",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run 20260929T055808Z--multi3-rank-cf-latest-eval · 反事实三框模型验证",
+    "details": {},
+    "event_id": "evt-fde607416f92"
+  },
+  {
+    "time": "2026-09-29T14:02:36",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "progress",
+    "message": "已在 SZY-3090 启动验证等待任务；当前等待父训练结束和双卡空闲，随后自动选最新完整 checkpoint 做全量验证。",
+    "details": "验证清单 1766 样本、SHA-256 48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b；配置解析和数据集构建通过。当前日志为 evaluation_queued_waiting_for_training，尚无验证指标。",
+    "event_id": "evt-30445a47ffb8"
+  },
+  {
+    "time": "2026-09-29T14:11:43",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "run_update",
+    "message": "用户要求停止训练并直接推理；已使用完整 step_000450 权重的兼容引用启动双卡全量验证，两个进程均已完成前10条预测。",
+    "details": {},
+    "event_id": "evt-cef94a8082a0"
+  },
+  {
+    "time": "2026-09-29T14:11:56",
+    "experiment_id": "E-013",
+    "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+    "type": "progress",
+    "message": "按用户要求停止双卡 GRPO 训练；停止时日志到 step 470，最新完整 checkpoint 为 step_000450。",
+    "details": "通过项目内 tmux 会话发送 Ctrl-C；原启动脚本也随之终止，没有写退出码文件。只读核对训练会话已结束、GPU 显存释放。原 checkpoint 未改动。",
+    "event_id": "evt-6ddbb4bd1b48"
+  },
+  {
+    "time": "2026-09-29T14:11:56",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "progress",
+    "message": "全量验证已从 step_000450 开始推理；两个 GPU 进程均已完成前 10 条预测。",
+    "details": "第一次启动因 GRPO adapter/policy 与通用评测 adapter 路径不匹配而失败；已建立只读符号链接兼容入口并重启。原权重未修改；当前仍在运行，尚无最终指标。",
+    "event_id": "evt-d25b42fd80af"
+  },
+  {
+    "time": "2026-09-29T17:10:48",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "run_update",
+    "message": "全量验证已完成并核对结果；仅更新该Run的结果记录，不改Claim或审批状态。",
+    "details": {},
+    "event_id": "evt-392dfe07f0e8"
   }
 ]

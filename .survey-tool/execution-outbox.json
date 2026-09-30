@@ -7519,6 +7519,64 @@
           "detail": "Workspace gate/policy 未通过"
         }
       ]
+    },
+    {
+      "dispatch_id": "dispatch-c3cc324de14e41e14d95f9de",
+      "experiment_id": "E-013",
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "status": "failed",
+      "created_at": "2026-09-29T01:17:07",
+      "updated_at": "2026-09-29T01:28:02",
+      "authorization_timestamp": "2026-09-29T01:17:07.105282",
+      "approved_spec_hash": "66ab44519ddc313197ad39fcac1a093deb5eabe396b83d0a7c72b072e2e59cb5",
+      "workspace_execution_hash": "sha256:485d8a8dbedbb04226a9d052a0896985775c05d10c6ae426d2e5e02659917a36",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "重启",
+      "history": [
+        {
+          "time": "2026-09-29T01:17:07",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-09-29T01:28:02",
+          "type": "human_marked_failed",
+          "detail": "重启"
+        }
+      ],
+      "failed_at": "2026-09-29T01:28:02",
+      "failure_class": "human_adjudicated",
+      "retryable": true,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2"
+    },
+    {
+      "dispatch_id": "dispatch-252ffdf50ea1ca442a760214",
+      "experiment_id": "E-013",
+      "run_id": "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep",
+      "status": "queued",
+      "created_at": "2026-09-29T01:28:05",
+      "updated_at": "2026-09-29T01:28:05",
+      "authorization_timestamp": "2026-09-29T01:28:05.409775",
+      "approved_spec_hash": "66ab44519ddc313197ad39fcac1a093deb5eabe396b83d0a7c72b072e2e59cb5",
+      "workspace_execution_hash": "sha256:485d8a8dbedbb04226a9d052a0896985775c05d10c6ae426d2e5e02659917a36",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-09-29T01:28:05",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
     }
   ]
 }

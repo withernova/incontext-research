@@ -1,0 +1,215 @@
+{
+  "all_included": {
+    "first_mean_iou": 0.5549177141099202,
+    "mean_ious": [
+      0.5549177141099202,
+      0.1846231396413444,
+      0.03940835569590289
+    ],
+    "mean_scores": [
+      0.6253541629149408,
+      0.20143015787262142,
+      0.03809142205414491
+    ],
+    "median_scores": [
+      0.89,
+      0.0,
+      0.0
+    ],
+    "n": 33318,
+    "oracle_mean_iou": 0.7448885568486173,
+    "sample_equal_weight": {
+      "mean_scores": [
+        0.6331959607637482,
+        0.19082039959317618,
+        0.03880047356836945
+      ],
+      "score_selects_gt_best_rate": 0.8844693809444352,
+      "selected_minus_first_mean_iou": 0.11859789184703026
+    },
+    "score_selected_counts": {
+      "1": 26245,
+      "2": 6371,
+      "3": 702
+    },
+    "score_selects_gt_best_rate": 0.8883186265682214,
+    "selected_mean_iou": 0.6831870015386765,
+    "selected_minus_first_mean_iou": 0.1282692874287562,
+    "unique_samples": 5993
+  },
+  "audit": {
+    "all_records": 44972,
+    "excluded_missing_arrays": 442,
+    "excluded_no_gt": 11212,
+    "gt_present_records": 33760,
+    "included_three_candidate_records": 33318,
+    "included_tied_gt_best": 1719
+  },
+  "gt_best_rule": "highest candidate IoU; unique-best records in main groups",
+  "rank_record_counts": {
+    "0": 11246,
+    "1": 11240,
+    "2": 11246,
+    "3": 11240
+  },
+  "repeated_sample_count": 5990,
+  "second_best_diagnostic": {
+    "mean_best_minus_first_iou": 0.7621697692855959,
+    "mean_s1_minus_s2": -0.545952380952381,
+    "median_s1_minus_s2": -0.93,
+    "n": 7434,
+    "s1_eq_s2_rate": 0.07169760559591068,
+    "s1_gt_s2_rate": 0.18469195587839657,
+    "s2_gt_s1_rate": 0.7436104385256928,
+    "select_first_rate": 0.24831853645412968,
+    "select_second_rate": 0.7368845843422115
+  },
+  "second_best_iou_advantage_at_least_0_1": {
+    "mean_best_minus_first_iou": 0.7793005588769084,
+    "mean_s1_minus_s2": -0.5615356011568654,
+    "median_s1_minus_s2": -0.94,
+    "n": 7261,
+    "s1_eq_s2_rate": 0.06610659688748106,
+    "s1_gt_s2_rate": 0.1787632557498967,
+    "s2_gt_s1_rate": 0.7551301473626222,
+    "select_first_rate": 0.2370196942569894,
+    "select_second_rate": 0.7490703759812698
+  },
+  "selection_by_gt_best": {
+    "1": {
+      "1": 22394,
+      "2": 452,
+      "3": 179
+    },
+    "2": {
+      "1": 1846,
+      "2": 5478,
+      "3": 110
+    },
+    "3": {
+      "1": 616,
+      "2": 190,
+      "3": 334
+    }
+  },
+  "selection_rule": "highest reported score, first on ties",
+  "source": "four rank rollout files in supplied E-013 branch only",
+  "unique_best_by_position": {
+    "1": {
+      "first_mean_iou": 0.7980495936354786,
+      "mean_ious": [
+        0.7980495936354786,
+        0.016130291479203824,
+        0.017738660605075757
+      ],
+      "mean_scores": [
+        0.8153619978284473,
+        0.045976112920738325,
+        0.02541411509229099
+      ],
+      "median_scores": [
+        0.94,
+        0.0,
+        0.0
+      ],
+      "n": 23025,
+      "oracle_mean_iou": 0.7980495936354786,
+      "sample_equal_weight": {
+        "mean_scores": [
+          0.7903164125339255,
+          0.051703831729583025,
+          0.027462827535159145
+        ],
+        "score_selects_gt_best_rate": 0.9674298050826549,
+        "selected_minus_first_mean_iou": -0.021074052526803947
+      },
+      "score_selected_counts": {
+        "1": 22394,
+        "2": 452,
+        "3": 179
+      },
+      "score_selects_gt_best_rate": 0.9725950054288817,
+      "selected_mean_iou": 0.779663854101614,
+      "selected_minus_first_mean_iou": -0.018385739533864503,
+      "unique_samples": 4825
+    },
+    "2": {
+      "first_mean_iou": 0.007697401525730174,
+      "mean_ious": [
+        0.007697401525730174,
+        0.769867170811326,
+        0.024840252734770318
+      ],
+      "mean_scores": [
+        0.1599704062415927,
+        0.7059227871939736,
+        0.03620661824051655
+      ],
+      "median_scores": [
+        0.0,
+        0.95,
+        0.0
+      ],
+      "n": 7434,
+      "oracle_mean_iou": 0.769867170811326,
+      "sample_equal_weight": {
+        "mean_scores": [
+          0.2165721934188094,
+          0.5943088582171466,
+          0.04559922581097176
+        ],
+        "score_selects_gt_best_rate": 0.6114732945654966,
+        "selected_minus_first_mean_iou": 0.4864859705621783
+      },
+      "score_selected_counts": {
+        "1": 1846,
+        "2": 5478,
+        "3": 110
+      },
+      "score_selects_gt_best_rate": 0.7368845843422115,
+      "selected_mean_iou": 0.6034818631006654,
+      "selected_minus_first_mean_iou": 0.5957844615749353,
+      "unique_samples": 2039
+    },
+    "3": {
+      "first_mean_iou": 0.03615794960228405,
+      "mean_ious": [
+        0.03615794960228405,
+        0.034242998488503235,
+        0.6127759661005503
+      ],
+      "mean_scores": [
+        0.2855964912280702,
+        0.17944736842105263,
+        0.2983859649122807
+      ],
+      "median_scores": [
+        0.0,
+        0.0,
+        0.01
+      ],
+      "n": 1140,
+      "oracle_mean_iou": 0.6127759661005503,
+      "sample_equal_weight": {
+        "mean_scores": [
+          0.2896119983223642,
+          0.1552388050070977,
+          0.2859797231900891
+        ],
+        "score_selects_gt_best_rate": 0.2865063233965673,
+        "selected_minus_first_mean_iou": 0.22417519844570427
+      },
+      "score_selected_counts": {
+        "1": 616,
+        "2": 190,
+        "3": 334
+      },
+      "score_selects_gt_best_rate": 0.2929824561403509,
+      "selected_mean_iou": 0.2679915176626309,
+      "selected_minus_first_mean_iou": 0.2318335680603468,
+      "unique_samples": 738
+    }
+  },
+  "unique_sample_count": 5993,
+  "unit": "rollout record; repeated sample_id values are not independent"
+}

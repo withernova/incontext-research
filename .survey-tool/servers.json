@@ -15,5 +15,15 @@
     "gpu_count": 4,
     "launcher": "ssh NKU-LWC",
     "notes": "请勿在本服务器除了project_root下读取编写文件，例如/tmp"
+  },
+  {
+    "id": "03",
+    "label": "SZY-IPLoc",
+    "ssh_host": "SZY-3090",
+    "project_root": "/defaultShare/archive/songzhengyue/projects/IPLoc",
+    "gpu_type": "3090",
+    "gpu_count": 2,
+    "launcher": "ssh SZY-3090",
+    "notes": "请勿在本服务器除了 project_root（/defaultShare/archive/songzhengyue/projects/IPLoc）以外的位置读取或写入文件，例如 /tmp"
   }
 ]

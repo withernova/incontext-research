@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 620">
+<rect width="100%" height="100%" fill="white"/>
+<text x="45" y="36" font-size="22" font-family="sans-serif" font-weight="bold">Training rollout reward and advantage by pairwise order</text>
+<line x1="85.0" y1="95.0" x2="85.0" y2="490.0" stroke="#333" stroke-width="1" />
+<line x1="85.0" y1="490.0" x2="1035.0" y2="490.0" stroke="#333" stroke-width="1" />
+<line x1="85.0" y1="490.0" x2="1035.0" y2="490.0" stroke="#e5e7eb" stroke-width="1" />
+<text x="75.0" y="494.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="end">-1</text>
+<line x1="85.0" y1="402.2" x2="1035.0" y2="402.2" stroke="#e5e7eb" stroke-width="1" />
+<text x="75.0" y="406.2" fill="#222" font-size="12" font-family="sans-serif" text-anchor="end">-0.5</text>
+<line x1="85.0" y1="314.4" x2="1035.0" y2="314.4" stroke="#e5e7eb" stroke-width="1" />
+<text x="75.0" y="318.4" fill="#222" font-size="12" font-family="sans-serif" text-anchor="end">0</text>
+<line x1="85.0" y1="226.7" x2="1035.0" y2="226.7" stroke="#e5e7eb" stroke-width="1" />
+<text x="75.0" y="230.7" fill="#222" font-size="12" font-family="sans-serif" text-anchor="end">0.5</text>
+<line x1="85.0" y1="138.9" x2="1035.0" y2="138.9" stroke="#e5e7eb" stroke-width="1" />
+<text x="75.0" y="142.9" fill="#222" font-size="12" font-family="sans-serif" text-anchor="end">1</text>
+<text x="560.0" y="538.0" fill="#222" font-size="14" font-family="sans-serif" text-anchor="middle">Reward component / group-normalized advantage</text>
+<text x="85.0" y="83.0" fill="#222" font-size="14" font-family="sans-serif" text-anchor="start">Mean per rollout</text>
+<line x1="85.0" y1="314.4" x2="1035.0" y2="314.4" stroke="#777" stroke-width="1.4" />
+<rect x="141.0" y="231.5" width="34" height="82.9" fill="#175cd3"/>
+<text x="158.0" y="224.5" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.47</text>
+<rect x="185.0" y="314.4" width="34" height="51.6" fill="#d13d31"/>
+<text x="202.0" y="383.0" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">-0.29</text>
+<text x="180.0" y="515.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="middle">total</text>
+<rect x="331.0" y="205.6" width="34" height="108.8" fill="#175cd3"/>
+<text x="348.0" y="198.6" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.62</text>
+<rect x="375.0" y="284.5" width="34" height="29.9" fill="#d13d31"/>
+<text x="392.0" y="277.5" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.17</text>
+<text x="370.0" y="515.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="middle">iou</text>
+<rect x="521.0" y="292.5" width="34" height="21.9" fill="#175cd3"/>
+<text x="538.0" y="285.5" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.12</text>
+<rect x="565.0" y="254.5" width="34" height="60.0" fill="#d13d31"/>
+<text x="582.0" y="247.5" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.34</text>
+<text x="560.0" y="515.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="middle">brier</text>
+<rect x="711.0" y="306.9" width="34" height="7.6" fill="#175cd3"/>
+<text x="728.0" y="299.9" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.04</text>
+<rect x="755.0" y="271.8" width="34" height="42.7" fill="#d13d31"/>
+<text x="772.0" y="264.8" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.24</text>
+<text x="750.0" y="515.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="middle">ranking_loss</text>
+<rect x="901.0" y="246.4" width="34" height="68.1" fill="#175cd3"/>
+<text x="918.0" y="239.4" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">0.39</text>
+<rect x="945.0" y="314.4" width="34" height="118.2" fill="#d13d31"/>
+<text x="962.0" y="449.6" fill="#222" font-size="11" font-family="sans-serif" text-anchor="middle">-0.67</text>
+<text x="940.0" y="515.0" fill="#222" font-size="12" font-family="sans-serif" text-anchor="middle">advantage</text>
+<text x="85.0" y="560.0" fill="#222" font-size="13" font-family="sans-serif" text-anchor="start">Blue: score2 > score1 (n=31)    Red: score1 > score2 (n=96); score ties excluded</text>
+<text x="85.0" y="582.0" fill="#222" font-size="13" font-family="sans-serif" text-anchor="start">Within-prompt mixed groups: 8 / 152; raw component means are observational.</text>
+</svg>
