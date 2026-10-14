@@ -1,0 +1,105 @@
+{
+  "model": {
+    "type": "Qwen3VLLoRADDP",
+    "model_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+    "dtype": "bfloat16",
+    "gradient_checkpointing": true,
+    "find_unused_parameters": false,
+    "lora": {
+      "r": 8,
+      "alpha": 16,
+      "dropout": 0.0,
+      "target_modules": "^(?!.*visual).*(?:down_proj|v_proj|gate_proj|up_proj|k_proj|o_proj|q_proj).*$"
+    },
+    "attn_implementation": "sdpa",
+    "quantization": {
+      "load_in_4bit": true,
+      "bnb_4bit_quant_type": "nf4",
+      "bnb_4bit_use_double_quant": true,
+      "bnb_4bit_compute_dtype": "bfloat16"
+    }
+  },
+  "launch": {
+    "action": "evaluate",
+    "nproc_per_node": 8
+  },
+  "runner": {
+    "type": "SFTLoRARunner",
+    "assistant_only_logits": true,
+    "resume_from": null,
+    "warmup_ratio": 0.03,
+    "max_grad_norm": 0.3,
+    "optimizer": {
+      "lr": 0.0002,
+      "weight_decay": 0.0
+    },
+    "hooks": [
+      {
+        "type": "FiniteHook"
+      },
+      {
+        "type": "LoggerHook"
+      },
+      {
+        "type": "TrainingHistoryHook"
+      },
+      {
+        "type": "GpuMemoryHook"
+      },
+      {
+        "type": "MetricsWriterHook"
+      }
+    ],
+    "localization_iou_thresholds": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "max_epochs": 12,
+    "checkpoint_interval_epochs": 0.5,
+    "gradient_accumulation_steps": 64,
+    "seed": 20260827
+  },
+  "work_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-step200-eval1766-8gpu/payload",
+  "train_dataloader": {
+    "batch_size": 1,
+    "dataset": {
+      "type": "IPLocManifestDataset",
+      "ann_file": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus.json",
+      "target_role": "positive-image",
+      "normalized_scale": 1000,
+      "prompt_protocol": "focus"
+    },
+    "collator": {
+      "type": "Qwen3VLSFTCollator",
+      "vision_max_patch_tokens": 1024
+    }
+  },
+  "test_dataloader": {
+    "dataset": {
+      "type": "E014VariableCandidateLocalizationDataset",
+      "prompt_variant": "multi_v2",
+      "ann_file": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-step200-eval1766-8gpu/payload/manifest.json",
+      "ann_file_sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+      "target_role": "positive-image",
+      "normalized_scale": 1000
+    }
+  },
+  "evaluator": {
+    "type": "E014VariableCandidateLocalizationEvaluator",
+    "iou_thresholds": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "evaluation": {
+    "dataloader": "test_dataloader",
+    "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-symmetric-sft659-puregrpo-seed11451/payload/grpo/checkpoints/step_000200",
+    "adapter_subdir": "adapter/policy",
+    "max_new_tokens": 192,
+    "do_sample": false,
+    "vision_max_patch_tokens": 4096,
+    "seed": 20260901
+  }
+}

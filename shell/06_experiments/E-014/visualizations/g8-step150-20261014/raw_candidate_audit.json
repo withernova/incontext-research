@@ -1,0 +1,12 @@
+{
+  "definition": "Number of complete <answer>...</answer><score>...</score> pairs in raw text; not parser validity. The invalid sample has six complete pairs plus an unfinished seventh answer.",
+  "histogram": {
+    "1": 1677,
+    "2": 79,
+    "3": 7,
+    "4": 2,
+    "6": 1
+  },
+  "invalid_sample_index": 446,
+  "invalid_complete_pairs": 6
+}

@@ -7577,6 +7577,3844 @@
           "detail": "restart_failed_execution"
         }
       ]
+    },
+    {
+      "dispatch_id": "dispatch-d39a6cfd643388eb4c971b2b",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-11T17:19:19",
+      "updated_at": "2026-10-11T18:02:06",
+      "authorization_timestamp": "2026-10-11T17:19:19.215943",
+      "approved_spec_hash": "54f30d8e0143ae2bec4ad00e090b42cc0c0fd35e48da65da59400d468fea294a",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "Approved Run start was blocked by environment activation proof failed; do not substitute another Python/conda environment. Training start has not been confirmed. Release the failed preflight attempt so the intended IPLoc environment activation can be inspected without bypassing the managed lease.",
+      "history": [
+        {
+          "time": "2026-10-11T17:19:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-11T17:20:54",
+          "type": "claimed",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T17:20:54",
+          "type": "acknowledge",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T17:21:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T17:22:34",
+          "type": "fail",
+          "detail": "Approved Run start was blocked by environment activation proof failed; do not substitute another Python/conda environment. Training start has not been confirmed. Release the failed preflight attempt so the intended IPLoc environment activation can be inspected without bypassing the managed lease."
+        },
+        {
+          "time": "2026-10-11T18:02:06",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        }
+      ],
+      "consumer": "pi-steward:334886",
+      "claimed_at": "2026-10-11T17:20:54",
+      "lease_expires_at": "2026-10-11T17:36:27",
+      "acknowledged_at": "2026-10-11T17:20:54",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "failed_at": "2026-10-11T17:22:34",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-0850912d96e16413aea25635",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-11T18:46:46",
+      "updated_at": "2026-10-11T23:45:31",
+      "authorization_timestamp": "2026-10-11T18:46:46.300039",
+      "approved_spec_hash": "54f30d8e0143ae2bec4ad00e090b42cc0c0fd35e48da65da59400d468fea294a",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "服务器崩溃导致训练中断。恢复后已真实核查：SSH/GPU/日志可读，managed tmux_alive=false，八卡空闲，日志最后所有rank step119，未达到1500且无exit_code/完成marker；不编造退出码。先尝试受管repair，工具明确拒绝“自动修复预算已耗尽（0/0）”，因此按工具要求标记未完成environment失败并保留全部payload/日志/checkpoint；不绕过预算、不裸tmux、不覆盖、不切换初始化或环境。重跑需受管恢复权限与旧产物保留策略。",
+      "history": [
+        {
+          "time": "2026-10-11T18:46:46",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-10-11T18:47:49",
+          "type": "claimed",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:47:49",
+          "type": "acknowledge",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:47:57",
+          "type": "running",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:47:57",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-11T18:48:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:48:39",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T18:50:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:50:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T18:51:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:51:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T18:53:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:53:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T18:55:34",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T18:55:39",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T20:48:13",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T20:51:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:334886"
+        },
+        {
+          "time": "2026-10-11T23:42:33",
+          "type": "managed_reattached",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-11T23:42:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-11T23:42:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-11T23:45:31",
+          "type": "fail",
+          "detail": "服务器崩溃导致训练中断。恢复后已真实核查：SSH/GPU/日志可读，managed tmux_alive=false，八卡空闲，日志最后所有rank step119，未达到1500且无exit_code/完成marker；不编造退出码。先尝试受管repair，工具明确拒绝“自动修复预算已耗尽（0/0）”，因此按工具要求标记未完成environment失败并保留全部payload/日志/checkpoint；不绕过预算、不裸tmux、不覆盖、不切换初始化或环境。重跑需受管恢复权限与旧产物保留策略。"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-11T18:47:49",
+      "lease_expires_at": "2026-10-11T23:57:33",
+      "acknowledged_at": "2026-10-11T18:47:49",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-11T18:47:57",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-variable-symmetric-grpo",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-11T23:42:46",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 159842,
+              "mtime": 1791722791.7584746
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791715796.470628
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791715797.868191
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "reattached_at": "2026-10-11T23:42:33",
+      "failed_at": "2026-10-11T23:45:31",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-2dd369a52c2e46ab097f6813",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-12T00:09:53",
+      "updated_at": "2026-10-12T01:25:35",
+      "authorization_timestamp": "2026-10-12T00:09:53.395502",
+      "approved_spec_hash": "2ef0518c7abfefb0c037cdf8d97bc8a4368c56b934891ec6bea94e50a60371e9",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "本次尚未启动训练：start/status均在登记IPLoc环境证明阶段失败，没有launcher启动或step101证据。已申请repair，但工具只允许running dispatch进入repair，本次仍为启动前attempt。按用户要求重新登录诊断，先记录可重试的启动前environment失败并释放当前lease；实现/数据/科学方案/6cef1bac SHA不变，旧产物保留，不替换Python环境。",
+      "history": [
+        {
+          "time": "2026-10-12T00:09:53",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-10-12T01:15:22",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-12T01:16:56",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:16:56",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:18:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:23:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:25:35",
+          "type": "fail",
+          "detail": "本次尚未启动训练：start/status均在登记IPLoc环境证明阶段失败，没有launcher启动或step101证据。已申请repair，但工具只允许running dispatch进入repair，本次仍为启动前attempt。按用户要求重新登录诊断，先记录可重试的启动前environment失败并释放当前lease；实现/数据/科学方案/6cef1bac SHA不变，旧产物保留，不替换Python环境。"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T01:16:56",
+      "lease_expires_at": "2026-10-12T01:38:06",
+      "acknowledged_at": "2026-10-12T01:16:56",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "failed_at": "2026-10-12T01:25:35",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-385d5800580660ab8ef4d5cb",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-12T01:29:56",
+      "updated_at": "2026-10-12T11:12:33",
+      "authorization_timestamp": "2026-10-12T01:29:56.029772",
+      "approved_spec_hash": "2ef0518c7abfefb0c037cdf8d97bc8a4368c56b934891ec6bea94e50a60371e9",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "用户明确要求暂时停止训练，评测当前分支step800（最新请求覆盖之前750），沿用旧1766样本、多卡评测，之后另行恢复。此为用户撤回当前连续训练执行的有意中断，不是模型/实现失败，不宣称1500完成。先通过受管接口停止该attempt的授权与lease，再仅停止该Run已登记的训练coordinator并核验GPU释放；源数据/日志/所有checkpoint保留，不自动重启，不改科学方案。后续恢复需验证实际保存进度和有效授权，旧checkpoint无rank RNG不能声称精确随机轨迹恢复。",
+      "history": [
+        {
+          "time": "2026-10-12T01:29:56",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        },
+        {
+          "time": "2026-10-12T01:32:09",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:32:09",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:32:15",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:32:15",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T01:32:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:32:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T01:36:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:36:19",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T01:39:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T01:39:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T11:09:36",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T11:09:43",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T11:12:33",
+          "type": "fail",
+          "detail": "用户明确要求暂时停止训练，评测当前分支step800（最新请求覆盖之前750），沿用旧1766样本、多卡评测，之后另行恢复。此为用户撤回当前连续训练执行的有意中断，不是模型/实现失败，不宣称1500完成。先通过受管接口停止该attempt的授权与lease，再仅停止该Run已登记的训练coordinator并核验GPU释放；源数据/日志/所有checkpoint保留，不自动重启，不改科学方案。后续恢复需验证实际保存进度和有效授权，旧checkpoint无rank RNG不能声称精确随机轨迹恢复。"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T01:32:09",
+      "lease_expires_at": "2026-10-12T11:24:36",
+      "acknowledged_at": "2026-10-12T01:32:09",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T01:32:15",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-variable-symmetric-grpo",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-12T11:09:43",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 834899,
+              "mtime": 1791774683.19375
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791715796.470628
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791740066.144283
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-10-12T11:12:33",
+      "failure_class": "authorization",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-1f1eb55f6663aea0079fb3f8",
+      "experiment_id": "E-013",
+      "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+      "status": "queued",
+      "created_at": "2026-10-12T12:05:32",
+      "updated_at": "2026-10-12T12:05:32",
+      "authorization_timestamp": "2026-10-12T12:05:32.044327",
+      "approved_spec_hash": "df4edef987eb80d6582b4f740088b883eef1c383ecc5d1e05124bcceef682bc0",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T12:05:32",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-f9173ab253fcabc1a668ae05",
+      "experiment_id": "E-014",
+      "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+      "status": "completed",
+      "created_at": "2026-10-12T12:08:40",
+      "updated_at": "2026-10-12T12:53:53",
+      "authorization_timestamp": "2026-10-12T12:08:40.013671",
+      "approved_spec_hash": "d5b66311ea6c53c8271d8d42700863375454aa65cf97bf32e439b9d6c15a23f0",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T12:08:40",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-12T12:09:39",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:09:39",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:09:46",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:09:46",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T12:09:52",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:09:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:11:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:11:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:12:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:12:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:52:55",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:53:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:53:25",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:53:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:53:30",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-10-12T12:53:39",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:53:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:53:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T12:53:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T12:53:53",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T12:09:39",
+      "lease_expires_at": "2026-10-12T13:08:48",
+      "acknowledged_at": "2026-10-12T12:09:39",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T12:09:46",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-step800-eval1766",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-12T12:53:53",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 32072,
+              "mtime": 1791779397.8192954
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 8039,
+              "mtime": 1791779397.819096
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791778304.901243
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791779398.786853
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 8039,
+          "mtime": 1791779397.819096
+        }
+      },
+      "completed_at": "2026-10-12T12:53:53",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/managed_console.log",
+        "artifact": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-1b18d1e9199ce4ca1add2b4e",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-12T13:19:59",
+      "updated_at": "2026-10-12T16:14:13",
+      "authorization_timestamp": "2026-10-12T13:19:59.623237",
+      "approved_spec_hash": "cefcf5b4dc43218561a587a47f26d6ab9e8c43db1877a5fa4f6bb018582e1364",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "用户明确要求暂停当前multi_v2训练，先评测本分支step200。此为有意撤回当前连续训练授权，不是模型或实现故障，不宣称1500更新完成。通过受管接口释放该attempt/lease后，只停止这个已登记Run的coordinator及其自有workers；保留全部payload/data/日志/checkpoint，不自动重启、不覆盖。随后核验step200 adapter+optimizer真实落盘及GPU释放，准备独立multi_v2/1766/8卡只读评测，新评测Run另行批准和单次授权。",
+      "history": [
+        {
+          "time": "2026-10-12T13:19:59",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-12T13:20:55",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T13:20:55",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T13:21:01",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T13:21:01",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T13:21:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T13:21:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T13:22:59",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T13:23:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:13:17",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:13:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:14:13",
+          "type": "fail",
+          "detail": "用户明确要求暂停当前multi_v2训练，先评测本分支step200。此为有意撤回当前连续训练授权，不是模型或实现故障，不宣称1500更新完成。通过受管接口释放该attempt/lease后，只停止这个已登记Run的coordinator及其自有workers；保留全部payload/data/日志/checkpoint，不自动重启、不覆盖。随后核验step200 adapter+optimizer真实落盘及GPU释放，准备独立multi_v2/1766/8卡只读评测，新评测Run另行批准和单次授权。"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T13:20:55",
+      "lease_expires_at": "2026-10-12T16:28:17",
+      "acknowledged_at": "2026-10-12T13:20:55",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T13:21:01",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-symmetric-sft659-puregrpo-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-multi-v2-grpo",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-12T16:13:24",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 250985,
+              "mtime": 1791792913.3167658
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791782579.62171
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791782580.599948
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-10-12T16:14:13",
+      "failure_class": "authorization",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-860e5ea171b6067c17c7a52b",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+      "status": "completed",
+      "created_at": "2026-10-12T16:33:50",
+      "updated_at": "2026-10-12T16:56:41",
+      "authorization_timestamp": "2026-10-12T16:33:49.987983",
+      "approved_spec_hash": "7ff35dc6a2a9c1ebe454d3e2f067b0793537164636282ec5b76cc0ce928e1a06",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T16:33:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-12T16:35:09",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:35:09",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:35:16",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:35:16",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T16:47:14",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:47:21",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:55:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:55:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:55:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:55:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:56:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:56:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:56:04",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-10-12T16:56:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:56:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:56:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T16:56:41",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T16:56:41",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T16:35:09",
+      "lease_expires_at": "2026-10-12T17:11:36",
+      "acknowledged_at": "2026-10-12T16:35:09",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T16:35:16",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-step200-eval1766-8gpu/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-multi-v2-step200-eval",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-12T16:56:41",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 32007,
+              "mtime": 1791795342.101873
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 8110,
+              "mtime": 1791795342.101669
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791794234.617958
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791795342.34063
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 8110,
+          "mtime": 1791795342.101669
+        }
+      },
+      "completed_at": "2026-10-12T16:56:41",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-step200-eval1766-8gpu/managed_console.log",
+        "artifact": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-step200-eval1766-8gpu/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-49087b01fe0ef97c5e8a5730",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-12T18:29:50",
+      "updated_at": "2026-10-12T20:47:31",
+      "authorization_timestamp": "2026-10-12T18:29:50.404206",
+      "approved_spec_hash": "f79cf22323417964f8a856b71daafd8257939b5201005ebc556f683e1f1f7cc0",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "用户明确要求暂停最新训练并只读评测本分支step150。此为用户有意暂停，不是模型故障，不宣称1500步完成。释放此attempt/lease后，仅停止已核验此Run的coordinator及自有workers，保留data/cache/log/checkpoints和组内奖励统计，不自动重启。核验step150 saved optimizer/policy及8卡释放后准备独立1766/multi_v2/8卡评测；新增评测Run另行批准授权，不能借用训练授权。",
+      "history": [
+        {
+          "time": "2026-10-12T18:29:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-12T18:32:21",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T18:32:21",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T18:32:27",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T18:32:27",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T18:32:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T18:32:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T20:46:34",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T20:46:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-12T20:47:31",
+          "type": "fail",
+          "detail": "用户明确要求暂停最新训练并只读评测本分支step150。此为用户有意暂停，不是模型故障，不宣称1500步完成。释放此attempt/lease后，仅停止已核验此Run的coordinator及自有workers，保留data/cache/log/checkpoints和组内奖励统计，不自动重启。核验step150 saved optimizer/policy及8卡释放后准备独立1766/multi_v2/8卡评测；新增评测Run另行批准授权，不能借用训练授权。"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T18:32:21",
+      "lease_expires_at": "2026-10-12T21:01:34",
+      "acknowledged_at": "2026-10-12T18:32:21",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T18:32:27",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-cover-min-cap5-grpo",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-12T20:46:44",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 258412,
+              "mtime": 1791809283.6841686
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791801265.73168
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791801266.809349
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-10-12T20:47:30",
+      "failure_class": "authorization",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-ec48ad5e7a2cda73110568a3",
+      "experiment_id": "E-014",
+      "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+      "status": "failed",
+      "created_at": "2026-10-12T21:03:12",
+      "updated_at": "2026-10-13T19:01:47",
+      "authorization_timestamp": "2026-10-12T21:03:12.429585",
+      "approved_spec_hash": "24a6eb7f7260447ff73c0e5f86bfceac5d1b09c0c94509cb146f547d35874add",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "1",
+      "history": [
+        {
+          "time": "2026-10-12T21:03:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-12T21:04:33",
+          "type": "claimed",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T21:04:33",
+          "type": "acknowledge",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T21:04:42",
+          "type": "running",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T21:04:42",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-12T21:04:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-12T21:04:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T00:33:01",
+          "type": "managed_reattached",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-13T00:33:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-13T01:16:27",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:386468"
+        },
+        {
+          "time": "2026-10-13T19:01:47",
+          "type": "human_marked_failed",
+          "detail": "1"
+        }
+      ],
+      "consumer": "pi-steward:386468",
+      "claimed_at": "2026-10-12T21:04:33",
+      "acknowledged_at": "2026-10-12T21:04:33",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-12T21:04:42",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-cover-min-cap5-step150-eval1766-8gpu/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "e014-min-cap5-step150-eval",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-12T21:04:55",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 196,
+              "mtime": 1791810400.5271747
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791810400.20454
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791810400.210023
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "reattached_at": "2026-10-13T00:33:01",
+      "failed_at": "2026-10-13T19:01:47",
+      "failure_class": "human_adjudicated",
+      "retryable": true,
+      "human_adjudicated": true,
+      "human_adjudicated_by": "human:web-v2"
+    },
+    {
+      "dispatch_id": "dispatch-2acd54f302f24a0b1f73087d",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-13T19:32:12",
+      "updated_at": "2026-10-13T19:36:00",
+      "authorization_timestamp": "2026-10-13T19:32:12.729808",
+      "approved_spec_hash": "826236df86d340828d6145e53867ab6a574a0b769951111c4f09ddd58a0acb58",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "真实受管启动于2026-10-13T19:34:08后退出码1；当前Run logs/run.log报FileExistsError: Existing Run contains prior or unknown artifacts; preserve it。衍生Run默认log_path=logs/run.log导致root/logs被managed脚手架创建，而tools/run_symmetric_grpo.py只允许root/managed_console.log等既有脚手架。payload不存在，未准备数据、加载模型或执行更新；远端8GPU利用率0%、各2MiB、compute进程列表为空。保留此次控制文件/logs/outputs，不删除、不覆盖、不重跑。后续需按当前训练入口使用root/managed_console.log并采用独立新执行目录，明确授权后受管启动。已部署69f786a3实现和0.2配置不变。",
+      "history": [
+        {
+          "time": "2026-10-13T19:32:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-13T19:32:56",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-10-13T19:32:56",
+          "type": "claimed",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:32:56",
+          "type": "acknowledge",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:33:37",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-13T19:33:49",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:33:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T19:34:08",
+          "type": "running",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:34:08",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-13T19:34:41",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:34:48",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T19:36:00",
+          "type": "fail",
+          "detail": "真实受管启动于2026-10-13T19:34:08后退出码1；当前Run logs/run.log报FileExistsError: Existing Run contains prior or unknown artifacts; preserve it。衍生Run默认log_path=logs/run.log导致root/logs被managed脚手架创建，而tools/run_symmetric_grpo.py只允许root/managed_console.log等既有脚手架。payload不存在，未准备数据、加载模型或执行更新；远端8GPU利用率0%、各2MiB、compute进程列表为空。保留此次控制文件/logs/outputs，不删除、不覆盖、不重跑。后续需按当前训练入口使用root/managed_console.log并采用独立新执行目录，明确授权后受管启动。已部署69f786a3实现和0.2配置不变。"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-10-13T19:32:56",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:547456",
+      "claimed_at": "2026-10-13T19:32:56",
+      "lease_expires_at": "2026-10-13T19:49:41",
+      "acknowledged_at": "2026-10-13T19:32:56",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "managed_execution": {
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-13T19:34:48",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 1022,
+              "mtime": 1791891382.5947423
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791891367.322376
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791891384.59164
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451"
+      },
+      "running_at": "2026-10-13T19:34:08",
+      "failed_at": "2026-10-13T19:36:00",
+      "failure_class": "environment",
+      "retryable": true
+    },
+    {
+      "dispatch_id": "dispatch-adc3434f7b9a2f30b26883bb",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "status": "failed",
+      "created_at": "2026-10-13T19:41:36",
+      "updated_at": "2026-10-13T23:31:46",
+      "authorization_timestamp": "2026-10-13T19:41:36.230018",
+      "approved_spec_hash": "6df80d5402fa67eadf3b7651af92edfd50347178bf7a289ac9e5ec9edef1fe0a",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "用户明确要求暂停当前训练并评测本分支step150。只读核查8rank已完成160更新，step_000150 optimizer.pt与adapter/policy权重配置文件存在；下一步仅终止精确匹配本Run output.run_name的唯一coordinator及其自有worker，保留全部数据、checkpoint和日志。用户主动暂停，不代表1500完成，不自动重启或恢复。",
+      "history": [
+        {
+          "time": "2026-10-13T19:41:36",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-13T19:42:08",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-13T19:42:44",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-10-13T19:42:45",
+          "type": "claimed",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:42:45",
+          "type": "acknowledge",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:42:55",
+          "type": "running",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:42:55",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-13T19:43:20",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:43:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T19:50:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:51:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T19:52:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T19:52:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T20:05:49",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T20:05:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T20:42:37",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T20:42:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T23:30:41",
+          "type": "managed_reattached",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T23:30:41",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:547456"
+        },
+        {
+          "time": "2026-10-13T23:30:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-13T23:31:46",
+          "type": "fail",
+          "detail": "用户明确要求暂停当前训练并评测本分支step150。只读核查8rank已完成160更新，step_000150 optimizer.pt与adapter/policy权重配置文件存在；下一步仅终止精确匹配本Run output.run_name的唯一coordinator及其自有worker，保留全部数据、checkpoint和日志。用户主动暂停，不代表1500完成，不自动重启或恢复。"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-10-13T19:42:44",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:547456",
+      "claimed_at": "2026-10-13T19:42:45",
+      "lease_expires_at": "2026-10-13T23:45:41",
+      "acknowledged_at": "2026-10-13T19:42:45",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-13T19:42:55",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-13T23:30:49",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 277845,
+              "mtime": 1791905553.3541672
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791891894.222026
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791891917.623773
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "reattached_at": "2026-10-13T23:30:41",
+      "failed_at": "2026-10-13T23:31:46",
+      "failure_class": "authorization",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-5dce432acf05e537c8f85a5d",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "status": "queued",
+      "created_at": "2026-10-13T23:34:27",
+      "updated_at": "2026-10-13T23:34:27",
+      "authorization_timestamp": "2026-10-13T23:34:27.083208",
+      "approved_spec_hash": "57e74757df9f92a7a59d3a55e7b582efcb430c48af658182ed976fc41c385865",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-13T23:34:27",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    {
+      "dispatch_id": "dispatch-3087f89e9fd6abde602ffbc8",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+      "status": "completed",
+      "created_at": "2026-10-14T00:00:30",
+      "updated_at": "2026-10-14T00:37:34",
+      "authorization_timestamp": "2026-10-14T00:00:30.799248",
+      "approved_spec_hash": "578f0f296e79b487c84f907aa91562a4a6e2813d66756ee6428a2895e7fa8f7c",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T00:00:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-14T00:11:58",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-14T00:12:07",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-10-14T00:12:07",
+          "type": "claimed",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:12:07",
+          "type": "acknowledge",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:12:20",
+          "type": "running",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:12:20",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-14T00:12:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:12:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:36:06",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:36:18",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:37:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:37:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:37:05",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-10-14T00:37:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:37:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:37:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:37:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:37:34",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-10-14T00:12:07",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:579238",
+      "claimed_at": "2026-10-14T00:12:07",
+      "lease_expires_at": "2026-10-14T00:52:29",
+      "acknowledged_at": "2026-10-14T00:12:07",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-14T00:12:20",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-14T00:37:33",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 32511,
+              "mtime": 1791909363.7125401
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 9238,
+              "mtime": 1791909363.712379
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791908059.160712
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791909363.979789
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 9238,
+          "mtime": 1791909363.712379
+        }
+      },
+      "completed_at": "2026-10-14T00:37:34",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001/managed_console.log",
+        "artifact": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
+    },
+    {
+      "dispatch_id": "dispatch-01153590611ab5ac555213f3",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+      "status": "failed",
+      "created_at": "2026-10-14T00:45:31",
+      "updated_at": "2026-10-14T08:17:48",
+      "authorization_timestamp": "2026-10-14T00:45:31.610736",
+      "approved_spec_hash": "9c644111c34db8a86faaa41684f6021b8bc86f72a1365d2ddce665db2a1d702a",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "用户最新明确要求现在停止训练并开始评测，取消等待step400。最新已保存checkpoint为step150；本次为用户主动暂停用于step150评测，不是训练崩溃或1500完成。不自动恢复、不重试；保留全部产物。",
+      "history": [
+        {
+          "time": "2026-10-14T00:45:31",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-14T00:48:13",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-14T00:48:47",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        },
+        {
+          "time": "2026-10-14T00:48:47",
+          "type": "claimed",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:48:47",
+          "type": "acknowledge",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:48:56",
+          "type": "running",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:48:56",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-14T00:51:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:51:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:54:52",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:55:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T00:58:09",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T00:58:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:01:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:01:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:04:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:04:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:09:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:09:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:12:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:12:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:14:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:14:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:17:37",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:17:41",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:17:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:17:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:20:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:20:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:23:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:23:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:26:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:26:20",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:28:59",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:29:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:31:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:31:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:34:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:34:31",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:37:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:37:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:39:59",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:40:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:42:41",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:42:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:45:19",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:45:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:48:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:48:10",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:50:44",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:50:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:53:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:53:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:56:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:56:31",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T01:59:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T01:59:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:02:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:02:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:04:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:04:52",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:07:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:07:28",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:10:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:10:08",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:12:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:13:02",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:15:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:15:40",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:18:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:18:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:20:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:20:59",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:23:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:23:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:26:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:26:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:28:58",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:29:03",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:31:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:31:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:34:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:34:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:37:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:37:10",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:39:52",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:39:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:42:36",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:42:40",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:45:20",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:45:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:48:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:48:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:50:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:50:48",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:53:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:53:23",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:56:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:56:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T02:58:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T02:58:48",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:01:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:01:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:04:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:04:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:06:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:06:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:09:28",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:09:33",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:12:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:12:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:14:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:14:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:17:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:17:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:20:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:20:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:23:15",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:23:20",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:26:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:26:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:28:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:28:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:31:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:31:28",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:34:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:34:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:36:49",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:36:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:39:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:39:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:42:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:42:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:44:56",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:45:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:47:37",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:47:41",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:50:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:50:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:53:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:53:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:55:37",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:55:42",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T03:58:25",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T03:58:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:01:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:01:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:03:49",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:03:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:06:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:06:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:09:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:09:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:11:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:11:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:14:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:14:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:17:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:17:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:19:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:19:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:22:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:22:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:25:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:25:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:27:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:27:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:30:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:30:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:33:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:33:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:35:52",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:35:56",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:38:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:38:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:41:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:41:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:43:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:43:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:46:26",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:46:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:49:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:49:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:51:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:51:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:54:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:54:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:57:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:57:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T04:59:50",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T04:59:54",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:02:35",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:02:40",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:05:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:05:23",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:08:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:08:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:10:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:10:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:13:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:13:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:16:09",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:16:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:18:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:18:52",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:21:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:21:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:26:08",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:26:13",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:28:47",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:28:52",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:31:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:31:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:33:54",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:33:59",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:36:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:36:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:39:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:39:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:41:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:41:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:44:19",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:44:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:46:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:46:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:49:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:49:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:52:01",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:52:06",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:54:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:54:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:57:12",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:57:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T05:59:53",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T05:59:57",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:02:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:02:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:05:09",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:05:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:07:51",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:07:56",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:10:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:10:27",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:12:59",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:13:03",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:15:31",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:15:36",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:18:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:18:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:20:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:20:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:23:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:23:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:26:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:26:05",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:28:38",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:28:43",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:31:20",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:31:25",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:33:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:34:01",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:36:32",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:36:37",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:39:05",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:39:10",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:41:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:41:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:44:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:44:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:46:55",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:46:59",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:49:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:49:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:52:06",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:52:11",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T06:54:48",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T06:54:53",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:00:39",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:00:43",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:03:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:03:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:06:17",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:06:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:09:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:09:08",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:11:41",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:11:46",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:14:24",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:14:29",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:17:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:17:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:19:40",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:19:45",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:22:25",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:22:30",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:25:02",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:25:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:27:40",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:27:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:30:21",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:30:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:32:57",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:33:02",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:35:33",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:35:38",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:38:18",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:38:22",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:41:04",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:41:09",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:43:39",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:43:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:46:19",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:46:24",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:48:59",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:49:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:51:39",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:51:44",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:54:30",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:54:35",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:57:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:57:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T07:59:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T07:59:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:02:22",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:02:26",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:05:00",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:05:04",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:07:43",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:07:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:10:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:10:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:13:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:13:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:15:10",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:15:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:17:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:17:15",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:17:48",
+          "type": "fail",
+          "detail": "用户最新明确要求现在停止训练并开始评测，取消等待step400。最新已保存checkpoint为step150；本次为用户主动暂停用于step150评测，不是训练崩溃或1500完成。不自动恢复、不重试；保留全部产物。"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-10-14T00:48:47",
+      "runtime_command_prepared_by": "pi-steward",
+      "consumer": "pi-steward:579238",
+      "claimed_at": "2026-10-14T00:48:47",
+      "lease_expires_at": "2026-10-14T08:32:11",
+      "acknowledged_at": "2026-10-14T00:48:47",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-14T00:48:56",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-bonus02-g8-sft659-seed11451",
+        "status_observation": {
+          "tmux_alive": true,
+          "observed_at": "2026-10-14T08:17:15",
+          "completion_candidate": false,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 272478,
+              "mtime": 1791936966.8212872
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791910255.187442
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791910304.808638
+            }
+          },
+          "exit_code": null,
+          "marker_found": false,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-10-14T08:17:48",
+      "failure_class": "authorization",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-377dadfa712b5234366f25c4",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+      "status": "queued",
+      "created_at": "2026-10-14T00:45:47",
+      "updated_at": "2026-10-14T00:48:39",
+      "authorization_timestamp": "2026-10-14T00:45:47.785700",
+      "approved_spec_hash": "9c404583026c869a6caa1f43058a888ee00ecd77c60d595dfcd9dbc1d2d1f943",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T00:45:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-14T00:48:13",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-14T00:48:39",
+          "type": "runtime_command_prepared",
+          "detail": "Pi resolved approved placeholders"
+        }
+      ],
+      "runtime_command_prepared_at": "2026-10-14T00:48:39",
+      "runtime_command_prepared_by": "pi-steward"
+    },
+    {
+      "dispatch_id": "dispatch-adafa7b61a8a263b7fcb447e",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+      "status": "failed",
+      "created_at": "2026-10-14T08:19:41",
+      "updated_at": "2026-10-14T08:28:39",
+      "authorization_timestamp": "2026-10-14T08:19:41.044054",
+      "approved_spec_hash": "13c4e4310465a79b07dde1753d4739daa4414c167f3f27117d5d57992b310d3b",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "评测启动前置检查退出1，未加载模型。实际错误FileExistsError: Run payload already exists or is a symlink; no overwrite。此次登记output_dir=Run/payload/evaluation导致managed launcher预建payload，与validate_run_layout独占payload契约冲突（应使用根级outputs）。这是本次输出目录配置错误，不是checkpoint/训练错误。保留全部失败产物，不自动重试/覆盖/创建替代Run；训练已停止、8GPU无compute进程。",
+      "history": [
+        {
+          "time": "2026-10-14T08:19:41",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-14T08:26:13",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-14T08:27:04",
+          "type": "claimed",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:27:04",
+          "type": "acknowledge",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:27:10",
+          "type": "running",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:27:10",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-14T08:27:49",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:27:55",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:28:39",
+          "type": "fail",
+          "detail": "评测启动前置检查退出1，未加载模型。实际错误FileExistsError: Run payload already exists or is a symlink; no overwrite。此次登记output_dir=Run/payload/evaluation导致managed launcher预建payload，与validate_run_layout独占payload契约冲突（应使用根级outputs）。这是本次输出目录配置错误，不是checkpoint/训练错误。保留全部失败产物，不自动重试/覆盖/创建替代Run；训练已停止、8GPU无compute进程。"
+        }
+      ],
+      "consumer": "pi-steward:579238",
+      "claimed_at": "2026-10-14T08:27:04",
+      "lease_expires_at": "2026-10-14T08:42:49",
+      "acknowledged_at": "2026-10-14T08:27:04",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-14T08:27:10",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-bonus02-g8-step150-eval1766",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-14T08:27:55",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 570,
+              "mtime": 1791937755.9875088
+            },
+            "metrics_file": {
+              "exists": false,
+              "size": 0,
+              "mtime": 0
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791937748.734862
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791937756.859421
+            }
+          },
+          "exit_code": "1",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        }
+      },
+      "failed_at": "2026-10-14T08:28:39",
+      "failure_class": "invalid_spec",
+      "retryable": false
+    },
+    {
+      "dispatch_id": "dispatch-df195d7ade1b0bb477dd27f4",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+      "status": "completed",
+      "created_at": "2026-10-14T08:36:43",
+      "updated_at": "2026-10-14T09:03:18",
+      "authorization_timestamp": "2026-10-14T08:36:43.501673",
+      "approved_spec_hash": "6ac1d9ad8fbd0ecf2c5b8eaf65f63eaea550ada1fd82bb53b2eb366f0b6e17b7",
+      "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 1,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T08:36:43",
+          "type": "queued",
+          "detail": "direct_steward"
+        },
+        {
+          "time": "2026-10-14T08:38:39",
+          "type": "implementation_evidence_updated",
+          "detail": "git_commit"
+        },
+        {
+          "time": "2026-10-14T08:38:58",
+          "type": "claimed",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:38:58",
+          "type": "acknowledge",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:39:04",
+          "type": "running",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:39:04",
+          "type": "managed_execution_metadata",
+          "detail": "isolation_mode,launcher_path,ssh_host,started_evidence,tmux_session"
+        },
+        {
+          "time": "2026-10-14T08:39:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:39:51",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:42:27",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:42:32",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:43:09",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:43:14",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:45:52",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:45:58",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:48:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:48:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:51:11",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:51:16",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:54:07",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:54:12",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:56:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:56:49",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T08:59:29",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T08:59:34",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T09:00:45",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T09:00:50",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T09:01:42",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T09:01:47",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T09:01:47",
+          "type": "managed_execution_metadata",
+          "detail": "stable_observation"
+        },
+        {
+          "time": "2026-10-14T09:03:03",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T09:03:07",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T09:03:13",
+          "type": "managed_heartbeat",
+          "detail": "pi-steward:579238"
+        },
+        {
+          "time": "2026-10-14T09:03:17",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-14T09:03:18",
+          "type": "complete",
+          "detail": "managed execution exited 0; metrics parsed; human analysis required"
+        }
+      ],
+      "consumer": "pi-steward:579238",
+      "claimed_at": "2026-10-14T08:38:58",
+      "lease_expires_at": "2026-10-14T09:18:13",
+      "acknowledged_at": "2026-10-14T08:38:58",
+      "executor_kind": "agent",
+      "actual_agent": "codex",
+      "actual_model": "gpt-5.6-sol",
+      "fallback_reason": "",
+      "running_at": "2026-10-14T08:39:04",
+      "managed_execution": {
+        "launcher_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/.survey-tool-managed/launcher.sh",
+        "isolation_mode": "tmux-guarded",
+        "started_evidence": "tmux_new_session_ok",
+        "ssh_host": "SZY-3090",
+        "tmux_session": "incontext-E-014-e014-multi-bonus02-g8-step150-eval1766-r2",
+        "status_observation": {
+          "tmux_alive": false,
+          "observed_at": "2026-10-14T09:03:17",
+          "completion_candidate": true,
+          "files": {
+            "log_file": {
+              "exists": true,
+              "size": 32585,
+              "mtime": 1791939695.3174284
+            },
+            "metrics_file": {
+              "exists": true,
+              "size": 9226,
+              "mtime": 1791939695.317213
+            },
+            "output_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791938462.452068
+            },
+            "run_dir": {
+              "exists": true,
+              "size": 0,
+              "mtime": 1791939695.90738
+            }
+          },
+          "exit_code": "0",
+          "marker_found": true,
+          "launch_state": "SURVEY_TOOL_LAUNCHER_STARTED"
+        },
+        "stable_observation": {
+          "size": 9226,
+          "mtime": 1791939695.317213
+        }
+      },
+      "completed_at": "2026-10-14T09:03:18",
+      "completion_evidence": {
+        "log": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/managed_console.log",
+        "artifact": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/metrics.json",
+        "result_message": "managed execution exited 0; metrics parsed; human analysis required"
+      }
     }
   ]
 }

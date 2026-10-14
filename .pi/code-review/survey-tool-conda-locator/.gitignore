@@ -1,0 +1,33 @@
+.survey-tool/
+__pycache__/
+*.pyc
+.DS_Store
+.publish/
+*.log
+publish/
+
+# Local configuration and execution state
+config.json
+.pi/
+.env
+.env.*
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.key
+web/node_modules/
+web/test-results/
+web/playwright-report/
+web/*.tsbuildinfo
+
+# Root-level research and remote artifacts must not enter the tool repository
+/papers/
+/checkpoints/
+/outputs/
+/artifacts/
+
+.automation/
+
+# Local execution handoffs may contain raw one-time lease credentials.
+/.claim-*.json

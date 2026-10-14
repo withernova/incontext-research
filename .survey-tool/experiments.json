@@ -660,7 +660,9 @@
     "workspace_id": "03",
     "code_repository_workspace_id": "02",
     "constraints": "",
-    "evidence_refs": [],
+    "evidence_refs": [
+      "[]"
+    ],
     "hypothesis": "",
     "success_criteria": "",
     "failure_criteria": "",
@@ -675,6 +677,28 @@
     "brief_constraints": "",
     "claim_refs": [],
     "created": "2026-09-18T16:16:30",
-    "updated": "2026-09-28T19:29:32"
+    "updated": "2026-10-09T14:55:39"
+  },
+  {
+    "title": "空间有序候选与 Reference 置信度",
+    "workspace_id": "03",
+    "objective": "从原置信度 SFT step659 初始化，进行纯 GRPO。候选数量由模型自行决定，不固定三框或为了配额制造更多 GT 实例；按 Query bbox 中心横坐标从左到右输出，保留 Reference 同一实例置信度定义。使用同类别两实例的 Reference 切换与 AB/BA 位置交换训练，检验空间顺序、候选覆盖及按 score 选框是否改善。具体实现与训练预算记录在独立 Run；本实验不是仅修改 prompt 的单变量消融。",
+    "constraints": "用户已要求准备并执行训练，确认 SFT659、纯 GRPO、变长候选；不加 score CE、旧反事实偏好、SDS/Evidence reward，不附加“与置信度无关”措辞。不修改 E-013 默认行为或原始图像/清单。原 4000 条输入的身份、GT、split、review 字段不变，只在 E-014 派生清单迁移到注册的只读 dataset alias。所有新数据、缓存和产物写入 E-014 独立新 Run 目录，不覆盖失败结果，不自动重跑。具体 Run 的完整参数、奖励定义、数据规模、代码 SHA、发布/部署与执行门必须核查；Agent 不代替人类批准或授权。",
+    "source_ref": "E-013",
+    "evidence_refs": [],
+    "claim_refs": [],
+    "kind": "standalone",
+    "agent_level": "2",
+    "workflow_stage": "draft",
+    "created_by": "terminal_pi",
+    "run_groups": [],
+    "metric_definitions": [],
+    "id": "E-014",
+    "code_repository_workspace_id": "03",
+    "status": "planned",
+    "brief_objective": "从原置信度 SFT step659 初始化，进行纯 GRPO。候选数量由模型自行决定，不固定三框或为了配额制造更多 GT 实例；按 Query bbox 中心横坐标从左到右输出，保留 Reference 同一实例置信度定义。使用同类别两实例的 Reference 切换与 AB/BA 位置交换训练，检验空间顺序、候选覆盖及按 score 选框是否改善。具体实现与训练预算记录在独立 Run；本实验不是仅修改 prompt 的单变量消融。",
+    "brief_constraints": "用户已要求准备并执行训练，确认 SFT659、纯 GRPO、变长候选；不加 score CE、旧反事实偏好、SDS/Evidence reward，不附加“与置信度无关”措辞。不修改 E-013 默认行为或原始图像/清单。原 4000 条输入的身份、GT、split、review 字段不变，只在 E-014 派生清单迁移到注册的只读 dataset alias。所有新数据、缓存和产物写入 E-014 独立新 Run 目录，不覆盖失败结果，不自动重跑。具体 Run 的完整参数、奖励定义、数据规模、代码 SHA、发布/部署与执行门必须核查；Agent 不代替人类批准或授权。",
+    "created": "2026-10-11T14:05:35",
+    "updated": "2026-10-11T15:27:09"
   }
 ]

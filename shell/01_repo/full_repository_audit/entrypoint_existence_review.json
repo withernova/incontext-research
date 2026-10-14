@@ -1,0 +1,188 @@
+{
+  "baseline": "1622e5f64a70239d02145f017cfd991cf8318e47",
+  "edges": [
+    {
+      "config": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "entrypoint": "iploc_szy.head_screening.chain_rule_audit:run_chain_rule_audit",
+      "source_chain": [
+        "iploc_szy/head_screening/chain_rule_audit.py"
+      ],
+      "verification": "AST definition/explicit re-export exists; no imports or calls"
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "entrypoint": "iploc_szy.head_screening.fresh_query_reference_attention:run",
+      "source_chain": [
+        "iploc_szy/head_screening/fresh_query_reference_attention.py"
+      ],
+      "verification": "AST definition/explicit re-export exists; no imports or calls"
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+      "entrypoint": "iploc_szy.head_screening.reference_target_collector:run_r005_collect_and_screen",
+      "source_chain": [
+        "iploc_szy/head_screening/reference_target_collector.py"
+      ],
+      "verification": "AST definition/explicit re-export exists; no imports or calls"
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+      "entrypoint": "iploc_szy.head_screening.target_vs_background_ablation:run_r008_target_vs_background_ablation",
+      "source_chain": [
+        "iploc_szy/head_screening/target_vs_background_ablation.py",
+        "iploc_szy/head_screening/target_background/worker.py"
+      ],
+      "verification": "AST definition/explicit re-export exists; no imports or calls"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "module": "iploc_szy.head_screening.bbox_gradient",
+      "source": "iploc_szy/head_screening/bbox_gradient.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "module": "iploc_szy.head_screening.bbox_gradient",
+      "source": "iploc_szy/head_screening/bbox_gradient.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh",
+      "module": "iploc_szy.head_screening.eval_stratified_reference_maps",
+      "source": "iploc_szy/head_screening/eval_stratified_reference_maps.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh",
+      "module": "iploc_szy.head_screening.gradient_gated_spatial_frequency",
+      "source": "iploc_szy/head_screening/gradient_gated_spatial_frequency.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh",
+      "module": "iploc_szy.head_screening.gradient_attention_maps",
+      "source": "iploc_szy/head_screening/gradient_attention_maps.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_head_circuit_path_patching.sh",
+      "module": "iploc_szy.head_screening.head_circuit",
+      "source": "iploc_szy/head_screening/head_circuit.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh",
+      "module": "iploc_szy.head_screening.head_circuit",
+      "source": "iploc_szy/head_screening/head_circuit.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r015_query_key_control_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r016_black_reference_step741.sh",
+      "module": "iploc_szy.head_screening.keepset_pruning",
+      "source": "iploc_szy/head_screening/keepset_pruning.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh",
+      "module": "iploc_szy.head_screening.reference_gradient_gated_spatial_frequency",
+      "source": "iploc_szy/head_screening/reference_gradient_gated_spatial_frequency.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_reference_spatial_iou050.sh",
+      "module": "iploc_szy.head_screening.reference_gradient_gated_spatial_frequency",
+      "source": "iploc_szy/head_screening/reference_gradient_gated_spatial_frequency.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_top10_head_ablation.sh",
+      "module": "iploc_szy.head_screening.top10_head_ablation",
+      "source": "iploc_szy/head_screening/top10_head_ablation.py",
+      "verification": "module file exists; CLI behavior not thereby verified"
+    }
+  ]
+}

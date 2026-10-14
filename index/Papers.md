@@ -2,6 +2,7 @@
 
 - [[detpoinc2026|DetPO: In-Context Learning with Multi-Modal LLMs for Few-Shot Object Detection]]
 - [[devilsin2024|Devils in Middle Layers of Large Vision-Language Models: Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens]]
+- [[evidence2026|Evidence-RL: Towards Evidence-intensive Visual Reasoning]]
 - [[focusfor2026|FOCUS: Forcing In-Context Object Localization through Visual Support Constraints and Policy Optimization]]
 - [[makelvlm2025|Make LVLMs Focus: Context-Aware Attention Modulation for Better Multimodal In-Context Learning]]
 - [[mechanis2026|Mechanisms of Object Localization in Vision-Language Models]]

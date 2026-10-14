@@ -78,3 +78,13 @@ Never invent an entry by hand; if a paper can't be fetched, mark it [UNVERIFIED]
 - fetched_at: 2026-09-10T10:57:12
 - local_pdf: shell/03_evidence/papers/makelvlm2025.pdf
 - mineru_md: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/makelvlm2025.md | mineru_images: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Make LVLMs Focus  Context-Aware Attention Modulation for Better Multimodal In-Context Learning_2025/hybrid_auto/images  # 优先阅读对象（C2）
+## [evidence2026]
+- title: Evidence-RL: Towards Evidence-intensive Visual Reasoning
+- authors: Haojie Huang, Xinlei Yu, Chengming Xu, Zhangquan Chen, Cheng Yang, Qingdong He, Yu Yang, Jiangning Zhang, Xiaobin Hu
+- year: 2026
+- doi: 10.48550/arXiv.2608.08021
+- source_url: https://www.zotero.org/items/410
+- content_hash: sha256:929114cfcc9a187a6df315ab10ce6335581fddb161b87f5a209cb8d63851a5a0
+- fetched_at: 2026-10-09T12:00:21
+- local_pdf: shell/03_evidence/papers/evidence2026.pdf
+- mineru_md: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Evidence-RL  Towards Evidence-intensive Visual Reasoning_2026/hybrid_auto/evidence2026.md | mineru_images: /home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/papers/Evidence-RL  Towards Evidence-intensive Visual Reasoning_2026/hybrid_auto/images  # 优先阅读对象（C2）

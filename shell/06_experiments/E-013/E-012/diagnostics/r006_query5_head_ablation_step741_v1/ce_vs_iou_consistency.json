@@ -1,0 +1,243 @@
+{
+  "schema": "e012.ce-vs-iou-consistency/v1",
+  "r006": {
+    "tag": "R-006 query 五头",
+    "path": "/tmp/e012_ablation/records.json",
+    "records": 600,
+    "overall": {
+      "n_pairs": 540,
+      "pearson_d_ce_vs_d_iou": -0.09141474785410432,
+      "spearman_d_ce_vs_d_iou": -0.34159986069148995,
+      "spearman_d_ce_abs_vs_d_iou": -0.22863201405583236
+    },
+    "per_condition": [
+      {
+        "condition": "random_seed_20260912",
+        "n": 60,
+        "d_ce_mean": 0.07399724746743838,
+        "d_iou_mean": -0.027849820388188316,
+        "d_ce_abs_mean": 0.09684800331791242,
+        "d_iou_pos_fraction": 0.36666666666666664,
+        "spearman_within_condition": -0.20816893581550436
+      },
+      {
+        "condition": "random_seed_20260913",
+        "n": 60,
+        "d_ce_mean": 0.06898334597547849,
+        "d_iou_mean": 0.0025761121189256126,
+        "d_ce_abs_mean": 0.10060978705684344,
+        "d_iou_pos_fraction": 0.38333333333333336,
+        "spearman_within_condition": -0.38149485968324537
+      },
+      {
+        "condition": "random_seed_20260914",
+        "n": 60,
+        "d_ce_mean": 0.07957138096292814,
+        "d_iou_mean": -0.002831535754389872,
+        "d_ce_abs_mean": 0.10359833364685377,
+        "d_iou_pos_fraction": 0.21666666666666667,
+        "spearman_within_condition": -0.11141983884412338
+      },
+      {
+        "condition": "single_L21H11",
+        "n": 60,
+        "d_ce_mean": 0.002143678069114685,
+        "d_iou_mean": 0.031798831117698025,
+        "d_ce_abs_mean": 0.041185854872067766,
+        "d_iou_pos_fraction": 0.4666666666666667,
+        "spearman_within_condition": -0.15409836065573773
+      },
+      {
+        "condition": "single_L23H13",
+        "n": 60,
+        "d_ce_mean": -0.008899520585934321,
+        "d_iou_mean": 0.01860627599100532,
+        "d_ce_abs_mean": 0.03271920805176099,
+        "d_iou_pos_fraction": 0.4166666666666667,
+        "spearman_within_condition": 0.05951653237010283
+      },
+      {
+        "condition": "single_L23H30",
+        "n": 60,
+        "d_ce_mean": 0.013022964696089427,
+        "d_iou_mean": 0.029160913723356406,
+        "d_ce_abs_mean": 0.04311789224545161,
+        "d_iou_pos_fraction": 0.36666666666666664,
+        "spearman_within_condition": -0.30702973048068916
+      },
+      {
+        "condition": "single_L24H13",
+        "n": 60,
+        "d_ce_mean": 0.05581126635273297,
+        "d_iou_mean": -0.009556529682733413,
+        "d_ce_abs_mean": 0.08859402760863304,
+        "d_iou_pos_fraction": 0.3,
+        "spearman_within_condition": -0.16671297582661854
+      },
+      {
+        "condition": "single_L26H20",
+        "n": 60,
+        "d_ce_mean": 0.037523640940586724,
+        "d_iou_mean": 0.0006569788421338984,
+        "d_ce_abs_mean": 0.06273125434915225,
+        "d_iou_pos_fraction": 0.3333333333333333,
+        "spearman_within_condition": -0.3715476521255905
+      },
+      {
+        "condition": "top10_joint",
+        "n": 60,
+        "d_ce_mean": 0.1188197024166584,
+        "d_iou_mean": -0.04093170005840886,
+        "d_ce_abs_mean": 0.17003563915689787,
+        "d_iou_pos_fraction": 0.21666666666666667,
+        "spearman_within_condition": -0.5274242845234788
+      }
+    ],
+    "score_correlation": {
+      "n": 5,
+      "spearman_score_vs_abs_d_ce": 0.8999999999999998,
+      "spearman_score_vs_d_iou": -0.49999999999999994,
+      "heads": [
+        {
+          "condition": "single_L21H11",
+          "n": 60,
+          "d_ce_mean": 0.002143678069114685,
+          "d_iou_mean": 0.031798831117698025,
+          "d_ce_abs_mean": 0.041185854872067766,
+          "d_iou_pos_fraction": 0.4666666666666667,
+          "spearman_within_condition": -0.15409836065573773
+        },
+        {
+          "condition": "single_L23H13",
+          "n": 60,
+          "d_ce_mean": -0.008899520585934321,
+          "d_iou_mean": 0.01860627599100532,
+          "d_ce_abs_mean": 0.03271920805176099,
+          "d_iou_pos_fraction": 0.4166666666666667,
+          "spearman_within_condition": 0.05951653237010283
+        },
+        {
+          "condition": "single_L23H30",
+          "n": 60,
+          "d_ce_mean": 0.013022964696089427,
+          "d_iou_mean": 0.029160913723356406,
+          "d_ce_abs_mean": 0.04311789224545161,
+          "d_iou_pos_fraction": 0.36666666666666664,
+          "spearman_within_condition": -0.30702973048068916
+        },
+        {
+          "condition": "single_L24H13",
+          "n": 60,
+          "d_ce_mean": 0.05581126635273297,
+          "d_iou_mean": -0.009556529682733413,
+          "d_ce_abs_mean": 0.08859402760863304,
+          "d_iou_pos_fraction": 0.3,
+          "spearman_within_condition": -0.16671297582661854
+        },
+        {
+          "condition": "single_L26H20",
+          "n": 60,
+          "d_ce_mean": 0.037523640940586724,
+          "d_iou_mean": 0.0006569788421338984,
+          "d_ce_abs_mean": 0.06273125434915225,
+          "d_iou_pos_fraction": 0.3333333333333333,
+          "spearman_within_condition": -0.3715476521255905
+        }
+      ]
+    }
+  },
+  "legacy": {
+    "tag": "旧 E-009 五头",
+    "path": "/tmp/e012_ablation/records_e009fixed5.json",
+    "records": 600,
+    "overall": {
+      "n_pairs": 540,
+      "pearson_d_ce_vs_d_iou": -0.3785443341862731,
+      "spearman_d_ce_vs_d_iou": -0.2611424898195429,
+      "spearman_d_ce_abs_vs_d_iou": -0.10769729053330851
+    },
+    "per_condition": [
+      {
+        "condition": "random_seed_20260912",
+        "n": 60,
+        "d_ce_mean": 0.020231645057598748,
+        "d_iou_mean": 0.020672336806929145,
+        "d_ce_abs_mean": 0.05635856712857882,
+        "d_iou_pos_fraction": 0.4,
+        "spearman_within_condition": -0.15131981105862743
+      },
+      {
+        "condition": "random_seed_20260913",
+        "n": 60,
+        "d_ce_mean": -0.0007408474882443746,
+        "d_iou_mean": 0.015179653073012543,
+        "d_ce_abs_mean": 0.03086305210987727,
+        "d_iou_pos_fraction": 0.43333333333333335,
+        "spearman_within_condition": -0.18688524590163938
+      },
+      {
+        "condition": "random_seed_20260914",
+        "n": 60,
+        "d_ce_mean": -0.0016962806383768716,
+        "d_iou_mean": 0.02567910519230121,
+        "d_ce_abs_mean": 0.030836623907089234,
+        "d_iou_pos_fraction": 0.5666666666666667,
+        "spearman_within_condition": -0.2452903584328981
+      },
+      {
+        "condition": "single_L17H04",
+        "n": 60,
+        "d_ce_mean": 0.06162953699628512,
+        "d_iou_mean": -0.004290493137733899,
+        "d_ce_abs_mean": 0.1067516175409158,
+        "d_iou_pos_fraction": 0.4166666666666667,
+        "spearman_within_condition": -0.2740205612670186
+      },
+      {
+        "condition": "single_L17H07",
+        "n": 60,
+        "d_ce_mean": -0.0011387519538402558,
+        "d_iou_mean": 0.011057965078620717,
+        "d_ce_abs_mean": 0.05248675669233004,
+        "d_iou_pos_fraction": 0.38333333333333336,
+        "spearman_within_condition": -0.2675187552097805
+      },
+      {
+        "condition": "single_L18H15",
+        "n": 60,
+        "d_ce_mean": 0.007448887576659521,
+        "d_iou_mean": -0.017784346140051983,
+        "d_ce_abs_mean": 0.05996425971388817,
+        "d_iou_pos_fraction": 0.38333333333333336,
+        "spearman_within_condition": -0.29035843289802726
+      },
+      {
+        "condition": "single_L21H10",
+        "n": 60,
+        "d_ce_mean": 0.0031067209939161936,
+        "d_iou_mean": -0.014777217698385714,
+        "d_ce_abs_mean": 0.03387958233555158,
+        "d_iou_pos_fraction": 0.31666666666666665,
+        "spearman_within_condition": 0.002445123645457072
+      },
+      {
+        "condition": "single_L24H16",
+        "n": 60,
+        "d_ce_mean": -0.008447890728712082,
+        "d_iou_mean": 0.0005857396701677527,
+        "d_ce_abs_mean": 0.02185301904877027,
+        "d_iou_pos_fraction": 0.43333333333333335,
+        "spearman_within_condition": -0.018838566268407894
+      },
+      {
+        "condition": "top10_joint",
+        "n": 60,
+        "d_ce_mean": 0.09932280878225962,
+        "d_iou_mean": -0.16439101524667393,
+        "d_ce_abs_mean": 0.14689370294411977,
+        "d_iou_pos_fraction": 0.26666666666666666,
+        "spearman_within_condition": -0.5070853014726314
+      }
+    ]
+  }
+}

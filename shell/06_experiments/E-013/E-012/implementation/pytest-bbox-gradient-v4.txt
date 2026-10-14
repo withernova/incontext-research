@@ -1,0 +1,12 @@
+..........                                                               [100%]
+=============================== warnings summary ===============================
+tests/test_bbox_gradient_screen.py::test_real_qwen_gqa_attention_parity_gradients_and_finite_difference
+  /defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+    warn(
+
+tests/test_bbox_gradient_screen.py::test_adapter_root_resolution_base_check_and_exact_weight_loading
+  /defaultShare/archive/liuwenchu/miniconda3/envs/IPLoc/lib/python3.9/site-packages/peft/utils/save_and_load.py:286: UserWarning: Could not find a config file in /defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-012/checks/pytest-bbox-gradient-v4/test_adapter_root_resolution_b0/base - will assume that the vocabulary was not modified.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+10 passed, 2 warnings in 22.34s

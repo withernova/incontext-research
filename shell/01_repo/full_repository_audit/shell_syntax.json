@@ -1,0 +1,445 @@
+{
+  "verification": "Syntax parse only. No shell commands, sourced helpers, Python heredocs or jobs executed.",
+  "files": [
+    {
+      "path": "tools/run/_common.sh",
+      "command": "bash -n tools/run/_common.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_dual_role_analysis.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_dual_role_analysis.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_head_circuit_path_patching.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_head_circuit_path_patching.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_head_circuit_zero_attention.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r015_query_key_control_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r015_query_key_control_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_r016_black_reference_step741.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_r016_black_reference_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_reference_spatial_iou050.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_reference_spatial_iou050.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e012/e012_top10_head_ablation.sh",
+      "command": "bash -n tools/run/analysis/e012/e012_top10_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e013/e013_candidate_evidence_ranking_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e013/e013_candidate_evidence_ranking_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e013/e013_reference_sensitivity_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e013/e013_reference_sensitivity_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e013/e013_reference_sensitivity_probe.sh",
+      "command": "bash -n tools/run/analysis/e013/e013_reference_sensitivity_probe.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e013/e013_sds_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e013/e013_sds_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e014/e014_cover_min_cap5_step150_eval1766_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e014/e014_cover_min_cap5_step150_eval1766_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e014/e014_multi_v2_step200_eval1766_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e014/e014_multi_v2_step200_eval1766_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/analysis/e014/e014_step800_eval1766_8gpu.sh",
+      "command": "bash -n tools/run/analysis/e014/e014_step800_eval1766_8gpu.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_bbox_gradient_initial.sh",
+      "command": "bash -n tools/run/e012_bbox_gradient_initial.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_ce_iou_probe_head_ablation_step741.sh",
+      "command": "bash -n tools/run/e012_ce_iou_probe_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_dual_role_analysis.sh",
+      "command": "bash -n tools/run/e012_dual_role_analysis.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_e009fixed5_head_ablation_step741.sh",
+      "command": "bash -n tools/run/e012_e009fixed5_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_eval_stratified_reference_maps.sh",
+      "command": "bash -n tools/run/e012_eval_stratified_reference_maps.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_gradient_gated_spatial_frequency.sh",
+      "command": "bash -n tools/run/e012_gradient_gated_spatial_frequency.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_gradient_top10_attention_maps.sh",
+      "command": "bash -n tools/run/e012_gradient_top10_attention_maps.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_head_circuit_path_patching.sh",
+      "command": "bash -n tools/run/e012_head_circuit_path_patching.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_head_circuit_zero_attention.sh",
+      "command": "bash -n tools/run/e012_head_circuit_zero_attention.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_legacy_e009_fixed5_head_ablation.sh",
+      "command": "bash -n tools/run/e012_legacy_e009_fixed5_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_new_old_union15_head_ablation.sh",
+      "command": "bash -n tools/run/e012_new_old_union15_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "command": "bash -n tools/run/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "command": "bash -n tools/run/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_query_r005_transfer_step247.sh",
+      "command": "bash -n tools/run/e012_query_r005_transfer_step247.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_r006_query5_head_ablation_step741.sh",
+      "command": "bash -n tools/run/e012_r006_query5_head_ablation_step741.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "command": "bash -n tools/run/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_r006_query5_joint_only_step741_686.sh",
+      "command": "bash -n tools/run/e012_r006_query5_joint_only_step741_686.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_ref10_query5_correct_final_eval.sh",
+      "command": "bash -n tools/run/e012_ref10_query5_correct_final_eval.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_reference_gradient_gated_spatial_frequency.sh",
+      "command": "bash -n tools/run/e012_reference_gradient_gated_spatial_frequency.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_reference_spatial_iou050.sh",
+      "command": "bash -n tools/run/e012_reference_spatial_iou050.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/e012_top10_head_ablation.sh",
+      "command": "bash -n tools/run/e012_top10_head_ablation.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/e012_ref10_query5_correct_final_eval.sh",
+      "command": "bash -n tools/run/eval/e012_ref10_query5_correct_final_eval.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/run_e011_inter.sh",
+      "command": "bash -n tools/run/eval/run_e011_inter.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/run_e011_qwen3_grounding_adapter_eval.sh",
+      "command": "bash -n tools/run/eval/run_e011_qwen3_grounding_adapter_eval.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/run_e011_qwen3vl_native.sh",
+      "command": "bash -n tools/run/eval/run_e011_qwen3vl_native.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/run_grounding_adapter_eval.sh",
+      "command": "bash -n tools/run/eval/run_grounding_adapter_eval.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/eval/run_native_grounding.sh",
+      "command": "bash -n tools/run/eval/run_native_grounding.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_branch.sh",
+      "command": "bash -n tools/run/run_branch.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_dynamic_reference_query_alignment.sh",
+      "command": "bash -n tools/run/run_dynamic_reference_query_alignment.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_e009_branch.sh",
+      "command": "bash -n tools/run/run_e009_branch.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_e009_dynamic_reference_query_distill.sh",
+      "command": "bash -n tools/run/run_e009_dynamic_reference_query_distill.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_e009_head_stability_suite.sh",
+      "command": "bash -n tools/run/run_e009_head_stability_suite.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_e009_reference_query_ensemble_distill.sh",
+      "command": "bash -n tools/run/run_e009_reference_query_ensemble_distill.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_focus_tasks.sh",
+      "command": "bash -n tools/run/run_focus_tasks.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_head_stability_suite.sh",
+      "command": "bash -n tools/run/run_head_stability_suite.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/run_reference_query_alignment.sh",
+      "command": "bash -n tools/run/run_reference_query_alignment.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/e012_query_r005_transfer_step247.sh",
+      "command": "bash -n tools/run/train/e012_query_r005_transfer_step247.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/e014_multi_v2_cover_min_cap5_grpo.sh",
+      "command": "bash -n tools/run/train/e014_multi_v2_cover_min_cap5_grpo.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/e014_multi_v2_symmetric_grpo.sh",
+      "command": "bash -n tools/run/train/e014_multi_v2_symmetric_grpo.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/e014_variable_symmetric_grpo.sh",
+      "command": "bash -n tools/run/train/e014_variable_symmetric_grpo.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/run_e011_qwen3_grounding_sft_ddp4.sh",
+      "command": "bash -n tools/run/train/run_e011_qwen3_grounding_sft_ddp4.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_1shot_4bit.sh",
+      "command": "bash -n tools/run/train/train_focus_1shot_4bit.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_1shot_ddp4_4bit.sh",
+      "command": "bash -n tools/run/train/train_focus_1shot_ddp4_4bit.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_1shot_ddp4_4bit_head_screening.sh",
+      "command": "bash -n tools/run/train/train_focus_1shot_ddp4_4bit_head_screening.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_1shot_ddp4_4bit_named.sh",
+      "command": "bash -n tools/run/train/train_focus_1shot_ddp4_4bit_named.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_1shot_single.sh",
+      "command": "bash -n tools/run/train/train_focus_1shot_single.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_2shot_single.sh",
+      "command": "bash -n tools/run/train/train_focus_2shot_single.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_confidence_grpo.sh",
+      "command": "bash -n tools/run/train/train_focus_confidence_grpo.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_confidence_sft.sh",
+      "command": "bash -n tools/run/train/train_focus_confidence_sft.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_ddp.sh",
+      "command": "bash -n tools/run/train/train_focus_ddp.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_gt_mask_pipeline.sh",
+      "command": "bash -n tools/run/train/train_focus_gt_mask_pipeline.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_focus_sharded.sh",
+      "command": "bash -n tools/run/train/train_focus_sharded.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_grounding_ddp4.sh",
+      "command": "bash -n tools/run/train/train_grounding_ddp4.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run/train/train_named_ddp4.sh",
+      "command": "bash -n tools/run/train/train_named_ddp4.sh",
+      "exit_code": 0
+    },
+    {
+      "path": "tools/run.sh",
+      "command": "bash -n tools/run.sh",
+      "exit_code": 0
+    }
+  ]
+}

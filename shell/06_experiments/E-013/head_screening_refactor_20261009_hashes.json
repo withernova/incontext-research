@@ -1,0 +1,172 @@
+[
+  {
+    "path": "MODULE_MAP.md",
+    "before": "446ed366f285540ec1c4afaf0da41073f24d29ad18cfb43589c0ea8d8f0c798f",
+    "after": "bf42702deef2e646fb4a96fe560024686ed00defadd76397af672f335032229a"
+  },
+  {
+    "path": "docs/HEAD_SCREENING_MODULES.md",
+    "before": null,
+    "after": "52085504316e54412a616d263f477bc283333199a774b5ec051498634ad35ebd"
+  },
+  {
+    "path": "iploc_szy/engine/runner.py",
+    "before": "2da8150757d67e9452f3cfe52a0a6f95c757e5d2cecd84853d295bd6b8f645b6",
+    "after": "579c3238e7b2bf1df9e9feabd0975199144c03d9d458f14a94435b0b487ba267"
+  },
+  {
+    "path": "iploc_szy/head_screening/artifacts.py",
+    "before": null,
+    "after": "aa10bbd77b0429030babd929dbffa1310ffad1403c05922f4cc6dd9d1f6780b4"
+  },
+  {
+    "path": "iploc_szy/head_screening/bbox_gradient.py",
+    "before": "b3a1e91b6923e330c5c681ee5c6030877004a27fead3f88d69c57fd51bf178db",
+    "after": "1f3e85f711d3b905cd732c556a17c92bfa6ab4d6aeb029aa81411e1fde958d44"
+  },
+  {
+    "path": "iploc_szy/head_screening/checkpoints.py",
+    "before": null,
+    "after": "cb865f17f50c838c9040bf2443bd85ecf9eb6eba7499f049bdc70aeba6e670b0"
+  },
+  {
+    "path": "iploc_szy/head_screening/keepset_pruning.py",
+    "before": "60c341e94d368f5cb7505853446203356251b7a6b6e111eca0ebcc492f0eed79",
+    "after": "7282448b1b272c3aaae28efa4525334363ac858810124c98feddfc2afc50cab7"
+  },
+  {
+    "path": "iploc_szy/head_screening/localization.py",
+    "before": null,
+    "after": "9243c4227a298b10c59da6a5b090519a8c6e0b960dafb64be7f405e73446715c"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/__init__.py",
+    "before": null,
+    "after": "1fd7ff9cf13b8855d63b19e99036b80ac5f3a0770b8c42cbed4df8c7f48b0977"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/conditions.py",
+    "before": null,
+    "after": "40ec379ddd2a8c8b251f60230c14582ec393b5b13c8f8afbea77a0a809ca53a7"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/contracts.py",
+    "before": null,
+    "after": "a55bae12f84567f45017c768ec1c7e459591545ceec47d24cd64307ead957b86"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/hooks.py",
+    "before": null,
+    "after": "354c95957e71b794d66468b70b6465dc6706b437f18010a26e33e61b68615ea1"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/inputs.py",
+    "before": null,
+    "after": "ba39b7885ff4176e7f23dedf81012c4741b2bb7a3600b6427cbed9618a313b5e"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/metrics.py",
+    "before": null,
+    "after": "a83d01a56a817d2db95d09c71d779e539eeecb277bec0161384c3fe5234967fe"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/plans.py",
+    "before": null,
+    "after": "f5ed78405eb7db2e925a1eef76146a3b94f120f43233d15e54783e79396448d0"
+  },
+  {
+    "path": "iploc_szy/head_screening/pruning/worker.py",
+    "before": null,
+    "after": "423f86746f2de63d4d0c7c04e066aa8d5921f89a6ecf57bdbdbe442db9619c63"
+  },
+  {
+    "path": "iploc_szy/head_screening/reference_target_screening.py",
+    "before": "21b980025bd815c6c9adb70c62eb1c070b960b63de863c1fd68a440c35976e76",
+    "after": "e39abe4fa39b17d0ae17ddadf84124a0fd8bb2fa6d9e2291a9b44a3fafeed6d5"
+  },
+  {
+    "path": "iploc_szy/head_screening/source_contracts.py",
+    "before": null,
+    "after": "83cb722917db951ff34300078e4d45986d8b294a8422545e5872ff85f88e5501"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/__init__.py",
+    "before": null,
+    "after": "1d0a048b7b0041b82cf1fd237cf02c2bdaade9261daa59ad7f61f6cce1b518ec"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/contracts.py",
+    "before": null,
+    "after": "04fbb4221d30cc25adeb0bbe803502eed27e89c00ec6a9e4dcf90f8c475ab8eb"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/generation.py",
+    "before": null,
+    "after": "45e517ccb9defacf7a62cc756f707b4e73ab8116554f53519f0cbec28984d750"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/hooks.py",
+    "before": null,
+    "after": "370af50f4c736f97c70e49ce0c6b19c131062b7963c28e48e1f647bb29c26b5a"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/inputs.py",
+    "before": null,
+    "after": "ae885b0328562376c3d5dbdd913068b664ac4913883e4d5c161442aa0dfb14e3"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/masks.py",
+    "before": null,
+    "after": "5ef9e996b59d50a8d984638514566c6e24fb8ff5c6d1304c66dbeeda32e0d1ac"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/metrics.py",
+    "before": null,
+    "after": "17f8497878d350f584aaea65dd088591e02d49272665fac76d9c5a1eb2482ecf"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/reporting.py",
+    "before": null,
+    "after": "d3b14c20d402cad47aedd6fa53517c880083e86be814d96e712caf07e40d71a4"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_background/worker.py",
+    "before": null,
+    "after": "cb097a486f1c6f9ecf1ddf6ed98406222d416f08775c63c617830149ea8cdd77"
+  },
+  {
+    "path": "iploc_szy/head_screening/target_vs_background_ablation.py",
+    "before": "d2fa1d951a8a79dc4d41440251b1085eb29f38e0f6a2fcdfedd37d3c7fe32860",
+    "after": "3b4786d3a8890d1b2e5e7459522fbfc24fc20ab916700442f40e905b635271ce"
+  },
+  {
+    "path": "iploc_szy/head_screening/top10_head_ablation.py",
+    "before": "a2563da4a66064b1c1ce6376e04341f8788c40d854f0003d3d99a584d8a4ab1f",
+    "after": "1f7caa6fd6f44752ceae8fd446c3866cc953034c99a8579e3a3f51bc279ba2f5"
+  },
+  {
+    "path": "iploc_szy/rl/policy.py",
+    "before": "9f732a28448987c6a2cf08690c0690a33d9da6028ab34e7aea3e27c286deb651",
+    "after": "e826671953341b6fd3cf32e732710cf1ccf5e872e2d8a673041031ba2f39c955"
+  },
+  {
+    "path": "iploc_szy/rl/preflight.py",
+    "before": "a87bafdd02483b4ad888c1b58d1ed5362d97c24bd9f06f76668e81445ddac73a",
+    "after": "dc273598066e8fd8d43c291d4bf5aee97034d75f50cf6a39640538d39e68b990"
+  },
+  {
+    "path": "iploc_szy/rl/sampling.py",
+    "before": "19d47ae1cd223f46ff4d19a040deeedc3a154b11282493798fc6bd5c595612a9",
+    "after": "6fcf08148008293439f3d1902fdbc26227ba97179d0e76a1ce2dcafba7a18112"
+  },
+  {
+    "path": "iploc_szy/rl/trainer.py",
+    "before": "eda59137fcff7b65428a2ed09b0b4bf45e723e30ad00da216dc7de8cad7fcd5a",
+    "after": "99034c4748478036123200689bc793c5a514e8bcc968a629313f6ba2edcb9b0d"
+  },
+  {
+    "path": "tests/test_head_screening_modules.py",
+    "before": null,
+    "after": "cdb339b0ba30621e00e78cf455225eb0f32046429dab1dded6d04eeba15d6683"
+  }
+]

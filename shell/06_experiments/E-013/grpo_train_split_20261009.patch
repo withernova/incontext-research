@@ -1,0 +1,911 @@
+--- a/iploc_szy/rl/trainer.py
++++ b/iploc_szy/rl/trainer.py
+@@ -23,6 +23,7 @@
+ from .objective import group_advantages, grpo_loss, score_preference_loss
+ from .policy import load_policy
+ from .preflight import inspect_config
++from .rewards import confidence_reward
+ from .sampling import completion_logp, reset_positions, rollout
+ 
+ 
+@@ -32,68 +33,26 @@
+     counterfactual_config = config.get("counterfactual", {})
+     counterfactual_weight = counterfactual_config.get("weight", 0.0)
+     seed = config.get("seed", 11451)
+-    # 模型初始化使用公共 seed；加载完成后才设置各 rank 的采样 seed。
+-    random.seed(seed)
+-    torch.manual_seed(seed)
+-    torch.cuda.manual_seed_all(seed)
+-    model, processor = load_policy(config)
+-    if counterfactual_weight > 0:
+-        probe = "\n".join(
+-            "<answer>[{0},{0},{1},{1}]</answer><score>{2}</score>".format(
+-                10 * i, 10 * i + 5, score
+-            )
+-            for i, score in enumerate(("0.80", "0.05", "0.01"))
+-        )
+-        score_tokenization(processor.tokenizer, probe)
+-    rank = int(os.environ.get("LOCAL_RANK", 0))
+-    world_size = int(os.environ.get("WORLD_SIZE", 1))
+-    unwrapped_model = model.module if hasattr(model, "module") else model
+-    torch.manual_seed(seed + rank)
+-    torch.cuda.manual_seed_all(seed + rank)
+-    device = torch.device(f"cuda:{rank}")
+-    trainable_parameters = [
+-        parameter for parameter in model.parameters() if parameter.requires_grad
+-    ]
+-    optimizer = torch.optim.AdamW(
+-        trainable_parameters, lr=config.get("learning_rate", 1e-6)
+-    )
+-    # 按 pair_id 保留输入顺序。每个条件内部独立标准化 GRPO 优势。
+-    groups = defaultdict(list)
+-    for row_record in rows:
+-        groups[row_record["pair_id"]].append(row_record)
+-    pairs = list(groups.values())
+-    if len(pairs) < world_size:
+-        raise ValueError("fewer pairs than GPU ranks")
+-    # 每个 epoch 按固定 seed 重排 pair；尾部按原实现循环补齐 rank 配额。
+-    epochs = config.get("epochs")
+-    steps_per_epoch = (len(pairs) + world_size - 1) // world_size
+-    total_steps = steps_per_epoch * epochs if epochs is not None else config["steps"]
+-    step_pairs = list(pairs) if epochs is None else None
+-    if step_pairs is not None:
+-        random.Random(seed).shuffle(step_pairs)
++    (
++        model,
++        processor,
++        rank,
++        world_size,
++        unwrapped_model,
++        device,
++        trainable_parameters,
++        optimizer,
++    ) = _initialize_policy(config, counterfactual_weight, seed)
++    pairs, epochs, steps_per_epoch, total_steps, step_pairs = _plan_training_pairs(
++        rows, config, seed, world_size
++    )
+     output_dir = Path(config["output_dir"])
+     if rank == 0:
+         output_dir.mkdir(parents=True, exist_ok=False)
+     if world_size > 1:
+         dist.barrier()
+     # 记录最终配置和输入哈希。这里不会改变 named-run 的授权或治理状态。
+-    metadata = dict(
+-        config=config,
+-        manifest_sha256=hashlib.sha256(
+-            Path(config["manifest"]).read_bytes()
+-        ).hexdigest(),
+-        collage_manifest_sha256=(
+-            hashlib.sha256(Path(config["collage_manifest"]).read_bytes()).hexdigest()
+-            if config.get("collage_manifest")
+-            else None
+-        ),
+-        torch_version=torch.__version__,
+-        algorithm="per-prompt-GRPO-original-and-reference-switch-v2",
+-    )
+-    if rank == 0:
+-        (output_dir / "config_snapshot.json").write_text(
+-            json.dumps(metadata, indent=2) + "\n"
+-        )
++    _write_config_snapshot(config, output_dir, rank)
+     log_path = output_dir / f"rollouts-rank{rank}.jsonl"
+     counterfactual_pairs_total = 0
+     with log_path.open("x") as log:
+@@ -113,216 +72,19 @@
+                 training_pair = step_pairs[(step * world_size + rank) % len(step_pairs)]
+             # 一个 pair 内先收集 rollout，再累计所有条件/采样的梯度。
+             optimizer.zero_grad(set_to_none=True)
+-            diagnostics = []
+-            for row_index, row in enumerate(training_pair):
+-                unwrapped_model.eval()
+-                batch, target_box = prepare_prompt(
+-                    row,
+-                    processor,
+-                    device,
+-                    config["max_pixels"],
+-                    protocol=config.get("prompt_protocol", "focus_confidence"),
+-                )
+-                # old-policy log-prob 在参数更新前冻结，用于比率及重放一致性检查。
+-                records = []
+-                for _ in range(config["group_size"]):
+-                    generated_ids, text, terminated = rollout(
+-                        unwrapped_model, processor, batch, config["max_new_tokens"]
+-                    )
+-                    reward_fn = confidence_reward
+-                    if config.get("prompt_protocol") in (
+-                        "focus_multi3_instances_v1",
+-                        "focus_multi3_instances_spatial_v2",
+-                    ):
+-                        from .multi_candidate import multi_reward
+-
+-                        reward_fn = multi_reward
+-                    reward_args = dict(config.get("reward", {}))
+-                    if row.get("distractor_box") is not None:
+-                        reward_args["distractor_box"] = normalize_box(
+-                            row["distractor_box"], row["query_canvas_size"]
+-                        )
+-                    if row.get("coverage_boxes") is not None:
+-                        reward_args["coverage_boxes"] = [
+-                            normalize_box(box, row["query_canvas_size"])
+-                            for box in row["coverage_boxes"]
+-                        ]
+-                    reward = reward_fn(
+-                        text,
+-                        target_present=row["target_present"],
+-                        gt_box=target_box,
+-                        terminated=terminated,
+-                        **reward_args,
+-                    )
+-                    counterfactual = None
+-                    counterfactual_status = "not_eligible"
+-                    # 反事实只交换 score；仅 reward 提升且 token 对齐通过时加入偏好项。
+-                    if (
+-                        counterfactual_weight > 0
+-                        and row["target_present"]
+-                        and reward.get("valid")
+-                    ):
+-                        positive_text = corrected_score_text(
+-                            text,
+-                            reward,
+-                            rank_iou_delta=reward_args.get("rank_iou_delta", 0.1),
+-                            min_best_iou=counterfactual_config.get("min_best_iou", 0.5),
+-                        )
+-                        if positive_text is not None:
+-                            counterfactual_status = "reward_not_improved"
+-                            positive_reward = reward_fn(
+-                                positive_text,
+-                                target_present=True,
+-                                gt_box=target_box,
+-                                terminated=True,
+-                                **reward_args,
+-                            )
+-                            gain = positive_reward["total"] - reward["total"]
+-                            if gain > counterfactual_config.get("min_reward_gain", 0.0):
+-                                aligned = counterfactual_ids_and_masks(
+-                                    processor.tokenizer,
+-                                    batch["input_ids"],
+-                                    generated_ids,
+-                                    text,
+-                                    positive_text,
+-                                    config["max_new_tokens"],
+-                                )
+-                                counterfactual_status = "token_budget"
+-                                if aligned is not None:
+-                                    positive_ids, positive_mask, negative_mask = aligned
+-                                    counterfactual = dict(
+-                                        ids=positive_ids,
+-                                        positive_mask=positive_mask,
+-                                        negative_mask=negative_mask,
+-                                        reward_gain=gain,
+-                                    )
+-                                    counterfactual_status = "applied"
+-                    with torch.no_grad():
+-                        old_log_probs = completion_logp(
+-                            unwrapped_model, batch, generated_ids
+-                        ).detach()
+-                    records.append(
+-                        (
+-                            generated_ids,
+-                            text,
+-                            terminated,
+-                            reward,
+-                            old_log_probs,
+-                            counterfactual,
+-                            counterfactual_status,
+-                        )
+-                    )
+-                # Compute all anchor logprobs BEFORE creating policy autograd graphs.
+-                unwrapped_model.set_adapter("anchor")
+-                model.eval()
+-                with torch.no_grad():
+-                    anchor_log_probs = [
+-                        completion_logp(unwrapped_model, batch, row_record[0]).detach()
+-                        for row_record in records
+-                    ]
+-                    for index, record in enumerate(records):
+-                        counterfactual = record[5]
+-                        if counterfactual is not None:
+-                            positive_ref = completion_logp(
+-                                unwrapped_model, batch, counterfactual["ids"]
+-                            ).detach()
+-                            counterfactual["anchor_positive"] = positive_ref[
+-                                counterfactual["positive_mask"]
+-                            ].sum()
+-                            counterfactual["anchor_negative"] = anchor_log_probs[index][
+-                                counterfactual["negative_mask"]
+-                            ].sum()
+-                # anchor 重放完成后回到 policy，随后才能创建带梯度的前向。
+-                unwrapped_model.set_adapter("policy")
+-                model.train()
+-                advantages = group_advantages(
+-                    [row_record[3]["total"] for row_record in records]
+-                )
+-                for index, (
+-                    generated_ids,
+-                    text,
+-                    terminated,
+-                    reward,
+-                    old_log_probs,
+-                    counterfactual,
+-                    counterfactual_status,
+-                ) in enumerate(records):
+-                    # DDP 仅在该 pair 的最后一次 backward 同步，前面的梯度仍累积。
+-                    sync = (
+-                        row_index == len(training_pair) - 1
+-                        and index == len(records) - 1
+-                    )
+-                    context = (
+-                        model.no_sync()
+-                        if world_size > 1 and not sync
+-                        else nullcontext()
+-                    )
+-                    with context:
+-                        current_log_probs = completion_logp(model, batch, generated_ids)
+-                        if not torch.allclose(
+-                            current_log_probs.detach(),
+-                            old_log_probs,
+-                            atol=0.02,
+-                            rtol=0.002,
+-                        ):
+-                            raise RuntimeError(
+-                                "old-policy replay mismatch before optimizer update"
+-                            )
+-                        grpo_objective_loss = grpo_loss(
+-                            current_log_probs,
+-                            old_log_probs,
+-                            anchor_log_probs[index],
+-                            advantages[index],
+-                            beta=config.get("beta", 0.04),
+-                            clip=config.get("clip", 0.2),
+-                        )
+-                        counterfactual_loss = None
+-                        if counterfactual is not None:
+-                            positive_logp = completion_logp(
+-                                model, batch, counterfactual["ids"]
+-                            )
+-                            counterfactual_loss = score_preference_loss(
+-                                positive_logp[counterfactual["positive_mask"]].sum(),
+-                                current_log_probs[
+-                                    counterfactual["negative_mask"]
+-                                ].sum(),
+-                                counterfactual["anchor_positive"],
+-                                counterfactual["anchor_negative"],
+-                                beta=counterfactual_config.get("beta", 0.1),
+-                            )
+-                        combined = grpo_objective_loss + (
+-                            counterfactual_weight * counterfactual_loss
+-                            if counterfactual_loss is not None
+-                            else 0.0
+-                        )
+-                        # 保持原有缩放：先平均同输入的 G 次采样，再平均 pair 的条件。
+-                        (
+-                            combined / (len(training_pair) * config["group_size"])
+-                        ).backward()
+-                    item = dict(
+-                        step=step,
+-                        sample_id=row["id"],
+-                        training_source=row.get("training_source", "original"),
+-                        target_present=row["target_present"],
+-                        text=text,
+-                        terminated=terminated,
+-                        reward=reward,
+-                        advantage=float(advantages[index]),
+-                        loss=float(grpo_objective_loss.detach()),
+-                        cf_applied=counterfactual is not None,
+-                        cf_status=counterfactual_status,
+-                        cf_loss=float(counterfactual_loss.detach())
+-                        if counterfactual_loss is not None
+-                        else None,
+-                        cf_reward_gain=counterfactual["reward_gain"]
+-                        if counterfactual is not None
+-                        else None,
+-                        completion_tokens=generated_ids.shape[1]
+-                        - batch["input_ids"].shape[1],
+-                    )
+-                    log.write(json.dumps(item) + "\n")
+-                    diagnostics.append(item)
+-                del batch, records, anchor_log_probs
++            diagnostics = _train_pair(
++                config,
++                counterfactual_config,
++                counterfactual_weight,
++                model,
++                unwrapped_model,
++                processor,
++                device,
++                world_size,
++                training_pair,
++                step,
++                log,
++            )
+             # 全部条件累计完成后再裁剪并更新；非有限梯度拒绝进入 optimizer。
+             gradient_norm = torch.nn.utils.clip_grad_norm_(
+                 trainable_parameters, config.get("max_grad_norm", 1.0)
+@@ -332,39 +94,372 @@
+             optimizer.step()
+             log.flush()
+             counterfactual_pairs_total += sum(d["cf_applied"] for d in diagnostics)
+-            print(
+-                json.dumps(
+-                    dict(
+-                        rank=rank,
+-                        step=step + 1,
+-                        gradient_norm=float(gradient_norm),
+-                        mean_reward=sum(d["reward"]["total"] for d in diagnostics)
+-                        / len(diagnostics),
+-                        cf_pairs=sum(d["cf_applied"] for d in diagnostics),
+-                        zero_advantage_fraction=sum(
+-                            d["advantage"] == 0 for d in diagnostics
++            _report_step(rank, step, gradient_norm, diagnostics)
++            # 中间 checkpoint 由 rank 0 写入；本轮保持原保存布局与时间点。
++            _save_step_checkpoint(
++                config,
++                step,
++                steps_per_epoch,
++                rank,
++                world_size,
++                output_dir,
++                unwrapped_model,
++                optimizer,
++            )
++    # 完成态之前汇总各 rank 的反事实计数，避免启用偏好项却没有实际训练样本。
++    _finish_training(
++        counterfactual_pairs_total,
++        counterfactual_weight,
++        device,
++        world_size,
++        rank,
++        unwrapped_model,
++        processor,
++        optimizer,
++        output_dir,
++        total_steps,
++        epochs,
++    )
++
++
++def _collect_rollouts(
++    config,
++    counterfactual_config,
++    counterfactual_weight,
++    unwrapped_model,
++    processor,
++    batch,
++    row,
++    target_box,
++):
++    """采样并冻结 old-policy log-prob；附带满足奖励与 token 对齐门禁的反事实。"""
++    records = []
++    for _ in range(config["group_size"]):
++        generated_ids, text, terminated = rollout(
++            unwrapped_model, processor, batch, config["max_new_tokens"]
++        )
++        reward_fn = confidence_reward
++        if config.get("prompt_protocol") in (
++            "focus_multi3_instances_v1",
++            "focus_multi3_instances_spatial_v2",
++        ):
++            from .multi_candidate import multi_reward
++
++            reward_fn = multi_reward
++        reward_args = dict(config.get("reward", {}))
++        if row.get("distractor_box") is not None:
++            reward_args["distractor_box"] = normalize_box(
++                row["distractor_box"], row["query_canvas_size"]
++            )
++        if row.get("coverage_boxes") is not None:
++            reward_args["coverage_boxes"] = [
++                normalize_box(box, row["query_canvas_size"])
++                for box in row["coverage_boxes"]
++            ]
++        reward = reward_fn(
++            text,
++            target_present=row["target_present"],
++            gt_box=target_box,
++            terminated=terminated,
++            **reward_args,
++        )
++        counterfactual = None
++        counterfactual_status = "not_eligible"
++        # 反事实只交换 score；仅 reward 提升且 token 对齐通过时加入偏好项。
++        if counterfactual_weight > 0 and row["target_present"] and reward.get("valid"):
++            positive_text = corrected_score_text(
++                text,
++                reward,
++                rank_iou_delta=reward_args.get("rank_iou_delta", 0.1),
++                min_best_iou=counterfactual_config.get("min_best_iou", 0.5),
++            )
++            if positive_text is not None:
++                counterfactual_status = "reward_not_improved"
++                positive_reward = reward_fn(
++                    positive_text,
++                    target_present=True,
++                    gt_box=target_box,
++                    terminated=True,
++                    **reward_args,
++                )
++                gain = positive_reward["total"] - reward["total"]
++                if gain > counterfactual_config.get("min_reward_gain", 0.0):
++                    aligned = counterfactual_ids_and_masks(
++                        processor.tokenizer,
++                        batch["input_ids"],
++                        generated_ids,
++                        text,
++                        positive_text,
++                        config["max_new_tokens"],
++                    )
++                    counterfactual_status = "token_budget"
++                    if aligned is not None:
++                        positive_ids, positive_mask, negative_mask = aligned
++                        counterfactual = dict(
++                            ids=positive_ids,
++                            positive_mask=positive_mask,
++                            negative_mask=negative_mask,
++                            reward_gain=gain,
+                         )
+-                        / len(diagnostics),
+-                    )
+-                ),
+-                flush=True,
+-            )
+-            # 中间 checkpoint 由 rank 0 写入；本轮保持原保存布局与时间点。
+-            if (step + 1) % config.get("save_every_steps", 50) == 0 or (
+-                step + 1
+-            ) % steps_per_epoch == 0:
+-                if rank == 0:
+-                    checkpoint = output_dir / "checkpoints" / f"step_{step+1:06d}"
+-                    unwrapped_model.save_pretrained(
+-                        checkpoint / "adapter", selected_adapters=["policy"]
+-                    )
+-                    torch.save(
+-                        dict(optimizer=optimizer.state_dict(), steps=step + 1),
+-                        checkpoint / "optimizer.pt",
+-                    )
+-                if world_size > 1:
+-                    dist.barrier()
+-    # 完成态之前汇总各 rank 的反事实计数，避免启用偏好项却没有实际训练样本。
++                        counterfactual_status = "applied"
++        with torch.no_grad():
++            old_log_probs = completion_logp(
++                unwrapped_model, batch, generated_ids
++            ).detach()
++        records.append(
++            (
++                generated_ids,
++                text,
++                terminated,
++                reward,
++                old_log_probs,
++                counterfactual,
++                counterfactual_status,
++            )
++        )
++    return records
++
++
++def _replay_anchor(model, unwrapped_model, batch, records):
++    """先完成无梯度 anchor 重放，再切回 policy 创建训练图。"""
++    unwrapped_model.set_adapter("anchor")
++    model.eval()
++    with torch.no_grad():
++        anchor_log_probs = [
++            completion_logp(unwrapped_model, batch, row_record[0]).detach()
++            for row_record in records
++        ]
++        for index, record in enumerate(records):
++            counterfactual = record[5]
++            if counterfactual is not None:
++                positive_ref = completion_logp(
++                    unwrapped_model, batch, counterfactual["ids"]
++                ).detach()
++                counterfactual["anchor_positive"] = positive_ref[
++                    counterfactual["positive_mask"]
++                ].sum()
++                counterfactual["anchor_negative"] = anchor_log_probs[index][
++                    counterfactual["negative_mask"]
++                ].sum()
++    # anchor 重放完成后回到 policy，随后才能创建带梯度的前向。
++    unwrapped_model.set_adapter("policy")
++    model.train()
++    return anchor_log_probs
++
++
++def _backward_and_log(
++    config,
++    counterfactual_config,
++    counterfactual_weight,
++    model,
++    world_size,
++    batch,
++    row,
++    records,
++    anchor_log_probs,
++    advantages,
++    row_index,
++    pair_size,
++    step,
++    log,
++):
++    """累积一个条件的梯度并写逐样本记录；仅整个 pair 最后一次 backward 同步。"""
++    diagnostics = []
++    for index, (
++        generated_ids,
++        text,
++        terminated,
++        reward,
++        old_log_probs,
++        counterfactual,
++        counterfactual_status,
++    ) in enumerate(records):
++        # DDP 仅在该 pair 的最后一次 backward 同步，前面的梯度仍累积。
++        sync = row_index == pair_size - 1 and index == len(records) - 1
++        context = model.no_sync() if world_size > 1 and not sync else nullcontext()
++        with context:
++            current_log_probs = completion_logp(model, batch, generated_ids)
++            if not torch.allclose(
++                current_log_probs.detach(),
++                old_log_probs,
++                atol=0.02,
++                rtol=0.002,
++            ):
++                raise RuntimeError("old-policy replay mismatch before optimizer update")
++            grpo_objective_loss = grpo_loss(
++                current_log_probs,
++                old_log_probs,
++                anchor_log_probs[index],
++                advantages[index],
++                beta=config.get("beta", 0.04),
++                clip=config.get("clip", 0.2),
++            )
++            counterfactual_loss = None
++            if counterfactual is not None:
++                positive_logp = completion_logp(model, batch, counterfactual["ids"])
++                counterfactual_loss = score_preference_loss(
++                    positive_logp[counterfactual["positive_mask"]].sum(),
++                    current_log_probs[counterfactual["negative_mask"]].sum(),
++                    counterfactual["anchor_positive"],
++                    counterfactual["anchor_negative"],
++                    beta=counterfactual_config.get("beta", 0.1),
++                )
++            combined = grpo_objective_loss + (
++                counterfactual_weight * counterfactual_loss
++                if counterfactual_loss is not None
++                else 0.0
++            )
++            # 保持原有缩放：先平均同输入的 G 次采样，再平均 pair 的条件。
++            (combined / (pair_size * config["group_size"])).backward()
++        item = dict(
++            step=step,
++            sample_id=row["id"],
++            training_source=row.get("training_source", "original"),
++            target_present=row["target_present"],
++            text=text,
++            terminated=terminated,
++            reward=reward,
++            advantage=float(advantages[index]),
++            loss=float(grpo_objective_loss.detach()),
++            cf_applied=counterfactual is not None,
++            cf_status=counterfactual_status,
++            cf_loss=float(counterfactual_loss.detach())
++            if counterfactual_loss is not None
++            else None,
++            cf_reward_gain=counterfactual["reward_gain"]
++            if counterfactual is not None
++            else None,
++            completion_tokens=generated_ids.shape[1] - batch["input_ids"].shape[1],
++        )
++        log.write(json.dumps(item) + "\n")
++        diagnostics.append(item)
++    return diagnostics
++
++
++def _train_pair(
++    config,
++    counterfactual_config,
++    counterfactual_weight,
++    model,
++    unwrapped_model,
++    processor,
++    device,
++    world_size,
++    training_pair,
++    step,
++    log,
++):
++    """按输入顺序训练 pair 的各条件，保持每个条件内部的优势标准化。"""
++    diagnostics = []
++    for row_index, row in enumerate(training_pair):
++        unwrapped_model.eval()
++        batch, target_box = prepare_prompt(
++            row,
++            processor,
++            device,
++            config["max_pixels"],
++            protocol=config.get("prompt_protocol", "focus_confidence"),
++        )
++        # old-policy log-prob 在参数更新前冻结，用于比率及重放一致性检查。
++        records = _collect_rollouts(
++            config,
++            counterfactual_config,
++            counterfactual_weight,
++            unwrapped_model,
++            processor,
++            batch,
++            row,
++            target_box,
++        )
++        # Compute all anchor logprobs BEFORE creating policy autograd graphs.
++        anchor_log_probs = _replay_anchor(model, unwrapped_model, batch, records)
++        advantages = group_advantages(
++            [row_record[3]["total"] for row_record in records]
++        )
++        diagnostics.extend(
++            _backward_and_log(
++                config,
++                counterfactual_config,
++                counterfactual_weight,
++                model,
++                world_size,
++                batch,
++                row,
++                records,
++                anchor_log_probs,
++                advantages,
++                row_index,
++                len(training_pair),
++                step,
++                log,
++            )
++        )
++        del batch, records, anchor_log_probs
++    return diagnostics
++
++
++def _write_config_snapshot(config, output_dir, rank):
++    """记录配置与显式 manifest 哈希；只有 rank 0 写入配置快照。"""
++    metadata = dict(
++        config=config,
++        manifest_sha256=hashlib.sha256(
++            Path(config["manifest"]).read_bytes()
++        ).hexdigest(),
++        collage_manifest_sha256=(
++            hashlib.sha256(Path(config["collage_manifest"]).read_bytes()).hexdigest()
++            if config.get("collage_manifest")
++            else None
++        ),
++        torch_version=torch.__version__,
++        algorithm="per-prompt-GRPO-original-and-reference-switch-v2",
++    )
++    if rank == 0:
++        (output_dir / "config_snapshot.json").write_text(
++            json.dumps(metadata, indent=2) + "\n"
++        )
++
++
++def _save_step_checkpoint(
++    config,
++    step,
++    steps_per_epoch,
++    rank,
++    world_size,
++    output_dir,
++    unwrapped_model,
++    optimizer,
++):
++    """按原频率保存 policy 与 optimizer；所有 rank 在写入后同步。"""
++    if (step + 1) % config.get("save_every_steps", 50) == 0 or (
++        step + 1
++    ) % steps_per_epoch == 0:
++        if rank == 0:
++            checkpoint = output_dir / "checkpoints" / f"step_{step+1:06d}"
++            unwrapped_model.save_pretrained(
++                checkpoint / "adapter", selected_adapters=["policy"]
++            )
++            torch.save(
++                dict(optimizer=optimizer.state_dict(), steps=step + 1),
++                checkpoint / "optimizer.pt",
++            )
++        if world_size > 1:
++            dist.barrier()
++
++
++def _finish_training(
++    counterfactual_pairs_total,
++    counterfactual_weight,
++    device,
++    world_size,
++    rank,
++    unwrapped_model,
++    processor,
++    optimizer,
++    output_dir,
++    total_steps,
++    epochs,
++):
++    """汇总反事实门禁后保存最终产物，最后关闭分布式进程组。"""
+     counterfactual_count = torch.tensor(
+         counterfactual_pairs_total, device=device, dtype=torch.long
+     )
+@@ -402,3 +497,80 @@
+     if world_size > 1:
+         dist.barrier()
+         dist.destroy_process_group()
++
++
++def _initialize_policy(config, counterfactual_weight, seed):
++    """统一模型初始化 seed，随后设置 rank 采样 seed 并建立 optimizer。"""
++    # 模型初始化使用公共 seed；加载完成后才设置各 rank 的采样 seed。
++    random.seed(seed)
++    torch.manual_seed(seed)
++    torch.cuda.manual_seed_all(seed)
++    model, processor = load_policy(config)
++    if counterfactual_weight > 0:
++        probe = "\n".join(
++            "<answer>[{0},{0},{1},{1}]</answer><score>{2}</score>".format(
++                10 * i, 10 * i + 5, score
++            )
++            for i, score in enumerate(("0.80", "0.05", "0.01"))
++        )
++        score_tokenization(processor.tokenizer, probe)
++    rank = int(os.environ.get("LOCAL_RANK", 0))
++    world_size = int(os.environ.get("WORLD_SIZE", 1))
++    unwrapped_model = model.module if hasattr(model, "module") else model
++    torch.manual_seed(seed + rank)
++    torch.cuda.manual_seed_all(seed + rank)
++    device = torch.device(f"cuda:{rank}")
++    trainable_parameters = [
++        parameter for parameter in model.parameters() if parameter.requires_grad
++    ]
++    optimizer = torch.optim.AdamW(
++        trainable_parameters, lr=config.get("learning_rate", 1e-6)
++    )
++    return (
++        model,
++        processor,
++        rank,
++        world_size,
++        unwrapped_model,
++        device,
++        trainable_parameters,
++        optimizer,
++    )
++
++
++def _plan_training_pairs(rows, config, seed, world_size):
++    """构建 pair 与训练步数；保留原顺序、固定重排和尾部循环补齐规则。"""
++    # 按 pair_id 保留输入顺序。每个条件内部独立标准化 GRPO 优势。
++    groups = defaultdict(list)
++    for row_record in rows:
++        groups[row_record["pair_id"]].append(row_record)
++    pairs = list(groups.values())
++    if len(pairs) < world_size:
++        raise ValueError("fewer pairs than GPU ranks")
++    # 每个 epoch 按固定 seed 重排 pair；尾部按原实现循环补齐 rank 配额。
++    epochs = config.get("epochs")
++    steps_per_epoch = (len(pairs) + world_size - 1) // world_size
++    total_steps = steps_per_epoch * epochs if epochs is not None else config["steps"]
++    step_pairs = list(pairs) if epochs is None else None
++    if step_pairs is not None:
++        random.Random(seed).shuffle(step_pairs)
++    return pairs, epochs, steps_per_epoch, total_steps, step_pairs
++
++
++def _report_step(rank, step, gradient_norm, diagnostics):
++    """输出完成更新后的汇总指标，保留原日志字段。"""
++    print(
++        json.dumps(
++            dict(
++                rank=rank,
++                step=step + 1,
++                gradient_norm=float(gradient_norm),
++                mean_reward=sum(d["reward"]["total"] for d in diagnostics)
++                / len(diagnostics),
++                cf_pairs=sum(d["cf_applied"] for d in diagnostics),
++                zero_advantage_fraction=sum(d["advantage"] == 0 for d in diagnostics)
++                / len(diagnostics),
++            )
++        ),
++        flush=True,
++    )
+--- a/docs/HEAD_SCREENING_MODULES.md
++++ b/docs/HEAD_SCREENING_MODULES.md
+@@ -34,3 +34,14 @@
+ GRPO 按 `preflight.py → policy.py → sampling.py → trainer.py` 阅读。训练编排中已展开分号/单行条件，区分 `old_log_probs`、`anchor_log_probs` 和 `current_log_probs`；注释解释模型初始化/采样 seed、anchor 重放、counterfactual 条件、DDP 累积及 loss 缩放。
+ 
+ SFT `engine/runner.py` 的 `run()` 标出恢复、固定诊断 batch、microbatch 累积、更新前有限性检查、scheduler 顺序和 checkpoint 边界。注释说明执行原因与现有恢复能力，不改变训练公式和顺序。
++
++### GRPO 主流程子函数
++
++`train()` 保留 93 行的主流程，按以下职责调用：
++
++- `_initialize_policy`、`_plan_training_pairs`：模型/optimizer 初始化与 pair 调度计划。
++- `_train_pair`：逐条件编排；内部调用 `_collect_rollouts` 收集 old-policy 采样，`_replay_anchor` 冻结 anchor 重放，`_backward_and_log` 累积梯度与写逐样本日志。
++- `_write_config_snapshot`、`_report_step`：配置快照和更新后的汇总指标。
++- `_save_step_checkpoint`、`_finish_training`：阶段 checkpoint、全局反事实计数门禁、最终保存与分布式收尾。
++
++子函数显式传递依赖，不增加隐藏的全局训练状态。抽取保持已有语句、缩放和执行顺序；补齐默认奖励函数 `confidence_reward` 的缺失导入。新增 CPU 完整入口测试覆盖 steps/epochs 两种模式，真实训练仍需 GPU 验证。
+--- /dev/null
++++ b/tests/test_grpo_training_flow.py
+@@ -0,0 +1,82 @@
++"""Exercise train orchestration on CPU, with synthetic prompts and no model assets."""
++import json
++from types import SimpleNamespace
++
++import pytest
++import torch
++
++from iploc_szy.rl import trainer
++
++
++@pytest.mark.parametrize('epochs', [None, 2])
++def test_train_updates_logs_and_saves_in_order(tmp_path, monkeypatch, epochs):
++    events = []
++
++    class Policy(torch.nn.Module):
++        def __init__(self):
++            super().__init__()
++            self.weight = torch.nn.Parameter(torch.tensor(0.2))
++            self.adapter = 'policy'
++
++        def set_adapter(self, adapter):
++            self.adapter = adapter
++            events.append(adapter)
++
++        def save_pretrained(self, directory, **kwargs):
++            directory.mkdir(parents=True)
++            events.append(('save', str(directory)))
++
++    model = Policy()
++    processor = SimpleNamespace(save_pretrained=lambda directory: directory.mkdir())
++    rows = [dict(id='positive', pair_id='pair', target_present=True),
++            dict(id='negative', pair_id='pair', target_present=False)]
++    monkeypatch.setattr(trainer, 'inspect_config', lambda config: rows)
++    monkeypatch.setattr(trainer, 'load_policy', lambda config: (model, processor))
++    # Avoid consulting launch environment or initializing CUDA for this synthetic run.
++    monkeypatch.setattr(trainer.os, 'environ', {})
++    actual_device = torch.device
++    monkeypatch.setattr(trainer.torch, 'device', lambda spec: actual_device('cpu'))
++    monkeypatch.setattr(trainer, 'prepare_prompt', lambda *args, **kwargs:
++                        (dict(input_ids=torch.tensor([[1 if args[0]["target_present"] else 5, 2]])),
++                         [0, 0, 10, 10] if args[0]['target_present'] else None))
++    generated = 0
++
++    def rollout(*args):
++        nonlocal generated
++        generated += 1
++        token = 3 + generated % 2
++        score = '0.80' if token == 4 else '0.20'
++        return torch.tensor([[1, 2, token]]), f'<answer>[0,0,10,10]</answer><score>{score}</score>', True
++
++    def log_probs(policy, batch, ids):
++        events.append(('replay', policy.adapter, torch.is_grad_enabled()))
++        scale = float(ids[0, -1]) * float(batch["input_ids"][0, 0])
++        return (policy.weight * scale).reshape(1)
++
++    monkeypatch.setattr(trainer, 'rollout', rollout)
++    monkeypatch.setattr(trainer, 'completion_logp', log_probs)
++    manifest = tmp_path / 'manifest.jsonl'
++    manifest.write_text('synthetic')
++    output = tmp_path / 'output'
++    config = dict(manifest=str(manifest), output_dir=str(output), seed=1,
++                  steps=1, epochs=epochs, group_size=2, max_pixels=10,
++                  max_new_tokens=3, learning_rate=0.01, beta=0.04)
++    before = model.weight.detach().clone()
++    trainer.train(config)
++
++    expected_steps = epochs or 1
++    records = [json.loads(line) for line in (output / 'rollouts-rank0.jsonl').read_text().splitlines()]
++    assert len(records) == 4 * expected_steps
++    assert all(record['reward']['valid'] for record in records)
++    assert all(record['cf_status'] == 'not_eligible' for record in records)
++    assert not torch.equal(before, model.weight.detach())
++    completed = json.loads((output / 'completed.json').read_text())
++    assert completed['steps'] == expected_steps
++    assert completed['counterfactual_pairs'] == 0
++    saved = torch.load(output / 'optimizer.pt', weights_only=False)
++    assert saved['steps'] == expected_steps
++    assert all(not event[2] for event in events if isinstance(event, tuple) and event[:2] == ('replay', 'anchor'))
++    # Each condition completes both anchor passes before either differentiable policy pass.
++    replays = [event[1:] for event in events if isinstance(event, tuple) and event[0] == 'replay']
++    expected_condition = [('policy', False)] * 2 + [('anchor', False)] * 2 + [('policy', True)] * 2
++    assert replays == expected_condition * (2 * expected_steps)

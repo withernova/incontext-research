@@ -148,7 +148,7 @@
       "contract": "survey-tool.workspace-rule-input/v1",
       "original_request": "和02 lwc-IPLoc类似，不过更换了使用的目录，原先的lwc要废弃了。基本是把03改为和lwc类似的格式，只不过使用了/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism# 以及SZY-3090的服务器。",
       "preset": "research_safe",
-      "updated_at": "2026-09-28T19:21:58"
+      "updated_at": "2026-10-09T14:55:57"
     },
     "rule_profile": {
       "contract": "survey-tool.workspace-rule-profile/v1",
@@ -187,12 +187,21 @@
         "实验输出根是否就沿用 /defaultShare/archive/songzhengyue/projects/IPLoc/experiments？",
         "数据集是否需要登记只读绑定（dataset_bindings）？如需要请给出 source_path / target_path 与 bind_ro 或 symlink_ro。"
       ],
-      "updated_at": "2026-09-28T19:26:22",
+      "updated_at": "2026-10-09T14:55:57",
       "organizer": {
         "requested": "basic",
         "used": "basic",
         "reason": "按 Workspace 02（lwc-IPLoc）同构创建：路径替换为 songzhengyue/mechanism 与 SZY-3090，未调用外部 organizer。"
       }
+    },
+    "external_code_url": "https://github.com/withernova/iploc-szy",
+    "external_code_ref": "",
+    "code_development": {
+      "mode": "local-git",
+      "repository_url": "https://github.com/withernova/iploc-szy",
+      "branch": "main",
+      "storage": "project",
+      "transport": "ssh"
     }
   }
 ]

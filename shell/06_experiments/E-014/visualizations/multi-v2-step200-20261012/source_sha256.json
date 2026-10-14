@@ -1,0 +1,11 @@
+{
+  "metrics.json": "6c5adf9b3059f9dd420462e7c12e6494a067e818c6c0989ab4f28c6ff83afb8f",
+  "managed_console.log": "47b1d14eb0f2acb3f80988f2346196bfa3b6cfc9ad151fa202f53feecacac471",
+  "payload/inputs.json": "03bc3f93bc0629ac1c93c4f5eeb4824313a8ad765ea48ddc9a447263759b1234",
+  "payload/manifest.json": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+  "payload/evaluation/predictions.jsonl": "77fd500185e1b8805686a11ac7ee8729df2f3edfe45ecfec0da3dd9981de0b97",
+  "payload/evaluation/metrics.json": "3dfba74896d2381163d7ac68dcd3c67cc5a9a0e2ed50216cc04405b751d78377",
+  "payload/logs/config_snapshots/evaluate-a2483c9a2aae4bd2936c6e7acda2e983/prompt_example.json": "d399009ce4d6565bb6c580b7a452613da8076c0615c13a59df6bcfcbce5d7c50",
+  "payload/logs/config_snapshots/evaluate-a2483c9a2aae4bd2936c6e7acda2e983/provenance.json": "7fe3f901e52140820d765cb5b668eadebad8922a4815bea3d264e2064d04cd10",
+  "payload/logs/config_snapshots/evaluate-a2483c9a2aae4bd2936c6e7acda2e983/resolved.json": "62a60661b30319796c0f05db99b7b41745d3fa61c2da37ef946b82009f3b92cb"
+}

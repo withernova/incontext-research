@@ -1,0 +1,38 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": true,
+  "intervalMinutes": 2,
+  "checkCount": 36,
+  "lastCheckTime": 1791782456992,
+  "lastCheckResult": "crash",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "needs_attention",
+  "healthyStreak": 0,
+  "nextCheck": "2026-10-12T05:22:58.782Z",
+  "currentInterval": 2,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "process check unverified; schedule=phase=needs_attention",
+  "pausedAfterRestart": false,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/metrics.json",
+      "size": 0,
+      "mtime": ""
+    },
+    {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/.survey-tool-exit-code",
+      "size": 0,
+      "mtime": ""
+    }
+  ],
+  "notifiedIncidentSignature": "process:unverified",
+  "observationFailureNotified": false,
+  "verifyingFingerprintId": "ERR-4662f8af7931"
+}

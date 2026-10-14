@@ -1,0 +1,57 @@
+{
+  "config": {
+    "model_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+    "adapter_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659/adapter",
+    "prompt_protocol": "focus_variable_instances_spatial_e014_v1",
+    "load_in_4bit": true,
+    "epochs": 3,
+    "group_size": 8,
+    "max_new_tokens": 192,
+    "max_pixels": 262144,
+    "learning_rate": 8e-05,
+    "beta": 0.04,
+    "clip": 0.2,
+    "max_grad_norm": 1.0,
+    "seed": 11451,
+    "save_every_steps": 50,
+    "counterfactual": {
+      "weight": 0.0
+    },
+    "reward": {
+      "iou_threshold": 0.5,
+      "loc_weight": 1.0,
+      "cal_weight": 1.1,
+      "neg_weight": 1.1,
+      "duplicate_weight": 0.06,
+      "duplicate_threshold": 0.9,
+      "rank_weight": 0.6,
+      "rank_margin": 0.1,
+      "rank_iou_delta": 0.1,
+      "order_weight": 0.12,
+      "distractor_weight": 0.6,
+      "coverage_weight": 1.0,
+      "coverage_mode": "min",
+      "count_soft_limit": 5,
+      "count_weight": 0.05,
+      "multi_bonus_weight": 0.2
+    },
+    "prompt_variant": "multi_v2",
+    "group_reward_statistics": {
+      "window_updates": 50
+    },
+    "manifest": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/data/trainable_pairs.json",
+    "original_manifest": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json",
+    "symmetry_manifest": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/data/groups.jsonl",
+    "symmetry_source_pairs": 1000,
+    "output_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo"
+  },
+  "manifest_sha256": "2e5e4df9587b81dff5e71aa11c24d595a4891af64aa8f72a796efdfd08063a5c",
+  "collage_manifest_sha256": null,
+  "torch_version": "2.8.0+cu128",
+  "algorithm": "per-prompt-GRPO-original-and-reference-switch-v2",
+  "e014_prompt_variant": "multi_v2",
+  "e014_prompt": "Locate the same object across the sequence of frames shown below. Your goal is to identify the target object consistently using the visual context provided.\n\nFor the first T-1 frames, the bounding box of the object is already provided. Use this information and the visual context to predict where the same object appears in the final frame.\n\nOutput multiple distinct candidate bounding boxes for the last frame, each followed by a confidence score indicating how confident you are that the box correctly localizes the same target object. Consider different instances in the query that resemble the reference target; each score should indicate confidence that the candidate is the same instance as the reference target. Include as many different instances that visually resemble the reference target as you can identify. Do not repeat boxes for the same instance. List candidates in left-to-right order by box center in the query. The score must be a single number between 0.0 and 1.0, written with two decimal places.\n\nUse the following format, one candidate per line:\n<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>\n<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>",
+  "e014_prompt_sha256": "c6f28d607e7736bde33a82169e86fe517b5c13dccd4a04a0cb295da0e47336ba",
+  "symmetry_manifest_sha256": "cda0aa0f6302298b64e867f5ca62ad9fae1d25bdd84abb717dd74f6b9f61dffc",
+  "original_manifest_sha256": "017bd2a64d1cb80dbb62152bf20a7fafada72a88cea4f5f3f88be152d1bb2130"
+}

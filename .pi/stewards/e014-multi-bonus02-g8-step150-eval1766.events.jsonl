@@ -1,0 +1,6 @@
+{"time":"2026-10-14T00:27:13.363Z","event":"phase_transition","from":"monitoring","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-14T00:29:15.216Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-14T00:31:17.147Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-14T00:33:19.042Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-14T00:35:21.154Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-14T00:37:22.929Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}

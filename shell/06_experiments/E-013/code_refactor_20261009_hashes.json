@@ -1,0 +1,154 @@
+{
+  "CONFIG_MANAGEMENT.md": {
+    "before": "580d5ed1cbb5930e6e54b0ce19eaa1a5d6cfa18526fe4f2eb52839035c032075",
+    "after": "edf2d59d6a0665e5147e8218b3f36a1788213eb14fdcd1ced161a03a3ec32066"
+  },
+  "MODULE_MAP.md": {
+    "before": "cb05afcb30c24852fd63f82c121aec8d9ef513ebcaab6364d8fed8179b992675",
+    "after": "446ed366f285540ec1c4afaf0da41073f24d29ad18cfb43589c0ea8d8f0c798f"
+  },
+  "configs/ENTRYPOINT_INDEX.md": {
+    "before": "5b048f723124dd81173489e4db9953a9aefa5cf8fc124337c29414d851eba8a4",
+    "after": "39c141105a6354d98c719b3677d96a7b88fcb370ffc0a41a0207d45307b9867e"
+  },
+  "configs/experiments/E-013/README.md": {
+    "before": null,
+    "after": "bc1cc1ed65a563a2439325a304978b782e6d90faf66db0aa88950eb3557d8be4"
+  },
+  "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py": {
+    "before": null,
+    "after": "a8c5722249d2f72be924e6a07bdf7d42c1d8ef7c316cde8f4fdb163b0031c6fb"
+  },
+  "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py": {
+    "before": null,
+    "after": "3d4aed73caa79bc6daff441fd643812592dd6152d464582db3fcb501e5bbe211"
+  },
+  "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py": {
+    "before": null,
+    "after": "ee681458a22db1992ae790a63dcb9199572d0e554b9acf4b06881e1a402a3315"
+  },
+  "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py": {
+    "before": null,
+    "after": "66cec6cfbf2b3844edd94727ad75bc3d8d300cbcadc3d5cc603a2dd4573ceffc"
+  },
+  "configs/experiments/E-013/training/e013_multi3_branch.py": {
+    "before": null,
+    "after": "8d0ab6a54de2ba328619332625819afcd7836c0db40acc94fe421dd37434f8df"
+  },
+  "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py": {
+    "before": null,
+    "after": "0a1f191efc82c4dab30d961fd45aa17d3faba7364e4eb0f22bcfef2cf692a74f"
+  },
+  "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py": {
+    "before": null,
+    "after": "2525cdd0ea4b33598c2bd090c6f281a75c7ab436f7cbcf7f35300b0b671d9fe7"
+  },
+  "configs/experiments/E-013/training/e013_multi3_rank_branch.py": {
+    "before": null,
+    "after": "dd5687a4a8e9e61d7d569a9030c6eb2a0fbc1fbba3af04b8cbdc87ba8be06852"
+  },
+  "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py": {
+    "before": null,
+    "after": "eb827a837c016a03a472ec82616003adfe33c75b3af217e7f53aaf7a9c7e61fa"
+  },
+  "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py": {
+    "before": null,
+    "after": "e1b70b2b6470dc913a3913af591524a0cc359e766d3c291a5ea1a74b70430a8c"
+  },
+  "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py": {
+    "before": null,
+    "after": "069b0b56d10e3f19b63414bd28d2a2ea1b1a7d33bd307ac6961f686ff857402c"
+  },
+  "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py": {
+    "before": null,
+    "after": "c6cdd5708e9bc3667027d123f31d5f1224a06c1d43ee05072b98c21dd6f88185"
+  },
+  "configs/experiments/README.md": {
+    "before": null,
+    "after": "9e304f78c5db6c11ea5262df4aca645b403d54f44c25661e6bb7166fabd944a3"
+  },
+  "configs/grpo/e013_multi3_branch.py": {
+    "before": "8d0ab6a54de2ba328619332625819afcd7836c0db40acc94fe421dd37434f8df",
+    "after": "d04f1cfbd66dcd4d3773686d26eca62892c69b41cca2b23d0c097e2ca53f5a42"
+  },
+  "configs/grpo/e013_multi3_collage_coverage_branch.py": {
+    "before": "0a1f191efc82c4dab30d961fd45aa17d3faba7364e4eb0f22bcfef2cf692a74f",
+    "after": "1afa7f987d77e3f6f6657b1c1d53756ad57f03fca5ec26d63a61c41d8397db79"
+  },
+  "configs/grpo/e013_multi3_collage_coverage_pilot.py": {
+    "before": "2525cdd0ea4b33598c2bd090c6f281a75c7ab436f7cbcf7f35300b0b671d9fe7",
+    "after": "421ceb910f52b57f1468b327b616ad478e179b398cc71c0af0b3a332414944d6"
+  },
+  "configs/grpo/e013_multi3_rank_branch.py": {
+    "before": "dd5687a4a8e9e61d7d569a9030c6eb2a0fbc1fbba3af04b8cbdc87ba8be06852",
+    "after": "dc3303f254a09967a974bbf9080517a1fbc3b3501c71932967d15ba9214862b9"
+  },
+  "configs/grpo/e013_multi3_rank_cf_branch.py": {
+    "before": "eb827a837c016a03a472ec82616003adfe33c75b3af217e7f53aaf7a9c7e61fa",
+    "after": "2f6689c1ac99b9bc6792b6554776bc7a9ca6ef91ff6e29ad9bdaa408792d5f7a"
+  },
+  "configs/grpo/e013_multi3_rank_collage_branch.py": {
+    "before": "e1b70b2b6470dc913a3913af591524a0cc359e766d3c291a5ea1a74b70430a8c",
+    "after": "e55ea1818f6e8f1b3cd5597d6e423978f83dd3a760221b23cc1c5a82331029d1"
+  },
+  "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py": {
+    "before": "f01a208fc5f805709efb229f0457ebc421ad91c21c76bf56ed73a3c6acf3879d",
+    "after": "77c6792a24810056fb004849b491f7124e3b6ce422ed47135b633b38e6e8644f"
+  },
+  "configs/sft/e013_multi3_rank_cf_eval.py": {
+    "before": "72490b1d62afee56c42fef764d8430752701e2d306d195d43d7c337fb2de5b8a",
+    "after": "5da32bc0ab6c13039a9b08d0c84e705d74f7f10a9ddaca8378ff8d6279e5e8e9"
+  },
+  "configs/sft/e013_multi_candidate_branch.py": {
+    "before": "21477817bf7dd281f34d7eab563d15adb1b2351cb7e8ae0607aaf917ab6efedc",
+    "after": "4098a9717f51a3ea478595fc17d6c91c2fce2ef8909186fb4a639be2e8ecea7a"
+  },
+  "configs/sft/e013_multi_candidate_instances_branch.py": {
+    "before": "108f53da414b58682584371b6df7b895f3922d65aee367afba176b74f46ce005",
+    "after": "7d681b203b78e1471bd3285aeb5b4c0608b70880042cf648fab2f2c37ec4b046"
+  },
+  "configs/sft/e013_multi_candidate_spatial_branch.py": {
+    "before": "66cec6cfbf2b3844edd94727ad75bc3d8d300cbcadc3d5cc603a2dd4573ceffc",
+    "after": "eb0696df9ffc5b52dd628f02c203bac435658fc52f23ca0a8cac23ead53f9fd5"
+  },
+  "configs/sft/e013_qwen3vl8b_focus_confidence.py": {
+    "before": "c0ef129a9467ff470ca913c0804d0969d8e8dbd45f9b7e157cdabde297a5f47a",
+    "after": "4d4d0b85b414cc93db6676aa910c18a323e5df0d4a435fb565e26cdbc6ed58bc"
+  },
+  "docs/GRPO_MODULES.md": {
+    "before": null,
+    "after": "261f331b0e28ad8ed35c89566465e7edbff74f71a43ea130ff36f25cfbeafc17"
+  },
+  "docs/LAUNCH_CATALOG.md": {
+    "before": "26a86ce3374b77df979efed749b4fdc071096d4c81fa6a72222425705d96830f",
+    "after": "755806dc37a2b0e7cf4c845b611da72585c6aba5c9b23113532798c7de5eaaf0"
+  },
+  "iploc_szy/rl/policy.py": {
+    "before": null,
+    "after": "9f732a28448987c6a2cf08690c0690a33d9da6028ab34e7aea3e27c286deb651"
+  },
+  "iploc_szy/rl/preflight.py": {
+    "before": null,
+    "after": "a87bafdd02483b4ad888c1b58d1ed5362d97c24bd9f06f76668e81445ddac73a"
+  },
+  "iploc_szy/rl/sampling.py": {
+    "before": null,
+    "after": "19d47ae1cd223f46ff4d19a040deeedc3a154b11282493798fc6bd5c595612a9"
+  },
+  "iploc_szy/rl/trainer.py": {
+    "before": "08dbe5a1a67aad5cb7b032e505d9e9be420310ed5788f2a75fad72378f06f7a5",
+    "after": "eda59137fcff7b65428a2ed09b0b4bf45e723e30ad00da216dc7de8cad7fcd5a"
+  },
+  "tests/test_experiment_management.py": {
+    "before": null,
+    "after": "3c5dab2d0ab08b4650c166ba88e65d810b8b06da627796afc8b6b952854ee4eb"
+  },
+  "tools/audit_entrypoints.py": {
+    "before": "6efd0a0e5c0d8aa49e400646b55b23c083cffa86746bd7f0515a16342aaf4eb9",
+    "after": "31ad8372cd36e33ce73b889058b75ca80d358e8721c4ded9d441010562a0b10d"
+  },
+  "tools/experiments.py": {
+    "before": null,
+    "after": "0deca3bc3e83e7092e4a45e6a2aee720bfccbd8e5c562a5c6b8bcaac56954e29"
+  }
+}

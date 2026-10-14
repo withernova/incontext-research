@@ -1,0 +1,213 @@
+{
+  "status": "completed",
+  "action": "evaluate",
+  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800",
+  "dataloader": "test_dataloader",
+  "dataset_size": 1766,
+  "evaluated_samples": 1766,
+  "world_size": 8,
+  "max_new_tokens": 192,
+  "vision_max_patch_tokens": 4096,
+  "vision_max_pixels": 1048576,
+  "selection": "head",
+  "selection_seed": null,
+  "seconds": 960.6185736656189,
+  "samples_per_second": 1.838398765559082,
+  "samples": 1766,
+  "parse_rate": 1.0,
+  "miou": 0.700190580357638,
+  "acc_iou_0.25": 0.7978482446206115,
+  "acc_iou_0.5": 0.7633069082672707,
+  "acc_iou_0.75": 0.6783691959229898,
+  "iou_distribution": {
+    "count": 1766,
+    "min": 0.0,
+    "q25": 0.5583505676782172,
+    "median": 0.8913986728194316,
+    "q75": 0.9637962789567924,
+    "max": 1.0,
+    "bins": {
+      "[0.00,0.10)": 325,
+      "[0.10,0.25)": 32,
+      "[0.25,0.50)": 61,
+      "[0.50,0.75)": 150,
+      "[0.75,1.00]": 1198
+    }
+  },
+  "confidence_format_valid_rate": 1.0,
+  "confidence_invalid_count": 0,
+  "candidate_selection": "highest_score_then_first",
+  "candidate_count_policy": "variable_nonempty_no_box_count_cap",
+  "candidate_count_histogram": {
+    "1": 1766
+  },
+  "variable_candidate_format_valid_rate": 1.0,
+  "multiple_candidate_rate": 0.0,
+  "first_candidate_miou": 0.700190580357638,
+  "oracle_miou": 0.700190580357638,
+  "oracle_gap": 0.0,
+  "selected_nonfirst_rate": 0.0,
+  "spatial_order_valid_rate": 1.0,
+  "spatial_order_valid_given_format": 1.0,
+  "near_duplicate_rate": 0.0,
+  "nonfirst_acc": null,
+  "nonfirst_acc_samples": 0,
+  "iou_argmax_tie_policy": "earliest_candidate",
+  "by_dataset": {
+    "GOT10k": {
+      "samples": 180,
+      "parse_rate": 1.0,
+      "miou": 0.831681283063856,
+      "acc_iou_0.25": 0.9388888888888889,
+      "acc_iou_0.5": 0.9055555555555556,
+      "acc_iou_0.75": 0.8222222222222222,
+      "iou_distribution": {
+        "count": 180,
+        "min": 0.0,
+        "q25": 0.8319858222163581,
+        "median": 0.9303620909764817,
+        "q75": 0.9666345645145052,
+        "max": 0.9940902604609597,
+        "bins": {
+          "[0.00,0.10)": 11,
+          "[0.10,0.25)": 0,
+          "[0.25,0.50)": 6,
+          "[0.50,0.75)": 15,
+          "[0.75,1.00]": 148
+        }
+      },
+      "confidence_format_valid_rate": 1.0,
+      "confidence_invalid_count": 0,
+      "candidate_selection": "highest_score_then_first",
+      "candidate_count_policy": "variable_nonempty_no_box_count_cap",
+      "candidate_count_histogram": {
+        "1": 180
+      },
+      "variable_candidate_format_valid_rate": 1.0,
+      "multiple_candidate_rate": 0.0,
+      "first_candidate_miou": 0.831681283063856,
+      "oracle_miou": 0.831681283063856,
+      "oracle_gap": 0.0,
+      "selected_nonfirst_rate": 0.0,
+      "spatial_order_valid_rate": 1.0,
+      "spatial_order_valid_given_format": 1.0,
+      "near_duplicate_rate": 0.0,
+      "nonfirst_acc": null,
+      "nonfirst_acc_samples": 0,
+      "iou_argmax_tie_policy": "earliest_candidate"
+    },
+    "LaSOT": {
+      "samples": 600,
+      "parse_rate": 1.0,
+      "miou": 0.6539486078267974,
+      "acc_iou_0.25": 0.78,
+      "acc_iou_0.5": 0.7316666666666667,
+      "acc_iou_0.75": 0.6066666666666667,
+      "iou_distribution": {
+        "count": 600,
+        "min": 0.0,
+        "q25": 0.43823607760597916,
+        "median": 0.8265109611852746,
+        "q75": 0.9354822367915121,
+        "max": 0.9984051036682615,
+        "bins": {
+          "[0.00,0.10)": 113,
+          "[0.10,0.25)": 19,
+          "[0.25,0.50)": 29,
+          "[0.50,0.75)": 75,
+          "[0.75,1.00]": 364
+        }
+      },
+      "confidence_format_valid_rate": 1.0,
+      "confidence_invalid_count": 0,
+      "candidate_selection": "highest_score_then_first",
+      "candidate_count_policy": "variable_nonempty_no_box_count_cap",
+      "candidate_count_histogram": {
+        "1": 600
+      },
+      "variable_candidate_format_valid_rate": 1.0,
+      "multiple_candidate_rate": 0.0,
+      "first_candidate_miou": 0.6539486078267974,
+      "oracle_miou": 0.6539486078267974,
+      "oracle_gap": 0.0,
+      "selected_nonfirst_rate": 0.0,
+      "spatial_order_valid_rate": 1.0,
+      "spatial_order_valid_given_format": 1.0,
+      "near_duplicate_rate": 0.0,
+      "nonfirst_acc": null,
+      "nonfirst_acc_samples": 0,
+      "iou_argmax_tie_policy": "earliest_candidate"
+    },
+    "TAO": {
+      "samples": 986,
+      "parse_rate": 1.0,
+      "miou": 0.704325323797178,
+      "acc_iou_0.25": 0.7829614604462475,
+      "acc_iou_0.5": 0.7565922920892495,
+      "acc_iou_0.75": 0.6957403651115619,
+      "iou_distribution": {
+        "count": 986,
+        "min": 0.0,
+        "q25": 0.5458503462710406,
+        "median": 0.9144258156606693,
+        "q75": 0.9737410590182207,
+        "max": 1.0,
+        "bins": {
+          "[0.00,0.10)": 201,
+          "[0.10,0.25)": 13,
+          "[0.25,0.50)": 26,
+          "[0.50,0.75)": 60,
+          "[0.75,1.00]": 686
+        }
+      },
+      "confidence_format_valid_rate": 1.0,
+      "confidence_invalid_count": 0,
+      "candidate_selection": "highest_score_then_first",
+      "candidate_count_policy": "variable_nonempty_no_box_count_cap",
+      "candidate_count_histogram": {
+        "1": 986
+      },
+      "variable_candidate_format_valid_rate": 1.0,
+      "multiple_candidate_rate": 0.0,
+      "first_candidate_miou": 0.704325323797178,
+      "oracle_miou": 0.704325323797178,
+      "oracle_gap": 0.0,
+      "selected_nonfirst_rate": 0.0,
+      "spatial_order_valid_rate": 1.0,
+      "spatial_order_valid_given_format": 1.0,
+      "near_duplicate_rate": 0.0,
+      "nonfirst_acc": null,
+      "nonfirst_acc_samples": 0,
+      "iou_argmax_tie_policy": "earliest_candidate"
+    }
+  },
+  "input_provenance": {
+    "source_sha256": {
+      "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
+      "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/adapter/policy/adapter_config.json": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+      "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/adapter/policy/adapter_model.safetensors": "e637b117e61cb8d58092d9f70e8dd212d064dda9c7525db679f48605f638b807",
+      "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/optimizer.pt": "464f3675eb6cc67b8574f5895477016b827f172080725f9e3dd64f9a45a61995",
+      "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/config_snapshot.json": "e2f1013c92cf9f5eab19268a0b6f3b9e02fe701c7ebb786b47d69118fd6fe4cb"
+    },
+    "derived_manifest_sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+    "expected_samples": 1766,
+    "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800"
+  },
+  "valid_gt_ap": {
+    "AP25": 0.7531915666084403,
+    "AP50": 0.709676961314931,
+    "AP75": 0.5902926748258883,
+    "AP50_95_all_points": 0.543986619791417,
+    "samples": 1756,
+    "invalid_predictions": 0
+  },
+  "legacy_all_query_ap": {
+    "AP25": 0.747812207634836,
+    "AP50": 0.7046627583279628,
+    "AP75": 0.5861587668824763,
+    "AP50_95_all_points": 0.5401743931260341,
+    "samples": 1766,
+    "invalid_predictions": 0
+  },
+  "limitations": "Previously viewed test set; exploratory checkpoint diagnosis, no matched baseline. AP uses the final score-selected box, not full detection AP."
+}

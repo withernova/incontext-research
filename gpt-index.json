@@ -1,7 +1,7 @@
 {
   "format": "survey-gpt-index",
   "version": 1,
-  "generatedAt": "2026-09-30T09:25:38",
+  "generatedAt": "2026-10-14T09:22:43",
   "project": {
     "id": "incontext",
     "name": "incontext"
@@ -25,6 +25,20 @@
       "title": "Devils in Middle Layers of Large Vision-Language Models: Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens",
       "paperPath": "papers/Devils in Middle Layers of Large Vision-Language Models  Interpreting, Detecting and Mitigating Object Hallucinations via Attention Lens_2024/hybrid_auto/jiang2024devilsin.md",
       "sevenPath": "shell/03_evidence/papers/devilsin2024.md",
+      "questions": {
+        "q1": "① 解决了什么问题？",
+        "q2": "② 方法具体怎么做？",
+        "q3": "③ 真正的创新点是什么？",
+        "q4": "④ 实验说明了什么？",
+        "q5": "⑤ 依赖哪些前提，边界在哪里？",
+        "q6": "⑥ 作为审稿人，最关键的质疑是什么？",
+        "q7": "⑦ 对当前项目有什么启发？"
+      }
+    },
+    "evidence2026": {
+      "title": "Evidence-RL: Towards Evidence-intensive Visual Reasoning",
+      "paperPath": "papers/Evidence-RL  Towards Evidence-intensive Visual Reasoning_2026/hybrid_auto/evidence2026.md",
+      "sevenPath": "shell/03_evidence/papers/evidence2026.md",
       "questions": {
         "q1": "① 解决了什么问题？",
         "q2": "② 方法具体怎么做？",

@@ -8,3 +8,12 @@
 {"time":"2026-09-15T02:03:15.857Z","event":"task_completed","taskId":"query-r005-implementation","evidence":"代码审阅 review_id=fd47b01fe1d01074 passed、无 blocking findings；聚焦测试 15 passed；正式仓库精确任务 commit=b5abe811c91c2163e3aaf8f21b1062455c36ca3b，仅包含 5 个任务文件；R-008 未提交文件保持未跟踪且未混入。"}
 {"time":"2026-09-15T02:03:15.863Z","event":"task_started","taskId":"query-r005-execute","attempt":1}
 {"time":"2026-09-15T02:03:54.691Z","event":"task_retry_denied","taskId":"query-r005-execute","reason":"survey_run_execution continue 拒绝启动：R-006 当前 review_status=draft，非 approved + authorized workflow-v2；用户文字要求忽略门禁不能由代理修改或伪造正式审核/授权状态。","failureClass":"authorization","retryBasis":{},"noRetryReason":"authorization failures are not automatically retryable","status":"blocked"}
+{"time":"2026-10-13T16:49:59.493Z","event":"queue_set","tasks":["e014-g8-wait400-pause","e014-g8-eval400-report"]}
+{"time":"2026-10-13T16:51:03.104Z","event":"queue_started"}
+{"time":"2026-10-13T16:51:03.121Z","event":"task_started","taskId":"e014-g8-wait400-pause","attempt":1}
+{"time":"2026-10-14T00:16:43.618Z","event":"queue_paused","reason":"用户变更目标：立即停止当前G8训练并评测已有checkpoint。暂停原step400队列，避免继续执行旧目标；先核验最新完整checkpoint。"}
+{"time":"2026-10-14T00:41:00.474Z","event":"queue_set","tasks":["e014-g8-eval150-r2-monitor-report"]}
+{"time":"2026-10-14T00:41:39.267Z","event":"queue_started"}
+{"time":"2026-10-14T00:41:39.281Z","event":"task_started","taskId":"e014-g8-eval150-r2-monitor-report","attempt":1}
+{"time":"2026-10-14T01:08:06.195Z","event":"task_completed","taskId":"e014-g8-eval150-r2-monitor-report","evidence":"e014-multi-bonus02-g8-step150-eval1766-r2 exit0，metrics9226bytes跨09:00:50–09:03:17稳定，09:03:18 survey_run_execution complete成功。1766唯一ID/连续0..1765、rank221×6+220×2，5来源hash、仅image_path别名变化、实际prompt/seed/config/commit均核验。报告shell/06_experiments/E-014/visualizations/g8-step150-20261014/report.md；同目录source_hashes.json含33只读源副本，integrity_audit/evaluation_audit/raw_candidate_audit/training_audit记录具体证据。First/Selected/Oracle mIoU=.697745657/.702426486/.715262965，multi88/1766，非首选择24（15改善/6损失/3持平）。训练1..150的19200rollouts/2400G8组逐组与日志及24完成窗口交叉核验，排除512条151..154；分层q/ties/pooled/best/mean/正adv及空分母口径完整，collage多框上升、original正负下降，不作因果推断。评测及父训练canonical结果已成功更新。最终8GPU无compute进程，父训练保持暂停154，旧失败产物保留，step400目录不存在，无重跑/源码奖励变化/Claim升级。"}
+{"time":"2026-10-14T01:08:06.213Z","event":"queue_completed"}

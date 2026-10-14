@@ -1,0 +1,183 @@
+{
+  "scope": {
+    "steps": [
+      83,
+      1153
+    ],
+    "roles": [
+      "query"
+    ],
+    "preliminary": true
+  },
+  "status": "completed",
+  "integrity": "passed",
+  "explicit_references": {
+    "query": "gradient-gated-spatial-frequency-r001-v2",
+    "reference": "reference-gradient-gated-spatial-frequency-r001-v1"
+  },
+  "summary_sha256": {
+    "step_83_query": "b0b6688efdd40f39515f7c4f25f3c10a8534535f6411a4cd8bb05389618d821e",
+    "step_1153_query": "75b420f396696396fe05e38ff42eef8dce6fa2d7a9d15e6e014fdeaa77d7dc17"
+  },
+  "stages": [
+    {
+      "step": 83,
+      "role": "query",
+      "analyzed_samples": 686,
+      "bbox_token_ce_mean": 0.8826473693284627,
+      "selected_heads": [
+        "L23H30",
+        "L23H13",
+        "L21H10",
+        "L20H15",
+        "L21H08",
+        "L21H11",
+        "L17H04",
+        "L18H15",
+        "L20H17",
+        "L22H04"
+      ],
+      "ranking_top10": [
+        {
+          "head": "L23H30",
+          "frequency": 485
+        },
+        {
+          "head": "L23H13",
+          "frequency": 484
+        },
+        {
+          "head": "L21H10",
+          "frequency": 426
+        },
+        {
+          "head": "L20H15",
+          "frequency": 366
+        },
+        {
+          "head": "L21H08",
+          "frequency": 347
+        },
+        {
+          "head": "L21H11",
+          "frequency": 341
+        },
+        {
+          "head": "L17H04",
+          "frequency": 331
+        },
+        {
+          "head": "L18H15",
+          "frequency": 330
+        },
+        {
+          "head": "L20H17",
+          "frequency": 325
+        },
+        {
+          "head": "L22H04",
+          "frequency": 251
+        }
+      ],
+      "reference_top10_jaccard": 0.5384615384615384
+    },
+    {
+      "step": 1153,
+      "role": "query",
+      "analyzed_samples": 686,
+      "bbox_token_ce_mean": 1.0844992430603713,
+      "selected_heads": [
+        "L23H30",
+        "L21H10",
+        "L23H13",
+        "L21H11",
+        "L21H08",
+        "L20H15",
+        "L22H04",
+        "L17H04",
+        "L19H03",
+        "L18H15"
+      ],
+      "ranking_top10": [
+        {
+          "head": "L23H30",
+          "frequency": 498
+        },
+        {
+          "head": "L21H10",
+          "frequency": 468
+        },
+        {
+          "head": "L23H13",
+          "frequency": 462
+        },
+        {
+          "head": "L21H11",
+          "frequency": 407
+        },
+        {
+          "head": "L21H08",
+          "frequency": 401
+        },
+        {
+          "head": "L20H15",
+          "frequency": 344
+        },
+        {
+          "head": "L22H04",
+          "frequency": 316
+        },
+        {
+          "head": "L17H04",
+          "frequency": 281
+        },
+        {
+          "head": "L19H03",
+          "frequency": 274
+        },
+        {
+          "head": "L18H15",
+          "frequency": 268
+        }
+      ],
+      "reference_top10_jaccard": 0.42857142857142855
+    }
+  ],
+  "checkpoint_pairs": [
+    {
+      "role": "query",
+      "step_a": 83,
+      "step_b": 1153,
+      "top_k_jaccard": {
+        "5": 0.6666666666666666,
+        "10": 0.8181818181818182,
+        "50": 0.8518518518518519
+      },
+      "shared_top10": [
+        "L17H04",
+        "L18H15",
+        "L20H15",
+        "L21H08",
+        "L21H10",
+        "L21H11",
+        "L22H04",
+        "L23H13",
+        "L23H30"
+      ],
+      "only_a_top10": [
+        "L20H17"
+      ],
+      "only_b_top10": [
+        "L19H03"
+      ],
+      "sample_top10_jaccard_mean": 0.4257199055125744,
+      "dataset_top10_jaccard": {
+        "LaSOT": 0.8181818181818182,
+        "GOT10k": 0.8181818181818182,
+        "TAO": 0.6666666666666666
+      }
+    }
+  ],
+  "within_checkpoint_query_reference_top10_jaccard": {},
+  "claim_boundary": "固定样本与算法下的跨 checkpoint 选头稳定性；不是因果、定位精度或独立留出泛化证据。引用 run 使用另一条 E-011 训练轨迹，不属于本次 E-009 阶段序列。"
+}

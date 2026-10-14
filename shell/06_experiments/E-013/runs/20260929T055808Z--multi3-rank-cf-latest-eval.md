@@ -1,7 +1,7 @@
 # 20260929T055808Z--multi3-rank-cf-latest-eval · 反事实三框模型验证
 
-- workflow: v2 / code_planning / 代码方案
-- review_status: draft
+- workflow: v2 / ready_to_run / 等待执行授权
+- review_status: approved
 - group_id: 未分组
 - execution_dispatch:  / 
 
@@ -33,7 +33,7 @@
 - Shell launcher：``
 - 复用模块：（待登记）
 - 新增模块：（待登记）
-- 测试：（待登记）
+- 测试路径（不代表已执行）：（未登记，可留空）
 
 > 代码应直接修改当前 Workspace 绑定仓库中的实际模块目录；只有仓库已有独立 launcher/adapter 目录时才使用它。工具不要求新建 codespace、实验索引或 runner 目录，科研逻辑不得为了登记 Run 而复制一份。
 

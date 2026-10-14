@@ -1,0 +1,70 @@
+{
+  "e013_multi3_branch.py": {
+    "trainer_settings": {
+      "device": "cuda:0",
+      "load_in_4bit": true,
+      "epochs": 3,
+      "group_size": 4,
+      "max_new_tokens": 192,
+      "max_pixels": 262144,
+      "learning_rate": 8e-05,
+      "beta": 0.04,
+      "clip": 0.2,
+      "max_grad_norm": 1.0,
+      "seed": 11451,
+      "prompt_protocol": "focus_multi3_instances_v1"
+    },
+    "effective_reward": {
+      "iou_threshold": 0.5,
+      "loc_weight": 1.0,
+      "cal_weight": 1.0,
+      "neg_weight": 1.0,
+      "duplicate_weight": 0.05,
+      "duplicate_threshold": 0.9,
+      "rank_weight": 0.5,
+      "rank_margin": 0.1,
+      "rank_iou_delta": 0.1,
+      "distractor_box": null,
+      "distractor_weight": 0.5,
+      "coverage_boxes": null,
+      "coverage_weight": 0.0
+    },
+    "nproc_per_node": 4,
+    "same_data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json",
+    "same_checkpoint_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"
+  },
+  "e013_multi3_rank_branch.py": {
+    "trainer_settings": {
+      "device": "cuda:0",
+      "load_in_4bit": true,
+      "epochs": 3,
+      "group_size": 4,
+      "max_new_tokens": 192,
+      "max_pixels": 262144,
+      "learning_rate": 8e-05,
+      "beta": 0.04,
+      "clip": 0.2,
+      "max_grad_norm": 1.0,
+      "seed": 11451,
+      "prompt_protocol": "focus_multi3_instances_v1"
+    },
+    "effective_reward": {
+      "iou_threshold": 0.5,
+      "loc_weight": 1.0,
+      "cal_weight": 1.0,
+      "neg_weight": 1.0,
+      "duplicate_weight": 0.05,
+      "duplicate_threshold": 0.9,
+      "rank_weight": 0.5,
+      "rank_margin": 0.1,
+      "rank_iou_delta": 0.1,
+      "distractor_box": null,
+      "distractor_weight": 0.5,
+      "coverage_boxes": null,
+      "coverage_weight": 0.0
+    },
+    "nproc_per_node": 4,
+    "same_data_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json",
+    "same_checkpoint_definition": "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"
+  }
+}

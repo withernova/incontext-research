@@ -1,0 +1,9 @@
+Locate the same object across the sequence of frames shown below. Your goal is to identify the target object consistently using the visual context provided.
+
+For the first T-1 frames, the bounding box of the object is already provided. Use this information and the visual context to predict where the same object appears in the final frame.
+
+Output multiple distinct candidate bounding boxes for the last frame, each followed by a confidence score indicating how confident you are that the box correctly localizes the same target object. Consider different instances in the query that resemble the reference target; each score should indicate confidence that the candidate is the same instance as the reference target. Include as many different instances that visually resemble the reference target as you can identify. Do not repeat boxes for the same instance. List candidates in left-to-right order by box center in the query. The score must be a single number between 0.0 and 1.0, written with two decimal places.
+
+Use the following format, one candidate per line:
+<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>
+<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>

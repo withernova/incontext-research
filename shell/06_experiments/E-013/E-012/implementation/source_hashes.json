@@ -1,0 +1,7 @@
+{
+  "iploc_szy/head_screening/bbox_gradient.py": "b3a1e91b6923e330c5c681ee5c6030877004a27fead3f88d69c57fd51bf178db",
+  "iploc_szy/head_screening/lasot_screen_manifest.py": "0701a91976403d177ef5e6c0b3322a52f4405be739edf95883490a62f8bd63b4",
+  "configs/head_screening/e012_bbox_gradient_initial.py": "2d19e84978fde20a5d75a1bcb47686b3991f9ba164eb88d1cf4010527e2e62cf",
+  "tools/run/e012_bbox_gradient_initial.sh": "d281195ce52c0f0f5661d2fbe99fe1742152de5b7fa60f18d94a7d077618558d",
+  "tests/test_bbox_gradient_screen.py": "ca2e4f39e5d25516e484a9f902f53ee58ebc1a132bad53308cbd96660aaf16a5"
+}

@@ -1,0 +1,1054 @@
+{
+  "update_convention": "completed_update = rollout.step + 1; only 1..150, verified against all 24 completed windows",
+  "rank_counts": {
+    "0": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "1": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "2": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "3": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "4": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "5": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "6": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    },
+    "7": {
+      "rollouts": 2400,
+      "groups": 300,
+      "checked_windows": 3
+    }
+  },
+  "excluded_post150_rollouts": {
+    "0": 64,
+    "1": 64,
+    "2": 64,
+    "3": 64,
+    "4": 64,
+    "5": 64,
+    "6": 64,
+    "7": 64
+  },
+  "all_1_150": {
+    "all": {
+      "groups": 2400,
+      "mixed_groups": 462,
+      "rollouts": 19200,
+      "valid_single": 10933,
+      "valid_multi": 8015,
+      "invalid": 252,
+      "multi_positive_advantages": 4694,
+      "wins": 2291,
+      "ties": 435,
+      "pairs": 4818,
+      "group_win_sum": 218.85119047619042,
+      "group_tie_sum": 41.27559523809524,
+      "reward_difference_sum": 24.102321800738544,
+      "best_multi_wins": 250,
+      "best_multi_ties": 57,
+      "p_multi_reward_gt_single": 0.47370387548958964,
+      "tie_probability": 0.08934111523397238,
+      "pooled_pair_win_probability": 0.4755085097550851,
+      "mean_reward_difference": 0.052169527707226285,
+      "best_multi_win_probability": 0.5411255411255411,
+      "best_multi_tie_probability": 0.12337662337662338,
+      "mixed_group_fraction": 0.1925,
+      "valid_multi_rate": 0.41744791666666664,
+      "valid_multi_rate_given_valid": 0.4229997888959257,
+      "multi_positive_advantage_rate": 0.5856519026824704
+    },
+    "by_condition": {
+      "original:positive": {
+        "groups": 630,
+        "mixed_groups": 99,
+        "rollouts": 5040,
+        "valid_single": 4493,
+        "valid_multi": 530,
+        "invalid": 17,
+        "multi_positive_advantages": 263,
+        "wins": 275,
+        "ties": 7,
+        "pairs": 1025,
+        "group_win_sum": 27.180952380952384,
+        "group_tie_sum": 0.8809523809523809,
+        "reward_difference_sum": -27.722683742042708,
+        "best_multi_wins": 24,
+        "best_multi_ties": 0,
+        "p_multi_reward_gt_single": 0.2745550745550746,
+        "tie_probability": 0.008898508898508899,
+        "pooled_pair_win_probability": 0.2682926829268293,
+        "mean_reward_difference": -0.2800271085054819,
+        "best_multi_win_probability": 0.24242424242424243,
+        "best_multi_tie_probability": 0.0,
+        "mixed_group_fraction": 0.15714285714285714,
+        "valid_multi_rate": 0.10515873015873016,
+        "valid_multi_rate_given_valid": 0.10551463268962771,
+        "multi_positive_advantage_rate": 0.4962264150943396
+      },
+      "original:negative": {
+        "groups": 630,
+        "mixed_groups": 106,
+        "rollouts": 5040,
+        "valid_single": 4510,
+        "valid_multi": 469,
+        "invalid": 61,
+        "multi_positive_advantages": 221,
+        "wins": 161,
+        "ties": 428,
+        "pairs": 1071,
+        "group_win_sum": 14.481547619047618,
+        "group_tie_sum": 40.39464285714286,
+        "reward_difference_sum": -9.169538321131284,
+        "best_multi_wins": 11,
+        "best_multi_ties": 57,
+        "p_multi_reward_gt_single": 0.13661837376460018,
+        "tie_probability": 0.38108153638814024,
+        "pooled_pair_win_probability": 0.1503267973856209,
+        "mean_reward_difference": -0.08650507850123854,
+        "best_multi_win_probability": 0.10377358490566038,
+        "best_multi_tie_probability": 0.5377358490566038,
+        "mixed_group_fraction": 0.16825396825396827,
+        "valid_multi_rate": 0.09305555555555556,
+        "valid_multi_rate_given_valid": 0.09419562161076521,
+        "multi_positive_advantage_rate": 0.47121535181236673
+      },
+      "collage:positive": {
+        "groups": 1140,
+        "mixed_groups": 257,
+        "rollouts": 9120,
+        "valid_single": 1930,
+        "valid_multi": 7016,
+        "invalid": 174,
+        "multi_positive_advantages": 4210,
+        "wins": 1855,
+        "ties": 0,
+        "pairs": 2722,
+        "group_win_sum": 177.18869047619052,
+        "group_tie_sum": 0.0,
+        "reward_difference_sum": 60.99454386391251,
+        "best_multi_wins": 215,
+        "best_multi_ties": 0,
+        "p_multi_reward_gt_single": 0.6894501574949047,
+        "tie_probability": 0.0,
+        "pooled_pair_win_probability": 0.6814842027920647,
+        "mean_reward_difference": 0.2373328555016051,
+        "best_multi_win_probability": 0.8365758754863813,
+        "best_multi_tie_probability": 0.0,
+        "mixed_group_fraction": 0.22543859649122808,
+        "valid_multi_rate": 0.769298245614035,
+        "valid_multi_rate_given_valid": 0.7842611222892913,
+        "multi_positive_advantage_rate": 0.6000570125427594
+      }
+    }
+  },
+  "windows": {
+    "1_50": {
+      "all": {
+        "groups": 800,
+        "mixed_groups": 186,
+        "rollouts": 6400,
+        "valid_single": 4033,
+        "valid_multi": 2190,
+        "invalid": 177,
+        "multi_positive_advantages": 1273,
+        "wins": 965,
+        "ties": 28,
+        "pairs": 1899,
+        "group_win_sum": 92.77083333333334,
+        "group_tie_sum": 3.1470238095238092,
+        "reward_difference_sum": 4.215687285027794,
+        "best_multi_wins": 109,
+        "best_multi_ties": 6,
+        "p_multi_reward_gt_single": 0.49876792114695345,
+        "tie_probability": 0.0169194828469022,
+        "pooled_pair_win_probability": 0.5081621906266456,
+        "mean_reward_difference": 0.022664985403375238,
+        "best_multi_win_probability": 0.5860215053763441,
+        "best_multi_tie_probability": 0.03225806451612903,
+        "mixed_group_fraction": 0.2325,
+        "valid_multi_rate": 0.3421875,
+        "valid_multi_rate_given_valid": 0.351920295677326,
+        "multi_positive_advantage_rate": 0.5812785388127854
+      },
+      "by_condition": {
+        "original:positive": {
+          "groups": 204,
+          "mixed_groups": 33,
+          "rollouts": 1632,
+          "valid_single": 1389,
+          "valid_multi": 226,
+          "invalid": 17,
+          "multi_positive_advantages": 124,
+          "wins": 97,
+          "ties": 2,
+          "pairs": 319,
+          "group_win_sum": 11.057738095238093,
+          "group_tie_sum": 0.16666666666666666,
+          "reward_difference_sum": -7.768064970622965,
+          "best_multi_wins": 12,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.33508297258297254,
+          "tie_probability": 0.00505050505050505,
+          "pooled_pair_win_probability": 0.30407523510971785,
+          "mean_reward_difference": -0.23539590820069592,
+          "best_multi_win_probability": 0.36363636363636365,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.16176470588235295,
+          "valid_multi_rate": 0.13848039215686275,
+          "valid_multi_rate_given_valid": 0.13993808049535603,
+          "multi_positive_advantage_rate": 0.5486725663716814
+        },
+        "original:negative": {
+          "groups": 204,
+          "mixed_groups": 38,
+          "rollouts": 1632,
+          "valid_single": 1342,
+          "valid_multi": 245,
+          "invalid": 45,
+          "multi_positive_advantages": 134,
+          "wins": 89,
+          "ties": 26,
+          "pairs": 353,
+          "group_win_sum": 8.330357142857144,
+          "group_tie_sum": 2.9803571428571423,
+          "reward_difference_sum": -3.7299073479904643,
+          "best_multi_wins": 8,
+          "best_multi_ties": 6,
+          "p_multi_reward_gt_single": 0.21921992481203012,
+          "tie_probability": 0.07843045112781953,
+          "pooled_pair_win_probability": 0.2521246458923513,
+          "mean_reward_difference": -0.09815545652606485,
+          "best_multi_win_probability": 0.21052631578947367,
+          "best_multi_tie_probability": 0.15789473684210525,
+          "mixed_group_fraction": 0.18627450980392157,
+          "valid_multi_rate": 0.15012254901960784,
+          "valid_multi_rate_given_valid": 0.1543793320730939,
+          "multi_positive_advantage_rate": 0.5469387755102041
+        },
+        "collage:positive": {
+          "groups": 392,
+          "mixed_groups": 115,
+          "rollouts": 3136,
+          "valid_single": 1302,
+          "valid_multi": 1719,
+          "invalid": 115,
+          "multi_positive_advantages": 1015,
+          "wins": 779,
+          "ties": 0,
+          "pairs": 1227,
+          "group_win_sum": 73.38273809523808,
+          "group_tie_sum": 0.0,
+          "reward_difference_sum": 15.713659603641224,
+          "best_multi_wins": 89,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.6381107660455485,
+          "tie_probability": 0.0,
+          "pooled_pair_win_probability": 0.634881825590872,
+          "mean_reward_difference": 0.13664051829253238,
+          "best_multi_win_probability": 0.7739130434782608,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.29336734693877553,
+          "valid_multi_rate": 0.5481505102040817,
+          "valid_multi_rate_given_valid": 0.5690168818272096,
+          "multi_positive_advantage_rate": 0.5904595695171612
+        }
+      }
+    },
+    "51_100": {
+      "all": {
+        "groups": 800,
+        "mixed_groups": 130,
+        "rollouts": 6400,
+        "valid_single": 3369,
+        "valid_multi": 2995,
+        "invalid": 36,
+        "multi_positive_advantages": 1656,
+        "wins": 528,
+        "ties": 260,
+        "pairs": 1397,
+        "group_win_sum": 50.567261904761885,
+        "group_tie_sum": 23.01607142857143,
+        "reward_difference_sum": 3.882435793333637,
+        "best_multi_wins": 55,
+        "best_multi_ties": 31,
+        "p_multi_reward_gt_single": 0.3889789377289376,
+        "tie_probability": 0.1770467032967033,
+        "pooled_pair_win_probability": 0.3779527559055118,
+        "mean_reward_difference": 0.029864890717951054,
+        "best_multi_win_probability": 0.4230769230769231,
+        "best_multi_tie_probability": 0.23846153846153847,
+        "mixed_group_fraction": 0.1625,
+        "valid_multi_rate": 0.46796875,
+        "valid_multi_rate_given_valid": 0.4706159648020113,
+        "multi_positive_advantage_rate": 0.5529215358931553
+      },
+      "by_condition": {
+        "collage:positive": {
+          "groups": 372,
+          "mixed_groups": 52,
+          "rollouts": 2976,
+          "valid_single": 354,
+          "valid_multi": 2593,
+          "invalid": 29,
+          "multi_positive_advantages": 1484,
+          "wins": 388,
+          "ties": 0,
+          "pairs": 532,
+          "group_win_sum": 38.832142857142856,
+          "group_tie_sum": 0.0,
+          "reward_difference_sum": 16.29987317667053,
+          "best_multi_wins": 45,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.746771978021978,
+          "tie_probability": 0.0,
+          "pooled_pair_win_probability": 0.7293233082706767,
+          "mean_reward_difference": 0.31345909955135637,
+          "best_multi_win_probability": 0.8653846153846154,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.13978494623655913,
+          "valid_multi_rate": 0.8713037634408602,
+          "valid_multi_rate_given_valid": 0.8798778418730913,
+          "multi_positive_advantage_rate": 0.5723100655611261
+        },
+        "original:positive": {
+          "groups": 214,
+          "mixed_groups": 38,
+          "rollouts": 1712,
+          "valid_single": 1482,
+          "valid_multi": 230,
+          "invalid": 0,
+          "multi_positive_advantages": 107,
+          "wins": 97,
+          "ties": 5,
+          "pairs": 422,
+          "group_win_sum": 8.188095238095238,
+          "group_tie_sum": 0.7142857142857143,
+          "reward_difference_sum": -9.194962169051177,
+          "best_multi_wins": 7,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.2154761904761905,
+          "tie_probability": 0.018796992481203006,
+          "pooled_pair_win_probability": 0.22985781990521326,
+          "mean_reward_difference": -0.24197268865924149,
+          "best_multi_win_probability": 0.18421052631578946,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.17757009345794392,
+          "valid_multi_rate": 0.13434579439252337,
+          "valid_multi_rate_given_valid": 0.13434579439252337,
+          "multi_positive_advantage_rate": 0.4652173913043478
+        },
+        "original:negative": {
+          "groups": 214,
+          "mixed_groups": 40,
+          "rollouts": 1712,
+          "valid_single": 1533,
+          "valid_multi": 172,
+          "invalid": 7,
+          "multi_positive_advantages": 65,
+          "wins": 43,
+          "ties": 255,
+          "pairs": 443,
+          "group_win_sum": 3.5470238095238087,
+          "group_tie_sum": 22.301785714285714,
+          "reward_difference_sum": -3.2224752142857147,
+          "best_multi_wins": 3,
+          "best_multi_ties": 31,
+          "p_multi_reward_gt_single": 0.08867559523809522,
+          "tie_probability": 0.5575446428571429,
+          "pooled_pair_win_probability": 0.09706546275395034,
+          "mean_reward_difference": -0.08056188035714287,
+          "best_multi_win_probability": 0.075,
+          "best_multi_tie_probability": 0.775,
+          "mixed_group_fraction": 0.18691588785046728,
+          "valid_multi_rate": 0.10046728971962617,
+          "valid_multi_rate_given_valid": 0.10087976539589442,
+          "multi_positive_advantage_rate": 0.37790697674418605
+        }
+      }
+    },
+    "101_150": {
+      "all": {
+        "groups": 800,
+        "mixed_groups": 146,
+        "rollouts": 6400,
+        "valid_single": 3531,
+        "valid_multi": 2830,
+        "invalid": 39,
+        "multi_positive_advantages": 1765,
+        "wins": 798,
+        "ties": 147,
+        "pairs": 1522,
+        "group_win_sum": 75.51309523809523,
+        "group_tie_sum": 15.112499999999999,
+        "reward_difference_sum": 16.004198722377094,
+        "best_multi_wins": 86,
+        "best_multi_ties": 20,
+        "p_multi_reward_gt_single": 0.5172129810828441,
+        "tie_probability": 0.10351027397260273,
+        "pooled_pair_win_probability": 0.5243101182654402,
+        "mean_reward_difference": 0.10961779946833626,
+        "best_multi_win_probability": 0.589041095890411,
+        "best_multi_tie_probability": 0.136986301369863,
+        "mixed_group_fraction": 0.1825,
+        "valid_multi_rate": 0.4421875,
+        "valid_multi_rate_given_valid": 0.44489860084892313,
+        "multi_positive_advantage_rate": 0.6236749116607774
+      },
+      "by_condition": {
+        "original:positive": {
+          "groups": 212,
+          "mixed_groups": 28,
+          "rollouts": 1696,
+          "valid_single": 1622,
+          "valid_multi": 74,
+          "invalid": 0,
+          "multi_positive_advantages": 32,
+          "wins": 81,
+          "ties": 0,
+          "pairs": 284,
+          "group_win_sum": 7.935119047619048,
+          "group_tie_sum": 0.0,
+          "reward_difference_sum": -10.759656602368574,
+          "best_multi_wins": 5,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.2833971088435374,
+          "tie_probability": 0.0,
+          "pooled_pair_win_probability": 0.2852112676056338,
+          "mean_reward_difference": -0.38427345008459196,
+          "best_multi_win_probability": 0.17857142857142858,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.1320754716981132,
+          "valid_multi_rate": 0.04363207547169811,
+          "valid_multi_rate_given_valid": 0.04363207547169811,
+          "multi_positive_advantage_rate": 0.43243243243243246
+        },
+        "original:negative": {
+          "groups": 212,
+          "mixed_groups": 28,
+          "rollouts": 1696,
+          "valid_single": 1635,
+          "valid_multi": 52,
+          "invalid": 9,
+          "multi_positive_advantages": 22,
+          "wins": 29,
+          "ties": 147,
+          "pairs": 275,
+          "group_win_sum": 2.6041666666666665,
+          "group_tie_sum": 15.112499999999999,
+          "reward_difference_sum": -2.2171557588551076,
+          "best_multi_wins": 0,
+          "best_multi_ties": 20,
+          "p_multi_reward_gt_single": 0.09300595238095237,
+          "tie_probability": 0.5397321428571428,
+          "pooled_pair_win_probability": 0.10545454545454545,
+          "mean_reward_difference": -0.07918413424482527,
+          "best_multi_win_probability": 0.0,
+          "best_multi_tie_probability": 0.7142857142857143,
+          "mixed_group_fraction": 0.1320754716981132,
+          "valid_multi_rate": 0.030660377358490566,
+          "valid_multi_rate_given_valid": 0.03082394783639597,
+          "multi_positive_advantage_rate": 0.4230769230769231
+        },
+        "collage:positive": {
+          "groups": 376,
+          "mixed_groups": 90,
+          "rollouts": 3008,
+          "valid_single": 274,
+          "valid_multi": 2704,
+          "invalid": 30,
+          "multi_positive_advantages": 1711,
+          "wins": 688,
+          "ties": 0,
+          "pairs": 963,
+          "group_win_sum": 64.9738095238095,
+          "group_tie_sum": 0.0,
+          "reward_difference_sum": 28.981011083600787,
+          "best_multi_wins": 81,
+          "best_multi_ties": 0,
+          "p_multi_reward_gt_single": 0.7219312169312168,
+          "tie_probability": 0.0,
+          "pooled_pair_win_probability": 0.7144340602284528,
+          "mean_reward_difference": 0.322011234262231,
+          "best_multi_win_probability": 0.9,
+          "best_multi_tie_probability": 0.0,
+          "mixed_group_fraction": 0.2393617021276596,
+          "valid_multi_rate": 0.898936170212766,
+          "valid_multi_rate_given_valid": 0.9079919408999328,
+          "multi_positive_advantage_rate": 0.6327662721893491
+        }
+      }
+    }
+  },
+  "score_diagnostics": {
+    "1_50": {
+      "all": {
+        "all_rollouts": 6400,
+        "valid_rollouts": 6223,
+        "multi_rollouts": 2190,
+        "candidate_histogram_valid": {
+          "1": 4033,
+          "2": 1602,
+          "3": 372,
+          "4": 115,
+          "5": 64,
+          "6": 37
+        },
+        "selected_nonfirst_valid": 489,
+        "multi_advantage_positive": 1273,
+        "reward_terms_mean_valid": {
+          "calibration_penalty": {
+            "n": 6223,
+            "mean": 0.3466123332797686
+          },
+          "ranking_loss": {
+            "n": 6223,
+            "mean": 0.03414876792998278
+          },
+          "ranking_pairs": {
+            "n": 6223,
+            "mean": 0.4411055760887032
+          },
+          "distractor_penalty": {
+            "n": 6223,
+            "mean": 0.04364086074282204
+          },
+          "order_penalty": {
+            "n": 6223,
+            "mean": 0.013599228667845091
+          },
+          "multi_bonus": {
+            "n": 6223,
+            "mean": 0.054378916921099155
+          },
+          "total": {
+            "n": 6223,
+            "mean": 0.24652675285046918
+          }
+        }
+      },
+      "by_condition": {
+        "collage:positive": {
+          "all_rollouts": 3136,
+          "valid_rollouts": 3021,
+          "multi_rollouts": 1719,
+          "candidate_histogram_valid": {
+            "1": 1302,
+            "2": 1265,
+            "3": 300,
+            "4": 82,
+            "5": 49,
+            "6": 23
+          },
+          "selected_nonfirst_valid": 401,
+          "multi_advantage_positive": 1015,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 3021,
+              "mean": 0.39683728897715986
+            },
+            "ranking_loss": {
+              "n": 3021,
+              "mean": 0.06667593416550716
+            },
+            "ranking_pairs": {
+              "n": 3021,
+              "mean": 0.8037073816617014
+            },
+            "distractor_penalty": {
+              "n": 3021,
+              "mean": 0.08989641721369797
+            },
+            "order_penalty": {
+              "n": 3021,
+              "mean": 0.02192519033432638
+            },
+            "multi_bonus": {
+              "n": 3021,
+              "mean": 0.11201588877855016
+            },
+            "total": {
+              "n": 3021,
+              "mean": 0.46628178972256623
+            }
+          }
+        },
+        "original:negative": {
+          "all_rollouts": 1632,
+          "valid_rollouts": 1587,
+          "multi_rollouts": 245,
+          "candidate_histogram_valid": {
+            "1": 1342,
+            "2": 173,
+            "3": 34,
+            "4": 20,
+            "5": 8,
+            "6": 10
+          },
+          "selected_nonfirst_valid": 45,
+          "multi_advantage_positive": 134,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1587,
+              "mean": 0.34727187145557664
+            },
+            "ranking_loss": {
+              "n": 1587,
+              "mean": 0.0
+            },
+            "ranking_pairs": {
+              "n": 1587,
+              "mean": 0.0
+            },
+            "distractor_penalty": {
+              "n": 1587,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1587,
+              "mean": 0.00658097038437303
+            },
+            "multi_bonus": {
+              "n": 1587,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1587,
+              "mean": -0.354404516350552
+            }
+          }
+        },
+        "original:positive": {
+          "all_rollouts": 1632,
+          "valid_rollouts": 1615,
+          "multi_rollouts": 226,
+          "candidate_histogram_valid": {
+            "1": 1389,
+            "2": 164,
+            "3": 38,
+            "4": 13,
+            "5": 7,
+            "6": 4
+          },
+          "selected_nonfirst_valid": 43,
+          "multi_advantage_positive": 124,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1615,
+              "mean": 0.25201401857585143
+            },
+            "ranking_loss": {
+              "n": 1615,
+              "mean": 0.006860548429898275
+            },
+            "ranking_pairs": {
+              "n": 1615,
+              "mean": 0.19628482972136224
+            },
+            "distractor_penalty": {
+              "n": 1615,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1615,
+              "mean": 0.004921362229102167
+            },
+            "multi_bonus": {
+              "n": 1615,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1615,
+              "mean": 0.42596821280800207
+            }
+          }
+        }
+      }
+    },
+    "51_100": {
+      "all": {
+        "all_rollouts": 6400,
+        "valid_rollouts": 6364,
+        "multi_rollouts": 2995,
+        "candidate_histogram_valid": {
+          "1": 3369,
+          "2": 2437,
+          "3": 415,
+          "4": 95,
+          "5": 34,
+          "6": 14
+        },
+        "selected_nonfirst_valid": 1029,
+        "multi_advantage_positive": 1656,
+        "reward_terms_mean_valid": {
+          "calibration_penalty": {
+            "n": 6364,
+            "mean": 0.23804195317410437
+          },
+          "ranking_loss": {
+            "n": 6364,
+            "mean": 0.03640280521385173
+          },
+          "ranking_pairs": {
+            "n": 6364,
+            "mean": 0.5408548082966688
+          },
+          "distractor_penalty": {
+            "n": 6364,
+            "mean": 0.03601108526768539
+          },
+          "order_penalty": {
+            "n": 6364,
+            "mean": 0.007593337523570082
+          },
+          "multi_bonus": {
+            "n": 6364,
+            "mean": 0.08104965430546827
+          },
+          "total": {
+            "n": 6364,
+            "mean": 0.5246823865874444
+          }
+        }
+      },
+      "by_condition": {
+        "collage:positive": {
+          "all_rollouts": 2976,
+          "valid_rollouts": 2947,
+          "multi_rollouts": 2593,
+          "candidate_histogram_valid": {
+            "1": 354,
+            "2": 2097,
+            "3": 371,
+            "4": 80,
+            "5": 34,
+            "6": 11
+          },
+          "selected_nonfirst_valid": 979,
+          "multi_advantage_positive": 1484,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 2947,
+              "mean": 0.3322725246012895
+            },
+            "ranking_loss": {
+              "n": 2947,
+              "mean": 0.07000026661495953
+            },
+            "ranking_pairs": {
+              "n": 2947,
+              "mean": 1.0827960637936884
+            },
+            "distractor_penalty": {
+              "n": 2947,
+              "mean": 0.07776537042536473
+            },
+            "order_penalty": {
+              "n": 2947,
+              "mean": 0.012050220563284697
+            },
+            "multi_bonus": {
+              "n": 2947,
+              "mean": 0.17502544960977268
+            },
+            "total": {
+              "n": 2947,
+              "mean": 0.8939271209076495
+            }
+          }
+        },
+        "original:negative": {
+          "all_rollouts": 1712,
+          "valid_rollouts": 1705,
+          "multi_rollouts": 172,
+          "candidate_histogram_valid": {
+            "1": 1533,
+            "2": 130,
+            "3": 28,
+            "4": 12,
+            "6": 2
+          },
+          "selected_nonfirst_valid": 23,
+          "multi_advantage_positive": 65,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1705,
+              "mean": 0.11414187096774195
+            },
+            "ranking_loss": {
+              "n": 1705,
+              "mean": 0.0
+            },
+            "ranking_pairs": {
+              "n": 1705,
+              "mean": 0.0
+            },
+            "distractor_penalty": {
+              "n": 1705,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1705,
+              "mean": 0.002010557184750733
+            },
+            "multi_bonus": {
+              "n": 1705,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1705,
+              "mean": -0.11621107917888564
+            }
+          }
+        },
+        "original:positive": {
+          "all_rollouts": 1712,
+          "valid_rollouts": 1712,
+          "multi_rollouts": 230,
+          "candidate_histogram_valid": {
+            "1": 1482,
+            "2": 210,
+            "3": 16,
+            "4": 3,
+            "6": 1
+          },
+          "selected_nonfirst_valid": 27,
+          "multi_advantage_positive": 107,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1712,
+              "mean": 0.19922895443925234
+            },
+            "ranking_loss": {
+              "n": 1712,
+              "mean": 0.014822819314641746
+            },
+            "ranking_pairs": {
+              "n": 1712,
+              "mean": 0.1466121495327103
+            },
+            "distractor_penalty": {
+              "n": 1712,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1712,
+              "mean": 0.005481308411214953
+            },
+            "multi_bonus": {
+              "n": 1712,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1712,
+              "mean": 0.5273454281119471
+            }
+          }
+        }
+      }
+    },
+    "101_150": {
+      "all": {
+        "all_rollouts": 6400,
+        "valid_rollouts": 6361,
+        "multi_rollouts": 2830,
+        "candidate_histogram_valid": {
+          "1": 3531,
+          "2": 2347,
+          "3": 322,
+          "4": 101,
+          "5": 49,
+          "6": 11
+        },
+        "selected_nonfirst_valid": 1239,
+        "multi_advantage_positive": 1765,
+        "reward_terms_mean_valid": {
+          "calibration_penalty": {
+            "n": 6361,
+            "mean": 0.20222392391133473
+          },
+          "ranking_loss": {
+            "n": 6361,
+            "mean": 0.028370696431378715
+          },
+          "ranking_pairs": {
+            "n": 6361,
+            "mean": 0.5255462977519259
+          },
+          "distractor_penalty": {
+            "n": 6361,
+            "mean": 0.0246501379649767
+          },
+          "order_penalty": {
+            "n": 6361,
+            "mean": 0.004656500550227951
+          },
+          "multi_bonus": {
+            "n": 6361,
+            "mean": 0.08442068857097941
+          },
+          "total": {
+            "n": 6361,
+            "mean": 0.6099149443426554
+          }
+        }
+      },
+      "by_condition": {
+        "collage:positive": {
+          "all_rollouts": 3008,
+          "valid_rollouts": 2978,
+          "multi_rollouts": 2704,
+          "candidate_histogram_valid": {
+            "1": 274,
+            "2": 2241,
+            "3": 310,
+            "4": 95,
+            "5": 47,
+            "6": 11
+          },
+          "selected_nonfirst_valid": 1213,
+          "multi_advantage_positive": 1711,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 2978,
+              "mean": 0.27835924781732707
+            },
+            "ranking_loss": {
+              "n": 2978,
+              "mean": 0.05552518468770988
+            },
+            "ranking_pairs": {
+              "n": 2978,
+              "mean": 1.0957018132975151
+            },
+            "distractor_penalty": {
+              "n": 2978,
+              "mean": 0.05265262847388072
+            },
+            "order_penalty": {
+              "n": 2978,
+              "mean": 0.008773673606447279
+            },
+            "multi_bonus": {
+              "n": 2978,
+              "mean": 0.18032236400268636
+            },
+            "total": {
+              "n": 2978,
+              "mean": 1.0540109801994706
+            }
+          }
+        },
+        "original:negative": {
+          "all_rollouts": 1696,
+          "valid_rollouts": 1687,
+          "multi_rollouts": 52,
+          "candidate_histogram_valid": {
+            "1": 1635,
+            "2": 36,
+            "3": 10,
+            "4": 4,
+            "5": 2
+          },
+          "selected_nonfirst_valid": 6,
+          "multi_advantage_positive": 22,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1687,
+              "mean": 0.038769751037344403
+            },
+            "ranking_loss": {
+              "n": 1687,
+              "mean": 0.0
+            },
+            "ranking_pairs": {
+              "n": 1687,
+              "mean": 0.0
+            },
+            "distractor_penalty": {
+              "n": 1687,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1687,
+              "mean": 0.0007658565500889153
+            },
+            "multi_bonus": {
+              "n": 1687,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1687,
+              "mean": -0.03956130270335943
+            }
+          }
+        },
+        "original:positive": {
+          "all_rollouts": 1696,
+          "valid_rollouts": 1696,
+          "multi_rollouts": 74,
+          "candidate_histogram_valid": {
+            "1": 1622,
+            "2": 70,
+            "3": 2,
+            "4": 2
+          },
+          "selected_nonfirst_valid": 20,
+          "multi_advantage_positive": 32,
+          "reward_terms_mean_valid": {
+            "calibration_penalty": {
+              "n": 1696,
+              "mean": 0.23112498231132075
+            },
+            "ranking_loss": {
+              "n": 1696,
+              "mean": 0.008910377358490566
+            },
+            "ranking_pairs": {
+              "n": 1696,
+              "mean": 0.04716981132075472
+            },
+            "distractor_penalty": {
+              "n": 1696,
+              "mean": 0.0
+            },
+            "order_penalty": {
+              "n": 1696,
+              "mean": 0.0012971698113207546
+            },
+            "multi_bonus": {
+              "n": 1696,
+              "mean": 0.0
+            },
+            "total": {
+              "n": 1696,
+              "mean": 0.4761581247583577
+            }
+          }
+        }
+      }
+    }
+  }
+}

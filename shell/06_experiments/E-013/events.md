@@ -24,3 +24,7 @@
 - 2026-09-29T14:11:56 · progress · 按用户要求停止双卡 GRPO 训练；停止时日志到 step 470，最新完整 checkpoint 为 step_000450。 · run=20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep · detail=evt-6ddbb4bd1b48
 - 2026-09-29T14:11:56 · progress · 全量验证已从 step_000450 开始推理；两个 GPU 进程均已完成前 10 条预测。 · run=20260929T055808Z--multi3-rank-cf-latest-eval · detail=evt-d25b42fd80af
 - 2026-09-29T17:10:48 · run_update · 全量验证已完成并核对结果；仅更新该Run的结果记录，不改Claim或审批状态。 · run=20260929T055808Z--multi3-rank-cf-latest-eval · detail=evt-392dfe07f0e8
+- 2026-10-10T12:55:56 · discovery · 已交付 E-013 reference sensitivity probe 代码与启动脚本到 SZY-3090 远端仓库；未加载 8B 权重、未训练、未改审批/Claim/Run 授权 · run=- · detail=evt-26e3ea7f55a2
+- 2026-10-10T15:26:21 · discovery · E-013 reference sensitivity probe：目录自动发现版已上传远端并只读核验通过；随后服务器再次断开，GPU forward 仍未验证 · run=- · detail=evt-093c6e654a1f
+- 2026-10-12T12:05:32 · execution_dispatch_enqueue · 20260929T055808Z--multi3-rank-cf-latest-eval outbox=queued · run=20260929T055808Z--multi3-rank-cf-latest-eval · detail=evt-bda1a61d91fe
+- 2026-10-12T12:05:32 · run_direct_steward · 20260929T055808Z--multi3-rank-cf-latest-eval: current snapshot sent directly to Steward · run=20260929T055808Z--multi3-rank-cf-latest-eval · detail=evt-ba708569109c

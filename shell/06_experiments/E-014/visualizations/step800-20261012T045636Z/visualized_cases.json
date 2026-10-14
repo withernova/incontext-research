@@ -1,0 +1,290 @@
+[
+  {
+    "category": "LaSOT_correct",
+    "dataset_index": 6,
+    "id": "6-1",
+    "prediction": "<answer>[219,689,309,829]</answer><score>0.97</score>",
+    "target": "[223,683,309,829]",
+    "dataset": "LaSOT",
+    "sequence": "basketball-18",
+    "rank": 6,
+    "iou": 0.9179627935346142,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.97,
+    "raw_prediction": "<answer>[219,689,309,829]</answer><score>0.97</score>",
+    "candidates": [
+      {
+        "box": [
+          219.0,
+          689.0,
+          309.0,
+          829.0
+        ],
+        "score": 0.97,
+        "text": "<answer>[219,689,309,829]</answer><score>0.97</score>",
+        "iou": 0.9179627935346142
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.9179627935346142,
+    "oracle_iou": 0.9179627935346142,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "GOT10k_correct",
+    "dataset_index": 600,
+    "id": "600-1",
+    "prediction": "<answer>[303,515,491,710]</answer><score>0.99</score>",
+    "target": "[302,508,492,719]",
+    "dataset": "GOT10k",
+    "sequence": "GOT-10k_Val_000001",
+    "rank": 0,
+    "iou": 0.9144425043651784,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.99,
+    "raw_prediction": "<answer>[303,515,491,710]</answer><score>0.99</score>",
+    "candidates": [
+      {
+        "box": [
+          303.0,
+          515.0,
+          491.0,
+          710.0
+        ],
+        "score": 0.99,
+        "text": "<answer>[303,515,491,710]</answer><score>0.99</score>",
+        "iou": 0.9144425043651784
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.9144425043651784,
+    "oracle_iou": 0.9144425043651784,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "TAO_correct",
+    "dataset_index": 782,
+    "id": "782-1",
+    "prediction": "<answer>[409,342,606,544]</answer><score>0.96</score>",
+    "target": "[402,342,612,546]",
+    "dataset": "TAO",
+    "sequence": "val/YFCC100M/v_d6c861217f11c3b6a8e92e71b694b6",
+    "rank": 6,
+    "iou": 0.9288982259570495,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.96,
+    "raw_prediction": "<answer>[409,342,606,544]</answer><score>0.96</score>",
+    "candidates": [
+      {
+        "box": [
+          409.0,
+          342.0,
+          606.0,
+          544.0
+        ],
+        "score": 0.96,
+        "text": "<answer>[409,342,606,544]</answer><score>0.96</score>",
+        "iou": 0.9288982259570495
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.9288982259570495,
+    "oracle_iou": 0.9288982259570495,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "LaSOT_confident_wrong",
+    "dataset_index": 406,
+    "id": "406-1",
+    "prediction": "<answer>[203,458,788,999]</answer><score>1.00</score>",
+    "target": "[455,174,493,210]",
+    "dataset": "LaSOT",
+    "sequence": "racing-8",
+    "rank": 6,
+    "iou": 0.0,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 1.0,
+    "raw_prediction": "<answer>[203,458,788,999]</answer><score>1.00</score>",
+    "candidates": [
+      {
+        "box": [
+          203.0,
+          458.0,
+          788.0,
+          999.0
+        ],
+        "score": 1.0,
+        "text": "<answer>[203,458,788,999]</answer><score>1.00</score>",
+        "iou": 0.0
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.0,
+    "oracle_iou": 0.0,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "GOT10k_confident_wrong",
+    "dataset_index": 613,
+    "id": "613-1",
+    "prediction": "<answer>[462,510,588,708]</answer><score>0.96</score>",
+    "target": "[782,421,852,579]",
+    "dataset": "GOT10k",
+    "sequence": "GOT-10k_Val_000014",
+    "rank": 5,
+    "iou": 0.0,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.96,
+    "raw_prediction": "<answer>[462,510,588,708]</answer><score>0.96</score>",
+    "candidates": [
+      {
+        "box": [
+          462.0,
+          510.0,
+          588.0,
+          708.0
+        ],
+        "score": 0.96,
+        "text": "<answer>[462,510,588,708]</answer><score>0.96</score>",
+        "iou": 0.0
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.0,
+    "oracle_iou": 0.0,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "TAO_confident_wrong",
+    "dataset_index": 836,
+    "id": "836-1",
+    "prediction": "<answer>[548,376,726,621]</answer><score>0.99</score>",
+    "target": "[263,410,330,504]",
+    "dataset": "TAO",
+    "sequence": "val/HACS/Playing_field_hockey_v_d0IYl11Wq7c_scene_0_21-2002",
+    "rank": 4,
+    "iou": 0.0,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.99,
+    "raw_prediction": "<answer>[548,376,726,621]</answer><score>0.99</score>",
+    "candidates": [
+      {
+        "box": [
+          548.0,
+          376.0,
+          726.0,
+          621.0
+        ],
+        "score": 0.99,
+        "text": "<answer>[548,376,726,621]</answer><score>0.99</score>",
+        "iou": 0.0
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.0,
+    "oracle_iou": 0.0,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "low_score_correct",
+    "dataset_index": 23,
+    "id": "23-1",
+    "prediction": "<answer>[356,381,661,731]</answer><score>0.00</score>",
+    "target": "[356,375,663,706]",
+    "dataset": "LaSOT",
+    "sequence": "bird-16",
+    "rank": 7,
+    "iou": 0.907389099430622,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.0,
+    "raw_prediction": "<answer>[356,381,661,731]</answer><score>0.00</score>",
+    "candidates": [
+      {
+        "box": [
+          356.0,
+          381.0,
+          661.0,
+          731.0
+        ],
+        "score": 0.0,
+        "text": "<answer>[356,381,661,731]</answer><score>0.00</score>",
+        "iou": 0.907389099430622
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.907389099430622,
+    "oracle_iou": 0.907389099430622,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  },
+  {
+    "category": "near_miss",
+    "dataset_index": 0,
+    "id": "0-1",
+    "prediction": "<answer>[491,383,520,433]</answer><score>0.00</score>",
+    "target": "[492,375,533,447]",
+    "dataset": "LaSOT",
+    "sequence": "basketball-1",
+    "rank": 0,
+    "iou": 0.46635576282478347,
+    "parsed": true,
+    "confidence_format_valid": true,
+    "score": 0.0,
+    "raw_prediction": "<answer>[491,383,520,433]</answer><score>0.00</score>",
+    "candidates": [
+      {
+        "box": [
+          491.0,
+          383.0,
+          520.0,
+          433.0
+        ],
+        "score": 0.0,
+        "text": "<answer>[491,383,520,433]</answer><score>0.00</score>",
+        "iou": 0.46635576282478347
+      }
+    ],
+    "candidate_count": 1,
+    "variable_candidate_format_valid": true,
+    "selected_candidate_index": 0,
+    "oracle_candidate_index": 0,
+    "first_candidate_iou": 0.46635576282478347,
+    "oracle_iou": 0.46635576282478347,
+    "order_inversion_rate": 0.0,
+    "near_duplicate_candidates": false
+  }
+]

@@ -1,0 +1,682 @@
+[
+  {
+    "element": "basketball",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/basketball-11/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/basketball-11/img/00000926.jpg"
+    ],
+    "bbox": [
+      [
+        621.0,
+        408.0,
+        656.0,
+        447.0
+      ],
+      [
+        95.0,
+        156.0,
+        166.0,
+        220.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "basketball-11",
+      "frame_indices_zero_based": [
+        0,
+        925
+      ],
+      "annotation_sha256": "5000ac7929317d6ad535120089a32a783f7d8da94c78d391d290590a1bd40dbb"
+    }
+  },
+  {
+    "element": "skateboard",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/skateboard-3/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/skateboard-3/img/00000815.jpg"
+    ],
+    "bbox": [
+      [
+        978.0,
+        496.0,
+        1034.0,
+        521.0
+      ],
+      [
+        715.0,
+        459.0,
+        827.0,
+        587.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "skateboard-3",
+      "frame_indices_zero_based": [
+        0,
+        814
+      ],
+      "annotation_sha256": "7d4e036c109150afc9ebc2dc5a624d1aaceb968305f81702663abd87b13643f2"
+    }
+  },
+  {
+    "element": "drone",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/drone-7/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/drone-7/img/00001409.jpg"
+    ],
+    "bbox": [
+      [
+        708.0,
+        289.0,
+        750.0,
+        309.0
+      ],
+      [
+        630.0,
+        448.0,
+        701.0,
+        498.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "drone-7",
+      "frame_indices_zero_based": [
+        0,
+        1408
+      ],
+      "annotation_sha256": "57720ad6ab9fe1877b8805e72b65f5be686aabe1d67f761e9b2bf5f1cf6e8def"
+    }
+  },
+  {
+    "element": "skateboard",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/skateboard-16/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/skateboard-16/img/00001604.jpg"
+    ],
+    "bbox": [
+      [
+        701.0,
+        572.0,
+        808.0,
+        704.0
+      ],
+      [
+        646.0,
+        476.0,
+        756.0,
+        524.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "skateboard-16",
+      "frame_indices_zero_based": [
+        0,
+        1603
+      ],
+      "annotation_sha256": "c6e09913dcb3740af752bf6a7e0f383b03cd04ae4a218446f1c9438b3080e9cc"
+    }
+  },
+  {
+    "element": "train",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/train-20/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/train-20/img/00000695.jpg"
+    ],
+    "bbox": [
+      [
+        44.0,
+        322.0,
+        864.0,
+        404.0
+      ],
+      [
+        329.0,
+        363.0,
+        904.0,
+        433.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "train-20",
+      "frame_indices_zero_based": [
+        0,
+        694
+      ],
+      "annotation_sha256": "2ca0326a483ee564d29a818bf149e617659aaf3eefd2301c6fe1c4751098b5ac"
+    }
+  },
+  {
+    "element": "volleyball",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/volleyball-18/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/volleyball-18/img/00001303.jpg"
+    ],
+    "bbox": [
+      [
+        261.0,
+        332.0,
+        300.0,
+        370.0
+      ],
+      [
+        285.0,
+        326.0,
+        329.0,
+        372.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "volleyball-18",
+      "frame_indices_zero_based": [
+        0,
+        1302
+      ],
+      "annotation_sha256": "b3260e818d2e7afb7a625b2bee6152029e9b1fe65c37663cfcc624076654f6f1"
+    }
+  },
+  {
+    "element": "hand",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/hand-9/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/hand-9/img/00000867.jpg"
+    ],
+    "bbox": [
+      [
+        228.0,
+        283.0,
+        258.0,
+        330.0
+      ],
+      [
+        309.0,
+        130.0,
+        324.0,
+        175.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "hand-9",
+      "frame_indices_zero_based": [
+        0,
+        866
+      ],
+      "annotation_sha256": "567b0f5c3618a7a4afbb2ab0f95b4c77e7b7fb5ca66ca3a651b4f943f62a01af"
+    }
+  },
+  {
+    "element": "chameleon",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/chameleon-6/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/chameleon-6/img/00000900.jpg"
+    ],
+    "bbox": [
+      [
+        25.0,
+        407.0,
+        208.0,
+        506.0
+      ],
+      [
+        67.0,
+        403.0,
+        173.0,
+        487.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "chameleon-6",
+      "frame_indices_zero_based": [
+        0,
+        899
+      ],
+      "annotation_sha256": "42a9a20537a26901623d72a00f29a557036c96410119969543af8a729da2e16c"
+    }
+  },
+  {
+    "element": "lizard",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/lizard-3/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/lizard-3/img/00002228.jpg"
+    ],
+    "bbox": [
+      [
+        425.0,
+        142.0,
+        860.0,
+        510.0
+      ],
+      [
+        356.0,
+        312.0,
+        597.0,
+        523.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "lizard-3",
+      "frame_indices_zero_based": [
+        0,
+        2227
+      ],
+      "annotation_sha256": "75c7b3914c2625cdff1fc061ce02dffb2b097be1e27fdc811648530cde12246c"
+    }
+  },
+  {
+    "element": "yoyo",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/yoyo-17/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/yoyo-17/img/00000518.jpg"
+    ],
+    "bbox": [
+      [
+        689.0,
+        456.0,
+        714.0,
+        485.0
+      ],
+      [
+        695.0,
+        466.0,
+        748.0,
+        521.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "yoyo-17",
+      "frame_indices_zero_based": [
+        0,
+        517
+      ],
+      "annotation_sha256": "004a0398db0884a3c836f71c72a1b77c14808114907c02ea7f7c34a2a1cf315e"
+    }
+  },
+  {
+    "element": "dog",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/dog-19/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/dog-19/img/00000757.jpg"
+    ],
+    "bbox": [
+      [
+        608.0,
+        232.0,
+        798.0,
+        442.0
+      ],
+      [
+        415.0,
+        211.0,
+        767.0,
+        699.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "dog-19",
+      "frame_indices_zero_based": [
+        0,
+        756
+      ],
+      "annotation_sha256": "9673a4555b4a73d9b1fe9ed9c4b02ed778b09b9d773f5e7a01881c099554c9d3"
+    }
+  },
+  {
+    "element": "bird",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/bird-3/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/bird-3/img/00001156.jpg"
+    ],
+    "bbox": [
+      [
+        744.0,
+        253.0,
+        911.0,
+        368.0
+      ],
+      [
+        183.0,
+        166.0,
+        353.0,
+        411.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "bird-3",
+      "frame_indices_zero_based": [
+        0,
+        1155
+      ],
+      "annotation_sha256": "3fbb011b687a5f228b880e16d2b540086a922bf026440fbccbd6441df1663cbc"
+    }
+  },
+  {
+    "element": "gametarget",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/gametarget-1/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/gametarget-1/img/00001126.jpg"
+    ],
+    "bbox": [
+      [
+        437.0,
+        402.0,
+        671.0,
+        585.0
+      ],
+      [
+        846.0,
+        267.0,
+        976.0,
+        458.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "gametarget-1",
+      "frame_indices_zero_based": [
+        0,
+        1125
+      ],
+      "annotation_sha256": "ee7f21c4df0696a4a45c150c2357a29f51170e9ad6eb4aa64bd2730086358954"
+    }
+  },
+  {
+    "element": "motorcycle",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/motorcycle-9/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/motorcycle-9/img/00000830.jpg"
+    ],
+    "bbox": [
+      [
+        44.0,
+        184.0,
+        284.0,
+        323.0
+      ],
+      [
+        769.0,
+        282.0,
+        931.0,
+        446.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "motorcycle-9",
+      "frame_indices_zero_based": [
+        0,
+        829
+      ],
+      "annotation_sha256": "09e8b97367ebee576c65aedbcad8e45ec8e92c518d6051b1683fe9fa2d8198d6"
+    }
+  },
+  {
+    "element": "horse",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/horse-15/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/horse-15/img/00001189.jpg"
+    ],
+    "bbox": [
+      [
+        743.0,
+        201.0,
+        813.0,
+        363.0
+      ],
+      [
+        396.0,
+        173.0,
+        1025.0,
+        688.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "horse-15",
+      "frame_indices_zero_based": [
+        0,
+        1188
+      ],
+      "annotation_sha256": "c5d2dc9086081962b861cb8939a4abbf9017c68cfae21438808b7e8386e049e2"
+    }
+  },
+  {
+    "element": "chameleon",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/chameleon-11/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/chameleon-11/img/00001461.jpg"
+    ],
+    "bbox": [
+      [
+        277.0,
+        136.0,
+        498.0,
+        231.0
+      ],
+      [
+        193.0,
+        139.0,
+        424.0,
+        252.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "chameleon-11",
+      "frame_indices_zero_based": [
+        0,
+        1460
+      ],
+      "annotation_sha256": "95a56c856cf4e141d9fe1474cf369271ab3cd77d422681142ebd2781efa99998"
+    }
+  },
+  {
+    "element": "basketball",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/basketball-1/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/basketball-1/img/00000544.jpg"
+    ],
+    "bbox": [
+      [
+        347.0,
+        135.0,
+        366.0,
+        153.0
+      ],
+      [
+        315.0,
+        169.0,
+        337.0,
+        191.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "basketball-1",
+      "frame_indices_zero_based": [
+        0,
+        543
+      ],
+      "annotation_sha256": "b3efe131344de03ffe419025cf0d394098a72b972b52f46aa3f8bb04b261782d"
+    }
+  },
+  {
+    "element": "swing",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/swing-14/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/swing-14/img/00001282.jpg"
+    ],
+    "bbox": [
+      [
+        202.0,
+        545.0,
+        389.0,
+        587.0
+      ],
+      [
+        336.0,
+        692.0,
+        433.0,
+        717.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "swing-14",
+      "frame_indices_zero_based": [
+        0,
+        1281
+      ],
+      "annotation_sha256": "d49eb9748d5afe4aa8cf942902b9d5777f222a8eddaf416f82c6b1bf75107257"
+    }
+  },
+  {
+    "element": "bus",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/bus-17/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/bus-17/img/00000986.jpg"
+    ],
+    "bbox": [
+      [
+        178.0,
+        75.0,
+        298.0,
+        160.0
+      ],
+      [
+        201.0,
+        67.0,
+        249.0,
+        107.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "bus-17",
+      "frame_indices_zero_based": [
+        0,
+        985
+      ],
+      "annotation_sha256": "5c130fd0e194a023c1fa196eb28496d532d0b6fc2b03c14412b4e66b3aae03f4"
+    }
+  },
+  {
+    "element": "swing",
+    "dataset": "LaSOTTesting",
+    "image_path": [
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/swing-20/img/00000001.jpg",
+      "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting/swing-20/img/00000641.jpg"
+    ],
+    "bbox": [
+      [
+        663.0,
+        279.0,
+        920.0,
+        379.0
+      ],
+      [
+        335.0,
+        252.0,
+        585.0,
+        351.0
+      ]
+    ],
+    "role": [
+      "reference",
+      "positive-image"
+    ],
+    "source": {
+      "sequence_cluster": "swing-20",
+      "frame_indices_zero_based": [
+        0,
+        640
+      ],
+      "annotation_sha256": "ddb4cac8c9a177f95e45a370f8e20ddea298b00589a063351d3bfd4b1bec9e97"
+    }
+  }
+]

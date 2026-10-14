@@ -1,0 +1,34 @@
+{
+  "source_sha256": {
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/adapter/policy/adapter_config.json": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/adapter/policy/adapter_model.safetensors": "2b1b5343ce77087401fb3bdf2be1dccce5cead814d94f0b006f350c4ab214936",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/optimizer.pt": "01d49aa67732d955a5ffefa79fff0cab94dc4ba9b7d953bb320a8c2ab947bcaf",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/config_snapshot.json": "39e07d685717a6df37ad1a1be3333e754d470a3a23e798934f49ecde5d398cfa"
+  },
+  "derived_manifest_sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+  "expected_samples": 1766,
+  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150",
+  "prompt_variant": "multi_v2",
+  "prompt_sha256": "c6f28d607e7736bde33a82169e86fe517b5c13dccd4a04a0cb295da0e47336ba",
+  "step": 150,
+  "training_reward": {
+    "iou_threshold": 0.5,
+    "loc_weight": 1.0,
+    "cal_weight": 1.1,
+    "neg_weight": 1.1,
+    "duplicate_weight": 0.06,
+    "duplicate_threshold": 0.9,
+    "rank_weight": 0.6,
+    "rank_margin": 0.1,
+    "rank_iou_delta": 0.1,
+    "order_weight": 0.12,
+    "distractor_weight": 0.6,
+    "coverage_weight": 1.0,
+    "coverage_mode": "min",
+    "count_soft_limit": 5,
+    "count_weight": 0.05,
+    "multi_bonus_weight": 0.2
+  },
+  "training_group_size": 8
+}

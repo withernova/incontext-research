@@ -1,0 +1,36 @@
+{
+  "scalar_loss_and_gradient_oracle": "3 advantage signs, both clip boundaries: passed",
+  "advantage_scale_relative_to_trl_0_15_2": 1.1547889709472656,
+  "ranking_calibration_counterexample": {
+    "ious": [
+      1.0,
+      0.6,
+      0.0
+    ],
+    "scores_1_1_0": {
+      "reward": 0.9833333333333333,
+      "brier": 0.0
+    },
+    "scores_1_09_0": {
+      "reward": 0.9966666666666667,
+      "brier": 0.003333333333333332
+    }
+  },
+  "cached_sampling_vs_uncached_replay": [
+    {
+      "seed": 11,
+      "tokens": 8,
+      "max_abs_logp_error": 0.0
+    },
+    {
+      "seed": 22,
+      "tokens": 8,
+      "max_abs_logp_error": 4.76837158203125e-07
+    },
+    {
+      "seed": 33,
+      "tokens": 8,
+      "max_abs_logp_error": 4.76837158203125e-07
+    }
+  ]
+}

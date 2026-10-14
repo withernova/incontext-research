@@ -1,0 +1,1255 @@
+{
+  "status": "verified",
+  "result_id": "reference-gradient-spatial-iou050-r001-v1",
+  "source_id": "reference-gradient-gated-spatial-frequency-r001-v1",
+  "samples": 690,
+  "threshold": 0.5,
+  "total_selections": 1421,
+  "selected_count_histogram": {
+    "0": 378,
+    "1": 73,
+    "2": 47,
+    "3": 33,
+    "4": 31,
+    "5": 19,
+    "6": 20,
+    "7": 13,
+    "8": 12,
+    "9": 11,
+    "10": 53
+  },
+  "by_dataset": {
+    "LaSOT": {
+      "samples": 300,
+      "total_selections": 831,
+      "zero_selection_samples": 144,
+      "full_selection_samples": 35
+    },
+    "GOT10k": {
+      "samples": 90,
+      "total_selections": 187,
+      "zero_selection_samples": 42,
+      "full_selection_samples": 6
+    },
+    "TAO": {
+      "samples": 300,
+      "total_selections": 403,
+      "zero_selection_samples": 192,
+      "full_selection_samples": 12
+    }
+  },
+  "selected_iou": {
+    "n": 1421,
+    "mean": 0.5778611896310298,
+    "median": 0.5617170993383122,
+    "minimum": 0.5000320020481311,
+    "maximum": 0.8850726015159656
+  },
+  "legacy_selected_dominant_iou": {
+    "n": 6900,
+    "mean": 0.34316098828125946,
+    "median": 0.34958389526515476,
+    "minimum": 0.0,
+    "maximum": 0.8850726015159656
+  },
+  "selected_entropy": {
+    "n": 1421,
+    "mean": 0.5016368602752524,
+    "median": 0.5048588397985965,
+    "minimum": 0.04132132331515524,
+    "maximum": 0.9403168255927901
+  },
+  "selected_gt_attention_mass": {
+    "n": 1421,
+    "mean": 0.5238349587600766,
+    "median": 0.5218454357283552,
+    "minimum": 0.09465682297172029,
+    "maximum": 0.8787043023167035
+  },
+  "selected_single_token_components": 108,
+  "token_grid_upper_bound_audit": {
+    "checked_samples": 690,
+    "impossible_at_threshold": [
+      {
+        "dataset_index": 0,
+        "dataset": "LaSOT",
+        "upper_bound": 0.22242647058823525,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1,
+        "dataset": "LaSOT",
+        "upper_bound": 0.23065126375624115,
+        "selected": 0
+      },
+      {
+        "dataset_index": 2,
+        "dataset": "LaSOT",
+        "upper_bound": 0.13369255303725888,
+        "selected": 0
+      },
+      {
+        "dataset_index": 5,
+        "dataset": "LaSOT",
+        "upper_bound": 0.17287200000000005,
+        "selected": 0
+      },
+      {
+        "dataset_index": 7,
+        "dataset": "LaSOT",
+        "upper_bound": 0.46017756887322137,
+        "selected": 0
+      },
+      {
+        "dataset_index": 8,
+        "dataset": "LaSOT",
+        "upper_bound": 0.26427885346397323,
+        "selected": 0
+      },
+      {
+        "dataset_index": 12,
+        "dataset": "LaSOT",
+        "upper_bound": 0.13608000000000003,
+        "selected": 0
+      },
+      {
+        "dataset_index": 16,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3262027122655188,
+        "selected": 0
+      },
+      {
+        "dataset_index": 17,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3837105889778239,
+        "selected": 0
+      },
+      {
+        "dataset_index": 37,
+        "dataset": "LaSOT",
+        "upper_bound": 0.38528477859410937,
+        "selected": 0
+      },
+      {
+        "dataset_index": 46,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4172358842043674,
+        "selected": 0
+      },
+      {
+        "dataset_index": 52,
+        "dataset": "LaSOT",
+        "upper_bound": 0.14452554744525545,
+        "selected": 0
+      },
+      {
+        "dataset_index": 59,
+        "dataset": "LaSOT",
+        "upper_bound": 0.43677435578688634,
+        "selected": 0
+      },
+      {
+        "dataset_index": 79,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4516870805762825,
+        "selected": 0
+      },
+      {
+        "dataset_index": 95,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3207959999999998,
+        "selected": 0
+      },
+      {
+        "dataset_index": 104,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4754726906696069,
+        "selected": 0
+      },
+      {
+        "dataset_index": 112,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4087487283825023,
+        "selected": 0
+      },
+      {
+        "dataset_index": 114,
+        "dataset": "LaSOT",
+        "upper_bound": 0.05644799999999994,
+        "selected": 0
+      },
+      {
+        "dataset_index": 115,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3852085580293305,
+        "selected": 0
+      },
+      {
+        "dataset_index": 122,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3923088053246731,
+        "selected": 0
+      },
+      {
+        "dataset_index": 136,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4801555626568037,
+        "selected": 0
+      },
+      {
+        "dataset_index": 142,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4324674363528711,
+        "selected": 0
+      },
+      {
+        "dataset_index": 143,
+        "dataset": "LaSOT",
+        "upper_bound": 0.48053174198483034,
+        "selected": 0
+      },
+      {
+        "dataset_index": 147,
+        "dataset": "LaSOT",
+        "upper_bound": 0.48043142541978173,
+        "selected": 0
+      },
+      {
+        "dataset_index": 206,
+        "dataset": "LaSOT",
+        "upper_bound": 0.19462913873068965,
+        "selected": 0
+      },
+      {
+        "dataset_index": 207,
+        "dataset": "LaSOT",
+        "upper_bound": 0.31180555211854555,
+        "selected": 0
+      },
+      {
+        "dataset_index": 255,
+        "dataset": "LaSOT",
+        "upper_bound": 0.48328988606074796,
+        "selected": 0
+      },
+      {
+        "dataset_index": 261,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4209640830454599,
+        "selected": 0
+      },
+      {
+        "dataset_index": 272,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3983711048158639,
+        "selected": 0
+      },
+      {
+        "dataset_index": 274,
+        "dataset": "LaSOT",
+        "upper_bound": 0.18615418569838413,
+        "selected": 0
+      },
+      {
+        "dataset_index": 278,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3704373186699676,
+        "selected": 0
+      },
+      {
+        "dataset_index": 279,
+        "dataset": "LaSOT",
+        "upper_bound": 0.29913991367631776,
+        "selected": 0
+      },
+      {
+        "dataset_index": 290,
+        "dataset": "LaSOT",
+        "upper_bound": 0.42376146082132665,
+        "selected": 0
+      },
+      {
+        "dataset_index": 292,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3890331323310147,
+        "selected": 0
+      },
+      {
+        "dataset_index": 310,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2721599999999997,
+        "selected": 0
+      },
+      {
+        "dataset_index": 311,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2608214737059928,
+        "selected": 0
+      },
+      {
+        "dataset_index": 315,
+        "dataset": "LaSOT",
+        "upper_bound": 0.24235199999999996,
+        "selected": 0
+      },
+      {
+        "dataset_index": 316,
+        "dataset": "LaSOT",
+        "upper_bound": 0.06059017768226846,
+        "selected": 0
+      },
+      {
+        "dataset_index": 320,
+        "dataset": "LaSOT",
+        "upper_bound": 0.40494307564870635,
+        "selected": 0
+      },
+      {
+        "dataset_index": 323,
+        "dataset": "LaSOT",
+        "upper_bound": 0.34958389526515476,
+        "selected": 0
+      },
+      {
+        "dataset_index": 326,
+        "dataset": "LaSOT",
+        "upper_bound": 0.16056442629038248,
+        "selected": 0
+      },
+      {
+        "dataset_index": 339,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3198097764222501,
+        "selected": 0
+      },
+      {
+        "dataset_index": 344,
+        "dataset": "LaSOT",
+        "upper_bound": 0.06350400000000002,
+        "selected": 0
+      },
+      {
+        "dataset_index": 346,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3559441105300134,
+        "selected": 0
+      },
+      {
+        "dataset_index": 348,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2172210494820785,
+        "selected": 0
+      },
+      {
+        "dataset_index": 349,
+        "dataset": "LaSOT",
+        "upper_bound": 0.014111999999999986,
+        "selected": 0
+      },
+      {
+        "dataset_index": 350,
+        "dataset": "LaSOT",
+        "upper_bound": 0.06426000000000001,
+        "selected": 0
+      },
+      {
+        "dataset_index": 352,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2831995627831896,
+        "selected": 0
+      },
+      {
+        "dataset_index": 354,
+        "dataset": "LaSOT",
+        "upper_bound": 0.11257866550552466,
+        "selected": 0
+      },
+      {
+        "dataset_index": 355,
+        "dataset": "LaSOT",
+        "upper_bound": 0.05535199999999998,
+        "selected": 0
+      },
+      {
+        "dataset_index": 356,
+        "dataset": "LaSOT",
+        "upper_bound": 0.08249964663201077,
+        "selected": 0
+      },
+      {
+        "dataset_index": 383,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3481246107375486,
+        "selected": 0
+      },
+      {
+        "dataset_index": 384,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3842869342442356,
+        "selected": 0
+      },
+      {
+        "dataset_index": 391,
+        "dataset": "LaSOT",
+        "upper_bound": 0.18509147528221095,
+        "selected": 0
+      },
+      {
+        "dataset_index": 397,
+        "dataset": "LaSOT",
+        "upper_bound": 0.24672464791163928,
+        "selected": 0
+      },
+      {
+        "dataset_index": 398,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2681280000000001,
+        "selected": 0
+      },
+      {
+        "dataset_index": 401,
+        "dataset": "LaSOT",
+        "upper_bound": 0.16203778721197784,
+        "selected": 0
+      },
+      {
+        "dataset_index": 415,
+        "dataset": "LaSOT",
+        "upper_bound": 0.49599468762638493,
+        "selected": 0
+      },
+      {
+        "dataset_index": 419,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4762505254308535,
+        "selected": 0
+      },
+      {
+        "dataset_index": 420,
+        "dataset": "LaSOT",
+        "upper_bound": 0.27700573364245956,
+        "selected": 0
+      },
+      {
+        "dataset_index": 446,
+        "dataset": "LaSOT",
+        "upper_bound": 0.1927600252423844,
+        "selected": 0
+      },
+      {
+        "dataset_index": 448,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4074036680916417,
+        "selected": 0
+      },
+      {
+        "dataset_index": 449,
+        "dataset": "LaSOT",
+        "upper_bound": 0.12945872890780943,
+        "selected": 0
+      },
+      {
+        "dataset_index": 455,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3271954674220966,
+        "selected": 0
+      },
+      {
+        "dataset_index": 456,
+        "dataset": "LaSOT",
+        "upper_bound": 0.15497999999999992,
+        "selected": 0
+      },
+      {
+        "dataset_index": 457,
+        "dataset": "LaSOT",
+        "upper_bound": 0.20803015692118867,
+        "selected": 0
+      },
+      {
+        "dataset_index": 459,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4660691691269505,
+        "selected": 0
+      },
+      {
+        "dataset_index": 462,
+        "dataset": "LaSOT",
+        "upper_bound": 0.38209924440460147,
+        "selected": 0
+      },
+      {
+        "dataset_index": 467,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4926145997219975,
+        "selected": 0
+      },
+      {
+        "dataset_index": 469,
+        "dataset": "LaSOT",
+        "upper_bound": 0.41176800000000036,
+        "selected": 0
+      },
+      {
+        "dataset_index": 477,
+        "dataset": "LaSOT",
+        "upper_bound": 0.08820000000000015,
+        "selected": 0
+      },
+      {
+        "dataset_index": 480,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3477599999999996,
+        "selected": 0
+      },
+      {
+        "dataset_index": 498,
+        "dataset": "LaSOT",
+        "upper_bound": 0.05443199999999997,
+        "selected": 0
+      },
+      {
+        "dataset_index": 500,
+        "dataset": "LaSOT",
+        "upper_bound": 0.08139027091099073,
+        "selected": 0
+      },
+      {
+        "dataset_index": 502,
+        "dataset": "LaSOT",
+        "upper_bound": 0.18190812720848054,
+        "selected": 0
+      },
+      {
+        "dataset_index": 503,
+        "dataset": "LaSOT",
+        "upper_bound": 0.2901645844185124,
+        "selected": 0
+      },
+      {
+        "dataset_index": 504,
+        "dataset": "LaSOT",
+        "upper_bound": 0.36302077822721757,
+        "selected": 0
+      },
+      {
+        "dataset_index": 507,
+        "dataset": "LaSOT",
+        "upper_bound": 0.49776392099058875,
+        "selected": 0
+      },
+      {
+        "dataset_index": 511,
+        "dataset": "LaSOT",
+        "upper_bound": 0.3530515617619272,
+        "selected": 0
+      },
+      {
+        "dataset_index": 512,
+        "dataset": "LaSOT",
+        "upper_bound": 0.12013507679022987,
+        "selected": 0
+      },
+      {
+        "dataset_index": 514,
+        "dataset": "LaSOT",
+        "upper_bound": 0.42485018228990445,
+        "selected": 0
+      },
+      {
+        "dataset_index": 515,
+        "dataset": "LaSOT",
+        "upper_bound": 0.30177113163076036,
+        "selected": 0
+      },
+      {
+        "dataset_index": 523,
+        "dataset": "LaSOT",
+        "upper_bound": 0.15767566153509935,
+        "selected": 0
+      },
+      {
+        "dataset_index": 529,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4592828303565316,
+        "selected": 0
+      },
+      {
+        "dataset_index": 538,
+        "dataset": "LaSOT",
+        "upper_bound": 0.4045081841353683,
+        "selected": 0
+      },
+      {
+        "dataset_index": 555,
+        "dataset": "LaSOT",
+        "upper_bound": 0.20851805606217894,
+        "selected": 0
+      },
+      {
+        "dataset_index": 564,
+        "dataset": "LaSOT",
+        "upper_bound": 0.18274095612459074,
+        "selected": 0
+      },
+      {
+        "dataset_index": 565,
+        "dataset": "LaSOT",
+        "upper_bound": 0.19102026417904605,
+        "selected": 0
+      },
+      {
+        "dataset_index": 615,
+        "dataset": "GOT10k",
+        "upper_bound": 0.463577094128435,
+        "selected": 0
+      },
+      {
+        "dataset_index": 619,
+        "dataset": "GOT10k",
+        "upper_bound": 0.26042178017916945,
+        "selected": 0
+      },
+      {
+        "dataset_index": 621,
+        "dataset": "GOT10k",
+        "upper_bound": 0.3602084649584939,
+        "selected": 0
+      },
+      {
+        "dataset_index": 639,
+        "dataset": "GOT10k",
+        "upper_bound": 0.3579478130323973,
+        "selected": 0
+      },
+      {
+        "dataset_index": 649,
+        "dataset": "GOT10k",
+        "upper_bound": 0.24217187467416376,
+        "selected": 0
+      },
+      {
+        "dataset_index": 656,
+        "dataset": "GOT10k",
+        "upper_bound": 0.19727740106239425,
+        "selected": 0
+      },
+      {
+        "dataset_index": 681,
+        "dataset": "GOT10k",
+        "upper_bound": 0.22977397971408048,
+        "selected": 0
+      },
+      {
+        "dataset_index": 718,
+        "dataset": "GOT10k",
+        "upper_bound": 0.4471509136980598,
+        "selected": 0
+      },
+      {
+        "dataset_index": 727,
+        "dataset": "GOT10k",
+        "upper_bound": 0.3128207328584914,
+        "selected": 0
+      },
+      {
+        "dataset_index": 729,
+        "dataset": "GOT10k",
+        "upper_bound": 0.48756856609677446,
+        "selected": 0
+      },
+      {
+        "dataset_index": 734,
+        "dataset": "GOT10k",
+        "upper_bound": 0.18102613746369792,
+        "selected": 0
+      },
+      {
+        "dataset_index": 800,
+        "dataset": "TAO",
+        "upper_bound": 0.31326293102727026,
+        "selected": 0
+      },
+      {
+        "dataset_index": 822,
+        "dataset": "TAO",
+        "upper_bound": 0.41837047291877605,
+        "selected": 0
+      },
+      {
+        "dataset_index": 823,
+        "dataset": "TAO",
+        "upper_bound": 0.27379800000000015,
+        "selected": 0
+      },
+      {
+        "dataset_index": 840,
+        "dataset": "TAO",
+        "upper_bound": 0.494862852295221,
+        "selected": 0
+      },
+      {
+        "dataset_index": 873,
+        "dataset": "TAO",
+        "upper_bound": 0.2588961653779391,
+        "selected": 0
+      },
+      {
+        "dataset_index": 894,
+        "dataset": "TAO",
+        "upper_bound": 0.13439163512019398,
+        "selected": 0
+      },
+      {
+        "dataset_index": 905,
+        "dataset": "TAO",
+        "upper_bound": 0.2172780584665451,
+        "selected": 0
+      },
+      {
+        "dataset_index": 914,
+        "dataset": "TAO",
+        "upper_bound": 0.37866748166259145,
+        "selected": 0
+      },
+      {
+        "dataset_index": 915,
+        "dataset": "TAO",
+        "upper_bound": 0.12508474177759843,
+        "selected": 0
+      },
+      {
+        "dataset_index": 935,
+        "dataset": "TAO",
+        "upper_bound": 0.2539436354352402,
+        "selected": 0
+      },
+      {
+        "dataset_index": 969,
+        "dataset": "TAO",
+        "upper_bound": 0.4821391870377587,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1010,
+        "dataset": "TAO",
+        "upper_bound": 0.4980863819163088,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1013,
+        "dataset": "TAO",
+        "upper_bound": 0.018900000000000017,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1018,
+        "dataset": "TAO",
+        "upper_bound": 0.08756622599247728,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1022,
+        "dataset": "TAO",
+        "upper_bound": 0.4788652404527168,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1028,
+        "dataset": "TAO",
+        "upper_bound": 0.06703199999999997,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1032,
+        "dataset": "TAO",
+        "upper_bound": 0.04284000000000001,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1038,
+        "dataset": "TAO",
+        "upper_bound": 0.09424799999999997,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1041,
+        "dataset": "TAO",
+        "upper_bound": 0.4485427532690133,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1058,
+        "dataset": "TAO",
+        "upper_bound": 0.4014220721830222,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1065,
+        "dataset": "TAO",
+        "upper_bound": 0.044672728749511656,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1066,
+        "dataset": "TAO",
+        "upper_bound": 0.04687199999999995,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1081,
+        "dataset": "TAO",
+        "upper_bound": 0.1253966658529932,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1082,
+        "dataset": "TAO",
+        "upper_bound": 0.05443200000000001,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1083,
+        "dataset": "TAO",
+        "upper_bound": 0.48807402319878984,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1084,
+        "dataset": "TAO",
+        "upper_bound": 0.1777168445347486,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1088,
+        "dataset": "TAO",
+        "upper_bound": 0.29720667294795794,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1102,
+        "dataset": "TAO",
+        "upper_bound": 0.3333959999999999,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1161,
+        "dataset": "TAO",
+        "upper_bound": 0.2656529361059187,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1197,
+        "dataset": "TAO",
+        "upper_bound": 0.38931650246305416,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1201,
+        "dataset": "TAO",
+        "upper_bound": 0.06263840556785824,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1218,
+        "dataset": "TAO",
+        "upper_bound": 0.2880344462909804,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1233,
+        "dataset": "TAO",
+        "upper_bound": 0.15706921944035399,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1236,
+        "dataset": "TAO",
+        "upper_bound": 0.4259241810358364,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1302,
+        "dataset": "TAO",
+        "upper_bound": 0.4862538652814748,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1323,
+        "dataset": "TAO",
+        "upper_bound": 0.4161942664236162,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1338,
+        "dataset": "TAO",
+        "upper_bound": 0.25906536410673114,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1363,
+        "dataset": "TAO",
+        "upper_bound": 0.43029263038755716,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1380,
+        "dataset": "TAO",
+        "upper_bound": 0.21205799999999983,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1438,
+        "dataset": "TAO",
+        "upper_bound": 0.3763730969358261,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1492,
+        "dataset": "TAO",
+        "upper_bound": 0.30244300232830196,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1526,
+        "dataset": "TAO",
+        "upper_bound": 0.4869470299878936,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1564,
+        "dataset": "TAO",
+        "upper_bound": 0.30352002595148025,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1593,
+        "dataset": "TAO",
+        "upper_bound": 0.0028799999999999984,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1600,
+        "dataset": "TAO",
+        "upper_bound": 0.009599999999999996,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1601,
+        "dataset": "TAO",
+        "upper_bound": 0.01727999999999999,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1609,
+        "dataset": "TAO",
+        "upper_bound": 0.06834394415893225,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1613,
+        "dataset": "TAO",
+        "upper_bound": 0.12671999999999994,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1614,
+        "dataset": "TAO",
+        "upper_bound": 0.3587765224579772,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1618,
+        "dataset": "TAO",
+        "upper_bound": 0.31613555892766815,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1619,
+        "dataset": "TAO",
+        "upper_bound": 0.03149300155520994,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1622,
+        "dataset": "TAO",
+        "upper_bound": 0.010799999999999995,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1674,
+        "dataset": "TAO",
+        "upper_bound": 0.3293262924987741,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1693,
+        "dataset": "TAO",
+        "upper_bound": 0.4986708011653056,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1733,
+        "dataset": "TAO",
+        "upper_bound": 0.46198001410604694,
+        "selected": 0
+      },
+      {
+        "dataset_index": 1753,
+        "dataset": "TAO",
+        "upper_bound": 0.3530537031084709,
+        "selected": 0
+      }
+    ]
+  },
+  "legacy_same_forward_exact_sample_matches": 690,
+  "legacy_same_forward_overlap": {
+    "intersection": [
+      "L17H04",
+      "L17H07",
+      "L17H24",
+      "L17H27",
+      "L18H05",
+      "L18H15",
+      "L20H15",
+      "L20H18",
+      "L21H10",
+      "L21H18"
+    ],
+    "intersection_count": 10,
+    "jaccard": 1.0
+  },
+  "overlap_with_original": {
+    "intersection": [
+      "L17H04",
+      "L17H07",
+      "L17H24",
+      "L17H27"
+    ],
+    "intersection_count": 4,
+    "jaccard": 0.25
+  },
+  "top10": [
+    {
+      "head": "L17H07",
+      "frequency": 122,
+      "frequency_rate": 0.17681159420289855,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.34073871475572615,
+        "median": 0.3508202592090991,
+        "minimum": 0.0,
+        "maximum": 0.8850726015159656
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.473222067087716,
+        "median": 0.49598533513821025,
+        "minimum": 0.0005055498777494905,
+        "maximum": 0.9609888784696172
+      },
+      "candidate_iou_pass_count": 132
+    },
+    {
+      "head": "L21H17",
+      "frequency": 120,
+      "frequency_rate": 0.17391304347826086,
+      "candidate_samples": 666,
+      "unavailable_samples": 24,
+      "candidate_iou": {
+        "n": 666,
+        "mean": 0.34763868935515435,
+        "median": 0.35049242216341103,
+        "minimum": 0.0,
+        "maximum": 0.7727979123485347
+      },
+      "candidate_gt_mass": {
+        "n": 666,
+        "mean": 0.4975837134490366,
+        "median": 0.5477366810641325,
+        "minimum": 0.00022879099456200717,
+        "maximum": 0.9302406774179821
+      },
+      "candidate_iou_pass_count": 150
+    },
+    {
+      "head": "L17H06",
+      "frequency": 81,
+      "frequency_rate": 0.11739130434782609,
+      "candidate_samples": 675,
+      "unavailable_samples": 15,
+      "candidate_iou": {
+        "n": 675,
+        "mean": 0.38564372964846505,
+        "median": 0.4131505605067851,
+        "minimum": 0.0,
+        "maximum": 0.8003682914383332
+      },
+      "candidate_gt_mass": {
+        "n": 675,
+        "mean": 0.37853706951382127,
+        "median": 0.3982697918539637,
+        "minimum": 0.0004140689724448932,
+        "maximum": 0.8773561481933058
+      },
+      "candidate_iou_pass_count": 207
+    },
+    {
+      "head": "L17H24",
+      "frequency": 80,
+      "frequency_rate": 0.11594202898550725,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.30368763523776965,
+        "median": 0.29376147297566746,
+        "minimum": 0.0,
+        "maximum": 0.8260204829622806
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.5659026292653765,
+        "median": 0.6383085846898447,
+        "minimum": 0.0007952666238690068,
+        "maximum": 0.9527322085524328
+      },
+      "candidate_iou_pass_count": 80
+    },
+    {
+      "head": "L18H12",
+      "frequency": 80,
+      "frequency_rate": 0.11594202898550725,
+      "candidate_samples": 686,
+      "unavailable_samples": 4,
+      "candidate_iou": {
+        "n": 686,
+        "mean": 0.2934559293514855,
+        "median": 0.28318035175904954,
+        "minimum": 0.0,
+        "maximum": 0.7493159958891973
+      },
+      "candidate_gt_mass": {
+        "n": 686,
+        "mean": 0.4736077183455972,
+        "median": 0.5080549492028518,
+        "minimum": 0.00042174485630425325,
+        "maximum": 0.9628092051428501
+      },
+      "candidate_iou_pass_count": 93
+    },
+    {
+      "head": "L17H04",
+      "frequency": 79,
+      "frequency_rate": 0.1144927536231884,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.2802823317879012,
+        "median": 0.263896137672961,
+        "minimum": 0.0,
+        "maximum": 0.753814696581164
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.5945062612529811,
+        "median": 0.6540703493173203,
+        "minimum": 0.001008206602189499,
+        "maximum": 0.9951014138702345
+      },
+      "candidate_iou_pass_count": 79
+    },
+    {
+      "head": "L18H14",
+      "frequency": 77,
+      "frequency_rate": 0.11159420289855072,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.30964717624826155,
+        "median": 0.3025577826789895,
+        "minimum": 0.0,
+        "maximum": 0.770989653265935
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.5242058130834332,
+        "median": 0.5771827762433754,
+        "minimum": 0.00034907613469645514,
+        "maximum": 0.9748203850529954
+      },
+      "candidate_iou_pass_count": 90
+    },
+    {
+      "head": "L21H31",
+      "frequency": 76,
+      "frequency_rate": 0.11014492753623188,
+      "candidate_samples": 686,
+      "unavailable_samples": 4,
+      "candidate_iou": {
+        "n": 686,
+        "mean": 0.32571013132623694,
+        "median": 0.3195986437560753,
+        "minimum": 0.0,
+        "maximum": 0.7727979123485347
+      },
+      "candidate_gt_mass": {
+        "n": 686,
+        "mean": 0.4666823749135149,
+        "median": 0.49612790288750924,
+        "minimum": 0.0001891279174698079,
+        "maximum": 0.937795514274448
+      },
+      "candidate_iou_pass_count": 133
+    },
+    {
+      "head": "L17H25",
+      "frequency": 66,
+      "frequency_rate": 0.09565217391304348,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.2584515204390486,
+        "median": 0.2283509266391256,
+        "minimum": 0.0,
+        "maximum": 0.7493159958891973
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.5300587446642764,
+        "median": 0.578861203693343,
+        "minimum": 0.0006804196820291437,
+        "maximum": 0.9888271647288362
+      },
+      "candidate_iou_pass_count": 73
+    },
+    {
+      "head": "L17H27",
+      "frequency": 64,
+      "frequency_rate": 0.0927536231884058,
+      "candidate_samples": 690,
+      "unavailable_samples": 0,
+      "candidate_iou": {
+        "n": 690,
+        "mean": 0.27013981276920823,
+        "median": 0.24591210949982245,
+        "minimum": 0.0,
+        "maximum": 0.7692043381562828
+      },
+      "candidate_gt_mass": {
+        "n": 690,
+        "mean": 0.6159862041533091,
+        "median": 0.6983179389788698,
+        "minimum": 0.0002940782225556672,
+        "maximum": 0.9853773355536058
+      },
+      "candidate_iou_pass_count": 65
+    }
+  ],
+  "limitations": "同一发现集上的筛选诊断；入选IoU上升由门槛强制，不是独立性能验证；未进入梯度Top-50的head样本缺少map，不算零IoU。"
+}

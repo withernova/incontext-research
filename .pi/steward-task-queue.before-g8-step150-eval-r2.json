@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "active": false,
+  "intervalMinutes": 2,
+  "currentTaskId": "e014-g8-wait400-pause",
+  "tasks": [
+    {
+      "id": "e014-g8-wait400-pause",
+      "instruction": "用户已授权G8 fresh训练及约400step自动评测。只处理训练Run e014-multi-bonus02-g8-sft659-seed11451（已managed启动）及评测Run e014-multi-bonus02-g8-step400-eval1766，不启动旧r2排队命令。每2分钟先managed status/reattach维持lease，然后只读检查本训练输出。远端根/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/<RunID>，仓库/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy，Workspace03；SSH路由SZY-3090如健康工具255，可用ssh -o BatchMode=yes -o ClearAllForwardings=yes只读核验，不把转发错误当训练崩溃。未到400是正常等待：不complete、不fail、不重启，不用一条长sleep阻塞，留当前任务running等待下一轮。目标为本Run payload/grpo/checkpoints/step_000400：须完整常规非symlink adapter/policy配置/权重及optimizer.pt；既有IPLoc解释器只读torch.load(weights_only=True)验证steps=400，训练config_snapshot.json确认group_size8/multi_v2/bonus.2/原SFT659。确认各rank已完成400更新及checkpoint写入稳定后，用户已授权为了评测暂停本Run：通过survey_run_execution fail(authorization, retryable=false,用户主动暂停400用于评测)登记释放attempt；再仅SIGTERM已核验命令含此精确Run output.run_name的唯一tools/run_symmetric_grpo.py coordinator及其自有worker，核验真实退出和8GPU无compute进程。没有唯一归属就停并报告，不killall/pkill广泛模式，不改训练预算或奖励。保留全部数据/日志/权重，不声称1500完成；记录实际停步及400后未用于评测的更新。本任务只在完整step400核验、训练停止及GPU释放后complete。真实崩溃则fail并暂停队列，不擅自重跑或修源码。不得读取/输出凭据、环境变量、会话标识；只读当前两Run。",
+      "acceptance": [
+        "8rank达到400完成更新，本新G8训练step_000400可读且optimizer.steps=400、policy权重完整、来源snapshot匹配G8/bonus.2/multi_v2/SFT659，并记录SHA",
+        "父训练已按授权暂停、真实进程退出且8GPU空闲；只终止本Run自有进程，旧产物未覆盖",
+        "Run记录明确本次是为step400评测暂停，不是1500完成；未自动恢复或启动其他Run"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "running",
+      "startedAt": "2026-10-13T16:51:03.121Z"
+    },
+    {
+      "id": "e014-g8-eval400-report",
+      "instruction": "执行已登记并prepare的独立评测Run e014-multi-bonus02-g8-step400-eval1766。前置任务complete后重新确认step400来源和GPU空闲，核对canonical精确command及SHA f780dff120669af666007d2ab04292873e654e88（已发布部署）。配置configs/experiments/E-014/evaluation/e014_multi_bonus02_g8_step400_eval1766.py；command已用E014_EVAL_PROFILE=explicit_binding与本Run路径/step400/配置/multi_v2/prompt SHA设置，调用tools/run/eval/e014/e014_step800_eval1766_8gpu.sh。不要用旧step800默认命令或临时替换其他checkpoint。复用审阅59f84f59eee924f7；按code_change_review重确认当前与base090d81885ea22d934aecf3e0db386248b026a1a4的本任务4文件diff无变化后仅survey_run_execution continue启动本eval。单次执行，失败保留目录并fail队列，不删除/重试/重训。运行期间managed status/reattach，exit0、metrics稳定、1766完整indices/uniqueIDs、实际prompt/CP400/G8与输入SHA前后一致后managed complete；先前继承训练metric_plan不代表评测主指标。报告raw候选直方图、First/Selected/Oracle mIoU、Oracle gap/阈值命中、非首选比例、多框条件score同分/排序/顺序/近重复的明确分母。按用户方案1增加评分诊断：只读父训练1..400完成更新rollouts及50步窗口，在同rank/update/sample_id的8条采样内统计排序有效pair/惩罚、评分同分、candidate score与GT IoU关系和实际advantage，分original正/负与collage；空分母null。rollout.step为0-based，更新=step+1，排除400后和未完成更新；不要跨prompt配对或把GRPO组间差当固定框score因果。结果/必要审计写回本eval Run，旧数据只读。保持父训练暂停，不自动改reward/恢复/Claim升级。完成后停止本任务队列/监控，不启动其他队列历史任务。",
+      "acceptance": [
+        "独立step400评测受管exit0并正式complete，1766输出完整且源checkpoint/prompt/输入SHA核验通过",
+        "报告First/Selected/Oracle和多框条件下评分诊断；区分真实score选择与GT Oracle，原1766已看测试集/单seed/不同生成预算限制明确",
+        "父训练评分相关日志完成1..400更新的同组分层诊断，保存明确分母与审计来源；未启动新训练或额外模型推理",
+        "结果写回指定Run，父训练保持暂停，不提升Claim"
+      ],
+      "dependsOn": [
+        "e014-g8-wait400-pause"
+      ],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 0,
+      "onFailure": "pause",
+      "status": "pending"
+    }
+  ],
+  "createdAt": "2026-10-13T16:49:59.493Z",
+  "updatedAt": "2026-10-14T00:16:43.618Z"
+}

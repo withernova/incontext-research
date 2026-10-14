@@ -1243,6 +1243,357 @@
         }
       },
       "created_at": "2026-09-29T14:02:16"
+    },
+    {
+      "task_id": "classify-1af5395b972b2dec518c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+          "run_type": "train",
+          "variant": "SFT659 变长候选与双向对称数据纯 GRPO",
+          "purpose": "从未经过 GRPO 的原置信度 SFT659 新开纯 GRPO 分支，让模型自然发掘潜在实例并按左到右输出，由 score 选择目标。当前 Run 执行训练与完整日志采集，不自动运行已查看测试集评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-11T15:27:09"
+    },
+    {
+      "task_id": "classify-995f0d7b0ffe0bd36717",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-step800-variable-candidates-eval1766-8gpu",
+          "run_type": "evaluate",
+          "variant": "step800原1766样本八卡变长候选评测",
+          "purpose": "用户要求先暂停训练，评测step800及原1766样本；不重训、不自动恢复、不做全项目重构。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-12T11:56:59"
+    },
+    {
+      "task_id": "classify-25dbad82373c43b0732c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+          "run_type": "train",
+          "variant": "multi_v2多实例枚举、两行模板、原SFT659独立纯GRPO",
+          "purpose": "用户要求采用确认的新prompt立即开独立新训练。fresh从原SFT659初始化policy/固定anchor；不恢复step800、不覆盖旧分支或评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-12T13:17:43"
+    },
+    {
+      "task_id": "classify-c375d8f1f53b2cbe3aeb",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-step200-eval1766-8gpu",
+          "run_type": "evaluate",
+          "variant": "multi_v2本分支step200、原1766样本八卡评测",
+          "purpose": "用户要求暂停当前multi_v2训练并评测step200；只读单checkpoint原1766样本八卡评测，不自动恢复训练。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-12T16:26:12"
+    },
+    {
+      "task_id": "classify-8e6eedf309fe39bd5106",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+          "run_type": "train",
+          "variant": "multi_v2 / min实例覆盖 / soft预算5 / 同组奖励诊断 / freshSFT659纯GRPO",
+          "purpose": "用户要求保留已讨论的min覆盖/软预算5及小幅权重方案，增加同采样组multi比single奖励更高的条件概率诊断，代码完成后创建Run等待人工批准。新独立freshSFT659，不自动恢复旧200/800。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-12T18:27:05"
+    },
+    {
+      "task_id": "classify-14fdd6efde45a37ddda4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+          "run_type": "evaluate",
+          "variant": "最新min覆盖/cap5分支step150、multi_v2、原1766八卡评测",
+          "purpose": "用户要求暂停最新训练并测试该分支step150，先核查真实候选数和定位结果，再讨论更明确奖励，不自动改reward或恢复训练。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-12T20:57:25"
+    },
+    {
+      "task_id": "classify-17706b44703d400646d4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+          "run_type": "",
+          "variant": "用户要求发布部署后立即启动本次已实现的0.2多框奖励独立训练。以已发布部署的69f786a3db89177cea11178714f560ce5760d36c为准",
+          "purpose": "用户要求发布部署后立即启动本次已实现的0.2多框奖励独立训练。以已发布部署的69f786a3db89177cea11178714f560ce5760d36c为准，使用configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py；从原SFT659 fresh初始化policy及固定anchor，不恢复或启动父Run命令，不覆盖旧结果。除settings.trainer.reward.multi_bonus_weight=0.2和独立输出名外，继承父min覆盖/cap5、multi_v2、纯GRPO、seed11451、8GPU、数据及采样优化设置。奖励仅对实际collage正样本且有双GT、整条输出合法EOS终止、2..5框且至少一对IoU<=0.9时整条加一次0.2；原惩罚不变。保留task_total与实际multi_bonus日志。当前已公布配置预算3epoch/1500更新，每50存checkpoint和组统计，前100比较使用1..50及51..100窗口，不声称100自动停训。本请求授权此新奖励配置受管启动，不继承父结果或Solid标签。实际运行命令应为bash tools/run.sh configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-13T19:32:12"
+    },
+    {
+      "task_id": "classify-188938ec4ab437de8757",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+          "run_type": "",
+          "variant": "多框补偿独立训练，修正日志位置。用户已明确要求修复后重新运行一次；此次是新的独立训练Run，不是续训，不继承失败结果或Solid标签。仅以失败Run记录来源；实",
+          "purpose": "多框补偿独立训练，修正日志位置。用户已明确要求修复后重新运行一次；此次是新的独立训练Run，不是续训，不继承失败结果或Solid标签。仅以失败Run记录来源；实际policy和固定anchor均从原SFT659 fresh初始化。使用已发布部署的69f786a3db89177cea11178714f560ce5760d36c及configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py，multi_bonus_weight明确0.2，其他数据、min覆盖/cap5、multi_v2、纯GRPO、seed11451、8GPU、1500更新、50更新存档与统计不变。独占新Run目录，保留上次失败目录，不删除/移动其日志控制文件或覆盖任何旧产物。本次日志必须是新Run根目录managed_console.log，不使用logs/run.log；输出placeholder为新Run根outputs，数据/模型/日志/训练快照由同一现有准备协调器写入新Run payload。启动前记录实际SHA/日志/配置并核验目录契约。实际命令为bash tools/run.sh configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py output.run_name=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2。先比较前100更新，配置不自动在100更新停止；不额外测试/构建，不再自动重跑。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-13T19:41:36"
+    },
+    {
+      "task_id": "classify-3e428a41572b5e42423d",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+          "run_type": "",
+          "variant": "对 step150 的 ckpt 进行评测一下",
+          "purpose": "对 step150 的 ckpt 进行评测一下"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-14T00:00:30"
+    },
+    {
+      "task_id": "classify-9b885d12486d6ccfda45",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-bonus02-g8-sft659-seed11451",
+          "run_type": "",
+          "variant": "用户选方案1并要求重新训练及约400步自动评测：新独立训练从原SFT659 fresh policy+固定anchor，纯GRPO；仅settings.trai",
+          "purpose": "用户选方案1并要求重新训练及约400步自动评测：新独立训练从原SFT659 fresh policy+固定anchor，纯GRPO；仅settings.trainer.group_size从4改8，沿用multi_v2、min覆盖/cap5及0.2多框补偿，奖励/数据/优化器/seed11451/8GPU不变。不加载step150、不恢复父Run、不覆盖任何旧产物。复用configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py及tools/run.sh，output.run_name为新RunID。保持3epoch/1500更新配置，但在本Run保存step_000400后由Steward自动核验、暂停并释放GPU，然后使用独立子Run评测该checkpoint；评测后不自动恢复训练，不把暂停视为1500完成。每更新全局128rollouts；至400约51200rollouts，不是等生成量对照。评分诊断复用既有rollouts reward.scores/candidate_ious/ranking_pairs/ranking_loss/calibration_penalty/distractor_penalty及advantage，在同rank/update/sample_id采样组内统计，多框与original正负/collage分层；不引入score CE或偏好损失。此次明确授权新训练受管执行及必要指定已发布SHA部署，不启动父Run排队命令。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-14T00:45:31"
+    },
+    {
+      "task_id": "classify-ab2089ba57fcfa03d50a",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-bonus02-g8-step400-eval1766",
+          "run_type": "",
+          "variant": "用户追加要求新G=8训练约400step时自动评测400step。此独立评测仅在父训练保存payload/grpo/checkpoints/step_00040",
+          "purpose": "用户追加要求新G=8训练约400step时自动评测400step。此独立评测仅在父训练保存payload/grpo/checkpoints/step_000400并暂停释放GPU后启动。只读核验optimizer.steps=400、训练group_size=8、multi_v2、multi_bonus_weight=0.2、prompt和checkpoint来源SHA。沿用本轮1766测试清单、8GPU、greedy192/vision4096，评测seed20260901；只派生image_path至只读alias，不改GT/身份/split。输出本Run独占payload，日志根managed_console.log。报告raw候选数、First/Selected/Oracle mIoU及gap、选非首框率、多框条件下同分/排序/顺序/重复、IoU阈值命中；Oracle仅事后诊断，不能替代真实score选择。训练评分诊断只读父Run已完成更新1..400日志，按同rank/update/sample_id分组及original正/负和collage分层，不增加模型推理或改变奖励。本请求授权Steward在上述前置条件通过后单次受管自动评测，不重跑、不恢复父训练、不自动提升Claim。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-14T00:45:47"
+    },
+    {
+      "task_id": "classify-e0d626468942e4fce3a7",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-bonus02-g8-step150-eval1766",
+          "run_type": "",
+          "variant": "用户要求现在停止G8训练并开始评测，不再等400。训练已按授权停止，8rank实际完成154更新；最新完整保存checkpoint为本父Run payload/",
+          "purpose": "用户要求现在停止G8训练并开始评测，不再等400。训练已按授权停止，8rank实际完成154更新；最新完整保存checkpoint为本父Run payload/grpo/checkpoints/step_000150，optimizer.steps=150。独立评测该G8 step150 checkpoint，原1766样本/8GPU/multi_v2/greedy192/vision4096/evaluation.seed20260901。复用现有explicit_binding评测shell与worker，仅薄配置绑定来源和独占输出；不改奖励/训练/数据/指标、不恢复训练、不覆盖旧结果。不运行step400 Run。报告First/Selected/Oracle、候选数与评分诊断，训练诊断限完成更新1..150；151..154不用于本checkpoint评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-14T08:19:40"
+    },
+    {
+      "task_id": "classify-ffad4671f16467b326c2",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+          "run_type": "",
+          "variant": "用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical o",
+          "purpose": "用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical output_dir，根级managed_console.log为log，worker独占payload/evaluation。评测原训练e014-multi-bonus02-g8-sft659-seed11451保存step150，checkpoint policy SHA256=2b1b5343ce77087401fb3bdf2be1dccce5cead814d94f0b006f350c4ab214936；G8/multi_v2/bonus.2。原1766样本/8GPU/greedy192/vision4096/evaluation.seed20260901不变；复用原Shell和worker，薄配置只换新输出绑定。训练已停154但仅评测150，不恢复训练、不启动step400、不改奖励或覆盖历史。核验结果后报告First/Selected/Oracle及评分诊断。本次若再失败保留产物不自动重试。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-14T08:36:43"
     }
   ]
 }

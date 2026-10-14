@@ -1,0 +1,231 @@
+SURVEY_TOOL_LAUNCH_BOOTSTRAP
+SURVEY_TOOL_ENV_PROOF IPLoc /songzhengyue/miniconda3/envs/IPLoc /songzhengyue/miniconda3/envs/IPLoc/bin/python3.9
+SURVEY_TOOL_ACTIVATION_OK
+SURVEY_TOOL_PROJECT_CWD_OK
+[CONFIG_SNAPSHOT] /defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-step800-variable-candidates-eval1766-8gpu/payload/logs/config_snapshots/evaluate-7d2950db884a4484abcda9c77db73f9d
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/io/image.py:14: UserWarning: Failed to load image Python extension: '/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torchvision/image.so: undefined symbol: _ZN5torch3jit17parseSchemaOrNameERKSsb'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/10 [00:00<?, ?it/s]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.79s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.86s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.86s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.85s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.84s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.85s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.87s/it]Loading checkpoint shards:  10%|█         | 1/10 [00:06<01:01,  6.84s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.96s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  7.00s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.99s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.98s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.99s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.98s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.99s/it]Loading checkpoint shards:  20%|██        | 2/10 [00:13<00:55,  6.99s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.04s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.06s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  30%|███       | 3/10 [00:21<00:49,  7.05s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.08s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.10s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.10s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.11s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.10s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.10s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.11s/it]Loading checkpoint shards:  40%|████      | 4/10 [00:28<00:42,  7.10s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.15s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.17s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.18s/it]Loading checkpoint shards:  50%|█████     | 5/10 [00:35<00:35,  7.18s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.18s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  60%|██████    | 6/10 [00:42<00:28,  7.19s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.13s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.15s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  70%|███████   | 7/10 [00:49<00:21,  7.14s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.17s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.19s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.18s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.19s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.19s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.18s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.18s/it]Loading checkpoint shards:  80%|████████  | 8/10 [00:57<00:14,  7.18s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.98s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.98s/it]Loading checkpoint shards:  90%|█████████ | 9/10 [01:03<00:06,  6.97s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.73s/it]
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.98s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.74s/it]
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.74s/it]
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.74s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.73s/it]
+
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.74s/it]
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.74s/it]Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  5.99s/it]
+Loading checkpoint shards: 100%|██████████| 10/10 [01:07<00:00,  6.73s/it]
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+The following generation flags are not valid and may be ignored: ['temperature', 'top_p', 'top_k']. Set `TRANSFORMERS_VERBOSITY=info` for more details.
+[EVAL_PROGRESS] rank=7 local=10 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=2 local=10 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=6 local=10 rate=0.226_samples_per_second
+[EVAL_PROGRESS] rank=0 local=10 rate=0.225_samples_per_second
+[EVAL_PROGRESS] rank=5 local=10 rate=0.222_samples_per_second
+[EVAL_PROGRESS] rank=1 local=10 rate=0.218_samples_per_second
+[EVAL_PROGRESS] rank=3 local=10 rate=0.214_samples_per_second
+[EVAL_PROGRESS] rank=4 local=10 rate=0.212_samples_per_second
+[EVAL_PROGRESS] rank=7 local=20 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=0 local=20 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=6 local=20 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=2 local=20 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=4 local=20 rate=0.229_samples_per_second
+[EVAL_PROGRESS] rank=1 local=20 rate=0.228_samples_per_second
+[EVAL_PROGRESS] rank=5 local=20 rate=0.228_samples_per_second
+[EVAL_PROGRESS] rank=3 local=20 rate=0.221_samples_per_second
+[EVAL_PROGRESS] rank=7 local=30 rate=0.248_samples_per_second
+[EVAL_PROGRESS] rank=6 local=30 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=0 local=30 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=4 local=30 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=2 local=30 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=1 local=30 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=5 local=30 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=3 local=30 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=7 local=40 rate=0.253_samples_per_second
+[EVAL_PROGRESS] rank=0 local=40 rate=0.248_samples_per_second
+[EVAL_PROGRESS] rank=4 local=40 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=5 local=40 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=6 local=40 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=2 local=40 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=1 local=40 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=3 local=40 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=7 local=50 rate=0.254_samples_per_second
+[EVAL_PROGRESS] rank=0 local=50 rate=0.250_samples_per_second
+[EVAL_PROGRESS] rank=4 local=50 rate=0.247_samples_per_second
+[EVAL_PROGRESS] rank=6 local=50 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=1 local=50 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=2 local=50 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=3 local=50 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=5 local=50 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=7 local=60 rate=0.254_samples_per_second
+[EVAL_PROGRESS] rank=0 local=60 rate=0.249_samples_per_second
+[EVAL_PROGRESS] rank=4 local=60 rate=0.246_samples_per_second
+[EVAL_PROGRESS] rank=1 local=60 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=3 local=60 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=2 local=60 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=6 local=60 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=5 local=60 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=7 local=70 rate=0.251_samples_per_second
+[EVAL_PROGRESS] rank=0 local=70 rate=0.248_samples_per_second
+[EVAL_PROGRESS] rank=4 local=70 rate=0.247_samples_per_second
+[EVAL_PROGRESS] rank=1 local=70 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=3 local=70 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=6 local=70 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=2 local=70 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=5 local=70 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=7 local=80 rate=0.248_samples_per_second
+[EVAL_PROGRESS] rank=4 local=80 rate=0.246_samples_per_second
+[EVAL_PROGRESS] rank=0 local=80 rate=0.246_samples_per_second
+[EVAL_PROGRESS] rank=1 local=80 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=6 local=80 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=3 local=80 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=2 local=80 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=5 local=80 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=7 local=90 rate=0.245_samples_per_second
+[EVAL_PROGRESS] rank=0 local=90 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=4 local=90 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=1 local=90 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=6 local=90 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=2 local=90 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=3 local=90 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=5 local=90 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=4 local=100 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=7 local=100 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=0 local=100 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=1 local=100 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=6 local=100 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=2 local=100 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=5 local=100 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=3 local=100 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=7 local=110 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=4 local=110 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=0 local=110 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=1 local=110 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=6 local=110 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=2 local=110 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=5 local=110 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=3 local=110 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=0 local=120 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=4 local=120 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=7 local=120 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=1 local=120 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=2 local=120 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=6 local=120 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=5 local=120 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=3 local=120 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=0 local=130 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=4 local=130 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=7 local=130 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=6 local=130 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=2 local=130 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=1 local=130 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=5 local=130 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=3 local=130 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=4 local=140 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=0 local=140 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=7 local=140 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=6 local=140 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=2 local=140 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=1 local=140 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=5 local=140 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=3 local=140 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=0 local=150 rate=0.244_samples_per_second
+[EVAL_PROGRESS] rank=4 local=150 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=7 local=150 rate=0.243_samples_per_second
+[EVAL_PROGRESS] rank=6 local=150 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=1 local=150 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=2 local=150 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=5 local=150 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=3 local=150 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=0 local=160 rate=0.242_samples_per_second
+[EVAL_PROGRESS] rank=7 local=160 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=4 local=160 rate=0.241_samples_per_second
+[EVAL_PROGRESS] rank=6 local=160 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=1 local=160 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=2 local=160 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=5 local=160 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=3 local=160 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=0 local=170 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=4 local=170 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=7 local=170 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=6 local=170 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=1 local=170 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=2 local=170 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=5 local=170 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=3 local=170 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=0 local=180 rate=0.240_samples_per_second
+[EVAL_PROGRESS] rank=4 local=180 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=7 local=180 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=6 local=180 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=1 local=180 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=2 local=180 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=5 local=180 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=3 local=180 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=0 local=190 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=4 local=190 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=7 local=190 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=6 local=190 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=1 local=190 rate=0.235_samples_per_second
+[EVAL_PROGRESS] rank=2 local=190 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=5 local=190 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=3 local=190 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=0 local=200 rate=0.239_samples_per_second
+[EVAL_PROGRESS] rank=4 local=200 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=7 local=200 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=1 local=200 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=6 local=200 rate=0.234_samples_per_second
+[EVAL_PROGRESS] rank=2 local=200 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=5 local=200 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=3 local=200 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=0 local=210 rate=0.238_samples_per_second
+[EVAL_PROGRESS] rank=4 local=210 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=7 local=210 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=6 local=210 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=1 local=210 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=2 local=210 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=5 local=210 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=3 local=210 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=0 local=220 rate=0.237_samples_per_second
+[EVAL_PROGRESS] rank=4 local=220 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=7 local=220 rate=0.236_samples_per_second
+[EVAL_PROGRESS] rank=6 local=220 rate=0.233_samples_per_second
+[EVAL_PROGRESS] rank=1 local=220 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=2 local=220 rate=0.232_samples_per_second
+[EVAL_PROGRESS] rank=5 local=220 rate=0.231_samples_per_second
+[EVAL_PROGRESS] rank=3 local=220 rate=0.230_samples_per_second
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+[EVAL_DONE] {"status": "completed", "action": "evaluate", "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800", "dataloader": "test_dataloader", "dataset_size": 1766, "evaluated_samples": 1766, "world_size": 8, "max_new_tokens": 192, "vision_max_patch_tokens": 4096, "vision_max_pixels": 1048576, "selection": "head", "selection_seed": null, "seconds": 960.6185736656189, "samples_per_second": 1.838398765559082, "samples": 1766, "parse_rate": 1.0, "miou": 0.700190580357638, "acc_iou_0.25": 0.7978482446206115, "acc_iou_0.5": 0.7633069082672707, "acc_iou_0.75": 0.6783691959229898, "iou_distribution": {"count": 1766, "min": 0.0, "q25": 0.5583505676782172, "median": 0.8913986728194316, "q75": 0.9637962789567924, "max": 1.0, "bins": {"[0.00,0.10)": 325, "[0.10,0.25)": 32, "[0.25,0.50)": 61, "[0.50,0.75)": 150, "[0.75,1.00]": 1198}}, "confidence_format_valid_rate": 1.0, "confidence_invalid_count": 0, "candidate_selection": "highest_score_then_first", "candidate_count_policy": "variable_nonempty_no_box_count_cap", "candidate_count_histogram": {"1": 1766}, "variable_candidate_format_valid_rate": 1.0, "multiple_candidate_rate": 0.0, "first_candidate_miou": 0.700190580357638, "oracle_miou": 0.700190580357638, "oracle_gap": 0.0, "selected_nonfirst_rate": 0.0, "spatial_order_valid_rate": 1.0, "spatial_order_valid_given_format": 1.0, "near_duplicate_rate": 0.0, "nonfirst_acc": null, "nonfirst_acc_samples": 0, "iou_argmax_tie_policy": "earliest_candidate", "by_dataset": {"GOT10k": {"samples": 180, "parse_rate": 1.0, "miou": 0.831681283063856, "acc_iou_0.25": 0.9388888888888889, "acc_iou_0.5": 0.9055555555555556, "acc_iou_0.75": 0.8222222222222222, "iou_distribution": {"count": 180, "min": 0.0, "q25": 0.8319858222163581, "median": 0.9303620909764817, "q75": 0.9666345645145052, "max": 0.9940902604609597, "bins": {"[0.00,0.10)": 11, "[0.10,0.25)": 0, "[0.25,0.50)": 6, "[0.50,0.75)": 15, "[0.75,1.00]": 148}}, "confidence_format_valid_rate": 1.0, "confidence_invalid_count": 0, "candidate_selection": "highest_score_then_first", "candidate_count_policy": "variable_nonempty_no_box_count_cap", "candidate_count_histogram": {"1": 180}, "variable_candidate_format_valid_rate": 1.0, "multiple_candidate_rate": 0.0, "first_candidate_miou": 0.831681283063856, "oracle_miou": 0.831681283063856, "oracle_gap": 0.0, "selected_nonfirst_rate": 0.0, "spatial_order_valid_rate": 1.0, "spatial_order_valid_given_format": 1.0, "near_duplicate_rate": 0.0, "nonfirst_acc": null, "nonfirst_acc_samples": 0, "iou_argmax_tie_policy": "earliest_candidate"}, "LaSOT": {"samples": 600, "parse_rate": 1.0, "miou": 0.6539486078267974, "acc_iou_0.25": 0.78, "acc_iou_0.5": 0.7316666666666667, "acc_iou_0.75": 0.6066666666666667, "iou_distribution": {"count": 600, "min": 0.0, "q25": 0.43823607760597916, "median": 0.8265109611852746, "q75": 0.9354822367915121, "max": 0.9984051036682615, "bins": {"[0.00,0.10)": 113, "[0.10,0.25)": 19, "[0.25,0.50)": 29, "[0.50,0.75)": 75, "[0.75,1.00]": 364}}, "confidence_format_valid_rate": 1.0, "confidence_invalid_count": 0, "candidate_selection": "highest_score_then_first", "candidate_count_policy": "variable_nonempty_no_box_count_cap", "candidate_count_histogram": {"1": 600}, "variable_candidate_format_valid_rate": 1.0, "multiple_candidate_rate": 0.0, "first_candidate_miou": 0.6539486078267974, "oracle_miou": 0.6539486078267974, "oracle_gap": 0.0, "selected_nonfirst_rate": 0.0, "spatial_order_valid_rate": 1.0, "spatial_order_valid_given_format": 1.0, "near_duplicate_rate": 0.0, "nonfirst_acc": null, "nonfirst_acc_samples": 0, "iou_argmax_tie_policy": "earliest_candidate"}, "TAO": {"samples": 986, "parse_rate": 1.0, "miou": 0.704325323797178, "acc_iou_0.25": 0.7829614604462475, "acc_iou_0.5": 0.7565922920892495, "acc_iou_0.75": 0.6957403651115619, "iou_distribution": {"count": 986, "min": 0.0, "q25": 0.5458503462710406, "median": 0.9144258156606693, "q75": 0.9737410590182207, "max": 1.0, "bins": {"[0.00,0.10)": 201, "[0.10,0.25)": 13, "[0.25,0.50)": 26, "[0.50,0.75)": 60, "[0.75,1.00]": 686}}, "confidence_format_valid_rate": 1.0, "confidence_invalid_count": 0, "candidate_selection": "highest_score_then_first", "candidate_count_policy": "variable_nonempty_no_box_count_cap", "candidate_count_histogram": {"1": 986}, "variable_candidate_format_valid_rate": 1.0, "multiple_candidate_rate": 0.0, "first_candidate_miou": 0.704325323797178, "oracle_miou": 0.704325323797178, "oracle_gap": 0.0, "selected_nonfirst_rate": 0.0, "spatial_order_valid_rate": 1.0, "spatial_order_valid_given_format": 1.0, "near_duplicate_rate": 0.0, "nonfirst_acc": null, "nonfirst_acc_samples": 0, "iou_argmax_tie_policy": "earliest_candidate"}}}
+/songzhengyue/miniconda3/envs/IPLoc/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:4807: UserWarning: No device id is provided via `init_process_group` or `barrier `. Using the current device set by the user. 
+  warnings.warn(  # warn only once
+E014_EVALUATION_COMPLETE samples=1766 world_size=8

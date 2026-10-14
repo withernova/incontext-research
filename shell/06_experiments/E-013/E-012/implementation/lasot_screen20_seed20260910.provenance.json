@@ -1,0 +1,10 @@
+{
+  "schema": "iploc-szy.lasot-screen-manifest/v1",
+  "root": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/dataset/LaSOT/LaSOTTesting",
+  "samples": 20,
+  "seed": 20260910,
+  "selection": "seeded_sequence_shuffle",
+  "frame_policy": "first_visible_reference_and_visible_temporal_midpoint_query",
+  "rejected": [],
+  "manifest_sha256": "863cbfbc6d17d43a6a13526b8dde5e46b6ef1f159d60d6bd04d1a1681549fbf8"
+}

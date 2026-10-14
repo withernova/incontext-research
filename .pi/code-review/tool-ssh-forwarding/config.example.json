@@ -1,0 +1,11 @@
+{
+  "projects_root": "/absolute/path/to/research-projects",
+  "projects": [
+    "/absolute/path/to/research-projects/example-project"
+  ],
+  "skill_dir": "/absolute/path/to/survey-tool/skills/research-survey",
+  "port": 7421,
+  "github_repo": "owner/research-snapshot-repository",
+  "github_branch": "main",
+  "freeze_legacy_writes": []
+}

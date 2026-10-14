@@ -1,0 +1,8 @@
+{
+  "two_rank_gloo_vs_serial_global_batch": "passed",
+  "optimizer_steps": 2,
+  "anchor_unchanged": true,
+  "counterfactual_two_forwards": true,
+  "gradient_checkpointing": true,
+  "max_abs_gradient_error": 3.725290298461914e-09
+}

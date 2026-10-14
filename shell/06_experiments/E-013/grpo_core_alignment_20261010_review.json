@@ -1,0 +1,148 @@
+{
+  "contract": "pi.code-change-review/v1",
+  "review_id": "9a992809232bb90b",
+  "diff_fingerprint": "9a992809232bb90b0a0cc46138cc525261bbe320e4fbdf11cd6200a3b16a7093",
+  "base_revision": "9d42d2be43464988cde879857a9d31864cf49851",
+  "task_id": "E-013-grpo-core-alignment-20261010",
+  "task_scoped": false,
+  "task_boundary": null,
+  "commit": {
+    "sha": "1639e24ec845610957fc17dd127dfad0148a4ec9",
+    "paths": [
+      "docs/GRPO_MODULES.md",
+      "docs/READING_TRAINING_FLOWS.md",
+      "docs/GRPO_UPSTREAM_ALIGNMENT.md",
+      "docs/e013_grpo.md",
+      "iploc_szy/rl/core.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/counterfactual.py",
+      "iploc_szy/rl/objective.py",
+      "iploc_szy/rl/sampling.py",
+      "iploc_szy/rl/trainer.py",
+      "tests/test_grpo_core.py",
+      "tests/fixtures/visual_rft_grpo_2ffad63.json",
+      "tests/fixtures/export_visual_rft_grpo.py"
+    ]
+  },
+  "review_current": true,
+  "repository": {
+    "path": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy"
+  },
+  "review_scope": {
+    "allowed_paths": [
+      "docs/GRPO_MODULES.md",
+      "docs/READING_TRAINING_FLOWS.md",
+      "docs/GRPO_UPSTREAM_ALIGNMENT.md",
+      "docs/e013_grpo.md",
+      "iploc_szy/rl/core.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/counterfactual.py",
+      "iploc_szy/rl/objective.py",
+      "iploc_szy/rl/sampling.py",
+      "iploc_szy/rl/trainer.py",
+      "tests/test_grpo_core.py",
+      "tests/fixtures/visual_rft_grpo_2ffad63.json",
+      "tests/fixtures/export_visual_rft_grpo.py"
+    ],
+    "forbidden_paths": [
+      ".git/**",
+      "data/**",
+      "outputs/**",
+      "runs/**",
+      "checkpoints/**"
+    ]
+  },
+  "intent": "E-013: abstract task-independent GRPO math with Visual-RFT-aligned tensor interfaces; isolate confidence reward/counterfactual preparation; preserve current trainer defaults and compatibility imports; add pinned-upstream loss/gradient reference checks and documentation. No experiment configurations or runtime semantics changed.",
+  "passed": true,
+  "blocking_findings": [],
+  "warnings": [],
+  "changed_files": [
+    {
+      "path": "docs/GRPO_MODULES.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/GRPO_UPSTREAM_ALIGNMENT.md",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "docs/READING_TRAINING_FLOWS.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/e013_grpo.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/core.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/counterfactual.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/objective.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/sampling.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/task.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/trainer.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "tests/fixtures/export_visual_rft_grpo.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "tests/fixtures/visual_rft_grpo_2ffad63.json",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "tests/test_grpo_core.py",
+      "status": "A ",
+      "untracked": false
+    }
+  ],
+  "tests": [
+    {
+      "command": "PYTHONPATH=. /tmp/iploc-cpu-check/bin/python -c 'import torchvision; import pytest; raise SystemExit(pytest.main([\"-q\",\"--tb=short\",\"-p\",\"no:cacheprovider\",\"tests\",\"-k\",\"not real_qwen_processor_alignment_when_available\",\"--deselect=tests/test_query_attention_intervention.py::test_native_noop_gt_and_restore[eager]\"]))'",
+      "exit_code": 0,
+      "summary": "547 passed, 2 deselected, 3 warnings. Exclusions are the previously reproduced unchanged CPU precision baseline and unavailable real model assets. Includes 11 core tests: actual pinned Visual-RFT numeric loss/gradient fixture parity and masked/clipped invariants."
+    },
+    {
+      "command": "/tmp/iploc-cpu-check/bin/python /tmp/e013-grpo-modules-20261010/compare_training.py",
+      "exit_code": 0,
+      "summary": "Original HEAD trainer + original HEAD objective versus refactor: synthetic 4 modes; records, optimizer, RNG and completion metadata identical."
+    },
+    {
+      "command": "/tmp/iploc-cpu-check/bin/python /tmp/e013-grpo-audit-20261010/ddp_probe.py",
+      "exit_code": 0,
+      "summary": "Actual 2-rank CPU/Gloo vs serial batch, 2 optimizer steps, frozen anchor, counterfactual, checkpointing: passed; max gradient difference 3.725290298461914e-09. No CUDA/NF4 validation."
+    },
+    {
+      "command": "ruff check --select F821,F822,F823; Python 3.9 ast.parse; git diff --check; regenerate pinned-upstream fixture and byte-compare",
+      "exit_code": 0,
+      "summary": "All passed; reference exporter verifies upstream source SHA256 before evaluating nine math assignments."
+    }
+  ]
+}

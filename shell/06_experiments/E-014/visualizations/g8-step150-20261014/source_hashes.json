@@ -1,0 +1,167 @@
+{
+  "evaluation/metrics.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/metrics.json",
+    "sha256": "547d9e0613f433dfb8f4d5025cbe8fba95356d9b4ef33a69453ba4780cf8f429",
+    "bytes": 9226
+  },
+  "evaluation/payload/evaluation/predictions.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/evaluation/predictions.jsonl",
+    "sha256": "4c007ee9ed5eb7bb628404189ba4aac0097c2a37b36bf6050ee2e9a4d9dc6fd1",
+    "bytes": 1417446
+  },
+  "evaluation/payload/evaluation/metrics.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/evaluation/metrics.json",
+    "sha256": "b52096600035a70aa7805154cd4fe99235455eb52a2b1f0a9815c25532907aea",
+    "bytes": 6416
+  },
+  "evaluation/payload/inputs.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/inputs.json",
+    "sha256": "05476eb6eb92d18518430f48fd5f4112dd199a4247bf0c7815867f4fffd09e29",
+    "bytes": 2122
+  },
+  "evaluation/payload/manifest.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/manifest.json",
+    "sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+    "bytes": 1249292
+  },
+  "evaluation/snapshot/prompt_example.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/logs/config_snapshots/evaluate-aed0862940734ca1a72401b832fc28e2/prompt_example.json",
+    "sha256": "d399009ce4d6565bb6c580b7a452613da8076c0615c13a59df6bcfcbce5d7c50",
+    "bytes": 2079
+  },
+  "evaluation/snapshot/provenance.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/logs/config_snapshots/evaluate-aed0862940734ca1a72401b832fc28e2/provenance.json",
+    "sha256": "a61e580c3a913eaeb1fbbae33870b718b548bd947b8c5eb75099c74d8914d15b",
+    "bytes": 31739
+  },
+  "evaluation/snapshot/resolved.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/payload/logs/config_snapshots/evaluate-aed0862940734ca1a72401b832fc28e2/resolved.json",
+    "sha256": "e38fc10194ff35f69d209a257dacf92180799ac6b91885329ece55e167cc8d63",
+    "bytes": 3618
+  },
+  "training/group-reward-windows-rank5.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank5.jsonl",
+    "sha256": "67789fd786dc9ac3e74ad3340333378bd01d283484c075daeb8816d4b1392036",
+    "bytes": 9691
+  },
+  "training/group-rewards-rank1.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank1.jsonl",
+    "sha256": "006e3700a1193f7ff4a0835304bd260f329142241f65c5a1c7918d558865d29c",
+    "bytes": 230737
+  },
+  "training/group-rewards-rank5.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank5.jsonl",
+    "sha256": "fe51f9a5e3c3afdaf9ded4efa39c6bd8adef95897d3efa471c0e40e01d4ac665",
+    "bytes": 230168
+  },
+  "training/group-rewards-rank7.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank7.jsonl",
+    "sha256": "afa7744f690dfe9a7ef0e067094b92a230824f9836d685841f2cd0d8ca325f1f",
+    "bytes": 230415
+  },
+  "training/rollouts-rank3.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank3.jsonl",
+    "sha256": "db2b208c94d4b2da9c0de07b246f6db0ae1900986e0e5341823cce634f006c88",
+    "bytes": 2613791
+  },
+  "training/group-reward-windows-rank0.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank0.jsonl",
+    "sha256": "27a03ef5769c4914604663ab94356484263e81d9d6dd2b386d84de81a4e9731f",
+    "bytes": 9733
+  },
+  "training/config_snapshot.json": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/config_snapshot.json",
+    "sha256": "39e07d685717a6df37ad1a1be3333e754d470a3a23e798934f49ecde5d398cfa",
+    "bytes": 3661
+  },
+  "training/rollouts-rank1.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank1.jsonl",
+    "sha256": "820eaaa7e0baabd10f89a9a81e947c85eefeb7cc9f1d7666e6d77acb9110712a",
+    "bytes": 2596273
+  },
+  "training/group-rewards-rank2.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank2.jsonl",
+    "sha256": "e841211f14e943d3c5f43865d70bd1ee9fb9e11537ca0c1a72c9436100c5d671",
+    "bytes": 230764
+  },
+  "training/group-reward-windows-rank6.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank6.jsonl",
+    "sha256": "eff3cd1cbca2ea9a18c4811969e96eba42a9521e914044579629c446073b8a89",
+    "bytes": 9925
+  },
+  "training/group-rewards-rank0.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank0.jsonl",
+    "sha256": "408f8dc151b627f0f9e713c0b17f9587e92986e607a889b51dcd582b9ae83036",
+    "bytes": 231991
+  },
+  "training/group-reward-windows-rank4.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank4.jsonl",
+    "sha256": "a2c543c2db2d956713ed9ff634598a80f801f960cfc01b5cf9c76941fdcc2e37",
+    "bytes": 9135
+  },
+  "training/rollouts-rank5.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank5.jsonl",
+    "sha256": "98847bbee26f5d9fe32a684a28c0195a67eabc56f50c62447b7fc44588632352",
+    "bytes": 2639605
+  },
+  "training/group-rewards-rank3.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank3.jsonl",
+    "sha256": "451d9abf7e3af9591c8c35f24f96234bb16d661fe683952d5da45c7da44fabe2",
+    "bytes": 232423
+  },
+  "training/rollouts-rank7.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank7.jsonl",
+    "sha256": "e83a81b03bed109c4d862c0ca4c54978f6c8bcc6e6814344763ecf0aae69e04a",
+    "bytes": 2589055
+  },
+  "training/group-reward-windows-rank7.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank7.jsonl",
+    "sha256": "7f4803d6d5c7d01b0b8dfe5d934a0165772b21e57909cad4986932380c097e06",
+    "bytes": 9722
+  },
+  "training/group-reward-windows-rank1.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank1.jsonl",
+    "sha256": "2cc54feeaae30dc014a6be7fb5ec79434c7b8b74a9c05601e1b2665240c60b0a",
+    "bytes": 9652
+  },
+  "training/group-reward-windows-rank3.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank3.jsonl",
+    "sha256": "fde261bbf4ac677c21bd3b02ddffa5ea1f6e2d9f2ffc201aaec3ffdad54a81eb",
+    "bytes": 9799
+  },
+  "training/rollouts-rank0.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank0.jsonl",
+    "sha256": "5a56df8cbb5b9ed4fc390246e1ea2f3d36c2c2890bf34fac63e19bad8488f999",
+    "bytes": 2631902
+  },
+  "training/rollouts-rank6.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank6.jsonl",
+    "sha256": "12f511f8f6c5bf9e214e25c4c47fafc2056b12feec78d12f94e9ebf98e7b3d75",
+    "bytes": 2604195
+  },
+  "training/group-rewards-rank6.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank6.jsonl",
+    "sha256": "672b086f95daac6b60eae33001aa7db55e3b5f0e8ac938df7702df8d34e2c246",
+    "bytes": 231713
+  },
+  "training/rollouts-rank2.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank2.jsonl",
+    "sha256": "999a1832727f1a558bc4916c179134d5e9e899ed6ae5a56a25f37ddc3bbd94ad",
+    "bytes": 2629161
+  },
+  "training/rollouts-rank4.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/rollouts-rank4.jsonl",
+    "sha256": "5e4905f920282fc8fb2f0ff736ba4e96946a747f00f4718d86b7a94f0cd7ed31",
+    "bytes": 2614183
+  },
+  "training/group-reward-windows-rank2.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-reward-windows-rank2.jsonl",
+    "sha256": "15448aac8b0def4d805a68d8c6692e39428aa8bd8b55b27f73016d73a9446241",
+    "bytes": 9668
+  },
+  "training/group-rewards-rank4.jsonl": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/group-rewards-rank4.jsonl",
+    "sha256": "37be56dae8c9e8c8d9abdd02081e77ecbfa2d52502773971927b1d78e421a32f",
+    "bytes": 231175
+  }
+}

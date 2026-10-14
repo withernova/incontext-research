@@ -1,0 +1,386 @@
+{
+  "baseline": "1622e5f64a70239d02145f017cfd991cf8318e47",
+  "verification": "No Shell/config execution, tests or model imports",
+  "shortcut_template": [
+    {
+      "shell": "tools/run/analysis/e012/e012_dual_role_analysis.sh",
+      "config": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/eval/e012_ref10_query5_correct_final_eval.sh",
+      "config": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/eval/run_e011_inter.sh",
+      "config": "configs/sft/qwen3vl_8b_focus_query_attention_branch.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/eval/run_grounding_adapter_eval.sh",
+      "config": "configs/sft/qwen3vl_8b_grounding_tasks.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/eval/run_native_grounding.sh",
+      "config": "configs/eval/qwen3vl_8b_native_grounding.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/run_branch.sh",
+      "config": "configs/sft/qwen3vl_8b_focus_branch.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/run_dynamic_reference_query_alignment.sh",
+      "config": "configs/sft/qwen3vl_8b_reference_query_dynamic.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/run_focus_tasks.sh",
+      "config": "configs/sft/qwen3vl_8b_focus_tasks.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/run_reference_query_alignment.sh",
+      "config": "configs/sft/qwen3vl_8b_reference_query_gt_mask.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/e012_query_r005_transfer_step247.sh",
+      "config": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_4bit.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit_head_screening.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_head_screening.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit_named.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_single.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_2shot_single.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_2shot_single.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_confidence_sft.sh",
+      "config": "configs/sft/e013_qwen3vl8b_focus_confidence.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_ddp.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_ddp.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_gt_mask_pipeline.sh",
+      "config": "configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_focus_sharded.sh",
+      "config": "configs/sft/qwen3vl_8b_lora_focus_bs16.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    },
+    {
+      "shell": "tools/run/train/train_grounding_ddp4.sh",
+      "config": "configs/sft/qwen3vl_8b_grounding.py",
+      "helper": "tools/run/_common.sh",
+      "verification": "exact three-command template + resolved helper + quoted argv forwarding; source only"
+    }
+  ],
+  "alias_only": [
+    {
+      "alias": "configs/_base_/e012_reference_target_screening.py",
+      "direct_target": "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+      "canonical": "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/_base_/e012_target_vs_background_ablation.py",
+      "direct_target": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+      "canonical": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_collage_coverage_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_collage_coverage_pilot.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_rank_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_rank_cf_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_multi3_rank_collage_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py",
+      "direct_target": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+      "canonical": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_bbox_gradient_initial.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_ce_iou_probe_head_ablation_step741.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_contribution_calculation_check.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_e009fixed5_head_ablation_step741.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_eval_stratified_reference_maps.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_gradient_gated_spatial_frequency.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_gradient_top10_attention_maps.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_head_circuit_path_patching.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_head_circuit_zero_attention.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_legacy_e009_fixed5_head_ablation.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_new_old_union15_head_ablation.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_686.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_query_target_grounded_screening.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_r004_real_chain_rule.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_r006_query5_head_ablation_step741.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_r006_query5_head_ablation_step741_smoke.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_r006_query5_joint_only_step741_686.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_reference_gradient_gated_spatial_frequency.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_reference_spatial_iou050.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_reference_target_grounded_screening.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_step741_fresh_query_reference.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_step741_fresh_query_reference_smoke.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_target_vs_background_ablation_preflight.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_target_vs_background_causal_ablation.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/head_screening/e012_top10_head_ablation.py",
+      "direct_target": "configs/experiments/E-012/analysis/e012_top10_head_ablation.py",
+      "canonical": "configs/experiments/E-012/analysis/e012_top10_head_ablation.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e012_query_r005_ref3_transfer.py",
+      "direct_target": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "canonical": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e012_ref10_query5_correct_final_eval.py",
+      "direct_target": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "canonical": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e013_multi3_rank_cf_eval.py",
+      "direct_target": "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+      "canonical": "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e013_multi_candidate_branch.py",
+      "direct_target": "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+      "canonical": "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e013_multi_candidate_instances_branch.py",
+      "direct_target": "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+      "canonical": "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e013_multi_candidate_spatial_branch.py",
+      "direct_target": "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+      "canonical": "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    },
+    {
+      "alias": "configs/sft/e013_qwen3vl8b_focus_confidence.py",
+      "direct_target": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+      "canonical": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+      "verification": "sole literal config_alias; target inside repository/existing; inheritance graph checked by source navigation"
+    }
+  ]
+}

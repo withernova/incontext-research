@@ -1,0 +1,11 @@
+{
+  "base_revision": "3c7ed5cdcde16c096b65021935002074f8080e51",
+  "canonical_shell_moves": 8,
+  "task_config_moves": 3,
+  "package_files_unchanged": 109,
+  "python39_ast_files": 137,
+  "bash_n_shells": 96,
+  "valid_local_markdown_links": 1640,
+  "root_fixes": 2,
+  "note": "static evidence only; no tests, imports of project code, models, builds or remote execution"
+}

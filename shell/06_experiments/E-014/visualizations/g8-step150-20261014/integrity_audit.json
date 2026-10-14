@@ -1,0 +1,50 @@
+{
+  "observed_at": "2026-10-14T01:06:06.280220",
+  "eval_exit_code": "0",
+  "training_exit_code": "254",
+  "source_hashes_verified": {
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": true,
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/adapter/policy/adapter_config.json": true,
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/adapter/policy/adapter_model.safetensors": true,
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/checkpoints/step_000150/optimizer.pt": true,
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-sft659-seed11451/payload/grpo/config_snapshot.json": true
+  },
+  "manifest_only_image_path_changed": true,
+  "derived_manifest_sha": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+  "expected_derived_manifest_sha": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+  "unique_ids": 1766,
+  "contiguous_indices": true,
+  "rank_counts": {
+    "0": 221,
+    "1": 221,
+    "2": 221,
+    "3": 221,
+    "4": 221,
+    "5": 221,
+    "6": 220,
+    "7": 220
+  },
+  "actual_eval_seed": 20260901,
+  "actual_prompt_sha": "c6f28d607e7736bde33a82169e86fe517b5c13dccd4a04a0cb295da0e47336ba",
+  "actual_git_head": "26e35eee07dfc1d6274b594005b984d647822017",
+  "metrics_sha": "547d9e0613f433dfb8f4d5025cbe8fba95356d9b4ef33a69453ba4780cf8f429",
+  "training_final_updates": {
+    "7": 154,
+    "6": 154,
+    "2": 154,
+    "4": 154,
+    "3": 154,
+    "0": 154,
+    "1": 154,
+    "5": 154
+  },
+  "compute_processes": 0,
+  "failed_run_preserved": true,
+  "step400_run_exists": false,
+  "managed_complete_succeeded_at": "2026-10-14T09:03:18",
+  "metrics_stable_observations": [
+    "2026-10-14T09:00:50",
+    "2026-10-14T09:03:17"
+  ],
+  "metrics_stable_size": 9226
+}

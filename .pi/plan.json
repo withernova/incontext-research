@@ -1,23 +1,23 @@
 {
   "version": 1,
-  "explanation": "Run 已建立、事件已写回；远端 config 因生成式索引文档与在途未提交改动暂不写入，改为报告落点与前置条件。",
+  "explanation": "评测exit0、稳定metrics及1766覆盖/来源核验通过，managed complete成功；候选评分与训练1..150全部19200rollouts/2400G8组诊断完成，原group记录/24窗口交叉一致，报告与canonical写回完成。",
   "steps": [
     {
-      "step": "核实远端仓库配置约定、三份保留名单的权威来源与当前 Git 状态",
+      "step": "核验输出目录契约，登记保留旧产物的新评测Run",
       "status": "completed"
     },
     {
-      "step": "在 Survey Tool 为 E-012 新建 R-011（draft，不送审、不授权）",
+      "step": "修正新Run配置绑定并审阅指定版本",
       "status": "completed"
     },
     {
-      "step": "写回一条 decision 事件，记录设计结论与待定项",
+      "step": "受管启动评测并核验实际输入、配置和提示词",
       "status": "completed"
     },
     {
-      "step": "确认 config 落点与写入风险，本轮不改远端仓库并报告",
+      "step": "等待1766样本评测完成，核验完整性并汇总结果",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-09-17T02:25:18.107Z"
+  "updatedAt": "2026-10-14T01:07:54.962Z"
 }

@@ -1,0 +1,219 @@
+--- a/iploc_szy/head_screening/reference_gradient_gated_spatial_frequency.py
++++ b/iploc_szy/head_screening/reference_gradient_gated_spatial_frequency.py
+@@ -7,9 +7,11 @@
+ from __future__ import annotations
+ 
+ import argparse
++import copy
+ from collections import Counter, defaultdict
+ from contextlib import contextmanager
+ import json
++import hashlib
+ import math
+ from pathlib import Path
+ import runpy
+@@ -20,7 +22,7 @@
+ from .bbox_gradient import bbox_loss, reduce_edges
+ from .gradient_attention_maps import source_inputs
+ from .gradient_gated_spatial_frequency import (frequency_plot, head_name, normalized_entropy, publish,
+-                                                retained_mass_peak_component_fiou)
++                                                retained_mass_peak_component_fiou, valid_target_indices)
+ from .head_circuit import build_context, dataset_name
+ from .probes import temporary_eager_attention
+ 
+@@ -106,13 +108,61 @@
+     return sorted(np.ndindex(values.shape), key=lambda item: (-values[item], item[0], item[1]))[:top_m]
+ 
+ 
++def source_from_selection_summary(path, expected_sha256):
++    """Use the explicit selection artifact without opening its ancestor runs."""
++    path = Path(path)
++    raw = path.read_bytes()
++    digest = hashlib.sha256(raw).hexdigest()
++    if digest != expected_sha256:
++        raise ValueError("selection summary SHA-256 mismatch")
++    summary = json.loads(raw)
++    if summary.get("status") != "completed":
++        raise ValueError("selection summary is incomplete")
++    source = copy.deepcopy(summary["source"])
++    indices = source["selected_indices"]
++    if len(indices) != len(set(indices)) or len(indices) != summary["source_samples"]:
++        raise ValueError("selection summary population mismatch")
++    if hashlib.sha256(Path(source["manifest"]).read_bytes()).hexdigest() != source["manifest_sha256"]:
++        raise ValueError("selection manifest SHA-256 mismatch")
++    source["selection_summary"] = str(path.resolve())
++    source["selection_summary_sha256"] = digest
++    return source, summary["parameters"]
++
++
+ def main(argv=None):
+     parser = argparse.ArgumentParser()
+     parser.add_argument("config")
+     parser.add_argument("--check-only", action="store_true")
++    parser.add_argument("--source-summary")
++    parser.add_argument("--source-summary-sha256")
++    parser.add_argument("--checkpoint")
++    parser.add_argument("--output-dir")
++    parser.add_argument("--role", choices=("query", "reference"), default="reference")
++    parser.add_argument("--samples-per-dataset", type=int, help="explicit smoke subset only")
++    parser.add_argument("--device-map", help="optional model placement override")
+     args = parser.parse_args(argv)
+     spec = runpy.run_path(args.config)["selection_spec"]
+-    source = source_inputs(spec["source_run_dir"], 10)
++    role = args.role
++    if args.source_summary:
++        if not args.source_summary_sha256 or not args.checkpoint or not args.output_dir:
++            parser.error("--source-summary requires its SHA-256, --checkpoint and --output-dir")
++        source, parameters = source_from_selection_summary(args.source_summary, args.source_summary_sha256)
++        for key in ("gradient_top_m", "spatial_top_m", "visual_mass_quantile", "fiou_weight", "top_k", "invalid_gt_policy"):
++            if spec[key] != parameters[key]:
++                raise ValueError(f"selection parameter changed: {key}")
++        if parameters["retained_attention_mass"] != 0.5:
++            raise ValueError("unsupported retained attention mass")
++    else:
++        if args.checkpoint or role != "reference":
++            parser.error("checkpoint/role overrides require an explicit --source-summary")
++        source = source_inputs(spec["source_run_dir"], 10)
++    if args.output_dir:
++        spec["output_dir"] = args.output_dir
++    if args.checkpoint:
++        source["config"]["checkpoint_path"] = str(Path(args.checkpoint).resolve())
++    if args.device_map:
++        source["config"]["model"]["device_map"] = args.device_map
++    source["config"]["work_dir"] = spec["output_dir"]
+     output = Path(spec["output_dir"])
+     if output.exists():
+         raise FileExistsError(f"refusing to overwrite: {output}")
+@@ -122,25 +172,45 @@
+     if not 0 <= float(spec["visual_mass_quantile"]) < 1 or float(spec["fiou_weight"]) < 0:
+         raise ValueError("invalid visual_mass_quantile or fiou_weight")
+     policy = str(spec.get("invalid_gt_policy", "fail"))
+-    valid_indices, excluded = valid_reference_indices(source["config"], source["selected_indices"], policy)
++    validate_indices = valid_reference_indices if role == "reference" else valid_target_indices
++    valid_indices, excluded = validate_indices(source["config"], source["selected_indices"], policy)
++    if args.samples_per_dataset is not None:
++        if args.samples_per_dataset < 1:
++            parser.error("--samples-per-dataset must be positive")
++        from ..registry import DATASETS
++        dataset = DATASETS.build(source["config"]["screen_dataloader"]["dataset"])
++        counts, subset = Counter(), []
++        for index in valid_indices:
++            name = dataset_name(dataset, index)
++            if counts[name] < args.samples_per_dataset:
++                subset.append(index)
++                counts[name] += 1
++        valid_indices = subset
++    from .bbox_gradient import resolve_checkpoint
++    checked_checkpoint = resolve_checkpoint(source["config"].get("checkpoint_path"), source["config"]["model"]["model_path"])
+     if args.check_only:
+         print(json.dumps(dict(schema=SCHEMA, status="validated", source_run_dir=source["root"],
+                               source_frozen_sha256=source["frozen_sha256"], source_summary_sha256=source["summary_sha256"],
+                               source_samples=len(source["selected_indices"]), analyzed_samples=len(valid_indices),
+-                              excluded_invalid_reference_gt=excluded), ensure_ascii=False))
++                              role=role, checkpoint=checked_checkpoint, excluded_invalid_gt=excluded), ensure_ascii=False))
+         return 0
+ 
+     output.mkdir(parents=True)
+     publish(output / "resolved_plan.json", dict(schema=SCHEMA, status="planned", source=source,
+-        parameters=dict(role="reference", gradient_top_m=top_gradient, spatial_top_m=top_per_sample,
++        parameters=dict(role=role, gradient_top_m=top_gradient, spatial_top_m=top_per_sample,
+                         visual_mass_quantile=float(spec["visual_mass_quantile"]), fiou_weight=float(spec["fiou_weight"]),
+                         top_k=top_k, retained_attention_mass=0.5, invalid_gt_policy=policy),
+-        analyzed_indices=valid_indices, excluded_invalid_reference_gt=excluded,
+-        claim_boundary="reference-image selection diagnostic only; requires independent causal ablation"))
++        analyzed_indices=valid_indices, excluded_invalid_gt=excluded,
++        smoke_samples_per_dataset=args.samples_per_dataset, checkpoint=checked_checkpoint,
++        code_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
++        claim_boundary="selection diagnostic only; requires independent causal ablation"))
+     try:
+         dataset, probe, checkpoint, wrapper, runner = build_context(source["config"])
+         from .metrics import normalized_box_occupancy
+         import torch
++        seed = int(source["config"]["head_screening"]["probe"]["seed"])
++        torch.manual_seed(seed)
++        np.random.seed(seed)
+         model = wrapper.model.eval().requires_grad_(False)
+         flags = [(parameter, parameter.requires_grad) for parameter in model.parameters()]
+         all_records, frequency, by_dataset = [], Counter(), defaultdict(Counter)
+@@ -149,11 +219,12 @@
+                 parameter.requires_grad_(False)
+             for order, index in enumerate(valid_indices):
+                 sample, encoded, metadata, positions, rows, spans = probe.encode_sample(runner, index)
+-                reference_box = parse_box(sample["reference_answers"][0])
+-                grid = metadata["image_grid_thw"][0]
++                reference_box = parse_box(sample["reference_answers"][0] if role == "reference" else sample["query_answer"])
++                image_index = 0 if role == "reference" else -1
++                grid = metadata["image_grid_thw"][image_index]
+                 merge = int(model.config.vision_config.spatial_merge_size)
+                 height, width = int(grid[1]) // merge, int(grid[2]) // merge
+-                if spans[0][1] - spans[0][0] != height * width:
++                if spans[image_index][1] - spans[image_index][0] != height * width:
+                     raise ValueError("reference grid/token mismatch")
+                 forward = {key: value.to(wrapper.input_device) for key, value in encoded.items()}
+                 forward.update(use_cache=False, output_attentions=False, return_dict=True, logits_to_keep=0)
+@@ -162,7 +233,7 @@
+                     with torch.no_grad(), temporary_eager_attention(model):
+                         baseline = model(**forward).logits[0, rows].float().cpu()
+                 scores, maps = {}, {}
+-                with torch.enable_grad(), capture_reference_gradient(model, rows, spans[0], scores, maps) as layers:
++                with torch.enable_grad(), capture_reference_gradient(model, rows, spans[image_index], scores, maps) as layers:
+                     output_model = model(**forward)
+                     loss = bbox_loss(output_model.logits, forward["input_ids"], positions)
+                     if not bool(torch.isfinite(loss)):
+@@ -183,12 +254,12 @@
+                     entropy = normalized_entropy(values)
+                     fiou, component_area = retained_mass_peak_component_fiou(values, occupancy)
+                     items.append(dict(head=head_name(head), layer=head[0], query_head=head[1],
+-                                      gradient_absolute=float(gradients[head]), reference_visual_mass=mass,
++                                      gradient_absolute=float(gradients[head]), **{f"{role}_visual_mass": mass},
+                                       normalized_entropy=entropy, support50_fiou=fiou,
+                                       support50_component_area=component_area))
+                     masses.append(mass)
+                 mass_floor = float(np.quantile(masses, float(spec["visual_mass_quantile"])))
+-                eligible = [item for item in items if item["reference_visual_mass"] >= mass_floor and item["normalized_entropy"] is not None]
++                eligible = [item for item in items if item[f"{role}_visual_mass"] >= mass_floor and item["normalized_entropy"] is not None]
+                 for item in eligible:
+                     item["spatial_score"] = float(1 - item["normalized_entropy"] + float(spec["fiou_weight"]) * item["support50_fiou"])
+                 eligible.sort(key=lambda item: (-item["spatial_score"], -item["gradient_absolute"], item["layer"], item["query_head"]))
+@@ -201,11 +272,15 @@
+                     frequency[head] += 1
+                     by_dataset[name][head] += 1
+                 all_records.append(dict(dataset_index=index, sample_id=sample["id"], dataset=name,
++                                        role=role, bbox_token_ce=float(loss.detach()), token_grid=[height, width],
++                                        visual_token_count=height * width, bbox_prediction_rows=list(map(int, rows)),
++                                        sequence_tokens=int(forward["input_ids"].shape[1]),
+                                         gradient_candidates=items, visual_mass_floor=mass_floor,
+                                         selected_heads=[item["head"] for item in chosen]))
++                del output_model, loss, forward, encoded, scores, maps
+                 if (order + 1) % 10 == 0 or order == 0:
+                     publish(output / "records.json", dict(schema=SCHEMA, status="in_progress", records=all_records))
+-                    print(f"[REFERENCE_SPATIAL_FREQUENCY] {order + 1}/{len(valid_indices)}", flush=True)
++                    print(f"[{role.upper()}_SPATIAL_FREQUENCY] {order + 1}/{len(valid_indices)}", flush=True)
+         finally:
+             for parameter, enabled in flags:
+                 parameter.requires_grad_(enabled)
+@@ -222,17 +297,20 @@
+             rate = matrix.astype(np.float64) / denominators[name]
+             rate_matrices[name] = rate.tolist()
+             frequency_plot(output / f"frequency_{name}.png", rate, selected,
+-                           f"{name}: reference gradient-gated spatial selection frequency")
++                           f"{name}: {role} gradient-gated spatial selection frequency")
+         publish(output / "summary.json", dict(schema=SCHEMA, status="completed", source=source,
+-            parameters=dict(role="reference", gradient_top_m=top_gradient, spatial_top_m=top_per_sample,
++            parameters=dict(role=role, gradient_top_m=top_gradient, spatial_top_m=top_per_sample,
+                             visual_mass_quantile=float(spec["visual_mass_quantile"]), fiou_weight=float(spec["fiou_weight"]),
+                             top_k=top_k, retained_attention_mass=0.5, invalid_gt_policy=policy),
+             source_samples=len(source["selected_indices"]), analyzed_samples=len(all_records),
+-            excluded_invalid_reference_gt=excluded, selected_heads=[head_name(head) for head in selected],
++            excluded_invalid_gt=excluded, selected_heads=[head_name(head) for head in selected],
++            checkpoint=checkpoint, smoke_samples_per_dataset=args.samples_per_dataset, seed=seed,
++            bbox_token_ce_mean=float(np.mean([row["bbox_token_ce"] for row in all_records])),
++            first_sample_forward_parity="passed", code_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+             ranking=[dict(head=head_name(head), frequency=count) for head, count in ranked],
+             frequency_denominators=denominators, frequency_count_matrices=count_matrices,
+             frequency_rate_matrices=rate_matrices,
+-            claim_boundary="reference-image selection diagnostic only; requires independent causal ablation"))
++            claim_boundary="selection diagnostic only; requires independent causal ablation"))
+         publish(output / "records.json", dict(schema=SCHEMA, status="completed", records=all_records))
+     except BaseException as error:
+         publish(output / "failure.json", dict(schema=SCHEMA, status="failed", exception=type(error).__name__, reason=str(error)))

@@ -1,0 +1,12 @@
+{
+  "source_sha256": {
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json": "48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/adapter/policy/adapter_config.json": "025b5e8180341469d1fc93319f02ae2be67733f62b16dcaef41aaaf354e096a7",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/adapter/policy/adapter_model.safetensors": "e637b117e61cb8d58092d9f70e8dd212d064dda9c7525db679f48605f638b807",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800/optimizer.pt": "464f3675eb6cc67b8574f5895477016b827f172080725f9e3dd64f9a45a61995",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/config_snapshot.json": "e2f1013c92cf9f5eab19268a0b6f3b9e02fe701c7ebb786b47d69118fd6fe4cb"
+  },
+  "derived_manifest_sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+  "expected_samples": 1766,
+  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-variable-symmetric-sft659-puregrpo-seed11451/resume-100/grpo/checkpoints/step_000800"
+}

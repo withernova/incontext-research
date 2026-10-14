@@ -1,0 +1,91 @@
+{
+  "commit": "9d42d2be43464988cde879857a9d31864cf49851",
+  "solid_run_ids": [],
+  "focused_pytest": {
+    "passed": 53,
+    "warnings": 1,
+    "exit_code": 0
+  },
+  "sources": [
+    {
+      "file": "visual_rft_grpo.py",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/src/virft/src/open_r1/grpo.py",
+      "sha256": "488285fb67bcfd14c94eb68ba31f5982ab5f802eee3ad250f32f5ea588ab9bcb",
+      "bytes": 17389
+    },
+    {
+      "file": "trl_grpo_v0_15_2.py",
+      "url": "https://raw.githubusercontent.com/huggingface/trl/v0.15.2/trl/trainer/grpo_trainer.py",
+      "sha256": "5ba2c35e866459c7b8f8c453ef2daebb18e8aea6e468c218afa55965d55a29b0",
+      "bytes": 43277
+    },
+    {
+      "file": "trl_grpo_docs.html",
+      "url": "https://huggingface.co/docs/trl/grpo_trainer",
+      "sha256": "497f1df19cfa981c874541cd08f53c6097b18d4db6c0d9d2ec61a1a3351060f4",
+      "bytes": 744374
+    },
+    {
+      "file": "visual_rft_trainer.py",
+      "url": "https://raw.githubusercontent.com/Liuziyu77/Visual-RFT/2ffad63b25ddd79bfe25d3e046645401201c89d6/src/virft/src/open_r1/trainer/grpo_trainer.py",
+      "sha256": "138f15aabf846751fc0ddbc9fe9da9224173a4f4342312213995917b2b12a0c1",
+      "bytes": 30126
+    }
+  ],
+  "source_hashes": {
+    "iploc_szy/rl/trainer.py": "b4f0610189de074fa0971907fc5a21797255ae14bbcf131e71c22c536e24e5ce",
+    "iploc_szy/rl/objective.py": "66ec0fbb48521900076f9ac7f0fe1440eabfa5857ce1d733ee5856017c591e90",
+    "iploc_szy/rl/sampling.py": "6fcf08148008293439f3d1902fdbc26227ba97179d0e76a1ce2dcafba7a18112",
+    "iploc_szy/rl/policy.py": "e826671953341b6fd3cf32e732710cf1ccf5e872e2d8a673041031ba2f39c955",
+    "iploc_szy/rl/multi_candidate.py": "9e0e0783a42cf352ad49f66a93a5ec5a9726a96b93c8fbbf6c8814169cfaa6a4",
+    "configs/experiments/E-013/training/e013_multi3_branch.py": "8d0ab6a54de2ba328619332625819afcd7836c0db40acc94fe421dd37434f8df",
+    "configs/experiments/E-013/training/e013_multi3_rank_branch.py": "dd5687a4a8e9e61d7d569a9030c6eb2a0fbc1fbba3af04b8cbdc87ba8be06852"
+  },
+  "probe": {
+    "scalar_loss_and_gradient_oracle": "3 advantage signs, both clip boundaries: passed",
+    "advantage_scale_relative_to_trl_0_15_2": 1.1547889709472656,
+    "ranking_calibration_counterexample": {
+      "ious": [
+        1.0,
+        0.6,
+        0.0
+      ],
+      "scores_1_1_0": {
+        "reward": 0.9833333333333333,
+        "brier": 0.0
+      },
+      "scores_1_09_0": {
+        "reward": 0.9966666666666667,
+        "brier": 0.003333333333333332
+      }
+    },
+    "cached_sampling_vs_uncached_replay": [
+      {
+        "seed": 11,
+        "tokens": 8,
+        "max_abs_logp_error": 0.0
+      },
+      {
+        "seed": 22,
+        "tokens": 8,
+        "max_abs_logp_error": 4.76837158203125e-07
+      },
+      {
+        "seed": 33,
+        "tokens": 8,
+        "max_abs_logp_error": 4.76837158203125e-07
+      }
+    ]
+  },
+  "ddp_probe": {
+    "two_rank_gloo_vs_serial_global_batch": "passed",
+    "optimizer_steps": 2,
+    "anchor_unchanged": true,
+    "counterfactual_two_forwards": true,
+    "gradient_checkpointing": true,
+    "max_abs_gradient_error": 3.725290298461914e-09
+  },
+  "effective_configs_equal": true,
+  "real_gpu_validation": false,
+  "production_code_modified": false
+}

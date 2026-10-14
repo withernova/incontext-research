@@ -1,0 +1,271 @@
+# E-014 事件日志
+
+> 本文件只保留单行摘要；完整 details 保存在工具内部的 experiment-events.jsonl 中。
+> 需要展开某条事件时运行：`python3 /home/zhengyuesong/Tools/survey-tool/surveyctl.py --project <proj> experiment event-detail <E-ID> <EVENT-ID>`。
+
+- 2026-10-11T14:05:35 · experiment_created · Agent 创建实验初稿 E-014 · 空间有序候选与 Reference 置信度 · run=- · detail=evt-6f2a526b5ff1
+- 2026-10-11T15:27:09 · run_organization · e014-variable-symmetric-sft659-puregrpo-seed11451: microtask · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-e8a0a7873ca9
+- 2026-10-11T15:27:09 · run_created · Agent 创建 canonical Run e014-variable-symmetric-sft659-puregrpo-seed11451 · SFT659 变长候选与双向对称数据纯 GRPO · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-812ea48dbd30
+- 2026-10-11T15:27:30 · run_workflow · e014-variable-symmetric-sft659-puregrpo-seed11451: implementation-ready → ready_for_review · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-adc35c18b3c1
+- 2026-10-11T15:28:30 · run_update · E-014 实现已完成并审阅；等待发布部署和人类执行门，不自动启动。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-7e376db16e21
+- 2026-10-11T15:28:30 · run_review_submitted · SFT659、纯GRPO、变长候选、两实例四格对称数据；工程审阅通过但未测试。具体权重/归约/预算已完整登记；请核对后交给Steward，Agent不代替批准与授权。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-1a8020e36867
+- 2026-10-11T17:09:07 · run_update · 真实发布尝试失败：新源码位于tools/data，触发路径排除规则；保留本地checkpoint并停止。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-f88151340a27
+- 2026-10-11T17:16:52 · run_update · 发布路径拦截已解除，固定提交发布部署成功；训练仍等待Run人工审核授权。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-fe0aebaf7e7f
+- 2026-10-11T17:19:19 · execution_dispatch_enqueue · e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-310af0cf3518
+- 2026-10-11T17:19:19 · run_direct_steward · e014-variable-symmetric-sft659-puregrpo-seed11451: current snapshot sent directly to Steward · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-7480e9f11913
+- 2026-10-11T17:25:51 · run_update · 审核与授权已通过；managed启动被Conda激活定位阻塞，同一IPLoc环境本身可验证，等待修正受控激活入口。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-24bd56abfcc6
+- 2026-10-11T17:47:27 · run_update · Conda定位修复已审阅提交且真实受控证明exit0；启动前识别E014目录/日志兼容冲突，未重复启动，待授权修复启动器。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-622220ae87af
+- 2026-10-11T18:02:06 · run_update · 启动兼容修复已发布部署；工程路径更新，科学方案不变，准备依据已验证环境/实现变化重试原批准Run。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-272266e26022
+- 2026-10-11T18:05:38 · run_update · 修复已审阅发布部署；真实retry被旧失败授权快照拦截，continue无queued dispatch。未启动，等待人类为修复SHA建立新执行快照。 · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-c1c705e8ffbe
+- 2026-10-11T18:46:46 · execution_dispatch_enqueue · e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-d2abfc5abc6f
+- 2026-10-11T18:46:46 · run_execution_restarted · e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-54f689cb312e
+- 2026-10-12T00:09:53 · execution_dispatch_enqueue · e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-04ea8f18ede6
+- 2026-10-12T00:09:53 · run_execution_restarted · e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-fc1f63707228
+- 2026-10-12T01:29:56 · execution_dispatch_enqueue · e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-08322a983659
+- 2026-10-12T01:29:56 · run_execution_restarted · e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created · run=e014-variable-symmetric-sft659-puregrpo-seed11451 · detail=evt-57289dab5895
+- 2026-10-12T11:56:59 · run_organization · e014-step800-variable-candidates-eval1766-8gpu: microtask · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-a7e362b72d3c
+- 2026-10-12T11:56:59 · run_created · Agent 创建 canonical Run e014-step800-variable-candidates-eval1766-8gpu · step800原1766样本八卡变长候选评测 · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-42f46c10b7ea
+- 2026-10-12T11:57:25 · run_workflow · e014-step800-variable-candidates-eval1766-8gpu: implementation-ready → ready_for_review · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-672db664e03e
+- 2026-10-12T11:57:25 · run_review_submitted · 复用现有入口的评测实现已审阅并发布379df3997cab28c14c64d5dbc11dc64f0ac51e5f，静态检查通过；尚未部署或运行模型。请批准step800/1766/8卡方案并给本Run单次受管执行授权。指定SHA部署也待明确许可。 · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-7d341c7deece
+- 2026-10-12T12:08:40 · execution_dispatch_enqueue · e014-step800-variable-candidates-eval1766-8gpu outbox=queued · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-0ce092ce53e0
+- 2026-10-12T12:08:40 · run_direct_steward · e014-step800-variable-candidates-eval1766-8gpu: current snapshot sent directly to Steward · run=e014-step800-variable-candidates-eval1766-8gpu · detail=evt-9512c4b9e3a1
+- 2026-10-12T13:17:43 · run_organization · e014-multi-v2-symmetric-sft659-puregrpo-seed11451: microtask · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-c2f8c3ad929e
+- 2026-10-12T13:17:43 · run_created · Agent 创建 canonical Run e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · multi_v2多实例枚举、两行模板、原SFT659独立纯GRPO · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-601db247a81f
+- 2026-10-12T13:17:43 · run_workflow · e014-multi-v2-symmetric-sft659-puregrpo-seed11451: implementation-ready → ready_for_review · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-78c95286a38b
+- 2026-10-12T13:17:43 · run_review_submitted · 新multi_v2独立训练已准备，原SFT659 fresh，旧step800/结果保留。实现审阅通过并发布2ccee4cfb98d0ae4d9c1e1cc7e052f6d21fe44bc，等待该SHA部署许可与本Run人工批准/交给Steward。 · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-88f20e638424
+- 2026-10-12T13:19:59 · execution_dispatch_enqueue · e014-multi-v2-symmetric-sft659-puregrpo-seed11451 outbox=queued · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-a9051b283864
+- 2026-10-12T13:19:59 · run_direct_steward · e014-multi-v2-symmetric-sft659-puregrpo-seed11451: current snapshot sent directly to Steward · run=e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · detail=evt-ae0db4264525
+- 2026-10-12T16:26:12 · run_organization · e014-multi-v2-step200-eval1766-8gpu: microtask · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-64e87e3772c2
+- 2026-10-12T16:26:12 · run_created · Agent 创建 canonical Run e014-multi-v2-step200-eval1766-8gpu · multi_v2本分支step200、原1766样本八卡评测 · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-945561a9c548
+- 2026-10-12T16:26:12 · run_workflow · e014-multi-v2-step200-eval1766-8gpu: implementation-ready → ready_for_review · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-536988288865
+- 2026-10-12T16:26:12 · run_review_submitted · 训练已主动暂停，step200/504states、multi_v2实际prompt hash及8GPU释放已核验。评测4文件最小复用实现审阅通过并发布a8ac7768142d0707b9380cc7d03f137c2c6c7ee6；待指定SHA部署许可和本Run人工批准/交给Steward，不能借用旧授权。 · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-396b16a89616
+- 2026-10-12T16:33:50 · execution_dispatch_enqueue · e014-multi-v2-step200-eval1766-8gpu outbox=queued · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-ebff783cb8cb
+- 2026-10-12T16:33:50 · run_direct_steward · e014-multi-v2-step200-eval1766-8gpu: current snapshot sent directly to Steward · run=e014-multi-v2-step200-eval1766-8gpu · detail=evt-1ee51b0a4a41
+- 2026-10-12T18:27:05 · run_organization · e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: microtask · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-a60f2125412a
+- 2026-10-12T18:27:05 · run_created · Agent 创建 canonical Run e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · multi_v2 / min实例覆盖 / soft预算5 / 同组奖励诊断 / freshSFT659纯GRPO · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-591909de014f
+- 2026-10-12T18:27:05 · run_workflow · e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: implementation-ready → ready_for_review · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-182c1eb4d767
+- 2026-10-12T18:27:06 · run_review_submitted · 用户明确要求创建Run供其批准。实现review3ddc36253af0b8c3通过并publish f1806d2e269989d541dfdbf556a9af5b91e2290f；保留min coverage/soft cap5，新增同组multi-single严格胜率/平局/分母/窗口/条件分层/实际正adv observer。mixed空分母null；这是诊断，不单独证明Exploration因果。未部署、未模型或测试套件执行，待人工批准/单次授权及指定SHA部署。 · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-ff43e97310cb
+- 2026-10-12T18:29:50 · execution_dispatch_enqueue · e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 outbox=queued · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-1b147969d849
+- 2026-10-12T18:29:50 · run_direct_steward · e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: current snapshot sent directly to Steward · run=e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · detail=evt-204b721be396
+- 2026-10-12T20:57:25 · run_organization · e014-cover-min-cap5-step150-eval1766-8gpu: microtask · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-184ce8e2c512
+- 2026-10-12T20:57:25 · run_created · Agent 创建 canonical Run e014-cover-min-cap5-step150-eval1766-8gpu · 最新min覆盖/cap5分支step150、multi_v2、原1766八卡评测 · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-84bdddaf1dfe
+- 2026-10-12T20:57:25 · run_workflow · e014-cover-min-cap5-step150-eval1766-8gpu: implementation-ready → ready_for_review · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-3c83d3c8c9e3
+- 2026-10-12T20:57:25 · run_review_submitted · 训练主动暂停/exit130/GPU释放/CP150 saved_step150和实际reward/prompt已核验；4文件薄评测实现review68b1b85f9a38debd通过并publishc646ba12265b11d1144cf97e3780370848a46f61。原1766/8卡/multi_v2/192/4096，待本Run批准/交给Steward与指定SHA部署；未启动。不改reward。 · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-4ed98e2f0ea1
+- 2026-10-12T21:03:12 · execution_dispatch_enqueue · e014-cover-min-cap5-step150-eval1766-8gpu outbox=queued · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-c562432ead5c
+- 2026-10-12T21:03:12 · run_direct_steward · e014-cover-min-cap5-step150-eval1766-8gpu: current snapshot sent directly to Steward · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-5822df756a33
+- 2026-10-13T19:01:47 · run_execution_human_failed · e014-cover-min-cap5-step150-eval1766-8gpu: human marked current execution attempt failed · run=e014-cover-min-cap5-step150-eval1766-8gpu · detail=evt-d5fd35dda950
+- 2026-10-13T19:32:12 · run_organization · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: microtask · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-ca2fb3e6c7e5
+- 2026-10-13T19:32:12 · execution_dispatch_enqueue · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 outbox=queued · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-338c8a653a5f
+- 2026-10-13T19:32:12 · run_direct_steward · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: current snapshot sent directly to Steward · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-57172ec5e750
+- 2026-10-13T19:32:12 · run_derived · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: 衍生自 e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · 用户要求发布部署后立即启动本次已实现的0.2多框奖励独立训练。以已发布部署的69f786a3db89177cea11178714f560ce5760d36c为准，使用configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py；从原SFT659 fresh初始化policy及固定anchor， · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-06b204c37551
+- 2026-10-13T19:32:56 · run_runtime_command_prepared · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: Pi resolved launch placeholders · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-8b75988fbad0
+- 2026-10-13T19:33:37 · run_update · 登记本次已发布部署的精确实现SHA；科学设计和执行授权不变 · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · detail=evt-db8494d92fe1
+- 2026-10-13T19:41:36 · run_organization · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: microtask · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-3b9a5c9d8bfd
+- 2026-10-13T19:41:36 · execution_dispatch_enqueue · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 outbox=queued · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-e39713751786
+- 2026-10-13T19:41:36 · run_direct_steward · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: current snapshot sent directly to Steward · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-58023e07af82
+- 2026-10-13T19:41:36 · run_derived · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · 多框补偿独立训练，修正日志位置。用户已明确要求修复后重新运行一次；此次是新的独立训练Run，不是续训，不继承失败结果或Solid标签。仅以失败Run记录来源；实际policy和固定anchor均从原SFT659 fresh初始化。使用已发布部署的69f786a3db89177cea11178714f560ce5760d36c及configs/experiments/E-014/training/e · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-5bd4003084e8
+- 2026-10-13T19:42:44 · run_runtime_command_prepared · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: Pi resolved launch placeholders · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-37dd722650d7
+- 2026-10-13T19:53:00 · execution_verification · 日志路径修正后独立r2训练已真实启动；8rank完成首更新，首64rollout中12条实际获0.2，旧失败目录保留。未额外测试，不作收益结论。 · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-cf7fa744faf8
+- 2026-10-13T23:34:27 · execution_dispatch_enqueue · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 outbox=queued · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-5119b952ddf8
+- 2026-10-13T23:34:27 · run_execution_restarted · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: failed attempt preserved; new authorization created · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · detail=evt-3809b1924f6b
+- 2026-10-14T00:00:30 · run_organization · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: microtask · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-8eb495f8e5dc
+- 2026-10-14T00:00:30 · execution_dispatch_enqueue · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 outbox=queued · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-de2a793f22bc
+- 2026-10-14T00:00:30 · run_direct_steward · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: current snapshot sent directly to Steward · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-e389bca977ac
+- 2026-10-14T00:00:30 · run_derived · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · 对 step150 的 ckpt 进行评测一下 · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-b5eafe1742fd
+- 2026-10-14T00:11:58 · run_update · 登记已部署SHA与评测日志路径 · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-37861461d4cf
+- 2026-10-14T00:12:07 · run_runtime_command_prepared · e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: Pi resolved launch placeholders · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-0e86374a93df
+- 2026-10-14T00:37:56 · run_update · 登记step150完整评测及候选选择诊断；未启动新模型推理 · run=e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 · detail=evt-46862133ab95
+- 2026-10-14T00:45:31 · run_organization · e014-multi-bonus02-g8-sft659-seed11451: microtask · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-d783caa383bb
+- 2026-10-14T00:45:31 · execution_dispatch_enqueue · e014-multi-bonus02-g8-sft659-seed11451 outbox=queued · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b6081d6881de
+- 2026-10-14T00:45:31 · run_direct_steward · e014-multi-bonus02-g8-sft659-seed11451: current snapshot sent directly to Steward · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ec6f61467916
+- 2026-10-14T00:45:31 · run_derived · e014-multi-bonus02-g8-sft659-seed11451: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · 用户选方案1并要求重新训练及约400步自动评测：新独立训练从原SFT659 fresh policy+固定anchor，纯GRPO；仅settings.trainer.group_size从4改8，沿用multi_v2、min覆盖/cap5及0.2多框补偿，奖励/数据/优化器/seed11451/8GPU不变。不加载step150、不恢复父Run、不覆盖任何旧产物。复用configs/experi · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-1caac0fc0b54
+- 2026-10-14T00:45:47 · run_organization · e014-multi-bonus02-g8-step400-eval1766: microtask · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-a187e47e91ff
+- 2026-10-14T00:45:47 · execution_dispatch_enqueue · e014-multi-bonus02-g8-step400-eval1766 outbox=queued · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-bd30db102299
+- 2026-10-14T00:45:47 · run_direct_steward · e014-multi-bonus02-g8-step400-eval1766: current snapshot sent directly to Steward · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-47d2ff18516c
+- 2026-10-14T00:45:47 · run_derived · e014-multi-bonus02-g8-step400-eval1766: 衍生自 e014-multi-bonus02-g8-sft659-seed11451 · 用户追加要求新G=8训练约400step时自动评测400step。此独立评测仅在父训练保存payload/grpo/checkpoints/step_000400并暂停释放GPU后启动。只读核验optimizer.steps=400、训练group_size=8、multi_v2、multi_bonus_weight=0.2、prompt和checkpoint来源SHA。沿用本轮1766测试清单、 · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-c5a3b1b5fce6
+- 2026-10-14T00:48:39 · run_runtime_command_prepared · e014-multi-bonus02-g8-step400-eval1766: Pi resolved launch placeholders · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-274d179868bf
+- 2026-10-14T00:48:47 · run_runtime_command_prepared · e014-multi-bonus02-g8-sft659-seed11451: Pi resolved launch placeholders · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-0ed6269c400d
+- 2026-10-14T00:55:54 · run_update · step400等待任务：训练启动中，checkpoint400尚未生成 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-5fd167cb2799
+- 2026-10-14T00:58:44 · run_update · 等待step400：模型正在加载，尚未进入可验证更新 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-e6f9b81aa75f
+- 2026-10-14T01:01:47 · run_update · step400等待：模型加载完成，实际训练配置正确，GPU正在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-e905df4fdb40
+- 2026-10-14T01:02:06 · run_update · 更正本次观测显存单位为MiB · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-10cb4a3119b0
+- 2026-10-14T01:07:08 · run_update · 首更新通过：8rank各2组×8rollouts，继续等待400 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b959bbf2126f
+- 2026-10-14T01:09:53 · run_update · step400等待：8rank已完成2次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-1e9f4c49290f
+- 2026-10-14T01:12:30 · run_update · step400等待：8rank已完成3次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-c25c3a313cee
+- 2026-10-14T01:15:17 · run_update · step400等待：8rank已完成4次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a2ede6c2d8e5
+- 2026-10-14T01:18:19 · run_update · step400等待：8rank已完成5次更新，受管重连确认运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-796063130e2b
+- 2026-10-14T01:21:16 · run_update · step400等待：8rank已完成7次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ed9fae4652d8
+- 2026-10-14T01:23:57 · run_update · step400等待：8rank已完成8次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-92828ab6c11d
+- 2026-10-14T01:26:42 · run_update · step400等待：8rank已完成9次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-fdba454395fa
+- 2026-10-14T01:29:27 · run_update · step400等待：8rank已完成11次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-aeecbac8bca7
+- 2026-10-14T01:32:14 · run_update · step400等待：8rank已完成12次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b579326cfcf5
+- 2026-10-14T01:34:59 · run_update · step400等待：8rank已完成13次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8494b2d1fb42
+- 2026-10-14T01:37:49 · run_update · step400等待：8rank已完成14次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-45ad0cff0780
+- 2026-10-14T01:40:29 · run_update · step400等待：8rank已完成15次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-97d017742cfd
+- 2026-10-14T01:43:08 · run_update · step400等待：8rank已完成17次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8339b79ea645
+- 2026-10-14T01:45:48 · run_update · step400等待：8rank已完成18次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-c1cf1afbdcae
+- 2026-10-14T01:48:35 · run_update · step400等待：8rank已完成20次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a6646f310a26
+- 2026-10-14T01:51:12 · run_update · step400等待：8rank已完成21次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4160dc343f45
+- 2026-10-14T01:54:14 · run_update · step400等待：日志显示更新21–22，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-10e210b86c64
+- 2026-10-14T01:56:59 · run_update · step400等待：8rank已完成24次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-63885ab215a1
+- 2026-10-14T01:59:40 · run_update · step400等待：8rank已完成25次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-450750e32e1a
+- 2026-10-14T02:02:34 · run_update · step400等待：8rank已完成26次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4b1669b0ba3c
+- 2026-10-14T02:05:13 · run_update · step400等待：8rank已完成28次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-097506e1338c
+- 2026-10-14T02:07:52 · run_update · step400等待：最新完成更新28，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-d7625acf0c1c
+- 2026-10-14T02:10:43 · run_update · step400等待：完整对象解析确认8rank均完成29次更新 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-d24b765407d5
+- 2026-10-14T02:13:23 · run_update · step400等待：最新完成29更新，8卡计算中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-90418a5b9fb1
+- 2026-10-14T02:16:01 · run_update · step400等待：8rank已完成30次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-165ab3d12a2d
+- 2026-10-14T02:18:45 · run_update · step400等待：最新完成30更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-f839fa6c5d18
+- 2026-10-14T02:21:23 · run_update · step400等待：8rank已完成31次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-082807e6c13d
+- 2026-10-14T02:24:03 · run_update · step400等待：8rank已完成32次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ba2a746459b8
+- 2026-10-14T02:26:45 · run_update · step400等待：最新完成32更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-589e494aa731
+- 2026-10-14T02:29:30 · run_update · step400等待：最新完成32更新，本轮无新增完成记录 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-04272f3ce059
+- 2026-10-14T02:32:11 · run_update · step400等待：8rank完成33次更新，已确认继续推进 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a9e68221d3a7
+- 2026-10-14T02:34:52 · run_update · step400等待：8rank已完成34次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-54c2f94ca844
+- 2026-10-14T02:37:37 · run_update · step400等待：最新完成34更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-c9a4b1919f04
+- 2026-10-14T02:40:27 · run_update · step400等待：8rank已完成35次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8af8e1b8eec1
+- 2026-10-14T02:43:00 · run_update · step400等待：最新完成35更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-996465c6dcb6
+- 2026-10-14T02:45:51 · run_update · step400等待：8rank已完成36次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-352133dcba76
+- 2026-10-14T02:48:27 · run_update · step400等待：8rank已完成37次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-85459707e776
+- 2026-10-14T02:51:08 · run_update · step400等待：8rank已完成38次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-c44c7e304104
+- 2026-10-14T02:53:46 · run_update · step400等待：8rank已完成39次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ab1d0a977a98
+- 2026-10-14T02:56:28 · run_update · step400等待：8rank已完成40次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-55ed505072bd
+- 2026-10-14T02:59:13 · run_update · step400等待：8rank已完成41次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-1a6dbc439d79
+- 2026-10-14T03:01:53 · run_update · step400等待：8rank已完成42次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-88d532d6e5d9
+- 2026-10-14T03:04:33 · run_update · step400等待：8rank已完成43次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-0f9fac6f71fc
+- 2026-10-14T03:07:14 · run_update · step400等待：8rank已完成44次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-f1f84bc3c1a2
+- 2026-10-14T03:09:57 · run_update · step400等待：8rank已完成45次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-36c0d094b2cc
+- 2026-10-14T03:12:40 · run_update · step400等待：8rank已完成46次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-e60f0d5597a9
+- 2026-10-14T03:15:36 · run_update · step400等待：8rank已完成47次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-c9c7a554b6a4
+- 2026-10-14T03:18:18 · run_update · step400等待：最新完成47更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-581533e8e861
+- 2026-10-14T03:21:03 · run_update · step400等待：8rank已完成48次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-5784ce3c3ad7
+- 2026-10-14T03:23:45 · run_update · step400等待：8rank已完成49次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ba15daf1f4bd
+- 2026-10-14T03:26:31 · run_update · step400等待：8rank已完成50次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-26aa0a8243fc
+- 2026-10-14T03:29:12 · run_update · step400等待：8rank已完成51次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-385666e935c4
+- 2026-10-14T03:31:53 · run_update · step400等待：8rank已完成52次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-917186f5480c
+- 2026-10-14T03:34:39 · run_update · step400等待：8rank已完成53次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b06ab60a2f08
+- 2026-10-14T03:37:22 · run_update · step400等待：8rank已完成54次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-bced1e6781a6
+- 2026-10-14T03:39:59 · run_update · step400等待：8rank已完成55次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-42e39f2aa0b0
+- 2026-10-14T03:42:44 · run_update · step400等待：8rank已完成56次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4fafad9820e4
+- 2026-10-14T03:45:23 · run_update · step400等待：8rank已完成57次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-881405608406
+- 2026-10-14T03:48:07 · run_update · step400等待：8rank已完成58次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-515685e0bb79
+- 2026-10-14T03:50:49 · run_update · step400等待：最新完成58更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-3a279266b0f4
+- 2026-10-14T03:53:26 · run_update · step400等待：8rank已完成59次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ed1dd11227f2
+- 2026-10-14T03:56:10 · run_update · step400等待：8rank已完成60次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-68178d528f7c
+- 2026-10-14T03:58:53 · run_update · step400等待：8rank已完成61次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-5ec9b857f98c
+- 2026-10-14T04:01:38 · run_update · step400等待：8rank已完成62次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-55cc91ca33f6
+- 2026-10-14T04:04:15 · run_update · step400等待：8rank已完成64次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b97c4b711eff
+- 2026-10-14T04:06:49 · run_update · step400等待：8rank已完成65次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-cf8e8118b9bb
+- 2026-10-14T04:09:26 · run_update · step400等待：8rank已完成66次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-aa3cb7730584
+- 2026-10-14T04:12:10 · run_update · step400等待：8rank已完成67次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-cf09f829879c
+- 2026-10-14T04:14:54 · run_update · step400等待：8rank已完成68次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-449d12963253
+- 2026-10-14T04:17:32 · run_update · step400等待：8rank已完成69次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-d8bfa7d8dd1d
+- 2026-10-14T04:20:11 · run_update · step400等待：最新完成69更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-f276a0695611
+- 2026-10-14T04:22:49 · run_update · step400等待：8rank已完成70次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-035c152bfbe8
+- 2026-10-14T04:25:27 · run_update · step400等待：8rank已完成71次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-abea40f825b8
+- 2026-10-14T04:28:09 · run_update · step400等待：8rank已完成72次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-2e57247945a6
+- 2026-10-14T04:30:53 · run_update · step400等待：8rank已完成73次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-74f521daa14b
+- 2026-10-14T04:33:36 · run_update · step400等待：8rank已完成74次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b5e900841959
+- 2026-10-14T04:36:20 · run_update · step400等待：8rank已完成75次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-39d02ccc9c4b
+- 2026-10-14T04:38:56 · run_update · step400等待：8rank已完成76次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-543bdc95b47d
+- 2026-10-14T04:41:38 · run_update · step400等待：最新完成76更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7d35e57c385b
+- 2026-10-14T04:44:15 · run_update · step400等待：8rank已完成77次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b768dce37dd7
+- 2026-10-14T04:46:53 · run_update · step400等待：8rank已完成78次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7dc24b5080bd
+- 2026-10-14T04:49:35 · run_update · step400等待：8rank已完成79次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-cc20920ff0d8
+- 2026-10-14T04:52:16 · run_update · step400等待：8rank已完成80次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-0a4f59179cf2
+- 2026-10-14T04:54:59 · run_update · step400等待：8rank已完成81次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-89ab60328ddf
+- 2026-10-14T04:57:39 · run_update · step400等待：8rank已完成82次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-e23077fc5207
+- 2026-10-14T05:00:19 · run_update · step400等待：8rank已完成84次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4a5222709b66
+- 2026-10-14T05:03:00 · run_update · step400等待：8rank已完成85次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ae8c723f4d0b
+- 2026-10-14T05:05:45 · run_update · step400等待：8rank已完成86次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-43b143b6ed43
+- 2026-10-14T05:08:30 · run_update · step400等待：最新完成86更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8b3cc566cdef
+- 2026-10-14T05:11:07 · run_update · step400等待：8rank已完成87次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4181b82f0970
+- 2026-10-14T05:13:54 · run_update · step400等待：8rank已完成88次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-bdf639418d05
+- 2026-10-14T05:16:35 · run_update · step400等待：8rank已完成89次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a390d1411022
+- 2026-10-14T05:19:18 · run_update · step400等待：8rank已完成90次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-0ceb4a91045f
+- 2026-10-14T05:23:56 · run_update · step400等待：8rank已完成91次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-36a29f44d69d
+- 2026-10-14T05:26:35 · run_update · step400等待：8rank已完成92次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-96f3d9a9da3f
+- 2026-10-14T05:29:10 · run_update · step400等待：8rank已完成93次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-5589bcf8ea8e
+- 2026-10-14T05:31:46 · run_update · step400等待：8rank已完成94次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-d559916b4214
+- 2026-10-14T05:34:22 · run_update · step400等待：8rank已完成95次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-2d9f9992102d
+- 2026-10-14T05:36:58 · run_update · step400等待：8rank已完成96次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-429d4ec764d9
+- 2026-10-14T05:39:32 · run_update · step400等待：8rank已完成97次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4d37a34cccbd
+- 2026-10-14T05:42:04 · run_update · step400等待：8rank已完成98次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-3d2efa11278b
+- 2026-10-14T05:44:44 · run_update · step400等待：8rank已完成99次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a02ca24c6e7e
+- 2026-10-14T05:47:21 · run_update · step400等待：8rank已完成100次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-279306b1455a
+- 2026-10-14T05:49:52 · run_update · step400等待：8rank已完成101次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-322eb476c0a1
+- 2026-10-14T05:52:25 · run_update · step400等待：8rank已完成102次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-815cbad5e5ba
+- 2026-10-14T05:54:58 · run_update · step400等待：8rank已完成103次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a11ed459af8c
+- 2026-10-14T05:57:42 · run_update · step400等待：8rank已完成104次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-628c6b97080d
+- 2026-10-14T06:00:19 · run_update · step400等待：8rank已完成105次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-66ed2404be35
+- 2026-10-14T06:02:57 · run_update · step400等待：8rank已完成106次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-920a7f82cc78
+- 2026-10-14T06:05:37 · run_update · step400等待：8rank已完成107次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-35b91e1e9af9
+- 2026-10-14T06:08:13 · run_update · step400等待：8rank已完成108次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-3e26466c5393
+- 2026-10-14T06:10:47 · run_update · step400等待：8rank已完成109次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-620eac5431a5
+- 2026-10-14T06:13:20 · run_update · step400等待：8rank已完成110次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-42e4956b3180
+- 2026-10-14T06:15:55 · run_update · step400等待：8rank已完成111次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7e83b5b013fe
+- 2026-10-14T06:18:28 · run_update · step400等待：8rank已完成112次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-eee6ac943bc2
+- 2026-10-14T06:21:09 · run_update · step400等待：最新完成112更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-454b63eebb60
+- 2026-10-14T06:23:51 · run_update · step400等待：8rank已完成113次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-6e7923643144
+- 2026-10-14T06:26:25 · run_update · step400等待：8rank已完成114次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-2acca893a7fc
+- 2026-10-14T06:29:09 · run_update · step400等待：8rank已完成115次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-5cb06d8361cd
+- 2026-10-14T06:31:47 · run_update · step400等待：8rank已完成116次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-2ad5e221e7d1
+- 2026-10-14T06:34:23 · run_update · step400等待：8rank已完成117次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7f0d5c456f8c
+- 2026-10-14T06:36:56 · run_update · step400等待：8rank已完成118次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-43a63d58cc1a
+- 2026-10-14T06:39:31 · run_update · step400等待：最新完成118更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ff8e07312fa2
+- 2026-10-14T06:42:07 · run_update · step400等待：8rank已完成120次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-42773fc58482
+- 2026-10-14T06:44:42 · run_update · step400等待：最新完成120更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-27d30437b797
+- 2026-10-14T06:47:19 · run_update · step400等待：8rank已完成121次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b408d3fef919
+- 2026-10-14T06:49:55 · run_update · step400等待：8rank已完成122次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-28a2f5132e8e
+- 2026-10-14T06:52:33 · run_update · step400等待：最新完成122更新，GPU仍在计算 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7f2da5041f03
+- 2026-10-14T06:55:15 · run_update · step400等待：8rank已完成123次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-975b1ce77fad
+- 2026-10-14T07:01:06 · run_update · step400等待：8rank已完成125次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4decbb0c432c
+- 2026-10-14T07:04:06 · run_update · step400等待：8rank已完成126次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-9d89982c994b
+- 2026-10-14T07:06:52 · run_update · step400等待：8rank已完成127次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8ce4afa42a71
+- 2026-10-14T07:09:30 · run_update · step400等待：8rank已完成128次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-a3c137454b42
+- 2026-10-14T07:12:13 · run_update · step400等待：8rank已完成129次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-20e491e3abc6
+- 2026-10-14T07:14:50 · run_update · step400等待：8rank已完成130次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-9ff62aae3187
+- 2026-10-14T07:17:26 · run_update · step400等待：8rank已完成131次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-3f31a2283f10
+- 2026-10-14T07:20:12 · run_update · step400等待：8rank已完成132次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-36a0c397e217
+- 2026-10-14T07:22:50 · run_update · step400等待：8rank已完成133次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-adfb4e0bcb0f
+- 2026-10-14T07:25:27 · run_update · step400等待：8rank已完成134次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7eeef207e565
+- 2026-10-14T07:28:08 · run_update · step400等待：8rank已完成135次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-e6123dfefd57
+- 2026-10-14T07:30:43 · run_update · step400等待：8rank已完成136次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-199f5493cff2
+- 2026-10-14T07:33:21 · run_update · step400等待：8rank已完成137次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-420728f563f0
+- 2026-10-14T07:36:03 · run_update · step400等待：8rank已完成138次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-8763919a6513
+- 2026-10-14T07:38:45 · run_update · step400等待：8rank已完成139次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-2182ab287dc8
+- 2026-10-14T07:41:29 · run_update · step400等待：8rank已完成140次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-89497ee952c2
+- 2026-10-14T07:44:10 · run_update · step400等待：8rank已完成141次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-9ac434dbfb1d
+- 2026-10-14T07:46:47 · run_update · step400等待：8rank已完成142次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-090346b60033
+- 2026-10-14T07:49:25 · run_update · step400等待：8rank已完成143次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-cb0eeaf27608
+- 2026-10-14T07:52:13 · run_update · step400等待：8rank已完成144次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-88c6a280883b
+- 2026-10-14T07:54:59 · run_update · step400等待：8rank已完成145次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-ea023fb1b7db
+- 2026-10-14T07:57:33 · run_update · step400等待：8rank已完成146次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-78e343efcb31
+- 2026-10-14T08:00:08 · run_update · step400等待：8rank已完成147次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-9098f73702f8
+- 2026-10-14T08:02:47 · run_update · step400等待：8rank已完成148次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-b6be66bcbaae
+- 2026-10-14T08:05:31 · run_update · step400等待：8rank已完成149次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-7e9c5ea30ccc
+- 2026-10-14T08:08:18 · run_update · step400等待：8rank已完成150次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-40cb99ce01ba
+- 2026-10-14T08:10:54 · run_update · step400等待：8rank已完成151次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-1604c3e08979
+- 2026-10-14T08:13:34 · run_update · step400等待：8rank已完成152次更新，运行中 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-13a66e0bdb3c
+- 2026-10-14T08:19:40 · run_organization · e014-multi-bonus02-g8-step150-eval1766: microtask · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-038445e43628
+- 2026-10-14T08:19:41 · execution_dispatch_enqueue · e014-multi-bonus02-g8-step150-eval1766 outbox=queued · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-f924bb2c08f4
+- 2026-10-14T08:19:41 · run_direct_steward · e014-multi-bonus02-g8-step150-eval1766: current snapshot sent directly to Steward · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-6c21412ea2f6
+- 2026-10-14T08:19:41 · run_derived · e014-multi-bonus02-g8-step150-eval1766: 衍生自 e014-multi-bonus02-g8-sft659-seed11451 · 用户要求现在停止G8训练并开始评测，不再等400。训练已按授权停止，8rank实际完成154更新；最新完整保存checkpoint为本父Run payload/grpo/checkpoints/step_000150，optimizer.steps=150。独立评测该G8 step150 checkpoint，原1766样本/8GPU/multi_v2/greedy192/vision4096/e · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-c98b6d310510
+- 2026-10-14T08:22:21 · run_update · 记录用户主动停训及checkpoint/GPU退出证据 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-4e7a2c0c4dc0
+- 2026-10-14T08:26:13 · run_update · 登记最新用户授权step150评测及精确绑定 · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-1578410345a4
+- 2026-10-14T08:29:22 · run_update · 记录真实启动失败与后续修正条件，无结果冒报 · run=e014-multi-bonus02-g8-step150-eval1766 · detail=evt-1f126ddcc880
+- 2026-10-14T08:29:22 · run_update · 记录step400计划被用户最新指令取代 · run=e014-multi-bonus02-g8-step400-eval1766 · detail=evt-03ab42063fdf
+- 2026-10-14T08:36:43 · run_organization · e014-multi-bonus02-g8-step150-eval1766-r2: microtask · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-f5dbf909da30
+- 2026-10-14T08:36:43 · execution_dispatch_enqueue · e014-multi-bonus02-g8-step150-eval1766-r2 outbox=queued · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-b6174589f971
+- 2026-10-14T08:36:43 · run_direct_steward · e014-multi-bonus02-g8-step150-eval1766-r2: current snapshot sent directly to Steward · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-1ffae2c74a4d
+- 2026-10-14T08:36:43 · run_derived · e014-multi-bonus02-g8-step150-eval1766-r2: 衍生自 e014-multi-bonus02-g8-step150-eval1766 · 用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical output_dir，根级managed_console.log为log，worker独占payload/evaluation。评测原训练e014-multi-bonus02-g8-sft659-seed11451保存step150，chec · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-dda962751bd8
+- 2026-10-14T08:38:39 · run_update · 用户授权修正输出契约后执行一次r2评测 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-1f0977c35fcd
+- 2026-10-14T08:42:18 · run_update · 确认修正后越过布局检查进入真实模型评测启动阶段 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-5ab63afee1ae
+- 2026-10-14T08:43:38 · run_update · Steward首批实际评测进展70样本下界，无错误 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-88b8403dc918
+- 2026-10-14T08:46:17 · run_update · Steward评测进展下界360/1766，8rank均推进 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-2b7c5d4fb9e9
+- 2026-10-14T08:48:59 · run_update · Steward评测进展下界640/1766，8rank均80 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-5f624761bdb7
+- 2026-10-14T08:51:40 · run_update · Steward评测进展下界920/1766，无错误 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-e0f6077e0711
+- 2026-10-14T08:54:34 · run_update · Steward评测进展下界1240/1766，无错误 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-52d3fb9c861f
+- 2026-10-14T08:57:14 · run_update · Steward评测进展下界1510/1766，无错误 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-513411254c4e
+- 2026-10-14T09:06:45 · run_update · 登记已完成评测和评分/训练日志诊断、完整证据及限制 · run=e014-multi-bonus02-g8-step150-eval1766-r2 · detail=evt-81dcd6f2bc83
+- 2026-10-14T09:07:05 · run_update · 回链step150评测与既有训练日志分层诊断 · run=e014-multi-bonus02-g8-sft659-seed11451 · detail=evt-64cf09f34bec

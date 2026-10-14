@@ -9457,5 +9457,3043 @@
     "message": "全量验证已完成并核对结果；仅更新该Run的结果记录，不改Claim或审批状态。",
     "details": {},
     "event_id": "evt-392dfe07f0e8"
+  },
+  {
+    "time": "2026-10-10T12:55:56",
+    "experiment_id": "E-013",
+    "run_id": "",
+    "type": "discovery",
+    "message": "已交付 E-013 reference sensitivity probe 代码与启动脚本到 SZY-3090 远端仓库；未加载 8B 权重、未训练、未改审批/Claim/Run 授权",
+    "details": "文件：tools/analysis/run_e013_reference_sensitivity.py、tools/run/analysis/e013/e013_reference_sensitivity_probe.sh、docs/e013_reference_sensitivity_probe.md（远端 repo /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy，三方 SHA-256 与本地一致）。--inspect 只读核验通过：manifest SHA 48b7b053...、dataset_size=1766、8 个 checkpoint adapter 均存在并记录 SHA。远端 IPLoc 解释器现为 /songzhengyue/miniconda3/envs/IPLoc/bin/python（旧 /root/miniconda3/envs/IPLoc 已不存在）。本次 ssh 会话 nvidia-smi 报 No devices were found，因此未执行 GPU forward。",
+    "event_id": "evt-26e3ea7f55a2"
+  },
+  {
+    "time": "2026-10-10T15:26:21",
+    "experiment_id": "E-013",
+    "run_id": "",
+    "type": "discovery",
+    "message": "E-013 reference sensitivity probe：目录自动发现版已上传远端并只读核验通过；随后服务器再次断开，GPU forward 仍未验证",
+    "details": "三文件远端 SHA-256 与本地一致。目录模式实测：rank-cf grpo/checkpoints 发现 9 个 step(50..450)、focus-confidence-sft/checkpoints 发现 8 个 step(83..659)、shell 位置参数模式通过。修复缺陷：长 run 目录名生成 checkpoint name 超过 64 字符导致校验失败，改为 sanitize+128 上限。服务器本次会话可见 6xRTX3090、torch.cuda.device_count=6；随后启动 limit=2 的单 checkpoint GPU 校验时连接被远端关闭，服务器至今不可达，故 GPU forward 路径未验证。",
+    "event_id": "evt-093c6e654a1f"
+  },
+  {
+    "time": "2026-10-11T14:05:35",
+    "experiment_id": "E-014",
+    "run_id": "",
+    "type": "experiment_created",
+    "message": "Agent 创建实验初稿 E-014 · 空间有序候选与 Reference 置信度",
+    "details": {},
+    "event_id": "evt-6f2a526b5ff1"
+  },
+  {
+    "time": "2026-10-11T15:27:09",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_organization",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: microtask",
+    "details": {
+      "time": "2026-10-11T15:27:09",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-1af5395b972b2dec518c"
+    },
+    "event_id": "evt-e8a0a7873ca9"
+  },
+  {
+    "time": "2026-10-11T15:27:09",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-variable-symmetric-sft659-puregrpo-seed11451 · SFT659 变长候选与双向对称数据纯 GRPO",
+    "details": {},
+    "event_id": "evt-812ea48dbd30"
+  },
+  {
+    "time": "2026-10-11T15:27:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_workflow",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-adc35c18b3c1"
+  },
+  {
+    "time": "2026-10-11T15:28:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "E-014 实现已完成并审阅；等待发布部署和人类执行门，不自动启动。",
+    "details": {},
+    "event_id": "evt-7e376db16e21"
+  },
+  {
+    "time": "2026-10-11T15:28:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_review_submitted",
+    "message": "SFT659、纯GRPO、变长候选、两实例四格对称数据；工程审阅通过但未测试。具体权重/归约/预算已完整登记；请核对后交给Steward，Agent不代替批准与授权。",
+    "details": {},
+    "event_id": "evt-1a8020e36867"
+  },
+  {
+    "time": "2026-10-11T17:09:07",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "真实发布尝试失败：新源码位于tools/data，触发路径排除规则；保留本地checkpoint并停止。",
+    "details": {},
+    "event_id": "evt-f88151340a27"
+  },
+  {
+    "time": "2026-10-11T17:16:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "发布路径拦截已解除，固定提交发布部署成功；训练仍等待Run人工审核授权。",
+    "details": {},
+    "event_id": "evt-fe0aebaf7e7f"
+  },
+  {
+    "time": "2026-10-11T17:19:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d39a6cfd643388eb4c971b2b",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-11T17:19:19",
+      "updated_at": "2026-10-11T17:19:19",
+      "authorization_timestamp": "2026-10-11T17:19:19.215943",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-11T17:19:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-310af0cf3518"
+  },
+  {
+    "time": "2026-10-11T17:19:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_direct_steward",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-d39a6cfd643388eb4c971b2b",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-7480e9f11913"
+  },
+  {
+    "time": "2026-10-11T17:25:51",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "审核与授权已通过；managed启动被Conda激活定位阻塞，同一IPLoc环境本身可验证，等待修正受控激活入口。",
+    "details": {},
+    "event_id": "evt-24bd56abfcc6"
+  },
+  {
+    "time": "2026-10-11T17:47:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "Conda定位修复已审阅提交且真实受控证明exit0；启动前识别E014目录/日志兼容冲突，未重复启动，待授权修复启动器。",
+    "details": {},
+    "event_id": "evt-622220ae87af"
+  },
+  {
+    "time": "2026-10-11T18:02:06",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "启动兼容修复已发布部署；工程路径更新，科学方案不变，准备依据已验证环境/实现变化重试原批准Run。",
+    "details": {},
+    "event_id": "evt-272266e26022"
+  },
+  {
+    "time": "2026-10-11T18:05:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "修复已审阅发布部署；真实retry被旧失败授权快照拦截，continue无queued dispatch。未启动，等待人类为修复SHA建立新执行快照。",
+    "details": {},
+    "event_id": "evt-c1c705e8ffbe"
+  },
+  {
+    "time": "2026-10-11T18:46:46",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0850912d96e16413aea25635",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-11T18:46:46",
+      "updated_at": "2026-10-11T18:46:46",
+      "authorization_timestamp": "2026-10-11T18:46:46.300039",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-11T18:46:46",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    "event_id": "evt-d2abfc5abc6f"
+  },
+  {
+    "time": "2026-10-11T18:46:46",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_execution_restarted",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-d39a6cfd643388eb4c971b2b",
+      "new_dispatch_id": "dispatch-0850912d96e16413aea25635",
+      "actor": "human:web-v2:auto-restart"
+    },
+    "event_id": "evt-54f689cb312e"
+  },
+  {
+    "time": "2026-10-12T00:09:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2dd369a52c2e46ab097f6813",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-12T00:09:53",
+      "updated_at": "2026-10-12T00:09:53",
+      "authorization_timestamp": "2026-10-12T00:09:53.395502",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T00:09:53",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    "event_id": "evt-04ea8f18ede6"
+  },
+  {
+    "time": "2026-10-12T00:09:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_execution_restarted",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-0850912d96e16413aea25635",
+      "new_dispatch_id": "dispatch-2dd369a52c2e46ab097f6813",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-fc1f63707228"
+  },
+  {
+    "time": "2026-10-12T01:29:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-385d5800580660ab8ef4d5cb",
+      "experiment_id": "E-014",
+      "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-12T01:29:56",
+      "updated_at": "2026-10-12T01:29:56",
+      "authorization_timestamp": "2026-10-12T01:29:56.029772",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T01:29:56",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    "event_id": "evt-08322a983659"
+  },
+  {
+    "time": "2026-10-12T01:29:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-variable-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_execution_restarted",
+    "message": "e014-variable-symmetric-sft659-puregrpo-seed11451: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-2dd369a52c2e46ab097f6813",
+      "new_dispatch_id": "dispatch-385d5800580660ab8ef4d5cb",
+      "actor": "human:web-v2:auto-restart"
+    },
+    "event_id": "evt-57289dab5895"
+  },
+  {
+    "time": "2026-10-12T11:56:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "run_organization",
+    "message": "e014-step800-variable-candidates-eval1766-8gpu: microtask",
+    "details": {
+      "time": "2026-10-12T11:56:59",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-995f0d7b0ffe0bd36717"
+    },
+    "event_id": "evt-a7e362b72d3c"
+  },
+  {
+    "time": "2026-10-12T11:56:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-step800-variable-candidates-eval1766-8gpu · step800原1766样本八卡变长候选评测",
+    "details": {},
+    "event_id": "evt-42f46c10b7ea"
+  },
+  {
+    "time": "2026-10-12T11:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "run_workflow",
+    "message": "e014-step800-variable-candidates-eval1766-8gpu: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-672db664e03e"
+  },
+  {
+    "time": "2026-10-12T11:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "run_review_submitted",
+    "message": "复用现有入口的评测实现已审阅并发布379df3997cab28c14c64d5dbc11dc64f0ac51e5f，静态检查通过；尚未部署或运行模型。请批准step800/1766/8卡方案并给本Run单次受管执行授权。指定SHA部署也待明确许可。",
+    "details": {},
+    "event_id": "evt-7d341c7deece"
+  },
+  {
+    "time": "2026-10-12T12:05:32",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "execution_dispatch_enqueue",
+    "message": "20260929T055808Z--multi3-rank-cf-latest-eval outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1f1eb55f6663aea0079fb3f8",
+      "experiment_id": "E-013",
+      "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+      "status": "queued",
+      "created_at": "2026-10-12T12:05:32",
+      "updated_at": "2026-10-12T12:05:32",
+      "authorization_timestamp": "2026-10-12T12:05:32.044327",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T12:05:32",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-bda1a61d91fe"
+  },
+  {
+    "time": "2026-10-12T12:05:32",
+    "experiment_id": "E-013",
+    "run_id": "20260929T055808Z--multi3-rank-cf-latest-eval",
+    "type": "run_direct_steward",
+    "message": "20260929T055808Z--multi3-rank-cf-latest-eval: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1f1eb55f6663aea0079fb3f8",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-ba708569109c"
+  },
+  {
+    "time": "2026-10-12T12:08:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-step800-variable-candidates-eval1766-8gpu outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f9173ab253fcabc1a668ae05",
+      "experiment_id": "E-014",
+      "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+      "status": "queued",
+      "created_at": "2026-10-12T12:08:40",
+      "updated_at": "2026-10-12T12:08:40",
+      "authorization_timestamp": "2026-10-12T12:08:40.013671",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T12:08:40",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-0ce092ce53e0"
+  },
+  {
+    "time": "2026-10-12T12:08:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-step800-variable-candidates-eval1766-8gpu",
+    "type": "run_direct_steward",
+    "message": "e014-step800-variable-candidates-eval1766-8gpu: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f9173ab253fcabc1a668ae05",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-9512c4b9e3a1"
+  },
+  {
+    "time": "2026-10-12T13:17:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_organization",
+    "message": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451: microtask",
+    "details": {
+      "time": "2026-10-12T13:17:43",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-25dbad82373c43b0732c"
+    },
+    "event_id": "evt-c2f8c3ad929e"
+  },
+  {
+    "time": "2026-10-12T13:17:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · multi_v2多实例枚举、两行模板、原SFT659独立纯GRPO",
+    "details": {},
+    "event_id": "evt-601db247a81f"
+  },
+  {
+    "time": "2026-10-12T13:17:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_workflow",
+    "message": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-78c95286a38b"
+  },
+  {
+    "time": "2026-10-12T13:17:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_review_submitted",
+    "message": "新multi_v2独立训练已准备，原SFT659 fresh，旧step800/结果保留。实现审阅通过并发布2ccee4cfb98d0ae4d9c1e1cc7e052f6d21fe44bc，等待该SHA部署许可与本Run人工批准/交给Steward。",
+    "details": {},
+    "event_id": "evt-88f20e638424"
+  },
+  {
+    "time": "2026-10-12T13:19:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1b18d1e9199ce4ca1add2b4e",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-12T13:19:59",
+      "updated_at": "2026-10-12T13:19:59",
+      "authorization_timestamp": "2026-10-12T13:19:59.623237",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T13:19:59",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a9051b283864"
+  },
+  {
+    "time": "2026-10-12T13:19:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-symmetric-sft659-puregrpo-seed11451: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1b18d1e9199ce4ca1add2b4e",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-ae0db4264525"
+  },
+  {
+    "time": "2026-10-12T16:26:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "run_organization",
+    "message": "e014-multi-v2-step200-eval1766-8gpu: microtask",
+    "details": {
+      "time": "2026-10-12T16:26:12",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-c375d8f1f53b2cbe3aeb"
+    },
+    "event_id": "evt-64e87e3772c2"
+  },
+  {
+    "time": "2026-10-12T16:26:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-multi-v2-step200-eval1766-8gpu · multi_v2本分支step200、原1766样本八卡评测",
+    "details": {},
+    "event_id": "evt-945561a9c548"
+  },
+  {
+    "time": "2026-10-12T16:26:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "run_workflow",
+    "message": "e014-multi-v2-step200-eval1766-8gpu: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-536988288865"
+  },
+  {
+    "time": "2026-10-12T16:26:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "run_review_submitted",
+    "message": "训练已主动暂停，step200/504states、multi_v2实际prompt hash及8GPU释放已核验。评测4文件最小复用实现审阅通过并发布a8ac7768142d0707b9380cc7d03f137c2c6c7ee6；待指定SHA部署许可和本Run人工批准/交给Steward，不能借用旧授权。",
+    "details": {},
+    "event_id": "evt-396b16a89616"
+  },
+  {
+    "time": "2026-10-12T16:33:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-step200-eval1766-8gpu outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-860e5ea171b6067c17c7a52b",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+      "status": "queued",
+      "created_at": "2026-10-12T16:33:50",
+      "updated_at": "2026-10-12T16:33:50",
+      "authorization_timestamp": "2026-10-12T16:33:49.987983",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T16:33:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ebff783cb8cb"
+  },
+  {
+    "time": "2026-10-12T16:33:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-step200-eval1766-8gpu: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-860e5ea171b6067c17c7a52b",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-1ee51b0a4a41"
+  },
+  {
+    "time": "2026-10-12T18:27:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "run_organization",
+    "message": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: microtask",
+    "details": {
+      "time": "2026-10-12T18:27:05",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-8e6eedf309fe39bd5106"
+    },
+    "event_id": "evt-a60f2125412a"
+  },
+  {
+    "time": "2026-10-12T18:27:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · multi_v2 / min实例覆盖 / soft预算5 / 同组奖励诊断 / freshSFT659纯GRPO",
+    "details": {},
+    "event_id": "evt-591909de014f"
+  },
+  {
+    "time": "2026-10-12T18:27:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "run_workflow",
+    "message": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-182c1eb4d767"
+  },
+  {
+    "time": "2026-10-12T18:27:06",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "run_review_submitted",
+    "message": "用户明确要求创建Run供其批准。实现review3ddc36253af0b8c3通过并publish f1806d2e269989d541dfdbf556a9af5b91e2290f；保留min coverage/soft cap5，新增同组multi-single严格胜率/平局/分母/窗口/条件分层/实际正adv observer。mixed空分母null；这是诊断，不单独证明Exploration因果。未部署、未模型或测试套件执行，待人工批准/单次授权及指定SHA部署。",
+    "details": {},
+    "event_id": "evt-ff43e97310cb"
+  },
+  {
+    "time": "2026-10-12T18:29:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-49087b01fe0ef97c5e8a5730",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-12T18:29:50",
+      "updated_at": "2026-10-12T18:29:50",
+      "authorization_timestamp": "2026-10-12T18:29:50.404206",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T18:29:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-1b147969d849"
+  },
+  {
+    "time": "2026-10-12T18:29:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-49087b01fe0ef97c5e8a5730",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-204b721be396"
+  },
+  {
+    "time": "2026-10-12T20:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_organization",
+    "message": "e014-cover-min-cap5-step150-eval1766-8gpu: microtask",
+    "details": {
+      "time": "2026-10-12T20:57:25",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-14fdd6efde45a37ddda4"
+    },
+    "event_id": "evt-184ce8e2c512"
+  },
+  {
+    "time": "2026-10-12T20:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_created",
+    "message": "Agent 创建 canonical Run e014-cover-min-cap5-step150-eval1766-8gpu · 最新min覆盖/cap5分支step150、multi_v2、原1766八卡评测",
+    "details": {},
+    "event_id": "evt-84bdddaf1dfe"
+  },
+  {
+    "time": "2026-10-12T20:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_workflow",
+    "message": "e014-cover-min-cap5-step150-eval1766-8gpu: implementation-ready → ready_for_review",
+    "details": {
+      "version": 2,
+      "stage": "ready_for_review",
+      "legacy": false,
+      "step": 2,
+      "total": 6,
+      "label": "代码方案待审核"
+    },
+    "event_id": "evt-3c83d3c8c9e3"
+  },
+  {
+    "time": "2026-10-12T20:57:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_review_submitted",
+    "message": "训练主动暂停/exit130/GPU释放/CP150 saved_step150和实际reward/prompt已核验；4文件薄评测实现review68b1b85f9a38debd通过并publishc646ba12265b11d1144cf97e3780370848a46f61。原1766/8卡/multi_v2/192/4096，待本Run批准/交给Steward与指定SHA部署；未启动。不改reward。",
+    "details": {},
+    "event_id": "evt-4ed98e2f0ea1"
+  },
+  {
+    "time": "2026-10-12T21:03:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-cover-min-cap5-step150-eval1766-8gpu outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-ec48ad5e7a2cda73110568a3",
+      "experiment_id": "E-014",
+      "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+      "status": "queued",
+      "created_at": "2026-10-12T21:03:12",
+      "updated_at": "2026-10-12T21:03:12",
+      "authorization_timestamp": "2026-10-12T21:03:12.429585",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-12T21:03:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-c562432ead5c"
+  },
+  {
+    "time": "2026-10-12T21:03:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_direct_steward",
+    "message": "e014-cover-min-cap5-step150-eval1766-8gpu: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-ec48ad5e7a2cda73110568a3",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-5822df756a33"
+  },
+  {
+    "time": "2026-10-13T19:01:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-cover-min-cap5-step150-eval1766-8gpu",
+    "type": "run_execution_human_failed",
+    "message": "e014-cover-min-cap5-step150-eval1766-8gpu: human marked current execution attempt failed",
+    "details": {
+      "dispatch_id": "dispatch-ec48ad5e7a2cda73110568a3",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-d5fd35dda950"
+  },
+  {
+    "time": "2026-10-13T19:32:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "run_organization",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: microtask",
+    "details": {
+      "time": "2026-10-13T19:32:12",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-17706b44703d400646d4"
+    },
+    "event_id": "evt-ca2fb3e6c7e5"
+  },
+  {
+    "time": "2026-10-13T19:32:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2acd54f302f24a0b1f73087d",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-13T19:32:12",
+      "updated_at": "2026-10-13T19:32:12",
+      "authorization_timestamp": "2026-10-13T19:32:12.729808",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-13T19:32:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-338c8a653a5f"
+  },
+  {
+    "time": "2026-10-13T19:32:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2acd54f302f24a0b1f73087d",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-57172ec5e750"
+  },
+  {
+    "time": "2026-10-13T19:32:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "run_derived",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: 衍生自 e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · 用户要求发布部署后立即启动本次已实现的0.2多框奖励独立训练。以已发布部署的69f786a3db89177cea11178714f560ce5760d36c为准，使用configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_multi_bonus_grpo.py；从原SFT659 fresh初始化policy及固定anchor，",
+    "details": {
+      "parent_run_id": "e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-06b204c37551"
+  },
+  {
+    "time": "2026-10-13T19:32:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-2acd54f302f24a0b1f73087d",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-8b75988fbad0"
+  },
+  {
+    "time": "2026-10-13T19:33:37",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+    "type": "run_update",
+    "message": "登记本次已发布部署的精确实现SHA；科学设计和执行授权不变",
+    "details": {},
+    "event_id": "evt-db8494d92fe1"
+  },
+  {
+    "time": "2026-10-13T19:41:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "run_organization",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: microtask",
+    "details": {
+      "time": "2026-10-13T19:41:36",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-188938ec4ab437de8757"
+    },
+    "event_id": "evt-3b9a5c9d8bfd"
+  },
+  {
+    "time": "2026-10-13T19:41:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-adc3434f7b9a2f30b26883bb",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "status": "queued",
+      "created_at": "2026-10-13T19:41:36",
+      "updated_at": "2026-10-13T19:41:36",
+      "authorization_timestamp": "2026-10-13T19:41:36.230018",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-13T19:41:36",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-e39713751786"
+  },
+  {
+    "time": "2026-10-13T19:41:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-adc3434f7b9a2f30b26883bb",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-58023e07af82"
+  },
+  {
+    "time": "2026-10-13T19:41:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "run_derived",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451 · 多框补偿独立训练，修正日志位置。用户已明确要求修复后重新运行一次；此次是新的独立训练Run，不是续训，不继承失败结果或Solid标签。仅以失败Run记录来源；实际policy和固定anchor均从原SFT659 fresh初始化。使用已发布部署的69f786a3db89177cea11178714f560ce5760d36c及configs/experiments/E-014/training/e",
+    "details": {
+      "parent_run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-5bd4003084e8"
+  },
+  {
+    "time": "2026-10-13T19:42:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-adc3434f7b9a2f30b26883bb",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-37dd722650d7"
+  },
+  {
+    "time": "2026-10-13T19:53:00",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "execution_verification",
+    "message": "日志路径修正后独立r2训练已真实启动；8rank完成首更新，首64rollout中12条实际获0.2，旧失败目录保留。未额外测试，不作收益结论。",
+    "details": "{\"git_commit\": \"69f786a3db89177cea11178714f560ce5760d36c\", \"run_type\": \"training\", \"fresh_sft659\": true, \"resume\": false, \"multi_bonus_weight\": 0.2, \"logging_contract\": \"Run root managed_console.log\", \"old_failed_directory\": \"preserved unchanged\", \"completed_updates_per_rank\": {\"0\": 1, \"1\": 1, \"2\": 1, \"3\": 1, \"4\": 1, \"5\": 1, \"6\": 1, \"7\": 1}, \"first_update_rollouts\": 64, \"first_update_valid_rollouts\": 53, \"first_update_valid_multibox_rollouts\": 18, \"first_update_bonus_positive_rollouts\": 12, \"actual_bonus_values\": [0.0, 0.2], \"missing_bonus_diagnostics\": 0, \"budget_updates\": 1500, \"first100_comparison_windows\": [50, 100], \"extra_tests_run\": false, \"scientific_conclusion\": \"首更新仅证实运行和奖励接线，不证明多框或定位改善\", \"health_tool_limit\": \"旧health SSH255观测与受管status及当前直接SSH不一致；不据此重启\"}",
+    "event_id": "evt-cf7fa744faf8"
+  },
+  {
+    "time": "2026-10-13T23:34:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5dce432acf05e537c8f85a5d",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "status": "queued",
+      "created_at": "2026-10-13T23:34:27",
+      "updated_at": "2026-10-13T23:34:27",
+      "authorization_timestamp": "2026-10-13T23:34:27.083208",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-13T23:34:27",
+          "type": "queued",
+          "detail": "restart_failed_execution"
+        }
+      ]
+    },
+    "event_id": "evt-5119b952ddf8"
+  },
+  {
+    "time": "2026-10-13T23:34:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+    "type": "run_execution_restarted",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2: failed attempt preserved; new authorization created",
+    "details": {
+      "prior_dispatch_id": "dispatch-adc3434f7b9a2f30b26883bb",
+      "new_dispatch_id": "dispatch-5dce432acf05e537c8f85a5d",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-3809b1924f6b"
+  },
+  {
+    "time": "2026-10-14T00:00:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_organization",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: microtask",
+    "details": {
+      "time": "2026-10-14T00:00:30",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-3e428a41572b5e42423d"
+    },
+    "event_id": "evt-8eb495f8e5dc"
+  },
+  {
+    "time": "2026-10-14T00:00:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-3087f89e9fd6abde602ffbc8",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+      "status": "queued",
+      "created_at": "2026-10-14T00:00:30",
+      "updated_at": "2026-10-14T00:00:30",
+      "authorization_timestamp": "2026-10-14T00:00:30.799248",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T00:00:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-de2a793f22bc"
+  },
+  {
+    "time": "2026-10-14T00:00:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_direct_steward",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-3087f89e9fd6abde602ffbc8",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-e389bca977ac"
+  },
+  {
+    "time": "2026-10-14T00:00:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_derived",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · 对 step150 的 ckpt 进行评测一下",
+    "details": {
+      "parent_run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "actor": "human:web-v2"
+    },
+    "event_id": "evt-b5eafe1742fd"
+  },
+  {
+    "time": "2026-10-14T00:11:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_update",
+    "message": "登记已部署SHA与评测日志路径",
+    "details": {},
+    "event_id": "evt-37861461d4cf"
+  },
+  {
+    "time": "2026-10-14T00:12:07",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-3087f89e9fd6abde602ffbc8",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-0e86374a93df"
+  },
+  {
+    "time": "2026-10-14T00:37:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2-derived-001",
+    "type": "run_update",
+    "message": "登记step150完整评测及候选选择诊断；未启动新模型推理",
+    "details": {},
+    "event_id": "evt-46862133ab95"
+  },
+  {
+    "time": "2026-10-14T00:45:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_organization",
+    "message": "e014-multi-bonus02-g8-sft659-seed11451: microtask",
+    "details": {
+      "time": "2026-10-14T00:45:31",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-9b885d12486d6ccfda45"
+    },
+    "event_id": "evt-d783caa383bb"
+  },
+  {
+    "time": "2026-10-14T00:45:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-bonus02-g8-sft659-seed11451 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-01153590611ab5ac555213f3",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+      "status": "queued",
+      "created_at": "2026-10-14T00:45:31",
+      "updated_at": "2026-10-14T00:45:31",
+      "authorization_timestamp": "2026-10-14T00:45:31.610736",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T00:45:31",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b6081d6881de"
+  },
+  {
+    "time": "2026-10-14T00:45:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_direct_steward",
+    "message": "e014-multi-bonus02-g8-sft659-seed11451: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-01153590611ab5ac555213f3",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-ec6f61467916"
+  },
+  {
+    "time": "2026-10-14T00:45:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_derived",
+    "message": "e014-multi-bonus02-g8-sft659-seed11451: 衍生自 e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2 · 用户选方案1并要求重新训练及约400步自动评测：新独立训练从原SFT659 fresh policy+固定anchor，纯GRPO；仅settings.trainer.group_size从4改8，沿用multi_v2、min覆盖/cap5及0.2多框补偿，奖励/数据/优化器/seed11451/8GPU不变。不加载step150、不恢复父Run、不覆盖任何旧产物。复用configs/experi",
+    "details": {
+      "parent_run_id": "e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-1caac0fc0b54"
+  },
+  {
+    "time": "2026-10-14T00:45:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "run_organization",
+    "message": "e014-multi-bonus02-g8-step400-eval1766: microtask",
+    "details": {
+      "time": "2026-10-14T00:45:47",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ab2089ba57fcfa03d50a"
+    },
+    "event_id": "evt-a187e47e91ff"
+  },
+  {
+    "time": "2026-10-14T00:45:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-bonus02-g8-step400-eval1766 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-377dadfa712b5234366f25c4",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+      "status": "queued",
+      "created_at": "2026-10-14T00:45:47",
+      "updated_at": "2026-10-14T00:45:47",
+      "authorization_timestamp": "2026-10-14T00:45:47.785700",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T00:45:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-bd30db102299"
+  },
+  {
+    "time": "2026-10-14T00:45:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "run_direct_steward",
+    "message": "e014-multi-bonus02-g8-step400-eval1766: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-377dadfa712b5234366f25c4",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-47d2ff18516c"
+  },
+  {
+    "time": "2026-10-14T00:45:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "run_derived",
+    "message": "e014-multi-bonus02-g8-step400-eval1766: 衍生自 e014-multi-bonus02-g8-sft659-seed11451 · 用户追加要求新G=8训练约400step时自动评测400step。此独立评测仅在父训练保存payload/grpo/checkpoints/step_000400并暂停释放GPU后启动。只读核验optimizer.steps=400、训练group_size=8、multi_v2、multi_bonus_weight=0.2、prompt和checkpoint来源SHA。沿用本轮1766测试清单、",
+    "details": {
+      "parent_run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-c5a3b1b5fce6"
+  },
+  {
+    "time": "2026-10-14T00:48:39",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-multi-bonus02-g8-step400-eval1766: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-377dadfa712b5234366f25c4",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-274d179868bf"
+  },
+  {
+    "time": "2026-10-14T00:48:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-multi-bonus02-g8-sft659-seed11451: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-01153590611ab5ac555213f3",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-0ed6269c400d"
+  },
+  {
+    "time": "2026-10-14T00:55:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待任务：训练启动中，checkpoint400尚未生成",
+    "details": {},
+    "event_id": "evt-5fd167cb2799"
+  },
+  {
+    "time": "2026-10-14T00:58:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "等待step400：模型正在加载，尚未进入可验证更新",
+    "details": {},
+    "event_id": "evt-e6f9b81aa75f"
+  },
+  {
+    "time": "2026-10-14T01:01:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：模型加载完成，实际训练配置正确，GPU正在计算",
+    "details": {},
+    "event_id": "evt-e905df4fdb40"
+  },
+  {
+    "time": "2026-10-14T01:02:06",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "更正本次观测显存单位为MiB",
+    "details": {},
+    "event_id": "evt-10cb4a3119b0"
+  },
+  {
+    "time": "2026-10-14T01:07:08",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "首更新通过：8rank各2组×8rollouts，继续等待400",
+    "details": {},
+    "event_id": "evt-b959bbf2126f"
+  },
+  {
+    "time": "2026-10-14T01:09:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成2次更新，运行中",
+    "details": {},
+    "event_id": "evt-1e9f4c49290f"
+  },
+  {
+    "time": "2026-10-14T01:12:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成3次更新，运行中",
+    "details": {},
+    "event_id": "evt-c25c3a313cee"
+  },
+  {
+    "time": "2026-10-14T01:15:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成4次更新，运行中",
+    "details": {},
+    "event_id": "evt-a2ede6c2d8e5"
+  },
+  {
+    "time": "2026-10-14T01:18:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成5次更新，受管重连确认运行中",
+    "details": {},
+    "event_id": "evt-796063130e2b"
+  },
+  {
+    "time": "2026-10-14T01:21:16",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成7次更新，运行中",
+    "details": {},
+    "event_id": "evt-ed9fae4652d8"
+  },
+  {
+    "time": "2026-10-14T01:23:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成8次更新，运行中",
+    "details": {},
+    "event_id": "evt-92828ab6c11d"
+  },
+  {
+    "time": "2026-10-14T01:26:42",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成9次更新，运行中",
+    "details": {},
+    "event_id": "evt-fdba454395fa"
+  },
+  {
+    "time": "2026-10-14T01:29:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成11次更新，运行中",
+    "details": {},
+    "event_id": "evt-aeecbac8bca7"
+  },
+  {
+    "time": "2026-10-14T01:32:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成12次更新，运行中",
+    "details": {},
+    "event_id": "evt-b579326cfcf5"
+  },
+  {
+    "time": "2026-10-14T01:34:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成13次更新，运行中",
+    "details": {},
+    "event_id": "evt-8494b2d1fb42"
+  },
+  {
+    "time": "2026-10-14T01:37:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成14次更新，运行中",
+    "details": {},
+    "event_id": "evt-45ad0cff0780"
+  },
+  {
+    "time": "2026-10-14T01:40:29",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成15次更新，运行中",
+    "details": {},
+    "event_id": "evt-97d017742cfd"
+  },
+  {
+    "time": "2026-10-14T01:43:08",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成17次更新，运行中",
+    "details": {},
+    "event_id": "evt-8339b79ea645"
+  },
+  {
+    "time": "2026-10-14T01:45:48",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成18次更新，运行中",
+    "details": {},
+    "event_id": "evt-c1cf1afbdcae"
+  },
+  {
+    "time": "2026-10-14T01:48:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成20次更新，运行中",
+    "details": {},
+    "event_id": "evt-a6646f310a26"
+  },
+  {
+    "time": "2026-10-14T01:51:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成21次更新，运行中",
+    "details": {},
+    "event_id": "evt-4160dc343f45"
+  },
+  {
+    "time": "2026-10-14T01:54:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：日志显示更新21–22，运行中",
+    "details": {},
+    "event_id": "evt-10e210b86c64"
+  },
+  {
+    "time": "2026-10-14T01:56:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成24次更新，运行中",
+    "details": {},
+    "event_id": "evt-63885ab215a1"
+  },
+  {
+    "time": "2026-10-14T01:59:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成25次更新，运行中",
+    "details": {},
+    "event_id": "evt-450750e32e1a"
+  },
+  {
+    "time": "2026-10-14T02:02:34",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成26次更新，运行中",
+    "details": {},
+    "event_id": "evt-4b1669b0ba3c"
+  },
+  {
+    "time": "2026-10-14T02:05:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成28次更新，运行中",
+    "details": {},
+    "event_id": "evt-097506e1338c"
+  },
+  {
+    "time": "2026-10-14T02:07:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成更新28，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-d7625acf0c1c"
+  },
+  {
+    "time": "2026-10-14T02:10:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：完整对象解析确认8rank均完成29次更新",
+    "details": {},
+    "event_id": "evt-d24b765407d5"
+  },
+  {
+    "time": "2026-10-14T02:13:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成29更新，8卡计算中",
+    "details": {},
+    "event_id": "evt-90418a5b9fb1"
+  },
+  {
+    "time": "2026-10-14T02:16:01",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成30次更新，运行中",
+    "details": {},
+    "event_id": "evt-165ab3d12a2d"
+  },
+  {
+    "time": "2026-10-14T02:18:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成30更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-f839fa6c5d18"
+  },
+  {
+    "time": "2026-10-14T02:21:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成31次更新，运行中",
+    "details": {},
+    "event_id": "evt-082807e6c13d"
+  },
+  {
+    "time": "2026-10-14T02:24:03",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成32次更新，运行中",
+    "details": {},
+    "event_id": "evt-ba2a746459b8"
+  },
+  {
+    "time": "2026-10-14T02:26:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成32更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-589e494aa731"
+  },
+  {
+    "time": "2026-10-14T02:29:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成32更新，本轮无新增完成记录",
+    "details": {},
+    "event_id": "evt-04272f3ce059"
+  },
+  {
+    "time": "2026-10-14T02:32:11",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank完成33次更新，已确认继续推进",
+    "details": {},
+    "event_id": "evt-a9e68221d3a7"
+  },
+  {
+    "time": "2026-10-14T02:34:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成34次更新，运行中",
+    "details": {},
+    "event_id": "evt-54c2f94ca844"
+  },
+  {
+    "time": "2026-10-14T02:37:37",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成34更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-c9a4b1919f04"
+  },
+  {
+    "time": "2026-10-14T02:40:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成35次更新，运行中",
+    "details": {},
+    "event_id": "evt-8af8e1b8eec1"
+  },
+  {
+    "time": "2026-10-14T02:43:00",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成35更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-996465c6dcb6"
+  },
+  {
+    "time": "2026-10-14T02:45:51",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成36次更新，运行中",
+    "details": {},
+    "event_id": "evt-352133dcba76"
+  },
+  {
+    "time": "2026-10-14T02:48:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成37次更新，运行中",
+    "details": {},
+    "event_id": "evt-85459707e776"
+  },
+  {
+    "time": "2026-10-14T02:51:08",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成38次更新，运行中",
+    "details": {},
+    "event_id": "evt-c44c7e304104"
+  },
+  {
+    "time": "2026-10-14T02:53:46",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成39次更新，运行中",
+    "details": {},
+    "event_id": "evt-ab1d0a977a98"
+  },
+  {
+    "time": "2026-10-14T02:56:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成40次更新，运行中",
+    "details": {},
+    "event_id": "evt-55ed505072bd"
+  },
+  {
+    "time": "2026-10-14T02:59:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成41次更新，运行中",
+    "details": {},
+    "event_id": "evt-1a6dbc439d79"
+  },
+  {
+    "time": "2026-10-14T03:01:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成42次更新，运行中",
+    "details": {},
+    "event_id": "evt-88d532d6e5d9"
+  },
+  {
+    "time": "2026-10-14T03:04:33",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成43次更新，运行中",
+    "details": {},
+    "event_id": "evt-0f9fac6f71fc"
+  },
+  {
+    "time": "2026-10-14T03:07:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成44次更新，运行中",
+    "details": {},
+    "event_id": "evt-f1f84bc3c1a2"
+  },
+  {
+    "time": "2026-10-14T03:09:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成45次更新，运行中",
+    "details": {},
+    "event_id": "evt-36c0d094b2cc"
+  },
+  {
+    "time": "2026-10-14T03:12:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成46次更新，运行中",
+    "details": {},
+    "event_id": "evt-e60f0d5597a9"
+  },
+  {
+    "time": "2026-10-14T03:15:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成47次更新，运行中",
+    "details": {},
+    "event_id": "evt-c9c7a554b6a4"
+  },
+  {
+    "time": "2026-10-14T03:18:18",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成47更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-581533e8e861"
+  },
+  {
+    "time": "2026-10-14T03:21:03",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成48次更新，运行中",
+    "details": {},
+    "event_id": "evt-5784ce3c3ad7"
+  },
+  {
+    "time": "2026-10-14T03:23:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成49次更新，运行中",
+    "details": {},
+    "event_id": "evt-ba15daf1f4bd"
+  },
+  {
+    "time": "2026-10-14T03:26:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成50次更新，运行中",
+    "details": {},
+    "event_id": "evt-26aa0a8243fc"
+  },
+  {
+    "time": "2026-10-14T03:29:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成51次更新，运行中",
+    "details": {},
+    "event_id": "evt-385666e935c4"
+  },
+  {
+    "time": "2026-10-14T03:31:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成52次更新，运行中",
+    "details": {},
+    "event_id": "evt-917186f5480c"
+  },
+  {
+    "time": "2026-10-14T03:34:39",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成53次更新，运行中",
+    "details": {},
+    "event_id": "evt-b06ab60a2f08"
+  },
+  {
+    "time": "2026-10-14T03:37:22",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成54次更新，运行中",
+    "details": {},
+    "event_id": "evt-bced1e6781a6"
+  },
+  {
+    "time": "2026-10-14T03:39:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成55次更新，运行中",
+    "details": {},
+    "event_id": "evt-42e39f2aa0b0"
+  },
+  {
+    "time": "2026-10-14T03:42:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成56次更新，运行中",
+    "details": {},
+    "event_id": "evt-4fafad9820e4"
+  },
+  {
+    "time": "2026-10-14T03:45:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成57次更新，运行中",
+    "details": {},
+    "event_id": "evt-881405608406"
+  },
+  {
+    "time": "2026-10-14T03:48:07",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成58次更新，运行中",
+    "details": {},
+    "event_id": "evt-515685e0bb79"
+  },
+  {
+    "time": "2026-10-14T03:50:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成58更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-3a279266b0f4"
+  },
+  {
+    "time": "2026-10-14T03:53:26",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成59次更新，运行中",
+    "details": {},
+    "event_id": "evt-ed1dd11227f2"
+  },
+  {
+    "time": "2026-10-14T03:56:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成60次更新，运行中",
+    "details": {},
+    "event_id": "evt-68178d528f7c"
+  },
+  {
+    "time": "2026-10-14T03:58:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成61次更新，运行中",
+    "details": {},
+    "event_id": "evt-5ec9b857f98c"
+  },
+  {
+    "time": "2026-10-14T04:01:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成62次更新，运行中",
+    "details": {},
+    "event_id": "evt-55cc91ca33f6"
+  },
+  {
+    "time": "2026-10-14T04:04:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成64次更新，运行中",
+    "details": {},
+    "event_id": "evt-b97c4b711eff"
+  },
+  {
+    "time": "2026-10-14T04:06:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成65次更新，运行中",
+    "details": {},
+    "event_id": "evt-cf8e8118b9bb"
+  },
+  {
+    "time": "2026-10-14T04:09:26",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成66次更新，运行中",
+    "details": {},
+    "event_id": "evt-aa3cb7730584"
+  },
+  {
+    "time": "2026-10-14T04:12:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成67次更新，运行中",
+    "details": {},
+    "event_id": "evt-cf09f829879c"
+  },
+  {
+    "time": "2026-10-14T04:14:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成68次更新，运行中",
+    "details": {},
+    "event_id": "evt-449d12963253"
+  },
+  {
+    "time": "2026-10-14T04:17:32",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成69次更新，运行中",
+    "details": {},
+    "event_id": "evt-d8bfa7d8dd1d"
+  },
+  {
+    "time": "2026-10-14T04:20:11",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成69更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-f276a0695611"
+  },
+  {
+    "time": "2026-10-14T04:22:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成70次更新，运行中",
+    "details": {},
+    "event_id": "evt-035c152bfbe8"
+  },
+  {
+    "time": "2026-10-14T04:25:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成71次更新，运行中",
+    "details": {},
+    "event_id": "evt-abea40f825b8"
+  },
+  {
+    "time": "2026-10-14T04:28:09",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成72次更新，运行中",
+    "details": {},
+    "event_id": "evt-2e57247945a6"
+  },
+  {
+    "time": "2026-10-14T04:30:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成73次更新，运行中",
+    "details": {},
+    "event_id": "evt-74f521daa14b"
+  },
+  {
+    "time": "2026-10-14T04:33:36",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成74次更新，运行中",
+    "details": {},
+    "event_id": "evt-b5e900841959"
+  },
+  {
+    "time": "2026-10-14T04:36:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成75次更新，运行中",
+    "details": {},
+    "event_id": "evt-39d02ccc9c4b"
+  },
+  {
+    "time": "2026-10-14T04:38:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成76次更新，运行中",
+    "details": {},
+    "event_id": "evt-543bdc95b47d"
+  },
+  {
+    "time": "2026-10-14T04:41:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成76更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-7d35e57c385b"
+  },
+  {
+    "time": "2026-10-14T04:44:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成77次更新，运行中",
+    "details": {},
+    "event_id": "evt-b768dce37dd7"
+  },
+  {
+    "time": "2026-10-14T04:46:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成78次更新，运行中",
+    "details": {},
+    "event_id": "evt-7dc24b5080bd"
+  },
+  {
+    "time": "2026-10-14T04:49:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成79次更新，运行中",
+    "details": {},
+    "event_id": "evt-cc20920ff0d8"
+  },
+  {
+    "time": "2026-10-14T04:52:16",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成80次更新，运行中",
+    "details": {},
+    "event_id": "evt-0a4f59179cf2"
+  },
+  {
+    "time": "2026-10-14T04:54:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成81次更新，运行中",
+    "details": {},
+    "event_id": "evt-89ab60328ddf"
+  },
+  {
+    "time": "2026-10-14T04:57:39",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成82次更新，运行中",
+    "details": {},
+    "event_id": "evt-e23077fc5207"
+  },
+  {
+    "time": "2026-10-14T05:00:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成84次更新，运行中",
+    "details": {},
+    "event_id": "evt-4a5222709b66"
+  },
+  {
+    "time": "2026-10-14T05:03:00",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成85次更新，运行中",
+    "details": {},
+    "event_id": "evt-ae8c723f4d0b"
+  },
+  {
+    "time": "2026-10-14T05:05:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成86次更新，运行中",
+    "details": {},
+    "event_id": "evt-43b143b6ed43"
+  },
+  {
+    "time": "2026-10-14T05:08:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成86更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-8b3cc566cdef"
+  },
+  {
+    "time": "2026-10-14T05:11:07",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成87次更新，运行中",
+    "details": {},
+    "event_id": "evt-4181b82f0970"
+  },
+  {
+    "time": "2026-10-14T05:13:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成88次更新，运行中",
+    "details": {},
+    "event_id": "evt-bdf639418d05"
+  },
+  {
+    "time": "2026-10-14T05:16:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成89次更新，运行中",
+    "details": {},
+    "event_id": "evt-a390d1411022"
+  },
+  {
+    "time": "2026-10-14T05:19:18",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成90次更新，运行中",
+    "details": {},
+    "event_id": "evt-0ceb4a91045f"
+  },
+  {
+    "time": "2026-10-14T05:23:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成91次更新，运行中",
+    "details": {},
+    "event_id": "evt-36a29f44d69d"
+  },
+  {
+    "time": "2026-10-14T05:26:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成92次更新，运行中",
+    "details": {},
+    "event_id": "evt-96f3d9a9da3f"
+  },
+  {
+    "time": "2026-10-14T05:29:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成93次更新，运行中",
+    "details": {},
+    "event_id": "evt-5589bcf8ea8e"
+  },
+  {
+    "time": "2026-10-14T05:31:46",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成94次更新，运行中",
+    "details": {},
+    "event_id": "evt-d559916b4214"
+  },
+  {
+    "time": "2026-10-14T05:34:22",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成95次更新，运行中",
+    "details": {},
+    "event_id": "evt-2d9f9992102d"
+  },
+  {
+    "time": "2026-10-14T05:36:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成96次更新，运行中",
+    "details": {},
+    "event_id": "evt-429d4ec764d9"
+  },
+  {
+    "time": "2026-10-14T05:39:32",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成97次更新，运行中",
+    "details": {},
+    "event_id": "evt-4d37a34cccbd"
+  },
+  {
+    "time": "2026-10-14T05:42:04",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成98次更新，运行中",
+    "details": {},
+    "event_id": "evt-3d2efa11278b"
+  },
+  {
+    "time": "2026-10-14T05:44:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成99次更新，运行中",
+    "details": {},
+    "event_id": "evt-a02ca24c6e7e"
+  },
+  {
+    "time": "2026-10-14T05:47:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成100次更新，运行中",
+    "details": {},
+    "event_id": "evt-279306b1455a"
+  },
+  {
+    "time": "2026-10-14T05:49:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成101次更新，运行中",
+    "details": {},
+    "event_id": "evt-322eb476c0a1"
+  },
+  {
+    "time": "2026-10-14T05:52:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成102次更新，运行中",
+    "details": {},
+    "event_id": "evt-815cbad5e5ba"
+  },
+  {
+    "time": "2026-10-14T05:54:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成103次更新，运行中",
+    "details": {},
+    "event_id": "evt-a11ed459af8c"
+  },
+  {
+    "time": "2026-10-14T05:57:42",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成104次更新，运行中",
+    "details": {},
+    "event_id": "evt-628c6b97080d"
+  },
+  {
+    "time": "2026-10-14T06:00:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成105次更新，运行中",
+    "details": {},
+    "event_id": "evt-66ed2404be35"
+  },
+  {
+    "time": "2026-10-14T06:02:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成106次更新，运行中",
+    "details": {},
+    "event_id": "evt-920a7f82cc78"
+  },
+  {
+    "time": "2026-10-14T06:05:37",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成107次更新，运行中",
+    "details": {},
+    "event_id": "evt-35b91e1e9af9"
+  },
+  {
+    "time": "2026-10-14T06:08:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成108次更新，运行中",
+    "details": {},
+    "event_id": "evt-3e26466c5393"
+  },
+  {
+    "time": "2026-10-14T06:10:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成109次更新，运行中",
+    "details": {},
+    "event_id": "evt-620eac5431a5"
+  },
+  {
+    "time": "2026-10-14T06:13:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成110次更新，运行中",
+    "details": {},
+    "event_id": "evt-42e4956b3180"
+  },
+  {
+    "time": "2026-10-14T06:15:55",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成111次更新，运行中",
+    "details": {},
+    "event_id": "evt-7e83b5b013fe"
+  },
+  {
+    "time": "2026-10-14T06:18:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成112次更新，运行中",
+    "details": {},
+    "event_id": "evt-eee6ac943bc2"
+  },
+  {
+    "time": "2026-10-14T06:21:09",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成112更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-454b63eebb60"
+  },
+  {
+    "time": "2026-10-14T06:23:51",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成113次更新，运行中",
+    "details": {},
+    "event_id": "evt-6e7923643144"
+  },
+  {
+    "time": "2026-10-14T06:26:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成114次更新，运行中",
+    "details": {},
+    "event_id": "evt-2acca893a7fc"
+  },
+  {
+    "time": "2026-10-14T06:29:09",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成115次更新，运行中",
+    "details": {},
+    "event_id": "evt-5cb06d8361cd"
+  },
+  {
+    "time": "2026-10-14T06:31:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成116次更新，运行中",
+    "details": {},
+    "event_id": "evt-2ad5e221e7d1"
+  },
+  {
+    "time": "2026-10-14T06:34:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成117次更新，运行中",
+    "details": {},
+    "event_id": "evt-7f0d5c456f8c"
+  },
+  {
+    "time": "2026-10-14T06:36:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成118次更新，运行中",
+    "details": {},
+    "event_id": "evt-43a63d58cc1a"
+  },
+  {
+    "time": "2026-10-14T06:39:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成118更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-ff8e07312fa2"
+  },
+  {
+    "time": "2026-10-14T06:42:07",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成120次更新，运行中",
+    "details": {},
+    "event_id": "evt-42773fc58482"
+  },
+  {
+    "time": "2026-10-14T06:44:42",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成120更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-27d30437b797"
+  },
+  {
+    "time": "2026-10-14T06:47:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成121次更新，运行中",
+    "details": {},
+    "event_id": "evt-b408d3fef919"
+  },
+  {
+    "time": "2026-10-14T06:49:55",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成122次更新，运行中",
+    "details": {},
+    "event_id": "evt-28a2f5132e8e"
+  },
+  {
+    "time": "2026-10-14T06:52:33",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：最新完成122更新，GPU仍在计算",
+    "details": {},
+    "event_id": "evt-7f2da5041f03"
+  },
+  {
+    "time": "2026-10-14T06:55:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成123次更新，运行中",
+    "details": {},
+    "event_id": "evt-975b1ce77fad"
+  },
+  {
+    "time": "2026-10-14T07:01:06",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成125次更新，运行中",
+    "details": {},
+    "event_id": "evt-4decbb0c432c"
+  },
+  {
+    "time": "2026-10-14T07:04:06",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成126次更新，运行中",
+    "details": {},
+    "event_id": "evt-9d89982c994b"
+  },
+  {
+    "time": "2026-10-14T07:06:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成127次更新，运行中",
+    "details": {},
+    "event_id": "evt-8ce4afa42a71"
+  },
+  {
+    "time": "2026-10-14T07:09:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成128次更新，运行中",
+    "details": {},
+    "event_id": "evt-a3c137454b42"
+  },
+  {
+    "time": "2026-10-14T07:12:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成129次更新，运行中",
+    "details": {},
+    "event_id": "evt-20e491e3abc6"
+  },
+  {
+    "time": "2026-10-14T07:14:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成130次更新，运行中",
+    "details": {},
+    "event_id": "evt-9ff62aae3187"
+  },
+  {
+    "time": "2026-10-14T07:17:26",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成131次更新，运行中",
+    "details": {},
+    "event_id": "evt-3f31a2283f10"
+  },
+  {
+    "time": "2026-10-14T07:20:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成132次更新，运行中",
+    "details": {},
+    "event_id": "evt-36a0c397e217"
+  },
+  {
+    "time": "2026-10-14T07:22:50",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成133次更新，运行中",
+    "details": {},
+    "event_id": "evt-adfb4e0bcb0f"
+  },
+  {
+    "time": "2026-10-14T07:25:27",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成134次更新，运行中",
+    "details": {},
+    "event_id": "evt-7eeef207e565"
+  },
+  {
+    "time": "2026-10-14T07:28:08",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成135次更新，运行中",
+    "details": {},
+    "event_id": "evt-e6123dfefd57"
+  },
+  {
+    "time": "2026-10-14T07:30:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成136次更新，运行中",
+    "details": {},
+    "event_id": "evt-199f5493cff2"
+  },
+  {
+    "time": "2026-10-14T07:33:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成137次更新，运行中",
+    "details": {},
+    "event_id": "evt-420728f563f0"
+  },
+  {
+    "time": "2026-10-14T07:36:03",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成138次更新，运行中",
+    "details": {},
+    "event_id": "evt-8763919a6513"
+  },
+  {
+    "time": "2026-10-14T07:38:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成139次更新，运行中",
+    "details": {},
+    "event_id": "evt-2182ab287dc8"
+  },
+  {
+    "time": "2026-10-14T07:41:29",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成140次更新，运行中",
+    "details": {},
+    "event_id": "evt-89497ee952c2"
+  },
+  {
+    "time": "2026-10-14T07:44:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成141次更新，运行中",
+    "details": {},
+    "event_id": "evt-9ac434dbfb1d"
+  },
+  {
+    "time": "2026-10-14T07:46:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成142次更新，运行中",
+    "details": {},
+    "event_id": "evt-090346b60033"
+  },
+  {
+    "time": "2026-10-14T07:49:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成143次更新，运行中",
+    "details": {},
+    "event_id": "evt-cb0eeaf27608"
+  },
+  {
+    "time": "2026-10-14T07:52:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成144次更新，运行中",
+    "details": {},
+    "event_id": "evt-88c6a280883b"
+  },
+  {
+    "time": "2026-10-14T07:54:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成145次更新，运行中",
+    "details": {},
+    "event_id": "evt-ea023fb1b7db"
+  },
+  {
+    "time": "2026-10-14T07:57:33",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成146次更新，运行中",
+    "details": {},
+    "event_id": "evt-78e343efcb31"
+  },
+  {
+    "time": "2026-10-14T08:00:08",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成147次更新，运行中",
+    "details": {},
+    "event_id": "evt-9098f73702f8"
+  },
+  {
+    "time": "2026-10-14T08:02:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成148次更新，运行中",
+    "details": {},
+    "event_id": "evt-b6be66bcbaae"
+  },
+  {
+    "time": "2026-10-14T08:05:31",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成149次更新，运行中",
+    "details": {},
+    "event_id": "evt-7e9c5ea30ccc"
+  },
+  {
+    "time": "2026-10-14T08:08:18",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成150次更新，运行中",
+    "details": {},
+    "event_id": "evt-40cb99ce01ba"
+  },
+  {
+    "time": "2026-10-14T08:10:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成151次更新，运行中",
+    "details": {},
+    "event_id": "evt-1604c3e08979"
+  },
+  {
+    "time": "2026-10-14T08:13:34",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "step400等待：8rank已完成152次更新，运行中",
+    "details": {},
+    "event_id": "evt-13a66e0bdb3c"
+  },
+  {
+    "time": "2026-10-14T08:19:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "run_organization",
+    "message": "e014-multi-bonus02-g8-step150-eval1766: microtask",
+    "details": {
+      "time": "2026-10-14T08:19:40",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-e0d626468942e4fce3a7"
+    },
+    "event_id": "evt-038445e43628"
+  },
+  {
+    "time": "2026-10-14T08:19:41",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-bonus02-g8-step150-eval1766 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-adafa7b61a8a263b7fcb447e",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+      "status": "queued",
+      "created_at": "2026-10-14T08:19:41",
+      "updated_at": "2026-10-14T08:19:41",
+      "authorization_timestamp": "2026-10-14T08:19:41.044054",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T08:19:41",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-f924bb2c08f4"
+  },
+  {
+    "time": "2026-10-14T08:19:41",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "run_direct_steward",
+    "message": "e014-multi-bonus02-g8-step150-eval1766: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-adafa7b61a8a263b7fcb447e",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-6c21412ea2f6"
+  },
+  {
+    "time": "2026-10-14T08:19:41",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "run_derived",
+    "message": "e014-multi-bonus02-g8-step150-eval1766: 衍生自 e014-multi-bonus02-g8-sft659-seed11451 · 用户要求现在停止G8训练并开始评测，不再等400。训练已按授权停止，8rank实际完成154更新；最新完整保存checkpoint为本父Run payload/grpo/checkpoints/step_000150，optimizer.steps=150。独立评测该G8 step150 checkpoint，原1766样本/8GPU/multi_v2/greedy192/vision4096/e",
+    "details": {
+      "parent_run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-c98b6d310510"
+  },
+  {
+    "time": "2026-10-14T08:22:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "记录用户主动停训及checkpoint/GPU退出证据",
+    "details": {},
+    "event_id": "evt-4e7a2c0c4dc0"
+  },
+  {
+    "time": "2026-10-14T08:26:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "run_update",
+    "message": "登记最新用户授权step150评测及精确绑定",
+    "details": {},
+    "event_id": "evt-1578410345a4"
+  },
+  {
+    "time": "2026-10-14T08:29:22",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766",
+    "type": "run_update",
+    "message": "记录真实启动失败与后续修正条件，无结果冒报",
+    "details": {},
+    "event_id": "evt-1f126ddcc880"
+  },
+  {
+    "time": "2026-10-14T08:29:22",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step400-eval1766",
+    "type": "run_update",
+    "message": "记录step400计划被用户最新指令取代",
+    "details": {},
+    "event_id": "evt-03ab42063fdf"
+  },
+  {
+    "time": "2026-10-14T08:36:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_organization",
+    "message": "e014-multi-bonus02-g8-step150-eval1766-r2: microtask",
+    "details": {
+      "time": "2026-10-14T08:36:43",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ffad4671f16467b326c2"
+    },
+    "event_id": "evt-f5dbf909da30"
+  },
+  {
+    "time": "2026-10-14T08:36:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-multi-bonus02-g8-step150-eval1766-r2 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-df195d7ade1b0bb477dd27f4",
+      "experiment_id": "E-014",
+      "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+      "status": "queued",
+      "created_at": "2026-10-14T08:36:43",
+      "updated_at": "2026-10-14T08:36:43",
+      "authorization_timestamp": "2026-10-14T08:36:43.501673",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-14T08:36:43",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b6174589f971"
+  },
+  {
+    "time": "2026-10-14T08:36:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_direct_steward",
+    "message": "e014-multi-bonus02-g8-step150-eval1766-r2: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-df195d7ade1b0bb477dd27f4",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-1ffae2c74a4d"
+  },
+  {
+    "time": "2026-10-14T08:36:43",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_derived",
+    "message": "e014-multi-bonus02-g8-step150-eval1766-r2: 衍生自 e014-multi-bonus02-g8-step150-eval1766 · 用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical output_dir，根级managed_console.log为log，worker独占payload/evaluation。评测原训练e014-multi-bonus02-g8-sft659-seed11451保存step150，chec",
+    "details": {
+      "parent_run_id": "e014-multi-bonus02-g8-step150-eval1766",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-dda962751bd8"
+  },
+  {
+    "time": "2026-10-14T08:38:39",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "用户授权修正输出契约后执行一次r2评测",
+    "details": {},
+    "event_id": "evt-1f0977c35fcd"
+  },
+  {
+    "time": "2026-10-14T08:42:18",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "确认修正后越过布局检查进入真实模型评测启动阶段",
+    "details": {},
+    "event_id": "evt-5ab63afee1ae"
+  },
+  {
+    "time": "2026-10-14T08:43:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward首批实际评测进展70样本下界，无错误",
+    "details": {},
+    "event_id": "evt-88b8403dc918"
+  },
+  {
+    "time": "2026-10-14T08:46:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward评测进展下界360/1766，8rank均推进",
+    "details": {},
+    "event_id": "evt-2b7c5d4fb9e9"
+  },
+  {
+    "time": "2026-10-14T08:48:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward评测进展下界640/1766，8rank均80",
+    "details": {},
+    "event_id": "evt-5f624761bdb7"
+  },
+  {
+    "time": "2026-10-14T08:51:40",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward评测进展下界920/1766，无错误",
+    "details": {},
+    "event_id": "evt-e0f6077e0711"
+  },
+  {
+    "time": "2026-10-14T08:54:34",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward评测进展下界1240/1766，无错误",
+    "details": {},
+    "event_id": "evt-52d3fb9c861f"
+  },
+  {
+    "time": "2026-10-14T08:57:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "Steward评测进展下界1510/1766，无错误",
+    "details": {},
+    "event_id": "evt-513411254c4e"
+  },
+  {
+    "time": "2026-10-14T09:06:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "type": "run_update",
+    "message": "登记已完成评测和评分/训练日志诊断、完整证据及限制",
+    "details": {},
+    "event_id": "evt-81dcd6f2bc83"
+  },
+  {
+    "time": "2026-10-14T09:07:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-multi-bonus02-g8-sft659-seed11451",
+    "type": "run_update",
+    "message": "回链step150评测与既有训练日志分层诊断",
+    "details": {},
+    "event_id": "evt-64cf09f34bec"
   }
 ]

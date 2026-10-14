@@ -1,0 +1,2670 @@
+{
+  "verification": "All call/import sites from config AST only; no execution. Attribute/function names alone are not a security sandbox.",
+  "counts": {
+    "dict": 477,
+    "sum": 2,
+    "screening_counts.values": 2,
+    "list": 1,
+    "range": 1
+  },
+  "files": [
+    {
+      "config": "configs/_base_/e011_frozen_eval.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/e012_reference_target_screening.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/e012_target_vs_background_ablation.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/localization_sft.py",
+      "calls": [
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/qwen3vl_lora.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/qwen3vl_lora_ddp.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/_base_/symmetric_candidate_grpo.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/eval/e011_qwen3vl8b_native_iploc.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/eval/qwen3vl_8b_native_grounding.py",
+      "calls": [
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/eval/variable_candidates.py",
+      "calls": [
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 45,
+          "function": "dict"
+        },
+        {
+          "line": 51,
+          "function": "dict"
+        },
+        {
+          "line": 36,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 52,
+          "function": "dict"
+        },
+        {
+          "line": 59,
+          "function": "dict"
+        },
+        {
+          "line": 54,
+          "function": "sum"
+        },
+        {
+          "line": 54,
+          "function": "screening_counts.values"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py",
+      "calls": [
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 38,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 32,
+          "function": "dict"
+        },
+        {
+          "line": 47,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 40,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 54,
+          "function": "dict"
+        },
+        {
+          "line": 63,
+          "function": "dict"
+        },
+        {
+          "line": 68,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py",
+      "calls": [
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 38,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py",
+      "calls": [
+        {
+          "line": 9,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py",
+      "calls": [
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 33,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 47,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 24,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        },
+        {
+          "line": 49,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "sum"
+        },
+        {
+          "line": 28,
+          "function": "screening_counts.values"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py",
+      "calls": [
+        {
+          "line": 11,
+          "function": "dict"
+        },
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 38,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+      "calls": [
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        },
+        {
+          "line": 37,
+          "function": "dict"
+        },
+        {
+          "line": 31,
+          "function": "dict"
+        },
+        {
+          "line": 33,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "list"
+        },
+        {
+          "line": 39,
+          "function": "range"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py",
+      "calls": [
+        {
+          "line": 11,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py",
+      "calls": [
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py",
+      "calls": [
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 30,
+          "function": "dict"
+        },
+        {
+          "line": 46,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py",
+      "calls": [
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py",
+      "calls": [
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 48,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py",
+      "calls": [
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 48,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py",
+      "calls": [
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py",
+      "calls": [
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        },
+        {
+          "line": 37,
+          "function": "dict"
+        },
+        {
+          "line": 51,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+      "calls": [
+        {
+          "line": 19,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "calls": [
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+      "calls": [
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+      "calls": [
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_top10_head_ablation.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 60,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 40,
+          "function": "dict"
+        },
+        {
+          "line": 44,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 46,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+      "calls": [
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+      "calls": [
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "calls": [
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 15,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 53,
+          "function": "dict"
+        },
+        {
+          "line": 62,
+          "function": "dict"
+        },
+        {
+          "line": 64,
+          "function": "dict"
+        },
+        {
+          "line": 67,
+          "function": "dict"
+        },
+        {
+          "line": 70,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 40,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+      "calls": [
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+      "calls": [
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 32,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 33,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 33,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+      "calls": [
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 30,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+      "calls": [
+        {
+          "line": 11,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_branch.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+      "calls": [
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+      "calls": [
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 13,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+      "calls": [
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 24,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+      "calls": [
+        {
+          "line": 1,
+          "function": "dict"
+        },
+        {
+          "line": 2,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 1,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 1,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_cover_min_cap5_step150_eval1766.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_multi_v2_step200_eval1766.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_step800_eval1766.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_grpo.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_collage_coverage_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_collage_coverage_pilot.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_cf_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_collage_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_bbox_gradient_initial.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_ce_iou_probe_head_ablation_step741.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_contribution_calculation_check.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_e009fixed5_head_ablation_step741.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_eval_stratified_reference_maps.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_gradient_gated_spatial_frequency.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_gradient_top10_attention_maps.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_head_circuit_path_patching.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_head_circuit_zero_attention.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_legacy_e009_fixed5_head_ablation.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_new_old_union15_head_ablation.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_686.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_query_target_grounded_screening.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_r004_real_chain_rule.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_head_ablation_step741.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_head_ablation_step741_smoke.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_joint_only_step741_686.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_reference_gradient_gated_spatial_frequency.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_reference_spatial_iou050.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_reference_target_grounded_screening.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_step741_fresh_query_reference.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_step741_fresh_query_reference_smoke.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_target_vs_background_ablation_preflight.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_target_vs_background_causal_ablation.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/head_screening/e012_top10_head_ablation.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e009_qwen3vl8b_1shot_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e009_qwen3vl8b_reference_query_ensemble_distill.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e011_qwen3vl8b_grounding_eval_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e011_qwen3vl8b_lora_grounding_1shot_ddp4_4bit.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e012_query_r005_ref3_transfer.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e012_ref10_query5_correct_final_eval.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e013_multi3_rank_cf_eval.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_instances_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_spatial_branch.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/e013_qwen3vl8b_focus_confidence.py",
+      "calls": [],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_branch.py",
+      "calls": [
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 69,
+          "function": "dict"
+        },
+        {
+          "line": 93,
+          "function": "dict"
+        },
+        {
+          "line": 116,
+          "function": "dict"
+        },
+        {
+          "line": 128,
+          "function": "dict"
+        },
+        {
+          "line": 155,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        },
+        {
+          "line": 94,
+          "function": "dict"
+        },
+        {
+          "line": 98,
+          "function": "dict"
+        },
+        {
+          "line": 134,
+          "function": "dict"
+        },
+        {
+          "line": 141,
+          "function": "dict"
+        },
+        {
+          "line": 157,
+          "function": "dict"
+        },
+        {
+          "line": 31,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 59,
+          "function": "dict"
+        },
+        {
+          "line": 100,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py",
+      "calls": [
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 36,
+          "function": "dict"
+        },
+        {
+          "line": 44,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 48,
+          "function": "dict"
+        },
+        {
+          "line": 49,
+          "function": "dict"
+        },
+        {
+          "line": 64,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 57,
+          "function": "dict"
+        },
+        {
+          "line": 65,
+          "function": "dict"
+        },
+        {
+          "line": 66,
+          "function": "dict"
+        },
+        {
+          "line": 73,
+          "function": "dict"
+        },
+        {
+          "line": 80,
+          "function": "dict"
+        },
+        {
+          "line": 68,
+          "function": "dict"
+        },
+        {
+          "line": 71,
+          "function": "dict"
+        },
+        {
+          "line": 75,
+          "function": "dict"
+        },
+        {
+          "line": 78,
+          "function": "dict"
+        },
+        {
+          "line": 82,
+          "function": "dict"
+        },
+        {
+          "line": 85,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_query_attention_branch.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_tasks.py",
+      "calls": [
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 150,
+          "function": "dict"
+        },
+        {
+          "line": 165,
+          "function": "dict"
+        },
+        {
+          "line": 40,
+          "function": "dict"
+        },
+        {
+          "line": 114,
+          "function": "dict"
+        },
+        {
+          "line": 124,
+          "function": "dict"
+        },
+        {
+          "line": 128,
+          "function": "dict"
+        },
+        {
+          "line": 171,
+          "function": "dict"
+        },
+        {
+          "line": 180,
+          "function": "dict"
+        },
+        {
+          "line": 116,
+          "function": "dict"
+        },
+        {
+          "line": 130,
+          "function": "dict"
+        },
+        {
+          "line": 49,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 58,
+          "function": "dict"
+        },
+        {
+          "line": 66,
+          "function": "dict"
+        },
+        {
+          "line": 75,
+          "function": "dict"
+        },
+        {
+          "line": 83,
+          "function": "dict"
+        },
+        {
+          "line": 91,
+          "function": "dict"
+        },
+        {
+          "line": 99,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_grounding.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 44,
+          "function": "dict"
+        },
+        {
+          "line": 53,
+          "function": "dict"
+        },
+        {
+          "line": 11,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_grounding_tasks.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_iploc.py",
+      "calls": [
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 21,
+          "function": "dict"
+        },
+        {
+          "line": 31,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 12,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 39,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        },
+        {
+          "line": 43,
+          "function": "dict"
+        },
+        {
+          "line": 44,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_batch_scaling.py",
+      "calls": [
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 32,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 35,
+          "function": "dict"
+        },
+        {
+          "line": 36,
+          "function": "dict"
+        },
+        {
+          "line": 37,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_ddp_batch_scaling.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 27,
+          "function": "dict"
+        },
+        {
+          "line": 28,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+      "calls": [
+        {
+          "line": 10,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 17,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_head_screening.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        },
+        {
+          "line": 18,
+          "function": "dict"
+        },
+        {
+          "line": 49,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 34,
+          "function": "dict"
+        },
+        {
+          "line": 51,
+          "function": "dict"
+        },
+        {
+          "line": 52,
+          "function": "dict"
+        },
+        {
+          "line": 53,
+          "function": "dict"
+        },
+        {
+          "line": 54,
+          "function": "dict"
+        },
+        {
+          "line": 58,
+          "function": "dict"
+        },
+        {
+          "line": 59,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py",
+      "calls": [
+        {
+          "line": 8,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        },
+        {
+          "line": 41,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+      "calls": [
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_2shot_single.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 29,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 26,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        },
+        {
+          "line": 44,
+          "function": "dict"
+        },
+        {
+          "line": 45,
+          "function": "dict"
+        },
+        {
+          "line": 46,
+          "function": "dict"
+        },
+        {
+          "line": 47,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_bs16.py",
+      "calls": [
+        {
+          "line": 13,
+          "function": "dict"
+        },
+        {
+          "line": 72,
+          "function": "dict"
+        },
+        {
+          "line": 89,
+          "function": "dict"
+        },
+        {
+          "line": 74,
+          "function": "dict"
+        },
+        {
+          "line": 86,
+          "function": "dict"
+        },
+        {
+          "line": 103,
+          "function": "dict"
+        },
+        {
+          "line": 105,
+          "function": "dict"
+        },
+        {
+          "line": 106,
+          "function": "dict"
+        },
+        {
+          "line": 107,
+          "function": "dict"
+        },
+        {
+          "line": 108,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_ddp.py",
+      "calls": [
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 19,
+          "function": "dict"
+        },
+        {
+          "line": 36,
+          "function": "dict"
+        },
+        {
+          "line": 56,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 33,
+          "function": "dict"
+        },
+        {
+          "line": 48,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 51,
+          "function": "dict"
+        },
+        {
+          "line": 52,
+          "function": "dict"
+        },
+        {
+          "line": 53,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_smoke.py",
+      "calls": [
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 16,
+          "function": "dict"
+        },
+        {
+          "line": 9,
+          "function": "dict"
+        },
+        {
+          "line": 14,
+          "function": "dict"
+        },
+        {
+          "line": 20,
+          "function": "dict"
+        },
+        {
+          "line": 22,
+          "function": "dict"
+        },
+        {
+          "line": 23,
+          "function": "dict"
+        },
+        {
+          "line": 24,
+          "function": "dict"
+        },
+        {
+          "line": 25,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_alignment.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 24,
+          "function": "dict"
+        },
+        {
+          "line": 42,
+          "function": "dict"
+        },
+        {
+          "line": 70,
+          "function": "dict"
+        },
+        {
+          "line": 43,
+          "function": "dict"
+        },
+        {
+          "line": 50,
+          "function": "dict"
+        },
+        {
+          "line": 54,
+          "function": "dict"
+        },
+        {
+          "line": 48,
+          "function": "dict"
+        },
+        {
+          "line": 52,
+          "function": "dict"
+        },
+        {
+          "line": 57,
+          "function": "dict"
+        },
+        {
+          "line": 58,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_dynamic.py",
+      "calls": [
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 7,
+          "function": "dict"
+        },
+        {
+          "line": 3,
+          "function": "dict"
+        },
+        {
+          "line": 4,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_gt_mask.py",
+      "calls": [
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 6,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        },
+        {
+          "line": 5,
+          "function": "dict"
+        }
+      ],
+      "imports": []
+    }
+  ]
+}

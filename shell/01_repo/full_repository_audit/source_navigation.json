@@ -1,0 +1,2340 @@
+{
+  "configs": [
+    {
+      "config": "configs/_base_/e011_frozen_eval.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/_base_/e012_reference_target_screening.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/protocol/e012_reference_target_screening.py"
+    },
+    {
+      "config": "configs/_base_/e012_target_vs_background_ablation.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py"
+    },
+    {
+      "config": "configs/_base_/localization_sft.py",
+      "tier": "base/task-specific",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ]
+    },
+    {
+      "config": "configs/_base_/qwen3vl_lora.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/_base_/qwen3vl_lora_ddp.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/_base_/symmetric_candidate_grpo.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/eval/e011_qwen3vl8b_native_iploc.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/eval/qwen3vl_8b_native_grounding.py",
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "infer",
+      "nproc": 1
+    },
+    {
+      "config": "configs/eval/qwen3vl_8b_native_grounding.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "infer",
+      "nproc": 1
+    },
+    {
+      "config": "configs/eval/variable_candidates.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "tier": "recipe",
+      "inherits": [],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "tier": "recipe",
+      "inherits": [],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+        "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/analysis/e012_top10_head_ablation.py",
+      "tier": "base/task-specific",
+      "inherits": []
+    },
+    {
+      "config": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 2
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 2
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_cover_min_cap5_step150_eval1766.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/eval/variable_candidates.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_multi_v2_step200_eval1766.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/eval/variable_candidates.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-014/evaluation/e014_step800_eval1766.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/eval/variable_candidates.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_grpo.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py",
+        "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py",
+        "configs/_base_/symmetric_candidate_grpo.py"
+      ],
+      "action": "symmetric_grpo",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py",
+        "configs/_base_/symmetric_candidate_grpo.py"
+      ],
+      "action": "symmetric_grpo",
+      "nproc": 8
+    },
+    {
+      "config": "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/symmetric_candidate_grpo.py"
+      ],
+      "action": "symmetric_grpo",
+      "nproc": 8
+    },
+    {
+      "config": "configs/grpo/e013_multi3_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_branch.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/grpo/e013_multi3_collage_coverage_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/grpo/e013_multi3_collage_coverage_pilot.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+        "configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_cf_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py",
+      "action": "grpo",
+      "nproc": 2
+    },
+    {
+      "config": "configs/grpo/e013_multi3_rank_collage_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+        "configs/experiments/E-013/training/e013_multi3_rank_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py",
+      "action": "grpo",
+      "nproc": 4
+    },
+    {
+      "config": "configs/head_screening/e012_bbox_gradient_initial.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+    },
+    {
+      "config": "configs/head_screening/e012_ce_iou_probe_head_ablation_step741.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py"
+    },
+    {
+      "config": "configs/head_screening/e012_contribution_calculation_check.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_e009fixed5_head_ablation_step741.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py"
+    },
+    {
+      "config": "configs/head_screening/e012_eval_stratified_reference_maps.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py"
+    },
+    {
+      "config": "configs/head_screening/e012_gradient_gated_spatial_frequency.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py"
+    },
+    {
+      "config": "configs/head_screening/e012_gradient_top10_attention_maps.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py"
+    },
+    {
+      "config": "configs/head_screening/e012_head_circuit_path_patching.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py"
+    },
+    {
+      "config": "configs/head_screening/e012_head_circuit_zero_attention.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py"
+    },
+    {
+      "config": "configs/head_screening/e012_legacy_e009_fixed5_head_ablation.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py"
+    },
+    {
+      "config": "configs/head_screening/e012_new_old_union15_head_ablation.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py"
+    },
+    {
+      "config": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_686.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py"
+    },
+    {
+      "config": "configs/head_screening/e012_oldnew_union10_head_ablation_step741_smoke.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py"
+    },
+    {
+      "config": "configs/head_screening/e012_query_target_grounded_screening.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+        "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_query_target_grounded_screening.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_r004_real_chain_rule.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_r004_real_chain_rule.py"
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_head_ablation_step741.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py"
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_head_ablation_step741_smoke.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py"
+    },
+    {
+      "config": "configs/head_screening/e012_r006_query5_joint_only_step741_686.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py"
+    },
+    {
+      "config": "configs/head_screening/e012_reference_gradient_gated_spatial_frequency.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py"
+    },
+    {
+      "config": "configs/head_screening/e012_reference_spatial_iou050.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py"
+    },
+    {
+      "config": "configs/head_screening/e012_reference_target_grounded_screening.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+        "configs/experiments/E-012/protocol/e012_reference_target_screening.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_step741_fresh_query_reference.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_step741_fresh_query_reference_smoke.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+        "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_step741_fresh_query_reference_smoke.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_target_vs_background_ablation_preflight.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+        "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+        "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_target_vs_background_ablation_preflight.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_target_vs_background_causal_ablation.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+        "configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py",
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_target_vs_background_causal_ablation.py",
+      "action": "analyze",
+      "nproc": 1
+    },
+    {
+      "config": "configs/head_screening/e012_top10_head_ablation.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/analysis/e012_top10_head_ablation.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/analysis/e012_top10_head_ablation.py"
+    },
+    {
+      "config": "configs/sft/e009_qwen3vl8b_1shot_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_focus_tasks.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e009_qwen3vl8b_reference_query_ensemble_distill.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_reference_query_alignment.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e011_qwen3vl8b_grounding_eval_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_grounding_tasks.py",
+        "configs/sft/qwen3vl_8b_grounding.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py",
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e011_qwen3vl8b_lora_grounding_1shot_ddp4_4bit.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_grounding.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py",
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e012_query_r005_ref3_transfer.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/training/query_r005_ref3_transfer.py",
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e012_ref10_query5_correct_final_eval.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py",
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e013_multi3_rank_cf_eval.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py",
+      "action": "evaluate",
+      "nproc": 2
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py",
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_instances_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e013_multi_candidate_spatial_branch.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+        "configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py",
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py",
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/e013_qwen3vl8b_focus_confidence.py",
+      "tier": "compatibility config alias",
+      "inherits": [
+        "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "canonical_config": "configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py",
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_query_attention_branch.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_focus_branch.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "attention_intervene",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_focus_tasks.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_grounding.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py",
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_grounding_tasks.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_grounding.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py",
+        "configs/_base_/e011_frozen_eval.py"
+      ],
+      "action": "evaluate",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_iploc.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_batch_scaling.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_ddp_batch_scaling.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_head_screening.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_2shot_single.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_bs16.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_focus_ddp.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 2
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_lora_smoke.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/_base_/qwen3vl_lora.py"
+      ],
+      "action": "train",
+      "nproc": 1
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_alignment.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_dynamic.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_reference_query_alignment.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    },
+    {
+      "config": "configs/sft/qwen3vl_8b_reference_query_gt_mask.py",
+      "tier": "recipe",
+      "inherits": [
+        "configs/sft/qwen3vl_8b_reference_query_alignment.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py",
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py",
+        "configs/_base_/localization_sft.py",
+        "configs/_base_/qwen3vl_lora_ddp.py"
+      ],
+      "action": "train",
+      "nproc": 4
+    }
+  ],
+  "shells": [
+    {
+      "shell": "tools/run/_common.sh",
+      "tier": "canonical/helper",
+      "targets": [],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/launch.py"
+      ]
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_dual_role_analysis.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-012/analysis/e012_contribution_calculation_check.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_e009fixed5_head_ablation_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_eval_stratified_reference_maps.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_gradient_gated_spatial_frequency.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_gradient_top10_attention_maps.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_head_circuit_path_patching.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_head_circuit_path_patching.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_head_circuit_zero_attention.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_legacy_e009_fixed5_head_ablation.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_new_old_union15_head_ablation.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_686.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_oldnew_union10_head_ablation_step741_smoke.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r015_query_key_control_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_r016_black_reference_step741.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_reference_spatial_iou050.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e012/e012_top10_head_ablation.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-012/analysis/e012_top10_head_ablation.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e013/e013_candidate_evidence_ranking_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "tools/run/analysis/e013/e013_candidate_evidence_ranking_8gpu.sh"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/analysis/run_e013_candidate_evidence_ranking.py"
+      ]
+    },
+    {
+      "shell": "tools/run/analysis/e013/e013_reference_sensitivity_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "tools/run/analysis/e013/e013_reference_sensitivity_8gpu.sh"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/analysis/run_e013_reference_sensitivity_parallel.py"
+      ]
+    },
+    {
+      "shell": "tools/run/analysis/e013/e013_reference_sensitivity_probe.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "tools/run/analysis/e013/e013_reference_sensitivity_probe.sh"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/analysis/run_e013_reference_sensitivity.py"
+      ]
+    },
+    {
+      "shell": "tools/run/analysis/e013/e013_sds_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/analysis/run_e013_sds.py"
+      ]
+    },
+    {
+      "shell": "tools/run/analysis/e014/e014_cover_min_cap5_step150_eval1766_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-014/evaluation/e014_cover_min_cap5_step150_eval1766.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/evaluation/e014_cover_min_cap5_step150_eval1766.py"
+      ],
+      "forwards": [
+        "tools/run/analysis/e014/e014_step800_eval1766_8gpu.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e014/e014_multi_v2_step200_eval1766_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/experiments/E-014/evaluation/e014_multi_v2_step200_eval1766.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/evaluation/e014_multi_v2_step200_eval1766.py"
+      ],
+      "forwards": [
+        "tools/run/analysis/e014/e014_step800_eval1766_8gpu.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/analysis/e014/e014_step800_eval1766_8gpu.sh",
+      "tier": "experiment analysis",
+      "targets": [
+        "configs/eval/variable_candidates.py",
+        "configs/experiments/E-014/evaluation/e014_cover_min_cap5_step150_eval1766.py",
+        "configs/experiments/E-014/evaluation/e014_multi_v2_step200_eval1766.py",
+        "configs/experiments/E-014/evaluation/e014_step800_eval1766.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/evaluation/e014_step800_eval1766.py"
+      ],
+      "forwards": [],
+      "python_tools": [
+        "tools/evaluate.py"
+      ]
+    },
+    {
+      "shell": "tools/run/e012_bbox_gradient_initial.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_bbox_gradient_initial.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_bbox_gradient_initial.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_ce_iou_probe_head_ablation_step741.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_dual_role_analysis.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_dual_role_analysis.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_dual_role_analysis.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_e009fixed5_head_ablation_step741.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_eval_stratified_reference_maps.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_gradient_gated_spatial_frequency.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_gradient_top10_attention_maps.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_head_circuit_path_patching.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_head_circuit_path_patching.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_head_circuit_path_patching.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_head_circuit_zero_attention.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_legacy_e009_fixed5_head_ablation.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_new_old_union15_head_ablation.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_query_r005_transfer_step247.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/train/e012_query_r005_transfer_step247.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/train/e012_query_r005_transfer_step247.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_head_ablation_step741.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_joint_only_step741_686.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_ref10_query5_correct_final_eval.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/eval/e012_ref10_query5_correct_final_eval.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/eval/e012_ref10_query5_correct_final_eval.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_reference_gradient_gated_spatial_frequency.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_reference_spatial_iou050.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_reference_spatial_iou050.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_reference_spatial_iou050.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/e012_top10_head_ablation.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/analysis/e012/e012_top10_head_ablation.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/analysis/e012/e012_top10_head_ablation.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/e012_ref10_query5_correct_final_eval.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-012/evaluation/ref10_query5_correct_final.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/run_e011_inter.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_focus_query_attention_branch.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_focus_query_attention_branch.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/run_e011_qwen3_grounding_adapter_eval.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/eval/run_grounding_adapter_eval.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/eval/run_grounding_adapter_eval.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/run_e011_qwen3vl_native.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/eval/run_native_grounding.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/eval/run_native_grounding.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/run_grounding_adapter_eval.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_grounding_tasks.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_grounding_tasks.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/eval/run_native_grounding.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/eval/qwen3vl_8b_native_grounding.py"
+      ],
+      "default_configs": [
+        "configs/eval/qwen3vl_8b_native_grounding.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_branch.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_focus_branch.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_focus_branch.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_dynamic_reference_query_alignment.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_reference_query_dynamic.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_reference_query_dynamic.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_e009_branch.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/run_branch.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/run_branch.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_e009_dynamic_reference_query_distill.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/run_dynamic_reference_query_alignment.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/run_dynamic_reference_query_alignment.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_e009_head_stability_suite.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/run_head_stability_suite.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/run_head_stability_suite.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_e009_reference_query_ensemble_distill.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/run_reference_query_alignment.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/run_reference_query_alignment.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_focus_tasks.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_focus_tasks.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_focus_tasks.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/run_head_stability_suite.sh",
+      "tier": "task-specific / historical",
+      "targets": [
+        "configs/sft/qwen3vl_8b_focus_tasks.py"
+      ],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": [
+        "tools/screen_head_stability_suite.py"
+      ]
+    },
+    {
+      "shell": "tools/run/run_reference_query_alignment.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_reference_query_gt_mask.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_reference_query_gt_mask.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/e012_query_r005_transfer_step247.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/experiments/E-012/training/query_r005_ref3_transfer.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-012/training/query_r005_ref3_transfer.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/e014_multi_v2_cover_min_cap5_grpo.sh",
+      "tier": "task-specific / historical",
+      "targets": [
+        "configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_grpo.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/training/e014_multi_v2_cover_min_cap5_grpo.py"
+      ],
+      "forwards": [
+        "tools/run/train/e014_variable_symmetric_grpo.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/e014_multi_v2_symmetric_grpo.sh",
+      "tier": "task-specific / historical",
+      "targets": [
+        "configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py"
+      ],
+      "forwards": [
+        "tools/run/train/e014_variable_symmetric_grpo.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/e014_variable_symmetric_grpo.sh",
+      "tier": "task-specific / historical",
+      "targets": [
+        "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py"
+      ],
+      "default_configs": [
+        "configs/experiments/E-014/training/e014_variable_symmetric_grpo.py"
+      ],
+      "forwards": [],
+      "python_tools": [
+        "tools/run_e014_grpo.py"
+      ]
+    },
+    {
+      "shell": "tools/run/train/run_e011_qwen3_grounding_sft_ddp4.sh",
+      "tier": "compatibility alias",
+      "targets": [
+        "tools/run/train/train_grounding_ddp4.sh"
+      ],
+      "default_configs": [],
+      "forwards": [
+        "tools/run/train/train_grounding_ddp4.sh"
+      ],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_4bit.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit_head_screening.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_head_screening.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_head_screening.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_ddp4_4bit_named.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_1shot_single.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_1shot_single.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_2shot_single.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_2shot_single.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_2shot_single.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_confidence_grpo.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py"
+      ],
+      "default_configs": [
+        "configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_confidence_sft.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/e013_qwen3vl8b_focus_confidence.py"
+      ],
+      "default_configs": [
+        "configs/sft/e013_qwen3vl8b_focus_confidence.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_ddp.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_ddp.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_ddp.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_gt_mask_pipeline.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_focus_sharded.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_lora_focus_bs16.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_lora_focus_bs16.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_grounding_ddp4.sh",
+      "tier": "maintained shortcut",
+      "targets": [
+        "configs/sft/qwen3vl_8b_grounding.py"
+      ],
+      "default_configs": [
+        "configs/sft/qwen3vl_8b_grounding.py"
+      ],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run/train/train_named_ddp4.sh",
+      "tier": "canonical/helper",
+      "targets": [],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    },
+    {
+      "shell": "tools/run.sh",
+      "tier": "canonical/helper",
+      "targets": [],
+      "default_configs": [],
+      "forwards": [],
+      "python_tools": []
+    }
+  ],
+  "source_only": true,
+  "limits": "AST/literal declarations and source references only; no config execution, shell execution, model imports, artifact access or Run-state verification."
+}

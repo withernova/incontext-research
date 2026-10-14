@@ -1,0 +1,142 @@
+{
+  "contract": "pi.code-change-review/v1",
+  "review_id": "7513d9d6ec012bc6",
+  "diff_fingerprint": "7513d9d6ec012bc635b3371ba049cd84cab5496082474c8887d1aff37f0199e3",
+  "base_revision": "4d279e1aadf05237f2430202a38bac2ef4e2c2e8",
+  "task_id": "E-013-readability-20261009",
+  "task_scoped": false,
+  "task_boundary": null,
+  "commit": {
+    "sha": "9d42d2be43464988cde879857a9d31864cf49851",
+    "paths": [
+      "docs/GRPO_MODULES.md",
+      "docs/HEAD_SCREENING_MODULES.md",
+      "docs/READING_TRAINING_FLOWS.md",
+      "iploc_szy/builder.py",
+      "iploc_szy/engine/runner.py",
+      "iploc_szy/head_screening/pruning/worker.py",
+      "iploc_szy/head_screening/target_background/worker.py",
+      "iploc_szy/rl/trainer.py",
+      "tests/test_e013_counterfactual.py",
+      "tests/test_grpo_training_flow.py"
+    ]
+  },
+  "review_current": true,
+  "repository": {
+    "path": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy"
+  },
+  "review_scope": {
+    "allowed_paths": [
+      "docs/GRPO_MODULES.md",
+      "docs/HEAD_SCREENING_MODULES.md",
+      "docs/READING_TRAINING_FLOWS.md",
+      "iploc_szy/builder.py",
+      "iploc_szy/engine/runner.py",
+      "iploc_szy/head_screening/pruning/worker.py",
+      "iploc_szy/head_screening/target_background/worker.py",
+      "iploc_szy/rl/trainer.py",
+      "tests/test_e013_counterfactual.py",
+      "tests/test_grpo_training_flow.py"
+    ],
+    "forbidden_paths": [
+      ".git",
+      "outputs",
+      "runs",
+      "data",
+      "checkpoints"
+    ]
+  },
+  "intent": "E-013 readability refactor: explicit rollout records and staged SFT/head-screening flows; preserve formulas, seeds, ordering and outputs. Unchanged eager attention exact-equality test also fails on HEAD in the CPU environment and is separately documented.",
+  "passed": true,
+  "blocking_findings": [],
+  "warnings": [],
+  "changed_files": [
+    {
+      "path": "docs/GRPO_MODULES.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/HEAD_SCREENING_MODULES.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/READING_TRAINING_FLOWS.md",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/builder.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/engine/runner.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/head_screening/pruning/worker.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/head_screening/target_background/worker.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/trainer.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "tests/test_e013_counterfactual.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "tests/test_grpo_training_flow.py",
+      "status": "M ",
+      "untracked": false
+    }
+  ],
+  "tests": [
+    {
+      "command": "focused CPU training, tiny Qwen replay, counterfactual, pipeline and pruning tests",
+      "exit_code": 0,
+      "summary": "80 passed"
+    },
+    {
+      "command": "counterfactual eligibility and single/accumulating training flow plus target/background compatibility tests",
+      "exit_code": 0,
+      "summary": "34 passed"
+    },
+    {
+      "command": "check_stage_ast.py",
+      "exit_code": 0,
+      "summary": "Target/background stages and pruning readout/frozen-input/summary statement ASTs match baseline"
+    },
+    {
+      "command": "compare_training.py and compare_sft.py",
+      "exit_code": 0,
+      "summary": "Before/after weights, optimizer/scheduler state, metrics/logs and RNG agree"
+    },
+    {
+      "command": "check_baseline_precision.py",
+      "exit_code": 0,
+      "summary": "Unchanged original and current hook reproduce the same CPU 5.96e-08 exact-equality failure"
+    },
+    {
+      "command": "ruff F821,F822,F823; Python 3.9 grammar; git diff --check",
+      "exit_code": 0,
+      "summary": "No undefined names, syntax/whitespace errors"
+    },
+    {
+      "command": "local CPU pytest full source suite, excluding real processor asset and independently reproduced baseline eager precision failure",
+      "exit_code": 0,
+      "summary": "536 passed, 2 deselected; full unfiltered CPU scope was 536 passed, 1 unchanged-baseline failure, 1 asset test deselected"
+    }
+  ]
+}

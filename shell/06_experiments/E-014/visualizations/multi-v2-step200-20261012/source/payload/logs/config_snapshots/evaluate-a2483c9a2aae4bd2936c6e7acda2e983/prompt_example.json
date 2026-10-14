@@ -1,0 +1,34 @@
+{
+  "id": "0-1",
+  "messages": [
+    {
+      "role": "user",
+      "content": [
+        {
+          "type": "text",
+          "text": "Locate the same object across the sequence of frames shown below. Your goal is to identify the target object consistently using the visual context provided.\n\nFor the first T-1 frames, the bounding box of the object is already provided. Use this information and the visual context to predict where the same object appears in the final frame.\n\nOutput multiple distinct candidate bounding boxes for the last frame, each followed by a confidence score indicating how confident you are that the box correctly localizes the same target object. Consider different instances in the query that resemble the reference target; each score should indicate confidence that the candidate is the same instance as the reference target. Include as many different instances that visually resemble the reference target as you can identify. Do not repeat boxes for the same instance. List candidates in left-to-right order by box center in the query. The score must be a single number between 0.0 and 1.0, written with two decimal places.\n\nUse the following format, one candidate per line:\n<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>\n<answer>[x_min,y_min,x_max,y_max]</answer><score>confidence</score>"
+        },
+        {
+          "type": "image",
+          "image": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/basketball/basketball-1/img/00000001.jpg"
+        },
+        {
+          "type": "text",
+          "text": "Frame 1 BBOX: [542,375,572,425]"
+        },
+        {
+          "type": "image",
+          "image": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/basketball/basketball-1/img/00001088.jpg"
+        },
+        {
+          "type": "text",
+          "text": "Frame 2 is the final frame. Predict multiple BBOX candidates and a confidence score for each."
+        }
+      ]
+    },
+    {
+      "role": "assistant",
+      "content": []
+    }
+  ]
+}

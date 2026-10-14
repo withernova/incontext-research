@@ -1,0 +1,150 @@
+{
+  "baseline": "1622e5f64a70239d02145f017cfd991cf8318e47",
+  "relative_templates": 27,
+  "absolute_historical_exceptions": 1,
+  "files": [
+    {
+      "shell": "tools/run/e012_bbox_gradient_initial.sh",
+      "actual_target": "tools/run/analysis/e012/e012_bbox_gradient_initial.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_ce_iou_probe_head_ablation_step741.sh",
+      "actual_target": "tools/run/analysis/e012/e012_ce_iou_probe_head_ablation_step741.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_dual_role_analysis.sh",
+      "actual_target": "tools/run/analysis/e012/e012_dual_role_analysis.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_e009fixed5_head_ablation_step741.sh",
+      "actual_target": "tools/run/analysis/e012/e012_e009fixed5_head_ablation_step741.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_eval_stratified_reference_maps.sh",
+      "actual_target": "tools/run/analysis/e012/e012_eval_stratified_reference_maps.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_gradient_gated_spatial_frequency.sh",
+      "actual_target": "tools/run/analysis/e012/e012_gradient_gated_spatial_frequency.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_gradient_top10_attention_maps.sh",
+      "actual_target": "tools/run/analysis/e012/e012_gradient_top10_attention_maps.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_head_circuit_path_patching.sh",
+      "actual_target": "tools/run/analysis/e012/e012_head_circuit_path_patching.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_head_circuit_zero_attention.sh",
+      "actual_target": "tools/run/analysis/e012/e012_head_circuit_zero_attention.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_legacy_e009_fixed5_head_ablation.sh",
+      "actual_target": "tools/run/analysis/e012/e012_legacy_e009_fixed5_head_ablation.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_new_old_union15_head_ablation.sh",
+      "actual_target": "tools/run/analysis/e012/e012_new_old_union15_head_ablation.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "actual_target": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_686.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "actual_target": "tools/run/analysis/e012/e012_oldnew_union10_head_ablation_step741_smoke.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_query_r005_transfer_step247.sh",
+      "actual_target": "tools/run/train/e012_query_r005_transfer_step247.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_head_ablation_step741.sh",
+      "actual_target": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "actual_target": "tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_r006_query5_joint_only_step741_686.sh",
+      "actual_target": "tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_ref10_query5_correct_final_eval.sh",
+      "actual_target": "tools/run/eval/e012_ref10_query5_correct_final_eval.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_reference_gradient_gated_spatial_frequency.sh",
+      "actual_target": "tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_reference_spatial_iou050.sh",
+      "actual_target": "tools/run/analysis/e012/e012_reference_spatial_iou050.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/e012_top10_head_ablation.sh",
+      "actual_target": "tools/run/analysis/e012/e012_top10_head_ablation.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/eval/run_e011_qwen3_grounding_adapter_eval.sh",
+      "actual_target": "tools/run/eval/run_grounding_adapter_eval.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/eval/run_e011_qwen3vl_native.sh",
+      "actual_target": "tools/run/eval/run_native_grounding.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/run_e009_branch.sh",
+      "actual_target": "tools/run/run_branch.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/run_e009_dynamic_reference_query_distill.sh",
+      "actual_target": "tools/run/run_dynamic_reference_query_alignment.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/run_e009_head_stability_suite.sh",
+      "actual_target": "/defaultShare/archive/liuwenchu/projects/IPLoc/mechanism/iploc-szy/tools/run/run_head_stability_suite.sh",
+      "navigation_target": [
+        "tools/run/run_head_stability_suite.sh"
+      ],
+      "verification": "manual full read; fixed historical external checkout, NOT proven to be the current binding/deployed source"
+    },
+    {
+      "shell": "tools/run/run_e009_reference_query_ensemble_distill.sh",
+      "actual_target": "tools/run/run_reference_query_alignment.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    },
+    {
+      "shell": "tools/run/train/run_e011_qwen3_grounding_sft_ddp4.sh",
+      "actual_target": "tools/run/train/train_grounding_ddp4.sh",
+      "verification": "exact two-command relative forwarding; quoted argv; agrees with index; source only"
+    }
+  ]
+}

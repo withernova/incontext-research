@@ -1,0 +1,1423 @@
+--- a/CONFIG_MANAGEMENT.md
++++ b/CONFIG_MANAGEMENT.md
+@@ -1,6 +1,9 @@
+ # 配置与运行记录：按复用需求分工
+ 
+ 日常只需要记住一个入口：`bash tools/run.sh CONFIG.py [--inspect] [key=value ...]`。
++按实验浏览、查看最终配置和比较参数分别使用 `python tools/experiments.py list`、
++`show CONFIG.py`、`diff FIRST.py SECOND.py`，均只读取源码，不创建运行或检查输入产物。
++新增小实验的目录和复用流程见 [实验配置管理](configs/experiments/README.md)。
+ 先激活 IPLoc Python 环境；也可以显式指定 `IPLOC_PYTHON` 为解释器路径。
+ 脚本从自身位置定位仓库，不再绑定某台机器的解释器或 GPU 编号。
+ 完整机器校验关系见 [configs/ENTRYPOINT_INDEX.md](configs/ENTRYPOINT_INDEX.md)，
+@@ -62,6 +65,10 @@
+ `tools/run/analysis/e012/`。旧的 `configs/head_screening/e012_*`、
+ `configs/sft/e012_*` 和 `tools/run/e012_*` 是可运行的兼容 alias；新文件不要再放到旧目录。
+ 
++E-013 的 12 份 Python 配置已迁入 `configs/experiments/E-013/training/` 和
++`evaluation/`。旧 `configs/sft/e013_*`、`configs/grpo/e013_*` 保留薄 alias；
++参数只维护 canonical 文件。GRPO 职责拆分见 [GRPO 模块](docs/GRPO_MODULES.md)。
++
+ ## 蒸馏步骤与迁移注意
+ 
+ - E-012 默认直接使用显式冻结的 ref3/query5 集合和已存在的 teacher manifest；不在启动时重筛。
+--- a/MODULE_MAP.md
++++ b/MODULE_MAP.md
+@@ -1,3 +1,21 @@
++
++# 模块职责
++
++核心链路为 Config → Registry/Builder → Dataset/Collator → Model → Runner/Hooks → Evaluator。
++
++| 位置 | 维护内容 |
++|---|---|
++| `configs/_base_/`、公共 recipe | 可复用模型、数据和训练默认值 |
++| `configs/experiments/E-xxx/` | 本实验的训练、评测和小实验配方 |
++| `iploc_szy/datasets/`、`prompting/` | 输入记录、消息、坐标和 token 对齐 |
++| `iploc_szy/models/` | 模型、processor 和 LoRA 包装 |
++| `iploc_szy/engine/` | SFT 更新循环、Hook 和训练阶段调度 |
++| `iploc_szy/rl/` | GRPO 预检查、policy 加载、采样、目标与更新；详见 `docs/GRPO_MODULES.md` |
++| `iploc_szy/evaluation/`、`head_screening/` | 评测指标、attention 诊断与干预 |
++| `tools/experiments.py` | 只读实验导航、配置来源和参数差异 |
++| `tools/run.sh`、`tools/launch.py` | 统一配方启动与检查 |
++
++新增实验先复用配置与职责模块；需要可重复维护的变体再新增薄配方，不默认复制模型加载器或 Shell。配置目录约定见 `configs/experiments/README.md`。
+ 
+ ## Prompt protocol correction
+ 
+--- a/configs/ENTRYPOINT_INDEX.md
++++ b/configs/ENTRYPOINT_INDEX.md
+@@ -134,13 +134,25 @@
+ | `configs/experiments/E-012/protocol/e012_reference_target_screening.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/experiments/E-012/training/query_r005_ref3_transfer.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+-| `configs/grpo/e013_multi3_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_multi3_collage_coverage_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_collage_branch.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_multi3_collage_coverage_pilot.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_collage_coverage_branch.py`, `configs/grpo/e013_multi3_rank_collage_branch.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_multi3_rank_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_multi3_rank_cf_branch.py` | grpo | 2 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_multi3_rank_collage_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
+-| `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py` | evaluate | 2 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py` |
++| `configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_rank_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py` | grpo | 2 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/grpo/e013_multi3_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_collage_coverage_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_collage_coverage_pilot.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py`, `configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_cf_branch.py` | grpo | 2 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_collage_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py`, `configs/experiments/E-013/training/e013_multi3_rank_branch.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | grpo | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py` |
+ | `configs/head_screening/e012_bbox_gradient_initial.py` | compatibility config alias | — | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/head_screening/e012_ce_iou_probe_head_ablation_step741.py` | compatibility config alias | — | `configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py` |
+ | `configs/head_screening/e012_contribution_calculation_check.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_contribution_calculation_check.py` |
+@@ -173,11 +185,11 @@
+ | `configs/sft/e011_qwen3vl8b_lora_grounding_1shot_ddp4_4bit.py` | train | 4 | `configs/sft/qwen3vl_8b_grounding.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/_base_/e011_frozen_eval.py` |
+ | `configs/sft/e012_query_r005_ref3_transfer.py` | train | 4 | `configs/experiments/E-012/training/query_r005_ref3_transfer.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/e012_ref10_query5_correct_final_eval.py` | evaluate | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-012/evaluation/ref10_query5_correct_final.py` |
+-| `configs/sft/e013_multi3_rank_cf_eval.py` | evaluate | 2 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/e013_multi_candidate_branch.py` |
+-| `configs/sft/e013_multi_candidate_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+-| `configs/sft/e013_multi_candidate_instances_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+-| `configs/sft/e013_multi_candidate_spatial_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/e013_multi_candidate_instances_branch.py` |
+-| `configs/sft/e013_qwen3vl8b_focus_confidence.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/sft/e013_multi3_rank_cf_eval.py` | evaluate | 2 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py` |
++| `configs/sft/e013_multi_candidate_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py` |
++| `configs/sft/e013_multi_candidate_instances_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py` |
++| `configs/sft/e013_multi_candidate_spatial_branch.py` | evaluate | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py`, `configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py` |
++| `configs/sft/e013_qwen3vl8b_focus_confidence.py` | train | 4 | `configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_branch.py` | evaluate | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_query_attention_branch.py` | attention_intervene | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/qwen3vl_8b_focus_branch.py` |
+--- /dev/null
++++ b/configs/experiments/E-013/README.md
+@@ -0,0 +1,21 @@
++# E-013 置信度与多候选实验配方
++
++`configs/experiments/E-013/` 是 E-013 Python 配置的维护位置。
++
++| 目录 | 内容 |
++|---|---|
++| `training/` | 置信度 SFT、单框 GRPO、三框/排序/反事实/拼图 GRPO 配方 |
++| `evaluation/` | 多候选、实例搜索、空间顺序和反事实 checkpoint 评测配方 |
++
++```bash
++python tools/experiments.py list --experiment E-013
++python tools/experiments.py show configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py
++python tools/experiments.py diff \
++  configs/experiments/E-013/training/e013_multi3_rank_branch.py \
++  configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py
++bash tools/run.sh configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py --inspect
++```
++
++原来的 `configs/sft/e013_*.py`、`configs/grpo/e013_*.py` 是兼容别名，旧启动命令继续可用。JSON 单设备低层示例 `configs/grpo/e013_confidence.json` 保留原位置；新日常配方使用本目录下的 Python 配置与统一 launcher。
++
++新增长期变体放在本目录，使用 `_base_` 和 `runtime.*` 只声明变化；新小实验优先用 CLI 覆盖和独立输出名称。既有配置中的路径、seed、reward、数据范围和超参数原样保留，迁移不代表输入在当前机器上可用。
+--- /dev/null
++++ b/configs/experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py
+@@ -0,0 +1,25 @@
++"""Two-GPU validation of an E-013 score-only counterfactual GRPO checkpoint."""
++_base_ = 'e013_multi_candidate_branch.py'
++
++branch = dict(source=None, nproc_per_node=2)
++named_run = dict(
++    experiment_root="/defaultShare/archive/songzhengyue/projects/IPLoc/experiments",
++    run_name="multi3-rank-cf-latest-eval",
++    parent_checkpoint=(
++        "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/"
++        "focus-confidence-sft/branches/"
++        "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep/"
++        "grpo/checkpoints/step_000450"
++    ),
++    notes="E-013 反事实 GRPO；启动时固定最新完整 checkpoint，三框实例提示，按 score 选框。",
++)
++runtime = dict(test_dataloader=dict(dataset=dict(
++    ann_file=(
++        "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/"
++        "E009-real-focus-data/manifests/"
++        "test_combined_lasot600_gotval_taoval_1shot_focus.json"
++    ),
++    ann_file_sha256="48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
++    instance_search=True,
++    prompt_version="focus-multi3-instances-v1",
++)))
+--- /dev/null
++++ b/configs/experiments/E-013/evaluation/e013_multi_candidate_branch.py
+@@ -0,0 +1,44 @@
++"""E-013：仅推理、要求三个候选框、按模型自身 score 选择一个框。
++
++四卡评测入口：
++  bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_branch.py \
++    branch.source=baseline named_run.run_name=baseline-multi3-v3
++  bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_branch.py \
++    branch.source=grpo_step500 named_run.run_name=grpo500-multi3-v3
++
++添加 --inspect 只查看配置；evaluation.limit=8 可做启动检查。
++此配置固定多候选 dataset/evaluator、prompt 版本和 192 token 预算，不用 SFT。
++prediction 字段保存按 score 选出的单框；raw_prediction 保留原始多框输出。
++oracle 指标使用 GT 仅用于分析，不参与实际选择。
++"""
++branch = dict(
++    parent_config='../training/e013_qwen3vl8b_focus_confidence.py',
++    action="evaluate", nproc_per_node=4, periodic_head_screening=False,
++    source="baseline",
++    source_profiles=dict(
++        baseline=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
++            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"),
++        grpo_step500=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
++            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260921T172801747698Z--focus-confidence-grpo-overnight-ready/grpo/checkpoints/step_000500"),
++    ),
++)
++named_run = dict(
++    experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
++    experiment_id="E-013", run_name="multi3-v3", run_kind="branch-eval",
++    mode="new", timestamp="auto", parent_checkpoint=None, require_parent_checkpoint=True,
++    run_dir=None, resume_checkpoint=None, tags=["multi-candidate", "confidence", "inference-only"],
++    notes="保留单框 confidence prompt，仅将输出要求改为 3 个候选；最高 score 选择；未重新 SFT。",
++)
++runtime = dict(
++    test_dataloader=dict(batch_size=1, dataset=dict(
++        type="MultiCandidateLocalizationDataset", max_candidates=3,
++        ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
++        target_role="positive-image", normalized_scale=1000,
++        prompt_protocol="focus_confidence", prompt_version="focus-multi3-v3",
++    )),
++    evaluator=dict(type="MultiCandidateLocalizationEvaluator", max_candidates=3,
++                   iou_thresholds=(0.25, 0.5, 0.75)),
++)
++evaluation = dict(dataloader="test_dataloader", limit=None, selection="head", seed=20260901,
++                  vision_max_patch_tokens=4096, max_new_tokens=192,
++                  do_sample=False, log_interval=10)
+--- /dev/null
++++ b/configs/experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py
+@@ -0,0 +1,32 @@
++"""E-013 instance-search prompt evaluation. Run with --inspect or branch.source=..."""
++branch = dict(
++    parent_config='../training/e013_qwen3vl8b_focus_confidence.py',
++    action="evaluate", nproc_per_node=4, periodic_head_screening=False,
++    source="sft_baseline",
++    source_profiles=dict(
++        sft_baseline=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
++            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"),
++        multi3_grpo=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
++            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260922T165640005821Z--multi3-instances-grpo-lr8e5-3ep/grpo/checkpoints/step_001500"),
++    ),
++)
++named_run = dict(
++    experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
++    experiment_id="E-013", run_name="multi3-instances-prompt-eval", run_kind="branch-eval",
++    mode="new", timestamp="auto", parent_checkpoint=None, require_parent_checkpoint=True,
++    run_dir=None, resume_checkpoint=None, tags=["multi-candidate", "instance-search", "confidence", "inference-only"],
++    notes="严格使用训练prompt：查询图中相似但不同实例；每个score表达与reference是否同一实例的置信度。",
++)
++runtime = dict(
++    test_dataloader=dict(batch_size=1, dataset=dict(
++        type="MultiCandidateLocalizationDataset", max_candidates=3, instance_search=True,
++        ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
++        target_role="positive-image", normalized_scale=1000,
++        prompt_protocol="focus_confidence", prompt_version="focus-multi3-instance-search-v1",
++    )),
++    evaluator=dict(type="MultiCandidateLocalizationEvaluator", max_candidates=3,
++                   iou_thresholds=(0.25, 0.5, 0.75)),
++)
++evaluation = dict(dataloader="test_dataloader", limit=None, selection="head", seed=20260901,
++                  vision_max_patch_tokens=4096, max_new_tokens=192,
++                  do_sample=False, log_interval=10)
+--- /dev/null
++++ b/configs/experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py
+@@ -0,0 +1,14 @@
++"""E-013 three-candidate evaluation using the collage training prompt.
++
++Example:
++bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_spatial_branch.py --inspect \
++  branch.source_profiles.sft_baseline.parent_checkpoint=PATH
++
++For a GRPO adapter, choose its branch checkpoint with
++branch.source_profiles.sft_baseline.parent_checkpoint=PATH.
++"""
++_base_ = 'e013_multi_candidate_instances_branch.py'
++named_run = dict(run_name='multi3-spatial-prompt-eval',
++    notes='与拼图覆盖训练相同prompt：三个框按Query中心横坐标从左到右排序，置信度仍指向Reference对应实例。')
++runtime = dict(test_dataloader=dict(dataset=dict(
++    spatial_order=True, prompt_version='focus-multi3-instance-spatial-v2')))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_branch.py
+@@ -0,0 +1,12 @@
++"""E-013: SFT -> multi-instance GRPO; 4 GPUs, 50/50 existing pairs.
++
++bash tools/run/run_branch.sh configs/grpo/e013_multi3_branch.py --inspect
++Remove --inspect to train. Override runtime.grpo.* for training parameters.
++No SFT stage; initializes only from the original confidence SFT checkpoint.
++"""
++_base_ = 'e013_qwen3vl8b_focus_confidence_branch.py'
++named_run = dict(run_name='multi3-instances-grpo-lr8e5-3ep',
++    notes='原 SFT 初始化；原 2000 对正负样本；三候选；top-score IoU + 全候选 Brier + 0.05 弱重复惩罚。')
++runtime = dict(grpo=dict(prompt_protocol='focus_multi3_instances_v1',
++    learning_rate=8e-5, epochs=3, max_new_tokens=192,
++    reward=dict(duplicate_weight=0.05, duplicate_threshold=0.9)))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_collage_coverage_branch.py
+@@ -0,0 +1,19 @@
++"""E-013 A/B collage GRPO, initialized from the confidence SFT checkpoint.
++
++Each epoch has 2,000 original positive/negative pairs and 2,000 collage
++reference-switch pairs. Candidates are listed left-to-right; on collages,
++the first two should cover both instances while confidence selects the
++instance indicated by the reference. Four GPUs, 8e-5, three epochs.
++
++Inspect: bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_branch.py --inspect
++Launch:  bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_branch.py
++Use the separate pilot config for a 100-step trial before a full launch.
++"""
++_base_ = 'e013_multi3_rank_collage_branch.py'
++named_run = dict(
++    run_name='multi3-collage-coverage-grpo-lr8e5-3ep',
++    notes='从置信度SFT初始化；原始正负对与拼图A/B对等量混合。前两框按空间顺序覆盖左右实例；Reference切换决定置信度与最终选择。')
++runtime = dict(grpo=dict(
++    prompt_protocol='focus_multi3_instances_spatial_v2',
++    reward=dict(coverage_weight=0.8, distractor_weight=0.5,
++                rank_weight=0.5, rank_margin=0.1)))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_collage_coverage_pilot.py
+@@ -0,0 +1,10 @@
++"""E-013 short four-GPU collage coverage trial; does not resume paused runs.
++
++Inspect: bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_pilot.py --inspect
++Launch:  bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_pilot.py
++The pilot stops after 100 optimizer updates and saves every 25 updates.
++"""
++_base_ = 'e013_multi3_collage_coverage_branch.py'
++named_run = dict(run_name='multi3-collage-coverage-pilot100',
++    notes='拼图左右覆盖及Reference切换的100-step四卡试验；从置信度SFT初始化，原始正负对仍参与训练。')
++runtime = dict(grpo=dict(epochs=None, steps=100, save_every_steps=25))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_rank_branch.py
+@@ -0,0 +1,12 @@
++"""E-013 three-candidate GRPO with confidence calibration and pairwise ranking.
++
++Runs from the original SFT checkpoint, on the existing balanced 2,000 pairs.
++Four GPUs, 8e-5 learning rate and three epochs. Use --inspect before launch.
++"""
++_base_ = 'e013_qwen3vl8b_focus_confidence_branch.py'
++named_run = dict(run_name='multi3-instances-grpo-rank-lr8e5-3ep',
++    notes='SFT初始化；原2000正负样本对；top-score IoU、全候选Brier、弱重复惩罚、候选两两排序奖励。')
++runtime = dict(grpo=dict(prompt_protocol='focus_multi3_instances_v1',
++    learning_rate=8e-5, epochs=3, group_size=4, max_new_tokens=192,
++    reward=dict(duplicate_weight=0.05, duplicate_threshold=0.9,
++                rank_weight=0.5, rank_margin=0.1, rank_iou_delta=0.1)))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_rank_cf_branch.py
+@@ -0,0 +1,14 @@
++"""E-013 rank GRPO with an additional score-token counterfactual preference."""
++_base_ = 'e013_multi3_rank_branch.py'
++
++branch = dict(nproc_per_node=2, source_profiles=dict(e013_baseline=dict(
++    parent_checkpoint='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659')))
++
++named_run = dict(
++    experiment_root='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments',
++    parent_checkpoint='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659',
++    run_name='multi3-instances-grpo-rank-cf-lr8e5-3ep',
++    notes='沿用三框排序 GRPO；仅对有效且 reward 提升的错选输出加入 score 数字 token 偏好损失。')
++
++runtime = dict(grpo=dict(counterfactual=dict(
++    weight=0.1, beta=0.1, min_best_iou=0.5, min_reward_gain=0.)))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_multi3_rank_collage_branch.py
+@@ -0,0 +1,16 @@
++"""E-013 mixed GRPO: original balanced pairs plus A/B reference-switch collages.
++
++Both datasets contribute 2,000 two-prompt units per epoch. The original unit
++remains one positive and one negative; each collage unit has two positives on
++the same query image with different references and distractor boxes. Four GPUs,
++8e-5 learning rate, three epochs, initialized from the confidence SFT adapter.
++
++bash tools/run/run_branch.sh configs/grpo/e013_multi3_rank_collage_branch.py --inspect
++Remove --inspect to launch a new four-GPU branch after previous training ends.
++"""
++_base_ = 'e013_multi3_rank_branch.py'
++named_run = dict(run_name='multi3-rank-collage-grpo-lr8e5-3ep',
++    notes='原SFT初始化；每轮2000原始正负对+2000拼图A/B正例对；沿用全候选Brier、top-score IoU、两两排序与弱重复惩罚；拼图另惩罚另一实例的高置信度。')
++runtime = dict(grpo=dict(
++    collage_manifest='/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/counterfactual-collage-v2/groups.jsonl',
++    reward=dict(distractor_weight=0.5)))
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py
+@@ -0,0 +1,35 @@
++"""E-013: FOCUS single box + numeric score, without confidence value targets."""
++
++_base_ = '../../../sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py'
++
++work_dir = "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft"
++
++train_dataloader = dict(
++    dataset=dict(
++        # User-approved reuse of E-009's complete training manifest (no subset).
++        ann_file='/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus.json',
++        prompt_protocol="focus_confidence",
++        prompt_version="focus-confidence-v1",
++    ),
++    collator=dict(mask_score_values=True),
++)
++
++runner = dict(
++    auxiliary_loss=dict(type="ConfidenceFormatLoss", weight=0.1),
++    max_epochs=4,
++    seed=11451,
++)
++
++# Same dataset adapter/messages for train and generation evaluation.
++test_dataloader = dict(
++    dataset=dict(
++        type="IPLocManifestDataset",
++        ann_file="__SET_E013_EVAL_MANIFEST__.json",
++        target_role="positive-image",
++        normalized_scale=1000,
++        prompt_protocol="focus_confidence",
++        prompt_version="focus-confidence-v1",
++    ),
++)
++evaluator = dict(type="ConfidenceLocalizationEvaluator", iou_thresholds=(0.25, 0.5, 0.75))
++evaluation = dict(vision_max_patch_tokens=1024, max_new_tokens=64, do_sample=False)
+--- /dev/null
++++ b/configs/experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py
+@@ -0,0 +1,3 @@
++branch=dict(parent_config='e013_qwen3vl8b_focus_confidence.py',action="grpo",nproc_per_node=4,periodic_head_screening=False,source="e013_baseline",source_profiles=dict(e013_baseline=dict(kind="checkpoint",experiment_id="E-013",parent_checkpoint="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659")))
++named_run=dict(experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",experiment_id="E-013",run_name="focus-confidence-grpo",run_kind="branch-grpo",mode="new",timestamp="auto",parent_checkpoint=None,require_parent_checkpoint=True,run_dir=None,resume_checkpoint=None,tags=["focus","confidence","grpo","branch"],notes="E-013 confidence GRPO")
++runtime=dict(train_dataloader=dict(dataset=dict(ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json")),grpo=dict(device="cuda:0",load_in_4bit=True,epochs=2,group_size=4,max_new_tokens=96,max_pixels=262144,learning_rate=5e-5,beta=0.04,clip=0.2,max_grad_norm=1.0,seed=11451,reward=dict(iou_threshold=0.5,loc_weight=1.,cal_weight=1.,neg_weight=1.)))
+--- /dev/null
++++ b/configs/experiments/README.md
+@@ -0,0 +1,40 @@
++# 实验配置管理
++
++每个实验的专用配置放在 `configs/experiments/E-xxx/`。模型、数据适配器和可复用训练方法继续放在公共包及 `configs/_base_/`、`configs/sft/` 等公共 recipe 目录。
++
++| 子目录 | 职责 |
++|---|---|
++| `protocol/` | 本实验复用的输入和协议配置，需要时创建 |
++| `training/` | SFT、GRPO、蒸馏等训练配方 |
++| `evaluation/` | 固定评测配方 |
++| `analysis/` | 需要反复调用的小实验、干预和诊断配方 |
++
++开始小实验前先查看已有配方和参数差异：
++
++```bash
++python tools/experiments.py list
++python tools/experiments.py list --experiment E-013
++python tools/experiments.py show CONFIG.py
++python tools/experiments.py show CONFIG.py --cfg-options runtime.grpo.learning_rate=0.00008
++python tools/experiments.py diff FIRST.py SECOND.py
++```
++
++这些命令只读取源码配置，不分配运行目录、不检查数据/checkpoint、不启动训练。`show` 会列出最终合并配置、继承来源和启动计划；不能替代真实输入的 preflight。实验归属来自目录或显式的 `e013_` 文件名前缀，不从 checkpoint、运行结果或说明文字推断。
++
++既有小实验通过源码中登记的 Shell 一并列出，`specialized` 表示使用专项接口；未知进程数显示 `—`。这些入口保留现有参数接口，查看列出的源码后再执行。带 `launch`/`branch` 的统一配方使用 `tools/run.sh`。
++
++## 新增小实验
++
++1. 找到最接近的现有配方，用 CLI 覆盖少量参数；需要长期重复使用的变体再新增薄配置。
++2. 新配方继承共享 base 或同实验配方，只写变化的参数。现有源码配置使用 `_base_`，需要完整结构替换时使用 `_delete_=True`。
++3. 给本次输出指定独立名称，执行前通过统一入口检查：
++
++   ```bash
++   bash tools/run.sh CONFIG.py --inspect
++   ```
++
++4. 新入口不需要配套新增 Shell；日常都用 `tools/run.sh`。维护中的 worker 会保存最终配置和源码来源快照。
++5. 新配方会自动出现在 `experiments.py list` 中。需要刷新人读索引时运行 `python tools/audit_entrypoints.py --write-index --write-catalog`。
++
++新实验不要求立即创建四个子目录。一次性统计保持短 Python 工具；反复使用的实验参数再进入配置目录。已有旧路径只保留 `config_alias`，参数只在 canonical 配置维护。
++可复用的纯统计流程也可使用现有 `launch.action='analyze'` 和 `analysis.entrypoint='python.module:function'` 接口，函数契约见 `tools/analyze.py`；这样能复用统一启动、配置快照和状态记录。
+--- a/configs/grpo/e013_multi3_branch.py
++++ b/configs/grpo/e013_multi3_branch.py
+@@ -1,12 +1,2 @@
+-"""E-013: SFT -> multi-instance GRPO; 4 GPUs, 50/50 existing pairs.
+-
+-bash tools/run/run_branch.sh configs/grpo/e013_multi3_branch.py --inspect
+-Remove --inspect to train. Override runtime.grpo.* for training parameters.
+-No SFT stage; initializes only from the original confidence SFT checkpoint.
+-"""
+-_base_ = 'e013_qwen3vl8b_focus_confidence_branch.py'
+-named_run = dict(run_name='multi3-instances-grpo-lr8e5-3ep',
+-    notes='原 SFT 初始化；原 2000 对正负样本；三候选；top-score IoU + 全候选 Brier + 0.05 弱重复惩罚。')
+-runtime = dict(grpo=dict(prompt_protocol='focus_multi3_instances_v1',
+-    learning_rate=8e-5, epochs=3, max_new_tokens=192,
+-    reward=dict(duplicate_weight=0.05, duplicate_threshold=0.9)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_branch.py'
+--- a/configs/grpo/e013_multi3_collage_coverage_branch.py
++++ b/configs/grpo/e013_multi3_collage_coverage_branch.py
+@@ -1,19 +1,2 @@
+-"""E-013 A/B collage GRPO, initialized from the confidence SFT checkpoint.
+-
+-Each epoch has 2,000 original positive/negative pairs and 2,000 collage
+-reference-switch pairs. Candidates are listed left-to-right; on collages,
+-the first two should cover both instances while confidence selects the
+-instance indicated by the reference. Four GPUs, 8e-5, three epochs.
+-
+-Inspect: bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_branch.py --inspect
+-Launch:  bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_branch.py
+-Use the separate pilot config for a 100-step trial before a full launch.
+-"""
+-_base_ = 'e013_multi3_rank_collage_branch.py'
+-named_run = dict(
+-    run_name='multi3-collage-coverage-grpo-lr8e5-3ep',
+-    notes='从置信度SFT初始化；原始正负对与拼图A/B对等量混合。前两框按空间顺序覆盖左右实例；Reference切换决定置信度与最终选择。')
+-runtime = dict(grpo=dict(
+-    prompt_protocol='focus_multi3_instances_spatial_v2',
+-    reward=dict(coverage_weight=0.8, distractor_weight=0.5,
+-                rank_weight=0.5, rank_margin=0.1)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_collage_coverage_branch.py'
+--- a/configs/grpo/e013_multi3_collage_coverage_pilot.py
++++ b/configs/grpo/e013_multi3_collage_coverage_pilot.py
+@@ -1,10 +1,2 @@
+-"""E-013 short four-GPU collage coverage trial; does not resume paused runs.
+-
+-Inspect: bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_pilot.py --inspect
+-Launch:  bash tools/run/run_branch.sh configs/grpo/e013_multi3_collage_coverage_pilot.py
+-The pilot stops after 100 optimizer updates and saves every 25 updates.
+-"""
+-_base_ = 'e013_multi3_collage_coverage_branch.py'
+-named_run = dict(run_name='multi3-collage-coverage-pilot100',
+-    notes='拼图左右覆盖及Reference切换的100-step四卡试验；从置信度SFT初始化，原始正负对仍参与训练。')
+-runtime = dict(grpo=dict(epochs=None, steps=100, save_every_steps=25))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_collage_coverage_pilot.py'
+--- a/configs/grpo/e013_multi3_rank_branch.py
++++ b/configs/grpo/e013_multi3_rank_branch.py
+@@ -1,12 +1,2 @@
+-"""E-013 three-candidate GRPO with confidence calibration and pairwise ranking.
+-
+-Runs from the original SFT checkpoint, on the existing balanced 2,000 pairs.
+-Four GPUs, 8e-5 learning rate and three epochs. Use --inspect before launch.
+-"""
+-_base_ = 'e013_qwen3vl8b_focus_confidence_branch.py'
+-named_run = dict(run_name='multi3-instances-grpo-rank-lr8e5-3ep',
+-    notes='SFT初始化；原2000正负样本对；top-score IoU、全候选Brier、弱重复惩罚、候选两两排序奖励。')
+-runtime = dict(grpo=dict(prompt_protocol='focus_multi3_instances_v1',
+-    learning_rate=8e-5, epochs=3, group_size=4, max_new_tokens=192,
+-    reward=dict(duplicate_weight=0.05, duplicate_threshold=0.9,
+-                rank_weight=0.5, rank_margin=0.1, rank_iou_delta=0.1)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_rank_branch.py'
+--- a/configs/grpo/e013_multi3_rank_cf_branch.py
++++ b/configs/grpo/e013_multi3_rank_cf_branch.py
+@@ -1,14 +1,2 @@
+-"""E-013 rank GRPO with an additional score-token counterfactual preference."""
+-_base_ = 'e013_multi3_rank_branch.py'
+-
+-branch = dict(nproc_per_node=2, source_profiles=dict(e013_baseline=dict(
+-    parent_checkpoint='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659')))
+-
+-named_run = dict(
+-    experiment_root='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments',
+-    parent_checkpoint='/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659',
+-    run_name='multi3-instances-grpo-rank-cf-lr8e5-3ep',
+-    notes='沿用三框排序 GRPO；仅对有效且 reward 提升的错选输出加入 score 数字 token 偏好损失。')
+-
+-runtime = dict(grpo=dict(counterfactual=dict(
+-    weight=0.1, beta=0.1, min_best_iou=0.5, min_reward_gain=0.)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_rank_cf_branch.py'
+--- a/configs/grpo/e013_multi3_rank_collage_branch.py
++++ b/configs/grpo/e013_multi3_rank_collage_branch.py
+@@ -1,16 +1,2 @@
+-"""E-013 mixed GRPO: original balanced pairs plus A/B reference-switch collages.
+-
+-Both datasets contribute 2,000 two-prompt units per epoch. The original unit
+-remains one positive and one negative; each collage unit has two positives on
+-the same query image with different references and distractor boxes. Four GPUs,
+-8e-5 learning rate, three epochs, initialized from the confidence SFT adapter.
+-
+-bash tools/run/run_branch.sh configs/grpo/e013_multi3_rank_collage_branch.py --inspect
+-Remove --inspect to launch a new four-GPU branch after previous training ends.
+-"""
+-_base_ = 'e013_multi3_rank_branch.py'
+-named_run = dict(run_name='multi3-rank-collage-grpo-lr8e5-3ep',
+-    notes='原SFT初始化；每轮2000原始正负对+2000拼图A/B正例对；沿用全候选Brier、top-score IoU、两两排序与弱重复惩罚；拼图另惩罚另一实例的高置信度。')
+-runtime = dict(grpo=dict(
+-    collage_manifest='/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/counterfactual-collage-v2/groups.jsonl',
+-    reward=dict(distractor_weight=0.5)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_multi3_rank_collage_branch.py'
+--- a/configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py
++++ b/configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py
+@@ -1,3 +1,2 @@
+-branch=dict(parent_config="../sft/e013_qwen3vl8b_focus_confidence.py",action="grpo",nproc_per_node=4,periodic_head_screening=False,source="e013_baseline",source_profiles=dict(e013_baseline=dict(kind="checkpoint",experiment_id="E-013",parent_checkpoint="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659")))
+-named_run=dict(experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",experiment_id="E-013",run_name="focus-confidence-grpo",run_kind="branch-grpo",mode="new",timestamp="auto",parent_checkpoint=None,require_parent_checkpoint=True,run_dir=None,resume_checkpoint=None,tags=["focus","confidence","grpo","branch"],notes="E-013 confidence GRPO")
+-runtime=dict(train_dataloader=dict(dataset=dict(ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json")),grpo=dict(device="cuda:0",load_in_4bit=True,epochs=2,group_size=4,max_new_tokens=96,max_pixels=262144,learning_rate=5e-5,beta=0.04,clip=0.2,max_grad_norm=1.0,seed=11451,reward=dict(iou_threshold=0.5,loc_weight=1.,cal_weight=1.,neg_weight=1.)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_qwen3vl8b_focus_confidence_branch.py'
+--- a/configs/sft/e013_multi3_rank_cf_eval.py
++++ b/configs/sft/e013_multi3_rank_cf_eval.py
+@@ -1,25 +1,2 @@
+-"""Two-GPU validation of an E-013 score-only counterfactual GRPO checkpoint."""
+-_base_ = "e013_multi_candidate_branch.py"
+-
+-branch = dict(source=None, nproc_per_node=2)
+-named_run = dict(
+-    experiment_root="/defaultShare/archive/songzhengyue/projects/IPLoc/experiments",
+-    run_name="multi3-rank-cf-latest-eval",
+-    parent_checkpoint=(
+-        "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/"
+-        "focus-confidence-sft/branches/"
+-        "20260928T170859Z--multi3-instances-grpo-rank-cf-lr8e5-3ep/"
+-        "grpo/checkpoints/step_000450"
+-    ),
+-    notes="E-013 反事实 GRPO；启动时固定最新完整 checkpoint，三框实例提示，按 score 选框。",
+-)
+-runtime = dict(test_dataloader=dict(dataset=dict(
+-    ann_file=(
+-        "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/"
+-        "E009-real-focus-data/manifests/"
+-        "test_combined_lasot600_gotval_taoval_1shot_focus.json"
+-    ),
+-    ann_file_sha256="48b7b0537816cef608b1be6c926c03ec30827941fdfba6c3d3278d3da66a2d9b",
+-    instance_search=True,
+-    prompt_version="focus-multi3-instances-v1",
+-)))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/evaluation/e013_multi3_rank_cf_eval.py'
+--- a/configs/sft/e013_multi_candidate_branch.py
++++ b/configs/sft/e013_multi_candidate_branch.py
+@@ -1,44 +1,2 @@
+-"""E-013：仅推理、要求三个候选框、按模型自身 score 选择一个框。
+-
+-四卡评测入口：
+-  bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_branch.py \
+-    branch.source=baseline named_run.run_name=baseline-multi3-v3
+-  bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_branch.py \
+-    branch.source=grpo_step500 named_run.run_name=grpo500-multi3-v3
+-
+-添加 --inspect 只查看配置；evaluation.limit=8 可做启动检查。
+-此配置固定多候选 dataset/evaluator、prompt 版本和 192 token 预算，不用 SFT。
+-prediction 字段保存按 score 选出的单框；raw_prediction 保留原始多框输出。
+-oracle 指标使用 GT 仅用于分析，不参与实际选择。
+-"""
+-branch = dict(
+-    parent_config="e013_qwen3vl8b_focus_confidence.py",
+-    action="evaluate", nproc_per_node=4, periodic_head_screening=False,
+-    source="baseline",
+-    source_profiles=dict(
+-        baseline=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
+-            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"),
+-        grpo_step500=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
+-            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260921T172801747698Z--focus-confidence-grpo-overnight-ready/grpo/checkpoints/step_000500"),
+-    ),
+-)
+-named_run = dict(
+-    experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
+-    experiment_id="E-013", run_name="multi3-v3", run_kind="branch-eval",
+-    mode="new", timestamp="auto", parent_checkpoint=None, require_parent_checkpoint=True,
+-    run_dir=None, resume_checkpoint=None, tags=["multi-candidate", "confidence", "inference-only"],
+-    notes="保留单框 confidence prompt，仅将输出要求改为 3 个候选；最高 score 选择；未重新 SFT。",
+-)
+-runtime = dict(
+-    test_dataloader=dict(batch_size=1, dataset=dict(
+-        type="MultiCandidateLocalizationDataset", max_candidates=3,
+-        ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
+-        target_role="positive-image", normalized_scale=1000,
+-        prompt_protocol="focus_confidence", prompt_version="focus-multi3-v3",
+-    )),
+-    evaluator=dict(type="MultiCandidateLocalizationEvaluator", max_candidates=3,
+-                   iou_thresholds=(0.25, 0.5, 0.75)),
+-)
+-evaluation = dict(dataloader="test_dataloader", limit=None, selection="head", seed=20260901,
+-                  vision_max_patch_tokens=4096, max_new_tokens=192,
+-                  do_sample=False, log_interval=10)
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/evaluation/e013_multi_candidate_branch.py'
+--- a/configs/sft/e013_multi_candidate_instances_branch.py
++++ b/configs/sft/e013_multi_candidate_instances_branch.py
+@@ -1,32 +1,2 @@
+-"""E-013 instance-search prompt evaluation. Run with --inspect or branch.source=..."""
+-branch = dict(
+-    parent_config="e013_qwen3vl8b_focus_confidence.py",
+-    action="evaluate", nproc_per_node=4, periodic_head_screening=False,
+-    source="sft_baseline",
+-    source_profiles=dict(
+-        sft_baseline=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
+-            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659"),
+-        multi3_grpo=dict(kind="checkpoint", experiment_id="E-013", parent_checkpoint=
+-            "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft/branches/20260922T165640005821Z--multi3-instances-grpo-lr8e5-3ep/grpo/checkpoints/step_001500"),
+-    ),
+-)
+-named_run = dict(
+-    experiment_root="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments",
+-    experiment_id="E-013", run_name="multi3-instances-prompt-eval", run_kind="branch-eval",
+-    mode="new", timestamp="auto", parent_checkpoint=None, require_parent_checkpoint=True,
+-    run_dir=None, resume_checkpoint=None, tags=["multi-candidate", "instance-search", "confidence", "inference-only"],
+-    notes="严格使用训练prompt：查询图中相似但不同实例；每个score表达与reference是否同一实例的置信度。",
+-)
+-runtime = dict(
+-    test_dataloader=dict(batch_size=1, dataset=dict(
+-        type="MultiCandidateLocalizationDataset", max_candidates=3, instance_search=True,
+-        ann_file="/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/test_combined_lasot600_gotval_taoval_1shot_focus.json",
+-        target_role="positive-image", normalized_scale=1000,
+-        prompt_protocol="focus_confidence", prompt_version="focus-multi3-instance-search-v1",
+-    )),
+-    evaluator=dict(type="MultiCandidateLocalizationEvaluator", max_candidates=3,
+-                   iou_thresholds=(0.25, 0.5, 0.75)),
+-)
+-evaluation = dict(dataloader="test_dataloader", limit=None, selection="head", seed=20260901,
+-                  vision_max_patch_tokens=4096, max_new_tokens=192,
+-                  do_sample=False, log_interval=10)
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/evaluation/e013_multi_candidate_instances_branch.py'
+--- a/configs/sft/e013_multi_candidate_spatial_branch.py
++++ b/configs/sft/e013_multi_candidate_spatial_branch.py
+@@ -1,14 +1,2 @@
+-"""E-013 three-candidate evaluation using the collage training prompt.
+-
+-Example:
+-bash tools/run/run_branch.sh configs/sft/e013_multi_candidate_spatial_branch.py --inspect \
+-  branch.source_profiles.sft_baseline.parent_checkpoint=PATH
+-
+-For a GRPO adapter, choose its branch checkpoint with
+-branch.source_profiles.sft_baseline.parent_checkpoint=PATH.
+-"""
+-_base_ = 'e013_multi_candidate_instances_branch.py'
+-named_run = dict(run_name='multi3-spatial-prompt-eval',
+-    notes='与拼图覆盖训练相同prompt：三个框按Query中心横坐标从左到右排序，置信度仍指向Reference对应实例。')
+-runtime = dict(test_dataloader=dict(dataset=dict(
+-    spatial_order=True, prompt_version='focus-multi3-instance-spatial-v2')))
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/evaluation/e013_multi_candidate_spatial_branch.py'
+--- a/configs/sft/e013_qwen3vl8b_focus_confidence.py
++++ b/configs/sft/e013_qwen3vl8b_focus_confidence.py
+@@ -1,35 +1,2 @@
+-"""E-013: FOCUS single box + numeric score, without confidence value targets."""
+-
+-_base_ = "qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py"
+-
+-work_dir = "/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-013/focus-confidence-sft"
+-
+-train_dataloader = dict(
+-    dataset=dict(
+-        # User-approved reuse of E-009's complete training manifest (no subset).
+-        ann_file='/defaultShare/archive/liuwenchu/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus.json',
+-        prompt_protocol="focus_confidence",
+-        prompt_version="focus-confidence-v1",
+-    ),
+-    collator=dict(mask_score_values=True),
+-)
+-
+-runner = dict(
+-    auxiliary_loss=dict(type="ConfidenceFormatLoss", weight=0.1),
+-    max_epochs=4,
+-    seed=11451,
+-)
+-
+-# Same dataset adapter/messages for train and generation evaluation.
+-test_dataloader = dict(
+-    dataset=dict(
+-        type="IPLocManifestDataset",
+-        ann_file="__SET_E013_EVAL_MANIFEST__.json",
+-        target_role="positive-image",
+-        normalized_scale=1000,
+-        prompt_protocol="focus_confidence",
+-        prompt_version="focus-confidence-v1",
+-    ),
+-)
+-evaluator = dict(type="ConfidenceLocalizationEvaluator", iou_thresholds=(0.25, 0.5, 0.75))
+-evaluation = dict(vision_max_patch_tokens=1024, max_new_tokens=64, do_sample=False)
++"""兼容入口；参数请在 configs/experiments/E-013/ 下维护。"""
++config_alias = '../experiments/E-013/training/e013_qwen3vl8b_focus_confidence.py'
+--- /dev/null
++++ b/docs/GRPO_MODULES.md
+@@ -0,0 +1,15 @@
++# GRPO 模块职责
++
++| 模块 | 职责 |
++|---|---|
++| `iploc_szy/rl/preflight.py` | 不加载权重的参数、配对数据和图像路径检查 |
++| `iploc_szy/rl/policy.py` | NF4 policy/冻结 anchor 加载、LoRA 和 DDP 包装 |
++| `iploc_szy/rl/sampling.py` | 生成、EOS 处理、位置缓存重置、completion log-prob 重放 |
++| `iploc_szy/rl/trainer.py` | 配对循环、anchor 重放顺序、梯度累积、更新及输出 |
++| `iploc_szy/rl/objective.py` | 分组优势、GRPO 与 score preference 数学目标 |
++| `iploc_szy/rl/rewards.py`、`multi_candidate.py` | 单框和多候选可验证奖励 |
++| `iploc_szy/rl/counterfactual.py` | score-only 文本干预和 token mask |
++
++原有 `from iploc_szy.rl.trainer import rollout, completion_logp, reset_positions, inspect_config, load_policy` 继续可用。新代码直接从对应职责模块导入。
++
++这次拆分保持函数主体、采样分布、prompt mask、EOS 处理、policy/anchor 切换顺序、seed、梯度缩放和保存布局。新增实验优先复用这些模块，通过 config 修改 reward/protocol。GRPO 的独立更新循环目前仍保留；与通用 Runner/Hooks 的完全合并、checkpoint 格式统一及精确 resume 应分别完成并验证。
+--- a/docs/LAUNCH_CATALOG.md
++++ b/docs/LAUNCH_CATALOG.md
+@@ -10,8 +10,8 @@
+ |---|---|
+ | `configs/_base_/` | 跨实验共享的模型、数据和训练基础。 |
+ | `configs/sft/` | 可复用 SFT/蒸馏/评测 recipe。 |
+-| `configs/experiments/E-012/` | E-012 专有 protocol、training、evaluation 与 analysis。 |
+-| `configs/head_screening/`、`configs/sft/e012_*` | 旧 config alias；仅为兼容历史命令与快照。 |
++| `configs/experiments/E-xxx/` | 各实验专有 protocol、training、evaluation 与 analysis。 |
++| `configs/head_screening/`、`configs/sft/e012_*`、`configs/sft/e013_*`、`configs/grpo/e013_*` | 旧 config alias；仅为兼容历史命令与快照。 |
+ | `tools/run/train/`、`tools/run/eval/` | 维护中的训练/评测快捷入口。 |
+ | `tools/run/analysis/e012/` | E-012 专项分析 canonical Shell。 |
+ | `tools/run/e012_*` | 旧 Shell alias；不再承载实现。 |
+@@ -90,8 +90,8 @@
+ | `tools/run/train/train_focus_1shot_ddp4_4bit_named.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py` | Four-GPU 1-shot NF4 QLoRA branch with isolated named-run outputs. |
+ | `tools/run/train/train_focus_1shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py` | Single-GPU, DDP-style Qwen3-VL LoRA SFT with one FOCUS support. |
+ | `tools/run/train/train_focus_2shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_2shot_single.py` | Single-GPU, DDP-style Qwen3-VL LoRA SFT with two FOCUS supports. |
+-| `tools/run/train/train_focus_confidence_grpo.sh` | maintained shortcut | `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | 专项入口；请查看对应 config。 |
+-| `tools/run/train/train_focus_confidence_sft.sh` | maintained shortcut | `configs/sft/e013_qwen3vl8b_focus_confidence.py` | E-013: FOCUS single box + numeric score, without confidence value targets. |
++| `tools/run/train/train_focus_confidence_grpo.sh` | maintained shortcut | `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | 兼容入口；参数请在 configs/experiments/E-013/ 下维护。 |
++| `tools/run/train/train_focus_confidence_sft.sh` | maintained shortcut | `configs/sft/e013_qwen3vl8b_focus_confidence.py` | 兼容入口；参数请在 configs/experiments/E-013/ 下维护。 |
+ | `tools/run/train/train_focus_ddp.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_ddp.py` | Two-GPU DDP FOCUS SFT: each rank keeps one complete, unsharded model. |
+ | `tools/run/train/train_focus_gt_mask_pipeline.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py` | FOCUS 1-shot SFT: warm-up -> adaptive GT-mask -> fixed-head GT-mask. |
+ | `tools/run/train/train_focus_sharded.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_bs16.py` | Four-GPU model-sharded Qwen3-VL LoRA SFT with the category-free FOCUS prompt. |
+@@ -101,8 +101,9 @@
+ 
+ ## Config 使用规则
+ 
+-- 修改共享训练方法时改 `configs/sft/` 或 `_base_/`；不要复制 E-012 的冻结输入。
+-- 修改某次 E-012 的路径、head、样本或输出时改 `configs/experiments/E-012/`。
+-- 旧 config alias 只转发，禁止写新的参数；新增 E-012 专项文件直接放 canonical 目录。
++- 用 `python tools/experiments.py list --experiment E-013` 查看去重后的实验配方；`show` 查看最终配置，`diff` 比较两份配方。
++- 修改共享训练方法时改 `configs/sft/` 或 `_base_/`；不要复制其他实验的冻结输入。
++- 修改某次实验的路径、head、样本或输出时改 `configs/experiments/E-xxx/`；目录约定见 `configs/experiments/README.md`。
++- 旧 config alias 只转发，禁止写新的参数；新增专项文件直接放 canonical 目录。
+ - 一次性统计优先放短 Python 工具并在本表登记；只有会被反复调用的流程才新增 Shell。
+ - 更新入口后运行 `python tools/audit_entrypoints.py --write-index --write-catalog`；它会先通过 source audit，再刷新两份目录文档。
+--- /dev/null
++++ b/iploc_szy/rl/policy.py
+@@ -0,0 +1,43 @@
++"""Quantized policy/anchor loading and optional DDP wrapping."""
++import os
++import torch
++import torch.distributed as dist
++from torch.nn.parallel import DistributedDataParallel as DDP
++
++
++def load_policy(config):
++    from iploc_szy.compat import ensure_torchvision_nms_schema
++    ensure_torchvision_nms_schema()
++    from transformers import AutoProcessor, Qwen3VLForConditionalGeneration, BitsAndBytesConfig
++    from peft import PeftModel, prepare_model_for_kbit_training
++    if not torch.cuda.is_available(): raise RuntimeError('CUDA is required for real training')
++    rank=int(os.environ.get('LOCAL_RANK',0)); world=int(os.environ.get('WORLD_SIZE',1))
++    torch.cuda.set_device(rank)
++    if world > 1:
++        if not dist.is_initialized(): dist.init_process_group('nccl')
++    kwargs=dict(dtype=torch.bfloat16,device_map={'':f'cuda:{rank}'},
++                local_files_only=True,attn_implementation='sdpa')
++    if config.get('load_in_4bit',True):
++        kwargs['quantization_config']=BitsAndBytesConfig(load_in_4bit=True,
++            bnb_4bit_quant_type='nf4',bnb_4bit_compute_dtype=torch.bfloat16,
++            bnb_4bit_use_double_quant=True)
++    base=Qwen3VLForConditionalGeneration.from_pretrained(config['model_path'],**kwargs)
++    if config.get('load_in_4bit',True):
++        base=prepare_model_for_kbit_training(base,use_gradient_checkpointing=False)
++    model=PeftModel.from_pretrained(base,config['adapter_path'],adapter_name='policy',is_trainable=True)
++    # Frozen SFT anchor, not the underlying base model with adapters disabled.
++    model.load_adapter(config['adapter_path'],adapter_name='anchor',is_trainable=False)
++    model.set_adapter('policy')
++    for name,p in model.named_parameters():
++        p.requires_grad_('lora_' in name and '.policy.' in name)
++    if not any(p.requires_grad for p in model.parameters()): raise RuntimeError('no trainable LoRA')
++    # Non-reentrant checkpointing supports frozen embeddings and LoRA gradients.
++    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
++    for module in model.modules():
++        if isinstance(module, torch.nn.Dropout): module.p = 0.
++    model.eval()
++    processor=AutoProcessor.from_pretrained(config['model_path'],local_files_only=True)
++    if world > 1:
++        model=DDP(model,device_ids=[rank],output_device=rank,find_unused_parameters=False,
++                  broadcast_buffers=False)
++    return model,processor
+--- /dev/null
++++ b/iploc_szy/rl/preflight.py
+@@ -0,0 +1,49 @@
++"""Model-free GRPO configuration, pair and image checks."""
++import math
++from pathlib import Path
++from .data import load_rows, load_collage_rows
++
++
++def inspect_config(config):
++    required = ('model_path','adapter_path','manifest','output_dir')
++    if any(not config.get(k) for k in required): raise ValueError('missing required path')
++    for name in ('model_path','adapter_path'):
++        if not Path(config[name]).is_dir(): raise ValueError('missing '+name)
++    if not (Path(config['adapter_path'])/'adapter_config.json').is_file():
++        raise ValueError('adapter_path must be the adapter directory')
++    if Path(config['output_dir']).exists(): raise ValueError('output_dir already exists')
++    for key in ('max_new_tokens','max_pixels'):
++        if type(config.get(key)) is not int or config[key] < 1: raise ValueError('invalid '+key)
++    if config.get('epochs') is not None and (type(config['epochs']) is not int or config['epochs'] < 1):
++        raise ValueError('invalid epochs')
++    if config.get('epochs') is None and (type(config.get('steps')) is not int or config['steps'] < 1):
++        raise ValueError('steps or epochs is required')
++    if type(config.get('group_size')) is not int or config['group_size'] < 2:
++        raise ValueError('group_size must be at least two')
++    if config.get('beta',0.04) < 0 or not 0 < config.get('clip',0.2) < 1:
++        raise ValueError('invalid GRPO coefficients')
++    if config.get('learning_rate',1e-6) <= 0: raise ValueError('invalid learning_rate')
++    cf=config.get('counterfactual',{})
++    if not isinstance(cf,dict): raise ValueError('counterfactual configuration must be a dict')
++    for key,default in (('weight',0.),('beta',0.1),('min_best_iou',0.5),('min_reward_gain',0.)):
++        value=cf.get(key,default)
++        if not isinstance(value,(int,float)) or isinstance(value,bool) or not math.isfinite(value):
++            raise ValueError('invalid counterfactual '+key)
++        if ((key in ('weight','min_reward_gain') and value < 0)
++                or (key == 'beta' and not 0 < value <= 1)
++                or (key == 'min_best_iou' and not 0 <= value <= 1)):
++            raise ValueError('invalid counterfactual '+key)
++    if cf.get('weight',0) > 0 and config.get('prompt_protocol') not in (
++            'focus_multi3_instances_v1', 'focus_multi3_instances_spatial_v2'):
++        raise ValueError('score counterfactual requires the three-candidate prompt')
++    rows=load_rows(config['manifest'],'train')
++    collage_manifest=config.get('collage_manifest')
++    if collage_manifest:
++        if config.get('prompt_protocol') not in (
++                'focus_multi3_instances_v1', 'focus_multi3_instances_spatial_v2'):
++            raise ValueError('collage requires the multi-candidate prompt')
++        rows += load_collage_rows(collage_manifest, config['manifest'], rows)
++    for r in rows:
++        for key in ('query_image','reference_image'):
++            if not Path(r[key]).is_file(): raise ValueError('missing image: '+r[key])
++    return rows
+--- /dev/null
++++ b/iploc_szy/rl/sampling.py
+@@ -0,0 +1,55 @@
++"""Completion-only sampling and log-probability replay shared by GRPO experiments."""
++import torch
++from .objective import selected_log_probs
++
++
++def reset_positions(model):
++    # Qwen3-VL stores rope_deltas during generation. Replay must recompute them.
++    if hasattr(model, 'module'):
++        model = model.module
++    base = model.get_base_model() if hasattr(model, 'get_base_model') else model
++    for module in base.modules():
++        if hasattr(module, 'rope_deltas'):
++            module.rope_deltas = None
++
++
++def completion_logp(model, batch, ids):
++    inputs = dict(batch)
++    length = batch['input_ids'].shape[1]
++    inputs['input_ids'] = ids
++    inputs['attention_mask'] = torch.ones_like(ids)
++    inputs.pop('token_type_ids', None)
++    reset_positions(model)
++    # Project only completion predictors into the large vocabulary.
++    keep = ids.shape[1] - length + 1
++    logits = model(**inputs, use_cache=False, logits_to_keep=keep).logits
++    return selected_log_probs(logits, ids[:, length-1:], 1)
++
++
++def rollout(model, processor, batch, max_new_tokens):
++    from transformers import GenerationConfig
++    reset_positions(model)
++    eos = model.generation_config.eos_token_id
++    if eos is None: eos = processor.tokenizer.eos_token_id
++    eos_ids = [eos] if isinstance(eos, int) else eos
++    if not eos_ids: raise ValueError('EOS ids are required')
++    # Fresh config: no hidden top-k, repetition penalty, or checkpoint warpers.
++    pad_token_id = processor.tokenizer.pad_token_id
++    config = GenerationConfig(do_sample=True, temperature=1., top_p=1., top_k=0,
++        max_new_tokens=max_new_tokens, eos_token_id=eos_ids,
++        pad_token_id=eos_ids[0] if pad_token_id is None else pad_token_id, use_cache=True)
++    with torch.no_grad():
++        ids = model.generate(**batch, generation_config=config,
++                             use_model_defaults=False, temperature=1., top_p=1., top_k=0)
++    length = batch['input_ids'].shape[1]
++    completion = ids[0,length:]
++    positions = [i for i,t in enumerate(completion.tolist()) if t in eos_ids]
++    terminated = bool(positions)
++    if terminated:
++        ids = ids[:,:length+positions[0]+1]
++        text_ids = ids[0,length:-1]
++    else:
++        text_ids = completion
++    # Keep non-EOS special tokens visible so the strict parser can reject them.
++    text = processor.tokenizer.decode(text_ids, skip_special_tokens=False)
++    return ids, text, terminated
+--- a/iploc_szy/rl/trainer.py
++++ b/iploc_szy/rl/trainer.py
+@@ -1,159 +1,24 @@
+-"""Single-device, sequential-rollout GRPO for the FOCUS confidence protocol.
++"""GRPO update orchestration; configuration, loading and sampling live separately.
+ 
+-No TRL dependency. One optimizer update covers both conditions of one pair;
+-advantages are normalized within each prompt, never across positive/negative.
++Public helper imports remain available here for existing callers.
++One update covers one pair; advantages stay normalized per prompt.
+ """
+ import hashlib
+ from contextlib import nullcontext
+ import json
+-import math
+ import random
+ import os
+ import torch.distributed as dist
+-from torch.nn.parallel import DistributedDataParallel as DDP
+ from collections import defaultdict
+ from pathlib import Path
+ import torch
+-from .data import load_rows, load_collage_rows, normalize_box, prepare_prompt
++from .data import normalize_box, prepare_prompt
+ from .counterfactual import (
+     corrected_score_text, counterfactual_ids_and_masks, score_tokenization)
+-from .objective import group_advantages, grpo_loss, score_preference_loss, selected_log_probs
+-from .rewards import confidence_reward
+-
+-
+-def reset_positions(model):
+-    # Qwen3-VL stores rope_deltas during generation. Replay must recompute them.
+-    if hasattr(model, 'module'):
+-        model = model.module
+-    base = model.get_base_model() if hasattr(model, 'get_base_model') else model
+-    for module in base.modules():
+-        if hasattr(module, 'rope_deltas'):
+-            module.rope_deltas = None
+-
+-
+-def completion_logp(model, batch, ids):
+-    inputs = dict(batch)
+-    length = batch['input_ids'].shape[1]
+-    inputs['input_ids'] = ids
+-    inputs['attention_mask'] = torch.ones_like(ids)
+-    inputs.pop('token_type_ids', None)
+-    reset_positions(model)
+-    # Project only completion predictors into the large vocabulary.
+-    keep = ids.shape[1] - length + 1
+-    logits = model(**inputs, use_cache=False, logits_to_keep=keep).logits
+-    return selected_log_probs(logits, ids[:, length-1:], 1)
+-
+-
+-def rollout(model, processor, batch, max_new_tokens):
+-    from transformers import GenerationConfig
+-    reset_positions(model)
+-    eos = model.generation_config.eos_token_id
+-    if eos is None: eos = processor.tokenizer.eos_token_id
+-    eos_ids = [eos] if isinstance(eos, int) else eos
+-    if not eos_ids: raise ValueError('EOS ids are required')
+-    # Fresh config: no hidden top-k, repetition penalty, or checkpoint warpers.
+-    pad_token_id = processor.tokenizer.pad_token_id
+-    config = GenerationConfig(do_sample=True, temperature=1., top_p=1., top_k=0,
+-        max_new_tokens=max_new_tokens, eos_token_id=eos_ids,
+-        pad_token_id=eos_ids[0] if pad_token_id is None else pad_token_id, use_cache=True)
+-    with torch.no_grad():
+-        ids = model.generate(**batch, generation_config=config,
+-                             use_model_defaults=False, temperature=1., top_p=1., top_k=0)
+-    length = batch['input_ids'].shape[1]
+-    completion = ids[0,length:]
+-    positions = [i for i,t in enumerate(completion.tolist()) if t in eos_ids]
+-    terminated = bool(positions)
+-    if terminated:
+-        ids = ids[:,:length+positions[0]+1]
+-        text_ids = ids[0,length:-1]
+-    else:
+-        text_ids = completion
+-    # Keep non-EOS special tokens visible so the strict parser can reject them.
+-    text = processor.tokenizer.decode(text_ids, skip_special_tokens=False)
+-    return ids, text, terminated
+-
+-
+-def inspect_config(config):
+-    required = ('model_path','adapter_path','manifest','output_dir')
+-    if any(not config.get(k) for k in required): raise ValueError('missing required path')
+-    for name in ('model_path','adapter_path'):
+-        if not Path(config[name]).is_dir(): raise ValueError('missing '+name)
+-    if not (Path(config['adapter_path'])/'adapter_config.json').is_file():
+-        raise ValueError('adapter_path must be the adapter directory')
+-    if Path(config['output_dir']).exists(): raise ValueError('output_dir already exists')
+-    for key in ('max_new_tokens','max_pixels'):
+-        if type(config.get(key)) is not int or config[key] < 1: raise ValueError('invalid '+key)
+-    if config.get('epochs') is not None and (type(config['epochs']) is not int or config['epochs'] < 1):
+-        raise ValueError('invalid epochs')
+-    if config.get('epochs') is None and (type(config.get('steps')) is not int or config['steps'] < 1):
+-        raise ValueError('steps or epochs is required')
+-    if type(config.get('group_size')) is not int or config['group_size'] < 2:
+-        raise ValueError('group_size must be at least two')
+-    if config.get('beta',0.04) < 0 or not 0 < config.get('clip',0.2) < 1:
+-        raise ValueError('invalid GRPO coefficients')
+-    if config.get('learning_rate',1e-6) <= 0: raise ValueError('invalid learning_rate')
+-    cf=config.get('counterfactual',{})
+-    if not isinstance(cf,dict): raise ValueError('counterfactual configuration must be a dict')
+-    for key,default in (('weight',0.),('beta',0.1),('min_best_iou',0.5),('min_reward_gain',0.)):
+-        value=cf.get(key,default)
+-        if not isinstance(value,(int,float)) or isinstance(value,bool) or not math.isfinite(value):
+-            raise ValueError('invalid counterfactual '+key)
+-        if ((key in ('weight','min_reward_gain') and value < 0)
+-                or (key == 'beta' and not 0 < value <= 1)
+-                or (key == 'min_best_iou' and not 0 <= value <= 1)):
+-            raise ValueError('invalid counterfactual '+key)
+-    if cf.get('weight',0) > 0 and config.get('prompt_protocol') not in (
+-            'focus_multi3_instances_v1', 'focus_multi3_instances_spatial_v2'):
+-        raise ValueError('score counterfactual requires the three-candidate prompt')
+-    rows=load_rows(config['manifest'],'train')
+-    collage_manifest=config.get('collage_manifest')
+-    if collage_manifest:
+-        if config.get('prompt_protocol') not in (
+-                'focus_multi3_instances_v1', 'focus_multi3_instances_spatial_v2'):
+-            raise ValueError('collage requires the multi-candidate prompt')
+-        rows += load_collage_rows(collage_manifest, config['manifest'], rows)
+-    for r in rows:
+-        for key in ('query_image','reference_image'):
+-            if not Path(r[key]).is_file(): raise ValueError('missing image: '+r[key])
+-    return rows
+-
+-
+-def load_policy(config):
+-    from iploc_szy.compat import ensure_torchvision_nms_schema
+-    ensure_torchvision_nms_schema()
+-    from transformers import AutoProcessor, Qwen3VLForConditionalGeneration, BitsAndBytesConfig
+-    from peft import PeftModel, prepare_model_for_kbit_training
+-    if not torch.cuda.is_available(): raise RuntimeError('CUDA is required for real training')
+-    rank=int(os.environ.get('LOCAL_RANK',0)); world=int(os.environ.get('WORLD_SIZE',1))
+-    torch.cuda.set_device(rank)
+-    if world > 1:
+-        if not dist.is_initialized(): dist.init_process_group('nccl')
+-    kwargs=dict(dtype=torch.bfloat16,device_map={'':f'cuda:{rank}'},
+-                local_files_only=True,attn_implementation='sdpa')
+-    if config.get('load_in_4bit',True):
+-        kwargs['quantization_config']=BitsAndBytesConfig(load_in_4bit=True,
+-            bnb_4bit_quant_type='nf4',bnb_4bit_compute_dtype=torch.bfloat16,
+-            bnb_4bit_use_double_quant=True)
+-    base=Qwen3VLForConditionalGeneration.from_pretrained(config['model_path'],**kwargs)
+-    if config.get('load_in_4bit',True):
+-        base=prepare_model_for_kbit_training(base,use_gradient_checkpointing=False)
+-    model=PeftModel.from_pretrained(base,config['adapter_path'],adapter_name='policy',is_trainable=True)
+-    # Frozen SFT anchor, not the underlying base model with adapters disabled.
+-    model.load_adapter(config['adapter_path'],adapter_name='anchor',is_trainable=False)
+-    model.set_adapter('policy')
+-    for name,p in model.named_parameters():
+-        p.requires_grad_('lora_' in name and '.policy.' in name)
+-    if not any(p.requires_grad for p in model.parameters()): raise RuntimeError('no trainable LoRA')
+-    # Non-reentrant checkpointing supports frozen embeddings and LoRA gradients.
+-    model.gradient_checkpointing_enable(gradient_checkpointing_kwargs={'use_reentrant':False})
+-    for module in model.modules():
+-        if isinstance(module, torch.nn.Dropout): module.p = 0.
+-    model.eval()
+-    processor=AutoProcessor.from_pretrained(config['model_path'],local_files_only=True)
+-    if world > 1:
+-        model=DDP(model,device_ids=[rank],output_device=rank,find_unused_parameters=False,
+-                  broadcast_buffers=False)
+-    return model,processor
++from .objective import group_advantages, grpo_loss, score_preference_loss
++from .sampling import reset_positions, completion_logp, rollout
++from .preflight import inspect_config
++from .policy import load_policy
+ 
+ 
+ def train(config):
+--- /dev/null
++++ b/tests/test_experiment_management.py
+@@ -0,0 +1,141 @@
++"""Source-only experiment navigation, configuration migration and comparison."""
++import argparse
++import importlib.util
++import json
++from pathlib import Path
++import subprocess
++import sys
++
++import pytest
++
++from iploc_szy.branching import load_experiment_config
++from iploc_szy.config import Config
++
++ROOT = Path(__file__).resolve().parents[1]
++SPEC = importlib.util.spec_from_file_location('experiment_cli', ROOT / 'tools/experiments.py')
++CLI = importlib.util.module_from_spec(SPEC)
++SPEC.loader.exec_module(CLI)
++PAIRS = [
++    (path, ROOT / 'configs/experiments/E-013' /
++     ('training' if path.parent.name == 'grpo' or
++      path.name == 'e013_qwen3vl8b_focus_confidence.py' else 'evaluation') / path.name)
++    for folder in ('grpo', 'sft')
++    for path in sorted((ROOT / 'configs' / folder).glob('e013_*.py'))
++]
++
++
++@pytest.mark.parametrize('old,new', PAIRS)
++def test_e013_legacy_paths_keep_effective_parameters_and_sources(old, new):
++    old_config = load_experiment_config(old)
++    new_config = load_experiment_config(new)
++    assert dict(old_config) == dict(new_config)
++    assert str(old.resolve()) in old_config.source_files
++    assert str(new.resolve()) in old_config.source_files
++    assert Config.fromfile(old).canonical_path == new.resolve()
++
++
++def test_moved_grpo_keeps_runtime_overrides_and_resolves_outside_repository(tmp_path, monkeypatch):
++    old = ROOT / 'configs/grpo/e013_multi3_rank_cf_branch.py'
++    new = ROOT / 'configs/experiments/E-013/training' / old.name
++    monkeypatch.chdir(tmp_path)
++    overrides = ['runtime.grpo.learning_rate=0.000123', 'named_run.run_name=source-check']
++    assert dict(load_experiment_config(old, overrides)) == dict(load_experiment_config(new, overrides))
++    assert load_experiment_config(new, overrides)['grpo']['learning_rate'] == 0.000123
++
++
++def test_recipe_listing_deduplicates_aliases_and_uses_source_ownership():
++    data = dict(configs=[
++        dict(config='configs/experiments/E-013/training/example.py', action='grpo', nproc=2),
++        dict(config='configs/grpo/e013_example.py', action='grpo', nproc=2,
++             canonical_config='configs/experiments/E-013/training/example.py'),
++        dict(config='configs/sft/shared.py', action='train', nproc=4),
++        dict(config='configs/_base_/base.py'),
++    ])
++    rows = CLI.recipes(data, 'E-013')
++    assert len(rows) == 1
++    assert rows[0]['aliases'] == ['configs/grpo/e013_example.py']
++    assert len(CLI.recipes(data)) == 2
++    assert CLI.owner('configs/sft/e011_example.py') == 'E-011'
++    assert CLI.owner('configs/sft/shared.py') == 'shared'
++
++
++def test_specialized_experiments_are_listed_with_observed_shells_not_guessed_workers():
++    target = 'configs/experiments/E-012/analysis/probe.py'
++    alias = 'configs/head_screening/e012_probe.py'
++    data = dict(configs=[dict(config=target), dict(config=alias, canonical_config=target)],
++                shells=[dict(shell='tools/run/analysis/probe.sh', tier='experiment analysis',
++                             targets=[alias]),
++                        dict(shell='tools/run/old_probe.sh', tier='compatibility alias',
++                             targets=['tools/run/analysis/probe.sh'])])
++    rows = CLI.recipes(data, 'E-012')
++    assert len(rows) == 1
++    assert rows[0]['action'] == 'specialized' and rows[0]['processes'] is None
++    assert rows[0]['entrypoints'] == ['tools/run/analysis/probe.sh']
++
++
++def test_specialized_show_reads_config_without_opening_run_references(tmp_path, capsys):
++    path = tmp_path / 'probe.py'
++    path.write_text("run_spec=dict(source_run_dir='/missing/run', output_dir='/missing/output')\n")
++    assert CLI.main(['show', str(path)]) == 0
++    plan = json.loads(capsys.readouterr().out)
++    assert plan['action'] == 'specialized'
++    assert plan['worker_command'] is None and plan['nproc_per_node'] is None
++    assert plan['resolved_config']['run_spec']['source_run_dir'] == '/missing/run'
++
++
++def test_show_never_allocates_output_checks_artifacts_or_builds_models(tmp_path, monkeypatch, capsys):
++    from iploc_szy import MODELS
++    def forbidden(*args, **kwargs):
++        pytest.fail('source navigation must not execute tasks or inspect data')
++    monkeypatch.setattr(MODELS, 'build', forbidden)
++    monkeypatch.setattr('iploc_szy.run_management.prepare_named_run', forbidden)
++    monkeypatch.setattr('iploc_szy.launching.validate_inputs', forbidden)
++    path = tmp_path / 'recipe.py'
++    output = tmp_path / 'unallocated'
++    path.write_text(f"launch=dict(action='train',nproc_per_node=1)\n"
++                    f"work_dir={str(output)!r}\nmodel=dict(type='missing')\n"
++                    "input_artifacts=[dict(path='/missing/asset',sha256='missing')]\n"
++                    "runner=dict(max_steps=1)\n")
++    assert CLI.main(['show', str(path), '--cfg-options', 'runner.max_steps=7']) == 0
++    result = json.loads(capsys.readouterr().out)
++    assert result['resolved_config']['runner']['max_steps'] == 7
++    assert result['source_configs'] == [str(path.resolve())]
++    assert not output.exists()
++
++
++def test_diff_distinguishes_missing_none_and_nested_changes():
++    assert CLI.differences(dict(a=None, nested=dict(lr=1), removed=7),
++                           dict(a=None, nested=dict(lr=2), added=None)) == [
++        dict(key='added', change='added', right=None),
++        dict(key='nested.lr', change='changed', left=1, right=2),
++        dict(key='removed', change='removed', left=7),
++    ]
++
++
++def test_cli_diff_legacy_and_canonical_is_empty(capsys):
++    old = ROOT / 'configs/grpo/e013_multi3_rank_cf_branch.py'
++    new = ROOT / 'configs/experiments/E-013/training' / old.name
++    assert CLI.main(['diff', str(old), str(new)]) == 0
++    assert json.loads(capsys.readouterr().out) == []
++
++
++def test_cli_list_runs_from_another_directory_without_installing_snapshot(tmp_path):
++    result = subprocess.run(
++        [sys.executable, str(ROOT / 'tools/experiments.py'), 'list',
++         '--experiment', 'E013', '--json'], cwd=tmp_path,
++        capture_output=True, text=True, check=True)
++    rows = json.loads(result.stdout)
++    assert len(rows) == 12
++    assert {row['action'] for row in rows} == {'train', 'grpo', 'evaluate'}
++    assert all(row['config'].startswith('configs/experiments/E-013/') for row in rows)
++    assert all(len(row['aliases']) == 1 for row in rows)
++
++
++@pytest.mark.parametrize('value', ['E013', 'E-013', 'e-013'])
++def test_experiment_filter_normalizes(value):
++    assert CLI.experiment_id(value) == 'E-013'
++
++
++def test_invalid_experiment_filter_is_rejected():
++    with pytest.raises(argparse.ArgumentTypeError):
++        CLI.experiment_id('013')
+--- a/tools/audit_entrypoints.py
++++ b/tools/audit_entrypoints.py
+@@ -118,8 +118,8 @@
+         "| 目录 | 内容 |", "|---|---|",
+         "| `configs/_base_/` | 跨实验共享的模型、数据和训练基础。 |",
+         "| `configs/sft/` | 可复用 SFT/蒸馏/评测 recipe。 |",
+-        "| `configs/experiments/E-012/` | E-012 专有 protocol、training、evaluation 与 analysis。 |",
+-        "| `configs/head_screening/`、`configs/sft/e012_*` | 旧 config alias；仅为兼容历史命令与快照。 |",
++        "| `configs/experiments/E-xxx/` | 各实验专有 protocol、training、evaluation 与 analysis。 |",
++        "| `configs/head_screening/`、`configs/sft/e012_*`、`configs/sft/e013_*`、`configs/grpo/e013_*` | 旧 config alias；仅为兼容历史命令与快照。 |",
+         "| `tools/run/train/`、`tools/run/eval/` | 维护中的训练/评测快捷入口。 |",
+         "| `tools/run/analysis/e012/` | E-012 专项分析 canonical Shell。 |",
+         "| `tools/run/e012_*` | 旧 Shell alias；不再承载实现。 |", "",
+@@ -132,9 +132,10 @@
+             "兼容转发到列出的 canonical Shell。" if row["tier"] == "compatibility alias" else "公共启动辅助；没有独立实验参数。")
+         lines.append(f"| `{row['shell']}` | {row['tier']} | {target} | {purpose} |")
+     lines += ["", "## Config 使用规则", "",
+-        "- 修改共享训练方法时改 `configs/sft/` 或 `_base_/`；不要复制 E-012 的冻结输入。",
+-        "- 修改某次 E-012 的路径、head、样本或输出时改 `configs/experiments/E-012/`。",
+-        "- 旧 config alias 只转发，禁止写新的参数；新增 E-012 专项文件直接放 canonical 目录。",
++        "- 用 `python tools/experiments.py list --experiment E-013` 查看去重后的实验配方；`show` 查看最终配置，`diff` 比较两份配方。",
++        "- 修改共享训练方法时改 `configs/sft/` 或 `_base_/`；不要复制其他实验的冻结输入。",
++        "- 修改某次实验的路径、head、样本或输出时改 `configs/experiments/E-xxx/`；目录约定见 `configs/experiments/README.md`。",
++        "- 旧 config alias 只转发，禁止写新的参数；新增专项文件直接放 canonical 目录。",
+         "- 一次性统计优先放短 Python 工具并在本表登记；只有会被反复调用的流程才新增 Shell。",
+         "- 更新入口后运行 `python tools/audit_entrypoints.py --write-index --write-catalog`；它会先通过 source audit，再刷新两份目录文档。",
+     ]
+--- /dev/null
++++ b/tools/experiments.py
+@@ -0,0 +1,134 @@
++#!/usr/bin/env python3
++"""查看实验配方、最终配置和参数差异；只读取源码，不分配运行目录。"""
++import argparse
++import json
++from pathlib import Path
++import re
++import sys
++
++ROOT = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(ROOT))
++
++from iploc_szy.branching import load_experiment_config
++from iploc_szy.config import Config
++from iploc_szy.launching import inspect_plan
++from tools.audit_entrypoints import inventory
++
++
++def experiment_id(value):
++    match = re.fullmatch(r'E-?(\d{3})', value.upper())
++    if not match:
++        raise argparse.ArgumentTypeError('实验编号格式为 E-013 或 E013')
++    return 'E-' + match[1]
++
++
++def owner(path):
++    parts = Path(path).parts
++    if 'experiments' in parts:
++        index = parts.index('experiments') + 1
++        if index < len(parts) and re.fullmatch(r'E-\d{3}', parts[index]):
++            return parts[index]
++    match = re.match(r'e(\d{3})_', Path(path).name, re.I)
++    return 'E-' + match[1] if match else 'shared'
++
++
++def recipes(data, selected=None):
++    """Canonical source configs with aliases attached, grouped by explicit ownership."""
++    aliases = {}
++    canonical = {}
++    for row in data['configs']:
++        if row.get('canonical_config'):
++            aliases.setdefault(row['canonical_config'], []).append(row['config'])
++            canonical[row['config']] = row['canonical_config']
++    entrypoints = {}
++    for shell in data.get('shells', []):
++        if shell['tier'] == 'compatibility alias':
++            continue
++        for target in shell['targets']:
++            entrypoints.setdefault(canonical.get(target, target), set()).add(shell['shell'])
++    rows = []
++    for row in data['configs']:
++        entries = sorted(entrypoints.get(row['config'], []))
++        if row.get('canonical_config') or ('action' not in row and not entries):
++            continue
++        experiment = owner(row['config'])
++        if selected is None or experiment == selected:
++            rows.append(dict(experiment=experiment, config=row['config'],
++                             action=row.get('action', 'specialized'), processes=row.get('nproc'),
++                             entrypoints=entries,
++                             aliases=sorted(aliases.get(row['config'], []))))
++    return sorted(rows, key=lambda row: (row['experiment'], row['action'], row['config']))
++
++
++def resolve(path, options=()):
++    path = Path(path).resolve()
++    source = Config.fromfile(path)
++    config = load_experiment_config(path, options)
++    if config.get('branch') or config.get('launch'):
++        plan = inspect_plan(config, path, options)
++    else:
++        plan = dict(config=str(path), action='specialized', nproc_per_node=None,
++                    worker_command=None, resolved_config=dict(config),
++                    cfg_options=list(options),
++                    allocation='专项配置：启动接口见登记的 Shell 或对应 Python 工具',
++                    input_checks='未读取输入产物')
++    plan['canonical_config'] = str(source.canonical_path)
++    plan['source_configs'] = list(config.source_files)
++    return plan
++
++
++def differences(left, right, prefix=''):
++    """Report additions/removals explicitly; None remains a real configured value."""
++    result = []
++    for key in sorted(set(left) | set(right)):
++        name = prefix + str(key)
++        if key not in left:
++            result.append(dict(key=name, change='added', right=right[key]))
++        elif key not in right:
++            result.append(dict(key=name, change='removed', left=left[key]))
++        elif isinstance(left[key], dict) and isinstance(right[key], dict):
++            result.extend(differences(left[key], right[key], name + '.'))
++        elif left[key] != right[key]:
++            result.append(dict(key=name, change='changed', left=left[key], right=right[key]))
++    return result
++
++
++def main(argv=None):
++    parser = argparse.ArgumentParser(description=__doc__)
++    commands = parser.add_subparsers(dest='command', required=True)
++    listing = commands.add_parser('list', help='按实验查看 canonical 配方和兼容别名')
++    listing.add_argument('--experiment', type=experiment_id)
++    listing.add_argument('--json', action='store_true')
++    showing = commands.add_parser('show', help='查看最终配置和配置来源，不检查输入产物')
++    showing.add_argument('config')
++    showing.add_argument('--cfg-options', nargs='*', default=[])
++    comparing = commands.add_parser('diff', help='比较两份合并后的源码配置，不读取运行结果')
++    comparing.add_argument('left')
++    comparing.add_argument('right')
++    args = parser.parse_args(argv)
++    if args.command == 'list':
++        rows = recipes(inventory(ROOT), args.experiment)
++        if args.experiment and not rows:
++            parser.error('该实验没有登记在源码目录中的可执行配方')
++        if args.json:
++            print(json.dumps(rows, ensure_ascii=False, indent=2))
++        else:
++            print('实验\t任务\t进程数\t配置\t专项入口')
++            for row in rows:
++                print('{}\t{}\t{}\t{}\t{}'.format(
++                    row['experiment'], row['action'],
++                    row['processes'] if row['processes'] is not None else '—',
++                    row['config'], ', '.join(row['entrypoints']) or 'tools/run.sh'))
++        return 0
++    if args.command == 'show':
++        payload = resolve(args.config, args.cfg_options)
++    else:
++        left = resolve(args.left)['resolved_config']
++        right = resolve(args.right)['resolved_config']
++        payload = differences(left, right)
++    print(json.dumps(payload, ensure_ascii=False, indent=2, default=str))
++    return 0
++
++
++if __name__ == '__main__':
++    raise SystemExit(main())

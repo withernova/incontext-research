@@ -1,0 +1,11 @@
+# 声明注册表（Claims registry，kernel 真相层）
+
+状态生命周期：
+- draft -> supported -> validated   （晋升为 validated 需满足：R2 裁决 PASS + 人工 approved + ≥1 个有 content_hash 的来源）
+- draft -> contradicted / contradicted_by_prior / partial / inference_only
+- inference_only 在综合报告中**只能作为标注过的推测**出现，绝不能当作事实。
+
+每个声明的字段：
+- text、status、confidence (high|med|low)、sources ([[citekey]] §位置)、contradicting_evidence、
+  r2_verdict (pending|PASS|REJECT|NEEDS_MORE_EVIDENCE)、human_verdict (pending|approved|rejected)、
+  created、rationale

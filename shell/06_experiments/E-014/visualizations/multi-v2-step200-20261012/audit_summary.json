@@ -1,0 +1,90 @@
+{
+  "run_id": "e014-multi-v2-step200-eval1766-8gpu",
+  "samples": 1766,
+  "raw_answer_count_histogram": {
+    "1": 1766
+  },
+  "raw_pair_count_histogram": {
+    "1": 1766
+  },
+  "parsed_candidate_histogram": {
+    "1": 1766
+  },
+  "all_raw_equals_selected_equals_single_candidate": true,
+  "all_first_selected_oracle_iou_equal": true,
+  "rank_counts": {
+    "0": 221,
+    "1": 221,
+    "2": 221,
+    "3": 221,
+    "4": 221,
+    "5": 221,
+    "6": 220,
+    "7": 220
+  },
+  "by_dataset": {
+    "GOT10k": {
+      "sample_count": 180,
+      "raw_count_histogram": {
+        "1": 180
+      }
+    },
+    "LaSOT": {
+      "sample_count": 600,
+      "raw_count_histogram": {
+        "1": 600
+      }
+    },
+    "TAO": {
+      "sample_count": 986,
+      "raw_count_histogram": {
+        "1": 986
+      }
+    }
+  },
+  "selected_miou": 0.709893027852188,
+  "oracle_miou": 0.709893027852188,
+  "first_miou": 0.709893027852188,
+  "old_v1_step800_miou": 0.700190580357638,
+  "delta_vs_old_percentage_points": 0.970244749454996,
+  "iou_ge_0_5": 1375,
+  "empty_raw": 0,
+  "actual_prompt_variant": "multi_v2",
+  "actual_prompt_sha256": "c6f28d607e7736bde33a82169e86fe517b5c13dccd4a04a0cb295da0e47336ba",
+  "actual_prompt_matches_approved_frozen": true,
+  "actual_final_instruction": "Frame 2 is the final frame. Predict multiple BBOX candidates and a confidence score for each.",
+  "generation": {
+    "dataloader": "test_dataloader",
+    "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-symmetric-sft659-puregrpo-seed11451/payload/grpo/checkpoints/step_000200",
+    "adapter_subdir": "adapter/policy",
+    "max_new_tokens": 192,
+    "do_sample": false,
+    "vision_max_patch_tokens": 4096,
+    "seed": 20260901
+  },
+  "example_outputs": [
+    {
+      "id": "0-1",
+      "raw": "<answer>[492,383,522,436]</answer><score>0.93</score>",
+      "iou": 0.5386178861788617
+    },
+    {
+      "id": "237-1",
+      "raw": "<answer>[66,181,693,1000]</answer><score>0.97</score>",
+      "iou": 1.0
+    },
+    {
+      "id": "2-1",
+      "raw": "<answer>[648,636,687,683]</answer><score>0.90</score>",
+      "iou": 0.0
+    }
+  ],
+  "interpretation": "本次1766 greedy输出仍单框，Oracle=Selected为单元素候选集恒等关系。训练前200更新12800个随机rollout中82条合法完整多框，按50更新块依次74/5/2/1；不是从未生成多框，而是频率显著下降。不能据此确定精确转变步数或归因reward/prompt。新200与旧800不同更新量，已看测试集，仅探索性诊断。",
+  "training_rollout_summary": {
+    "updates1_200_samples": 12800,
+    "valid_multiple": 82,
+    "valid_multiple_rate_percent": 0.640625,
+    "source": "training_rollout_audit.json",
+    "step_convention": "rollout.step从0开始；optimizer_update=rollout.step+1，源码trainer.py在采样后optimizer.step再保存step+1"
+  }
+}

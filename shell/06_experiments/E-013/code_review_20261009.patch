@@ -1,0 +1,350 @@
+--- a/iploc_szy/engine/runner.py
++++ b/iploc_szy/engine/runner.py
+@@ -222,15 +222,22 @@
+                 localization_counts.append(
+                     self._localization_metric_counts(output.logits, forward_batch["labels"])
+                 )
++            local_step_loss = sum(local_micro_losses) / len(local_micro_losses)
++            step_loss = self._mean(local_step_loss)
++            if not math.isfinite(step_loss):
++                raise FloatingPointError(f"non-finite loss at step {self.step}")
+             self.finite_grad_fraction = self._finite_gradient_fraction()
++            if self.finite_grad_fraction != 1.0:
++                raise FloatingPointError(f"non-finite LoRA gradients at step {self.step}")
+             if self.max_grad_norm is not None:
+-                torch.nn.utils.clip_grad_norm_(self.parameters, self.max_grad_norm)
++                torch.nn.utils.clip_grad_norm_(
++                    self.parameters, self.max_grad_norm, error_if_nonfinite=True
++                )
+             self.current_learning_rate = float(self.optimizer.param_groups[0]["lr"])
+             learning_rates.append(self.current_learning_rate)
+             self.optimizer.step()
+             self.scheduler.step()
+-            local_step_loss = sum(local_micro_losses) / len(local_micro_losses)
+-            self.history.append(self._mean(local_step_loss))
++            self.history.append(step_loss)
+             self.latest_localization_metrics = self._aggregate_localization_counts(
+                 localization_counts
+             )
+@@ -334,12 +341,12 @@
+         checkpoint_dir = self.work_dir / "checkpoints" / (
+             f"samples_{int(target_samples):08d}_step_{self.step:06d}"
+         )
+-        if checkpoint_dir.exists():
+-            raise FileExistsError(
+-                "refusing to overwrite an existing checkpoint directory: "
+-                f"{checkpoint_dir}"
+-            )
+         if self.is_main_process:
++            if checkpoint_dir.exists():
++                raise FileExistsError(
++                    "refusing to overwrite an existing checkpoint directory: "
++                    f"{checkpoint_dir}"
++                )
+             checkpoint_dir.mkdir(parents=True, exist_ok=False)
+             self.wrapper.save_adapter(checkpoint_dir / "adapter")
+             torch.save(
+--- a/iploc_szy/rl/trainer.py
++++ b/iploc_szy/rl/trainer.py
+@@ -52,9 +52,10 @@
+     eos_ids = [eos] if isinstance(eos, int) else eos
+     if not eos_ids: raise ValueError('EOS ids are required')
+     # Fresh config: no hidden top-k, repetition penalty, or checkpoint warpers.
++    pad_token_id = processor.tokenizer.pad_token_id
+     config = GenerationConfig(do_sample=True, temperature=1., top_p=1., top_k=0,
+         max_new_tokens=max_new_tokens, eos_token_id=eos_ids,
+-        pad_token_id=processor.tokenizer.pad_token_id or eos_ids[0], use_cache=True)
++        pad_token_id=eos_ids[0] if pad_token_id is None else pad_token_id, use_cache=True)
+     with torch.no_grad():
+         ids = model.generate(**batch, generation_config=config,
+                              use_model_defaults=False, temperature=1., top_p=1., top_k=0)
+--- a/iploc_szy/rl/multi_candidate.py
++++ b/iploc_szy/rl/multi_candidate.py
+@@ -64,7 +64,7 @@
+         for i in range(3):
+             for j in range(i+1, 3):
+                 gap = overlaps[i] - overlaps[j]
+-                if abs(gap) >= rank_iou_delta:
++                if gap != 0 and abs(gap) >= rank_iou_delta:
+                     desired_order = 1. if gap > 0 else -1.
+                     ranking_terms.append(max(
+                         0., rank_margin - desired_order *
+--- a/tests/test_run_management.py
++++ b/tests/test_run_management.py
+@@ -259,6 +259,7 @@
+     runner = object.__new__(SFTLoRARunner)
+     runner.work_dir = tmp_path
+     runner.step = 7
++    runner.is_main_process = True
+     existing = tmp_path / "checkpoints" / "samples_00000064_step_000007"
+     existing.mkdir(parents=True)
+     sentinel = existing / "keep.txt"
+--- a/tests/test_coordinate_token_alignment.py
++++ b/tests/test_coordinate_token_alignment.py
+@@ -2,6 +2,7 @@
+ import sys
+ from pathlib import Path
+ from types import ModuleType
++from unittest.mock import patch
+ 
+ import pytest
+ 
+@@ -25,31 +26,31 @@
+     registry.DATASETS = Registry()
+     pil = ModuleType("PIL")
+     pil.Image = object
+-    for name, module in {
++    stubs = {
+         "iploc_szy": package,
+         "iploc_szy.datasets": datasets,
+         "iploc_szy.prompting": prompting,
+         "iploc_szy.registry": registry,
+         "PIL": pil,
+-    }.items():
+-        sys.modules[name] = module
++    }
++    # Stubs must not replace real PIL/package modules for subsequent tests.
++    with patch.dict(sys.modules, stubs):
++        coordinate_spec = importlib.util.spec_from_file_location(
++            "iploc_szy.prompting.coordinates", ROOT / "iploc_szy/prompting/coordinates.py"
++        )
++        coordinates = importlib.util.module_from_spec(coordinate_spec)
++        assert coordinate_spec.loader is not None
++        sys.modules[coordinate_spec.name] = coordinates
++        coordinate_spec.loader.exec_module(coordinates)
+ 
+-    coordinate_spec = importlib.util.spec_from_file_location(
+-        "iploc_szy.prompting.coordinates", ROOT / "iploc_szy/prompting/coordinates.py"
+-    )
+-    coordinates = importlib.util.module_from_spec(coordinate_spec)
+-    assert coordinate_spec.loader is not None
+-    sys.modules[coordinate_spec.name] = coordinates
+-    coordinate_spec.loader.exec_module(coordinates)
+-
+-    collator_spec = importlib.util.spec_from_file_location(
+-        "iploc_szy.datasets.collator", ROOT / "iploc_szy/datasets/collator.py"
+-    )
+-    collator = importlib.util.module_from_spec(collator_spec)
+-    assert collator_spec.loader is not None
+-    sys.modules[collator_spec.name] = collator
+-    collator_spec.loader.exec_module(collator)
+-    return coordinates.coordinate_field_char_spans, collator.Qwen3VLSFTCollator
++        collator_spec = importlib.util.spec_from_file_location(
++            "iploc_szy.datasets.collator", ROOT / "iploc_szy/datasets/collator.py"
++        )
++        collator = importlib.util.module_from_spec(collator_spec)
++        assert collator_spec.loader is not None
++        sys.modules[collator_spec.name] = collator
++        collator_spec.loader.exec_module(collator)
++        return coordinates.coordinate_field_char_spans, collator.Qwen3VLSFTCollator
+ 
+ 
+ coordinate_field_char_spans, Qwen3VLSFTCollator = _load_modules()
+--- /dev/null
++++ b/tests/test_repository_training_safety.py
+@@ -0,0 +1,100 @@
++"""CPU regressions for training safety; no pretrained weights or run artifacts."""
++
++from types import SimpleNamespace
++
++import pytest
++import torch
++
++from iploc_szy.engine.runner import SFTLoRARunner
++from iploc_szy.rl.multi_candidate import multi_reward
++from iploc_szy.rl.trainer import rollout
++
++
++def test_checkpoint_non_writer_can_join_after_writer_created_directory(tmp_path, monkeypatch):
++    runner = object.__new__(SFTLoRARunner)
++    runner.work_dir = tmp_path
++    runner.step = 7
++    runner.is_main_process = False
++    runner.context = object()
++    directory = tmp_path / 'checkpoints' / 'samples_00000064_step_000007'
++    directory.mkdir(parents=True)
++    sentinel = directory / 'keep.txt'
++    sentinel.write_text('writer payload')
++    barriers = []
++    monkeypatch.setattr('iploc_szy.engine.runner.barrier', barriers.append)
++
++    runner._save_checkpoint(64)
++
++    assert barriers == [runner.context]
++    assert sentinel.read_text() == 'writer payload'
++
++
++@pytest.mark.parametrize('nonfinite', ['loss', 'gradient', 'clip_norm'])
++def test_nonfinite_values_abort_before_optimizer_mutates_parameters(tmp_path, monkeypatch, nonfinite):
++    class Model(torch.nn.Module):
++        def __init__(self):
++            super().__init__()
++            self.weight = torch.nn.Parameter(torch.ones(2))
++            if nonfinite != 'loss':
++                value = float('inf') if nonfinite == 'gradient' else 3.e38
++                self.weight.register_hook(lambda grad: torch.full_like(grad, value))
++
++        def forward(self, **batch):
++            loss = self.weight.square().sum()
++            if nonfinite == 'loss':
++                loss = loss + float('nan')
++            return SimpleNamespace(loss=loss, logits=torch.zeros(1, 2, 3))
++
++    model = Model()
++    wrapper = SimpleNamespace(model=model, input_device=torch.device('cpu'),
++                              trainable_parameters=lambda: model.parameters(),
++                              save_adapter=lambda path: None)
++    runner = SFTLoRARunner(
++        model=wrapper, dataset=[{}],
++        collator=lambda samples: dict(labels=torch.tensor([[-100, 1]]),
++                                     metadata=[dict(id='fixture')]),
++        work_dir=str(tmp_path), max_steps=1, hooks=[], max_grad_norm=1.)
++    monkeypatch.setattr(runner, '_localization_metric_counts', lambda *args: {})
++    before = model.weight.detach().clone()
++
++    error = RuntimeError if nonfinite == 'clip_norm' else FloatingPointError
++    with pytest.raises(error, match='non-finite'):
++        runner.run()
++
++    assert torch.equal(model.weight.detach(), before)
++    assert not runner.optimizer.state
++
++
++@pytest.mark.parametrize('pad_token_id', [0, 7, None])
++def test_rollout_preserves_valid_pad_id_and_only_falls_back_for_none(pad_token_id):
++    expected_pad = 9 if pad_token_id is None else pad_token_id
++
++    class Model:
++        generation_config = SimpleNamespace(eos_token_id=9)
++
++        def modules(self):
++            return []
++
++        def generate(self, *, input_ids, generation_config, **kwargs):
++            assert generation_config.pad_token_id == expected_pad
++            return torch.cat((input_ids, torch.tensor([[4, 9]])), dim=1)
++
++    tokenizer = SimpleNamespace(pad_token_id=pad_token_id, eos_token_id=9,
++                                decode=lambda ids, **kwargs: 'fixture')
++    prompt = torch.tensor([[1, 2]])
++    ids, text, terminated = rollout(
++        Model(), SimpleNamespace(tokenizer=tokenizer), dict(input_ids=prompt), 4)
++    assert terminated and text == 'fixture'
++    assert ids.tolist() == [[1, 2, 4, 9]]
++
++
++@pytest.mark.parametrize('rank_iou_delta', [0., .1])
++def test_equal_iou_candidates_have_no_arbitrary_score_order(rank_iou_delta):
++    text = '\n'.join(
++        f'<answer>{box}</answer><score>{score}</score>'
++        for box, score in zip(('[0,0,10,10]', '[20,20,30,30]', '[40,40,50,50]'),
++                              ('0.90', '0.10', '0.50')))
++    reward = multi_reward(text, target_present=True, gt_box=[100, 100, 110, 110],
++                          rank_iou_delta=rank_iou_delta)
++    assert reward['ranking_pairs'] == 0
++    assert reward['ranking_loss'] == 0.
+--- a/tests/test_head_stability_suite.py
++++ b/tests/test_head_stability_suite.py
+@@ -51,7 +51,8 @@
+             },
+         },
+     }
+-    payload = MODULE.checkpoint_log_payload("step1", "/checkpoint1", latest, result)
++    payload = MODULE.checkpoint_log_payload("step1", "/checkpoint1", "adapter", latest, result)
++    assert payload["checkpoint_kind"] == "adapter"
+     assert payload["records"] == 100
+     assert payload["query_top5"][-1] == "L6H05"
+     assert payload["reference_top3"] == ["L7H06", "L8H07", "L9H08"]
+--- a/docs/LAUNCH_CATALOG.md
++++ b/docs/LAUNCH_CATALOG.md
+@@ -38,6 +38,11 @@
+ | `tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py` | E-012 R-006 Query 五头整头置零的 smoke：只 3 条样本，验证 hook/parity/产物链路。 |
+ | `tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py` | E-012：R-006 Query 五头在 step741 上的大样本联合消融（只跑联合条件，686 条） |
+ | `tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py` | E-012 R-011：只留选中注意力头的大幅裁剪（细删）定位性能曲线。 |
++| `tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py` | E-012 R-012：同一批 query head，细删靶子换成 reference 图像。 |
++| `tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py` | E-012 R-013：不分组，扫"哪一类源 token → reference 图像"的注意力被删掉会崩。 |
++| `tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py` | E-012 R-014：直接改写 support 帧的框坐标，看模型受影响多大。 |
++| `tools/run/analysis/e012/e012_r015_query_key_control_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py` | E-012 R-015：正面对照——把"所有行 → query 图像 key"的注意力也全删，看会不会崩。 |
++| `tools/run/analysis/e012/e012_r016_black_reference_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py` | E-012 R-016：保留框文本，只换图像本身（换图 / 涂黑）。 |
+ | `tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py` | E-012：reference-image 梯度候选 + 空间质量 + 跨样本频率选头。 |
+ | `tools/run/analysis/e012/e012_reference_spatial_iou050.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py` | Reference 选头：同一梯度候选，最大注意力质量连通域 IoU >= 0.5。 |
+ | `tools/run/analysis/e012/e012_top10_head_ablation.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_top10_head_ablation.py` | E-012：自动解析已指定 R-001 的 absolute Top-10，做整头置零先导消融。 |
+@@ -68,7 +73,7 @@
+ | `tools/run/eval/run_e011_qwen3vl_native.sh` | compatibility alias | `tools/run/eval/run_native_grounding.sh` | 兼容转发到列出的 canonical Shell。 |
+ | `tools/run/eval/run_grounding_adapter_eval.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_grounding_tasks.py` | Task selection, checkpoint and experiment settings for this localization recipe. |
+ | `tools/run/eval/run_native_grounding.sh` | maintained shortcut | `configs/eval/qwen3vl_8b_native_grounding.py` | Native Qwen3-VL evaluation using the shared frozen E-011 scope. |
+-| `tools/run/run_branch.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_focus_branch.py` | Qwen3-VL FOCUS 通用分支配置：native、E011 与旧 E009 共用一个入口。 |
++| `tools/run/run_branch.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_focus_branch.py` | Qwen3-VL FOCUS 通用分支配置。 |
+ | `tools/run/run_dynamic_reference_query_alignment.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_reference_query_dynamic.py` | Online stop-gradient teacher; no fixed teacher artifact is read. |
+ | `tools/run/run_e009_branch.sh` | compatibility alias | `tools/run/run_branch.sh` | 兼容转发到列出的 canonical Shell。 |
+ | `tools/run/run_e009_dynamic_reference_query_distill.sh` | compatibility alias | `tools/run/run_dynamic_reference_query_alignment.sh` | 兼容转发到列出的 canonical Shell。 |
+@@ -85,6 +90,8 @@
+ | `tools/run/train/train_focus_1shot_ddp4_4bit_named.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py` | Four-GPU 1-shot NF4 QLoRA branch with isolated named-run outputs. |
+ | `tools/run/train/train_focus_1shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py` | Single-GPU, DDP-style Qwen3-VL LoRA SFT with one FOCUS support. |
+ | `tools/run/train/train_focus_2shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_2shot_single.py` | Single-GPU, DDP-style Qwen3-VL LoRA SFT with two FOCUS supports. |
++| `tools/run/train/train_focus_confidence_grpo.sh` | maintained shortcut | `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | 专项入口；请查看对应 config。 |
++| `tools/run/train/train_focus_confidence_sft.sh` | maintained shortcut | `configs/sft/e013_qwen3vl8b_focus_confidence.py` | E-013: FOCUS single box + numeric score, without confidence value targets. |
+ | `tools/run/train/train_focus_ddp.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_ddp.py` | Two-GPU DDP FOCUS SFT: each rank keeps one complete, unsharded model. |
+ | `tools/run/train/train_focus_gt_mask_pipeline.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py` | FOCUS 1-shot SFT: warm-up -> adaptive GT-mask -> fixed-head GT-mask. |
+ | `tools/run/train/train_focus_sharded.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_bs16.py` | Four-GPU model-sharded Qwen3-VL LoRA SFT with the category-free FOCUS prompt. |
+--- a/configs/ENTRYPOINT_INDEX.md
++++ b/configs/ENTRYPOINT_INDEX.md
+@@ -25,6 +25,11 @@
+ | `tools/run/analysis/e012/e012_r006_query5_head_ablation_step741_smoke.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py` |
+ | `tools/run/analysis/e012/e012_r006_query5_joint_only_step741_686.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py` |
+ | `tools/run/analysis/e012/e012_r011_query_keepset_pruning_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py` |
++| `tools/run/analysis/e012/e012_r012_query_heads_ref_channel_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py` |
++| `tools/run/analysis/e012/e012_r013_reference_key_source_sweep_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py` |
++| `tools/run/analysis/e012/e012_r014_support_box_probe_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py` |
++| `tools/run/analysis/e012/e012_r015_query_key_control_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py` |
++| `tools/run/analysis/e012/e012_r016_black_reference_step741.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py` |
+ | `tools/run/analysis/e012/e012_reference_gradient_gated_spatial_frequency.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py` |
+ | `tools/run/analysis/e012/e012_reference_spatial_iou050.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py` |
+ | `tools/run/analysis/e012/e012_top10_head_ablation.sh` | experiment analysis | `configs/experiments/E-012/analysis/e012_top10_head_ablation.py` |
+@@ -72,6 +77,8 @@
+ | `tools/run/train/train_focus_1shot_ddp4_4bit_named.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit_named.py` |
+ | `tools/run/train/train_focus_1shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py` |
+ | `tools/run/train/train_focus_2shot_single.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_2shot_single.py` |
++| `tools/run/train/train_focus_confidence_grpo.sh` | maintained shortcut | `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `tools/run/train/train_focus_confidence_sft.sh` | maintained shortcut | `configs/sft/e013_qwen3vl8b_focus_confidence.py` |
+ | `tools/run/train/train_focus_ddp.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_ddp.py` |
+ | `tools/run/train/train_focus_gt_mask_pipeline.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py` |
+ | `tools/run/train/train_focus_sharded.sh` | maintained shortcut | `configs/sft/qwen3vl_8b_lora_focus_bs16.py` |
+@@ -110,6 +117,11 @@
+ | `configs/experiments/E-012/analysis/e012_r006_query5_head_ablation_step741_smoke.py` | base/task-specific | — |  |
+ | `configs/experiments/E-012/analysis/e012_r006_query5_joint_only_step741_686.py` | base/task-specific | — |  |
+ | `configs/experiments/E-012/analysis/e012_r011_query_keepset_pruning_step741.py` | base/task-specific | — |  |
++| `configs/experiments/E-012/analysis/e012_r012_query_heads_ref_channel_step741.py` | base/task-specific | — |  |
++| `configs/experiments/E-012/analysis/e012_r013_reference_key_source_sweep_step741.py` | base/task-specific | — |  |
++| `configs/experiments/E-012/analysis/e012_r014_support_box_probe_step741.py` | base/task-specific | — |  |
++| `configs/experiments/E-012/analysis/e012_r015_query_key_control_step741.py` | base/task-specific | — |  |
++| `configs/experiments/E-012/analysis/e012_r016_black_reference_step741.py` | base/task-specific | — |  |
+ | `configs/experiments/E-012/analysis/e012_reference_gradient_gated_spatial_frequency.py` | base/task-specific | — |  |
+ | `configs/experiments/E-012/analysis/e012_reference_spatial_iou050.py` | base/task-specific | — |  |
+ | `configs/experiments/E-012/analysis/e012_reference_target_grounded_screening.py` | analyze | 1 | `configs/experiments/E-012/protocol/e012_reference_target_screening.py`, `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+@@ -122,6 +134,13 @@
+ | `configs/experiments/E-012/protocol/e012_reference_target_screening.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/experiments/E-012/protocol/e012_target_vs_background_ablation.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/experiments/E-012/training/query_r005_ref3_transfer.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/grpo/e013_multi3_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_collage_coverage_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_collage_branch.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_collage_coverage_pilot.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_collage_coverage_branch.py`, `configs/grpo/e013_multi3_rank_collage_branch.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_cf_branch.py` | grpo | 2 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_multi3_rank_collage_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/grpo/e013_multi3_rank_branch.py`, `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` |
++| `configs/grpo/e013_qwen3vl8b_focus_confidence_branch.py` | grpo | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/head_screening/e012_bbox_gradient_initial.py` | compatibility config alias | — | `configs/experiments/E-012/analysis/e012_bbox_gradient_initial.py` |
+ | `configs/head_screening/e012_ce_iou_probe_head_ablation_step741.py` | compatibility config alias | — | `configs/experiments/E-012/analysis/e012_ce_iou_probe_head_ablation_step741.py` |
+ | `configs/head_screening/e012_contribution_calculation_check.py` | analyze | 1 | `configs/experiments/E-012/analysis/e012_contribution_calculation_check.py` |
+@@ -154,6 +173,11 @@
+ | `configs/sft/e011_qwen3vl8b_lora_grounding_1shot_ddp4_4bit.py` | train | 4 | `configs/sft/qwen3vl_8b_grounding.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/_base_/e011_frozen_eval.py` |
+ | `configs/sft/e012_query_r005_ref3_transfer.py` | train | 4 | `configs/experiments/E-012/training/query_r005_ref3_transfer.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/e012_ref10_query5_correct_final_eval.py` | evaluate | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/experiments/E-012/evaluation/ref10_query5_correct_final.py` |
++| `configs/sft/e013_multi3_rank_cf_eval.py` | evaluate | 2 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/e013_multi_candidate_branch.py` |
++| `configs/sft/e013_multi_candidate_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/sft/e013_multi_candidate_instances_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
++| `configs/sft/e013_multi_candidate_spatial_branch.py` | evaluate | 4 | `configs/sft/e013_qwen3vl8b_focus_confidence.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/e013_multi_candidate_instances_branch.py` |
++| `configs/sft/e013_qwen3vl8b_focus_confidence.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_branch.py` | evaluate | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_gt_mask_pipeline.py` | train | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py` |
+ | `configs/sft/qwen3vl_8b_focus_query_attention_branch.py` | attention_intervene | 4 | `configs/sft/qwen3vl_8b_lora_focus_1shot_ddp4_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single_4bit.py`, `configs/sft/qwen3vl_8b_lora_focus_1shot_single.py`, `configs/_base_/localization_sft.py`, `configs/_base_/qwen3vl_lora_ddp.py`, `configs/sft/qwen3vl_8b_focus_branch.py` |
