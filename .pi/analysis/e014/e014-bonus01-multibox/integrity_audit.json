@@ -1,0 +1,130 @@
+{
+  "sources": [
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/trainer_config.json",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/trainer_config.json",
+      "size": 1698,
+      "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/training.log",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/training.log",
+      "size": 75578,
+      "sha256": "803c9e63c8711c35f3dfc6e4c96155eb2a8ec8baeb8f47e6353e083eb735526a"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank0.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank0.jsonl",
+      "size": 461790,
+      "sha256": "67b2243a2418bbb61fb7888cc9bd8ee6ee2b18cc436b8b0d985c3c050ddd9c6b"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank1.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank1.jsonl",
+      "size": 460833,
+      "sha256": "7478fd819c610a29cb1923e723a6d930d907b493147312f1b8db29c4793b2082"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank2.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank2.jsonl",
+      "size": 458629,
+      "sha256": "3daf1e4d85d51dc621533d18d89eef7ee748c82608244d37457b3bcec76d65e8"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank3.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank3.jsonl",
+      "size": 458746,
+      "sha256": "59b1281c8761f3bd5a4ba1a7eb398c8b7e3c172a6efa6a98caf006e47805322c"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank4.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank4.jsonl",
+      "size": 458049,
+      "sha256": "570d054c73c1c9263d7aca32465348875aedcf250b9344894f394fd47dac5fef"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank5.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank5.jsonl",
+      "size": 466202,
+      "sha256": "77db343519b40119be1f726987b3e88eeb10902d83ac55a96b53e0113be6c39d"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank6.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank6.jsonl",
+      "size": 460356,
+      "sha256": "9044b4fbca1b2020ae0e57fb015485009f55f9a8d99079f462f2fbaf538103ab"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-sft659-seed11451/payload/grpo/rollouts-rank7.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/current/rollouts-rank7.jsonl",
+      "size": 458354,
+      "sha256": "1bac9e8973ecc2a4e264937f98f376516f889d6cca07f8fbbc195690587bb3fe"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/trainer_config.json",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/trainer_config.json",
+      "size": 1640,
+      "sha256": "02c555fe60969a884979ff9eb8e336855d22660ef4c3b22045afeea5d2bc6c3c"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/training.log",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/training.log",
+      "size": 154485,
+      "sha256": "8a811f91e0464bf9f23ee6cba3c9e0da6dbc46293f6f41892d82c6b15a217b07"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank0.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank0.jsonl",
+      "size": 982913,
+      "sha256": "e20036c1fde36fc5b6d55277f6bb87fcbdfe7f7d2714fb4eae369cb3145e4e01"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank1.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank1.jsonl",
+      "size": 980150,
+      "sha256": "21ee4ac2fbe8d7ab96bebf32169657ad444d0fa87c93253d061d78a93346a5f7"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank2.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank2.jsonl",
+      "size": 981399,
+      "sha256": "5c981439f4eb8add1a06e26f635f152b3415533fa6c7a58375e3eb4c002bbefb"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank3.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank3.jsonl",
+      "size": 983725,
+      "sha256": "ee09b28c90b0409dcdf20b5be9550862ab391ca4545e8392100ac87327387ae2"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank4.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank4.jsonl",
+      "size": 986097,
+      "sha256": "720fce3a636a51f3611f555d1e33569e131d1384b40979916876d3ec589afeb6"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank5.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank5.jsonl",
+      "size": 991176,
+      "sha256": "a68192099ee655bffb24fd837f09663124826289d48f840c860b19b8ae851a20"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank6.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank6.jsonl",
+      "size": 981969,
+      "sha256": "56c6d96063e4d75298d73a02f97fd520dcc4e1e96240a471b85b3a70ac65e0ff"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis/source_snapshot/rollouts-rank7.jsonl",
+      "snapshot": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis/source_snapshot/baseline/rollouts-rank7.jsonl",
+      "size": 979002,
+      "sha256": "e523bd77c93132e533f5c3c1d34e45d22b6bfd740f1952e4ab8b2357f17481c7"
+    }
+  ],
+  "reward_recalculation": "passed",
+  "g4_groups": "passed",
+  "config_difference": "only multibox bonus and run paths",
+  "matched_input_group_keys": true,
+  "completed_updates": 53,
+  "baseline_completed_updates": 122
+}

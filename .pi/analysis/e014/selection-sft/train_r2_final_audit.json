@@ -1,0 +1,104 @@
+{
+  "run_id": "e014-drawn-selection-lora-sft1epoch-20261018-r2",
+  "exit_code": "1",
+  "metrics": {
+    "status": "gate_failed",
+    "distributed": true,
+    "world_size": 8,
+    "per_device_batch_size": 1,
+    "global_physical_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 72,
+    "configured_max_epochs": 1,
+    "checkpoint_interval_epochs": 0.5,
+    "checkpoint_interval_samples": 576.0,
+    "initialized_from": "",
+    "resumed_from": "",
+    "warmup_ratio": 0.05,
+    "warmup_steps": 4,
+    "max_grad_norm": 0.3,
+    "assistant_only_logits": true,
+    "logits_to_keep": 4,
+    "effective_global_batch_size": 16,
+    "steps": 72,
+    "examples_seen": 1152,
+    "session_examples_seen": 1152,
+    "train_seconds": 794.0673515796661,
+    "examples_per_second": 1.450758550528851,
+    "loss_before": 0.007273048726347042,
+    "loss_after": 0.048288823978509754,
+    "training_pipeline": null,
+    "loss_comparison_objective": "configured_loss",
+    "adapter_delta_norm": 2.736153869420579,
+    "finite_grad_fraction": 1.0,
+    "trainable_parameter_count": 21823488,
+    "dataset_size": 1152,
+    "seed": 20260901,
+    "eval_sample_ids_by_rank": [
+      [
+        "965-1-perm0"
+      ],
+      [
+        "1091-1-perm1"
+      ],
+      [
+        "125-1-perm0"
+      ],
+      [
+        "529-1-perm0"
+      ],
+      [
+        "358-1-perm1"
+      ],
+      [
+        "1039-1-perm1"
+      ],
+      [
+        "1325-1-perm1"
+      ],
+      [
+        "1866-1-perm1"
+      ]
+    ],
+    "peak_gpu_memory_gib_by_rank": [
+      17.065929889678955,
+      17.06597375869751,
+      17.059293270111084,
+      17.05977773666382,
+      17.06063222885132,
+      17.065340042114258,
+      17.063026905059814,
+      17.071629524230957
+    ]
+  },
+  "finite_steps_verified": 72,
+  "checkpoint_files": {
+    "payload/training/checkpoints/samples_00000576_step_000036/trainer_state.pt": {
+      "size": 175022083,
+      "sha256": "2d7a34d89118e60eebf02a4fcc7a3f7540a1855f03e57348f383b5f7455dcf26"
+    },
+    "payload/training/checkpoints/samples_00000576_step_000036/adapter/adapter_model.safetensors": {
+      "size": 87368144,
+      "sha256": "c3caaf20c7aa7645727c56556159faf9797592b6856f63e1da1fccceadf31009"
+    },
+    "payload/training/checkpoints/samples_00000576_step_000036/adapter/adapter_config.json": {
+      "size": 967,
+      "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+    },
+    "payload/training/checkpoints/samples_00001152_step_000072/trainer_state.pt": {
+      "size": 175024963,
+      "sha256": "ebf7b8892d06ddc482df620be42e7540e00bf55e95bcb22ffcf9d7977c4938e0"
+    },
+    "payload/training/checkpoints/samples_00001152_step_000072/adapter/adapter_model.safetensors": {
+      "size": 87368144,
+      "sha256": "7eab1f7864d71acd31d68a09b586b1489d1045a411d8540e873ec3022f9d338d"
+    },
+    "payload/training/checkpoints/samples_00001152_step_000072/adapter/adapter_config.json": {
+      "size": 967,
+      "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+    }
+  },
+  "first12_mean_loss": 0.4551659864505017,
+  "last12_mean_loss": 0.19655056489182243,
+  "metrics_sha256": "5799d87f5072c59b8408b58c5a35a6f196aa68cfe66829d1a83ea4795de5c911"
+}

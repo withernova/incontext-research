@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "identity": {
+    "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
+    "runId": "e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+    "experimentId": "E-014",
+    "managedExecution": true
+  },
+  "remote": {
+    "host": "SZY-3090",
+    "projectDir": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy"
+  },
+  "experiment": {
+    "tmuxSession": "incontext-E-014-e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+    "logFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451/managed_console.log",
+    "description": "E-014 / e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451 / 用户确认回退至发现优先奖励，score_weight .4→.5；fresh SFT659、400step、G8、KL0，其余奖励和数据保持；独立Run，保留所",
+    "processPattern": "run\\.sh"
+  },
+  "monitoring": {
+    "errorPatterns": [
+      "FileNotFoundError",
+      "CUDA out of memory",
+      "RuntimeError",
+      "KeyboardInterrupt",
+      "Traceback",
+      "AssertionError"
+    ],
+    "progressPatterns": [
+      "iteration:",
+      "epoch:",
+      "loss:",
+      "ETA:"
+    ],
+    "gpuWarningPercent": 95,
+    "etaRegex": "ETA:\\s*(?:(\\d+):)?(\\d{1,2}):(\\d{2}):(\\d{2})|ETA:\\s*(\\d+(?:\\.\\d+)?)\\s*([mh])"
+  },
+  "scheduling": {
+    "minIntervalMinutes": 2,
+    "normalIntervalMinutes": 15,
+    "maxIntervalMinutes": 60,
+    "etaFraction": 0.1,
+    "nearCompletionMinutes": 30,
+    "stableBackoffAfterChecks": 3
+  },
+  "completion": {
+    "enabled": true,
+    "completionMarkers": [
+      "SURVEY_TOOL_RUN_COMPLETE"
+    ],
+    "requiredArtifacts": [],
+    "metricsFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451/.survey-tool-exit-code",
+    "stableChecks": 2,
+    "requireProcessExit": true,
+    "allowNonzeroExit": false
+  },
+  "remediation": {
+    "enabled": false,
+    "maxRestarts": 0,
+    "playbooks": []
+  },
+  "automation": {
+    "mode": "off",
+    "allowedCodeRoots": [],
+    "testCommands": [],
+    "maxRepairs": 0,
+    "timeBudgetMinutes": 30,
+    "autoRerun": false,
+    "installDeclaredDependencies": false,
+    "dependencyFiles": [],
+    "prohibitedActions": [
+      "修改 Workspace",
+      "修改数据 manifest",
+      "修改 head、指标、样本或假设",
+      "创建替代 Conda 环境",
+      "使用旧环境路径"
+    ],
+    "researchFieldsLocked": true,
+    "environmentChangesLocked": true
+  },
+  "archive": {
+    "enabled": true,
+    "mode": "manifest_reference",
+    "localDir": ".survey-tool/experiment-archives",
+    "includePaths": [],
+    "checksumAlgorithm": "sha256",
+    "autoArchive": false,
+    "maxFiles": 2000,
+    "maxTotalBytes": 2000000000
+  }
+}

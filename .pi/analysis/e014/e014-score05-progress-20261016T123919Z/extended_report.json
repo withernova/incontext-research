@@ -1,0 +1,155 @@
+{
+  "run_id": "e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+  "observed_utc": "2026-10-16T12:39:33.193788+00:00",
+  "complete_step_count": 202,
+  "window_steps": [
+    182,
+    183,
+    184,
+    185,
+    186,
+    187,
+    188,
+    189,
+    190,
+    191,
+    192,
+    193,
+    194,
+    195,
+    196,
+    197,
+    198,
+    199,
+    200,
+    201
+  ],
+  "overall": {
+    "total": 2560,
+    "valid": 2555,
+    "valid_rate": 0.998046875,
+    "valid_multibox": 1410,
+    "multibox_per_all": 0.55078125,
+    "multibox_per_valid": 0.5518590998043053,
+    "valid_positive": 1891,
+    "valid_positive_multibox": 1298,
+    "selected_iou": 0.7338888987107833,
+    "oracle_selected_gap": 0.041781020827232694,
+    "unterminated": 1,
+    "tiers": {
+      "None": 1891
+    },
+    "oracle_iou": 0.775669919538016
+  },
+  "by_source": {
+    "collage": {
+      "total": 1232,
+      "valid": 1227,
+      "valid_rate": 0.9959415584415584,
+      "valid_multibox": 1226,
+      "multibox_per_all": 0.9951298701298701,
+      "multibox_per_valid": 0.9991850040749797,
+      "valid_positive": 1227,
+      "valid_positive_multibox": 1226,
+      "selected_iou": 0.7185875518277867,
+      "oracle_selected_gap": 0.05558475144254691,
+      "unterminated": 1,
+      "tiers": {
+        "None": 1227
+      },
+      "oracle_iou": 0.7741723032703336
+    },
+    "original": {
+      "total": 1328,
+      "valid": 1328,
+      "valid_rate": 1.0,
+      "valid_multibox": 184,
+      "multibox_per_all": 0.13855421686746988,
+      "multibox_per_valid": 0.13855421686746988,
+      "valid_positive": 664,
+      "valid_positive_multibox": 72,
+      "selected_iou": 0.762164128568369,
+      "oracle_selected_gap": 0.01627322344019874,
+      "unterminated": 0,
+      "tiers": {
+        "None": 664
+      },
+      "oracle_iou": 0.7784373520085678
+    }
+  },
+  "mixed_groups": 4,
+  "within_group_multi_minus_single_advantage": 0.19392292825948637,
+  "multibox_disappeared": false,
+  "diagnosis": [
+    "仅一次训练采样快照，不能代替固定验证集评测；未自动重试或修改训练。",
+    "窗口内仍存在合法正样本多框，不判定已消失；按原图/拼图分开查看比例。"
+  ],
+  "runtime": {
+    "trainer": {
+      "reward_scheme": "candidate_discovery_priority_v1",
+      "reward": {
+        "correctness_threshold": 0.5,
+        "hit_weight": 1.0,
+        "oracle_weight": 1.0,
+        "coverage_weight": 0.5,
+        "selected_weight": 0.2,
+        "score_weight": 0.5,
+        "duplicate_weight": 0.05,
+        "order_weight": 0.05,
+        "duplicate_threshold": 0.9
+      },
+      "group_size": 8,
+      "beta": 0.0,
+      "max_steps": 400
+    },
+    "saved_checkpoints": [
+      "step_000050",
+      "step_000100",
+      "step_000150",
+      "step_000200"
+    ],
+    "exit_code": null
+  },
+  "recent_windows": [
+    {
+      "raw_steps": [
+        140,
+        159
+      ],
+      "n": 2560,
+      "multi_rate": 0.598046875,
+      "selected": 0.7048249254811138,
+      "oracle": 0.7637678837756279
+    },
+    {
+      "raw_steps": [
+        160,
+        179
+      ],
+      "n": 2560,
+      "multi_rate": 0.515234375,
+      "selected": 0.7665507722663418,
+      "oracle": 0.7987689940864326
+    },
+    {
+      "raw_steps": [
+        180,
+        199
+      ],
+      "n": 2560,
+      "multi_rate": 0.54140625,
+      "selected": 0.721569831764142,
+      "oracle": 0.7763816365599306
+    },
+    {
+      "raw_steps": [
+        200,
+        201
+      ],
+      "n": 256,
+      "multi_rate": 0.68359375,
+      "selected": 0.7182919134545732,
+      "oracle": 0.7667489061814193
+    }
+  ]
+}

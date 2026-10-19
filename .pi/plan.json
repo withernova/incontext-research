@@ -1,23 +1,18 @@
 {
   "version": 1,
-  "explanation": "评测exit0、稳定metrics及1766覆盖/来源核验通过，managed complete成功；候选评分与训练1..150全部19200rollouts/2400G8组诊断完成，原group记录/24窗口交叉一致，报告与canonical写回完成。",
   "steps": [
     {
-      "step": "核验输出目录契约，登记保留旧产物的新评测Run",
+      "step": "盘点E-014全部目录、已有链接及Run状态快照",
       "status": "completed"
     },
     {
-      "step": "修正新Run配置绑定并审阅指定版本",
+      "step": "补齐全量分类与进行中入口，保留历史导航",
       "status": "completed"
     },
     {
-      "step": "受管启动评测并核验实际输入、配置和提示词",
-      "status": "completed"
-    },
-    {
-      "step": "等待1766样本评测完成，核验完整性并汇总结果",
+      "step": "核验覆盖和链接完整性，同步本地导航",
       "status": "completed"
     }
   ],
-  "updatedAt": "2026-10-14T01:07:54.962Z"
+  "updatedAt": "2026-10-19T02:05:33.089Z"
 }

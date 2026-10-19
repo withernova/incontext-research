@@ -1,0 +1,47 @@
+{
+  "predictions_sha256": "03a24e625e001f5a62b38f3f7dcbf0ef0c73da0134c0bb6d08a5b07b6519faa3",
+  "metrics_sha256": "67e0006c5de47ced06054a904ac304de97cf0252f932f4b9e9f597bd841813d4",
+  "samples": 1766,
+  "unique_indices_and_ids": true,
+  "all_sample_metrics_recomputed": true,
+  "postflight_complete_log_marker": true,
+  "exit_code": 0,
+  "second_candidate_count": 1764,
+  "second_candidate_mean_iou": 0.01294442074891546,
+  "second_candidate_correct_count": 13,
+  "second_candidate_mean_score": 0.03581632653061226,
+  "second_candidate_zero_score_count": 456,
+  "second_improves_iou_count": 23,
+  "second_rescues_first_at_05_count": 10,
+  "selection_misses_available_correct_at_05_count": 20,
+  "selected_second_count": 36,
+  "most_frequent_second_boxes": [
+    {
+      "box": [
+        900.0,
+        900.0,
+        930.0,
+        999.0
+      ],
+      "count": 35
+    },
+    {
+      "box": [
+        900.0,
+        79.0,
+        950.0,
+        999.0
+      ],
+      "count": 31
+    },
+    {
+      "box": [
+        900.0,
+        900.0,
+        930.0,
+        958.0
+      ],
+      "count": 22
+    }
+  ]
+}

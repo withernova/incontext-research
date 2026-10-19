@@ -1,0 +1,16 @@
+{
+  "contract": "survey-tool.code-sync/v1",
+  "workspace_id": "03",
+  "machine": "db7a6137a485d9dd7561727a",
+  "workspace_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
+  "recorded_at": "2026-10-16T13:05:40.990113+00:00",
+  "operation": "publish",
+  "baseline_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53",
+  "remote_baseline_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53",
+  "published_commit": "3f85afb6167a47cc2917ea171a29689dee778626",
+  "local_repo": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy",
+  "remote_repo": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy",
+  "ssh_host": "SZY-3090",
+  "push_performed": true,
+  "execution_started": false
+}

@@ -1,0 +1,1990 @@
+{
+  "source_run": "e014-selection-fulltrain-step200-gtaugment-20261018",
+  "source_audit_sha256": "bd91752e02879a8a1c34b75e59d3e21c427adac9058aa977550cf4d67fa8f33f",
+  "seed": 20260901,
+  "selection": "Random without replacement within dataset GOT30/LaSOT10/TAO10; display sorted by original oracle IoU",
+  "population_gt_injected": 729,
+  "samples": 50,
+  "limits": [
+    "Dataset-stratified display sample; not population proportional or new evaluation.",
+    "Original oracle below 0.5 does not imply hard selection after GT injection.",
+    "Original candidate order shown, not training permutation. Resized display only."
+  ],
+  "records": [
+    {
+      "source_index": 1354,
+      "id": "1354-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            545.0,
+            244.0,
+            616.0,
+            467.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[545,244,616,467]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        395,
+        228,
+        434,
+        439
+      ],
+      "gt_index": 1,
+      "filename": "01_GOT10k_source001354.jpg",
+      "sequence": "GOT-10k_Train_001675",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001675/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001675/00000201.jpg",
+      "sha256": "7b8e2aa635c477f8b941b95a848416c369882d3ae136426d55ee9e66f82923f6"
+    },
+    {
+      "source_index": 1394,
+      "id": "1394-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            855.0,
+            506.0,
+            887.0,
+            631.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[855,506,887,631]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        627,
+        497,
+        647,
+        607
+      ],
+      "gt_index": 1,
+      "filename": "02_GOT10k_source001394.jpg",
+      "sequence": "GOT-10k_Train_001760",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001760/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001760/00000101.jpg",
+      "sha256": "9837f9cfc4ded0294fcafffef308c7af9f7518dd384797b8c5ca7ca6f935f59e"
+    },
+    {
+      "source_index": 3456,
+      "id": "3456-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            355.0,
+            117.0,
+            423.0,
+            258.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[355,117,423,258]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        348,
+        529,
+        392,
+        597
+      ],
+      "gt_index": 1,
+      "filename": "03_GOT10k_source003456.jpg",
+      "sequence": "GOT-10k_Train_004491",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004491/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004491/00000101.jpg",
+      "sha256": "da29cc6ac8dbfb16fd8f661eefc6033becdae99ea90fd0866e24dd05d5320319"
+    },
+    {
+      "source_index": 3741,
+      "id": "3741-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            217.0,
+            388.0,
+            250.0,
+            592.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[217,388,250,592]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            292.0,
+            390.0,
+            337.0,
+            508.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[292,390,337,508]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        468,
+        431,
+        548,
+        679
+      ],
+      "gt_index": 2,
+      "filename": "04_GOT10k_source003741.jpg",
+      "sequence": "GOT-10k_Train_004849",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004849/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004849/00000080.jpg",
+      "sha256": "8e06b2b3a6514ebda60b11cd87ecbf9e09a6acf719a09cbba55efc9b232540b9"
+    },
+    {
+      "source_index": 5016,
+      "id": "5016-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            137.0,
+            575.0,
+            223.0,
+            999.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[137,575,223,999]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            398.0,
+            508.0,
+            462.0,
+            847.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[398,508,462,847]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        662,
+        389,
+        696,
+        556
+      ],
+      "gt_index": 2,
+      "filename": "05_GOT10k_source005016.jpg",
+      "sequence": "GOT-10k_Train_006415",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_006415/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_006415/00000101.jpg",
+      "sha256": "2a4a767033b7048c3915f69ff066b2cd748f14d5707192f8aff37b72e5f01117"
+    },
+    {
+      "source_index": 5167,
+      "id": "5167-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            408.0,
+            394.0,
+            452.0,
+            569.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[408,394,452,569]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            497.0,
+            543.0,
+            548.0,
+            807.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[497,543,548,807]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        958,
+        416,
+        999,
+        613
+      ],
+      "gt_index": 2,
+      "filename": "06_GOT10k_source005167.jpg",
+      "sequence": "GOT-10k_Train_006584",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_006584/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_006584/00000141.jpg",
+      "sha256": "785e5ce58be05955a60190f6f220e86a5e82249c2ed840acda63132ea4654b21"
+    },
+    {
+      "source_index": 5665,
+      "id": "5665-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            416.0,
+            214.0,
+            449.0,
+            294.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[416,214,449,294]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            487.0,
+            217.0,
+            575.0,
+            343.0
+          ],
+          "score": 1.0,
+          "text": "<answer>[487,217,575,343]</answer><score>1.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 1,
+      "gt_box": [
+        450,
+        383,
+        478,
+        660
+      ],
+      "gt_index": 2,
+      "filename": "07_GOT10k_source005665.jpg",
+      "sequence": "GOT-10k_Train_007216",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007216/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007216/00000100.jpg",
+      "sha256": "ad1c3ff76bd50230b3be0255b1b88099028a6c6621c474806934aa9388a32613"
+    },
+    {
+      "source_index": 5785,
+      "id": "5785-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            268.0,
+            764.0,
+            312.0,
+            812.0
+          ],
+          "score": 0.35,
+          "text": "<answer>[268,764,312,812]</answer><score>0.35</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            330.0,
+            737.0,
+            362.0,
+            778.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[330,737,362,778]</answer><score>0.65</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 1,
+      "gt_box": [
+        290,
+        374,
+        316,
+        407
+      ],
+      "gt_index": 2,
+      "filename": "08_GOT10k_source005785.jpg",
+      "sequence": "GOT-10k_Train_007381",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007381/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007381/00000101.jpg",
+      "sha256": "274c35f10bc2cae4dd4f749a60b1c33b3ff5827a9f5bffb0cb026aa63fbfef92"
+    },
+    {
+      "source_index": 5814,
+      "id": "5814-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            459.0,
+            666.0,
+            495.0,
+            722.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[459,666,495,722]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        451,
+        369,
+        474,
+        426
+      ],
+      "gt_index": 1,
+      "filename": "09_GOT10k_source005814.jpg",
+      "sequence": "GOT-10k_Train_007416",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007416/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007416/00000620.jpg",
+      "sha256": "2ae01e700e585c0e829504015c9c1a9b177b4e5acf8df9c480e9ce5fb13e7786"
+    },
+    {
+      "source_index": 6081,
+      "id": "6081-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            112.0,
+            283.0,
+            238.0,
+            452.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[112,283,238,452]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        663,
+        446,
+        684,
+        474
+      ],
+      "gt_index": 1,
+      "filename": "10_GOT10k_source006081.jpg",
+      "sequence": "GOT-10k_Train_007747",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007747/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007747/00000101.jpg",
+      "sha256": "db4beee586a407e9f51e5a001a98e2c45fe58005f311b8f5af1b069715321e02"
+    },
+    {
+      "source_index": 6125,
+      "id": "6125-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            356.0,
+            469.0,
+            375.0,
+            522.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[356,469,375,522]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            359.0,
+            612.0,
+            377.0,
+            676.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[359,612,377,676]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        561,
+        344,
+        645,
+        670
+      ],
+      "gt_index": 2,
+      "filename": "11_GOT10k_source006125.jpg",
+      "sequence": "GOT-10k_Train_007814",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007814/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007814/00000121.jpg",
+      "sha256": "b7aa63872802977c24e7f2b5c9a5eaa2c4b76ac458da8426942bbed91df88c81"
+    },
+    {
+      "source_index": 6241,
+      "id": "6241-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            336.0,
+            458.0,
+            359.0,
+            843.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[336,458,359,843]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        449,
+        509,
+        465,
+        797
+      ],
+      "gt_index": 1,
+      "filename": "12_GOT10k_source006241.jpg",
+      "sequence": "GOT-10k_Train_007958",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007958/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007958/00000111.jpg",
+      "sha256": "cbe3c8ceab8b4d92e65d0eed1d40599b7ee1d6d7c57e51bb62ebf68b2ee1a8cf"
+    },
+    {
+      "source_index": 6310,
+      "id": "6310-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            454.0,
+            537.0,
+            467.0,
+            687.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[454,537,467,687]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        476,
+        574,
+        483,
+        753
+      ],
+      "gt_index": 1,
+      "filename": "13_GOT10k_source006310.jpg",
+      "sequence": "GOT-10k_Train_008035",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008035/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008035/00000121.jpg",
+      "sha256": "c8b6d9172e50d6b51f5a35ff39039fdfb99fb96d9228f02cd80b1425de5d7bde"
+    },
+    {
+      "source_index": 7532,
+      "id": "7532-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            673.0,
+            158.0,
+            719.0,
+            603.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[673,158,719,603]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        277,
+        362,
+        346,
+        718
+      ],
+      "gt_index": 1,
+      "filename": "14_LaSOT_source007532.jpg",
+      "sequence": "gorilla-17",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/gorilla/gorilla-17/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/gorilla/gorilla-17/img/00002116.jpg",
+      "sha256": "f5f782e58efa8e65d99f1828311ae494336afc0aa621db10f5d7caceb4f401c2"
+    },
+    {
+      "source_index": 7632,
+      "id": "7632-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            284.0,
+            807.0,
+            323.0,
+            862.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[284,807,323,862]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        499,
+        449,
+        520,
+        489
+      ],
+      "gt_index": 1,
+      "filename": "15_LaSOT_source007632.jpg",
+      "sequence": "lizard-20",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/lizard/lizard-20/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/lizard/lizard-20/img/00001008.jpg",
+      "sha256": "5f705f9be117d3dabfca2d28a9dc5f20e583e1149462d7b3513593738f02a753"
+    },
+    {
+      "source_index": 7640,
+      "id": "7640-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            489.0,
+            797.0,
+            500.0,
+            817.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[489,797,500,817]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        384,
+        693,
+        391,
+        707
+      ],
+      "gt_index": 1,
+      "filename": "16_LaSOT_source007640.jpg",
+      "sequence": "microphone-12",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/microphone/microphone-12/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/microphone/microphone-12/img/00001768.jpg",
+      "sha256": "f03c56b9c125672e20078a311cb3fb62046f74fec409c72c69da03dc35983f50"
+    },
+    {
+      "source_index": 7674,
+      "id": "7674-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            283.0,
+            877.0,
+            291.0,
+            897.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[283,877,291,897]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        1,
+        790,
+        63,
+        935
+      ],
+      "gt_index": 1,
+      "filename": "17_LaSOT_source007674.jpg",
+      "sequence": "mouse-10",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/mouse/mouse-10/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/mouse/mouse-10/img/00001864.jpg",
+      "sha256": "eec732f1d88ff7d628501f6f7ed52923b125496fd2cd3b0410da2441b0214756"
+    },
+    {
+      "source_index": 7685,
+      "id": "7685-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            102.0,
+            428.0,
+            131.0,
+            447.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[102,428,131,447]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        198,
+        503,
+        235,
+        528
+      ],
+      "gt_index": 1,
+      "filename": "18_LaSOT_source007685.jpg",
+      "sequence": "mouse-3",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/mouse/mouse-3/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/mouse/mouse-3/img/00001990.jpg",
+      "sha256": "ca27ada0868825ba45cc68d5b4734b7ed28d23b9cb5b536f44dada456c18f004"
+    },
+    {
+      "source_index": 7715,
+      "id": "7715-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            520.0,
+            673.0,
+            532.0,
+            698.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[520,673,532,698]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        596,
+        506,
+        606,
+        522
+      ],
+      "gt_index": 1,
+      "filename": "19_LaSOT_source007715.jpg",
+      "sequence": "pool-5",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/pool/pool-5/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/pool/pool-5/img/00009999.jpg",
+      "sha256": "8d9b8db71ee9889e5ecb48cdd884785108467050951017ddccb58c185908f17d"
+    },
+    {
+      "source_index": 7969,
+      "id": "7969-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            289.0,
+            426.0,
+            358.0,
+            486.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[289,426,358,486]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            448.0,
+            398.0,
+            569.0,
+            498.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[448,398,569,498]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            367.0,
+            558.0,
+            503.0,
+            696.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[367,558,503,696]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            525.0,
+            504.0,
+            647.0,
+            658.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[525,504,647,658]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            762.0,
+            402.0,
+            862.0,
+            483.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[762,402,862,483]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            858.0,
+            394.0,
+            934.0,
+            526.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[858,394,934,526]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 3,
+      "gt_box": [
+        977,
+        417,
+        1000,
+        460
+      ],
+      "gt_index": 6,
+      "filename": "20_TAO_source007969.jpg",
+      "sequence": "train/YFCC100M/v_ff68bbc26aec375b6ea0326ea74375c",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_ff68bbc26aec375b6ea0326ea74375c/frame0751.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_ff68bbc26aec375b6ea0326ea74375c/frame1741.jpg",
+      "sha256": "cb4aee3dcac006f05a7575f11617f46a52a317fd85f5b061427fc2751f5c032d"
+    },
+    {
+      "source_index": 8014,
+      "id": "8014-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            282.0,
+            350.0,
+            290.0,
+            388.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[282,350,290,388]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        629,
+        342,
+        652,
+        401
+      ],
+      "gt_index": 1,
+      "filename": "21_TAO_source008014.jpg",
+      "sequence": "train/BDD/b4475526-2f0bca11",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b4475526-2f0bca11/frame0001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b4475526-2f0bca11/frame1141.jpg",
+      "sha256": "26dbfd3e4e2b48f2c68d61ac141d59f6674d8b0827405fd26bafa3bbac15b300"
+    },
+    {
+      "source_index": 8076,
+      "id": "8076-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            721.0,
+            491.0,
+            813.0,
+            548.0
+          ],
+          "score": 0.87,
+          "text": "<answer>[721,491,813,548]</answer><score>0.87</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.0,
+      "original_selected_index": 0,
+      "gt_box": [
+        428,
+        478,
+        449,
+        506
+      ],
+      "gt_index": 1,
+      "filename": "22_TAO_source008076.jpg",
+      "sequence": "train/ArgoVerse/side_right_e8ce69b2-36ab-38e8-87a4-b9e20fee7fd2",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/ArgoVerse/side_right_e8ce69b2-36ab-38e8-87a4-b9e20fee7fd2/ring_side_right_315966815006689992.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/ArgoVerse/side_right_e8ce69b2-36ab-38e8-87a4-b9e20fee7fd2/ring_side_right_315966816005691752.jpg",
+      "sha256": "ee08a9dc2463bfa45b48cfc6b65b019461ac431441c3a7b75d66382826d41cf1"
+    },
+    {
+      "source_index": 227,
+      "id": "227-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            206.0,
+            4.0,
+            908.0,
+            722.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[206,4,908,722]</answer><score>0.00</score>",
+          "iou": 0.0009553875550386309
+        }
+      ],
+      "original_oracle": 0.0009553875550386309,
+      "original_selected_index": 0,
+      "gt_box": [
+        492,
+        715,
+        561,
+        744
+      ],
+      "gt_index": 1,
+      "filename": "23_GOT10k_source000227.jpg",
+      "sequence": "GOT-10k_Train_000275",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000275/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000275/00000100.jpg",
+      "sha256": "2846342011dcf299032887e003da31746893b4b0af466d90b0318d6a77da64ec"
+    },
+    {
+      "source_index": 8006,
+      "id": "8006-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            523.0,
+            475.0,
+            645.0,
+            567.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[523,475,645,567]</answer><score>0.00</score>",
+          "iou": 0.006236635780470421
+        },
+        {
+          "box": [
+            629.0,
+            475.0,
+            689.0,
+            547.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[629,475,689,547]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            669.0,
+            487.0,
+            720.0,
+            547.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[669,487,720,547]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.006236635780470421,
+      "original_selected_index": 0,
+      "gt_box": [
+        529,
+        479,
+        536,
+        489
+      ],
+      "gt_index": 3,
+      "filename": "24_TAO_source008006.jpg",
+      "sequence": "train/BDD/b3da33d5-a64e7657",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b3da33d5-a64e7657/frame0001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b3da33d5-a64e7657/frame2341.jpg",
+      "sha256": "110e303700775e6cc002e08b0e8c4819ccb1601d5a27fc6fd4b56009640dab01"
+    },
+    {
+      "source_index": 7662,
+      "id": "7662-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            0.0,
+            192.0,
+            466.0,
+            751.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[0,192,466,751]</answer><score>0.00</score>",
+          "iou": 0.012230607998648722
+        },
+        {
+          "box": [
+            892.0,
+            323.0,
+            906.0,
+            360.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[892,323,906,360]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.012230607998648722,
+      "original_selected_index": 0,
+      "gt_box": [
+        233,
+        311,
+        292,
+        365
+      ],
+      "gt_index": 2,
+      "filename": "25_LaSOT_source007662.jpg",
+      "sequence": "motorcycle-17",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/motorcycle/motorcycle-17/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/motorcycle/motorcycle-17/img/00001833.jpg",
+      "sha256": "7de205d460d38ae44c16a156a6c38c44f2e944c8ce757f4e0c91fe6f2989655e"
+    },
+    {
+      "source_index": 1350,
+      "id": "1350-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            12.0,
+            408.0,
+            56.0,
+            617.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[12,408,56,617]</answer><score>0.00</score>",
+          "iou": 0.019659435039467807
+        },
+        {
+          "box": [
+            291.0,
+            434.0,
+            338.0,
+            706.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[291,434,338,706]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.019659435039467807,
+      "original_selected_index": 1,
+      "gt_box": [
+        0,
+        608,
+        57,
+        807
+      ],
+      "gt_index": 2,
+      "filename": "26_GOT10k_source001350.jpg",
+      "sequence": "GOT-10k_Train_001671",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001671/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001671/00000198.jpg",
+      "sha256": "9801523456cae0ea025fd91307cf5905e933decc41f53b024a15d3a76f2dd0d7"
+    },
+    {
+      "source_index": 8049,
+      "id": "8049-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            278.0,
+            330.0,
+            356.0,
+            415.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[278,330,356,415]</answer><score>0.00</score>",
+          "iou": 0.02771855010660981
+        },
+        {
+          "box": [
+            878.0,
+            866.0,
+            1000.0,
+            978.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[878,866,1000,978]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.02771855010660981,
+      "original_selected_index": 0,
+      "gt_box": [
+        0,
+        205,
+        469,
+        715
+      ],
+      "gt_index": 2,
+      "filename": "27_TAO_source008049.jpg",
+      "sequence": "train/YFCC100M/v_414b7f18dc5ebf7b56972ae8e82215",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_414b7f18dc5ebf7b56972ae8e82215/frame0313.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_414b7f18dc5ebf7b56972ae8e82215/frame1201.jpg",
+      "sha256": "64d8a272f1e33113abcd1ce9c51026b6afd9c8c523c6fa8bb484e4bcd8676813"
+    },
+    {
+      "source_index": 7929,
+      "id": "7929-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            630.0,
+            39.0,
+            706.0,
+            333.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[630,39,706,333]</answer><score>0.00</score>",
+          "iou": 0.036251342642320085
+        }
+      ],
+      "original_oracle": 0.036251342642320085,
+      "original_selected_index": 0,
+      "gt_box": [
+        634,
+        165,
+        649,
+        219
+      ],
+      "gt_index": 1,
+      "filename": "28_TAO_source007929.jpg",
+      "sequence": "train/HACS/Horseback_riding_v_YD5C5LX7j4k_scene_0_962-4591",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/HACS/Horseback_riding_v_YD5C5LX7j4k_scene_0_962-4591/frame0001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/HACS/Horseback_riding_v_YD5C5LX7j4k_scene_0_962-4591/frame0811.jpg",
+      "sha256": "a0e51deac61fb4e51cc258bf497775d271bfe69eca2dac9d9b3027d4cb5228d4"
+    },
+    {
+      "source_index": 8038,
+      "id": "8038-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            309.0,
+            578.0,
+            348.0,
+            684.0
+          ],
+          "score": 0.35,
+          "text": "<answer>[309,578,348,684]</answer><score>0.35</score>",
+          "iou": 0.036510194404931244
+        },
+        {
+          "box": [
+            423.0,
+            497.0,
+            573.0,
+            731.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[423,497,573,731]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.036510194404931244,
+      "original_selected_index": 0,
+      "gt_box": [
+        313,
+        572,
+        327,
+        589
+      ],
+      "gt_index": 2,
+      "filename": "29_TAO_source008038.jpg",
+      "sequence": "train/BDD/b27098c3-c443b6e3",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b27098c3-c443b6e3/frame0001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/BDD/b27098c3-c443b6e3/frame2161.jpg",
+      "sha256": "af96c5bfa16f4920d1460c3a61b2f95e81d2809f4652daad46f2ed659d0b7add"
+    },
+    {
+      "source_index": 6435,
+      "id": "6435-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            734.0,
+            496.0,
+            831.0,
+            636.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[734,496,831,636]</answer><score>0.00</score>",
+          "iou": 0.10083070753365798
+        }
+      ],
+      "original_oracle": 0.10083070753365798,
+      "original_selected_index": 0,
+      "gt_box": [
+        728,
+        565,
+        756,
+        629
+      ],
+      "gt_index": 1,
+      "filename": "30_GOT10k_source006435.jpg",
+      "sequence": "GOT-10k_Train_008198",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008198/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008198/00000091.jpg",
+      "sha256": "47dd0e1a153b0cd4017f8e3124f1853345a23de723176074587d2c3de19f93d7"
+    },
+    {
+      "source_index": 5815,
+      "id": "5815-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            462.0,
+            469.0,
+            484.0,
+            508.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[462,469,484,508]</answer><score>0.00</score>",
+          "iou": 0.10922330097087378
+        }
+      ],
+      "original_oracle": 0.10922330097087378,
+      "original_selected_index": 0,
+      "gt_box": [
+        469,
+        451,
+        488,
+        478
+      ],
+      "gt_index": 1,
+      "filename": "31_GOT10k_source005815.jpg",
+      "sequence": "GOT-10k_Train_007417",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007417/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007417/00000671.jpg",
+      "sha256": "b61b257179423533b9556b9406fd9a1007b41bc904b9ef0d94481eea1db75a06"
+    },
+    {
+      "source_index": 7650,
+      "id": "7650-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            434.0,
+            742.0,
+            492.0,
+            967.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[434,742,492,967]</answer><score>0.67</score>",
+          "iou": 0.22344827586206897
+        }
+      ],
+      "original_oracle": 0.22344827586206897,
+      "original_selected_index": 0,
+      "gt_box": [
+        441,
+        742,
+        477,
+        823
+      ],
+      "gt_index": 1,
+      "filename": "32_LaSOT_source007650.jpg",
+      "sequence": "microphone-6",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/microphone/microphone-6/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/microphone/microphone-6/img/00001767.jpg",
+      "sha256": "fd1f64bc1039f795995e2ec2f0a3c00acec5d177c7b44234b4abf2f9e331e229"
+    },
+    {
+      "source_index": 491,
+      "id": "491-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            377.0,
+            488.0,
+            400.0,
+            548.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[377,488,400,548]</answer><score>0.00</score>",
+          "iou": 0.2316894018887723
+        },
+        {
+          "box": [
+            767.0,
+            622.0,
+            822.0,
+            666.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[767,622,822,666]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.2316894018887723,
+      "original_selected_index": 0,
+      "gt_box": [
+        373,
+        500,
+        440,
+        567
+      ],
+      "gt_index": 2,
+      "filename": "33_GOT10k_source000491.jpg",
+      "sequence": "GOT-10k_Train_000652",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000652/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000652/00000120.jpg",
+      "sha256": "0df24edd0a394151fa1490b1488c2560e4a370fa8ca8df67bc1704bb58a4fef5"
+    },
+    {
+      "source_index": 7877,
+      "id": "7877-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            50.0,
+            347.0,
+            408.0,
+            1000.0
+          ],
+          "score": 0.87,
+          "text": "<answer>[50,347,408,1000]</answer><score>0.87</score>",
+          "iou": 0.2447895287958115
+        }
+      ],
+      "original_oracle": 0.2447895287958115,
+      "original_selected_index": 0,
+      "gt_box": [
+        45,
+        0,
+        1000,
+        1000
+      ],
+      "gt_index": 1,
+      "filename": "34_TAO_source007877.jpg",
+      "sequence": "train/YFCC100M/v_b9e87a1eb4ca4a47d8d80da9f7d7f20",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_b9e87a1eb4ca4a47d8d80da9f7d7f20/frame0541.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_b9e87a1eb4ca4a47d8d80da9f7d7f20/frame1681.jpg",
+      "sha256": "be73dfb58bfd5af3747273f31b6db922ab7d7334ce238c58bac54b8ca8b26a39"
+    },
+    {
+      "source_index": 7591,
+      "id": "7591-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            900.0,
+            543.0,
+            991.0,
+            608.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[900,543,991,608]</answer><score>0.00</score>",
+          "iou": 0.24547759932375318
+        }
+      ],
+      "original_oracle": 0.24547759932375318,
+      "original_selected_index": 0,
+      "gt_box": [
+        927,
+        561,
+        971,
+        594
+      ],
+      "gt_index": 1,
+      "filename": "35_LaSOT_source007591.jpg",
+      "sequence": "hippo-9",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hippo/hippo-9/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hippo/hippo-9/img/00001898.jpg",
+      "sha256": "10c9f453ff4744d09a2d6ed819756208a137388175a84a1d12c69e3990854d51"
+    },
+    {
+      "source_index": 7947,
+      "id": "7947-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            859.0,
+            196.0,
+            922.0,
+            312.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[859,196,922,312]</answer><score>0.00</score>",
+          "iou": 0.25466520307354557
+        }
+      ],
+      "original_oracle": 0.25466520307354557,
+      "original_selected_index": 0,
+      "gt_box": [
+        886,
+        196,
+        953,
+        394
+      ],
+      "gt_index": 1,
+      "filename": "36_TAO_source007947.jpg",
+      "sequence": "train/YFCC100M/v_ca3710d4f4cd8b4316974b641d37ba3",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_ca3710d4f4cd8b4316974b641d37ba3/frame0241.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_ca3710d4f4cd8b4316974b641d37ba3/frame0571.jpg",
+      "sha256": "9e02eba37711655d15221f0768287fdb44c91347ed459157e4c866f0e6f00bc8"
+    },
+    {
+      "source_index": 269,
+      "id": "269-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            482.0,
+            188.0,
+            669.0,
+            348.0
+          ],
+          "score": 0.85,
+          "text": "<answer>[482,188,669,348]</answer><score>0.85</score>",
+          "iou": 0.32842650151364594
+        },
+        {
+          "box": [
+            855.0,
+            158.0,
+            908.0,
+            267.0
+          ],
+          "score": 0.15,
+          "text": "<answer>[855,158,908,267]</answer><score>0.15</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.32842650151364594,
+      "original_selected_index": 0,
+      "gt_box": [
+        481,
+        196,
+        724,
+        546
+      ],
+      "gt_index": 2,
+      "filename": "37_GOT10k_source000269.jpg",
+      "sequence": "GOT-10k_Train_000326",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000326/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000326/00000100.jpg",
+      "sha256": "ab34a8164f2536c3439a8d8b44c6378613383e9bf21080b8ccd1882d32ab8828"
+    },
+    {
+      "source_index": 7629,
+      "id": "7629-1",
+      "dataset": "LaSOT",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            155.0,
+            547.0,
+            500.0,
+            865.0
+          ],
+          "score": 0.87,
+          "text": "<answer>[155,547,500,865]</answer><score>0.87</score>",
+          "iou": 0.3629245071491402
+        }
+      ],
+      "original_oracle": 0.3629245071491402,
+      "original_selected_index": 0,
+      "gt_box": [
+        333,
+        518,
+        505,
+        799
+      ],
+      "gt_index": 1,
+      "filename": "38_LaSOT_source007629.jpg",
+      "sequence": "lizard-18",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/lizard/lizard-18/img/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/lizard/lizard-18/img/00001188.jpg",
+      "sha256": "63fcfb4761f514a118dfa8ea9bf30a1d219d08f1a978e4ea88d011188b5c9162"
+    },
+    {
+      "source_index": 5540,
+      "id": "5540-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            326.0,
+            224.0,
+            370.0,
+            447.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[326,224,370,447]</answer><score>0.00</score>",
+          "iou": 0.3638156647069979
+        },
+        {
+          "box": [
+            342.0,
+            222.0,
+            442.0,
+            617.0
+          ],
+          "score": 0.83,
+          "text": "<answer>[342,222,442,617]</answer><score>0.83</score>",
+          "iou": 0.34974812377917136
+        }
+      ],
+      "original_oracle": 0.3638156647069979,
+      "original_selected_index": 1,
+      "gt_box": [
+        313,
+        229,
+        396,
+        544
+      ],
+      "gt_index": 2,
+      "filename": "39_GOT10k_source005540.jpg",
+      "sequence": "GOT-10k_Train_007056",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007056/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007056/00000111.jpg",
+      "sha256": "4b0876f4e4953b1076a1c4bfef570da48b1dc31a106dde078b620fc7b1bab90f"
+    },
+    {
+      "source_index": 7971,
+      "id": "7971-1",
+      "dataset": "TAO",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            467.0,
+            436.0,
+            575.0,
+            536.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[467,436,575,536]</answer><score>0.00</score>",
+          "iou": 0.4037784181876401
+        }
+      ],
+      "original_oracle": 0.4037784181876401,
+      "original_selected_index": 0,
+      "gt_box": [
+        471,
+        439,
+        619,
+        603
+      ],
+      "gt_index": 1,
+      "filename": "40_TAO_source007971.jpg",
+      "sequence": "train/YFCC100M/v_bc4cb41ae520888a4e7cb7cb4224b3a",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_bc4cb41ae520888a4e7cb7cb4224b3a/frame0121.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/train/YFCC100M/v_bc4cb41ae520888a4e7cb7cb4224b3a/frame1291.jpg",
+      "sha256": "1f711a39fa82cb80274ea802f6b2562c93b8caa3dba6600aae45f0ec1aa6663b"
+    },
+    {
+      "source_index": 4259,
+      "id": "4259-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            163.0,
+            353.0,
+            377.0,
+            562.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[163,353,377,562]</answer><score>0.67</score>",
+          "iou": 0.41478686233403217
+        },
+        {
+          "box": [
+            417.0,
+            319.0,
+            604.0,
+            557.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[417,319,604,557]</answer><score>0.33</score>",
+          "iou": 0.4123553849879837
+        }
+      ],
+      "original_oracle": 0.41478686233403217,
+      "original_selected_index": 0,
+      "gt_box": [
+        164,
+        319,
+        603,
+        563
+      ],
+      "gt_index": 2,
+      "filename": "41_GOT10k_source004259.jpg",
+      "sequence": "GOT-10k_Train_005499",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_005499/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_005499/00000261.jpg",
+      "sha256": "2da6aee140e9138a397a1ae6f84630fec9964624cf418f88d3157201aa055dc4"
+    },
+    {
+      "source_index": 1569,
+      "id": "1569-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            484.0,
+            257.0,
+            525.0,
+            539.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[484,257,525,539]</answer><score>0.33</score>",
+          "iou": 0.4269413980281378
+        }
+      ],
+      "original_oracle": 0.4269413980281378,
+      "original_selected_index": 0,
+      "gt_box": [
+        483,
+        255,
+        542,
+        714
+      ],
+      "gt_index": 1,
+      "filename": "42_GOT10k_source001569.jpg",
+      "sequence": "GOT-10k_Train_001968",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001968/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001968/00000070.jpg",
+      "sha256": "3f60e53ba0641f1479c42b084967108d3ac03dfcdacaa32e5ce38090d3a8ba8a"
+    },
+    {
+      "source_index": 5800,
+      "id": "5800-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            505.0,
+            458.0,
+            525.0,
+            497.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[505,458,525,497]</answer><score>0.00</score>",
+          "iou": 0.43009320905459386
+        }
+      ],
+      "original_oracle": 0.43009320905459386,
+      "original_selected_index": 0,
+      "gt_box": [
+        506,
+        435,
+        530,
+        492
+      ],
+      "gt_index": 1,
+      "filename": "43_GOT10k_source005800.jpg",
+      "sequence": "GOT-10k_Train_007399",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007399/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007399/00000151.jpg",
+      "sha256": "7d980cb1d18d2258c13c5c15835e7e4b486fa19844ccf430ad9c74def5641f83"
+    },
+    {
+      "source_index": 181,
+      "id": "181-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            300.0,
+            444.0,
+            400.0,
+            725.0
+          ],
+          "score": 0.38,
+          "text": "<answer>[300,444,400,725]</answer><score>0.38</score>",
+          "iou": 0.06477473554798556
+        },
+        {
+          "box": [
+            361.0,
+            444.0,
+            572.0,
+            814.0
+          ],
+          "score": 0.3,
+          "text": "<answer>[361,444,572,814]</answer><score>0.30</score>",
+          "iou": 0.43430129060970185
+        },
+        {
+          "box": [
+            392.0,
+            158.0,
+            584.0,
+            558.0
+          ],
+          "score": 0.32,
+          "text": "<answer>[392,158,584,558]</answer><score>0.32</score>",
+          "iou": 0.0986639260020555
+        }
+      ],
+      "original_oracle": 0.43430129060970185,
+      "original_selected_index": 0,
+      "gt_box": [
+        355,
+        438,
+        783,
+        858
+      ],
+      "gt_index": 3,
+      "filename": "44_GOT10k_source000181.jpg",
+      "sequence": "GOT-10k_Train_000210",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000210/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_000210/00000090.jpg",
+      "sha256": "3dd9543cffde6f617844fc8f2258214475fb60c9683e2d2abc08120b1eb59a4b"
+    },
+    {
+      "source_index": 3133,
+      "id": "3133-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            582.0,
+            286.0,
+            616.0,
+            364.0
+          ],
+          "score": 0.78,
+          "text": "<answer>[582,286,616,364]</answer><score>0.78</score>",
+          "iou": 0.44646464646464645
+        }
+      ],
+      "original_oracle": 0.44646464646464645,
+      "original_selected_index": 0,
+      "gt_box": [
+        579,
+        282,
+        634,
+        390
+      ],
+      "gt_index": 1,
+      "filename": "45_GOT10k_source003133.jpg",
+      "sequence": "GOT-10k_Train_004052",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004052/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_004052/00000200.jpg",
+      "sha256": "d4c981437221d79fb5c82743cfabbb86f6de9bd80f15f2f4218e03038241c4a6"
+    },
+    {
+      "source_index": 6823,
+      "id": "6823-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            427.0,
+            678.0,
+            475.0,
+            775.0
+          ],
+          "score": 0.35,
+          "text": "<answer>[427,678,475,775]</answer><score>0.35</score>",
+          "iou": 0.45614035087719296
+        },
+        {
+          "box": [
+            459.0,
+            469.0,
+            520.0,
+            693.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[459,469,520,693]</answer><score>0.65</score>",
+          "iou": 0.07816610296880872
+        }
+      ],
+      "original_oracle": 0.45614035087719296,
+      "original_selected_index": 1,
+      "gt_box": [
+        425,
+        661,
+        511,
+        769
+      ],
+      "gt_index": 2,
+      "filename": "46_GOT10k_source006823.jpg",
+      "sequence": "GOT-10k_Train_008713",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008713/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_008713/00000121.jpg",
+      "sha256": "c1812ed6ea7cd636054a4aeaa2a851dcef2d4182789119d5cfce2a935ae1deb2"
+    },
+    {
+      "source_index": 7237,
+      "id": "7237-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            266.0,
+            83.0,
+            366.0,
+            320.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[266,83,366,320]</answer><score>0.00</score>",
+          "iou": 0.47093889716840537
+        }
+      ],
+      "original_oracle": 0.47093889716840537,
+      "original_selected_index": 0,
+      "gt_box": [
+        217,
+        76,
+        382,
+        381
+      ],
+      "gt_index": 1,
+      "filename": "47_GOT10k_source007237.jpg",
+      "sequence": "GOT-10k_Train_009244",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_009244/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_009244/00000095.jpg",
+      "sha256": "fe26b95a4c848c2bf3a5a44e8d04091a4d28f86cb408a59d089cd8f50774c3bf"
+    },
+    {
+      "source_index": 5892,
+      "id": "5892-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            500.0,
+            326.0,
+            525.0,
+            390.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[500,326,525,390]</answer><score>0.00</score>",
+          "iou": 0.47620777333817654
+        }
+      ],
+      "original_oracle": 0.47620777333817654,
+      "original_selected_index": 0,
+      "gt_box": [
+        491,
+        306,
+        523,
+        383
+      ],
+      "gt_index": 1,
+      "filename": "48_GOT10k_source005892.jpg",
+      "sequence": "GOT-10k_Train_007512",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007512/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_007512/00000461.jpg",
+      "sha256": "91038b13600b2046859ed7c55fd3de0522f1888cb8015d7470440565a2e09973"
+    },
+    {
+      "source_index": 1566,
+      "id": "1566-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            433.0,
+            289.0,
+            652.0,
+            579.0
+          ],
+          "score": 0.97,
+          "text": "<answer>[433,289,652,579]</answer><score>0.97</score>",
+          "iou": 0.4895024047354791
+        }
+      ],
+      "original_oracle": 0.4895024047354791,
+      "original_selected_index": 0,
+      "gt_box": [
+        334,
+        283,
+        652,
+        691
+      ],
+      "gt_index": 1,
+      "filename": "49_GOT10k_source001566.jpg",
+      "sequence": "GOT-10k_Train_001965",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001965/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_001965/00000070.jpg",
+      "sha256": "babe5b02e23373f0912eecf43bd1e867baf43f47745eb2d6dc22154298f31818"
+    },
+    {
+      "source_index": 2516,
+      "id": "2516-1",
+      "dataset": "GOT10k",
+      "kind": "gt_injected",
+      "eligible": true,
+      "original_candidates": [
+        {
+          "box": [
+            262.0,
+            408.0,
+            344.0,
+            530.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[262,408,344,530]</answer><score>0.00</score>",
+          "iou": 0.49270291883246703
+        },
+        {
+          "box": [
+            345.0,
+            588.0,
+            391.0,
+            647.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[345,588,391,647]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "original_oracle": 0.49270291883246703,
+      "original_selected_index": 0,
+      "gt_box": [
+        289,
+        408,
+        342,
+        501
+      ],
+      "gt_index": 2,
+      "filename": "50_GOT10k_source002516.jpg",
+      "sequence": "GOT-10k_Train_003225",
+      "reference_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_003225/00000001.jpg",
+      "query_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/train/GOT-10k_Train_003225/00000080.jpg",
+      "sha256": "c51a3b84807dec7d7f53fd4de632be549daeba80f8c3c192f7f56a077c4a28ee"
+    }
+  ]
+}

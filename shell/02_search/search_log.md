@@ -446,3 +446,5 @@ Never edit past entries.
   - zhang2026mitigati: Mitigating Multimodal Hallucination via Phase-wise Self-reward | http://arxiv.org/abs/2604.17982v1 | 2026 | doi=
   - song2026segmenta: Segmentation-Based Attention Entropy: Detecting and Mitigating Object Hallucinations in Large Vision-Language Models | http://arxiv.org/abs/2603.16558v1 | 2026 | doi=
   - li2023evaluati: Evaluating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2305.10355v3 | 2023 | doi=
+
+- 2026-10-15 | E-014 分段GRPO方案设计：搜索 `site.arxiv.org GRPO token level credit assignment reward normalization length bias Dr GRPO`；实际读取官方TRL v0.24.0文档 https://huggingface.co/docs/trl/v0.24.0/grpo_trainer ，仅用于核对组内归一化与loss归约定义，不将搜索摘要或未抓取论文作为研究证据；无新增论文citekey或Claim。

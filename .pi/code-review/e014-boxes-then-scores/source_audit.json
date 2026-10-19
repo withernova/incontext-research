@@ -1,0 +1,38 @@
+{
+  "baseline": "7bb09c762b4e6030fe870b34f9c1a119d7c81425",
+  "changed_files": [
+    "MODULE_MAP.md",
+    "configs/ENTRYPOINT_INDEX.md",
+    "configs/experiments/E-014/evaluation/e014_boxes_then_scores_sft659_step0_eval1766.py",
+    "configs/experiments/E-014/training/e014_boxes_then_scores_grpo.py",
+    "docs/GRPO_MODULES.md",
+    "docs/LAUNCH_CATALOG.md",
+    "iploc_szy/evaluation/runtime_config.py",
+    "iploc_szy/evaluation/variable_candidates.py",
+    "iploc_szy/prompting/variable_candidates.py",
+    "iploc_szy/rl/preflight.py",
+    "iploc_szy/rl/task.py",
+    "iploc_szy/rl/variable_candidates.py",
+    "tests/test_boxes_then_scores.py",
+    "tools/evaluate.py",
+    "tools/run_symmetric_grpo.py"
+  ],
+  "python_ast_39_files": 11,
+  "old_prompt_and_suffix_branches_source_identical": true,
+  "old_reward_formula_and_defaults_preserved_except_explicit_parser_binding": true,
+  "old_configs_unchanged": true,
+  "new_configs_only_dict_calls_no_artifact_io": true,
+  "unchanged_source_sha256": {
+    "iploc_szy/rl/trainer.py": "782da1056bffe9cc5113acca2e06089712995164382baa984b8443fb3b7d4d4f",
+    "iploc_szy/rl/sampling.py": "0647fef5530b576a84037bc72abb5654d4ccf87da90750868cf6471162f73aee",
+    "iploc_szy/rl/core.py": "e7dd732e8de25d964fbd81584d08c5765c8dc1ccb6c2439be5d23eb201a4f142",
+    "iploc_szy/rl/policy.py": "e826671953341b6fd3cf32e732710cf1ccf5e872e2d8a673041031ba2f39c955",
+    "iploc_szy/rl/data.py": "174a9485d6dda95b08d8f22c9ddb956f76e34fe68f560aa7671955a50b506c2d",
+    "iploc_szy/rl/symmetric_data.py": "c4366a7d97f8e02d8f9b7feb8c3533c25051a1ba377c9129cd8657a8f50c2ed2",
+    "iploc_szy/prompting/messages.py": "2abba81372440cb044d53a7c0c07b828cddb15dd42571d70d0a67aa7f1ddb67f",
+    "iploc_szy/prompting/confidence.py": "b4c3d4d2432e3930f80e66066d2cdd74ac53c1aae9cc125d07b89491df58e118",
+    "iploc_szy/evaluation/multi_candidate.py": "88112af4cec08d18c8cc0dbd127a7e911b6c8f64166c5d7afb224cc0bd083d6f"
+  },
+  "tests_executed": false,
+  "runtime_imports_executed": false
+}

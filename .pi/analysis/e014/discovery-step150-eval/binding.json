@@ -1,0 +1,8 @@
+{
+  "run_id": "e014-discovery-score04-step150-eval1766-20261015T161128Z",
+  "run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score04-step150-eval1766-20261015T161128Z",
+  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/20261015-172638__discovery-priority__score0.4-selected0.2-coverage0.5__kl0__sft659__200step__seed11451/payload/grpo/checkpoints/step_000150",
+  "source_training_run_id": "e014-discovery-priority-score04-beta0-sft659-200step-seed11451",
+  "source_training_git_commit": "1c47c7305c695151df81d46019143028e01752ad",
+  "evaluation_git_commit": "1c47c7305c695151df81d46019143028e01752ad"
+}

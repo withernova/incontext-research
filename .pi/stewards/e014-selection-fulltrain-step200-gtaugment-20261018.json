@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "identity": {
+    "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
+    "runId": "e014-selection-fulltrain-step200-gtaugment-20261018",
+    "experimentId": "E-014",
+    "managedExecution": true
+  },
+  "remote": {
+    "host": "SZY-3090",
+    "projectDir": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy"
+  },
+  "experiment": {
+    "tmuxSession": "incontext-E-014-e014-selection-fulltrain-step200-gtaugment-20261018",
+    "logFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-fulltrain-step200-gtaugment-20261018/managed_console.log",
+    "description": "E-014 / e014-selection-fulltrain-step200-gtaugment-20261018 / 用户明确授权启动完整训练集的固定候选生成LoRA推理及选择数据构造，不训练选择器。采用E009完整有效10522正例清单（原10534排除12无效框），包括GO",
+    "processPattern": ""
+  },
+  "monitoring": {
+    "errorPatterns": [
+      "FileNotFoundError",
+      "CUDA out of memory",
+      "RuntimeError",
+      "KeyboardInterrupt",
+      "Traceback",
+      "AssertionError"
+    ],
+    "progressPatterns": [
+      "iteration:",
+      "epoch:",
+      "loss:",
+      "ETA:"
+    ],
+    "gpuWarningPercent": 95,
+    "etaRegex": "ETA:\\s*(?:(\\d+):)?(\\d{1,2}):(\\d{2}):(\\d{2})|ETA:\\s*(\\d+(?:\\.\\d+)?)\\s*([mh])"
+  },
+  "scheduling": {
+    "minIntervalMinutes": 2,
+    "normalIntervalMinutes": 15,
+    "maxIntervalMinutes": 60,
+    "etaFraction": 0.1,
+    "nearCompletionMinutes": 30,
+    "stableBackoffAfterChecks": 3
+  },
+  "completion": {
+    "enabled": true,
+    "completionMarkers": [
+      "SURVEY_TOOL_RUN_COMPLETE"
+    ],
+    "requiredArtifacts": [],
+    "metricsFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-fulltrain-step200-gtaugment-20261018/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-fulltrain-step200-gtaugment-20261018/.survey-tool-exit-code",
+    "stableChecks": 2,
+    "requireProcessExit": true,
+    "allowNonzeroExit": false
+  },
+  "remediation": {
+    "enabled": false,
+    "maxRestarts": 0,
+    "playbooks": []
+  },
+  "automation": {
+    "mode": "off",
+    "allowedCodeRoots": [],
+    "testCommands": [],
+    "maxRepairs": 0,
+    "timeBudgetMinutes": 30,
+    "autoRerun": false,
+    "installDeclaredDependencies": false,
+    "dependencyFiles": [],
+    "prohibitedActions": [
+      "修改 Workspace",
+      "修改数据 manifest",
+      "修改 head、指标、样本或假设",
+      "创建替代 Conda 环境",
+      "使用旧环境路径"
+    ],
+    "researchFieldsLocked": true,
+    "environmentChangesLocked": true
+  },
+  "archive": {
+    "enabled": true,
+    "mode": "manifest_reference",
+    "localDir": ".survey-tool/experiment-archives",
+    "includePaths": [],
+    "checksumAlgorithm": "sha256",
+    "autoArchive": false,
+    "maxFiles": 2000,
+    "maxTotalBytes": 2000000000
+  }
+}

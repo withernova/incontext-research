@@ -1,0 +1,225 @@
+{
+  "150": {
+    "n": 1766,
+    "multi_n": 263,
+    "multi_selected": 0.5827017800768084,
+    "multi_oracle": 0.8046713883398052,
+    "oracle_hit": 1403,
+    "selected_hit": 1336,
+    "available_rescues": 80,
+    "realized_rescues": 45,
+    "oracle_hit_selected_miss": 67,
+    "top_score_ties_multi": 100,
+    "miss_examples": [
+      {
+        "index": 104,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.9292730844793713,
+            0.45
+          ],
+          [
+            0.0,
+            0.55
+          ]
+        ]
+      },
+      {
+        "index": 108,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.7553285968028419,
+            0.0
+          ]
+        ]
+      },
+      {
+        "index": 128,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.021738040316919064,
+            0.0
+          ],
+          [
+            0.8943925233644859,
+            0.0
+          ]
+        ]
+      },
+      {
+        "index": 181,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.9739024390243902,
+            0.35
+          ],
+          [
+            0.0,
+            0.65
+          ]
+        ]
+      },
+      {
+        "index": 184,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.0,
+            0.0
+          ],
+          [
+            0.8286501290189808,
+            0.0
+          ]
+        ]
+      }
+    ]
+  },
+  "200": {
+    "n": 1766,
+    "multi_n": 791,
+    "multi_selected": 0.6117499324631576,
+    "multi_oracle": 0.7584401938937495,
+    "oracle_hit": 1467,
+    "selected_hit": 1334,
+    "available_rescues": 204,
+    "realized_rescues": 103,
+    "oracle_hit_selected_miss": 133,
+    "top_score_ties_multi": 133,
+    "miss_examples": [
+      {
+        "index": 1,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.0,
+            0.67
+          ],
+          [
+            0.9036742800397219,
+            0.33
+          ]
+        ]
+      },
+      {
+        "index": 5,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.0,
+            0.67
+          ],
+          [
+            0.6533333333333333,
+            0.33
+          ]
+        ]
+      },
+      {
+        "index": 10,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.8884120171673819,
+            0.3
+          ],
+          [
+            0.0,
+            0.7
+          ]
+        ]
+      },
+      {
+        "index": 20,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.9541565489480289,
+            0.33
+          ],
+          [
+            0.0,
+            0.67
+          ]
+        ]
+      },
+      {
+        "index": 21,
+        "dataset": "LaSOT",
+        "candidates": [
+          [
+            0.9836837150925636,
+            0.35
+          ],
+          [
+            0.0,
+            0.65
+          ]
+        ]
+      }
+    ]
+  },
+  "paired_groups": {
+    "single->single": {
+      "n": 964,
+      "selected150": 0.7703474961901404,
+      "selected200": 0.7651877253894613,
+      "oracle150": 0.7703474961901404,
+      "oracle200": 0.7651877253894613
+    },
+    "single->multi": {
+      "n": 528,
+      "selected150": 0.6204368738287266,
+      "selected200": 0.5962361196893677,
+      "oracle150": 0.6204368738287266,
+      "oracle200": 0.7192414998718458
+    },
+    "multi->multi": {
+      "n": 260,
+      "selected150": 0.584036322756112,
+      "selected200": 0.6465473504935514,
+      "oracle150": 0.8085671188067587,
+      "oracle200": 0.8396104588408937
+    },
+    "single->invalid": {
+      "n": 7,
+      "selected150": 0.12189246262569278,
+      "selected200": 0.0,
+      "oracle150": 0.12189246262569278,
+      "oracle200": 0.0
+    },
+    "invalid->invalid": {
+      "n": 1,
+      "selected150": 0.0,
+      "selected200": 0.0,
+      "oracle150": 0.0,
+      "oracle200": 0.0
+    },
+    "invalid->multi": {
+      "n": 3,
+      "selected150": 0.0,
+      "selected200": 0.326404751349371,
+      "oracle150": 0.0,
+      "oracle200": 0.6226540463296305
+    },
+    "multi->invalid": {
+      "n": 3,
+      "selected150": 0.46704141453717,
+      "selected200": 0.0,
+      "oracle150": 0.46704141453717,
+      "oracle200": 0.0
+    }
+  },
+  "hit_transitions": {
+    "lost": 65,
+    "gained": 63
+  }
+}

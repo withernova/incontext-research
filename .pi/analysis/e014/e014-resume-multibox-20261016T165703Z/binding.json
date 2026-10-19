@@ -1,0 +1,12 @@
+{
+  "run_id": "e014-20261016T124428Z-score05-cover05-g8-resume200-to400-eval150",
+  "run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T124428Z-score05-cover05-g8-resume200-to400-eval150",
+  "parent_run": "e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+  "source_run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+  "git_commit": "3f85afb6167a47cc2917ea171a29689dee778626",
+  "config": "configs/experiments/E-014/training/e014_discovery_priority_score04_grpo.py",
+  "evaluation_run": "e014-discovery-score05-g8-step200-eval1766-20261016T124126Z",
+  "evaluation_run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score05-g8-step200-eval1766-20261016T124126Z",
+  "evaluation_local": ".pi/analysis/e014/e014-discovery-score05-g8-step200-eval1766-20261016T124126Z",
+  "analysis_run": "e014-resume-multibox-20261016T165703Z"
+}

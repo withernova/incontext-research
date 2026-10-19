@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "identity": {
+    "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
+    "runId": "e014-boxes-then-scores-sft659-step0-eval1766",
+    "experimentId": "E-014",
+    "managedExecution": true
+  },
+  "remote": {
+    "host": "SZY-3090",
+    "projectDir": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy"
+  },
+  "experiment": {
+    "tmuxSession": "incontext-E-014-e014-boxes-then-scores-sft659-step0-eval1766",
+    "logFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-boxes-then-scores-sft659-step0-eval1766/managed_console.log",
+    "description": "E-014 / e014-boxes-then-scores-sft659-step0-eval1766 / 用户授权新协议先全部bbox后全部score；对原SFT659做新协议step0既有1766评测，作为随后新GRPO训练基线。使用新配置和实际EOS完整回答校验",
+    "processPattern": "run\\.sh"
+  },
+  "monitoring": {
+    "errorPatterns": [
+      "FileNotFoundError",
+      "CUDA out of memory",
+      "RuntimeError",
+      "KeyboardInterrupt",
+      "Traceback",
+      "AssertionError"
+    ],
+    "progressPatterns": [
+      "iteration:",
+      "epoch:",
+      "loss:",
+      "ETA:"
+    ],
+    "gpuWarningPercent": 95,
+    "etaRegex": "ETA:\\s*(?:(\\d+):)?(\\d{1,2}):(\\d{2}):(\\d{2})|ETA:\\s*(\\d+(?:\\.\\d+)?)\\s*([mh])"
+  },
+  "scheduling": {
+    "minIntervalMinutes": 2,
+    "normalIntervalMinutes": 15,
+    "maxIntervalMinutes": 60,
+    "etaFraction": 0.1,
+    "nearCompletionMinutes": 30,
+    "stableBackoffAfterChecks": 3
+  },
+  "completion": {
+    "enabled": true,
+    "completionMarkers": [
+      "SURVEY_TOOL_RUN_COMPLETE"
+    ],
+    "requiredArtifacts": [],
+    "metricsFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-boxes-then-scores-sft659-step0-eval1766/payload/evaluation/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-boxes-then-scores-sft659-step0-eval1766/.survey-tool-exit-code",
+    "stableChecks": 2,
+    "requireProcessExit": true,
+    "allowNonzeroExit": false
+  },
+  "remediation": {
+    "enabled": false,
+    "maxRestarts": 0,
+    "playbooks": []
+  },
+  "automation": {
+    "mode": "off",
+    "allowedCodeRoots": [],
+    "testCommands": [],
+    "maxRepairs": 0,
+    "timeBudgetMinutes": 30,
+    "autoRerun": false,
+    "installDeclaredDependencies": false,
+    "dependencyFiles": [],
+    "prohibitedActions": [
+      "修改 Workspace",
+      "修改数据 manifest",
+      "修改 head、指标、样本或假设",
+      "创建替代 Conda 环境",
+      "使用旧环境路径"
+    ],
+    "researchFieldsLocked": true,
+    "environmentChangesLocked": true
+  },
+  "archive": {
+    "enabled": true,
+    "mode": "manifest_reference",
+    "localDir": ".survey-tool/experiment-archives",
+    "includePaths": [],
+    "checksumAlgorithm": "sha256",
+    "autoArchive": false,
+    "maxFiles": 2000,
+    "maxTotalBytes": 2000000000
+  }
+}

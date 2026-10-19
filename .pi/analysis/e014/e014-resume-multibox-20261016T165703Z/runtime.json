@@ -1,0 +1,24 @@
+{
+  "trainer": {
+    "reward_scheme": "candidate_discovery_priority_v1",
+    "reward": {
+      "correctness_threshold": 0.5,
+      "hit_weight": 1.0,
+      "oracle_weight": 1.0,
+      "coverage_weight": 0.5,
+      "selected_weight": 0.2,
+      "score_weight": 0.5,
+      "duplicate_weight": 0.05,
+      "order_weight": 0.05,
+      "duplicate_threshold": 0.9
+    },
+    "group_size": 8,
+    "beta": 0.0,
+    "max_steps": 400
+  },
+  "saved_checkpoints": [
+    "step_000250"
+  ],
+  "exit_code": null,
+  "step300_metrics": null
+}

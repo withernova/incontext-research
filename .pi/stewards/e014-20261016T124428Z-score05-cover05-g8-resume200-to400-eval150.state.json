@@ -1,0 +1,38 @@
+{
+  "schema": "survey-tool.experiment-steward-state/v1",
+  "version": 1,
+  "active": true,
+  "intervalMinutes": 2,
+  "checkCount": 0,
+  "lastCheckTime": null,
+  "lastCheckResult": "unknown",
+  "consecutiveErrors": 0,
+  "sessionStartTime": 1787645406827,
+  "phase": "monitoring",
+  "healthyStreak": 0,
+  "nextCheck": "2026-10-17T05:45:26.424Z",
+  "currentInterval": 30,
+  "latestEtaSeconds": null,
+  "latestEtaSourceLine": "",
+  "latestProgressLine": "",
+  "completionStableCount": 0,
+  "restartCount": 0,
+  "archiveId": "",
+  "lastReason": "pi restarted; explicit /steward start required",
+  "pausedAfterRestart": false,
+  "lastCompletionArtifacts": [
+    {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2/metrics.json",
+      "size": 0,
+      "mtime": ""
+    },
+    {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-v2-cover-min-cap5-multi-bonus02-sft659-puregrpo-seed11451-r2/.survey-tool-exit-code",
+      "size": 0,
+      "mtime": ""
+    }
+  ],
+  "notifiedIncidentSignature": "process:unverified",
+  "observationFailureNotified": false,
+  "verifyingFingerprintId": "ERR-4662f8af7931"
+}

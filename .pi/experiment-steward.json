@@ -2,7 +2,7 @@
   "version": 2,
   "identity": {
     "projectRoot": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext",
-    "runId": "e014-multi-bonus02-g8-step150-eval1766-r2",
+    "runId": "e014-selection-coordinates-only-lora4epoch-20261019-derived-001",
     "experimentId": "E-014",
     "managedExecution": true
   },
@@ -11,10 +11,10 @@
     "projectDir": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy"
   },
   "experiment": {
-    "tmuxSession": "incontext-E-014-e014-multi-bonus02-g8-step150-eval1766-r2",
-    "logFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/managed_console.log",
-    "description": "E-014 / e014-multi-bonus02-g8-step150-eval1766-r2 / 用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical o",
-    "processPattern": "e014_step800_eval1766_8gpu\\.sh"
+    "tmuxSession": "incontext-E-014-e014-selection-coordinates-only-lora4epoch-20261019-derived-001",
+    "logFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-coordinates-only-lora4epoch-20261019-derived-001/managed_console.log",
+    "description": "E-014 / e014-selection-coordinates-only-lora4epoch-20261019-derived-001 / 用户明确要求评测当前无框原图+文字bbox选择器的step1310 checkpoint。固定原1766候选数据，与已有画框版本对照；使用exact_insta",
+    "processPattern": ""
   },
   "monitoring": {
     "errorPatterns": [
@@ -48,8 +48,8 @@
       "SURVEY_TOOL_RUN_COMPLETE"
     ],
     "requiredArtifacts": [],
-    "metricsFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/metrics.json",
-    "exitCodeFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-multi-bonus02-g8-step150-eval1766-r2/.survey-tool-exit-code",
+    "metricsFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-coordinates-only-lora4epoch-20261019-derived-001/metrics.json",
+    "exitCodeFile": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-coordinates-only-lora4epoch-20261019-derived-001/.survey-tool-exit-code",
     "stableChecks": 2,
     "requireProcessExit": true,
     "allowNonzeroExit": false

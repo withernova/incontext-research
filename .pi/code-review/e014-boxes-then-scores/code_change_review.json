@@ -1,0 +1,157 @@
+{
+  "contract": "pi.code-change-review/v1",
+  "review_id": "3086e33f5f827fb4",
+  "diff_fingerprint": "3086e33f5f827fb426da38e58a24321a0f7e551ea1410f8cad217d7c5f5e63b5",
+  "base_revision": "7bb09c762b4e6030fe870b34f9c1a119d7c81425",
+  "task_id": "E-014-boxes-then-scores-v1",
+  "task_scoped": false,
+  "task_boundary": null,
+  "commit": {
+    "sha": "41698665d15742276bf22d1376e8d53a367c07db",
+    "paths": [
+      "MODULE_MAP.md",
+      "configs/ENTRYPOINT_INDEX.md",
+      "configs/experiments/E-014/evaluation/e014_boxes_then_scores_sft659_step0_eval1766.py",
+      "configs/experiments/E-014/training/e014_boxes_then_scores_grpo.py",
+      "docs/GRPO_MODULES.md",
+      "docs/LAUNCH_CATALOG.md",
+      "iploc_szy/evaluation/runtime_config.py",
+      "iploc_szy/evaluation/variable_candidates.py",
+      "iploc_szy/prompting/variable_candidates.py",
+      "iploc_szy/rl/preflight.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/variable_candidates.py",
+      "tests/test_boxes_then_scores.py",
+      "tools/evaluate.py",
+      "tools/run_symmetric_grpo.py"
+    ]
+  },
+  "review_current": true,
+  "repository": {
+    "path": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy"
+  },
+  "review_scope": {
+    "allowed_paths": [
+      "MODULE_MAP.md",
+      "configs/ENTRYPOINT_INDEX.md",
+      "configs/experiments/E-014/evaluation/e014_boxes_then_scores_sft659_step0_eval1766.py",
+      "configs/experiments/E-014/training/e014_boxes_then_scores_grpo.py",
+      "docs/GRPO_MODULES.md",
+      "docs/LAUNCH_CATALOG.md",
+      "iploc_szy/evaluation/runtime_config.py",
+      "iploc_szy/evaluation/variable_candidates.py",
+      "iploc_szy/prompting/variable_candidates.py",
+      "iploc_szy/rl/preflight.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/variable_candidates.py",
+      "tests/test_boxes_then_scores.py",
+      "tools/evaluate.py",
+      "tools/run_symmetric_grpo.py"
+    ],
+    "forbidden_paths": [
+      ".git",
+      "work_dirs",
+      "experiments",
+      "data",
+      "checkpoints"
+    ]
+  },
+  "intent": "Implement all-boxes-then-all-scores protocol and explicit three-main-reward GRPO with both multi-box incentives zero; preserve old protocols and raw-token replay; add step0 recipe and EOS-aware evaluation.",
+  "passed": true,
+  "blocking_findings": [],
+  "warnings": [],
+  "changed_files": [
+    {
+      "path": "MODULE_MAP.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "configs/ENTRYPOINT_INDEX.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "configs/experiments/E-014/evaluation/e014_boxes_then_scores_sft659_step0_eval1766.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "configs/experiments/E-014/training/e014_boxes_then_scores_grpo.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "docs/GRPO_MODULES.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/LAUNCH_CATALOG.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/evaluation/runtime_config.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/evaluation/variable_candidates.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/prompting/variable_candidates.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/preflight.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/task.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/variable_candidates.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "tests/test_boxes_then_scores.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "tools/evaluate.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "tools/run_symmetric_grpo.py",
+      "status": "M ",
+      "untracked": false
+    }
+  ],
+  "tests": [
+    {
+      "command": "python3 .pi/code-review/e014-boxes-then-scores/source_audit.py",
+      "exit_code": 0,
+      "summary": "Static AST 3.9 and source/hash comparison only; no imports, tests or execution of configs."
+    },
+    {
+      "command": "python3 tools/audit_entrypoints.py --source-only --check-navigation",
+      "exit_code": 0,
+      "summary": "Source navigation only; not runtime validation."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0,
+      "summary": "Whitespace/conflict-marker check only."
+    }
+  ]
+}

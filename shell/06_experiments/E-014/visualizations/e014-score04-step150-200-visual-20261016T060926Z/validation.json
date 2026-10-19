@@ -1,0 +1,12 @@
+{
+  "matched_samples": 1766,
+  "matching_manifest": true,
+  "matched_id_and_gt": true,
+  "case_count": 15,
+  "source_images": 30,
+  "all_displayed_outputs_valid": true,
+  "svg_xml_valid": true,
+  "browser_visual_inspection": false,
+  "model_inference_rerun": false,
+  "training_changed": false
+}

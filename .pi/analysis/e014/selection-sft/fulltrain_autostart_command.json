@@ -1,0 +1,6 @@
+{
+  "run_id": "e014-selection-fulltrain-gt-lora5epoch-20261019",
+  "command": "PYTHONPATH=. OMP_NUM_THREADS=1 /songzhengyue/miniconda3/envs/IPLoc/bin/python -u -c 'from pathlib import Path;import hashlib;p=Path('\"'\"'/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-fulltrain-gt-lora5epoch-20261019/inputs/auto_train_fulltrain.py'\"'\"');assert hashlib.sha256(p.read_bytes()).hexdigest()=='\"'\"'974c76f4ad1abd12e075148f008fa6c18906848f11833df0f075a7d0cf1b9b9e'\"'\"';exec(compile(p.read_bytes(),str(p),\"exec\"))'",
+  "script_sha256": "974c76f4ad1abd12e075148f008fa6c18906848f11833df0f075a7d0cf1b9b9e",
+  "artifact_commit": "ae4eb85757b4f09bd26e5943056c372d6c9447b3"
+}

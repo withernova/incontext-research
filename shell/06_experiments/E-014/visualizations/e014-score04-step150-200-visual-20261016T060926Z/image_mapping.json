@@ -1,0 +1,122 @@
+{
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/val/GOT-10k_Val_000008/00000001.jpg": {
+    "local": "images/000.jpg",
+    "sha256": "764205ae83541be7bc1ad6419debe9e7c0b58ad421432af0f9b8fcf50bb82564"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/val/GOT-10k_Val_000008/00000090.jpg": {
+    "local": "images/001.jpg",
+    "sha256": "8fb7d26c4cb03d0c82f5bb337ac204342f38ccf0cbbb85f8965c6bada1a74fc5"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bird/bird-14/img/00000001.jpg": {
+    "local": "images/002.jpg",
+    "sha256": "5d765cda7d6dae2397a9dfd83b86c99381483a9db8d72e3c8dcb679b46d48ab4"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bird/bird-14/img/00003768.jpg": {
+    "local": "images/003.jpg",
+    "sha256": "5286429a2a90eca6a4fa414e25e23688d5bc40f73f3ab94a9a7c3e1600afe5d7"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bottle/bottle-14/img/00000001.jpg": {
+    "local": "images/004.jpg",
+    "sha256": "af7550628d559611691ceeefc95ff36dd8751feba020dfb5d354f1a0c49b8244"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bottle/bottle-14/img/00007201.jpg": {
+    "local": "images/005.jpg",
+    "sha256": "06c96b35c627c800d0c84c2706747ac33a1f2edaa6441aad17266e1f6e0edfb2"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hand/hand-8/img/00000001.jpg": {
+    "local": "images/006.jpg",
+    "sha256": "accca44c09018ab29af563dc27bebe0e6f69f509821d3765588560cc2572d048"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hand/hand-8/img/00002015.jpg": {
+    "local": "images/007.jpg",
+    "sha256": "ec452bd47089d59a2eff5aa6b50aa610051700cfdf09885732e525c9232d1796"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/sheep/sheep-4/img/00000001.jpg": {
+    "local": "images/008.jpg",
+    "sha256": "c8dae8cbef946c1652788e2b3d6fbe772a9f9ec37a8bb845b4bd6b4deedd6cba"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/sheep/sheep-4/img/00001220.jpg": {
+    "local": "images/009.jpg",
+    "sha256": "6a2823694078b5c0c161be86de5b6ff67f88bf51b3fe6df5f9e4520661a0d569"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_43_111762-112977/frame0121.jpg": {
+    "local": "images/010.jpg",
+    "sha256": "9573c0c77ee6607dccac6177db4e2a573f6b7988af684110b281e796e84900dd"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_43_111762-112977/frame1057.jpg": {
+    "local": "images/011.jpg",
+    "sha256": "bfdddba330e89f568e813024aa83283a73658a2b19d4a07e86442385b26cdd54"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_7_22934-24047/frame0073.jpg": {
+    "local": "images/012.jpg",
+    "sha256": "edc447d271a6d9ff052a867dfafb2f8b0d289d586f8217a86c878e2314bef8fe"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_7_22934-24047/frame1009.jpg": {
+    "local": "images/013.jpg",
+    "sha256": "afb11ebe72387a51c921ac8c73dae4dc82a370a3ba45c822b6fe8488a10428ed"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/LO964EmiVfo_scene_9_42959-43770/frame0026.jpg": {
+    "local": "images/014.jpg",
+    "sha256": "2ca52320a4fd5cbe40cf0be84b12bbe16f82801beb56a849951892d4e5943582"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/LO964EmiVfo_scene_9_42959-43770/frame0751.jpg": {
+    "local": "images/015.jpg",
+    "sha256": "a82b7fabac78e71456b9fd481846a0e6069844ac84a1e065a25fe67c53b7b98c"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/ZS2C28fDC9U_scene_15_122220-123924/frame0361.jpg": {
+    "local": "images/016.jpg",
+    "sha256": "b4ff6b1486bc2853315aa00b7b00fc8883272a9080d34c44fd5eea14555be4ab"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/ZS2C28fDC9U_scene_15_122220-123924/frame0889.jpg": {
+    "local": "images/017.jpg",
+    "sha256": "db001c6cb8dc767d4f6d3df39adc72bc08a06899923e3c9a5a5f2f063497526a"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/QSVXJ/frame0001.jpg": {
+    "local": "images/018.jpg",
+    "sha256": "6e372ae406b5906eaae9b8fb7a6f205063d95fe0a5f6f1be0f600dd8db647ca2"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/QSVXJ/frame0961.jpg": {
+    "local": "images/019.jpg",
+    "sha256": "cdd8bfb98414ed824431c806f8882f6ea151df981ec249248f790401bc6a1ff8"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/S3TR3/frame0001.jpg": {
+    "local": "images/020.jpg",
+    "sha256": "8abf3accf9afdaa1724a26488a418eb043d2f56b71218e431344e31a8ef17721"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/S3TR3/frame1201.jpg": {
+    "local": "images/021.jpg",
+    "sha256": "5f32647d5d26781ea31c64174c57001c006a9bbadbe40562cf810300858fe191"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102/frame0001.jpg": {
+    "local": "images/022.jpg",
+    "sha256": "a73316811ab0086c617eb8be19fe65c9f47d1451561fe686e6d63baf0d229021"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102/frame1171.jpg": {
+    "local": "images/023.jpg",
+    "sha256": "76e14f8cd69ed9fdd55989637000fdd7903056bfbece5d40e617b41988d24f22"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652/frame0001.jpg": {
+    "local": "images/024.jpg",
+    "sha256": "92138a7257ce9d249fd324b3beb92774e61caeb09c2c2c4c80f48d51cfa7afa7"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652/frame1171.jpg": {
+    "local": "images/025.jpg",
+    "sha256": "7efd22bd25dee44f334a560c52646395177a850144490b31e42becddf42fed21"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915/frame0001.jpg": {
+    "local": "images/026.jpg",
+    "sha256": "4e7cd56438b0110fb36fc680154e7fef91c966e4b12a1955c26d1b2bb4468643"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915/frame1111.jpg": {
+    "local": "images/027.jpg",
+    "sha256": "a559936e5ac2e54233781b135f9679cd35f8f0e919988604c78c19f6c165d21c"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/LaSOT/volleyball-16/00000001.jpg": {
+    "local": "images/028.jpg",
+    "sha256": "a28a665e79f70bf28a093786bc9bef0ceb3a057684cdf615050f43a6c95418f5"
+  },
+  "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/LaSOT/volleyball-16/00001171.jpg": {
+    "local": "images/029.jpg",
+    "sha256": "4710bfb4ca53eff2ca060bb6d976cb311168a9ff9960a4c0434cc2ae3aa4aa20"
+  }
+}

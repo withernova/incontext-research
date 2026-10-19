@@ -1,0 +1,63 @@
+{
+  "sources": [
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/trainer_config.json",
+      "size": 1698,
+      "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/training.log",
+      "size": 100606,
+      "sha256": "d88820c61116d3c51b7ea60b0b5effa936e045e28de08b1c290ddf59ecf8954e"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank0.jsonl",
+      "size": 648278,
+      "sha256": "610a9e014c27c34501da9d13f155f5e0bdefeb26d77f11fc5278a5cd8ef8292e"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank1.jsonl",
+      "size": 644875,
+      "sha256": "508e6f719837300824a81ba71c0f233bb73af2e409311af5c12b2784adec22e3"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank2.jsonl",
+      "size": 642587,
+      "sha256": "da6993cd921f0c8820784e4836d228fb9cd13341a50c4db45f28f874352ff55d"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank3.jsonl",
+      "size": 644218,
+      "sha256": "a5135c083ca1497ea98b08bf5cde172a5f8df096e320740ab87ed74f2a8dbb10"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank4.jsonl",
+      "size": 643501,
+      "sha256": "64e671dc3061d2f2e2e29fa8e872dc95b7281e04d7d84c3b31c2939e7a19b2a5"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank5.jsonl",
+      "size": 655895,
+      "sha256": "6dce31c2e2b10c30c42d85dd3972f60bfa7ab53a645d996b7a96150f314618cf"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank6.jsonl",
+      "size": 645247,
+      "sha256": "de333b93bac204b033b73b04e7ef628c81901991d6284c7c63ade1d1ccd2d7b4"
+    },
+    {
+      "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis/source_snapshot/rollouts-rank7.jsonl",
+      "size": 641462,
+      "sha256": "9a01b07327cd75dc64b0ef7b892c0a556d7db79e48b8d0e052fdcf05d7ba0d49"
+    }
+  ],
+  "cutoff": 75,
+  "rollouts": 4800,
+  "groups": 1200,
+  "g4_groups": "passed",
+  "reward_components_recalculation": "passed",
+  "advantage_sign_mismatches": 0,
+  "advantage_float64_max_difference": 0.0037198623232166383,
+  "source_policy": "immutable prior snapshot only; no live logs",
+  "counterfactual_policy": "retain existing first/selected candidate, no GT selection or model generation"
+}

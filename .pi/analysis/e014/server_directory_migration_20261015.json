@@ -1,0 +1,2602 @@
+{
+  "experiment_id": "E-014",
+  "completed_at": "2026-10-15T01:00:59.893362+00:00",
+  "moves": [
+    {
+      "id": "e014-structure-score-iou-explore-v1-current-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-current-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-current-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791954183218821388,
+          "device": 149,
+          "inode": 2147782189,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791954183212934518,
+          "device": 149,
+          "inode": 2147782188,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791954181948222025,
+          "device": 149,
+          "inode": 2147782183,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954181360855000,
+          "device": 149,
+          "inode": 2147782180
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4796,
+          "mtime_ns": 1791954181360459000,
+          "device": 149,
+          "inode": 53754296085,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 12657,
+          "mtime_ns": 1791954183204600000,
+          "device": 149,
+          "inode": 2147782185,
+          "sha256": "4ff8db1ac043e6a1c6c29ba31c3e42240b7b8786b37a67b5f700d20f985bdd13"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 8696,
+          "mtime_ns": 1791954142025720000,
+          "device": 149,
+          "inode": 2147782179,
+          "sha256": "dba1aeb7bca1b89624cc71b4d2623a481b4aaf288390d4433c0ffc65163e33b8"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 4994,
+          "mtime_ns": 1791954183205217000,
+          "device": 149,
+          "inode": 2147782186,
+          "sha256": "a0a216ae84f5aa6e0d417d50d4d993190e50d4b79118b043160947429d759c19"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954181954590000,
+          "device": 149,
+          "inode": 2147782182
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1871,
+          "mtime_ns": 1791954183205928018,
+          "device": 149,
+          "inode": 33686908,
+          "sha256": "5a71d0d9da446c161c0ce68d8fe36d76e46270037042b6ed8f87cc198174c42d"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 685,
+          "mtime_ns": 1791954183205672913,
+          "device": 149,
+          "inode": 2147782187,
+          "sha256": "ccc72888aeeb87f7c7d6e54dcc0a476a69d909f5c24a01f01123981589c0d17d"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954181947036000,
+          "device": 149,
+          "inode": 2147782167
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954183189357000,
+          "device": 149,
+          "inode": 2147782184
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 552917,
+          "mtime_ns": 1791954183049472381,
+          "device": 149,
+          "inode": 32413937158,
+          "sha256": "45b0ecdc697d848c40dff801b4d331712df73163f08831831722415a67d5b5c7"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 550795,
+          "mtime_ns": 1791954183078776030,
+          "device": 149,
+          "inode": 32413937159,
+          "sha256": "1a8b04ceb81fca04790ba6eaffade4078fb01871e5395881534991383a5be3ea"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 544310,
+          "mtime_ns": 1791954183103485882,
+          "device": 149,
+          "inode": 32413937160,
+          "sha256": "53db3949f6a8b23a0db0d79255d461543f279ce15f4753f89ddf106a33ebb8f3"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 548978,
+          "mtime_ns": 1791954183123645448,
+          "device": 149,
+          "inode": 32413937161,
+          "sha256": "b4952b5ab222b3a18573df2f404dc369000c539b5856e21a3e5f466297fb14fa"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 548167,
+          "mtime_ns": 1791954183142427287,
+          "device": 149,
+          "inode": 32413937162,
+          "sha256": "29e2c6b5b99bfc6d1669d931fb3e19311a2b8a0c39340fb400ddcc82764320a4"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 552194,
+          "mtime_ns": 1791954183159781929,
+          "device": 149,
+          "inode": 32413937163,
+          "sha256": "0f8b9046a4c21a990410d9960c4c5d88b12d961e492b5ef90392e6db485903ee"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 548707,
+          "mtime_ns": 1791954183175261330,
+          "device": 149,
+          "inode": 32413937164,
+          "sha256": "786b1c73922f4115f61ebc9d87970845ee8ae0904f83fcfcffa9df15f525e7da"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 546737,
+          "mtime_ns": 1791954183189514036,
+          "device": 149,
+          "inode": 32413937165,
+          "sha256": "a117aa993a70f2f9f284b87ab098eabf7da628e61a5057438ebe430cd86899a6"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791954183032324109,
+          "device": 149,
+          "inode": 32413937156,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 92625,
+          "mtime_ns": 1791954183033647000,
+          "device": 149,
+          "inode": 32413937157,
+          "sha256": "3cad878f6da83346d911d3ce283618a26511838338d8626de691dec0ce4a7601"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-current-multibox-analysis-r2",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-current-multibox-analysis-r2",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-current-multibox-analysis-r2",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791954292968509767,
+          "device": 149,
+          "inode": 101168751,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791954292965360025,
+          "device": 149,
+          "inode": 101168750,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791954292438793076,
+          "device": 149,
+          "inode": 101168745,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954291752026000,
+          "device": 149,
+          "inode": 101168741
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4832,
+          "mtime_ns": 1791954291751665000,
+          "device": 149,
+          "inode": 101168742,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 18524,
+          "mtime_ns": 1791954292943302000,
+          "device": 149,
+          "inode": 101168747,
+          "sha256": "c79979ebc61590769ea35ecc051985c5d6b867e7a559162292baa3fe84572e82"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 8932,
+          "mtime_ns": 1791954271210792000,
+          "device": 149,
+          "inode": 101168740,
+          "sha256": "b37ff79d058acd3a2cf0578fc0b8300a74209576b94f23bd8b39756010b52662"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 5029,
+          "mtime_ns": 1791954292943731000,
+          "device": 149,
+          "inode": 101168748,
+          "sha256": "104cd54bb159acabee7310759d993c5e66b04d6f0ca24a414b98807db5800305"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954292443376000,
+          "device": 149,
+          "inode": 101168744
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 2214,
+          "mtime_ns": 1791954292944553470,
+          "device": 149,
+          "inode": 32413937166,
+          "sha256": "9be03ca376d86878729abff3524c1fbed53745f29633126d25a0b15006d36905"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 1078,
+          "mtime_ns": 1791954292944390344,
+          "device": 149,
+          "inode": 101168749,
+          "sha256": "414096b38d2e1e1a33949e2b35d9a34146ec833e7aec45517a3598aa16089885"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954292437768000,
+          "device": 149,
+          "inode": 101168743
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791954292876372000,
+          "device": 149,
+          "inode": 101168746
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 552917,
+          "mtime_ns": 1791954292795389367,
+          "device": 149,
+          "inode": 2214739809,
+          "sha256": "45b0ecdc697d848c40dff801b4d331712df73163f08831831722415a67d5b5c7"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 550795,
+          "mtime_ns": 1791954292808317047,
+          "device": 149,
+          "inode": 2214739810,
+          "sha256": "1a8b04ceb81fca04790ba6eaffade4078fb01871e5395881534991383a5be3ea"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 544310,
+          "mtime_ns": 1791954292821396169,
+          "device": 149,
+          "inode": 2214739811,
+          "sha256": "53db3949f6a8b23a0db0d79255d461543f279ce15f4753f89ddf106a33ebb8f3"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 548978,
+          "mtime_ns": 1791954292832430597,
+          "device": 149,
+          "inode": 2214739812,
+          "sha256": "b4952b5ab222b3a18573df2f404dc369000c539b5856e21a3e5f466297fb14fa"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 548167,
+          "mtime_ns": 1791954292843160434,
+          "device": 149,
+          "inode": 2214739813,
+          "sha256": "29e2c6b5b99bfc6d1669d931fb3e19311a2b8a0c39340fb400ddcc82764320a4"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 552194,
+          "mtime_ns": 1791954292855323519,
+          "device": 149,
+          "inode": 2214739814,
+          "sha256": "0f8b9046a4c21a990410d9960c4c5d88b12d961e492b5ef90392e6db485903ee"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 548707,
+          "mtime_ns": 1791954292865947959,
+          "device": 149,
+          "inode": 2214739815,
+          "sha256": "786b1c73922f4115f61ebc9d87970845ee8ae0904f83fcfcffa9df15f525e7da"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 546737,
+          "mtime_ns": 1791954292876690597,
+          "device": 149,
+          "inode": 2214739816,
+          "sha256": "a117aa993a70f2f9f284b87ab098eabf7da628e61a5057438ebe430cd86899a6"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791954292789460770,
+          "device": 149,
+          "inode": 2214739807,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 92625,
+          "mtime_ns": 1791954292790124000,
+          "device": 149,
+          "inode": 2214739808,
+          "sha256": "3cad878f6da83346d911d3ce283618a26511838338d8626de691dec0ce4a7601"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-latest-training-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-latest-training-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-latest-training-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791957143115166934,
+          "device": 149,
+          "inode": 32413937178,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791957143111928953,
+          "device": 149,
+          "inode": 32413937177,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791957141043070868,
+          "device": 149,
+          "inode": 32413937172,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791957140425373000,
+          "device": 149,
+          "inode": 32413937168
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4784,
+          "mtime_ns": 1791957140425147000,
+          "device": 149,
+          "inode": 32413937169,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 28349,
+          "mtime_ns": 1791957143070697000,
+          "device": 149,
+          "inode": 32413937174,
+          "sha256": "22c58d2c1e530a361fdb80b340a9eb8601b68b8f9057448d4de918feb5442ee8"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 9400,
+          "mtime_ns": 1791957122778902000,
+          "device": 149,
+          "inode": 32413937167,
+          "sha256": "35c442503b0df443d5f4407fffc3434e15e11921fa371bdde329468c83d668c1"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 4999,
+          "mtime_ns": 1791957143071298000,
+          "device": 149,
+          "inode": 32413937175,
+          "sha256": "2aa0bdc6dad168a8868638137c59e58403fafeb39717d5ec60ac8a2e05be5f1c"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791957141049753000,
+          "device": 149,
+          "inode": 32413937171
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 2455,
+          "mtime_ns": 1791957143071990251,
+          "device": 149,
+          "inode": 2147782190,
+          "sha256": "d202c075d570fdbdcb3e1939ddd634b6f70a86ceb94deb171a2d2df5a0c425e1"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 1079,
+          "mtime_ns": 1791957143071747770,
+          "device": 149,
+          "inode": 32413937176,
+          "sha256": "b83820d7b8b9021d10695cf4a16fe0a5395b23f0751d0b09b242e7fc13bb8933"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791957141042140000,
+          "device": 149,
+          "inode": 32413937170
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791957142886521000,
+          "device": 149,
+          "inode": 32413937173
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 1042374,
+          "mtime_ns": 1791957142662959117,
+          "device": 149,
+          "inode": 101168754,
+          "sha256": "85e13096a8e0a612f39ff8cf6d4d3d2813c5af8c1decd85b20b81446048faba7"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 1037231,
+          "mtime_ns": 1791957142700107602,
+          "device": 149,
+          "inode": 101168755,
+          "sha256": "3de3fa0cdf4e99f907e116fa15e34b07acb6b008ee2605edfe425345ad55584a"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 1039570,
+          "mtime_ns": 1791957142735027072,
+          "device": 149,
+          "inode": 101168756,
+          "sha256": "6fe0ff1da0bd1b8f80f392ad5f86b6291ab96c4b6838060a03ca52da55072292"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 1040026,
+          "mtime_ns": 1791957142771737103,
+          "device": 149,
+          "inode": 101168757,
+          "sha256": "575257a4bcc2728257457b0b1990632f7beedd1e55f78721c0a82d2cfa0895c6"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 1045134,
+          "mtime_ns": 1791957142806890090,
+          "device": 149,
+          "inode": 101168758,
+          "sha256": "2535365196497d9fa0b90bf2e1fb1092611429b4d38000691459cc09027c19c4"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 1048442,
+          "mtime_ns": 1791957142842609660,
+          "device": 149,
+          "inode": 101168759,
+          "sha256": "aced866afe9c1fd81b880b76b1224438508b991faa4b9871c075240623463f40"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 1039303,
+          "mtime_ns": 1791957142867636369,
+          "device": 149,
+          "inode": 101168760,
+          "sha256": "b2bed071edfbf6fe5330e446540014f29e6ecf425f68133b100fe76da8af7ce8"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 1034731,
+          "mtime_ns": 1791957142886693028,
+          "device": 149,
+          "inode": 101168761,
+          "sha256": "c18b357cc40c640b6d30ef5f675e4c9434822949db364abe66bcf32da5bb8a55"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791957142649989732,
+          "device": 149,
+          "inode": 101168752,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 162394,
+          "mtime_ns": 1791957142650888000,
+          "device": 149,
+          "inode": 101168753,
+          "sha256": "baafb00c6196bed634a785d4bfb9f9c781161d25c1eb44f388b4a8bfe583107f"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-multibox-collapse-diagnosis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-multibox-collapse-diagnosis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-multibox-collapse-diagnosis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791960201223860326,
+          "device": 149,
+          "inode": 47714668336,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791960201220369868,
+          "device": 149,
+          "inode": 47714668335,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791960199862912205,
+          "device": 149,
+          "inode": 47714668330,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791960199282010000,
+          "device": 149,
+          "inode": 47714668327
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4820,
+          "mtime_ns": 1791960199281778000,
+          "device": 149,
+          "inode": 277316,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 34995,
+          "mtime_ns": 1791960201175508000,
+          "device": 149,
+          "inode": 47714668334,
+          "sha256": "12ac4ebf19dca6e77d07b93ab7d7365000e826fa9bea6b17e7a78eeb8dbcdb78"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 14940,
+          "mtime_ns": 1791960138645659000,
+          "device": 149,
+          "inode": 47714668325,
+          "sha256": "951b59afd61447e79133ec825696f5cd808dbbdd7cba1269827c7573fc54db4e"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 5029,
+          "mtime_ns": 1791960201098145000,
+          "device": 149,
+          "inode": 47714668332,
+          "sha256": "591dddac3a88486e1860a7f47a12bf13b4b4646a935eeac531dff4644d68eac5"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791960199870161000,
+          "device": 149,
+          "inode": 47681111827
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 5078,
+          "mtime_ns": 1791960201176366180,
+          "device": 149,
+          "inode": 2147782200,
+          "sha256": "9d1d49c8e5014c891e964c2be36aadaaab15ac7aed984e8c94b796f4888de19f"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 1214,
+          "mtime_ns": 1791960201176044287,
+          "device": 149,
+          "inode": 47714668333,
+          "sha256": "cb7ff0bed28679343a5859948214dfe6d987ebf31a89a7515166acf620f06fe9"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791960199861843000,
+          "device": 149,
+          "inode": 47714668328
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791960200894542000,
+          "device": 149,
+          "inode": 47714668331
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 1245387,
+          "mtime_ns": 1791960200685171934,
+          "device": 149,
+          "inode": 2147782207,
+          "sha256": "8bfa77b1ed20c83ea294b3c963aff4890fd3779621a09b5b0e505c87dc80b81a"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 1238464,
+          "mtime_ns": 1791960200722449462,
+          "device": 149,
+          "inode": 2147782208,
+          "sha256": "a202428a26ed3cbf4557466c6fbbdd1507322772ce078ca70f2071cec2918013"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 1241495,
+          "mtime_ns": 1791960200756027315,
+          "device": 149,
+          "inode": 2147782209,
+          "sha256": "f0d241d94421592a8f0d547ab57e3a1fcad155114acc7f36d83a9543538cd484"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 1243972,
+          "mtime_ns": 1791960200788178936,
+          "device": 149,
+          "inode": 2147782210,
+          "sha256": "357f8fb427c3b0c9cbe950bed1cfadd6be5bf203a0efe61db0602551f50c5eed"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 1247262,
+          "mtime_ns": 1791960200817772983,
+          "device": 149,
+          "inode": 2147782211,
+          "sha256": "985bc6fc2d67c4dbaa488b3aa49066f886f154630c885dac3f651c5d66df49dd"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 1251342,
+          "mtime_ns": 1791960200843386860,
+          "device": 149,
+          "inode": 2147782212,
+          "sha256": "43e8887309511309f19cdf81031974cd4386acc7691b5779d130ad562a6b5a6a"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 1237967,
+          "mtime_ns": 1791960200869134592,
+          "device": 149,
+          "inode": 2147782213,
+          "sha256": "a6c23b2f471c2ed95778bc3ce4d44972f478849cf48fd50595de38bfc62ed8a2"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 1234420,
+          "mtime_ns": 1791960200894719449,
+          "device": 149,
+          "inode": 2147782214,
+          "sha256": "8310980f1dc27bf8135b44e3965bf5fa64e096926ff85a7d10ca5e14ce43d6b5"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791960200668975759,
+          "device": 149,
+          "inode": 2147782205,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 191095,
+          "mtime_ns": 1791960200670634000,
+          "device": 149,
+          "inode": 2147782206,
+          "sha256": "c0184006071a400ade997e01be707ae53832b4a0178635d5bb1047279f42be7b"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis",
+      "status_at_migration": "failed",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791964821002700199,
+          "device": 149,
+          "inode": 2181075521,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791964820999272065,
+          "device": 149,
+          "inode": 2181075520,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791964819975745543,
+          "device": 149,
+          "inode": 2181075514,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791964818634587000,
+          "device": 149,
+          "inode": 2181075511
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4868,
+          "mtime_ns": 1791964818634141000,
+          "device": 149,
+          "inode": 277318,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5771,
+          "mtime_ns": 1791964796315871000,
+          "device": 149,
+          "inode": 2181075510,
+          "sha256": "ef07ce4575ce9d01574bdd4c2af22c5ea26bad5b57ea6c357551fe8c60883a69"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791964819980847000,
+          "device": 149,
+          "inode": 2181075513
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 538,
+          "mtime_ns": 1791964820988295483,
+          "device": 149,
+          "inode": 47714668342,
+          "sha256": "4468eac209829546f1793b41059d1ba525e1023d833bee32cdbd8ba1e4f9dce7"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791964819974565000,
+          "device": 149,
+          "inode": 2147782204
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791964820961069000,
+          "device": 149,
+          "inode": 2181075515
+        },
+        "source_snapshot/beta004_trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791964820955080384,
+          "device": 149,
+          "inode": 2181075517,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/beta004_training.log": {
+          "mode": 33188,
+          "size": 191095,
+          "mtime_ns": 1791964820961363000,
+          "device": 149,
+          "inode": 2181075519,
+          "sha256": "c0184006071a400ade997e01be707ae53832b4a0178635d5bb1047279f42be7b"
+        },
+        "source_snapshot/beta0_trainer_config.json": {
+          "mode": 33188,
+          "size": 1610,
+          "mtime_ns": 1791964820952581990,
+          "device": 149,
+          "inode": 2181075516,
+          "sha256": "a47ac6b75b728a2c81cc253459210e5266cccd0d0c5d1fe5cdf2d57752752cd7"
+        },
+        "source_snapshot/beta0_training.log": {
+          "mode": 33188,
+          "size": 27353,
+          "mtime_ns": 1791964820956184000,
+          "device": 149,
+          "inode": 2181075518,
+          "sha256": "262254314b4bc68d57fb3727bc7953421602d704704d1e3bbef37537fac617e8"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791965030392094643,
+          "device": 149,
+          "inode": 53754296104,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791965030387723755,
+          "device": 149,
+          "inode": 53754296103,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791965029793958621,
+          "device": 149,
+          "inode": 53754296098,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791965028306552000,
+          "device": 149,
+          "inode": 53754296095
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4904,
+          "mtime_ns": 1791965028306108000,
+          "device": 149,
+          "inode": 277319,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 30654,
+          "mtime_ns": 1791965030374714000,
+          "device": 149,
+          "inode": 53754296100,
+          "sha256": "e705f9d63b4ae930418eec143c9782c21bfd6638b86eb9c316461e0123012fbd"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5779,
+          "mtime_ns": 1791965013460391000,
+          "device": 149,
+          "inode": 53754296094,
+          "sha256": "fdd18799b6f656ad71bb820ea3d7cc0ca52358e9c8d9b0cf551904954a9b2a81"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 10057,
+          "mtime_ns": 1791965030375305000,
+          "device": 149,
+          "inode": 53754296101,
+          "sha256": "b0ec5da99b1ac60035fa0eb8c2aa017024ad16057ab4a3bf2707bc253c6343d4"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791965029798398000,
+          "device": 149,
+          "inode": 53754296097
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1293,
+          "mtime_ns": 1791965030375848563,
+          "device": 149,
+          "inode": 47714668343,
+          "sha256": "06f9e8f321648f7ac6a5ba5e918e20e011275ad151fec571034beff4cb7df7aa"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 435,
+          "mtime_ns": 1791965030375693491,
+          "device": 149,
+          "inode": 53754296102,
+          "sha256": "8ed481ca6828a30b6232b45aca916d6e122d7e4d6b382f7f93edf7a4520468d7"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791965029792878000,
+          "device": 149,
+          "inode": 53754296096
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791965030347311000,
+          "device": 149,
+          "inode": 53754296099
+        },
+        "source_snapshot/beta004_rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 1245387,
+          "mtime_ns": 1791965030221205539,
+          "device": 149,
+          "inode": 2181075534,
+          "sha256": "8bfa77b1ed20c83ea294b3c963aff4890fd3779621a09b5b0e505c87dc80b81a"
+        },
+        "source_snapshot/beta004_rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 1238464,
+          "mtime_ns": 1791965030240018880,
+          "device": 149,
+          "inode": 2181075535,
+          "sha256": "a202428a26ed3cbf4557466c6fbbdd1507322772ce078ca70f2071cec2918013"
+        },
+        "source_snapshot/beta004_rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 1241495,
+          "mtime_ns": 1791965030257827539,
+          "device": 149,
+          "inode": 2181075536,
+          "sha256": "f0d241d94421592a8f0d547ab57e3a1fcad155114acc7f36d83a9543538cd484"
+        },
+        "source_snapshot/beta004_rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 1243972,
+          "mtime_ns": 1791965030275542830,
+          "device": 149,
+          "inode": 2181075537,
+          "sha256": "357f8fb427c3b0c9cbe950bed1cfadd6be5bf203a0efe61db0602551f50c5eed"
+        },
+        "source_snapshot/beta004_rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 1247262,
+          "mtime_ns": 1791965030293618760,
+          "device": 149,
+          "inode": 2181075538,
+          "sha256": "985bc6fc2d67c4dbaa488b3aa49066f886f154630c885dac3f651c5d66df49dd"
+        },
+        "source_snapshot/beta004_rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 1251342,
+          "mtime_ns": 1791965030311600587,
+          "device": 149,
+          "inode": 2181075539,
+          "sha256": "43e8887309511309f19cdf81031974cd4386acc7691b5779d130ad562a6b5a6a"
+        },
+        "source_snapshot/beta004_rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 1237967,
+          "mtime_ns": 1791965030329597969,
+          "device": 149,
+          "inode": 2181075540,
+          "sha256": "a6c23b2f471c2ed95778bc3ce4d44972f478849cf48fd50595de38bfc62ed8a2"
+        },
+        "source_snapshot/beta004_rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 1234420,
+          "mtime_ns": 1791965030347478665,
+          "device": 149,
+          "inode": 2181075541,
+          "sha256": "8310980f1dc27bf8135b44e3965bf5fa64e096926ff85a7d10ca5e14ce43d6b5"
+        },
+        "source_snapshot/beta004_trainer_config.json": {
+          "mode": 33188,
+          "size": 1593,
+          "mtime_ns": 1791965030186057229,
+          "device": 149,
+          "inode": 2181075523,
+          "sha256": "154c09720d9e8fe5d1544956a6604af115116fb05b1acecb596b7094e8215f31"
+        },
+        "source_snapshot/beta004_training.log": {
+          "mode": 33188,
+          "size": 191095,
+          "mtime_ns": 1791965030187797000,
+          "device": 149,
+          "inode": 2181075525,
+          "sha256": "c0184006071a400ade997e01be707ae53832b4a0178635d5bb1047279f42be7b"
+        },
+        "source_snapshot/beta0_rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 121893,
+          "mtime_ns": 1791965030195239000,
+          "device": 149,
+          "inode": 2181075526,
+          "sha256": "8be29728a0737dfc7d4aa23eae7aba1fb2df1e7b895b7a10d574a263ddc73d3f"
+        },
+        "source_snapshot/beta0_rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 121964,
+          "mtime_ns": 1791965030198029000,
+          "device": 149,
+          "inode": 2181075527,
+          "sha256": "09ab82a7500d5bd488a26e674853831191d0fae5c5ccafae2799b730687596d6"
+        },
+        "source_snapshot/beta0_rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 121154,
+          "mtime_ns": 1791965030200683000,
+          "device": 149,
+          "inode": 2181075528,
+          "sha256": "1e70c06579cb3a33351256c08054c7eea7a838564fce11bf009011e1d7fb0f51"
+        },
+        "source_snapshot/beta0_rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 122874,
+          "mtime_ns": 1791965030203337000,
+          "device": 149,
+          "inode": 2181075529,
+          "sha256": "21b23cbde21da2e78d6392db0dd66f9ccfa24c00535b4a6be5fe108eeb9c818c"
+        },
+        "source_snapshot/beta0_rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 121853,
+          "mtime_ns": 1791965030205926000,
+          "device": 149,
+          "inode": 2181075530,
+          "sha256": "a3b4647f11e5040e56b438241de4178a2f1c91f4a0edad1aafcd8be91c6036db"
+        },
+        "source_snapshot/beta0_rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 122002,
+          "mtime_ns": 1791965030208615000,
+          "device": 149,
+          "inode": 2181075531,
+          "sha256": "b0e0cd1b3950bb4f59bcddfc6a5f9c94cadcdc57b5aa8f689360bbdc7cdc710e"
+        },
+        "source_snapshot/beta0_rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 121873,
+          "mtime_ns": 1791965030211272000,
+          "device": 149,
+          "inode": 2181075532,
+          "sha256": "cfc80a846d1d0ee2aa9d01f07b37142facc7d3c3ec8e189930d66d996b9ab9ae"
+        },
+        "source_snapshot/beta0_rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 121142,
+          "mtime_ns": 1791965030214963000,
+          "device": 149,
+          "inode": 2181075533,
+          "sha256": "74cce85a1465a48ddfb915cfa1bce59830707efdeeed960c162b6095ed6786eb"
+        },
+        "source_snapshot/beta0_trainer_config.json": {
+          "mode": 33188,
+          "size": 1610,
+          "mtime_ns": 1791965030185054882,
+          "device": 149,
+          "inode": 2181075512,
+          "sha256": "a47ac6b75b728a2c81cc253459210e5266cccd0d0c5d1fe5cdf2d57752752cd7"
+        },
+        "source_snapshot/beta0_training.log": {
+          "mode": 33188,
+          "size": 31918,
+          "mtime_ns": 1791965030186463000,
+          "device": 149,
+          "inode": 2181075524,
+          "sha256": "1203be3d502fc4cd508a23d29b95a3fed8ee7c4768657601e02f22e209739be6"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-current-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791975512928927963,
+          "device": 149,
+          "inode": 53754296130,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791975512926096686,
+          "device": 149,
+          "inode": 53754296129,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791975511540214758,
+          "device": 149,
+          "inode": 53754296124,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791975510976464000,
+          "device": 149,
+          "inode": 53754296121
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 4988,
+          "mtime_ns": 1791975510976083000,
+          "device": 149,
+          "inode": 37480688385,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 68838,
+          "mtime_ns": 1791975512886824000,
+          "device": 149,
+          "inode": 53754296126,
+          "sha256": "edf709e398ffc369cd2e58cc3f59ec4e183dceddce513522b12a39942c02f416"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5225,
+          "mtime_ns": 1791975455355487000,
+          "device": 149,
+          "inode": 53754296120,
+          "sha256": "71d8c2d80d974d58fed51d0ddbeb0322b37750985960d97e4422c26809c227f3"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 3220,
+          "mtime_ns": 1791975512887297972,
+          "device": 149,
+          "inode": 53754296127,
+          "sha256": "fcf23b808e735a6128d122db14dcf03b42e12404b25cc470b0adac8bb75f3e9b"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791975511544830000,
+          "device": 149,
+          "inode": 53754296123
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1487,
+          "mtime_ns": 1791975512887808875,
+          "device": 149,
+          "inode": 2181075542,
+          "sha256": "b8321562e6a9f208176dc6b7f06b2be9574458ff4a7bdebc7f8f756d1d3869bb"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 224,
+          "mtime_ns": 1791975512887609502,
+          "device": 149,
+          "inode": 53754296128,
+          "sha256": "3ef61ba358af719b45ecf84cefcec54044e6d1eb34f93ec73ebeb34ec666833a"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791975511539283000,
+          "device": 149,
+          "inode": 53754296122
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791975512719312000,
+          "device": 149,
+          "inode": 53754296125
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 982913,
+          "mtime_ns": 1791975512499657970,
+          "device": 149,
+          "inode": 134725233,
+          "sha256": "e20036c1fde36fc5b6d55277f6bb87fcbdfe7f7d2714fb4eae369cb3145e4e01"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 980150,
+          "mtime_ns": 1791975512554690398,
+          "device": 149,
+          "inode": 134725234,
+          "sha256": "21ee4ac2fbe8d7ab96bebf32169657ad444d0fa87c93253d061d78a93346a5f7"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 981399,
+          "mtime_ns": 1791975512591507786,
+          "device": 149,
+          "inode": 134725235,
+          "sha256": "5c981439f4eb8add1a06e26f635f152b3415533fa6c7a58375e3eb4c002bbefb"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 983725,
+          "mtime_ns": 1791975512625054748,
+          "device": 149,
+          "inode": 134725236,
+          "sha256": "ee09b28c90b0409dcdf20b5be9550862ab391ca4545e8392100ac87327387ae2"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 986097,
+          "mtime_ns": 1791975512651165157,
+          "device": 149,
+          "inode": 134725237,
+          "sha256": "720fce3a636a51f3611f555d1e33569e131d1384b40979916876d3ec589afeb6"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 991176,
+          "mtime_ns": 1791975512676685533,
+          "device": 149,
+          "inode": 134725238,
+          "sha256": "a68192099ee655bffb24fd837f09663124826289d48f840c860b19b8ae851a20"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 981969,
+          "mtime_ns": 1791975512699907453,
+          "device": 149,
+          "inode": 134725239,
+          "sha256": "56c6d96063e4d75298d73a02f97fd520dcc4e1e96240a471b85b3a70ac65e0ff"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 979002,
+          "mtime_ns": 1791975512719488133,
+          "device": 149,
+          "inode": 134725240,
+          "sha256": "e523bd77c93132e533f5c3c1d34e45d22b6bfd740f1952e4ab8b2357f17481c7"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1640,
+          "mtime_ns": 1791975512471367438,
+          "device": 149,
+          "inode": 134725231,
+          "sha256": "02c555fe60969a884979ff9eb8e336855d22660ef4c3b22045afeea5d2bc6c3c"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 154485,
+          "mtime_ns": 1791975512472849000,
+          "device": 149,
+          "inode": 134725232,
+          "sha256": "8a811f91e0464bf9f23ee6cba3c9e0da6dbc46293f6f41892d82c6b15a217b07"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-current-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791982046772139935,
+          "device": 149,
+          "inode": 2214739858,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791982046769447055,
+          "device": 149,
+          "inode": 2214739857,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791982045262099424,
+          "device": 149,
+          "inode": 2214739851,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982044718213000,
+          "device": 149,
+          "inode": 2214739848
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5084,
+          "mtime_ns": 1791982044717845000,
+          "device": 149,
+          "inode": 56270919114,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 55810,
+          "mtime_ns": 1791982046710055000,
+          "device": 149,
+          "inode": 2214739854,
+          "sha256": "c826234fdffdafe540729b1de51fe499ef6794d4b67372bb7910b7d59fa51f1f"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 8817,
+          "mtime_ns": 1791982025380272000,
+          "device": 149,
+          "inode": 2214739847,
+          "sha256": "b064b7d7bbe5184d7ee3f64bb57459768b7899fd6d371807d7abcc65919fb06c"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 10962,
+          "mtime_ns": 1791982046710677000,
+          "device": 149,
+          "inode": 2214739855,
+          "sha256": "89f298bcec36eada62ee8ce0ac422cf1718aa702478aa833ddb0b5db136c2da5"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982045267517000,
+          "device": 149,
+          "inode": 2214739850
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 13984,
+          "mtime_ns": 1791982046713257858,
+          "device": 149,
+          "inode": 2214739852,
+          "sha256": "797da0c868e2b57cc62d7f416d708ed8e2afe76a6a907b8b93fb18e83977b3ea"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 240,
+          "mtime_ns": 1791982046711320887,
+          "device": 149,
+          "inode": 2214739856,
+          "sha256": "2583ae1a765a9a6a27ea71ba29d97ba3aa37f0444418d2caa22ed1ab5a42f1b5"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982045260909000,
+          "device": 149,
+          "inode": 2214739849
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982046388941000,
+          "device": 149,
+          "inode": 2214739853
+        },
+        "source_snapshot/baseline": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982046564068000,
+          "device": 149,
+          "inode": 168018535
+        },
+        "source_snapshot/baseline/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 982913,
+          "mtime_ns": 1791982046403263979,
+          "device": 149,
+          "inode": 15166681529,
+          "sha256": "e20036c1fde36fc5b6d55277f6bb87fcbdfe7f7d2714fb4eae369cb3145e4e01"
+        },
+        "source_snapshot/baseline/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 980150,
+          "mtime_ns": 1791982046432955631,
+          "device": 149,
+          "inode": 15166681530,
+          "sha256": "21ee4ac2fbe8d7ab96bebf32169657ad444d0fa87c93253d061d78a93346a5f7"
+        },
+        "source_snapshot/baseline/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 981399,
+          "mtime_ns": 1791982046457346701,
+          "device": 149,
+          "inode": 15166681533,
+          "sha256": "5c981439f4eb8add1a06e26f635f152b3415533fa6c7a58375e3eb4c002bbefb"
+        },
+        "source_snapshot/baseline/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 983725,
+          "mtime_ns": 1791982046481333219,
+          "device": 149,
+          "inode": 15166681535,
+          "sha256": "ee09b28c90b0409dcdf20b5be9550862ab391ca4545e8392100ac87327387ae2"
+        },
+        "source_snapshot/baseline/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 986097,
+          "mtime_ns": 1791982046504406169,
+          "device": 149,
+          "inode": 15166681538,
+          "sha256": "720fce3a636a51f3611f555d1e33569e131d1384b40979916876d3ec589afeb6"
+        },
+        "source_snapshot/baseline/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 991176,
+          "mtime_ns": 1791982046524841829,
+          "device": 149,
+          "inode": 15166681542,
+          "sha256": "a68192099ee655bffb24fd837f09663124826289d48f840c860b19b8ae851a20"
+        },
+        "source_snapshot/baseline/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 981969,
+          "mtime_ns": 1791982046546346378,
+          "device": 149,
+          "inode": 15166681543,
+          "sha256": "56c6d96063e4d75298d73a02f97fd520dcc4e1e96240a471b85b3a70ac65e0ff"
+        },
+        "source_snapshot/baseline/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 979002,
+          "mtime_ns": 1791982046564189793,
+          "device": 149,
+          "inode": 15166681545,
+          "sha256": "e523bd77c93132e533f5c3c1d34e45d22b6bfd740f1952e4ab8b2357f17481c7"
+        },
+        "source_snapshot/baseline/trainer_config.json": {
+          "mode": 33188,
+          "size": 1640,
+          "mtime_ns": 1791982046389504573,
+          "device": 149,
+          "inode": 15166681526,
+          "sha256": "02c555fe60969a884979ff9eb8e336855d22660ef4c3b22045afeea5d2bc6c3c"
+        },
+        "source_snapshot/baseline/training.log": {
+          "mode": 33188,
+          "size": 154485,
+          "mtime_ns": 1791982046391282000,
+          "device": 149,
+          "inode": 15166681527,
+          "sha256": "8a811f91e0464bf9f23ee6cba3c9e0da6dbc46293f6f41892d82c6b15a217b07"
+        },
+        "source_snapshot/current": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791982046373835000,
+          "device": 149,
+          "inode": 168018534
+        },
+        "source_snapshot/current/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 461790,
+          "mtime_ns": 1791982046221366000,
+          "device": 149,
+          "inode": 33686957,
+          "sha256": "67b2243a2418bbb61fb7888cc9bd8ee6ee2b18cc436b8b0d985c3c050ddd9c6b"
+        },
+        "source_snapshot/current/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 460833,
+          "mtime_ns": 1791982046252607000,
+          "device": 149,
+          "inode": 33686958,
+          "sha256": "7478fd819c610a29cb1923e723a6d930d907b493147312f1b8db29c4793b2082"
+        },
+        "source_snapshot/current/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 458629,
+          "mtime_ns": 1791982046281260000,
+          "device": 149,
+          "inode": 33686959,
+          "sha256": "3daf1e4d85d51dc621533d18d89eef7ee748c82608244d37457b3bcec76d65e8"
+        },
+        "source_snapshot/current/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 458746,
+          "mtime_ns": 1791982046303448000,
+          "device": 149,
+          "inode": 33686960,
+          "sha256": "59b1281c8761f3bd5a4ba1a7eb398c8b7e3c172a6efa6a98caf006e47805322c"
+        },
+        "source_snapshot/current/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 458049,
+          "mtime_ns": 1791982046323614000,
+          "device": 149,
+          "inode": 33686961,
+          "sha256": "570d054c73c1c9263d7aca32465348875aedcf250b9344894f394fd47dac5fef"
+        },
+        "source_snapshot/current/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 466202,
+          "mtime_ns": 1791982046341251000,
+          "device": 149,
+          "inode": 33686962,
+          "sha256": "77db343519b40119be1f726987b3e88eeb10902d83ac55a96b53e0113be6c39d"
+        },
+        "source_snapshot/current/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 460356,
+          "mtime_ns": 1791982046359364000,
+          "device": 149,
+          "inode": 33686963,
+          "sha256": "9044b4fbca1b2020ae0e57fb015485009f55f9a8d99079f462f2fbaf538103ab"
+        },
+        "source_snapshot/current/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 458354,
+          "mtime_ns": 1791982046374054000,
+          "device": 149,
+          "inode": 33686964,
+          "sha256": "1bac9e8973ecc2a4e264937f98f376516f889d6cca07f8fbbc195690587bb3fe"
+        },
+        "source_snapshot/current/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1791982046206145299,
+          "device": 149,
+          "inode": 33686955,
+          "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+        },
+        "source_snapshot/current/training.log": {
+          "mode": 33188,
+          "size": 75578,
+          "mtime_ns": 1791982046207682000,
+          "device": 149,
+          "inode": 33686956,
+          "sha256": "803c9e63c8711c35f3dfc6e4c96155eb2a8ec8baeb8f47e6353e083eb735526a"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-latest-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791983110839649780,
+          "device": 149,
+          "inode": 168018556,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791983110835419006,
+          "device": 149,
+          "inode": 168018555,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791983109195371036,
+          "device": 149,
+          "inode": 168018540,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791983108639438000,
+          "device": 149,
+          "inode": 168018537
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5072,
+          "mtime_ns": 1791983108639061000,
+          "device": 149,
+          "inode": 37480688419,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 45761,
+          "mtime_ns": 1791983110811988000,
+          "device": 149,
+          "inode": 168018552,
+          "sha256": "3a5f9f7a9f9593a138efc31b1771617f59b530c782f8b38f380a150b1ca8935c"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5475,
+          "mtime_ns": 1791983086796964000,
+          "device": 149,
+          "inode": 168018536,
+          "sha256": "fe20701a98bc7c9012f921b2d11bd45ba27c12ae8674fdf804d4ed446035f270"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 3331,
+          "mtime_ns": 1791983110812384944,
+          "device": 149,
+          "inode": 168018553,
+          "sha256": "55839fb425dec0bdd2c5866412803ad4ae6b5ee3a82462d8613723b485ee0393"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791983109199933000,
+          "device": 149,
+          "inode": 168018539
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1599,
+          "mtime_ns": 1791983110812836609,
+          "device": 149,
+          "inode": 2181075567,
+          "sha256": "dc31352a63666fe52c92977369e87a758966d27847aa746b4e18e96137092f39"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 226,
+          "mtime_ns": 1791983110812667734,
+          "device": 149,
+          "inode": 168018554,
+          "sha256": "46f66c11583d8e9b48cf65c0188fa217d28a9ee8f915c68ef1949b09414963fe"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791983109194185000,
+          "device": 149,
+          "inode": 168018538
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791983110732256000,
+          "device": 149,
+          "inode": 168018541
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 648278,
+          "mtime_ns": 1791983110630998958,
+          "device": 149,
+          "inode": 168018544,
+          "sha256": "610a9e014c27c34501da9d13f155f5e0bdefeb26d77f11fc5278a5cd8ef8292e"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 644875,
+          "mtime_ns": 1791983110645888791,
+          "device": 149,
+          "inode": 168018545,
+          "sha256": "508e6f719837300824a81ba71c0f233bb73af2e409311af5c12b2784adec22e3"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 642587,
+          "mtime_ns": 1791983110661101542,
+          "device": 149,
+          "inode": 168018546,
+          "sha256": "da6993cd921f0c8820784e4836d228fb9cd13341a50c4db45f28f874352ff55d"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 644218,
+          "mtime_ns": 1791983110675451495,
+          "device": 149,
+          "inode": 168018547,
+          "sha256": "a5135c083ca1497ea98b08bf5cde172a5f8df096e320740ab87ed74f2a8dbb10"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 643501,
+          "mtime_ns": 1791983110691182417,
+          "device": 149,
+          "inode": 168018548,
+          "sha256": "64e671dc3061d2f2e2e29fa8e872dc95b7281e04d7d84c3b31c2939e7a19b2a5"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 655895,
+          "mtime_ns": 1791983110705040503,
+          "device": 149,
+          "inode": 168018549,
+          "sha256": "6dce31c2e2b10c30c42d85dd3972f60bfa7ab53a645d996b7a96150f314618cf"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 645247,
+          "mtime_ns": 1791983110718516536,
+          "device": 149,
+          "inode": 168018550,
+          "sha256": "de333b93bac204b033b73b04e7ef628c81901991d6284c7c63ade1d1ccd2d7b4"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 641462,
+          "mtime_ns": 1791983110732399760,
+          "device": 149,
+          "inode": 168018551,
+          "sha256": "9a01b07327cd75dc64b0ef7b892c0a556d7db79e48b8d0e052fdcf05d7ba0d49"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1791983110623731422,
+          "device": 149,
+          "inode": 168018542,
+          "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 100606,
+          "mtime_ns": 1791983110624449000,
+          "device": 149,
+          "inode": 168018543,
+          "sha256": "d88820c61116d3c51b7ea60b0b5effa936e045e28de08b1c290ddf59ecf8954e"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-reward-advantage-diagnosis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-reward-advantage-diagnosis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-bonus01-reward-advantage-diagnosis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791986371310746745,
+          "device": 149,
+          "inode": 56270919137,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791986371305038410,
+          "device": 149,
+          "inode": 56270919136,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791986369520483457,
+          "device": 149,
+          "inode": 56270919119,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791986368974780000,
+          "device": 149,
+          "inode": 56270919116
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5096,
+          "mtime_ns": 1791986368974399000,
+          "device": 149,
+          "inode": 53754296143,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 70770,
+          "mtime_ns": 1791986371276284000,
+          "device": 149,
+          "inode": 56270919133,
+          "sha256": "9f179f22148d19090dd31bf736b667201012016c9d49c3f8efa84ffb4d01d5e6"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 13984,
+          "mtime_ns": 1791986348402968000,
+          "device": 149,
+          "inode": 56270919115,
+          "sha256": "87ebf16490e93429ee17caf8244a3498557d836f7bbd55c71fa1350c5db6158d"
+        },
+        "counterfactual_rows.jsonl": {
+          "mode": 33188,
+          "size": 640911,
+          "mtime_ns": 1791986371217096851,
+          "device": 149,
+          "inode": 56270919131,
+          "sha256": "d06765715f85be8d60e47e69d5fe9aa0e1d71a9105ed9a61b3774664bcaa905f"
+        },
+        "group_rows.jsonl": {
+          "mode": 33188,
+          "size": 764011,
+          "mtime_ns": 1791986371252447844,
+          "device": 149,
+          "inode": 56270919132,
+          "sha256": "d186995c61be14521b41fee2be4cf0443418a086681f5538cb0bfe92c0e9e224"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 3676,
+          "mtime_ns": 1791986371276794700,
+          "device": 149,
+          "inode": 56270919134,
+          "sha256": "319cf2d02c63b4acdb7d2fc9b0b76d53fa40886e0a6d89ca3900e356b7399d5a"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791986369525609000,
+          "device": 149,
+          "inode": 56270919118
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 415,
+          "mtime_ns": 1791986371277294830,
+          "device": 149,
+          "inode": 33686969,
+          "sha256": "bbe8c5c22274c2b124419bd0e66d4ec2a7a702a458266f171dc657386afd1506"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 235,
+          "mtime_ns": 1791986371277164402,
+          "device": 149,
+          "inode": 56270919135,
+          "sha256": "3562a8c4c7bb302957ba279bc86c31bc70ff74a87e5e5418c97e759ba6dc6298"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791986369519167000,
+          "device": 149,
+          "inode": 56270919117
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791986371114698000,
+          "device": 149,
+          "inode": 56270919120
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 648278,
+          "mtime_ns": 1791986370933736231,
+          "device": 149,
+          "inode": 56270919123,
+          "sha256": "610a9e014c27c34501da9d13f155f5e0bdefeb26d77f11fc5278a5cd8ef8292e"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 644875,
+          "mtime_ns": 1791986370970704491,
+          "device": 149,
+          "inode": 56270919124,
+          "sha256": "508e6f719837300824a81ba71c0f233bb73af2e409311af5c12b2784adec22e3"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 642587,
+          "mtime_ns": 1791986371003687039,
+          "device": 149,
+          "inode": 56270919125,
+          "sha256": "da6993cd921f0c8820784e4836d228fb9cd13341a50c4db45f28f874352ff55d"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 644218,
+          "mtime_ns": 1791986371029135217,
+          "device": 149,
+          "inode": 56270919126,
+          "sha256": "a5135c083ca1497ea98b08bf5cde172a5f8df096e320740ab87ed74f2a8dbb10"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 643501,
+          "mtime_ns": 1791986371053857070,
+          "device": 149,
+          "inode": 56270919127,
+          "sha256": "64e671dc3061d2f2e2e29fa8e872dc95b7281e04d7d84c3b31c2939e7a19b2a5"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 655895,
+          "mtime_ns": 1791986371074555850,
+          "device": 149,
+          "inode": 56270919128,
+          "sha256": "6dce31c2e2b10c30c42d85dd3972f60bfa7ab53a645d996b7a96150f314618cf"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 645247,
+          "mtime_ns": 1791986371096089390,
+          "device": 149,
+          "inode": 56270919129,
+          "sha256": "de333b93bac204b033b73b04e7ef628c81901991d6284c7c63ade1d1ccd2d7b4"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 641462,
+          "mtime_ns": 1791986371115158741,
+          "device": 149,
+          "inode": 56270919130,
+          "sha256": "9a01b07327cd75dc64b0ef7b892c0a556d7db79e48b8d0e052fdcf05d7ba0d49"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1791986370913418093,
+          "device": 149,
+          "inode": 56270919121,
+          "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 100606,
+          "mtime_ns": 1791986370915650000,
+          "device": 149,
+          "inode": 56270919122,
+          "sha256": "d88820c61116d3c51b7ea60b0b5effa936e045e28de08b1c290ddf59ecf8954e"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-multibox-bonus-offline-sweep",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-multibox-bonus-offline-sweep",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-multibox-bonus-offline-sweep",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791989464123249701,
+          "device": 149,
+          "inode": 53754296160,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791989464117859476,
+          "device": 149,
+          "inode": 53754296159,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791989462099110516,
+          "device": 149,
+          "inode": 53754296152,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791989461450549000,
+          "device": 149,
+          "inode": 53754296149
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5024,
+          "mtime_ns": 1791989461450182000,
+          "device": 149,
+          "inode": 168018559,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 58918,
+          "mtime_ns": 1791989463913281000,
+          "device": 149,
+          "inode": 53754296154,
+          "sha256": "679d50a58b2d6f56436ee2e398523a325f5499d86d3142f50b8b4183423f5123"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 9711,
+          "mtime_ns": 1791989443344857000,
+          "device": 149,
+          "inode": 53754296148,
+          "sha256": "a1972fe11074f88cc289def7b692365f8b420d8883e71a9538555f749eacd5e3"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 4150,
+          "mtime_ns": 1791989464082109000,
+          "device": 149,
+          "inode": 53754296157,
+          "sha256": "aae9930b78cdbb22c05ec76895d821fc380265e4723b3d94eab39cd8f9433ec1"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791989462103996000,
+          "device": 149,
+          "inode": 53754296151
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 7429,
+          "mtime_ns": 1791989464082855357,
+          "device": 149,
+          "inode": 15166681546,
+          "sha256": "be8afc8cfe0bd905da81b941dabd6f2cca741a977f496c97814e19f51ec8e101"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 394,
+          "mtime_ns": 1791989464082507990,
+          "device": 149,
+          "inode": 53754296158,
+          "sha256": "24b95787933c4a3fdd841e374a28f9850b67682c3599d5d07bb462a5e9e36be9"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791989462097738000,
+          "device": 149,
+          "inode": 53754296150
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791989463729812000,
+          "device": 149,
+          "inode": 53754296153
+        },
+        "source_snapshot/counterfactual_rows.jsonl": {
+          "mode": 33188,
+          "size": 640911,
+          "mtime_ns": 1791989463730169990,
+          "device": 149,
+          "inode": 37480688432,
+          "sha256": "d06765715f85be8d60e47e69d5fe9aa0e1d71a9105ed9a61b3774664bcaa905f"
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 648278,
+          "mtime_ns": 1791989463615592581,
+          "device": 149,
+          "inode": 37480688424,
+          "sha256": "610a9e014c27c34501da9d13f155f5e0bdefeb26d77f11fc5278a5cd8ef8292e"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 644875,
+          "mtime_ns": 1791989463629859483,
+          "device": 149,
+          "inode": 37480688425,
+          "sha256": "508e6f719837300824a81ba71c0f233bb73af2e409311af5c12b2784adec22e3"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 642587,
+          "mtime_ns": 1791989463644737301,
+          "device": 149,
+          "inode": 37480688426,
+          "sha256": "da6993cd921f0c8820784e4836d228fb9cd13341a50c4db45f28f874352ff55d"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 644218,
+          "mtime_ns": 1791989463659069138,
+          "device": 149,
+          "inode": 37480688427,
+          "sha256": "a5135c083ca1497ea98b08bf5cde172a5f8df096e320740ab87ed74f2a8dbb10"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 643501,
+          "mtime_ns": 1791989463673241571,
+          "device": 149,
+          "inode": 37480688428,
+          "sha256": "64e671dc3061d2f2e2e29fa8e872dc95b7281e04d7d84c3b31c2939e7a19b2a5"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 655895,
+          "mtime_ns": 1791989463687293466,
+          "device": 149,
+          "inode": 37480688429,
+          "sha256": "6dce31c2e2b10c30c42d85dd3972f60bfa7ab53a645d996b7a96150f314618cf"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 645247,
+          "mtime_ns": 1791989463703227895,
+          "device": 149,
+          "inode": 37480688430,
+          "sha256": "de333b93bac204b033b73b04e7ef628c81901991d6284c7c63ade1d1ccd2d7b4"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 641462,
+          "mtime_ns": 1791989463716561750,
+          "device": 149,
+          "inode": 37480688431,
+          "sha256": "9a01b07327cd75dc64b0ef7b892c0a556d7db79e48b8d0e052fdcf05d7ba0d49"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1791989463607661502,
+          "device": 149,
+          "inode": 37480688421,
+          "sha256": "7693177ff64d51f8387f56277f3f1170ca49c36b04cbe7e9487c5cefab60005d"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 100606,
+          "mtime_ns": 1791989463608813000,
+          "device": 149,
+          "inode": 37480688423,
+          "sha256": "d88820c61116d3c51b7ea60b0b5effa936e045e28de08b1c290ddf59ecf8954e"
+        },
+        "sweep_groups.jsonl": {
+          "mode": 33188,
+          "size": 1070144,
+          "mtime_ns": 1791989464081235767,
+          "device": 149,
+          "inode": 53754296156,
+          "sha256": "2e4e5bccc89f3837f89da0e11f208674d34485fa3fd15a9c35639005faae2d67"
+        },
+        "sweep_rollouts.jsonl": {
+          "mode": 33188,
+          "size": 7810798,
+          "mtime_ns": 1791989464055526017,
+          "device": 149,
+          "inode": 53754296155,
+          "sha256": "0757b281caefc48cca63cb5aa382f6d2eac10ec6c0d69886e43edd747e28f9fc"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-current-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-current-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-current-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1791995201859104580,
+          "device": 149,
+          "inode": 33686985,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1791995201853325133,
+          "device": 149,
+          "inode": 33686984,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1791995200813845063,
+          "device": 149,
+          "inode": 33686979,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791995200233284000,
+          "device": 149,
+          "inode": 33686976
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5084,
+          "mtime_ns": 1791995200233025000,
+          "device": 149,
+          "inode": 56271182287,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 14599,
+          "mtime_ns": 1791995201840352000,
+          "device": 149,
+          "inode": 33686981,
+          "sha256": "9917067d139546c0fea7ea9e6aeba856115fe141d132c267a05319d049a2f173"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5476,
+          "mtime_ns": 1791995161095580000,
+          "device": 149,
+          "inode": 33686975,
+          "sha256": "9293f04359ffb31d6a24694217499a055ec1e21d3c92686953147cb53c2aff5e"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 3330,
+          "mtime_ns": 1791995201841136427,
+          "device": 149,
+          "inode": 33686982,
+          "sha256": "0994a1b3ce6a16cae3a0a69ec7d6fa19288faee51cac24b10c58c8f76b84ec0c"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791995200818669000,
+          "device": 149,
+          "inode": 33686978
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1651,
+          "mtime_ns": 1791995201841739257,
+          "device": 149,
+          "inode": 2214739871,
+          "sha256": "c2eebba797393600dd363243e92329006090fd03efd81ff1f3071d83f88f9d23"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 218,
+          "mtime_ns": 1791995201841492681,
+          "device": 149,
+          "inode": 33686983,
+          "sha256": "d4ddb85491b802a833a955132baafa7be49a0a34d5c074f8190393ae5c899f49"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791995200812932000,
+          "device": 149,
+          "inode": 33686977
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1791995201818823000,
+          "device": 149,
+          "inode": 33686980
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 156150,
+          "mtime_ns": 1791995201784832000,
+          "device": 149,
+          "inode": 53754296173,
+          "sha256": "1c75cad9d875e11d5c0a500b25835f6054703f02691ac08d2e87319d9ebacebf"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 157204,
+          "mtime_ns": 1791995201789884000,
+          "device": 149,
+          "inode": 53754296174,
+          "sha256": "6d808695d320efc6db1f04bb47e2ff7c2b1be8199c5a6fe22dcd59ace51d02bc"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 156180,
+          "mtime_ns": 1791995201794534000,
+          "device": 149,
+          "inode": 53754296175,
+          "sha256": "83e14ee81d386304f2980dd3cf4b0b9a3493be8fe7597fb17b0d8481412a82c5"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 157535,
+          "mtime_ns": 1791995201799138000,
+          "device": 149,
+          "inode": 53754296176,
+          "sha256": "20cb38b88560819352afabf65a3009dce7cd001e32831bc46e0a36fa2d815f5b"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 156010,
+          "mtime_ns": 1791995201803733000,
+          "device": 149,
+          "inode": 53754296177,
+          "sha256": "29f8c13cb62034d08bc73a43a4cd18de6303a88e17a6120b610d30d75fdaab3f"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 158996,
+          "mtime_ns": 1791995201808329000,
+          "device": 149,
+          "inode": 53754296178,
+          "sha256": "4a062131cc9ed51065af3f9b0b52bd6c721a23f6907ad33cab739125e36e4016"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 157970,
+          "mtime_ns": 1791995201814337000,
+          "device": 149,
+          "inode": 53754296179,
+          "sha256": "e056ac13fd0998058ce9323064c204e867f1b7c9a81036f6803141d670d193da"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 154911,
+          "mtime_ns": 1791995201819033000,
+          "device": 149,
+          "inode": 53754296180,
+          "sha256": "f1d2cbf70497872e946e418fe629c68394e7d32245768c21107ac9b37b8243aa"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1791995201781015540,
+          "device": 149,
+          "inode": 53754296171,
+          "sha256": "70f5958c73705b535d84fa0c5c06f68e79643e2848afa77364c8512081ed7c2b"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 35370,
+          "mtime_ns": 1791995201782045000,
+          "device": 149,
+          "inode": 53754296172,
+          "sha256": "9b84cf8612649f4df721cefa56a02acc57bf6382b663d70e88dc8c120e996865"
+        }
+      }
+    },
+    {
+      "id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-latest-multibox-analysis",
+      "old": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-latest-multibox-analysis",
+      "new": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/analysis/e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-latest-multibox-analysis",
+      "status_at_migration": "analysis_pending",
+      "inventory": {
+        ".survey-tool-complete": {
+          "mode": 33188,
+          "size": 25,
+          "mtime_ns": 1792024118083102826,
+          "device": 149,
+          "inode": 2214739886,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-exit-code": {
+          "mode": 33188,
+          "size": 2,
+          "mtime_ns": 1792024118078203425,
+          "device": 149,
+          "inode": 2214739885,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-launch-state": {
+          "mode": 33188,
+          "size": 29,
+          "mtime_ns": 1792024115383148430,
+          "device": 149,
+          "inode": 2214739880,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        ".survey-tool-managed": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1792024114796713000,
+          "device": 149,
+          "inode": 2214739877
+        },
+        ".survey-tool-managed/launcher.sh": {
+          "mode": 33216,
+          "size": 5072,
+          "mtime_ns": 1792024114796469000,
+          "device": 149,
+          "inode": 168281717,
+          "content_check": "opaque_control_file_inode_size_mtime_preserved"
+        },
+        "analysis.json": {
+          "mode": 33188,
+          "size": 276329,
+          "mtime_ns": 1792024117930898000,
+          "device": 149,
+          "inode": 2214739882,
+          "sha256": "7fae70d424af406d0154261b3c21c0c00288c7d7174ad9303f5cd8124858bc09"
+        },
+        "analyze.py": {
+          "mode": 33188,
+          "size": 5860,
+          "mtime_ns": 1792024093082932000,
+          "device": 149,
+          "inode": 2214739876,
+          "sha256": "38b5c118570be4b030977b3398d2279e3a7128806762bc3352bc255a25e979a0"
+        },
+        "integrity_audit.json": {
+          "mode": 33188,
+          "size": 3340,
+          "mtime_ns": 1792024117931420456,
+          "device": 149,
+          "inode": 2214739883,
+          "sha256": "29a3c9ddcfe50786a6420515066fae405850cf613df89874d6a54b754de8f8f8"
+        },
+        "logs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1792024115388469000,
+          "device": 149,
+          "inode": 2214739879
+        },
+        "logs/run.log": {
+          "mode": 33188,
+          "size": 1997,
+          "mtime_ns": 1792024117931939507,
+          "device": 149,
+          "inode": 15166681567,
+          "sha256": "c225d0b3f77e0eeaac68debd092dd3975b9370cf91db688716b6d24ffd93dae7"
+        },
+        "metrics.json": {
+          "mode": 33188,
+          "size": 235,
+          "mtime_ns": 1792024117931745040,
+          "device": 149,
+          "inode": 2214739884,
+          "sha256": "b955e98f6e4cb377da8380a0876d5d514b97fc2b1a32d955b3dd4c5bce33894d"
+        },
+        "outputs": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1792024115382016000,
+          "device": 149,
+          "inode": 2214739878
+        },
+        "source_snapshot": {
+          "mode": 16877,
+          "size": 4096,
+          "mtime_ns": 1792024116705472000,
+          "device": 149,
+          "inode": 2214739881
+        },
+        "source_snapshot/rollouts-rank0.jsonl": {
+          "mode": 33188,
+          "size": 3419571,
+          "mtime_ns": 1792024116254986079,
+          "device": 149,
+          "inode": 37480688465,
+          "sha256": "a4ddcb7fc3454bfdeed12d3f823f4c0101f71d88f437d558db18e6a244ff7a36"
+        },
+        "source_snapshot/rollouts-rank1.jsonl": {
+          "mode": 33188,
+          "size": 3397584,
+          "mtime_ns": 1792024116316137674,
+          "device": 149,
+          "inode": 37480688466,
+          "sha256": "87ad77032a3d0479a86ebad7d2dcce4bfba1b1235e732278595ff826fd07d209"
+        },
+        "source_snapshot/rollouts-rank2.jsonl": {
+          "mode": 33188,
+          "size": 3420782,
+          "mtime_ns": 1792024116375001728,
+          "device": 149,
+          "inode": 37480688467,
+          "sha256": "a5287ed6cacd25a788f129589490cd2915141dc6219b079978ed5494a66d2a2a"
+        },
+        "source_snapshot/rollouts-rank3.jsonl": {
+          "mode": 33188,
+          "size": 3414737,
+          "mtime_ns": 1792024116441106011,
+          "device": 149,
+          "inode": 37480688468,
+          "sha256": "da8edb81c9513d7bda97380a6885eebd36ef31553980e3af7d03ecefc0e59703"
+        },
+        "source_snapshot/rollouts-rank4.jsonl": {
+          "mode": 33188,
+          "size": 3422101,
+          "mtime_ns": 1792024116499572466,
+          "device": 149,
+          "inode": 37480688469,
+          "sha256": "8e0eb05e8065521904acf4a62779d6d4d1a2aced626767d180fd4a56cf7966fd"
+        },
+        "source_snapshot/rollouts-rank5.jsonl": {
+          "mode": 33188,
+          "size": 3437685,
+          "mtime_ns": 1792024116556623602,
+          "device": 149,
+          "inode": 37480688470,
+          "sha256": "8980b8210e470ab88eccf745d2d9b3395acc29e7d2721fee0cd9fa4bf17afe5d"
+        },
+        "source_snapshot/rollouts-rank6.jsonl": {
+          "mode": 33188,
+          "size": 3419425,
+          "mtime_ns": 1792024116647073865,
+          "device": 149,
+          "inode": 37480688471,
+          "sha256": "f9df86b7a8c14e40babd94afea29d120a1548f209c4b85e833e5720aee5434be"
+        },
+        "source_snapshot/rollouts-rank7.jsonl": {
+          "mode": 33188,
+          "size": 3413325,
+          "mtime_ns": 1792024116705817881,
+          "device": 149,
+          "inode": 37480688472,
+          "sha256": "319908c6b84430d0927e48c320a8a73ea49cb5ee882ee977ad57b93129d57880"
+        },
+        "source_snapshot/trainer_config.json": {
+          "mode": 33188,
+          "size": 1698,
+          "mtime_ns": 1792024116215211905,
+          "device": 149,
+          "inode": 37480688463,
+          "sha256": "70f5958c73705b535d84fa0c5c06f68e79643e2848afa77364c8512081ed7c2b"
+        },
+        "source_snapshot/training.log": {
+          "mode": 33188,
+          "size": 446266,
+          "mtime_ns": 1792024116217205000,
+          "device": 149,
+          "inode": 37480688464,
+          "sha256": "00b68b8298f1eb79c286f2a50e4722d5bf427a5b79669dc08acbf268922e16d7"
+        }
+      }
+    }
+  ],
+  "checks": {
+    "all_original_files_unchanged": true,
+    "atomic_same_filesystem_rename": true,
+    "old_top_level_analysis_directories_absent": true,
+    "archived_analysis_process_count": 0,
+    "historical_sources_commands_logs_preserved": true,
+    "managed_control_files_not_read": true
+  },
+  "files_hashed": 211,
+  "opaque_control_files_preserved": 52
+}

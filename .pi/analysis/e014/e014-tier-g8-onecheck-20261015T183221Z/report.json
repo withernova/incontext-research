@@ -1,0 +1,96 @@
+{
+  "run_id": "e014-20261015T172455Z-tier065-oracle005-selected015-score015-g8-kl0-sft659-400step-seed11451",
+  "observed_utc": "2026-10-15T18:32:23.061793+00:00",
+  "complete_step_count": 22,
+  "window_steps": [
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21
+  ],
+  "overall": {
+    "total": 2560,
+    "valid": 2483,
+    "valid_rate": 0.969921875,
+    "valid_multibox": 236,
+    "multibox_per_all": 0.0921875,
+    "multibox_per_valid": 0.0950463149416029,
+    "valid_positive": 1811,
+    "valid_positive_multibox": 198,
+    "selected_iou": 0.5814241199419959,
+    "oracle_selected_gap": 0.03695121454951777,
+    "unterminated": 24,
+    "tiers": {
+      "0": 236,
+      "4": 650,
+      "3": 544,
+      "1": 299,
+      "2": 82
+    }
+  },
+  "by_source": {
+    "collage": {
+      "total": 1168,
+      "valid": 1120,
+      "valid_rate": 0.958904109589041,
+      "valid_multibox": 180,
+      "multibox_per_all": 0.1541095890410959,
+      "multibox_per_valid": 0.16071428571428573,
+      "valid_positive": 1120,
+      "valid_positive_multibox": 180,
+      "selected_iou": 0.5124936864578424,
+      "oracle_selected_gap": 0.054148622663535935,
+      "unterminated": 9,
+      "tiers": {
+        "0": 175,
+        "4": 319,
+        "3": 339,
+        "1": 213,
+        "2": 74
+      }
+    },
+    "original": {
+      "total": 1392,
+      "valid": 1363,
+      "valid_rate": 0.9791666666666666,
+      "valid_multibox": 56,
+      "multibox_per_all": 0.040229885057471264,
+      "multibox_per_valid": 0.041085840058694055,
+      "valid_positive": 691,
+      "valid_positive_multibox": 18,
+      "selected_iou": 0.6931492798584242,
+      "oracle_selected_gap": 0.009076978532585295,
+      "unterminated": 15,
+      "tiers": {
+        "4": 331,
+        "3": 205,
+        "0": 61,
+        "1": 86,
+        "2": 8
+      }
+    }
+  },
+  "mixed_groups": 48,
+  "within_group_multi_minus_single_advantage": 0.05191478233503563,
+  "multibox_disappeared": false,
+  "diagnosis": [
+    "仅一次训练采样快照，不能代替固定验证集评测；未自动重试或修改训练。",
+    "窗口内仍存在合法正样本多框，不判定已消失；按原图/拼图分开查看比例。"
+  ]
+}

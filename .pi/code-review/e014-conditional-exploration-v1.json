@@ -1,0 +1,84 @@
+{
+  "contract": "pi.code-change-review/v1",
+  "review_id": "1bf0165bbb510796",
+  "diff_fingerprint": "1bf0165bbb510796e3c27a04a941ad0120e8b32566aded864684cb2c77a0f0d3",
+  "base_revision": "26e35eee07dfc1d6274b594005b984d647822017",
+  "task_id": "",
+  "task_scoped": false,
+  "task_boundary": null,
+  "commit": {
+    "sha": "1e2caec81668dafaf015005415d219b4e5e4ca2e",
+    "paths": [
+      "iploc_szy/rl/variable_candidates.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/preflight.py",
+      "configs/experiments/E-014/training/e014_structure_score_iou_explore_grpo.py",
+      "docs/GRPO_MODULES.md",
+      "configs/ENTRYPOINT_INDEX.md",
+      "docs/LAUNCH_CATALOG.md"
+    ]
+  },
+  "review_current": true,
+  "repository": {
+    "path": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy"
+  },
+  "review_scope": {
+    "allowed_paths": [
+      "iploc_szy/rl/variable_candidates.py",
+      "iploc_szy/rl/task.py",
+      "iploc_szy/rl/preflight.py",
+      "configs/experiments/E-014/training/e014_structure_score_iou_explore_grpo.py",
+      "docs/GRPO_MODULES.md",
+      "configs/ENTRYPOINT_INDEX.md",
+      "docs/LAUNCH_CATALOG.md"
+    ]
+  },
+  "intent": "Implement the explicitly requested independent structure_score_selected_iou_explore_v1 reward. Preserve legacy rewards; no tests, training or deployment. Source AST/navigation checks only.",
+  "passed": true,
+  "blocking_findings": [],
+  "warnings": [
+    {
+      "severity": "warning",
+      "code": "test-evidence-missing",
+      "message": "未提供测试或静态检查证据"
+    }
+  ],
+  "changed_files": [
+    {
+      "path": "configs/ENTRYPOINT_INDEX.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "configs/experiments/E-014/training/e014_structure_score_iou_explore_grpo.py",
+      "status": "A ",
+      "untracked": false
+    },
+    {
+      "path": "docs/GRPO_MODULES.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "docs/LAUNCH_CATALOG.md",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/preflight.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/task.py",
+      "status": "M ",
+      "untracked": false
+    },
+    {
+      "path": "iploc_szy/rl/variable_candidates.py",
+      "status": "M ",
+      "untracked": false
+    }
+  ],
+  "tests": []
+}

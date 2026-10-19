@@ -1,0 +1,37 @@
+{
+  "metrics": {
+    "150": {
+      "n": 1766,
+      "valid": 1762,
+      "multibox": 263,
+      "multibox_rate": 0.14892412231030577,
+      "selected_miou": 0.6932669711820177,
+      "oracle_miou": 0.726323600272147,
+      "multi_selected": 0.5827017800768084,
+      "multi_oracle": 0.8046713883398052,
+      "rescue": 45,
+      "selection_failure": 67
+    },
+    "200": {
+      "n": 1766,
+      "valid": 1755,
+      "multibox": 791,
+      "multibox_rate": 0.4479048697621744,
+      "selected_miou": 0.6916960157722528,
+      "oracle_miou": 0.7573992982137013,
+      "multi_selected": 0.6117499324631576,
+      "multi_oracle": 0.7584401938937495,
+      "rescue": 103,
+      "selection_failure": 133
+    }
+  },
+  "category_pool_counts": {
+    "rescue": 103,
+    "selection_failure": 133,
+    "ineffective_extra": 102,
+    "improved": 60,
+    "regressed": 56
+  },
+  "selection": "Top magnitude per category, maximum one per sequence, globally unique; illustrative not representative",
+  "cases": 15
+}

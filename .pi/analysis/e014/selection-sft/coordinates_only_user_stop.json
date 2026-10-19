@@ -1,0 +1,30 @@
+{
+  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-coordinates-only-lora4epoch-20261019/payload/training/checkpoints/samples_00020947_step_001310",
+  "state_keys": [
+    "format_version",
+    "step",
+    "samples_seen",
+    "next_checkpoint_samples",
+    "history",
+    "localization_history",
+    "auxiliary_history",
+    "pipeline_state",
+    "optimizer",
+    "scheduler",
+    "max_steps",
+    "seed"
+  ],
+  "adapter_sha256": "da48612511e71630c61f1b1837286240653a6ed4e5773a12aebe96007634ebe4",
+  "adapter_config_sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937",
+  "last_logged_update": 1374,
+  "exit_code": null,
+  "gpu_compute_apps": "2544394, 19276 MiB\n2544406, 19274 MiB\n",
+  "trainer_state_scalars": {
+    "format_version": 1,
+    "step": 1310,
+    "samples_seen": 20960,
+    "next_checkpoint_samples": 25137.0,
+    "max_steps": 2096,
+    "seed": 20260901
+  }
+}

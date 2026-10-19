@@ -1,0 +1,30 @@
+{
+  "300": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T124428Z-score05-cover05-g8-resume200-to400-eval150/payload/grpo/evaluations/step_000300",
+    "predictions_sha": "6a0beb4de5803aac98c56d4f296489c607f4c73262d9d6fc0f5838886e317a72",
+    "selected_better_first": 24,
+    "selected_worse_first": 15,
+    "oracle_hit_selected_miss": 64,
+    "first_hit_selected_miss": 15,
+    "selected_hit_first_miss": 23
+  },
+  "450": {
+    "source": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T124428Z-score05-cover05-g8-resume200-to400-eval150-derived-001/payload/grpo/evaluations/step_000450",
+    "predictions_sha": "b8853de0a055507c7e4864c7349482f6b29e00b889f71c0b1b4c2700ccc4a33a",
+    "selected_better_first": 65,
+    "selected_worse_first": 68,
+    "oracle_hit_selected_miss": 96,
+    "first_hit_selected_miss": 60,
+    "selected_hit_first_miss": 58
+  },
+  "matched_pair": {
+    "n": 1766,
+    "same_config_and_ids_gt_dataset": true,
+    "selected_improved": 780,
+    "selected_worsened": 695,
+    "selected_delta": -0.011383734000613425,
+    "oracle_delta": 0.00287280387726707,
+    "selected_hit_lost": 87,
+    "selected_hit_gained": 66
+  }
+}

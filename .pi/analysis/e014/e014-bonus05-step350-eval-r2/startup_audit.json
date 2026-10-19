@@ -1,0 +1,25 @@
+{
+  "run_id": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-step350-eval1766-r2",
+  "inputs_ready": true,
+  "metrics_ready": false,
+  "worker_directory": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-step350-eval1766-r2/execution",
+  "step": 350,
+  "samples": 1766,
+  "optimizer_step_preflight": "passed",
+  "policy_sha256": "2399a6db32649adc219f4e85f859dd052cbc634fe85571e5aee087ccdb235a84",
+  "training_reward": {
+    "correctness_threshold": 0.5,
+    "exploration_threshold": 0.3,
+    "distinct_threshold": 0.9,
+    "score_weight": 1.1,
+    "iou_weight": 1.0,
+    "order_penalty": 0.12,
+    "exploration_penalty": 0.6,
+    "multibox_bonus_weight": 0.5
+  },
+  "code_sha": "7bb09c762b4e6030fe870b34f9c1a119d7c81425",
+  "runtime_snapshot_ready": true,
+  "actual_eval_config": "passed",
+  "startup_error_records": 0,
+  "progress_reported_samples": 0
+}

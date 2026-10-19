@@ -1,0 +1,57 @@
+{
+  "run_id": "e014-structure-score-iou-explore-v1-beta0-explore06-sft659-seed11451",
+  "entry_config": "code-repositories/03/iploc-szy/configs/experiments/E-014/training/e014_structure_score_iou_explore_grpo.py",
+  "cli_overrides": [
+    "settings.trainer.beta=0.0",
+    "settings.trainer.reward.exploration_penalty=0.6",
+    "output.run_name=e014-structure-score-iou-explore-v1-beta0-explore06-sft659-seed11451"
+  ],
+  "trainer_parameter_changes": [
+    {
+      "parameter": "settings.trainer.reward.exploration_penalty",
+      "from": 0.2,
+      "to": 0.6
+    }
+  ],
+  "trainer": {
+    "model_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+    "adapter_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659/adapter",
+    "prompt_protocol": "focus_variable_instances_spatial_e014_v1",
+    "load_in_4bit": true,
+    "epochs": 3,
+    "group_size": 4,
+    "max_new_tokens": 192,
+    "max_pixels": 262144,
+    "learning_rate": 8e-05,
+    "beta": 0.0,
+    "clip": 0.2,
+    "max_grad_norm": 1.0,
+    "seed": 11451,
+    "save_every_steps": 50,
+    "counterfactual": {
+      "weight": 0.0
+    },
+    "reward": {
+      "correctness_threshold": 0.5,
+      "exploration_threshold": 0.3,
+      "distinct_threshold": 0.9,
+      "score_weight": 1.1,
+      "iou_weight": 1.0,
+      "order_penalty": 0.12,
+      "exploration_penalty": 0.6
+    },
+    "prompt_variant": "multi_v2",
+    "reward_scheme": "structure_score_selected_iou_explore_v1"
+  },
+  "output": {
+    "root": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014",
+    "run_name": "e014-structure-score-iou-explore-v1-beta0-explore06-sft659-seed11451"
+  },
+  "config_source_sha256": {
+    "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy/configs/experiments/E-014/training/e014_structure_score_iou_explore_grpo.py": "4a1cbee7ac827adf3d9d4fa59d58d2005fa83b1279e63e33c1d46c71aadf3595",
+    "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy/configs/experiments/E-014/training/e014_multi_v2_symmetric_grpo.py": "8df6a87ecc7a3310fada9afd5640dd4b71e6f9cb38ac1410c0b9f120d0b51102",
+    "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy/configs/experiments/E-014/training/e014_variable_symmetric_grpo.py": "e2c89e7ed89c49a0dfa05f640d7cd39b3c3f4e2e5f05e0ef07e4afeb261e0167",
+    "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy/configs/_base_/symmetric_candidate_grpo.py": "f17879f28a664a66b76b8705b170f6ca027e9f5c6ade4944feb461feb12e3e4c"
+  },
+  "inspection": "source config parsing only; no model, data reads, tests, or execution"
+}

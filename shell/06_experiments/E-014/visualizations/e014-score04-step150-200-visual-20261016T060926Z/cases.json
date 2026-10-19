@@ -1,0 +1,2092 @@
+[
+  {
+    "index": 851,
+    "category": "rescue",
+    "step150": {
+      "dataset_index": 851,
+      "id": "851-1",
+      "prediction": "<answer>[712,0,1000,1000]</answer><score>0.75</score>",
+      "target": "[710,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915",
+      "rank": 3,
+      "terminated": true,
+      "iou": 0.993103448275862,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.75,
+      "raw_prediction": "<answer>[712,0,1000,1000]</answer>\n<score>0.75</score>",
+      "candidates": [
+        {
+          "box": [
+            712.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 0.75,
+          "text": "<answer>[712,0,1000,1000]</answer><score>0.75</score>",
+          "iou": 0.993103448275862
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.993103448275862,
+      "oracle_iou": 0.993103448275862,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 851,
+      "id": "851-1",
+      "prediction": "<answer>[712,0,1000,1000]</answer><score>1.00</score>",
+      "target": "[710,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915",
+      "rank": 3,
+      "terminated": true,
+      "iou": 0.993103448275862,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 1.0,
+      "raw_prediction": "<answer>[155,0,389,606]</answer>\n<answer>[712,0,1000,1000]</answer>\n<score>0.00</score>\n<score>1.00</score>",
+      "candidates": [
+        {
+          "box": [
+            155.0,
+            0.0,
+            389.0,
+            606.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[155,0,389,606]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            712.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 1.0,
+          "text": "<answer>[712,0,1000,1000]</answer><score>1.00</score>",
+          "iou": 0.993103448275862
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.993103448275862,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915/frame0001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915/frame1111.jpg"
+      ],
+      "bbox": [
+        [
+          433.0,
+          0.0,
+          1280.0,
+          720.0
+        ],
+        [
+          909.0,
+          0.0,
+          1280.0,
+          720.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/HACS/Preparing_pasta_v_IzyCyVQrmkw_scene_0_0-2915",
+      "frame_indices": [
+        0,
+        1110
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 1293,
+        "track_occurrences": 38,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 607,
+    "category": "rescue",
+    "step150": {
+      "dataset_index": 607,
+      "id": "607-1",
+      "prediction": "<answer>[437,405,807,886]</answer><score>0.75</score>",
+      "target": "[435,404,808,887]",
+      "dataset": "GOT10k",
+      "sequence": "GOT-10k_Val_000008",
+      "rank": 7,
+      "terminated": true,
+      "iou": 0.9878496217230336,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.75,
+      "raw_prediction": "<answer>[437,405,807,886]</answer>\n<score>0.75</score>",
+      "candidates": [
+        {
+          "box": [
+            437.0,
+            405.0,
+            807.0,
+            886.0
+          ],
+          "score": 0.75,
+          "text": "<answer>[437,405,807,886]</answer><score>0.75</score>",
+          "iou": 0.9878496217230336
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9878496217230336,
+      "oracle_iou": 0.9878496217230336,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 607,
+      "id": "607-1",
+      "prediction": "<answer>[436,404,808,884]</answer><score>1.00</score>",
+      "target": "[435,404,808,887]",
+      "dataset": "GOT10k",
+      "sequence": "GOT-10k_Val_000008",
+      "rank": 7,
+      "terminated": true,
+      "iou": 0.9911245066857609,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 1.0,
+      "raw_prediction": "<answer>[123,508,427,947]</answer>\n<answer>[436,404,808,884]</answer>\n<score>0.00</score>\n<score>1.00</score>",
+      "candidates": [
+        {
+          "box": [
+            123.0,
+            508.0,
+            427.0,
+            947.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[123,508,427,947]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            436.0,
+            404.0,
+            808.0,
+            884.0
+          ],
+          "score": 1.0,
+          "text": "<answer>[436,404,808,884]</answer><score>1.00</score>",
+          "iou": 0.9911245066857609
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9911245066857609,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/val/GOT-10k_Val_000008/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/GOT10k/val/GOT-10k_Val_000008/00000090.jpg"
+      ],
+      "bbox": [
+        [
+          885.0,
+          271.0,
+          1913.0,
+          990.0
+        ],
+        [
+          835.0,
+          436.0,
+          1552.0,
+          958.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "GOT10k",
+      "sequence": "GOT-10k_Val_000008",
+      "frame_indices": [
+        0,
+        89
+      ],
+      "sampling": "first-last-valid-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "category": "hippopotamus",
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 76,
+    "category": "rescue",
+    "step150": {
+      "dataset_index": 76,
+      "id": "76-1",
+      "prediction": "<answer>[755,89,1000,865]</answer><score>0.98</score>",
+      "target": "[755,89,1000,869]",
+      "dataset": "LaSOT",
+      "sequence": "bottle-14",
+      "rank": 4,
+      "terminated": true,
+      "iou": 0.9948717948717949,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.98,
+      "raw_prediction": "<answer>[755,89,1000,865]</answer>\n<score>0.98</score>",
+      "candidates": [
+        {
+          "box": [
+            755.0,
+            89.0,
+            1000.0,
+            865.0
+          ],
+          "score": 0.98,
+          "text": "<answer>[755,89,1000,865]</answer><score>0.98</score>",
+          "iou": 0.9948717948717949
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9948717948717949,
+      "oracle_iou": 0.9948717948717949,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 76,
+      "id": "76-1",
+      "prediction": "<answer>[755,87,1000,862]</answer><score>1.00</score>",
+      "target": "[755,89,1000,869]",
+      "dataset": "LaSOT",
+      "sequence": "bottle-14",
+      "rank": 4,
+      "terminated": true,
+      "iou": 0.9884910485933504,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 1.0,
+      "raw_prediction": "<answer>[233,503,445,1000]</answer>\n<answer>[303,20,466,776]</answer>\n<answer>[534,196,800,890]</answer>\n<answer>[755,87,1000,862]</answer>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>1.00</score>",
+      "candidates": [
+        {
+          "box": [
+            233.0,
+            503.0,
+            445.0,
+            1000.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[233,503,445,1000]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            303.0,
+            20.0,
+            466.0,
+            776.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[303,20,466,776]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            534.0,
+            196.0,
+            800.0,
+            890.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[534,196,800,890]</answer><score>0.00</score>",
+          "iou": 0.08767612667513947
+        },
+        {
+          "box": [
+            755.0,
+            87.0,
+            1000.0,
+            862.0
+          ],
+          "score": 1.0,
+          "text": "<answer>[755,87,1000,862]</answer><score>1.00</score>",
+          "iou": 0.9884910485933504
+        }
+      ],
+      "candidate_count": 4,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 3,
+      "oracle_candidate_index": 3,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9884910485933504,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bottle/bottle-14/img/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bottle/bottle-14/img/00007201.jpg"
+      ],
+      "bbox": [
+        [
+          908.0,
+          18.0,
+          1180.0,
+          531.0
+        ],
+        [
+          967.0,
+          64.0,
+          1280.0,
+          626.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "LaSOT",
+      "sequence": "bottle-14",
+      "frame_indices": [
+        0,
+        7200
+      ],
+      "sampling": "focus-uniform-full-span-final-query",
+      "metadata": {
+        "split": "test",
+        "category": "bottle",
+        "split_protocol": "e009-posthoc-lasot-val100-test600/v1"
+      }
+    }
+  },
+  {
+    "index": 931,
+    "category": "selection_failure",
+    "step150": {
+      "dataset_index": 931,
+      "id": "931-1",
+      "prediction": "<answer>[597,161,769,1000]</answer><score>0.67</score>",
+      "target": "[597,156,770,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652",
+      "rank": 3,
+      "terminated": true,
+      "iou": 0.9883297263238638,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[154,217,312,847]</answer>\n<answer>[597,161,769,1000]</answer>\n<score>0.33</score>\n<score>0.67</score>",
+      "candidates": [
+        {
+          "box": [
+            154.0,
+            217.0,
+            312.0,
+            847.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[154,217,312,847]</answer><score>0.33</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            597.0,
+            161.0,
+            769.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[597,161,769,1000]</answer><score>0.67</score>",
+          "iou": 0.9883297263238638
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9883297263238638,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 931,
+      "id": "931-1",
+      "prediction": "<answer>[152,217,312,847]</answer><score>0.87</score>",
+      "target": "[597,156,770,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652",
+      "rank": 3,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.87,
+      "raw_prediction": "<answer>[152,217,312,847]</answer>\n<answer>[597,157,770,999]</answer>\n<score>0.87</score>\n<score>0.13</score>",
+      "candidates": [
+        {
+          "box": [
+            152.0,
+            217.0,
+            312.0,
+            847.0
+          ],
+          "score": 0.87,
+          "text": "<answer>[152,217,312,847]</answer><score>0.87</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            597.0,
+            157.0,
+            770.0,
+            999.0
+          ],
+          "score": 0.13,
+          "text": "<answer>[597,157,770,999]</answer><score>0.13</score>",
+          "iou": 0.9976303317535545
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9976303317535545,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652/frame0001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652/frame1171.jpg"
+      ],
+      "bbox": [
+        [
+          566.0,
+          293.0,
+          704.0,
+          555.0
+        ],
+        [
+          764.0,
+          112.0,
+          986.0,
+          720.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/HACS/Playing_squash_v_iadsOQofea8_scene_0_0-4652",
+      "frame_indices": [
+        0,
+        1170
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 2787,
+        "track_occurrences": 40,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 844,
+    "category": "selection_failure",
+    "step150": {
+      "dataset_index": 844,
+      "id": "844-1",
+      "prediction": "<answer>[566,0,1000,1000]</answer><score>0.78</score>",
+      "target": "[568,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102",
+      "rank": 4,
+      "terminated": true,
+      "iou": 0.9953917050691244,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.78,
+      "raw_prediction": "<answer>[566,0,1000,1000]</answer>\n<score>0.78</score>",
+      "candidates": [
+        {
+          "box": [
+            566.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 0.78,
+          "text": "<answer>[566,0,1000,1000]</answer><score>0.78</score>",
+          "iou": 0.9953917050691244
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9953917050691244,
+      "oracle_iou": 0.9953917050691244,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 844,
+      "id": "844-1",
+      "prediction": "<answer>[0,137,542,1000]</answer><score>0.67</score>",
+      "target": "[568,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102",
+      "rank": 4,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[0,137,542,1000]</answer>\n<answer>[566,0,1000,1000]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            137.0,
+            542.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[0,137,542,1000]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            566.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[566,0,1000,1000]</answer><score>0.33</score>",
+          "iou": 0.9953917050691244
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9953917050691244,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102/frame0001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102/frame1171.jpg"
+      ],
+      "bbox": [
+        [
+          677.0,
+          54.0,
+          1105.0,
+          720.0
+        ],
+        [
+          727.0,
+          0.0,
+          1280.0,
+          720.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/HACS/Baking_cookies_v_dhLfw18EP8E_scene_0_0-2102",
+      "frame_indices": [
+        0,
+        1170
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 1125,
+        "track_occurrences": 40,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 1709,
+    "category": "selection_failure",
+    "step150": {
+      "dataset_index": 1709,
+      "id": "1709-1",
+      "prediction": "<answer>[0,328,118,996]</answer><score>0.98</score>",
+      "target": "[633,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/Charades/S3TR3",
+      "rank": 5,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.98,
+      "raw_prediction": "<answer>[0,328,118,996]</answer>\n<score>0.98</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            328.0,
+            118.0,
+            996.0
+          ],
+          "score": 0.98,
+          "text": "<answer>[0,328,118,996]</answer><score>0.98</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1709,
+      "id": "1709-1",
+      "prediction": "<answer>[0,328,118,996]</answer><score>0.67</score>",
+      "target": "[633,0,1000,1000]",
+      "dataset": "TAO",
+      "sequence": "val/Charades/S3TR3",
+      "rank": 5,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[0,328,118,996]</answer>\n<answer>[634,0,999,996]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            328.0,
+            118.0,
+            996.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[0,328,118,996]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            634.0,
+            0.0,
+            999.0,
+            996.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[634,0,999,996]</answer><score>0.33</score>",
+          "iou": 0.9905722070844687
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9905722070844687,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/S3TR3/frame0001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/S3TR3/frame1201.jpg"
+      ],
+      "bbox": [
+        [
+          0.0,
+          236.0,
+          151.0,
+          717.0
+        ],
+        [
+          810.0,
+          0.0,
+          1280.0,
+          720.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/Charades/S3TR3",
+      "frame_indices": [
+        0,
+        1200
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 17039,
+        "track_occurrences": 41,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 274,
+    "category": "ineffective_extra",
+    "step150": {
+      "dataset_index": 274,
+      "id": "274-1",
+      "prediction": "<answer>[123,436,156,486]</answer><score>0.00</score>",
+      "target": "[148,603,204,639]",
+      "dataset": "LaSOT",
+      "sequence": "hand-8",
+      "rank": 2,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[123,436,156,486]</answer>\n<answer>[292,406,325,456]</answer>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            123.0,
+            436.0,
+            156.0,
+            486.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[123,436,156,486]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            292.0,
+            406.0,
+            325.0,
+            456.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[292,406,325,456]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 274,
+      "id": "274-1",
+      "prediction": "<answer>[127,436,158,486]</answer><score>0.00</score>",
+      "target": "[148,603,204,639]",
+      "dataset": "LaSOT",
+      "sequence": "hand-8",
+      "rank": 2,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[127,436,158,486]</answer>\n<answer>[292,406,325,456]</answer>\n<answer>[444,378,477,428]</answer>\n<answer>[600,378,633,428]</answer>\n<answer>[773,406,806,456]</answer>\n<answer>[883,394,920,444]</answer>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            127.0,
+            436.0,
+            158.0,
+            486.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[127,436,158,486]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            292.0,
+            406.0,
+            325.0,
+            456.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[292,406,325,456]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            444.0,
+            378.0,
+            477.0,
+            428.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[444,378,477,428]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            600.0,
+            378.0,
+            633.0,
+            428.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[600,378,633,428]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            773.0,
+            406.0,
+            806.0,
+            456.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[773,406,806,456]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            883.0,
+            394.0,
+            920.0,
+            444.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[883,394,920,444]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 6,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hand/hand-8/img/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/hand/hand-8/img/00002015.jpg"
+      ],
+      "bbox": [
+        [
+          76.0,
+          148.0,
+          89.0,
+          167.0
+        ],
+        [
+          71.0,
+          217.0,
+          98.0,
+          230.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "LaSOT",
+      "sequence": "hand-8",
+      "frame_indices": [
+        0,
+        2014
+      ],
+      "sampling": "focus-uniform-full-span-final-query",
+      "metadata": {
+        "split": "test",
+        "category": "hand",
+        "split_protocol": "e009-posthoc-lasot-val100-test600/v1"
+      }
+    }
+  },
+  {
+    "index": 457,
+    "category": "ineffective_extra",
+    "step150": {
+      "dataset_index": 457,
+      "id": "457-1",
+      "prediction": "<answer>[216,479,352,819]</answer><score>0.65</score>",
+      "target": "[645,514,745,835]",
+      "dataset": "LaSOT",
+      "sequence": "sheep-4",
+      "rank": 1,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.65,
+      "raw_prediction": "<answer>[216,479,352,819]</answer>\n<score>0.65</score>",
+      "candidates": [
+        {
+          "box": [
+            216.0,
+            479.0,
+            352.0,
+            819.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[216,479,352,819]</answer><score>0.65</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 457,
+      "id": "457-1",
+      "prediction": "<answer>[120,428,234,716]</answer><score>0.33</score>",
+      "target": "[645,514,745,835]",
+      "dataset": "LaSOT",
+      "sequence": "sheep-4",
+      "rank": 1,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.33,
+      "raw_prediction": "<answer>[120,428,234,716]</answer>\n<answer>[217,479,352,817]</answer>\n<answer>[362,494,492,858]</answer>\n<answer>[170,155,248,346]</answer>\n<answer>[300,184,373,381]</answer>\n<score>0.33</score>\n<score>0.33</score>\n<score>0.33</score>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            120.0,
+            428.0,
+            234.0,
+            716.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[120,428,234,716]</answer><score>0.33</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            217.0,
+            479.0,
+            352.0,
+            817.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[217,479,352,817]</answer><score>0.33</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            362.0,
+            494.0,
+            492.0,
+            858.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[362,494,492,858]</answer><score>0.33</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            170.0,
+            155.0,
+            248.0,
+            346.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[170,155,248,346]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            300.0,
+            184.0,
+            373.0,
+            381.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[300,184,373,381]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 5,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.3,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/sheep/sheep-4/img/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/sheep/sheep-4/img/00001220.jpg"
+      ],
+      "bbox": [
+        [
+          561.0,
+          273.0,
+          593.0,
+          316.0
+        ],
+        [
+          825.0,
+          370.0,
+          954.0,
+          601.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "LaSOT",
+      "sequence": "sheep-4",
+      "frame_indices": [
+        0,
+        1219
+      ],
+      "sampling": "focus-uniform-full-span-final-query",
+      "metadata": {
+        "split": "test",
+        "category": "sheep",
+        "split_protocol": "e009-posthoc-lasot-val100-test600/v1"
+      }
+    }
+  },
+  {
+    "index": 1464,
+    "category": "ineffective_extra",
+    "step150": {
+      "dataset_index": 1464,
+      "id": "1464-1",
+      "prediction": "<answer>[419,408,505,653]</answer><score>0.00</score>",
+      "target": "[434,435,469,642]",
+      "dataset": "TAO",
+      "sequence": "val/LaSOT/volleyball-16",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.3438538205980066,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[419,408,505,653]</answer>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            419.0,
+            408.0,
+            505.0,
+            653.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[419,408,505,653]</answer><score>0.00</score>",
+          "iou": 0.3438538205980066
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.3438538205980066,
+      "oracle_iou": 0.3438538205980066,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1464,
+      "id": "1464-1",
+      "prediction": "<answer>[420,412,455,643]</answer><score>0.00</score>",
+      "target": "[434,435,469,642]",
+      "dataset": "TAO",
+      "sequence": "val/LaSOT/volleyball-16",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.39579349904397704,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[420,412,455,643]</answer>\n<answer>[452,397,485,643]</answer>\n<answer>[480,397,509,653]</answer>\n<answer>[502,434,542,656]</answer>\n<answer>[545,453,588,661]</answer>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            420.0,
+            412.0,
+            455.0,
+            643.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[420,412,455,643]</answer><score>0.00</score>",
+          "iou": 0.39579349904397704
+        },
+        {
+          "box": [
+            452.0,
+            397.0,
+            485.0,
+            643.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[452,397,485,643]</answer><score>0.00</score>",
+          "iou": 0.29711246200607905
+        },
+        {
+          "box": [
+            480.0,
+            397.0,
+            509.0,
+            653.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[480,397,509,653]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            502.0,
+            434.0,
+            542.0,
+            656.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[502,434,542,656]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            545.0,
+            453.0,
+            588.0,
+            661.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[545,453,588,661]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 5,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.39579349904397704,
+      "oracle_iou": 0.39579349904397704,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/LaSOT/volleyball-16/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/LaSOT/volleyball-16/00001171.jpg"
+      ],
+      "bbox": [
+        [
+          342.0,
+          298.0,
+          421.0,
+          557.0
+        ],
+        [
+          555.0,
+          313.0,
+          600.0,
+          462.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/LaSOT/volleyball-16",
+      "frame_indices": [
+        0,
+        1170
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 13123,
+        "track_occurrences": 40,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 1480,
+    "category": "improved",
+    "step150": {
+      "dataset_index": 1480,
+      "id": "1480-1",
+      "prediction": "<answer>[609,0,998,1000]</answer><score>0.67</score>",
+      "target": "[0,0,449,1000]",
+      "dataset": "TAO",
+      "sequence": "val/Charades/QSVXJ",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[0,0,450,1000]</answer>\n<answer>[609,0,998,1000]</answer>\n<score>0.33</score>\n<score>0.67</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            0.0,
+            450.0,
+            1000.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[0,0,450,1000]</answer><score>0.33</score>",
+          "iou": 0.9977777777777778
+        },
+        {
+          "box": [
+            609.0,
+            0.0,
+            998.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[609,0,998,1000]</answer><score>0.67</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9977777777777778,
+      "oracle_iou": 0.9977777777777778,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1480,
+      "id": "1480-1",
+      "prediction": "<answer>[0,0,448,1000]</answer><score>0.67</score>",
+      "target": "[0,0,449,1000]",
+      "dataset": "TAO",
+      "sequence": "val/Charades/QSVXJ",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.9977728285077951,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[0,0,448,1000]</answer>\n<answer>[609,0,993,1000]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            0.0,
+            448.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[0,0,448,1000]</answer><score>0.67</score>",
+          "iou": 0.9977728285077951
+        },
+        {
+          "box": [
+            609.0,
+            0.0,
+            993.0,
+            1000.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[609,0,993,1000]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9977728285077951,
+      "oracle_iou": 0.9977728285077951,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/QSVXJ/frame0001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/Charades/QSVXJ/frame0961.jpg"
+      ],
+      "bbox": [
+        [
+          0.0,
+          0.0,
+          284.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          862.0,
+          1080.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/Charades/QSVXJ",
+      "frame_indices": [
+        0,
+        960
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 13476,
+        "track_occurrences": 33,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 1312,
+    "category": "improved",
+    "step150": {
+      "dataset_index": 1312,
+      "id": "1312-1",
+      "prediction": "<answer>[648,0,1000,1000]</answer><score>0.65</score>",
+      "target": "[0,0,570,1000]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_43_111762-112977",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.65,
+      "raw_prediction": "<answer>[0,0,567,1000]</answer>\n<answer>[648,0,1000,1000]</answer>\n<score>0.35</score>\n<score>0.65</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            0.0,
+            567.0,
+            1000.0
+          ],
+          "score": 0.35,
+          "text": "<answer>[0,0,567,1000]</answer><score>0.35</score>",
+          "iou": 0.9947368421052631
+        },
+        {
+          "box": [
+            648.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[648,0,1000,1000]</answer><score>0.65</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9947368421052631,
+      "oracle_iou": 0.9947368421052631,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1312,
+      "id": "1312-1",
+      "prediction": "<answer>[0,0,566,1000]</answer><score>0.67</score>",
+      "target": "[0,0,570,1000]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_43_111762-112977",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.9929824561403509,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[0,0,566,1000]</answer>\n<answer>[648,0,1000,1000]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            0.0,
+            566.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[0,0,566,1000]</answer><score>0.67</score>",
+          "iou": 0.9929824561403509
+        },
+        {
+          "box": [
+            648.0,
+            0.0,
+            1000.0,
+            1000.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[648,0,1000,1000]</answer><score>0.33</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9929824561403509,
+      "oracle_iou": 0.9929824561403509,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_43_111762-112977/frame0121.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_43_111762-112977/frame1057.jpg"
+      ],
+      "bbox": [
+        [
+          0.0,
+          0.0,
+          635.0,
+          1080.0
+        ],
+        [
+          0.0,
+          0.0,
+          1095.0,
+          1080.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_43_111762-112977",
+      "frame_indices": [
+        120,
+        1056
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 10454,
+        "track_occurrences": 40,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 1270,
+    "category": "improved",
+    "step150": {
+      "dataset_index": 1270,
+      "id": "1270-1",
+      "prediction": "<answer>[484,73,626,404]</answer><score>0.00</score>",
+      "target": "[0,119,272,927]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/LO964EmiVfo_scene_9_42959-43770",
+      "rank": 6,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[484,73,626,404]</answer>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            484.0,
+            73.0,
+            626.0,
+            404.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[484,73,626,404]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.0,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1270,
+      "id": "1270-1",
+      "prediction": "<answer>[0,121,270,925]</answer><score>0.00</score>",
+      "target": "[0,119,272,927]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/LO964EmiVfo_scene_9_42959-43770",
+      "rank": 6,
+      "terminated": true,
+      "iou": 0.9877329644729179,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[0,121,270,925]</answer>\n<answer>[300,356,598,928]</answer>\n<answer>[114,525,250,782]</answer>\n<score>0.00</score>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            0.0,
+            121.0,
+            270.0,
+            925.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[0,121,270,925]</answer><score>0.00</score>",
+          "iou": 0.9877329644729179
+        },
+        {
+          "box": [
+            300.0,
+            356.0,
+            598.0,
+            928.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[300,356,598,928]</answer><score>0.00</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            114.0,
+            525.0,
+            250.0,
+            782.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[114,525,250,782]</answer><score>0.00</score>",
+          "iou": 0.15903465346534654
+        }
+      ],
+      "candidate_count": 3,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9877329644729179,
+      "oracle_iou": 0.9877329644729179,
+      "order_inversion_rate": 0.3333333333333333,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/LO964EmiVfo_scene_9_42959-43770/frame0026.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/LO964EmiVfo_scene_9_42959-43770/frame0751.jpg"
+      ],
+      "bbox": [
+        [
+          930.0,
+          79.0,
+          1202.0,
+          436.0
+        ],
+        [
+          0.0,
+          128.0,
+          523.0,
+          1001.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/AVA/LO964EmiVfo_scene_9_42959-43770",
+      "frame_indices": [
+        25,
+        750
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 9803,
+        "track_occurrences": 30,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 1288,
+    "category": "regressed",
+    "step150": {
+      "dataset_index": 1288,
+      "id": "1288-1",
+      "prediction": "<answer>[612,91,971,1000]</answer><score>0.65</score>",
+      "target": "[614,86,971,1000]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_7_22934-24047",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.9890191273817797,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.65,
+      "raw_prediction": "<answer>[612,91,971,1000]</answer>\n<score>0.65</score>",
+      "candidates": [
+        {
+          "box": [
+            612.0,
+            91.0,
+            971.0,
+            1000.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[612,91,971,1000]</answer><score>0.65</score>",
+          "iou": 0.9890191273817797
+        }
+      ],
+      "candidate_count": 1,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9890191273817797,
+      "oracle_iou": 0.9890191273817797,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1288,
+      "id": "1288-1",
+      "prediction": "<answer>[342,280,604,1000]</answer><score>0.67</score>",
+      "target": "[614,86,971,1000]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_7_22934-24047",
+      "rank": 0,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[342,280,604,1000]</answer>\n<answer>[613,91,970,1000]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            342.0,
+            280.0,
+            604.0,
+            1000.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[342,280,604,1000]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            613.0,
+            91.0,
+            970.0,
+            1000.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[613,91,970,1000]</answer><score>0.33</score>",
+          "iou": 0.9889886218815612
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9889886218815612,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_7_22934-24047/frame0073.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/G0gDuIVKiXg_scene_7_22934-24047/frame1009.jpg"
+      ],
+      "bbox": [
+        [
+          656.0,
+          302.0,
+          1159.0,
+          1080.0
+        ],
+        [
+          1178.0,
+          93.0,
+          1864.0,
+          1080.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/AVA/G0gDuIVKiXg_scene_7_22934-24047",
+      "frame_indices": [
+        72,
+        1008
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 10060,
+        "track_occurrences": 35,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  },
+  {
+    "index": 21,
+    "category": "regressed",
+    "step150": {
+      "dataset_index": 21,
+      "id": "21-1",
+      "prediction": "<answer>[614,500,837,844]</answer><score>0.00</score>",
+      "target": "[617,500,838,842]",
+      "dataset": "LaSOT",
+      "sequence": "bird-14",
+      "rank": 5,
+      "terminated": true,
+      "iou": 0.9764580683676383,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.0,
+      "raw_prediction": "<answer>[614,500,837,844]</answer>\n<answer>[805,215,887,394]</answer>\n<score>0.00</score>\n<score>0.00</score>",
+      "candidates": [
+        {
+          "box": [
+            614.0,
+            500.0,
+            837.0,
+            844.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[614,500,837,844]</answer><score>0.00</score>",
+          "iou": 0.9764580683676383
+        },
+        {
+          "box": [
+            805.0,
+            215.0,
+            887.0,
+            394.0
+          ],
+          "score": 0.0,
+          "text": "<answer>[805,215,887,394]</answer><score>0.00</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9764580683676383,
+      "oracle_iou": 0.9764580683676383,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 21,
+      "id": "21-1",
+      "prediction": "<answer>[805,230,888,397]</answer><score>0.65</score>",
+      "target": "[617,500,838,842]",
+      "dataset": "LaSOT",
+      "sequence": "bird-14",
+      "rank": 5,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.65,
+      "raw_prediction": "<answer>[615,500,837,843]</answer>\n<answer>[805,230,888,397]</answer>\n<score>0.35</score>\n<score>0.65</score>",
+      "candidates": [
+        {
+          "box": [
+            615.0,
+            500.0,
+            837.0,
+            843.0
+          ],
+          "score": 0.35,
+          "text": "<answer>[615,500,837,843]</answer><score>0.35</score>",
+          "iou": 0.9836837150925636
+        },
+        {
+          "box": [
+            805.0,
+            230.0,
+            888.0,
+            397.0
+          ],
+          "score": 0.65,
+          "text": "<answer>[805,230,888,397]</answer><score>0.65</score>",
+          "iou": 0.0
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 0,
+      "first_candidate_iou": 0.9836837150925636,
+      "oracle_iou": 0.9836837150925636,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bird/bird-14/img/00000001.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/LaSOT/LaSOT/bird/bird-14/img/00003768.jpg"
+      ],
+      "bbox": [
+        [
+          587.0,
+          153.0,
+          744.0,
+          263.0
+        ],
+        [
+          790.0,
+          360.0,
+          1073.0,
+          606.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "LaSOT",
+      "sequence": "bird-14",
+      "frame_indices": [
+        0,
+        3767
+      ],
+      "sampling": "focus-uniform-full-span-final-query",
+      "metadata": {
+        "split": "test",
+        "category": "bird",
+        "split_protocol": "e009-posthoc-lasot-val100-test600/v1"
+      }
+    }
+  },
+  {
+    "index": 1182,
+    "category": "regressed",
+    "step150": {
+      "dataset_index": 1182,
+      "id": "1182-1",
+      "prediction": "<answer>[484,301,792,879]</answer><score>0.67</score>",
+      "target": "[492,299,793,879]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/ZS2C28fDC9U_scene_15_122220-123924",
+      "rank": 6,
+      "terminated": true,
+      "iou": 0.9676123300819178,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[239,371,473,879]</answer>\n<answer>[484,301,792,879]</answer>\n<score>0.33</score>\n<score>0.67</score>",
+      "candidates": [
+        {
+          "box": [
+            239.0,
+            371.0,
+            473.0,
+            879.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[239,371,473,879]</answer><score>0.33</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            484.0,
+            301.0,
+            792.0,
+            879.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[484,301,792,879]</answer><score>0.67</score>",
+          "iou": 0.9676123300819178
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 1,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.9676123300819178,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "step200": {
+      "dataset_index": 1182,
+      "id": "1182-1",
+      "prediction": "<answer>[240,370,473,879]</answer><score>0.67</score>",
+      "target": "[492,299,793,879]",
+      "dataset": "TAO",
+      "sequence": "val/AVA/ZS2C28fDC9U_scene_15_122220-123924",
+      "rank": 6,
+      "terminated": true,
+      "iou": 0.0,
+      "parsed": true,
+      "confidence_format_valid": true,
+      "score": 0.67,
+      "raw_prediction": "<answer>[240,370,473,879]</answer>\n<answer>[478,301,792,879]</answer>\n<score>0.67</score>\n<score>0.33</score>",
+      "candidates": [
+        {
+          "box": [
+            240.0,
+            370.0,
+            473.0,
+            879.0
+          ],
+          "score": 0.67,
+          "text": "<answer>[240,370,473,879]</answer><score>0.67</score>",
+          "iou": 0.0
+        },
+        {
+          "box": [
+            478.0,
+            301.0,
+            792.0,
+            879.0
+          ],
+          "score": 0.33,
+          "text": "<answer>[478,301,792,879]</answer><score>0.33</score>",
+          "iou": 0.949242357887361
+        }
+      ],
+      "candidate_count": 2,
+      "variable_candidate_format_valid": true,
+      "selected_candidate_index": 0,
+      "oracle_candidate_index": 1,
+      "first_candidate_iou": 0.0,
+      "oracle_iou": 0.949242357887361,
+      "order_inversion_rate": 0.0,
+      "near_duplicate_candidates": false
+    },
+    "manifest": {
+      "element": "target-object",
+      "image_path": [
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/ZS2C28fDC9U_scene_15_122220-123924/frame0361.jpg",
+        "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/dataset/TAO/TAO-Amodal/frames/val/AVA/ZS2C28fDC9U_scene_15_122220-123924/frame0889.jpg"
+      ],
+      "bbox": [
+        [
+          340.0,
+          259.0,
+          697.0,
+          633.0
+        ],
+        [
+          630.0,
+          215.0,
+          1015.0,
+          633.0
+        ]
+      ],
+      "role": [
+        "reference",
+        "positive-image"
+      ],
+      "dataset": "TAO",
+      "sequence": "val/AVA/ZS2C28fDC9U_scene_15_122220-123924",
+      "frame_indices": [
+        360,
+        888
+      ],
+      "sampling": "most-frequent-track-first-last-annotated-frame",
+      "metadata": {
+        "split": "test",
+        "source_split": "official-validation",
+        "track_id": 8100,
+        "track_occurrences": 23,
+        "split_protocol": "e009-posthoc-combined-test/v1"
+      }
+    }
+  }
+]

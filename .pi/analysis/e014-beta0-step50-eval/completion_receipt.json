@@ -1,0 +1,11 @@
+{
+  "run_id": "e014-structure-score-iou-explore-v1-beta0-step50-eval1766",
+  "completed": true,
+  "run": {
+    "id": "e014-structure-score-iou-explore-v1-beta0-step50-eval1766",
+    "workflow_stage": "analysis_pending"
+  },
+  "warnings": [
+    "43 auxiliary metric(s) were preserved but are not registered in the Experiment; they are not primary evidence."
+  ]
+}

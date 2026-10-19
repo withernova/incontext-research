@@ -1,0 +1,95 @@
+# E-014 一次性检查
+
+仅一次训练采样快照，不能代替固定验证集评测；未自动重试或修改训练。
+
+窗口内仍存在合法正样本多框，不判定已消失；按原图/拼图分开查看比例。
+
+存在较大选框差距；优先离线检查正确候选低分与错误候选高分，针对评分目标优化，不仅提高框数收益。
+
+```json
+{
+  "run_id": "e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
+  "observed_utc": "2026-10-16T07:40:50.307689+00:00",
+  "complete_step_count": 101,
+  "window_steps": [
+    81,
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    90,
+    91,
+    92,
+    93,
+    94,
+    95,
+    96,
+    97,
+    98,
+    99,
+    100
+  ],
+  "overall": {
+    "total": 2560,
+    "valid": 2548,
+    "valid_rate": 0.9953125,
+    "valid_multibox": 1245,
+    "multibox_per_all": 0.486328125,
+    "multibox_per_valid": 0.48861852433281006,
+    "valid_positive": 1878,
+    "valid_positive_multibox": 1177,
+    "selected_iou": 0.6826949167836479,
+    "oracle_selected_gap": 0.10677532442414381,
+    "unterminated": 1,
+    "tiers": {
+      "None": 1878
+    }
+  },
+  "by_source": {
+    "collage": {
+      "total": 1200,
+      "valid": 1198,
+      "valid_rate": 0.9983333333333333,
+      "valid_multibox": 1061,
+      "multibox_per_all": 0.8841666666666667,
+      "multibox_per_valid": 0.8856427378964942,
+      "valid_positive": 1198,
+      "valid_positive_multibox": 1061,
+      "selected_iou": 0.6525876166009964,
+      "oracle_selected_gap": 0.15035992285593563,
+      "unterminated": 0,
+      "tiers": {
+        "None": 1198
+      }
+    },
+    "original": {
+      "total": 1360,
+      "valid": 1350,
+      "valid_rate": 0.9926470588235294,
+      "valid_multibox": 184,
+      "multibox_per_all": 0.13529411764705881,
+      "multibox_per_valid": 0.1362962962962963,
+      "valid_positive": 680,
+      "valid_positive_multibox": 116,
+      "selected_iou": 0.7357368956348487,
+      "oracle_selected_gap": 0.029989517186957575,
+      "unterminated": 1,
+      "tiers": {
+        "None": 680
+      }
+    }
+  },
+  "mixed_groups": 17,
+  "within_group_multi_minus_single_advantage": 0.22139745797304547,
+  "multibox_disappeared": false,
+  "diagnosis": [
+    "仅一次训练采样快照，不能代替固定验证集评测；未自动重试或修改训练。",
+    "窗口内仍存在合法正样本多框，不判定已消失；按原图/拼图分开查看比例。",
+    "存在较大选框差距；优先离线检查正确候选低分与错误候选高分，针对评分目标优化，不仅提高框数收益。"
+  ]
+}
+```

@@ -1,0 +1,143 @@
+{
+  "run_id": "e014-drawn-selection-lora-sft1epoch-20261018-r2",
+  "tmux_alive": false,
+  "run_start": {
+    "timestamp_utc": "2026-10-18T07:01:13.750458+00:00",
+    "event": "run_start",
+    "initialized_from": null,
+    "resumed_from": null,
+    "start_step": 0,
+    "start_samples_seen": 0,
+    "total_steps": 72,
+    "dataset_size": 1152,
+    "updates_per_epoch": 72,
+    "effective_global_batch_size": 16,
+    "world_size": 8,
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 2,
+    "warmup_ratio": 0.05,
+    "max_grad_norm": 0.3,
+    "seed": 20260901
+  },
+  "first_update": {
+    "timestamp_utc": "2026-10-18T07:01:31.740560+00:00",
+    "event": "train_step",
+    "step": 1,
+    "total_steps": 72,
+    "nominal_epoch": 0.013888888888888888,
+    "loss": 0.3212788317489981,
+    "learning_rate": 1.25e-05,
+    "step_seconds": 11.394350301008672,
+    "mean_step_seconds": 11.394663824001327,
+    "eta_seconds": 809.0211315040942,
+    "samples_seen": 16,
+    "session_samples_seen": 16,
+    "examples_per_second": 1.4041660418535693,
+    "finite_grad_fraction": 1.0,
+    "peak_memory_gib_rank0": 16.980177879333496,
+    "next_checkpoint_samples": 576.0,
+    "teacher_forced_choice_accuracy": 0.75,
+    "sft_loss": 0.3212788317489981,
+    "total_loss": 0.3212788317489981
+  },
+  "latest_update": {
+    "timestamp_utc": "2026-10-18T07:14:33.594302+00:00",
+    "event": "train_step",
+    "step": 72,
+    "total_steps": 72,
+    "nominal_epoch": 1.0,
+    "loss": 0.09696817896474386,
+    "learning_rate": 5e-05,
+    "step_seconds": 11.048630870995112,
+    "mean_step_seconds": 11.017338623708282,
+    "eta_seconds": 0.0,
+    "samples_seen": 1152,
+    "session_samples_seen": 1152,
+    "examples_per_second": 1.4522563521438379,
+    "finite_grad_fraction": 1.0,
+    "peak_memory_gib_rank0": 17.065929889678955,
+    "next_checkpoint_samples": 1152.0,
+    "teacher_forced_choice_accuracy": 0.9375,
+    "sft_loss": 0.09696817896474386,
+    "total_loss": 0.09696817896474386
+  },
+  "snapshot": {
+    "model": {
+      "type": "Qwen3VLLoRADDP",
+      "model_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+      "dtype": "bfloat16",
+      "gradient_checkpointing": true,
+      "find_unused_parameters": false,
+      "lora": {
+        "r": 8,
+        "alpha": 16,
+        "dropout": 0.0,
+        "target_modules": "^(?!.*visual).*(?:down_proj|v_proj|gate_proj|up_proj|k_proj|o_proj|q_proj).*$"
+      },
+      "attn_implementation": "sdpa",
+      "quantization": {
+        "load_in_4bit": true,
+        "bnb_4bit_quant_type": "nf4",
+        "bnb_4bit_use_double_quant": true,
+        "bnb_4bit_compute_dtype": "bfloat16"
+      }
+    },
+    "launch": {
+      "action": "train",
+      "nproc_per_node": 8
+    },
+    "runner": {
+      "type": "SelectionSFTLoRARunner",
+      "assistant_only_logits": true,
+      "resume_from": null,
+      "warmup_ratio": 0.05,
+      "max_grad_norm": 0.3,
+      "optimizer": {
+        "lr": 5e-05,
+        "weight_decay": 0.0
+      },
+      "hooks": [
+        {
+          "type": "FiniteHook"
+        },
+        {
+          "type": "LoggerHook"
+        },
+        {
+          "type": "TrainingHistoryHook"
+        },
+        {
+          "type": "GpuMemoryHook"
+        },
+        {
+          "type": "MetricsWriterHook"
+        }
+      ],
+      "max_epochs": 1,
+      "max_steps": null,
+      "checkpoint_interval_epochs": 0.5,
+      "gradient_accumulation_steps": 2,
+      "seed": 20260901,
+      "initialize_from": null,
+      "auxiliary_loss": null,
+      "localization_iou_thresholds": [
+        0.5
+      ]
+    },
+    "work_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018-r2/payload/training",
+    "initialization_seed": 20260901,
+    "train_dataloader": {
+      "batch_size": 1,
+      "dataset": {
+        "type": "CandidateSelectionDataset",
+        "ann_file": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-sft-data-step200-20261018/payload/selection_data/train.json",
+        "ann_file_sha256": "89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403"
+      },
+      "collator": {
+        "type": "CandidateSelectionCollator",
+        "vision_max_patch_tokens": 4096
+      }
+    }
+  },
+  "exit_exists": true
+}

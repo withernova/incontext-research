@@ -1,0 +1,5 @@
+{"time":"2026-10-18T07:30:17.581Z","event":"phase_transition","from":"monitoring","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-18T08:00:19.456Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-18T08:30:21.305Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
+{"time":"2026-10-18T08:40:09.118Z","event":"phase_transition","from":"needs_attention","to":"stopped","reason":"task queue started"}
+{"time":"2026-10-18T08:42:10.196Z","event":"phase_transition","from":"stopped","to":"stopped","reason":"user requested via tool"}

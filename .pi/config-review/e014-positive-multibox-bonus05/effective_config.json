@@ -1,0 +1,49 @@
+{
+  "settings": {
+    "project_root": "/defaultShare/archive/songzhengyue/projects/IPLoc",
+    "experiment_root": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014",
+    "source_manifest": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/overnight-train-2k/trainable_pairs.json",
+    "source_manifest_sha256": "017bd2a64d1cb80dbb62152bf20a7fafada72a88cea4f5f3f88be152d1bb2130",
+    "nproc_per_node": 8,
+    "symmetry_source_pairs": 1000,
+    "trainer": {
+      "model_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct",
+      "adapter_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659/adapter",
+      "prompt_protocol": "focus_variable_instances_spatial_e014_v1",
+      "load_in_4bit": true,
+      "epochs": 3,
+      "group_size": 4,
+      "max_new_tokens": 192,
+      "max_pixels": 262144,
+      "learning_rate": 8e-05,
+      "beta": 0.0,
+      "clip": 0.2,
+      "max_grad_norm": 1.0,
+      "seed": 11451,
+      "save_every_steps": 50,
+      "counterfactual": {
+        "weight": 0.0
+      },
+      "reward": {
+        "correctness_threshold": 0.5,
+        "exploration_threshold": 0.3,
+        "distinct_threshold": 0.9,
+        "score_weight": 1.1,
+        "iou_weight": 1.0,
+        "order_penalty": 0.12,
+        "exploration_penalty": 0.6,
+        "multibox_bonus_weight": 0.5
+      },
+      "prompt_variant": "multi_v2",
+      "reward_scheme": "structure_score_selected_iou_explore_v1"
+    }
+  },
+  "launch": {
+    "action": "symmetric_grpo",
+    "nproc_per_node": 8
+  },
+  "output": {
+    "root": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014",
+    "run_name": "e014-structure-score-iou-explore-v1-beta0-explore06-bonus05-sft659-seed11451"
+  }
+}

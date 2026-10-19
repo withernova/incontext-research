@@ -1,0 +1,25 @@
+{
+  "status": "prepared",
+  "source_samples": 10522,
+  "samples": 8367,
+  "datasets": {
+    "GOT10k": 7315,
+    "LaSOT": 553,
+    "TAO": 499
+  },
+  "excluded": {
+    "e013_heldout_video": 1418,
+    "existing_eval_or_selector_validation": 737
+  },
+  "source_groups": 4540,
+  "sources": {
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-009/E009-real-focus-data/manifests/train_only_1shot_focus_valid10522.json": "bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score04-step200-eval1766-20261015T152856Z/inputs/manifest.json": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-sft-data-step200-20261018/payload/selection_data/validation_manifest.json": "65fa13a466f819b5c25a2d641c8996c280be107c1229970bba670efa8987454c",
+    "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/overnight-train-2k/candidates.json": "7ff8ecbfad320b6b6dd6c6b9f8c59f3a6035f647d8deaa7c0a4594ddd8e5e18f"
+  },
+  "manifest_sha256": "184f50ab3663a5a2640f62b9cdb6ebf96dd7121480d9508caf7e3aef99d95640",
+  "excluded_sha256": "6c9cbced42b2b275a1e6f90d56a4b4bb1a664cd17a1390b044b1ec55e5b8cd4d",
+  "existing_validation_samples": 334,
+  "policy": "All usable positive focus pairs; exclude E014 test/selector validation and E013 heldout original-video groups. TAO grouped by sequence; no new heldout split. No source image edits."
+}

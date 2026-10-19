@@ -1,0 +1,24 @@
+{
+  "actual_configuration_verified": true,
+  "git_commit": "7bb09c762b4e6030fe870b34f9c1a119d7c81425",
+  "reward_scheme": "structure_score_selected_iou_explore_v1",
+  "beta": 0.0,
+  "reward": {
+    "correctness_threshold": 0.5,
+    "exploration_threshold": 0.3,
+    "distinct_threshold": 0.9,
+    "score_weight": 1.1,
+    "iou_weight": 1.0,
+    "order_penalty": 0.12,
+    "exploration_penalty": 0.6,
+    "multibox_bonus_weight": 0.5
+  },
+  "group_size": 4,
+  "seed": 11451,
+  "adapter_path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-013/focus-confidence-sft/checkpoints/samples_00042136_step_000659/adapter",
+  "resume": null,
+  "epochs": 3,
+  "max_new_tokens": 192,
+  "prior_comparison": "only .1 to .5 bonus and independent paths differ",
+  "monitoring": "single startup configuration check"
+}

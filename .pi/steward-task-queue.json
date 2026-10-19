@@ -1,16 +1,16 @@
 {
   "version": 1,
   "active": false,
-  "intervalMinutes": 2,
-  "currentTaskId": null,
+  "intervalMinutes": 15,
+  "currentTaskId": "selection-fulltrain-generate-build-20261018",
   "tasks": [
     {
-      "id": "e014-g8-eval150-r2-monitor-report",
-      "instruction": "只跟进用户本次“修正然后评测”已启动的 e014-multi-bonus02-g8-step150-eval1766-r2；不要再次start/重试。每轮先survey_run_execution status维护lease，再只读SSH（BatchMode=yes ClearAllForwardings=yes）检查实际评测日志和产物；老健康工具exit255是SSH检查不可用，不等于崩溃。已部署26e35eee07dfc1d6274b594005b984d647822017，review9b229d52a506b1e7。8GPU G8训练step150 checkpoint，原1766/greedy192/vision4096/eval seed20260901。canonical output_dir为Run根级outputs，实际结果payload/evaluation；log根级managed_console.log。训练已用户停154，禁止恢复训练/执行step400/旧任务/更改代码奖励/覆盖失败Run。评测运行中留running，不作长阻塞sleep。exit0且metrics稳定后校验1766 unique ids及contiguous indices、实际checkpoint/prompt/source hashes与配置，再managed complete。汇总First/Selected/Oracle mIoU、IoU阈值、候选数、nonfirst选择和多候选评分诊断（明确分母）。复用父训练现有日志诊断完成更新1..150，排除151..154和未完成采样，rank/update/sample_id内G8、original正负/collage分层，mixed组内multi-single严格reward胜率先算q再组等权，ties/pooled/mean/best/正adv分列，空分母null，不跨prompt。记录canonical结果及限制，不自动Claim升级。若真实失败则managed fail正确分类、保留产物并暂停队列，不自动新Run或修复重试。全部报告完成后停监控。",
+      "id": "selection-sft-data-audit-20261018",
+      "instruction": "执行用户已授权训练流程的数据验收阶段，仅跟进已running的e014-selection-sft-data-step200-20261018，不重新start。先survey_run_execution status维护lease；SSH SZY-3090只读用BatchMode=yes ClearAllForwardings=yes。数据Run生成1941候选并构造选择SFT，根目录/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-sft-data-step200-20261018，日志managed_console.log，metrics.json。尚运行时由script completion signal等待，不周期调用模型、不长sleep。exit0/marker/metrics稳定后核验：inputs/preparation.json确实排除2000负例及59评测同原视频/身份重叠，剩1941（train1607/1010groups、validation334/190groups，group不交）；payload/generation/evaluation/predictions.jsonl完整1941唯一ID/索引；payload/selection_data的train.json、validation.json、validation_manifest.json、validation_predictions.jsonl哈希对metrics.json。核验每个SFT源属于正确split、>=2候选、Oracle>=.5且best-second>.05，original_candidate_order为置换，answer等于原best在重排列表的1-based位置，渲染编号框与candidate_boxes一致，train/validation原视频group不交；记录实际唯一源/增强后例数/类别分布/ceil(train_examples/16)更新预算。managed complete必须成功后才完成队列任务。若真实失败或数据不足则canonical fail合理分类、不重试、不覆盖产物并暂停队列。代码a45d11a9c1ebe9953e7f4522eb463cef9650db02、review5292ddffff035b69；禁止代码改动、测试/新推理或恢复旧GRPO。证据及canonical notes记录，Claim不改。",
       "acceptance": [
-        "评测exit0且stable metrics，经受管complete成功；1766输出、索引/ID/来源hash/配置真实核验",
-        "完成评测候选评分和既有训练1..150日志诊断，记录真实指标/分母/限制；不编造空分母或因果结论",
-        "训练保持暂停，旧失败产物保留，step400与历史任务未运行；canonical记录更新"
+        "数据Run exit0且稳定metrics并managed complete",
+        "1941生成覆盖/源SHA与训练验证group隔离通过",
+        "SFT标签、置换、过滤条件及文件SHA验收，实际训练例数与更新数已记录"
       ],
       "dependsOn": [],
       "capability": "execute_approved",
@@ -18,11 +18,173 @@
       "attempts": 1,
       "onFailure": "pause",
       "status": "completed",
-      "startedAt": "2026-10-14T00:41:39.281Z",
-      "result": "e014-multi-bonus02-g8-step150-eval1766-r2 exit0，metrics9226bytes跨09:00:50–09:03:17稳定，09:03:18 survey_run_execution complete成功。1766唯一ID/连续0..1765、rank221×6+220×2，5来源hash、仅image_path别名变化、实际prompt/seed/config/commit均核验。报告shell/06_experiments/E-014/visualizations/g8-step150-20261014/report.md；同目录source_hashes.json含33只读源副本，integrity_audit/evaluation_audit/raw_candidate_audit/training_audit记录具体证据。First/Selected/Oracle mIoU=.697745657/.702426486/.715262965，multi88/1766，非首选择24（15改善/6损失/3持平）。训练1..150的19200rollouts/2400G8组逐组与日志及24完成窗口交叉核验，排除512条151..154；分层q/ties/pooled/best/mean/正adv及空分母口径完整，collage多框上升、original正负下降，不作因果推断。评测及父训练canonical结果已成功更新。最终8GPU无compute进程，父训练保持暂停154，旧失败产物保留，step400目录不存在，无重跑/源码奖励变化/Claim升级。",
-      "finishedAt": "2026-10-14T01:08:06.194Z"
+      "signal": {
+        "id": "6afbadf6-3584-4cff-80f0-04461cbab86f",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/6afbadf6-3584-4cff-80f0-04461cbab86f.json",
+        "delivered": true
+      },
+      "startedAt": "2026-10-18T04:54:52.814Z",
+      "result": "数据Run e014-selection-sft-data-step200-20261018真实exit0/marker/稳定metrics，13:20:19 survey_run_execution complete成功。1941唯一ID/连续索引及源SHA完整；独立核2000负例+59评测原视频/身份排除，train1607/validation334、groups1010/190不交。每条训练/验证数据多框/Oracle>=.5/领先>.05/置换/1-based答案/框编号及无GT或score模型输入核验，2534 PNG及原图哈希/尺寸/几何全部通过。训练501唯一源/361groups→1152例，GOT1027/LaSOT125；可监督验证115源/72groups，完整验证334/123多框。训练SHA89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403，ceil(1152/16)=72更新。可追溯证据.pi/analysis/e014/selection-sft/data_integrity_audit.json，canonical与state已记录；未启动后续训练、未改代码/测试/新推理/Claim。",
+      "finishedAt": "2026-10-18T05:20:44.765Z"
+    },
+    {
+      "id": "selection-lora-train-20261018",
+      "instruction": "仅在selection-sft-data-audit-20261018成功后执行用户已授权、已derive的e014-drawn-selection-lora-sft1epoch-20261018。此Run未启动，禁止再derive或重试旧GRPO。使用已部署并审阅a45d11a9c1ebe9953e7f4522eb463cef9650db02；如果代码未变复用review，不擅改实现。先从数据阶段实际metrics读取train.json SHA/例数，核8GPU空闲；canonical run update登记精确单行命令和真实数据尺度/模型/变量/预算。命令复用bash tools/run.sh configs/sft/candidate_selection_lora.py --cfg-options work_dir=<训练Run根>/payload/training model.model_path=/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct train_dataloader.dataset.ann_file=/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-sft-data-step200-20261018/payload/selection_data/train.json train_dataloader.dataset.ann_file_sha256=<已验收SHA>；设置IPLOC_PYTHON=/songzhengyue/miniconda3/envs/IPLoc/bin/python、PYTHONPATH=.、OMP_NUM_THREADS=1。保持fresh独立LoRA r8/alpha16/dropout0/语言层/NF4，initialize_from和resume_from均None，初始化和runner seed20260901、1epoch、lr5e-5、globalbatch16（8×1×accum2）、warmup.05/clipnorm.3/vision4096，每.5epoch保存。只编号/EOS监督，使用CandidateSelectionCollator和SelectionSFTLoRARunner；旧teacher_forced_localization容器内choice_accuracy不当IoU。canonical output_dir=<训练Run根>/outputs，log_path=<训练Run根>/managed_console.log，训练成功后将payload/training/metrics.json复制到根metrics.json并echo SURVEY_TOOL_RUN_COMPLETE，命令单行≤16KB。survey_run_execution continue必须显式传同一登记命令；若返回started但trusted config加载错误先status核查，禁止重复launch。启动后核实际snapshot无SFT659/GRPO初始化、训练清单SHA、编号/EOS标签及首更新/finite loss；运行中等待script completion signal。最终exit0/完整adapter/checkpoints/实际ceil(N/16)steps/有限梯度与非零adapter_delta通过后managed complete并报告，失败则fail/暂停、不修复重试。原1766测试集不参与训练、预算或checkpoint选择；不自动新增测试集评测，本任务只完成首轮训练及其训练事实核验，后续内部验证再决定效果。不自动延长、恢复GRPO或升级Claim。完成后停止监控/队列。",
+      "acceptance": [
+        "精确数据SHA和1epoch训练命令已canonical登记并单次受管启动",
+        "实际独立fresh LoRA/训练配置与编号EOS监督核验",
+        "训练完成exit0/稳定metrics/完整adapter与checkpoint，managed complete；或真实失败分类并暂停"
+      ],
+      "dependsOn": [
+        "selection-sft-data-audit-20261018"
+      ],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "blocked",
+      "failureClass": "invalid_spec",
+      "retryBasis": {},
+      "signal": {
+        "id": "d8f0c3cf-24f0-45e5-a460-2c4f7f61c004",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/d8f0c3cf-24f0-45e5-a460-2c4f7f61c004.json"
+      },
+      "startedAt": "2026-10-18T05:20:44.787Z",
+      "result": "真实exit1，8rank在runner构造阶段因localization_iou_thresholds为空被基类校验拒绝；无权重更新、metrics或checkpoint。managed Run已fail，不自动修复重试；保留已验收1152条数据及失败日志。",
+      "finishedAt": "2026-10-18T06:51:03.674Z"
+    },
+    {
+      "id": "selection-lora-r2-verify-20261018",
+      "instruction": "用户已明确授权修正后直接运行；修复版独立Run e014-drawn-selection-lora-sft1epoch-20261018-r2已经单次managed启动，禁止重新start/derive/重试。当前仅继续核验这次运行。代码53ab7653602f62ffc1d5c9dadfbefccf7ad67474/reviewb6b52d8ca5eb4822；唯一修改config中localization_iou_thresholds=(0.5,)满足基类，选择子类仍只算choice accuracy。1152样本/501源/SHA89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403；fresh原始Qwen3VL8B NF4语言LoRA r8/alpha16/seed20260901/1epoch72更新/globalbatch16/lr5e-5/vision4096不变。已真实核验run_start start0/initialize=null/resume=null，step1 loss0.3212788317489981，finite_grad_fraction1.0。首步choiceaccuracy.75只是训练诊断。先survey_run_execution status维护lease；尚运行时用本任务提供的steward-sequence回调包装器等待现有Run exit文件（复用.pi/steward-signals/d8f0c3cf-24f0-45e5-a460-2c4f7f61c004.wait.sh的inotify只读等待逻辑，改为r2路径并使用新信号ID；不能重跑旧包装器）；SSH必须BatchMode=yes ClearAllForwardings=yes；不可sleep或模型轮询。根目录/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018-r2，managed_console.log，metrics.json，payload/training/logs/train_steps.jsonl，payload/training/checkpoints。退出后核真实72更新/1152样本、finite loss/梯度、非零adapter_delta、完整半epoch和最终checkpoint、resolved快照及数据SHA、number/EOS训练标签；exit0/稳定metrics且managed complete成功才队列complete。若真实失败则canonical fail并队列fail暂停，保留全部日志；不修复重试。状态工具可能SSH255，不能据此判训练失败，须用明确SSH选项核日志及exit。证据写canonical/state。禁止新增测试或评测、延长预算、复活旧Run/旧队列、修改Claim。完成后停止监控并暂停队列。",
+      "acceptance": [
+        "实际72更新/finite loss及梯度/非零adapter_delta和完整checkpoints核验",
+        "exit0且稳定metrics、managed complete；或真实失败记录并暂停，不自动重试"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "failed",
+      "failureClass": "scientific",
+      "retryBasis": {},
+      "signal": {
+        "id": "20d7a041-2656-4672-9234-76491b9b40d0",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/20d7a041-2656-4672-9234-76491b9b40d0.json"
+      },
+      "startedAt": "2026-10-18T08:40:09.136Z",
+      "result": "本轮已直接验收终态，无需再回调等待：完成72更新/1152样本，finite梯度1，adapter_delta2.73615，step36/72和最终adapter均保存。固定8样本训练诊断loss0.007273→0.048289，原有下降门禁失败导致worker exit2/launcher exit1。managed scientific fail/nonretryable已登记，证据.pi/analysis/e014/selection-sft/train_r2_final_audit.json。不是初始化错误；不放宽门禁、不重训。",
+      "finishedAt": "2026-10-18T08:42:07.937Z"
+    },
+    {
+      "id": "selection-step72-validation334-verify-20261018",
+      "instruction": "用户授权的内部验证评测已单次managed启动：e014-selection-lora-step72-validation334-20261018，禁止再start/derive/retry。仅跟进本次334例/123多框评测，tools/evaluate_candidate_vqa.py在53ab7653602f62ffc1d5c9dadfbefccf7ad67474（reviewb70b584a7301ac8e），selector-checkpoint为e014-drawn-selection-lora-sft1epoch-20261018-r2/payload/training/checkpoints/samples_00001152_step_000072（adapter SHA7eab1f7864d71acd31d68a09b586b1489d1045a411d8540e873ec3022f9d338d）；无新代码。输入来自e014-selection-sft-data-step200-20261018/payload/selection_data/validation_manifest.json SHA65fa13a466f819b5c25a2d641c8996c280be107c1229970bba670efa8987454c、validation_predictions.jsonl SHA7064e524fc57a66243329e7d5bfd8489544d4338e0f7b90cdc02bb47cbf648c1。BF16 SDPA独立selector adapter、greedy16/EOS/vision4096/seed20260901、exact_instance画框、候选原顺序。最近日志已有VQA_PROGRESS，多rank完成20~40；正式推理已发生。先survey_run_execution status维护lease。若仍运行，必须用本任务指定新event-file的steward-sequence包装器，复用.pi/steward-signals/d8f0c3cf-24f0-45e5-a460-2c4f7f61c004.wait.sh的inotify只读等待逻辑改成本Run路径（不重跑旧包装器）；SSH BatchMode=yes ClearAllForwardings=yes。根目录/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-step72-validation334-20261018；managed_console.log、metrics.json、.survey-tool-exit-code。不要模型轮询或sleep。结束后读payload/predictions.jsonl及metrics，核334唯一ID/索引和源候选/order/GT一致、123多框实际推理、非法零分无回退，246渲染图哈希/编号与实际输入、全量/多框/数据集指标重算，报告相对原score的IoU改善损害、命中修复损害，First/score/Oracle对照。snapshot必须确认step72 adapter和种子输入SHA。exit0/marker/稳定metrics及managed complete成功再队列complete，失败则fail分类暂停不重试。canonical/state写回，证据.pi/analysis/e014/selection-sft/。不启动1766测试、原生baseline或额外checkpoint评测，不训练/放宽父Run gate_failed/改Claim。本次未有同验证集原生画框VQA对照，不能宣称SFT因果增益；内部验证仅334，训练NF4与推理BF16差异记录。完成或失败后停止监控并暂停队列。",
+      "acceptance": [
+        "334/123覆盖、冻结候选/输入/adapter及指标核验",
+        "exit0/稳定metrics/managed complete并报告内部验证结果；或真实失败记录暂停"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "completed",
+      "signal": {
+        "id": "fe28545d-9ca6-4261-942f-bd459e3b0e9d",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/fe28545d-9ca6-4261-942f-bd459e3b0e9d.json"
+      },
+      "startedAt": "2026-10-18T10:09:01.891Z",
+      "result": "Run exit0/marker/稳定metrics，18:11:18 managed complete成功。334唯一ID/索引、211单框+123多框、123合法回复；冻结候选/order、GT/IoU/全部组别指标重算通过；246渲染图SHA/尺寸/框编号、step72 adapter SHA与snapshot及数据group隔离通过。证据.pi/analysis/e014/selection-sft/validation334_audit.json，canonical/state已记录。全量mIoU77.0817 vs原score75.0949%（+1.9868pp），多框70.2533 vs64.8582%（+5.3951pp）；命中修复15/损害6，净增9。未新增推理或测试，未改父训练gate_failed或Claim；仅内部验证且缺同集原生VQA对照。",
+      "finishedAt": "2026-10-18T10:11:37.130Z"
+    },
+    {
+      "id": "selection-step72-test1766-verify-20261018",
+      "instruction": "仅跟进用户新授权且已单次managed启动的e014-selection-lora-step72-test1766-20261018，禁止重新start/derive/retry或其他checkpoint评测。代码53ab765/reviewb70b584a7301ac8e无变更；精确命令.pi/analysis/e014/selection-sft/test1766_command.json。1766完整冻结测试集，791多框/964单框/11无候选。输入源e014-discovery-score04-step200-eval1766-20261015T152856Z，manifest SHA8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d、predictions SHA1a864fdce10f300ec53ddf2945b7e2d063c74280d7a750207dcff99a7ff76129。step72 selector来源e014-drawn-selection-lora-sft1epoch-20261018-r2/payload/training/checkpoints/samples_00001152_step_000072，adapter SHA7eab1f7864d71acd31d68a09b586b1489d1045a411d8540e873ec3022f9d338d；BF16 SDPA/greedy16/EOS/vision4096/seed20260901/exact_instance画框/原候选顺序。先survey_run_execution status；若运行，使用当前任务提供的新event-file和steward-sequence包装器，复用.pi/steward-signals/d8f0c3cf-24f0-45e5-a460-2c4f7f61c004.wait.sh的只读inotify等待逻辑替换为本Run路径，不重跑旧包装器、不sleep或模型轮询。SSH必须BatchMode=yes ClearAllForwardings=yes。Run根/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-step72-test1766-20261018；managed_console.log/metrics.json/.survey-tool-exit-code。结束后核1766唯一ID/索引/源候选和GT、791实际VQA、非法零分无回退、1582渲染图哈希及编号、snapshot模型和参数；重算全量/多框/数据集mIoU及acc50，与score/First/Oracle比较。读取既有e014-score04-step200-native-vqa-drawn1766-20261018/payload/predictions.jsonl及metrics.json，匹配全部ID/候选/参数/prompt后与本次LoRA逐例配对：改变选择、IoU改善损害、命中修复损害。只读比较不新增baseline推理。exit0/marker/稳定metrics并managed complete成功后队列complete；失败则fail暂停不重试。结果和证据写canonical/state/.pi/analysis/e014/selection-sft/。已看过测试集并做prompt探索，结果不是无偏独立测试；不改Claim、父训练gate_failed、不训练/扩大预算。完成后停止监控并暂停队列。",
+      "acceptance": [
+        "1766/791/964/11覆盖、模型输入及指标真实核验",
+        "与已有原生画框VQA及原评分配对比较，managed complete；或真实失败记录并暂停"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "completed",
+      "signal": {
+        "id": "2b746002-34e7-46c0-b2bc-189a2ed63393",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/2b746002-34e7-46c0-b2bc-189a2ed63393.json",
+        "delivered": true
+      },
+      "startedAt": "2026-10-18T10:30:24.899Z",
+      "result": "exit0/marker/稳定metrics，18:39:33 managed complete成功。1766唯一ID及连续索引、791VQA/964单框/11无候选，791全合法；输入SHA/adapter/snapshot、GT/IoU/全量多框分集指标重算，1582渲染图SHA/尺寸/框编号核验且与原生图像逐字节一致。证据.pi/analysis/e014/selection-sft/test1766_audit.json。全量mIoU69.9607 vs原score69.1696/native画框67.8265%；相对score命中修复54/损害42净增12，相对native60/17净增43；canonical/state已记录限制。未新增推理、重训、改Claim或父训练gate_failed。",
+      "finishedAt": "2026-10-18T10:39:52.476Z"
+    },
+    {
+      "id": "selection-lora-total5epochs-verify-20261018",
+      "instruction": "仅跟进用户批准且已经单次managed启动的e014-selection-lora-resume72-total5epochs-20261018，禁止重新start/derive/retry或新增评测。累计5epoch/360更新，从r2的step72恢复adapter+AdamW+scheduler，新增288更新/4608样本呈现；1152数据/SHA89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403、NF4语言LoRA r8/alpha16/seed20260901/globalbatch16/lr5e-5/vision4096/每.5epoch保存不变。无新代码，clean53ab765/reviewb70b584a7301ac8e。命令与实际恢复证据.pi/analysis/e014/selection-sft/train_total5_command.json及train_total5_start_evidence.json。已核start72/1152→target360，实际step73 loss.045157045766245574、lr5e-5、finite_grad_fraction1，恢复生效。先survey_run_execution status维护lease；若运行，使用当前任务新event-file的steward-sequence包装器，复用.pi/steward-signals/d8f0c3cf-24f0-45e5-a460-2c4f7f61c004.wait.sh的只读inotify等待逻辑改成本Run路径，禁止重跑旧包装器/sleep/模型轮询。SSH BatchMode=yes ClearAllForwardings=yes。根目录/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018；managed_console.log/.survey-tool-exit-code，实际训练产物payload/training。结束后核新history73..360完整/累计5760及本段4608样本、finite loss梯度、adapter_delta相对step72、半epoch checkpoint108..360每36步、最终adapter及来源/快照/数据SHA。保留原固定8样本loss下降门禁，baseline现在是step72；若gate_failed即使360步完整也需scientific fail，不改exit或门禁，报告保存模型；根metrics复制可能因worker非零未执行，读真实payload/training/metrics.json。只有exit0/稳定metrics及managed complete成功才complete队列，真实失败则fail暂停，不修复重试。写canonical/state/证据。恢复重播种非精确RNG replay；warmup nominal18但resume72已越过，实际lr保持5e-5。不能自动训练超过5epoch或新增验证/测试，不能按测试结果选checkpoint，不改父失败记录或Claim。完成后停止监控并暂停队列。",
+      "acceptance": [
+        "实际恢复72→360、288新增更新及完整产物核验",
+        "真实exit/原门禁与managed complete或fail准确记录，不自动重训或扩展评测"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "blocked",
+      "failureClass": "external_dependency",
+      "retryBasis": {},
+      "signal": {
+        "id": "d44e9b7a-6b17-4972-a851-de84acb46e07",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/d44e9b7a-6b17-4972-a851-de84acb46e07.json",
+        "delivered": true
+      },
+      "startedAt": "2026-10-18T11:12:49.924Z",
+      "result": "训练真实成功exit0/metrics passed，360步含288新增，8 checkpoint及最终adapter核验通过；固定loss0.048288824→3.2193e-5，finite梯度1、delta2.82679。仅管理工具MAX_OUTPUT65536截断90760字节JSON导致complete失败；无损副本登记未改变执行绑定读取路径。canonical记录为管理外部依赖失败而非训练失败；证据train_total5_final_audit.json及train_total5_metrics_compaction.json。保留所有原始产物，不重训、不改工具或扩大评测，需单独修复管理读取限制。",
+      "finishedAt": "2026-10-18T12:08:42.223Z"
+    },
+    {
+      "id": "selection-step360-test1766-verify-20261018",
+      "instruction": "只跟进已单次managed启动的e014-selection-lora-step360-test1766-20261018，不再start/derive/retry、不新增训练/评测。用户授权5epoch最终step360在原1766测试集评测并比较step72。代码53ab765/reviewb70b584a7301ac8e无变更；精确命令.pi/analysis/e014/selection-sft/test1766_step360_command.json。1766/791多框/964单框/11无候选，source=e014-discovery-score04-step200-eval1766-20261015T152856Z，清单SHA8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d、候选SHA1a864fdce10f300ec53ddf2945b7e2d063c74280d7a750207dcff99a7ff76129。selector=e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00005760_step_000360，adapter SHA6182649403af2efc3c2d26c13411066fc6466949e95f2425952df83622f283e6；BF16 SDPA/greedy16/EOS/vision4096/seed20260901/exact_instance画框/原候选顺序。先survey_run_execution status维护lease；运行时用任务新event-file的steward-sequence回调包装器，复用.pi/steward-signals/d44e9b7a-6b17-4972-a851-de84acb46e07.wait.sh的只读inotify等待逻辑改成本Run根，不重跑旧包装器、不sleep/模型轮询。SSH必须BatchMode=yes ClearAllForwardings=yes。根/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-step360-test1766-20261018，managed_console.log/metrics.json/.survey-tool-exit-code。结束后核1766唯一ID/索引/固定候选GT、791VQA/非法零分、1582渲染图SHA/框编号、step360模型快照；重算全量/多框/各数据集mIoU/acc50。读取既有e014-selection-lora-step72-test1766-20261018及e014-score04-step200-native-vqa-drawn1766-20261018的payload/predictions.jsonl与metrics，只读配对比较同ID/候选/参数/prompt/渲染，分别报告选择变化、IoU改善损害、命中修复损害，对照原score/First/Oracle。exit0/marker/稳定metrics并managed complete成功后队列complete；真实失败则fail暂停，不重试。保存证据到.pi/analysis/e014/selection-sft/并canonical/state写回。测试重复探索不是无偏独立测试，不自动选别的checkpoint、不改Claim。父5epoch真实exit0/训练passed但工具64KiB读取造成external_dependency记录保持，不修管理工具或改父产物。完成/失败后停止监控并暂停队列。",
+      "acceptance": [
+        "1766固定输入、模型及结果完整性和指标核验",
+        "step360与step72/原生画框/原score配对比较，managed complete；或真实失败记录暂停"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "completed",
+      "signal": {
+        "id": "359a863d-7a52-4817-a6de-0ff1554732ce",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/359a863d-7a52-4817-a6de-0ff1554732ce.json"
+      },
+      "startedAt": "2026-10-18T13:37:51.870Z",
+      "result": "21:41:06 managed complete成功，exit0/marker/稳定metrics；1766唯一ID/固定候选GT及指标重算、791合法VQA、1582渲染原图SHA/step360模型快照与来源已核。与step72/native逐例/渲染配对，mIoU70.3153较step72+0.3546pp、Acc50净7命中；对score/native及分集改善损害已写canonical/state。证据.pi/analysis/e014/selection-sft/test1766_step360_audit.json。未新增推理/训练，父状态与Claim不改。",
+      "finishedAt": "2026-10-18T13:41:40.765Z"
+    },
+    {
+      "id": "selection-fulltrain-generate-build-20261018",
+      "instruction": "只完成用户授权的完整训练候选生成+补GT数据构造，不训练选择器或新增测试。Run e014-selection-fulltrain-step200-gtaugment-20261018已单次managed启动，禁止再start/derive/retry。先survey_run_execution status续lease；running时用本任务新event-file的steward-sequence回调包装器，复用.pi/steward-signals/d44e9b7a-6b17-4972-a851-de84acb46e07.wait.sh只读inotify逻辑改成本Run；SSH BatchMode=yes ClearAllForwardings=yes，不sleep/模型轮询。代码clean53ab765/reviewb70b584a7301ac8e无变更，原共享tools/evaluate.py/configs/eval/variable_candidates.py。精确命令.pi/analysis/e014/selection-sft/fulltrain_command.json；仅生成阶段，退出0时cp payload/generation/evaluation/metrics.json至根metrics.json并marker，不包括数据构造。根/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-fulltrain-step200-gtaugment-20261018，log managed_console.log、exit .survey-tool-exit-code。完整E009有效10522源bd7037325096cc99097333090ec5d02f64dd9ce2922f04e0e4409d1d635bd6e7，排除1418 E013 heldout视频及737原1766/334验证重叠→8367正例/4540组(GOT7315 LaSOT553 TAO499)。输入inputs/manifest.json SHA184f50ab3663a5a2640f62b9cdb6ebf96dd7121480d9508caf7e3aef99d95640，均selection_split=train；inputs/preparation.json与excluded.json记录全部来源/排除；本地fulltrain_preparation.json。GOTmeta URL原视频，LaSOT/TAO序列，TAO train499首次纳入，旧无TAO说法不适用。固定score04step200生成LoRA，adapter/policy SHA a528f2e6bb48f12e156ea9ad16a68643d05ac550f319309369be7c57880c37d7、boxes_then_scores_v1/seed20260901/EOS，其余沿上一轮生成参数，不更换模型。结束核8367唯一ID/索引、真实快照/GT/候选IoU/sha/exit；真实失败fail暂停不修复重试。成功后继续本次已授权离线数据构造，不要停在生成完成：不改源码或历史产物，Python一次性数据变换可直接把输入与原预测转换到本Run全新payload/augmentation/目录。每条训练样本至少1候选且maxIoU<.5时追加归一化GT(直接json.loads(row.target)，而非像素bbox)，iou=1并明确origin=gt_injected；Oracle>=.5保留原候选。零候选不凭空加干扰，单列审计后既有sft会过滤。不改payload/generation原预测；增强副本更新candidate_count/派生best索引但保留原score选择事实，逐样本审计原候选/score/IoU/original-oracle、插GT位置、源SHA。再读取原数据Run e014-selection-sft-data-step200-20261018/payload/selection_data/validation_manifest.json(334,SHA65fa13a466f819b5c25a2d641c8996c280be107c1229970bba670efa8987454c)及validation_predictions.jsonl(SHA7064e524fc57a66243329e7d5bfd8489544d4338e0f7b90cdc02bb47cbf648c1)，只复用已存在结果、不再推理/补GT。将这334记录接在8367训练后，副本重编号dataset_index及id=f'{j}-1'，保留source_id/source_index映射；按原video group核无交集。将combined manifest/predictions及SHA写augmentation。复用现有tools/prepare_candidate_selection.py sft --manifest combined --manifest-sha256真实SHA --predictions combined --predictions-sha256真实SHA --seed20260901 --min-oracle0.5 --min-gap0.05 --output 本Run/payload/selection_data，在原仓库设置PYTHONPATH=.和IPLoc python。已有CLI按selection_split处理、普通多框gap>.05过滤、GT增强行自然进入，训练随机基础排列+全部循环移位重画编号；验证仅一排列。长离线渲染阶段也用当前新callback包装器执行一次序列并保留exit，不重跑脚本。最终核所有8367生成覆盖、候选/GT插入条件/标签和顺序映射、渲染SHA、训练与既有验证视频隔离、501旧源→本次实际独立源/增强例数/类别及GT插入比例、零候选和低gap等排除数。根metrics保持原生成metrics，不覆写；selection_data/metrics.json单独登记。managed complete须稳定成功才队列complete，科学内容仅数据规模与完整性，不说效果提升。canonical/state/本地.pi/analysis/e014/selection-sft/fulltrain_*证据写回。停止监控/暂停队列。禁止自动开始SFT、评测选择器、增加checkpoint或修改Claim/历史failed记录。",
+      "acceptance": [
+        "完整可用训练8367固定生成覆盖及实际exit/managed状态核验",
+        "GT增强副本与原候选、标签/图像/置换/隔离审计通过，普通+困难数据规模记录；不训练选择器"
+      ],
+      "dependsOn": [],
+      "capability": "execute_approved",
+      "maxAttempts": 1,
+      "attempts": 1,
+      "onFailure": "pause",
+      "status": "running",
+      "signal": {
+        "id": "e8ead8fc-642d-45aa-9e94-b1eefee310b6",
+        "file": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/.pi/steward-signals/e8ead8fc-642d-45aa-9e94-b1eefee310b6.json",
+        "delivered": true
+      },
+      "startedAt": "2026-10-18T14:46:37.324Z"
     }
   ],
-  "createdAt": "2026-10-14T00:41:00.474Z",
-  "updatedAt": "2026-10-14T01:08:06.213Z"
+  "createdAt": "2026-10-18T04:43:18.182Z",
+  "updatedAt": "2026-10-18T17:03:00.249Z"
 }

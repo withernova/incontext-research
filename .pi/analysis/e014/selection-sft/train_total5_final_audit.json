@@ -1,0 +1,290 @@
+{
+  "status": "passed",
+  "run_id": "e014-selection-lora-resume72-total5epochs-20261018",
+  "run_start": {
+    "timestamp_utc": "2026-10-18T11:13:36.321064+00:00",
+    "event": "run_start",
+    "initialized_from": null,
+    "resumed_from": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018-r2/payload/training/checkpoints/samples_00001152_step_000072",
+    "start_step": 72,
+    "start_samples_seen": 1152,
+    "total_steps": 360,
+    "dataset_size": 1152,
+    "updates_per_epoch": 72,
+    "effective_global_batch_size": 16,
+    "world_size": 8,
+    "per_device_batch_size": 1,
+    "gradient_accumulation_steps": 2,
+    "warmup_ratio": 0.05,
+    "max_grad_norm": 0.3,
+    "seed": 20260901
+  },
+  "metrics": {
+    "status": "passed",
+    "distributed": true,
+    "world_size": 8,
+    "per_device_batch_size": 1,
+    "global_physical_batch_size": 8,
+    "gradient_accumulation_steps": 2,
+    "updates_per_epoch": 72,
+    "configured_max_epochs": 5,
+    "checkpoint_interval_epochs": 0.5,
+    "checkpoint_interval_samples": 576.0,
+    "initialized_from": "",
+    "resumed_from": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018-r2/payload/training/checkpoints/samples_00001152_step_000072",
+    "warmup_ratio": 0.05,
+    "warmup_steps": 18,
+    "max_grad_norm": 0.3,
+    "assistant_only_logits": true,
+    "logits_to_keep": 4,
+    "effective_global_batch_size": 16,
+    "steps": 360,
+    "examples_seen": 5760,
+    "session_examples_seen": 4608,
+    "train_seconds": 3174.54820394516,
+    "examples_per_second": 1.451545134603224,
+    "loss_before": 0.048288823978509754,
+    "loss_after": 3.2193263558522034e-05,
+    "training_pipeline": null,
+    "loss_comparison_objective": "configured_loss",
+    "adapter_delta_norm": 2.826792710906639,
+    "finite_grad_fraction": 1.0,
+    "trainable_parameter_count": 21823488,
+    "dataset_size": 1152,
+    "seed": 20260901,
+    "eval_sample_ids_by_rank": [
+      [
+        "965-1-perm0"
+      ],
+      [
+        "1091-1-perm1"
+      ],
+      [
+        "125-1-perm0"
+      ],
+      [
+        "529-1-perm0"
+      ],
+      [
+        "358-1-perm1"
+      ],
+      [
+        "1039-1-perm1"
+      ],
+      [
+        "1325-1-perm1"
+      ],
+      [
+        "1866-1-perm1"
+      ]
+    ],
+    "peak_gpu_memory_gib_by_rank": [
+      17.06617021560669,
+      17.066214084625244,
+      17.05953359603882,
+      17.060018062591553,
+      17.060872554779053,
+      17.065580368041992,
+      17.06326723098755,
+      17.07186985015869
+    ]
+  },
+  "new_updates": 288,
+  "checkpoint_audit": [
+    {
+      "step": 108,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00001728_step_000108",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175036483,
+          "sha256": "d1008b7e83d0e9deb29a356d5f98acbcd3b9f9502ea282590cd0119557f58250"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "fb546a74c023e7d739ab9e9cdfffd79713cf8f3e4f8cee37eb16ddbb84259821"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 144,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00002304_step_000144",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175058947,
+          "sha256": "fba52f3c6d54cc8d6fcae99336f6e3222e10b71086c16afe0f65c4b76a937955"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "b9edc5d44df8e36602197454593e69c5c8c0bc8fdde9060245fce2a919d9d1d2"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 180,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00002880_step_000180",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175062467,
+          "sha256": "c75196c307a577a47780c7c753c0f53e89557f7095e731a3a5b939db443a54db"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "e98999f7582342aad266f54bedcbfee9cc767f0b4dbe041fceab19c032df0897"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 216,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00003456_step_000216",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175065603,
+          "sha256": "7cafab44685e3743f6b6b0661183a9a7bd4b75b15f905c99a5e00826def04972"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "aa550d63b578bdfa4d128db57225cd13b6261c24648d7aa1465b72d0b59ea99c"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 252,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00004032_step_000252",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175069123,
+          "sha256": "3750db186b0558a4b017e28f221039abc5924641d1495b98c4b9b43248a010b0"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "02b05cc49afda47725e1f91a82f77e1d53a61f4fe2ac7a20ea87e8e6d6dc3a50"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 288,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00004608_step_000288",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175072195,
+          "sha256": "1f2f545d4b056c8fc7043595cec9be30583877b0ef90cc4cb68ef03dc3501882"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "07c9ba947cfb29ee67ac16b1b61427020bfd326cae1eb2af1ea81ab7656a2425"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 324,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00005184_step_000324",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175075331,
+          "sha256": "93d52f40ff506835ef1a64d6728399519caebabf33dbee5a60a9b75590f544a6"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "4c4d4234b1a6a15f4b37a7bf228f81f4ce7f342fec061febca561e1a2f191719"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    },
+    {
+      "step": 360,
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-lora-resume72-total5epochs-20261018/payload/training/checkpoints/samples_00005760_step_000360",
+      "files": {
+        "trainer_state.pt": {
+          "bytes": 175078403,
+          "sha256": "fa1eb8bfee41ef63afdb64fc843f3ef744d5fa71924f3018c5b72e9c1c9d9eef"
+        },
+        "adapter/adapter_model.safetensors": {
+          "bytes": 87368144,
+          "sha256": "6182649403af2efc3c2d26c13411066fc6466949e95f2425952df83622f283e6"
+        },
+        "adapter/adapter_config.json": {
+          "bytes": 967,
+          "sha256": "0039a8ebee1a766656256a062a460897eb01a30a31b76a6cb6490fa838631937"
+        }
+      }
+    }
+  ],
+  "metrics_sha256": "1d8566793f6b0ee7596a0b6c3dba72e523a8fbe4b235f6052fcdde9f47660e8f",
+  "history_sha256": "e244c038189b7383afee5f825422f119f7c47df607d20082587bf5bccd0b144f",
+  "first_step": {
+    "timestamp_utc": "2026-10-18T11:13:54.468669+00:00",
+    "event": "train_step",
+    "step": 73,
+    "total_steps": 360,
+    "nominal_epoch": 1.0138888888888888,
+    "loss": 0.045157045766245574,
+    "learning_rate": 5e-05,
+    "step_seconds": 11.424840349005535,
+    "mean_step_seconds": 11.425130247022025,
+    "eta_seconds": 3279.0123808953213,
+    "samples_seen": 1168,
+    "session_samples_seen": 16,
+    "examples_per_second": 1.4004216717065803,
+    "finite_grad_fraction": 1.0,
+    "peak_memory_gib_rank0": 16.980177879333496,
+    "next_checkpoint_samples": 1728.0,
+    "teacher_forced_choice_accuracy": 1.0,
+    "sft_loss": 0.045157045766245574,
+    "total_loss": 0.045157045766245574
+  },
+  "last_step": {
+    "timestamp_utc": "2026-10-18T12:06:36.611861+00:00",
+    "event": "train_step",
+    "step": 360,
+    "total_steps": 360,
+    "nominal_epoch": 5.0,
+    "loss": 2.6822072252130624e-07,
+    "learning_rate": 5e-05,
+    "step_seconds": 11.064064376987517,
+    "mean_step_seconds": 11.019334526010425,
+    "eta_seconds": 0.0,
+    "samples_seen": 5760,
+    "session_samples_seen": 4608,
+    "examples_per_second": 1.4519933088729666,
+    "finite_grad_fraction": 1.0,
+    "peak_memory_gib_rank0": 17.06617021560669,
+    "next_checkpoint_samples": 5760.0,
+    "teacher_forced_choice_accuracy": 1.0,
+    "sft_loss": 2.6822072252130624e-07,
+    "total_loss": 2.6822072252130624e-07
+  },
+  "first36_mean_loss": 0.13487893940674034,
+  "last36_mean_loss": 0.0011578050501644954,
+  "limits": [
+    "Training facts only; no validation or test inference performed.",
+    "Loss baseline is resumed step72, not the original instruction model.",
+    "RNG reseeded; not exact RNG replay."
+  ]
+}
