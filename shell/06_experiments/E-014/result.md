@@ -1,6 +1,6 @@
 # E-014 · 实验结果
 
-> 记录截至：2026-10-19T14:06:09。记录更新不等于实际运行完成；程序完成也不等于科研结论成立。
+> 记录截至：2026-10-21T18:22:18。记录更新不等于实际运行完成；程序完成也不等于科研结论成立。
 
 ## 结果摘要（survey-tool 管理）
 （Experiment 级摘要待登记；以下保留已登记 Run 的结果。）
@@ -92,7 +92,29 @@
 | [e014-selection-fulltrain-gt-lora5epoch-20261019](runs/e014-selection-fulltrain-gt-lora5epoch-20261019.md) · 用户明确授权完成数据后自动启动5epoch训练且不走Steward。现在启动一个受管串行任务：只读inotify等待已在运行的渲染exit0，不重复渲染；核增强 | 20260901 | failed | 2026-10-19T08:14:14 | 尚无已登记数值；不表示没有产物 |
 | [e014-selection-fulltrain-step2095-test1766-20261019](runs/e014-selection-fulltrain-step2095-test1766-20261019.md) · 用户要求暂停当前训练，用最后完整checkpoint评测全部1766。训练已SIGINT退出释放GPU，固定samples_00033516_step_0020 | 20260901 | analysis_pending | 2026-10-19T08:28:53 | 尚无已登记数值；不表示没有产物 |
 | [e014-selection-coordinates-only-lora4epoch-20261019](runs/e014-selection-coordinates-only-lora4epoch-20261019.md) · 用户明确授权训练4epoch无画框版本：原始Reference/Query图像+文字Reference bbox及候选bbox列表，无任何叠加框或视觉编号，候选 | 20260901 | failed | 2026-10-19T13:02:00 | 尚无已登记数值；不表示没有产物 |
-| [e014-selection-coordinates-only-lora4epoch-20261019-derived-001](runs/e014-selection-coordinates-only-lora4epoch-20261019-derived-001.md) · 用户明确要求评测当前无框原图+文字bbox选择器的step1310 checkpoint。固定原1766候选数据，与已有画框版本对照；使用exact_insta | 20260901 | running | 2026-10-19T14:06:09 | 尚无已登记数值；不表示没有产物 |
+| [e014-selection-coordinates-only-lora4epoch-20261019-derived-001](runs/e014-selection-coordinates-only-lora4epoch-20261019-derived-001.md) · 用户明确要求评测当前无框原图+文字bbox选择器的step1310 checkpoint。固定原1766候选数据，与已有画框版本对照；使用exact_insta | 20260901 | analysis_pending | 2026-10-19T15:00:45 | 尚无已登记数值；不表示没有产物 |
+| [e014-historical-three-source-train8367-generation-20261019](runs/e014-historical-three-source-train8367-generation-20261019.md) · 用户批准上一轮三来源在训练集生成候选：固定合法8367对manifest SHA184f50ab3663a5a2640f62b9cdb6ebf96dd71214 | 20260901 | analysis_pending | 2026-10-19T20:25:15 | 尚无已登记数值；不表示没有产物 |
+| [e014-historical-balanced-vqa-lora4epoch-20261019](runs/e014-historical-balanced-vqa-lora4epoch-20261019.md) · 用户授权用新收集历史候选训练VQA4epoch。fresh独立无框原图+文字bbox选择LoRA，不继承旧1310权重，不做自动评测。先构造原生合格组（精确框/ | 20260901 | failed | 2026-10-20T09:23:38 | 尚无已登记数值；不表示没有产物 |
+| [e014-historical-balanced-vqa-step4041-test1766-20261020](runs/e014-historical-balanced-vqa-step4041-test1766-20261020.md) · 用户要求先暂停当前训练然后评测。已向核实本Run torchrun339243发SIGINT；最新保存checkpoint samples_00064656_s | 20260901 | analysis_pending | 2026-10-20T11:19:55 | 尚无已登记数值；不表示没有产物 |
+| [e014-historical-vqa-resume4041-to5388-eval1766-20261020](runs/e014-historical-vqa-resume4041-to5388-eval1766-20261020.md) · 用户要求从3epoch checkpoint断点续训完成并看看提升：从samples_00064656_step_004041恢复adapter/AdamW/s | 20260901 | analysis_pending | 2026-10-20T16:30:35 | 尚无已登记数值；不表示没有产物 |
+| [e014-selector-extension-validation-20261020](runs/e014-selector-extension-validation-20261020.md) · 用户在四项代码交付后明确授权“可以部署运行”。部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6后，先执行一次有限验证：候选换 | 20260901 | failed | 2026-10-20T18:52:56 | 尚无已登记数值；不表示没有产物 |
+| [e014-selector-extension-validation-r2-20261020](runs/e014-selector-extension-validation-r2-20261020.md) · 继续用户已授权的部署运行验收：首次验收脚本遗漏仓库现有torchvision NMS兼容初始化，在任何测试/模型调用前exit1，保留失败事实。修正版仅复用ip | 20260901 | analysis_pending | 2026-10-20T18:57:06 | 尚无已登记数值；不表示没有产物 |
+| [e014-selector-step4041-permutation-p1-20261020](runs/e014-selector-step4041-permutation-p1-20261020.md) · 用户已授权“可以部署运行”，部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6及有限逻辑/真实输入验收已完成。现在执行一次st | 20260901 | analysis_pending | 2026-10-21T01:10:10 | 尚无已登记数值；不表示没有产物 |
+| [e014-selector-linear-decay4041-to5388-eval1766-20261021](runs/e014-selector-linear-decay4041-to5388-eval1766-20261021.md) · 用户明确要求直接执行所讨论实验。本次从原step4041恢复，保持原数据和总5388步，仅将最后1347更新改为linear学习率5e-5降至5e-6，保留Ad | 20260901 | analysis_pending | 2026-10-21T13:39:45 | 尚无已登记数值；不表示没有产物 |
+| [e014-real-reference-pairs-preparation-20261021](runs/e014-real-reference-pairs-preparation-20261021.md) · 直接执行已讨论的Reference成对数据方案：基于真实TAO train标注及现有冻结候选，核实同Query换Reference对应不同答案的可用量并导出普通 | 20260901 | failed | 2026-10-21T01:08:47 | 尚无已登记数值；不表示没有产物 |
+| [e014-selector-step4041-localviews-validation334-20261021](runs/e014-selector-step4041-localviews-validation334-20261021.md) · 用户明确要求运行局部图方案。使用固定validation334/123多候选、step4041，比较无框原图两张与原图+Reference和候选裁剪K+3张，p | 20260901 | analysis_pending | 2026-10-21T13:39:51 | 尚无已登记数值；不表示没有产物 |
+| [e014-real-reference-pairs-preparation-r2-20261021](runs/e014-real-reference-pairs-preparation-r2-20261021.md) · 继续当前明确授权的真实配对准备，首次脚本历史路径缺generation层，在任何配对数据写出前失败。已从原真实命令纠正路径并实测三份SHA相符，科学设置不变；独 | 20260901 | analysis_pending | 2026-10-21T01:15:57 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-control-fresh3epoch-validation124-20261021](runs/e014-reference-control-fresh3epoch-validation124-20261021.md) · 用户已明确要求运行成对监督对照。真实数据已验收，先执行A-only控制：718行/fresh同seed LoRA/3epochs135更新2160呈现，最终12 | 20260901 | failed | 2026-10-21T13:36:55 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-paired-fresh3epoch-validation124-20261021](runs/e014-reference-paired-fresh3epoch-validation124-20261021.md) · 用户已明确要求运行成对监督对照。真实359train pairs导出718行A/B监督，fresh同seed LoRA/3epochs135更新2160呈现，最 | 20260901 | failed | 2026-10-21T13:37:00 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-control-step135-eval124-recovery-20261021](runs/e014-reference-control-step135-eval124-recovery-20261021.md) · 补完用户已授权的control组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原 | 20260901 | failed | 2026-10-21T13:40:14 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-paired-step135-eval124-recovery-20261021](runs/e014-reference-paired-step135-eval124-recovery-20261021.md) · 补完用户已授权的paired组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最 | 20260901 | failed | 2026-10-21T13:40:20 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-control-step135-eval124-recovery-r2-20261021](runs/e014-reference-control-step135-eval124-recovery-r2-20261021.md) · 继续完成用户原定control组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoin | 20260901 | analysis_pending | 2026-10-21T13:47:29 | 尚无已登记数值；不表示没有产物 |
+| [e014-reference-paired-step135-eval124-recovery-r2-20261021](runs/e014-reference-paired-step135-eval124-recovery-r2-20261021.md) · 继续完成用户原定paired组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint | 20260901 | analysis_pending | 2026-10-21T13:47:35 | 尚无已登记数值；不表示没有产物 |
+| [e014-linear5388-instances650-proposals-test1766-20261021](runs/e014-linear5388-instances650-proposals-test1766-20261021.md) · 用户明确要求测试固定三框checkpoint的proposal。固定父Run最终线性LR step5388选择器，在同1766例上将当前step200候选替换为 | 20260901 | analysis_pending | 2026-10-21T15:10:34 | 尚无已登记数值；不表示没有产物 |
+| [e014-linear5388-original-proposal-oracle-visualization-20261021](runs/e014-linear5388-original-proposal-oracle-visualization-20261021.md) · 用户请求可视化当前选择器与Oracle的差距，明确用原step200 proposal而非三框。对已完成的1766冻结预测做CPU事后分析，核逐例IoU，拆解g | 20260901 | analysis_pending | 2026-10-21T15:59:01 | 尚无已登记数值；不表示没有产物 |
+| [e014-model-parallel-ddp4x2-capability-20261021](runs/e014-model-parallel-ddp4x2-capability-20261021.md) · 用户要求试验每个模型拆到两张卡、四个副本DDP的4x2方式。本次仅实现并验证混合模型并行＋DDP训练能力：复用现有Qwen3-VL-8B和SFT入口，fresh | 20260901 | failed | 2026-10-21T18:08:41 | 尚无已登记数值；不表示没有产物 |
+| [e014-model-parallel-ddp4x2-bf16-20261021](runs/e014-model-parallel-ddp4x2-bf16-20261021.md) · 继续完成用户要求的4x2模型并行DDP能力验证。前次1/2shot通过而4shot反向OOM；此次保留全部失败产物，使用独立新目录，同8个GOT视频/同1,2, | 20260901 | failed | 2026-10-21T18:20:28 | 尚无已登记数值；不表示没有产物 |
+| [e014-model-parallel-ddp4x2-result-audit-20261021](runs/e014-model-parallel-ddp4x2-result-audit-20261021.md) · 继续完成用户要求的4×2 DDP能力验证：只读既有4×2 DDP短程GPU训练产物的CPU审计；不新增训练/模型推理/部署。父Run的汇总脚本错误地要求q_pr | 20260901 | analysis_pending | 2026-10-21T18:22:18 | 尚无已登记数值；不表示没有产物 |
 
 ## 指标观测（survey-tool 管理）
 
@@ -1154,6 +1176,214 @@ Phase 1 records process evidence only; auxiliary metrics remain unregistered and
 
 ### 本轮局限
 扩大独立训练源、加入TAO、补GT及更新预算同时变化，不能单独归因GT补框。重复探索测试集、单seed，无显著性检验，不是无偏独立测试。辅助指标不升级主指标或Claim。训练保持用户中断状态，无自动恢复/追加评测。
+
+</details>
+
+<details><summary>e014-selection-coordinates-only-lora4epoch-20261019-derived-001 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-selection-coordinates-only-lora4epoch-20261019-derived-001](runs/e014-selection-coordinates-only-lora4epoch-20261019-derived-001.md)
+- 最近记录更新：2026-10-19T15:00:45
+
+### 本轮分析
+Managed execution exited successfully with 0 declared and 17 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft.
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-historical-three-source-train8367-generation-20261019 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-historical-three-source-train8367-generation-20261019](runs/e014-historical-three-source-train8367-generation-20261019.md)
+- 最近记录更新：2026-10-19T20:25:15
+
+### 本轮分析
+Managed execution exited successfully with 0 declared and 5 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft.
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-historical-balanced-vqa-step4041-test1766-20261020 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-historical-balanced-vqa-step4041-test1766-20261020](runs/e014-historical-balanced-vqa-step4041-test1766-20261020.md)
+- 最近记录更新：2026-10-20T11:19:55
+
+### 本轮分析
+Managed execution exited successfully with 0 declared and 17 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft.
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-historical-vqa-resume4041-to5388-eval1766-20261020 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-historical-vqa-resume4041-to5388-eval1766-20261020](runs/e014-historical-vqa-resume4041-to5388-eval1766-20261020.md)
+- 最近记录更新：2026-10-20T16:30:35
+
+### 本轮分析
+Managed execution exited successfully with 0 declared and 3 auxiliary metric observations. Scientific interpretation remains a human-reviewed draft.
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-selector-extension-validation-r2-20261020 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-selector-extension-validation-r2-20261020](runs/e014-selector-extension-validation-r2-20261020.md)
+- 最近记录更新：2026-10-20T18:57:06
+
+### 本轮分析
+验收真实exit0/完成标记，官方complete已登记analysis_pending。合成K=2/3/4/5/24、extra=0/1/64唯一排列与映射、invalid/invalid不计一致、重复框区别通过；100x80梯度图片裁剪像素及角色顺序通过；合成原始track配对不同正确答案及重复track/排除组拒绝通过。真实AdamW小参数状态未重置，linear/cosine从更新4042到5388共1347个调度值，首5e-5末5e-6，保存后4500二次恢复通过（非真实模型续训）。实际processor使用GOT10k603/LaSOT1/TAO780各一例、每例K2共5图，train/eval grid与prefix一致，编号+EOS监督通过；输出为明确编码stub，无模型生成、训练0。前次脚本导入失败事实保留。未测真实TAO成对数据规模、GPU生成质量或真实checkpoint完整恢复，不能声称科学收益。证据.pi/analysis/e014/selector-deploy-20261020/validation-r2_results.json以及Run payload两个JSON。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-selector-step4041-permutation-p1-20261020 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-selector-step4041-permutation-p1-20261020](runs/e014-selector-step4041-permutation-p1-20261020.md)
+- 最近记录更新：2026-10-21T01:10:10
+
+### 本轮分析
+真实exit0/完成标记，1766 unique索引/ID、冻结框、两次映射/回复EOS/实际grid/IoU逐行核验通过。原顺序choice/response/EOS/IoU与既有step4041基线逐例完全一致，全量mIoU.718586281701126，多框.6717855957127017。1582回复全有效，791题744同source index(94.0582%)，747同bbox(94.4374%)；47换index中3仅重复框索引变化。换序修复7例Acc50错误、损害14例，交换后全量mIoU.7155103189382463/Acc50.782559456398641。原顺序保持主结果、未投票，相关排列非新独立样本，单seed探索不作显著性或Reference因果声明。证据.pi/analysis/e014/selector-experiments-20261021/permutation_final_audit.json，47条变化样本及产物SHA已保存。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-selector-linear-decay4041-to5388-eval1766-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-selector-linear-decay4041-to5388-eval1766-20261021](runs/e014-selector-linear-decay4041-to5388-eval1766-20261021.md)
+- 最近记录更新：2026-10-21T13:39:45
+
+### 本轮分析
+逐例1766/791及候选IoU、分集指标重算通过。全量mIoU71.944623%、Acc5078.595696%；较常数LR5388 +0.297875pp mIoU，修复16损害13；较step4041 +0.085995pp，修复19损害20，Acc50净少1题。790合法/1越界回复3（K2），按既有规则0分。1347实际LR全匹配5e-5→5e-6；训练passed。单seed且差异小，不能声称稳定提升。证据.pi/analysis/e014/selector-experiments-20261021/completed_comparisons_audit.json。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-selector-step4041-localviews-validation334-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-selector-step4041-localviews-validation334-20261021](runs/e014-selector-step4041-localviews-validation334-20261021.md)
+- 最近记录更新：2026-10-21T13:39:51
+
+### 本轮分析
+原图/局部图各334/123逐例核验；653输入图SHA与尺寸、407裁剪像素/边界/padding.15和实际K+3 grid通过。全量mIoU77.086312→77.362425%（+0.276113pp）；多候选70.265844→71.015613%（+0.749769pp）。5题改变选择，修复3损害2，净多1题；246回答全合法。是固定两图训练checkpoint直接加裁剪的推理对照，单seed小收益不等于多图训练收益。证据.pi/analysis/e014/selector-experiments-20261021/completed_comparisons_audit.json。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-real-reference-pairs-preparation-r2-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-real-reference-pairs-preparation-r2-20261021](runs/e014-real-reference-pairs-preparation-r2-20261021.md)
+- 最近记录更新：2026-10-21T01:15:57
+
+### 本轮分析
+真实exit0/CLI exit0，1314请求接受421对（359train/62validation），分别129/23个视频组，合计152独立Query/视频；多个候选来源相关，不冒称421独立场景。893拒绝：727缺失/歧义好框、156少于2候选、10换Reference正确索引未变。导出718配对训练行、718等预算A-only控制、124验证行，所有输入/审计/输出SHA保存；真实标注track/category/image/frame/bbox核验，无补GT。首个脚本路径错误失败记录保留。已另建fresh训练对照子Run；新拆分对旧step4041非独立，fresh两arm初始模型相同。两训练arm答案编号分布不同（paired1:334/2:270/3:112/4:1/5:1；control1:546/2:142/3:30），保留归因限制。证据.pi/analysis/e014/selector-experiments-20261021/pairs_results.json。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-reference-control-step135-eval124-recovery-r2-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-reference-control-step135-eval124-recovery-r2-20261021](runs/e014-reference-control-step135-eval124-recovery-r2-20261021.md)
+- 最近记录更新：2026-10-21T13:47:29
+
+### 本轮分析
+原定最终step135评测已真实exit0；124ID/候选/IoU/原训练adapterSHA/62pair独立核验通过。arm=control，mIoU=0.561044152999，Acc50=0.604838709677，两题均正确20/62，换Reference改选择28/62；124回答全部有效。控制→配对mIoU56.104415→72.044781%（+15.940366pp），修复25损害3净+22命中，both20→38。只23个验证视频，候选来源相关，两组答案位置分布不同，单seed，不隔离Reference因果或证明一般泛化。只复用原训练模型补评测，无重新训练。原收尾与导入失败均保留。证据.pi/analysis/e014/selector-experiments-20261021/reference_final_audit.json；完整比较shell/06_experiments/E-014/执行对照-20261021.md。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-reference-paired-step135-eval124-recovery-r2-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-reference-paired-step135-eval124-recovery-r2-20261021](runs/e014-reference-paired-step135-eval124-recovery-r2-20261021.md)
+- 最近记录更新：2026-10-21T13:47:35
+
+### 本轮分析
+原定最终step135评测已真实exit0；124ID/候选/IoU/原训练adapterSHA/62pair独立核验通过。arm=paired，mIoU=0.720447812623，Acc50=0.782258064516，两题均正确38/62，换Reference改选择46/62；124回答全部有效。控制→配对mIoU56.104415→72.044781%（+15.940366pp），修复25损害3净+22命中，both20→38。只23个验证视频，候选来源相关，两组答案位置分布不同，单seed，不隔离Reference因果或证明一般泛化。只复用原训练模型补评测，无重新训练。原收尾与导入失败均保留。证据.pi/analysis/e014/selector-experiments-20261021/reference_final_audit.json；完整比较shell/06_experiments/E-014/执行对照-20261021.md。
+
+### 本轮局限
+Phase 1 records process evidence only; auxiliary metrics remain unregistered and cannot define primary evidence or Claim conclusions.
+
+</details>
+
+<details><summary>e014-linear5388-instances650-proposals-test1766-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-linear5388-instances650-proposals-test1766-20261021](runs/e014-linear5388-instances650-proposals-test1766-20261021.md)
+- 最近记录更新：2026-10-21T15:10:34
+
+### 本轮分析
+固定linear5388同一选择器、同1766图像与标注、seed20260901和完整推理快照，仅将step200候选替换为instances650冻结三框候选。真实exit0/marker，3532图像路径SHA匹配；1766逐例ID/原顺序/严格编号EOS/IoU及各分组指标重算通过。全量mIoU .7194462334134393→.7132368712227971（-0.620936pp），Acc50 .7859569648924122→.7808607021517554（-0.509626pp；1388→1379命中），修复49/损害58。Oracle mIoU .7573992982137026→.7621490161770924（+0.474972pp），Oracle命中1467→1484；候选可命中但最终未选中79→105，因此新增覆盖未转化为整体提升。新增覆盖62例实际命中38；丢覆盖45例中原有36命中；双方都覆盖1422例修复11/损害22。旧单框964 mIoU76.518773→75.887457%，旧多框791 67.370554→66.619238%，旧空11新增1命中。LaSOT mIoU67.818107→67.854931%，GOT82.697259→81.770450%，TAO72.492732→71.527375%；净少9命中全部来自TAO。实际VQA调用791→1765，新1765回答全有效、另1空候选计零。直接替换本次不改善；结果支持候选覆盖与选择均仍有缺口，不能证明数据集极限。
+
+### 本轮局限
+单seed、同一反复探索测试集、固定现有selector而非为新候选重训。历史生成器checkpoint、prompt和生成契约随候选源一起变化；历史逐例EOS证据缺失，不能单独归因于checkpoint或固定三框要求。候选条件命中集合变化，不能由误选增加断言selector通用能力下降。未执行并集或新增训练；无显著性结论，不提升Claim或Solid标签。
+
+</details>
+
+<details><summary>e014-linear5388-original-proposal-oracle-visualization-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-linear5388-original-proposal-oracle-visualization-20261021](runs/e014-linear5388-original-proposal-oracle-visualization-20261021.md)
+- 最近记录更新：2026-10-21T15:59:01
+
+### 本轮分析
+原step200 proposal×linear5388的1766冻结结果CPU分析，新增模型调用0。真实exit0/marker；1766逐例ID/候选顺序/GT归一化/IoU/编号EOS和聚合指标核对通过，3532原图SHA与尺寸及预览下载SHA记录。全量mIoU71.944623→Oracle75.739930%，差3.795306pp；791多框67.370554→75.844019%，差8.473466pp。109条正差距：79条实际<.5而Oracle≥.5贡献3.537900pp（93.217774%，61条实际IoU0）；5条均命中贡献.033617pp（.885756%）；25条均未命中贡献.223789pp（5.896470%，含唯一无效回复）。其余1657达Oracle，其中274仍低于.5。LaSOT/GOT/TAO正差距38/4/67，漏选好框28/4/47；TAO占总差距60.308570%。前20/50条解释28.517010/66.459976%损失。全部1766离线图册可按类型/数据集/候选数/ID筛选，显示Reference、所选框、Oracle与GT；另有PNG/PDF/CSV。优先诊断79条漏选好框，比已命中后的边框精度更直接对应当前差距。
+
+### 本轮局限
+Oracle为同冻结候选中GT IoU最大者，是事后上限，不是可用推理或数据集极限。单次固定测试结果，无新泛化/显著性结论；几何低重叠不能直接等价身份混淆。每数据集最大损失两例观察到相似实例间误选，只是定向六例，不外推全部成因或Reference因果。图像为最长边900px JPEG84等比例浏览副本，无裁剪。13组Node筛选逻辑验收、PNG/PDF人工目视，未做真实浏览器自动渲染测试。首图图例遮挡后仅生成独立v2展示版本，首版、预测与指标保留。22未注册字段为辅助指标，Claim不变。
+
+</details>
+
+<details><summary>e014-model-parallel-ddp4x2-capability-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-model-parallel-ddp4x2-capability-20261021](runs/e014-model-parallel-ddp4x2-capability-20261021.md)
+- 最近记录更新：2026-10-21T18:08:41
+
+### 本轮分析
+真实exit1。4×2 DDP的1shot与2shot各完成2步/32呈现，全部LoRA更新后四副本SHA一致且已保存checkpoint。1shot峰值allocated12.28184/reserved13.34375GiB，2shot15.37214/16.19531GiB。4shot在首步backward因GPU1请求3.33GiB、已有allocated21.13GiB而OOM，未完成4shot更新，恢复测试未执行。失败产物已保留并SHA核验36份文件。后续独立子Run只变更BF16 embedding和autocast以验证内存优化，不能在本Run中冒记成功。
+
+### 本轮局限
+8个GOT训练序列、短程Qwen3-VL-8B NF4 SFT能力；没有mIoU评测、全数据最长序列或Qwen2/完整FOCUS结论。
+
+</details>
+
+<details><summary>e014-model-parallel-ddp4x2-bf16-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-model-parallel-ddp4x2-bf16-20261021](runs/e014-model-parallel-ddp4x2-bf16-20261021.md)
+- 最近记录更新：2026-10-21T18:20:28
+
+### 本轮分析
+四组GPU训练均成功：1/2/4shot各2更新32呈现，4shot checkpoint恢复再1更新16呈现，共112呈现。所有finite_grad_fraction=1、LoRA有真实更新，每步四副本全部LoRA SHA一致，恢复起始SHA与原step2相同且loss_before=原loss_after。单卡allocated/reserved峰值GiB：1shot11.082329/11.802734；2shot11.445843/12.248047；4shot12.813782/13.498047；恢复12.813532/13.496094。完整Run真实exit1：仅末尾汇总脚本要求q_proj输出BF16，而实测均FP32。父Run保持failed，不冒记exit0；独立CPU审计Run核验有效训练事实与实际dtype。45份下载文件SHA核验通过。
+
+### 本轮局限
+启用BF16 embedding/autocast不等于q_proj输出BF16；首尾实测FP32，未直接观测SDPA内部算子dtype，不做精度机制因果结论。8段训练视频、短程Qwen3 NF4 SFT；无Qwen2/全FOCUS/全量最长样本/定位泛化结论。
+
+</details>
+
+<details><summary>e014-model-parallel-ddp4x2-result-audit-20261021 · 结果、来源与解释</summary>
+
+- Run 笔记：[e014-model-parallel-ddp4x2-result-audit-20261021](runs/e014-model-parallel-ddp4x2-result-audit-20261021.md)
+- 最近记录更新：2026-10-21T18:22:18
+
+### 本轮分析
+CPU只读审计真实exit0/marker。1/2/4shot各2更新，4shot恢复第3步，112呈现，finite gradients、全LoRA副本SHA、恢复SHA连续、四组独占GPU与code/config快照全部通过。单卡allocated/reserved峰值GiB分别11.082329/11.802734、11.445843/12.248047、12.813782/13.498047；恢复12.813532/13.496094。父Run exit1由最终错误BF16 q_proj断言引起，实际首尾q_proj均FP32；父失败状态和全部原始数据保留。本审计不新增训练、不改变科学结果，仅明确training_capability_passed=true、qproj_bf16_expectation_met=false。
+
+### 本轮局限
+Qwen3-VL-8B、8个GOT训练序列、NF4 LoRA短程SFT；不能外推Qwen2/完整FOCUS、全量最长样本、任意nshot、最终mIoU或吞吐优势。BF16 embedding和autocast联动变更，未作独立消融，不把显存改善归因于单一设置，未直接测SDPA内部dtype。
 
 </details>
 

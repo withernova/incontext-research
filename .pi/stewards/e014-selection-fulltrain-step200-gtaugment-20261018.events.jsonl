@@ -1,2 +1,0 @@
-{"time":"2026-10-18T14:46:37.289Z","event":"phase_transition","from":"monitoring","to":"stopped","reason":"task queue started"}
-{"time":"2026-10-18T17:02:54.487Z","event":"phase_transition","from":"stopped","to":"stopped","reason":"user requested via tool"}

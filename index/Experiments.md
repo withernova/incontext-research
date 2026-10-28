@@ -16,3 +16,4 @@
 - [E-012 · 探索新的head确定方案](../shell/06_experiments/E-012/E-012.md) · `planned` · 实验独立目录缺失或异常；未创建目录，请核对原位置
 - [E-013 · GRPO-置信度](../shell/06_experiments/E-013/E-013.md) · `planned` · [文档目录](../shell/06_experiments/E-013/E-013-documents.md)
 - [E-014 · 空间有序候选与 Reference 置信度](../shell/06_experiments/E-014/E-014.md) · `planned` · [文档目录](../shell/06_experiments/E-014/E-014-documents.md)
+- [E-015 · Qwen2 多shot SFT→GRPO多框→VQA](../shell/06_experiments/E-015/E-015.md) · `running` · [文档目录](../shell/06_experiments/E-015/E-015-documents.md)

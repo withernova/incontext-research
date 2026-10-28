@@ -20,11 +20,16 @@ aliases: ["E-014 文档目录"]
 
 | 最近修改（UTC） | 专题文档 | 版本标记 |
 |---|---|---|
+| 2026-10-21T10:35:32+00:00 | [E-014 选择器对照执行记录](%E6%89%A7%E8%A1%8C%E5%AF%B9%E7%85%A7-20261021.md) · <code>执行对照-20261021.md</code> | 未标记 |
+| 2026-10-20T17:18:13+00:00 | [Codex上下文交接：In-Context Object Localization的VQA选择器探索](CODEX_HANDOFF_20261020.md) · <code>CODEX_HANDOFF_20261020.md</code> | 未标记 |
+| 2026-10-20T10:59:17+00:00 | [E-014 部署与首轮验证](%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%A6%96%E8%BD%AE%E9%AA%8C%E8%AF%81-20261020.md) · <code>部署与首轮验证-20261020.md</code> | 未标记 |
+| 2026-10-20T09:27:01+00:00 | [E-014 四项代码实现交付](%E5%9B%9B%E9%A1%B9%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BB%98-20261020.md) · <code>四项代码实现交付-20261020.md</code> | 未标记 |
+| 2026-10-20T09:07:19+00:00 | [E-014 四项代码实现准备](%E5%9B%9B%E9%A1%B9%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%87%86%E5%A4%87-20261020.md) · <code>四项代码实现准备-20261020.md</code> | 未标记 |
+| 2026-10-19T06:53:21+00:00 | [E-014 历史checkpoint候选扩集审计](%E5%8E%86%E5%8F%B2checkpoint%E5%80%99%E9%80%89%E6%89%A9%E9%9B%86%E5%AE%A1%E8%AE%A1-20261019.md) · <code>历史checkpoint候选扩集审计-20261019.md</code> | 未标记 |
 | 2026-10-19T02:05:16+00:00 | [E-014 日志导航](%E6%97%A5%E5%BF%97%E5%AF%BC%E8%88%AA.md) · <code>日志导航.md</code> | 未标记 |
 | 2026-10-19T02:04:57+00:00 | [E-014 全量日志导航（2026-10-19）](%E5%85%A8%E9%87%8F%E6%97%A5%E5%BF%97%E5%AF%BC%E8%88%AA-20261019.md) · <code>全量日志导航-20261019.md</code> | 未标记 |
 | 2026-10-19T00:37:47+00:00 | [原生成LoRA低IoU候选：50个补GT训练样本](visualizations/gt-injected-hard50-20261019/README.md) · <code>visualizations/gt-injected-hard50-20261019/README.md</code> | 未标记 |
 | 2026-10-14T01:05:38+00:00 | [G8 step150：1766样本评测与训练日志诊断](visualizations/g8-step150-20261014/report.md) · <code>visualizations/g8-step150-20261014/report.md</code> | 未标记 |
-| 2026-10-11T07:25:25+00:00 | [E-014：变长候选 prompt 与当前常用 prompt 的完整对照](prompt_comparison.md) · <code>prompt_comparison.md</code> | 未标记 |
 
 ## 核心文档
 
@@ -45,9 +50,15 @@ aliases: ["E-014 文档目录"]
 
 | 文档标题 / 专题 | 精确路径 | 文件修改（UTC） | 版本标记 / 替代入口 |
 |---|---|---|---|
+| [Codex上下文交接：In-Context Object Localization的VQA选择器探索](CODEX_HANDOFF_20261020.md) | <code>CODEX_HANDOFF_20261020.md</code> | 2026-10-20T17:18:13+00:00 | 未标记 |
 | [E-014：变长候选 prompt 与当前常用 prompt 的完整对照](prompt_comparison.md) | <code>prompt_comparison.md</code> | 2026-10-11T07:25:25+00:00 | 未标记 |
 | [E-014 全量日志导航（2026-10-19）](%E5%85%A8%E9%87%8F%E6%97%A5%E5%BF%97%E5%AF%BC%E8%88%AA-20261019.md) | <code>全量日志导航-20261019.md</code> | 2026-10-19T02:04:57+00:00 | 未标记 |
+| [E-014 历史checkpoint候选扩集审计](%E5%8E%86%E5%8F%B2checkpoint%E5%80%99%E9%80%89%E6%89%A9%E9%9B%86%E5%AE%A1%E8%AE%A1-20261019.md) | <code>历史checkpoint候选扩集审计-20261019.md</code> | 2026-10-19T06:53:21+00:00 | 未标记 |
+| [E-014 四项代码实现交付](%E5%9B%9B%E9%A1%B9%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E4%BA%A4%E4%BB%98-20261020.md) | <code>四项代码实现交付-20261020.md</code> | 2026-10-20T09:27:01+00:00 | 未标记 |
+| [E-014 四项代码实现准备](%E5%9B%9B%E9%A1%B9%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%87%86%E5%A4%87-20261020.md) | <code>四项代码实现准备-20261020.md</code> | 2026-10-20T09:07:19+00:00 | 未标记 |
+| [E-014 选择器对照执行记录](%E6%89%A7%E8%A1%8C%E5%AF%B9%E7%85%A7-20261021.md) | <code>执行对照-20261021.md</code> | 2026-10-21T10:35:32+00:00 | 未标记 |
 | [E-014 日志导航](%E6%97%A5%E5%BF%97%E5%AF%BC%E8%88%AA.md) | <code>日志导航.md</code> | 2026-10-19T02:05:16+00:00 | 未标记 |
+| [E-014 部署与首轮验证](%E9%83%A8%E7%BD%B2%E4%B8%8E%E9%A6%96%E8%BD%AE%E9%AA%8C%E8%AF%81-20261020.md) | <code>部署与首轮验证-20261020.md</code> | 2026-10-20T10:59:17+00:00 | 未标记 |
 
 ### visualizations/g8-step150-20261014
 
@@ -78,6 +89,15 @@ aliases: ["E-014 文档目录"]
 - [e014-discovery-score05-g8-step200-eval1766-20261016T124126Z · 用户暂停训练并评测step200；固定1766/boxes_then_scores_v1/greedy192/seed20260901。评测结束后从step20](runs/e014-discovery-score05-g8-step200-eval1766-20261016T124126Z.md) · <code>runs/e014-discovery-score05-g8-step200-eval1766-20261016T124126Z.md</code>
 - [e014-drawn-selection-lora-sft1epoch-20261018-r2 · 用户明确要求修正后直接运行。修复空localization_iou_thresholds与基类校验不兼容，使用53ab7653602f62ffc1d5c9dad](runs/e014-drawn-selection-lora-sft1epoch-20261018-r2.md) · <code>runs/e014-drawn-selection-lora-sft1epoch-20261018-r2.md</code>
 - [e014-drawn-selection-lora-sft1epoch-20261018 · 用户已授权独立选择LoRA训练。本训练Run只在数据父Run成功且train/validation分组、候选及渲染/标签哈希验收后启动。原始Qwen3-VL-8](runs/e014-drawn-selection-lora-sft1epoch-20261018.md) · <code>runs/e014-drawn-selection-lora-sft1epoch-20261018.md</code>
+- [e014-historical-balanced-vqa-lora4epoch-20261019 · 用户授权用新收集历史候选训练VQA4epoch。fresh独立无框原图+文字bbox选择LoRA，不继承旧1310权重，不做自动评测。先构造原生合格组（精确框/](runs/e014-historical-balanced-vqa-lora4epoch-20261019.md) · <code>runs/e014-historical-balanced-vqa-lora4epoch-20261019.md</code>
+- [e014-historical-balanced-vqa-step4041-test1766-20261020 · 用户要求先暂停当前训练然后评测。已向核实本Run torchrun339243发SIGINT；最新保存checkpoint samples_00064656_s](runs/e014-historical-balanced-vqa-step4041-test1766-20261020.md) · <code>runs/e014-historical-balanced-vqa-step4041-test1766-20261020.md</code>
+- [e014-historical-three-source-train8367-generation-20261019 · 用户批准上一轮三来源在训练集生成候选：固定合法8367对manifest SHA184f50ab3663a5a2640f62b9cdb6ebf96dd71214](runs/e014-historical-three-source-train8367-generation-20261019.md) · <code>runs/e014-historical-three-source-train8367-generation-20261019.md</code>
+- [e014-historical-vqa-resume4041-to5388-eval1766-20261020 · 用户要求从3epoch checkpoint断点续训完成并看看提升：从samples_00064656_step_004041恢复adapter/AdamW/s](runs/e014-historical-vqa-resume4041-to5388-eval1766-20261020.md) · <code>runs/e014-historical-vqa-resume4041-to5388-eval1766-20261020.md</code>
+- [e014-linear5388-instances650-proposals-test1766-20261021 · 用户明确要求测试固定三框checkpoint的proposal。固定父Run最终线性LR step5388选择器，在同1766例上将当前step200候选替换为](runs/e014-linear5388-instances650-proposals-test1766-20261021.md) · <code>runs/e014-linear5388-instances650-proposals-test1766-20261021.md</code>
+- [e014-linear5388-original-proposal-oracle-visualization-20261021 · 用户请求可视化当前选择器与Oracle的差距，明确用原step200 proposal而非三框。对已完成的1766冻结预测做CPU事后分析，核逐例IoU，拆解g](runs/e014-linear5388-original-proposal-oracle-visualization-20261021.md) · <code>runs/e014-linear5388-original-proposal-oracle-visualization-20261021.md</code>
+- [e014-model-parallel-ddp4x2-bf16-20261021 · 继续完成用户要求的4x2模型并行DDP能力验证。前次1/2shot通过而4shot反向OOM；此次保留全部失败产物，使用独立新目录，同8个GOT视频/同1,2,](runs/e014-model-parallel-ddp4x2-bf16-20261021.md) · <code>runs/e014-model-parallel-ddp4x2-bf16-20261021.md</code>
+- [e014-model-parallel-ddp4x2-capability-20261021 · 用户要求试验每个模型拆到两张卡、四个副本DDP的4x2方式。本次仅实现并验证混合模型并行＋DDP训练能力：复用现有Qwen3-VL-8B和SFT入口，fresh](runs/e014-model-parallel-ddp4x2-capability-20261021.md) · <code>runs/e014-model-parallel-ddp4x2-capability-20261021.md</code>
+- [e014-model-parallel-ddp4x2-result-audit-20261021 · 继续完成用户要求的4×2 DDP能力验证：只读既有4×2 DDP短程GPU训练产物的CPU审计；不新增训练/模型推理/部署。父Run的汇总脚本错误地要求q_pr](runs/e014-model-parallel-ddp4x2-result-audit-20261021.md) · <code>runs/e014-model-parallel-ddp4x2-result-audit-20261021.md</code>
 - [e014-multi-bonus02-g8-sft659-seed11451 · 用户选方案1并要求重新训练及约400步自动评测：新独立训练从原SFT659 fresh policy+固定anchor，纯GRPO；仅settings.trai](runs/e014-multi-bonus02-g8-sft659-seed11451.md) · <code>runs/e014-multi-bonus02-g8-sft659-seed11451.md</code>
 - [e014-multi-bonus02-g8-step150-eval1766-r2 · 用户明确要求“修正然后评测”，授权修正前次output_dir布局错误后一次新评测。保留失败父Run全部产物，新Run根级outputs为canonical o](runs/e014-multi-bonus02-g8-step150-eval1766-r2.md) · <code>runs/e014-multi-bonus02-g8-step150-eval1766-r2.md</code>
 - [e014-multi-bonus02-g8-step150-eval1766 · 用户要求现在停止G8训练并开始评测，不再等400。训练已按授权停止，8rank实际完成154更新；最新完整保存checkpoint为本父Run payload/](runs/e014-multi-bonus02-g8-step150-eval1766.md) · <code>runs/e014-multi-bonus02-g8-step150-eval1766.md</code>
@@ -88,6 +108,14 @@ aliases: ["E-014 文档目录"]
 - [e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451 · multi_v2 / min实例覆盖 / soft预算5 / 同组奖励诊断 / freshSFT659纯GRPO](runs/e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451.md) · <code>runs/e014-multi-v2-cover-min-cap5-sft659-puregrpo-seed11451.md</code>
 - [e014-multi-v2-step200-eval1766-8gpu · multi_v2本分支step200、原1766样本八卡评测](runs/e014-multi-v2-step200-eval1766-8gpu.md) · <code>runs/e014-multi-v2-step200-eval1766-8gpu.md</code>
 - [e014-multi-v2-symmetric-sft659-puregrpo-seed11451 · multi_v2多实例枚举、两行模板、原SFT659独立纯GRPO](runs/e014-multi-v2-symmetric-sft659-puregrpo-seed11451.md) · <code>runs/e014-multi-v2-symmetric-sft659-puregrpo-seed11451.md</code>
+- [e014-real-reference-pairs-preparation-20261021 · 直接执行已讨论的Reference成对数据方案：基于真实TAO train标注及现有冻结候选，核实同Query换Reference对应不同答案的可用量并导出普通](runs/e014-real-reference-pairs-preparation-20261021.md) · <code>runs/e014-real-reference-pairs-preparation-20261021.md</code>
+- [e014-real-reference-pairs-preparation-r2-20261021 · 继续当前明确授权的真实配对准备，首次脚本历史路径缺generation层，在任何配对数据写出前失败。已从原真实命令纠正路径并实测三份SHA相符，科学设置不变；独](runs/e014-real-reference-pairs-preparation-r2-20261021.md) · <code>runs/e014-real-reference-pairs-preparation-r2-20261021.md</code>
+- [e014-reference-control-fresh3epoch-validation124-20261021 · 用户已明确要求运行成对监督对照。真实数据已验收，先执行A-only控制：718行/fresh同seed LoRA/3epochs135更新2160呈现，最终12](runs/e014-reference-control-fresh3epoch-validation124-20261021.md) · <code>runs/e014-reference-control-fresh3epoch-validation124-20261021.md</code>
+- [e014-reference-control-step135-eval124-recovery-20261021 · 补完用户已授权的control组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原](runs/e014-reference-control-step135-eval124-recovery-20261021.md) · <code>runs/e014-reference-control-step135-eval124-recovery-20261021.md</code>
+- [e014-reference-control-step135-eval124-recovery-r2-20261021 · 继续完成用户原定control组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoin](runs/e014-reference-control-step135-eval124-recovery-r2-20261021.md) · <code>runs/e014-reference-control-step135-eval124-recovery-r2-20261021.md</code>
+- [e014-reference-paired-fresh3epoch-validation124-20261021 · 用户已明确要求运行成对监督对照。真实359train pairs导出718行A/B监督，fresh同seed LoRA/3epochs135更新2160呈现，最](runs/e014-reference-paired-fresh3epoch-validation124-20261021.md) · <code>runs/e014-reference-paired-fresh3epoch-validation124-20261021.md</code>
+- [e014-reference-paired-step135-eval124-recovery-20261021 · 补完用户已授权的paired组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最](runs/e014-reference-paired-step135-eval124-recovery-20261021.md) · <code>runs/e014-reference-paired-step135-eval124-recovery-20261021.md</code>
+- [e014-reference-paired-step135-eval124-recovery-r2-20261021 · 继续完成用户原定paired组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint](runs/e014-reference-paired-step135-eval124-recovery-r2-20261021.md) · <code>runs/e014-reference-paired-step135-eval124-recovery-r2-20261021.md</code>
 - [e014-resume-multibox-20261016T165703Z · 读取续训最新完整窗口、多框率与Oracle gap，核验step300周期评测是否生成；不改训练。](runs/e014-resume-multibox-20261016T165703Z.md) · <code>runs/e014-resume-multibox-20261016T165703Z.md</code>
 - [e014-resume-progress-20261017T022724Z · 用户查询当前进展；单次只读续训窗口和step300自动评测，不改训练。](runs/e014-resume-progress-20261017T022724Z.md) · <code>runs/e014-resume-progress-20261017T022724Z.md</code>
 - [e014-reward-constraint-solver-20261016 · 用户授权继续完成奖励自动求解：本地合成约束求解、反例迭代与G=4优势模拟。继承现有未提交模拟程序继续开发，不读取训练产物，不部署或训练。](runs/e014-reward-constraint-solver-20261016.md) · <code>runs/e014-reward-constraint-solver-20261016.md</code>
@@ -111,6 +139,11 @@ aliases: ["E-014 文档目录"]
 - [e014-selection-lora-step72-test1766-20261018 · 用户要求开始1700集完整评测，即此前1766例冻结测试集。评测最终step72独立选择LoRA；使用历史score04-step200最高已记录Oracle候](runs/e014-selection-lora-step72-test1766-20261018.md) · <code>runs/e014-selection-lora-step72-test1766-20261018.md</code>
 - [e014-selection-lora-step72-validation334-20261018 · 用户同意评测训练后的独立选择LoRA。按刚才建议仅做内部验证集334例（123多候选）评测，使用r2最终step72 adapter及已验收数据Run的vali](runs/e014-selection-lora-step72-validation334-20261018.md) · <code>runs/e014-selection-lora-step72-validation334-20261018.md</code>
 - [e014-selection-sft-data-step200-20261018 · 用户授权独立画框选择LoRA训练的必要数据阶段：从现有2000正训练对排除与1766评测集同身份/原视频来源（只读审计59）后约1941，以原视频/序列seed](runs/e014-selection-sft-data-step200-20261018.md) · <code>runs/e014-selection-sft-data-step200-20261018.md</code>
+- [e014-selector-extension-validation-20261020 · 用户在四项代码交付后明确授权“可以部署运行”。部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6后，先执行一次有限验证：候选换](runs/e014-selector-extension-validation-20261020.md) · <code>runs/e014-selector-extension-validation-20261020.md</code>
+- [e014-selector-extension-validation-r2-20261020 · 继续用户已授权的部署运行验收：首次验收脚本遗漏仓库现有torchvision NMS兼容初始化，在任何测试/模型调用前exit1，保留失败事实。修正版仅复用ip](runs/e014-selector-extension-validation-r2-20261020.md) · <code>runs/e014-selector-extension-validation-r2-20261020.md</code>
+- [e014-selector-linear-decay4041-to5388-eval1766-20261021 · 用户明确要求直接执行所讨论实验。本次从原step4041恢复，保持原数据和总5388步，仅将最后1347更新改为linear学习率5e-5降至5e-6，保留Ad](runs/e014-selector-linear-decay4041-to5388-eval1766-20261021.md) · <code>runs/e014-selector-linear-decay4041-to5388-eval1766-20261021.md</code>
+- [e014-selector-step4041-localviews-validation334-20261021 · 用户明确要求运行局部图方案。使用固定validation334/123多候选、step4041，比较无框原图两张与原图+Reference和候选裁剪K+3张，p](runs/e014-selector-step4041-localviews-validation334-20261021.md) · <code>runs/e014-selector-step4041-localviews-validation334-20261021.md</code>
+- [e014-selector-step4041-permutation-p1-20261020 · 用户已授权“可以部署运行”，部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6及有限逻辑/真实输入验收已完成。现在执行一次st](runs/e014-selector-step4041-permutation-p1-20261020.md) · <code>runs/e014-selector-step4041-permutation-p1-20261020.md</code>
 - [e014-step150-vs200-paired-analysis-20261016 · 用户要求分析step150结果为何与预期不同；离线比较同轮step200的1766条prediction，分解候选质量和score选择，不重新推理。](runs/e014-step150-vs200-paired-analysis-20261016.md) · <code>runs/e014-step150-vs200-paired-analysis-20261016.md</code>
 - [e014-step800-variable-candidates-eval1766-8gpu · step800原1766样本八卡变长候选评测](runs/e014-step800-variable-candidates-eval1766-8gpu.md) · <code>runs/e014-step800-variable-candidates-eval1766-8gpu.md</code>
 - [e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2 · 继续完成用户当前问题：现在多框输出是否更多。首次只读分析因min参数类型错误没有形成结果，保留失败目录；独立修正版只读比较beta0与本会话显式引用beta.0](runs/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2.md) · <code>runs/e014-structure-score-iou-explore-v1-beta0-current-multibox-analysis-r2.md</code>

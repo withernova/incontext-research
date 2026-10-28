@@ -1,5 +1,0 @@
-{"time":"2026-10-14T00:39:07.139Z","event":"phase_transition","from":"monitoring","to":"needs_attention","reason":"process check unverified"}
-{"time":"2026-10-14T00:41:08.920Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
-{"time":"2026-10-14T00:41:39.267Z","event":"phase_transition","from":"needs_attention","to":"stopped","reason":"task queue started"}
-{"time":"2026-10-14T01:06:11.232Z","event":"paused_after_restart","to":"stopped","reason":"pi restarted; explicit /steward start required"}
-{"time":"2026-10-14T01:08:14.528Z","event":"phase_transition","from":"stopped","to":"stopped","reason":"user requested via tool"}

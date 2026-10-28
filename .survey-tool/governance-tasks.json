@@ -3295,6 +3295,1275 @@
         }
       },
       "created_at": "2026-10-19T12:55:24"
+    },
+    {
+      "task_id": "classify-01825be2c4bb0e6d23df",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-three-source-train8367-generation-20261019",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-historical-three-source-train8367-generation-20261019",
+          "run_type": "",
+          "variant": "用户批准上一轮三来源在训练集生成候选：固定合法8367对manifest SHA184f50ab3663a5a2640f62b9cdb6ebf96dd71214",
+          "purpose": "用户批准上一轮三来源在训练集生成候选：固定合法8367对manifest SHA184f50ab3663a5a2640f62b9cdb6ebf96dd7121480d9508caf7e3aef99d95640；顺序E012 ref10query5 step494 focus单框无score、E013 SFT659三框位置假设v2、E013三实例GRPO650 focus_multi3_instances_v1。各8367，总25101源-样本生成，单次串行8GPU BF16SDPA/vision4096/greedy192tokens/seed20260901。保留原始预测/所有解析失败/配置prompt快照与SHA；本Run只候选收集，不补GT、不混组、不选择器训练、不做1766评测、不恢复旧训练、不自动retry。复用现有evaluate.py和配置覆盖，不新增批量runner。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-19T15:01:19"
+    },
+    {
+      "task_id": "classify-ebb3e17d3302878af498",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+          "run_type": "",
+          "variant": "用户授权用新收集历史候选训练VQA4epoch。fresh独立无框原图+文字bbox选择LoRA，不继承旧1310权重，不做自动评测。先构造原生合格组（精确框/",
+          "purpose": "用户授权用新收集历史候选训练VQA4epoch。fresh独立无框原图+文字bbox选择LoRA，不继承旧1310权重，不做自动评测。先构造原生合格组（精确框/集合去重，保留来源），补少量oldstep200无好框时跨来源好框+真实错框互补组；所有来源均无好框时按既有规则训练专用补GT。K>=2/Oracle>=.5/gap>.05。分层均衡静态清单：三数据集各相同曝光量，至少覆盖所有可用独立图像对一次；dataset内每源曝光差<=1，每次选择一组与一个编号置换。固定seed20260901，清单冻结后训练4遍（不是每epoch动态重采样），不按候选或rotation数量增加原样本权重；实际epoch行数/更新数在数据验收后登记。复用现有dataset/runner与NF4r8alpha16/globalbatch16/lr5e-5/vision4096/.5epoch存档/原loss门禁。只训练，不恢复旧Run，不自动retry或扩预算。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-19T20:25:53"
+    },
+    {
+      "task_id": "classify-684d79fa8cd8feb6227f",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+          "run_type": "",
+          "variant": "用户要求先暂停当前训练然后评测。已向核实本Run torchrun339243发SIGINT；最新保存checkpoint samples_00064656_s",
+          "purpose": "用户要求先暂停当前训练然后评测。已向核实本Run torchrun339243发SIGINT；最新保存checkpoint samples_00064656_step_004041（3epoch）待完整性核验。仅评测此最新完整checkpoint，固定1766与score04step200候选、无框原图+exact_instance文字bbox，greedy16/EOS/vision4096/seed20260901。确认父退出/GPU释放后受管单次评测，不搜索其它checkpoint，不自动恢复训练/重试；对比已有无框1310/画框2095并保留数据/预算混杂边界。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-20T09:22:24"
+    },
+    {
+      "task_id": "classify-046415f01cabf79de927",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+          "run_type": "",
+          "variant": "用户要求从3epoch checkpoint断点续训完成并看看提升：从samples_00064656_step_004041恢复adapter/AdamW/s",
+          "purpose": "用户要求从3epoch checkpoint断点续训完成并看看提升：从samples_00064656_step_004041恢复adapter/AdamW/scheduler/history/进度，到原总4epoch step5388，仅新增1347更新/21552呈现。复用同一21552行静态均衡train SHA6d2a9b4fcd6825736aa3534afd6b2de895da4f45352d79246ef11125cd2ffc21，无框bbox配置和超参不变。新独立输出，不改原中断Run；逐rank RNG当前接口不恢复，seed重设并记录限制。只有训练成功和原fixed8-loss门禁通过后，串行评测最终4epoch checkpoint一次固定1766，与4041对比；失败停止不retry，不测其他checkpoint，不扩预算。不启Steward/定时轮询。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-20T11:18:24"
+    },
+    {
+      "task_id": "classify-da0f4001fef4a9b9f50c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-20261020",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-selector-extension-validation-20261020",
+          "run_type": "",
+          "variant": "用户在四项代码交付后明确授权“可以部署运行”。部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6后，先执行一次有限验证：候选换",
+          "purpose": "用户在四项代码交付后明确授权“可以部署运行”。部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6后，先执行一次有限验证：候选换序映射/无效回答统计、裁剪像素与角色顺序、LR端点和二次恢复、少量真实输入的train/eval processor编码；原始TAO配对证据可用性只作核验，不训练、不改变历史产物。通过后另登记step4041固定1766换序P1诊断。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-20T18:47:44"
+    },
+    {
+      "task_id": "classify-f5b93a1cfddef64f926c",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-r2-20261020",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-selector-extension-validation-r2-20261020",
+          "run_type": "",
+          "variant": "继续用户已授权的部署运行验收：首次验收脚本遗漏仓库现有torchvision NMS兼容初始化，在任何测试/模型调用前exit1，保留失败事实。修正版仅复用ip",
+          "purpose": "继续用户已授权的部署运行验收：首次验收脚本遗漏仓库现有torchvision NMS兼容初始化，在任何测试/模型调用前exit1，保留失败事实。修正版仅复用iploc_szy.compat.ensure_torchvision_nms_schema，并使用独立payload目录与受管outputs分离；部署SHA、科学代码和验证范围不变，不安装依赖、不恢复历史训练。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-20T18:53:10"
+    },
+    {
+      "task_id": "classify-51a1cc89f951648e1fe4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-permutation-p1-20261020",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-selector-step4041-permutation-p1-20261020",
+          "run_type": "",
+          "variant": "用户已授权“可以部署运行”，部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6及有限逻辑/真实输入验收已完成。现在执行一次st",
+          "purpose": "用户已授权“可以部署运行”，部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6及有限逻辑/真实输入验收已完成。现在执行一次step4041选择器换序P1诊断：冻结1766/791和原候选不变，无框exact_instance，原顺序加每题1个非重复排列；8GPU/BF16/SDPA/greedy16/EOS/vision4096/seed20260901。1582次多框VQA，原顺序保留为主结果，不投票、不训练、不自动重试或恢复历史任务；记录映射/回复/有效性/实际grid。仅启动核验，无短周期轮询。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-20T18:56:28"
+    },
+    {
+      "task_id": "classify-f2687ea0f887a3925e1b",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+          "run_type": "",
+          "variant": "用户明确要求直接执行所讨论实验。本次从原step4041恢复，保持原数据和总5388步，仅将最后1347更新改为linear学习率5e-5降至5e-6，保留Ad",
+          "purpose": "用户明确要求直接执行所讨论实验。本次从原step4041恢复，保持原数据和总5388步，仅将最后1347更新改为linear学习率5e-5降至5e-6，保留Adam/history，完成后一次最终1766评测，与已有恒定LR续训对照；使用已部署7caae09，不重复确认授权。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:03:38"
+    },
+    {
+      "task_id": "classify-eb96fb2833925955416e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-real-reference-pairs-preparation-20261021",
+          "run_type": "",
+          "variant": "直接执行已讨论的Reference成对数据方案：基于真实TAO train标注及现有冻结候选，核实同Query换Reference对应不同答案的可用量并导出普通",
+          "purpose": "直接执行已讨论的Reference成对数据方案：基于真实TAO train标注及现有冻结候选，核实同Query换Reference对应不同答案的可用量并导出普通SFT/匹配预算控制输入。原始标注与图像/候选SHA核验、视频拆分、真实接受拒绝都记录，不追加GT；准备过程无GPU。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:06:49"
+    },
+    {
+      "task_id": "classify-963df426facbae22a444",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-selector-step4041-localviews-validation334-20261021",
+          "run_type": "",
+          "variant": "用户明确要求运行局部图方案。使用固定validation334/123多候选、step4041，比较无框原图两张与原图+Reference和候选裁剪K+3张，p",
+          "purpose": "用户明确要求运行局部图方案。使用固定validation334/123多候选、step4041，比较无框原图两张与原图+Reference和候选裁剪K+3张，padding.15，其他推理设置一致，共246次VQA。等待当前LR实验释放GPU后自动执行，不重复确认；单独记录，不训练、不改候选/GT。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:08:04"
+    },
+    {
+      "task_id": "classify-1da7668a468899d6ddd7",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-real-reference-pairs-preparation-r2-20261021",
+          "run_type": "",
+          "variant": "继续当前明确授权的真实配对准备，首次脚本历史路径缺generation层，在任何配对数据写出前失败。已从原真实命令纠正路径并实测三份SHA相符，科学设置不变；独",
+          "purpose": "继续当前明确授权的真实配对准备，首次脚本历史路径缺generation层，在任何配对数据写出前失败。已从原真实命令纠正路径并实测三份SHA相符，科学设置不变；独立修正版执行，原失败保留。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:09:19"
+    },
+    {
+      "task_id": "classify-c35a1c222b0e8455882e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-control-fresh3epoch-validation124-20261021",
+          "run_type": "",
+          "variant": "用户已明确要求运行成对监督对照。真实数据已验收，先执行A-only控制：718行/fresh同seed LoRA/3epochs135更新2160呈现，最终12",
+          "purpose": "用户已明确要求运行成对监督对照。真实数据已验收，先执行A-only控制：718行/fresh同seed LoRA/3epochs135更新2160呈现，最终124条双Reference验证。与下一配对arm同预算，编号分布差异如实记录。等待局部图评测释放GPU后自动执行，不额外确认。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:13:13"
+    },
+    {
+      "task_id": "classify-36fdaafb6c758cf36fb5",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+          "run_type": "",
+          "variant": "用户已明确要求运行成对监督对照。真实359train pairs导出718行A/B监督，fresh同seed LoRA/3epochs135更新2160呈现，最",
+          "purpose": "用户已明确要求运行成对监督对照。真实359train pairs导出718行A/B监督，fresh同seed LoRA/3epochs135更新2160呈现，最终124条/62pairs验证并统计双题均正确、换Reference选择变化；与A-only同预算。等待控制arm释放GPU后执行，记录编号分布混杂，复用已部署共享训练评测入口，不额外确认。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T01:13:13"
+    },
+    {
+      "task_id": "classify-5bba08948520b09860e0",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-control-step135-eval124-recovery-20261021",
+          "run_type": "",
+          "variant": "补完用户已授权的control组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原",
+          "purpose": "补完用户已授权的control组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最终checkpoint，不重训、不改科学参数或旧失败记录；新独立评测Run。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T13:37:44"
+    },
+    {
+      "task_id": "classify-86cb2f57aac67e7ea198",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-paired-step135-eval124-recovery-20261021",
+          "run_type": "",
+          "variant": "补完用户已授权的paired组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最",
+          "purpose": "补完用户已授权的paired组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最终checkpoint，不重训、不改科学参数或旧失败记录；新独立评测Run。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T13:37:45"
+    },
+    {
+      "task_id": "classify-dc868621e24a6e2e1835",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+          "run_type": "",
+          "variant": "继续完成用户原定control组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoin",
+          "purpose": "继续完成用户原定control组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint和原数据/seed/评测参数，不训练，不改历史。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T13:40:15"
+    },
+    {
+      "task_id": "classify-fa24ff812bd6b1a564f4",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+          "run_type": "",
+          "variant": "继续完成用户原定paired组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint",
+          "purpose": "继续完成用户原定paired组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint和原数据/seed/评测参数，不训练，不改历史。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T13:40:20"
+    },
+    {
+      "task_id": "classify-412046eaac92cc893344",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-linear5388-instances650-proposals-test1766-20261021",
+          "run_type": "",
+          "variant": "用户明确要求测试固定三框checkpoint的proposal。固定父Run最终线性LR step5388选择器，在同1766例上将当前step200候选替换为",
+          "purpose": "用户明确要求测试固定三框checkpoint的proposal。固定父Run最终线性LR step5388选择器，在同1766例上将当前step200候选替换为instances650历史冻结三框候选；先核对同Reference/Query图像和标注，再做一次全量评测。只改proposal来源，不训练，不做并集或新checkpoint搜索。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T14:57:57"
+    },
+    {
+      "task_id": "classify-f02b1c590e930b1aa7aa",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+          "run_type": "",
+          "variant": "用户请求可视化当前选择器与Oracle的差距，明确用原step200 proposal而非三框。对已完成的1766冻结预测做CPU事后分析，核逐例IoU，拆解g",
+          "purpose": "用户请求可视化当前选择器与Oracle的差距，明确用原step200 proposal而非三框。对已完成的1766冻结预测做CPU事后分析，核逐例IoU，拆解gap分布/数据集/候选数/命中阈值，导出可筛选图册、参考图及Query上的GT/选择/Oracle对照、统计图与CSV。无新推理、训练或checkpoint变化。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T15:41:23"
+    },
+    {
+      "task_id": "classify-47d9692ca956ba2bc528",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-model-parallel-ddp4x2-capability-20261021",
+          "run_type": "",
+          "variant": "用户要求试验每个模型拆到两张卡、四个副本DDP的4x2方式。本次仅实现并验证混合模型并行＋DDP训练能力：复用现有Qwen3-VL-8B和SFT入口，fresh",
+          "purpose": "用户要求试验每个模型拆到两张卡、四个副本DDP的4x2方式。本次仅实现并验证混合模型并行＋DDP训练能力：复用现有Qwen3-VL-8B和SFT入口，fresh LoRA，不继承父训练checkpoint或完整训练命令；在同8张3090上核对GPU配对、跨卡前反向、全副本LoRA梯度/参数一致、checkpoint保存恢复和1/2/4-shot真实样本的短程更新及显存。先用已有Qwen3验证并行能力；FOCUS Qwen2迁移和正式长训练另行安排。本次授权必要代码发布、指定SHA部署、聚焦测试和有限GPU验证，所有产物写独立子Run，不改历史。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T17:40:23"
+    },
+    {
+      "task_id": "classify-3eea7f6e7c4d87b1ad1a",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-model-parallel-ddp4x2-bf16-20261021",
+          "run_type": "",
+          "variant": "继续完成用户要求的4x2模型并行DDP能力验证。前次1/2shot通过而4shot反向OOM；此次保留全部失败产物，使用独立新目录，同8个GOT视频/同1,2,",
+          "purpose": "继续完成用户要求的4x2模型并行DDP能力验证。前次1/2shot通过而4shot反向OOM；此次保留全部失败产物，使用独立新目录，同8个GOT视频/同1,2,4shot采样/每图4096raw patches/14+22层切分/4进程/global16，仅显式改为冻结embedding BF16＋SFT autocast BF16，记录真实q_proj dtype。不安装或改变环境；FlashAttention2现有扩展GLIBC不兼容，使用原生SDPA。每shot2步并4shot恢复1步，共7更新112呈现，fresh LoRA，非长训练/非Qwen2/非FOCUS attention loss。包含聚焦测试、必要指定SHA发布部署与受管运行，失败停止。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T18:03:35"
+    },
+    {
+      "task_id": "classify-e8a4bbda6b6694109ea1",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+          "run_type": "",
+          "variant": "继续完成用户要求的4×2 DDP能力验证：只读既有4×2 DDP短程GPU训练产物的CPU审计；不新增训练/模型推理/部署。父Run的汇总脚本错误地要求q_pr",
+          "purpose": "继续完成用户要求的4×2 DDP能力验证：只读既有4×2 DDP短程GPU训练产物的CPU审计；不新增训练/模型推理/部署。父Run的汇总脚本错误地要求q_proj输出必须BF16，实际首尾层均为FP32，即使显式embedding BF16与autocast已启用。保留父Run终态和错误，单独核验1/2/4shot各2步和4shot恢复step3、112呈现、有限梯度、全LoRA跨rank SHA一致、恢复SHA连续、四组独占GPU、实际code/config快照、逐卡memory及原样记录FP32；不声称attention内部dtype或单独精度机制因果。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T18:19:46"
+    },
+    {
+      "task_id": "classify-737b44b7f19a4abf5406",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multishot-data-preparation-20261021",
+          "run_type": "",
+          "variant": "构造同查询的多帧数据",
+          "purpose": "保留现有测试查询，为一、二、四张参考帧生成可追溯清单，并检查训练与测试来源重叠。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:02:20"
+    },
+    {
+      "task_id": "classify-18da7488d867e9c1da16",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r2-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multishot-data-preparation-r2-20261021",
+          "run_type": "",
+          "variant": "仅修复TAO原始验证集标注文件名为validation.json；保持原数据准备定义和所有原始输入，不复用失败目录。用户本次已授权完成E015数据与pipeli",
+          "purpose": "仅修复TAO原始验证集标注文件名为validation.json；保持原数据准备定义和所有原始输入，不复用失败目录。用户本次已授权完成E015数据与pipeline。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:05:50"
+    },
+    {
+      "task_id": "classify-32049dcddd986226304e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r3-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multishot-data-preparation-r3-20261021",
+          "run_type": "",
+          "variant": "前次仅预检因部署超时而未执行。部署完成后按完全相同的修正版输入进行一次数据准备。",
+          "purpose": "前次仅预检因部署超时而未执行。部署完成后按完全相同的修正版输入进行一次数据准备。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:10:18"
+    },
+    {
+      "task_id": "classify-bd8627f2645742d0c79b",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r4-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multishot-data-preparation-r4-20261021",
+          "run_type": "",
+          "variant": "只修正PIL尺寸读取属性，保持所有数据、采样、排除和哈希审计定义，继续完成已授权E015数据准备。",
+          "purpose": "只修正PIL尺寸读取属性，保持所有数据、采样、排除和哈希审计定义，继续完成已授权E015数据准备。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:11:39"
+    },
+    {
+      "task_id": "classify-b846e104f8043ea8dc7e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+          "run_type": "",
+          "variant": "双卡副本的多帧训练检查",
+          "purpose": "确认换成Qwen2后，多参考帧训练与选择器能否在现有八张卡运行，并核对保存恢复是否正确。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:14:57"
+    },
+    {
+      "task_id": "classify-a059b3d8597134cbd7f0",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r5-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multishot-data-preparation-r5-20261021",
+          "run_type": "",
+          "variant": "复用已完成六份清单（训练10175、测试1728），重核同Query/GT/索引和SHA；仅复核被排除记录并记录原因。GRPO中保留原始行与奖励，对无效中间参考",
+          "purpose": "复用已完成六份清单（训练10175、测试1728），重核同Query/GT/索引和SHA；仅复核被排除记录并记录原因。GRPO中保留原始行与奖励，对无效中间参考帧选择同轨迹最近的有效帧，不裁剪标注，逐例记录nominal→actual和原始标注SHA。继续用户授权的E015。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:41:03"
+    },
+    {
+      "task_id": "classify-c54d96bb63ec9330aaeb",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+          "run_type": "",
+          "variant": "Qwen2四参考帧完整方法训练与同模型多shot评测",
+          "purpose": "按统一Qwen2基础设置运行自有SFT→GRPO多框→VQA方法，检验增加参考帧后实际选择与Oracle差距。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T19:56:38"
+    },
+    {
+      "task_id": "classify-1ab9314e0ee57d27c9f3",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+          "run_type": "",
+          "variant": "修正选择器配置并仅补跑选择训练/五图推理，复核父Run已通过SFT阶段；继续用户授权E015完整任务。",
+          "purpose": "修正选择器配置并仅补跑选择训练/五图推理，复核父Run已通过SFT阶段；继续用户授权E015完整任务。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T20:02:50"
+    },
+    {
+      "task_id": "classify-efce2bc0738b43d68c29",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+          "run_type": "",
+          "variant": "修正两卡副本早期同步的设备编号，只补跑五图VQA，所有已通过训练阶段不重复；继续E015。",
+          "purpose": "修正两卡副本早期同步的设备编号，只补跑五图VQA，所有已通过训练阶段不重复；继续E015。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T20:17:06"
+    },
+    {
+      "task_id": "classify-f0ac65922c54b7f64172",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-vqa-actual-budget4096-20261021",
+          "run_type": "",
+          "variant": "修正Qwen2真实图像预算并补测输入grid；保留全部历史证据，继续独立E015正式pipeline。",
+          "purpose": "修正Qwen2真实图像预算并补测输入grid；保留全部历史证据，继续独立E015正式pipeline。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T20:27:00"
+    },
+    {
+      "task_id": "classify-42b59f472e85e4881b2e",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+          "run_type": "",
+          "variant": "使用实际Qwen3 processor配置修正回归测试导入，继续CPU和五图预算验证。",
+          "purpose": "使用实际Qwen3 processor配置修正回归测试导入，继续CPU和五图预算验证。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-21T20:34:05"
+    },
+    {
+      "task_id": "classify-4b96319d26e620680bf1",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-iploc144-qwen2-4shot-restart-20261023",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-iploc144-qwen2-4shot-restart-20261023",
+          "run_type": "",
+          "variant": "IPLoc官方144修正划分后Qwen2四参考帧重新训练",
+          "purpose": "修正数据泄漏与近邻参考帧采样后重新启动自有SFT→GRPO多框score→VQA，使用作者发布144条评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-23T20:48:34"
+    },
+    {
+      "task_id": "classify-421e37a36cb0cd305fd5",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+          "run_type": "",
+          "variant": "IPLoc官方144修正划分后Qwen2四参考帧重新训练",
+          "purpose": "修正数据泄漏与近邻参考帧采样后重新启动自有SFT→GRPO多框score→VQA，使用作者发布144条评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-23T20:49:09"
+    },
+    {
+      "task_id": "classify-043052653450d6307554",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+          "run_type": "",
+          "variant": "IPLoc官方144修正划分后Qwen2四参考帧重新训练",
+          "purpose": "修正数据泄漏与近邻参考帧采样后重新启动自有SFT→GRPO多框score→VQA，使用作者发布144条评测。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-23T20:53:41"
+    },
+    {
+      "task_id": "classify-ac2777085e0e8e140bc0",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-three-dataset-eval-20261026",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-three-dataset-eval-20261026",
+          "run_type": "",
+          "variant": "用户授权使用已完成E015模型联合评测LaSOT/GOT10k/TAO的1/2/4shot。复用父GRPO与selector及LaSOT144预测；新增GOT1",
+          "purpose": "用户授权使用已完成E015模型联合评测LaSOT/GOT10k/TAO的1/2/4shot。复用父GRPO与selector及LaSOT144预测；新增GOT10k和TAO-Amodal官方validation带标签评测，按父训练的均匀参考取帧构造共同query集，核查SFT/GRPO源视频互斥并报告类别重合。分别报告score/VQA/Oracle mIoU与Acc50，各数据集、合并样本微平均、三数据集等权宏平均。不是FOCUS官方test复现；保留原标注异常，缺帧或不足5帧记录排除。不训练，不改变模型/prompt/score/奖励。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-26T09:51:21"
+    },
+    {
+      "task_id": "classify-f94d8dff1952a2397d9a",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014data-20261026",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-selector-e014data-20261026",
+          "run_type": "",
+          "variant": "用户明确要求先用E014丰富选择数据替换当前VQA阶段数据，诊断提升幅度，之后再解决数据来源。原样使用E014冻结21552行/8203 source_inde",
+          "purpose": "用户明确要求先用E014丰富选择数据替换当前VQA阶段数据，诊断提升幅度，之后再解决数据来源。原样使用E014冻结21552行/8203 source_index（SHA6d2a9b4f...），全部1参考图，不重建/删改标签或过滤重合；审计与当前评测的源视频/图像重合并披露。Qwen2官方base fresh独立LoRA，保留E015选择器lr5e-5/global16/4epochs/warmup.03/clip.3/seed20260901/末1/4衰减到.1，因此总5388步。保留E014原prompt/候选/编号监督，不加载旧Qwen3 adapter，不重训proposal。固定父联合评测的1/2/4shot共每shot1289条manifest及proposal，重新VQA后和当前selector逐数据集/总体/宏平均对比，报告mIoU/Acc50及mIoU差值。仅诊断，可能含测试来源重合，不能据此声称干净泛化或单因素数据规模因果。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-26T15:41:09"
+    },
+    {
+      "task_id": "classify-2d1c0fe48098dc1610f8",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean-20261026",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-selector-e014clean-20261026",
+          "run_type": "",
+          "variant": "用户纠正：去掉可能影响当前测试集的旧E014数据。排除当前作者LaSOT36测试类别（含TAO内LaSOT来源），排除三数据集1/2/4shot全部测试源视频（",
+          "purpose": "用户纠正：去掉可能影响当前测试集的旧E014数据。排除当前作者LaSOT36测试类别（含TAO内LaSOT来源），排除三数据集1/2/4shot全部测试源视频（跨数据集LaSOT/YouTube身份、AVA/HACS场景归一）及相同图像路径/SHA，按整源组/source_index闭包删除全部排列。原始21552行文件保持，独立过滤清单和删除原因/SHA留档，不重采样平衡。中止旧e014data Run并不得续训；从官方Qwen2 fresh独立LoRA，4epochs/global16/lr5e-5/warmup.03/clip.3/seed20260901，步数按过滤后规模计算、末1/4线性衰减。固定现有GRPO proposal和1289 Query各1/2/4shot自动三数据集评测，对比旧VQA、score、Oracle，45个diag_e014clean独立指标。保留原1shot题目/标签，调用既有训练评测入口，已知重合零不声称所有近重复完全排除，非单因素因果结论。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-26T16:02:32"
+    },
+    {
+      "task_id": "classify-288a8666e07ac03ff992",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-grpo-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-tier3-grpo-20261027",
+          "run_type": "",
+          "variant": "用户授权修改奖励并重启GRPO，持续记录多框率等指标。复用e015-iploc144-qwen2-4shot-restart-r3-20261023的SFT63",
+          "purpose": "用户授权修改奖励并重启GRPO，持续记录多框率等指标。复用e015-iploc144-qwen2-4shot-restart-r3-20261023的SFT636 adapter及训练数据/排除表/4shot参考；新optimizer fresh GRPO400步，不续旧GRPO。相同Qwen2/G4/4x2GPU/lr1e-5/beta0/seed11451/192token/保存50。采用candidate_behavior_tier_v1显式three/mean：正样本L=0未命中、L=1覆盖但score选错、L=2选中命中，R=L+.1Oracle+.2Selected+.2(1-E)+.1C-.05D-.05O，C为两个实例的最佳不同框匹配平均IoU，缺失0，最高.1，仅拼接启用；负样本保留.4(1-E)-.05D-.05O，非法-1，档间下界.3。旧默认five/min保持。group_reward_statistics window_updates1，每组与每完成更新刷新，区分原图/拼接及正负，记两种分母多框率、1/2/3/4+框数、均框数、Oracle/Selected IoU和命中、覆盖未选中率、重复度、coverage、奖励/优势统计。训练后固定每shot1289查询（三数据集）做1/2/4shot proposal+VQA，复用e014clean已训练selector，不重训SFT或VQA。与原GRPO及同selector结果比较，记录84独立tier3指标。奖励整体替换，不声称单因素因果；继承原数据划分限制。代码0e02d856ae30837eb60b511e8303cb50a50d1c26已发布部署，CPU必要预检20passed。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T13:33:46"
+    },
+    {
+      "task_id": "classify-696c3ff5551b478773d2",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-tier3-ddp8-probe-20261027",
+          "run_type": "",
+          "variant": "用户明确要求试8卡单副本DDP能否运行，并授权直接停止当前4x2训练；父Run完成18步后终止、无checkpoint、日志保留。独立8步能力短测，从同SFT6",
+          "purpose": "用户明确要求试8卡单副本DDP能否运行，并授权直接停止当前4x2训练；父Run完成18步后终止、无checkpoint、日志保留。独立8步能力短测，从同SFT636初始化，原GRPO4shot数据/三档mean覆盖.1奖励/G4/seed11451/4096patches/192completion/1e-5保持；devices_per_replica1/layer_splitNone/torchrun8。warmup_ratio=.5在8步短测中保持原4次warmup；fresh8卡更新有效batch为原两倍，8步处理64rank-pairs与原4x2的16步同量，不宣称优化轨迹等价。每步记录多框率等既有统计与LoRA八副本一致性/逐卡峰值，外层采集实际完成更新时间，4→8更新测postwarmup吞吐。无评测/正式400步继承，不修改共享代码，复用已部署0e02d856ae30837eb60b511e8303cb50a50d1c26。若OOM真实报告不压低shot/分辨率冒充通过。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T14:34:57"
+    },
+    {
+      "task_id": "classify-360ffe9dcec8d1497b9f",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-tier3-ddp8-full-20261027",
+          "run_type": "",
+          "variant": "用户在8卡DDP短测完成4步并核验无OOM记录后，明确要求进行完整训练。新的独立Run从同一SFT636 adapter重新初始化GRPO，8进程×1GPU，4",
+          "purpose": "用户在8卡DDP短测完成4步并核验无OOM记录后，明确要求进行完整训练。新的独立Run从同一SFT636 adapter重新初始化GRPO，8进程×1GPU，4shot/G4/三档奖励/拼接mean覆盖最高0.1均沿用已停止tier3父Run；devices_per_replica=1、layer_split=None，400更新、warmup_ratio0.01(4步)、lr1e-5/beta0/seed11451/4096patches/192token、每50步保存。8卡每步64rollouts，400步共3200rank-pairs/25600rollouts，为旧4副本400步总采样量两倍；已向用户说明，不声称等采样量或纯加速对照。旧18步和短测4步无checkpoint，不继承其权重；不重训SFT/VQA。逐组及每步记录原图/拼接分组多框率、框数分布、Oracle/Selected IoU与命中、覆盖未选中、奖励/优势、各卡峰值及LoRA一致性。完成后既有入口顺序执行三数据集固定1289查询的1/2/4shot proposal与clean VQA4172评测，推理维持BF16/4副本×2GPU，84项独立tier3_ddp8指标。保留LaSOT作者划分/GOT验证类别重合等原边界。复用已发布部署0e02d856ae30837eb60b511e8303cb50a50d1c26，不改共享源码；Run脚本沿原冻结调度快照，仅改训练启动/验收rank数与指标前缀，差异保存runner_delta.patch；算法和评测入口复用现有实现。失败保留现场，不自行降低shot、分辨率或更换奖励。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T15:15:12"
+    },
+    {
+      "task_id": "classify-2dcad9b49b7ec4e828df",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-multibox-history-reward-audit-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-multibox-history-reward-audit-20261027",
+          "run_type": "",
+          "variant": "用户明确要求分析过去多框率较高的样本，解释当前单框收缩。独立CPU衍生分析：冻结同Qwen2/SFT636/4shot/数据的旧discovery400步128",
+          "purpose": "用户明确要求分析过去多框率较高的样本，解释当前单框收缩。独立CPU衍生分析：冻结同Qwen2/SFT636/4shot/数据的旧discovery400步12800rollouts与当前tier3-DDP8前84步5376rollouts（按每rank前672行SHA冻结，不读取后续训练更新作为主数据），复用现有parser和two_instance_coverage。逐输出重算旧/新奖励并核对实际记录误差<1e-8；在同prompt同G4采样组比较真实单框/多框排序，分别替换coverage权重/mean方式、Oracle权重、score权重、选中档位以诊断排序变化。核验旧前168步与新前84步相同采样预算的sample_id多重集；比较旧前/后100步与新20步窗口。按明确排序规则选择反转样例及同prompt跨训练Oracle损失样例，生成可离线查看的HTML（实际4张参考图、原图+SVG框、完整输出/分项奖励），不是随机代表样本。无模型生成、无GPU计算、不改变/暂停正在运行的正式训练，不修改共享源码。排序重算不是重训因果或最终测试mIoU；保留数据划分与原图未标注其他实例的限制。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T19:16:27"
+    },
+    {
+      "task_id": "classify-f5f217b733ddafb0f0c8",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+          "run_type": "",
+          "variant": "用户明确要求使用新的Qwen2 VQA评测E014原始proposal，固定1766条1shot/791多框，报告score/VQA/Oracle及旧VQA配对",
+          "purpose": "用户明确要求使用新的Qwen2 VQA评测E014原始proposal，固定1766条1shot/791多框，报告score/VQA/Oracle及旧VQA配对；另报排除18原视频重合后的1748条。等现有完整GRPO及其评测成功结束且8卡空闲后执行，不中断训练。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T19:41:11"
+    },
+    {
+      "task_id": "classify-61e0191307e04f755e3d",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+          "run_type": "",
+          "variant": "用户将新Qwen2 VQA评测E014原proposal改为1/2/4shot都评测，不单独做/报告多框子集。固定proposal与同一共同查询，只增加VQA参",
+          "purpose": "用户将新Qwen2 VQA评测E014原proposal改为1/2/4shot都评测，不单独做/报告多框子集。固定proposal与同一共同查询，只增加VQA参考图；旧1shot排队取消。当前GRPO继续，新评测在其及既定评测成功结束且8卡空闲后运行。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T19:59:24"
+    },
+    {
+      "task_id": "classify-b45c0ce3dfd4047ebbb2",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+          "run_type": "",
+          "variant": "用户明确取消当前GRPO并立即执行已准备的新Qwen2 VQA×E014固定proposal的1/2/4shot评测。只取消等待依赖，科学配置和已核验输入全部复",
+          "purpose": "用户明确取消当前GRPO并立即执行已准备的新Qwen2 VQA×E014固定proposal的1/2/4shot评测。只取消等待依赖，科学配置和已核验输入全部复用；不单列多框子集。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-27T20:17:19"
+    },
+    {
+      "task_id": "classify-ef928d5b95342be27cc8",
+      "type": "classify_run",
+      "status": "queued",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+      "groups_hash": "4f53cda18c2b",
+      "requested_route": "lightweight_governance",
+      "payload": {
+        "run": {
+          "id": "e015-qwen2-selector-e014clean4shot-20261028",
+          "run_type": "",
+          "variant": "用户明确重新训练：E014清洗仅作数据来源，VQA参考数/提示/训练配置统一原E015四参考协议；沿原4epoch/global16设置，训练后固定E015和E",
+          "purpose": "用户明确重新训练：E014清洗仅作数据来源，VQA参考数/提示/训练配置统一原E015四参考协议；沿原4epoch/global16设置，训练后固定E015和E014两组proposal均评测1/2/4shot，不单列多框子集；不恢复GRPO。"
+        },
+        "groups": [],
+        "route": {
+          "enabled": true,
+          "agent_kind": "codex",
+          "model": "gpt-5.6-sol",
+          "fallback_agent_kind": "pi",
+          "fallback_model": "",
+          "inherited_from": "local_tool_edit"
+        }
+      },
+      "created_at": "2026-10-28T10:44:32"
     }
   ]
 }

@@ -1,3 +1,0 @@
-{"time":"2026-10-13T16:48:59.678Z","event":"phase_transition","from":"monitoring","to":"needs_attention","reason":"process check unverified"}
-{"time":"2026-10-13T16:51:01.645Z","event":"phase_transition","from":"needs_attention","to":"needs_attention","reason":"process check unverified"}
-{"time":"2026-10-13T16:51:03.103Z","event":"phase_transition","from":"needs_attention","to":"stopped","reason":"task queue started"}

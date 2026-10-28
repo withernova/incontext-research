@@ -1,8 +1,0 @@
-{
-  "run_id": "e014-discovery-score05-g8-step200-eval1766-20261016T124126Z",
-  "run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score05-g8-step200-eval1766-20261016T124126Z",
-  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451/payload/grpo/checkpoints/step_000200",
-  "source_training_run_id": "e014-20261016T014300Z-discovery-score05-g8-kl0-sft659-400step-seed11451",
-  "source_training_git_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53",
-  "evaluation_git_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53"
-}

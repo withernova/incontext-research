@@ -1,6 +1,0 @@
-import {describe,expect,it} from "vitest";
-import {candidateStatus,filterCandidates} from "./paperCandidateModel";
-import type {StoredJob,StoredPaperCandidate} from "./api";
-const candidates=[{id:"PC-a",title:"Vision Language",citekey:"vision2026",doi:"10/x",source:"arxiv",source_url:"https://arxiv.org/abs/1",revision:2,lifecycle_status:"accepted"},{id:"PC-b",title:"Local Method",citekey:"local2025",source:"zotero-local",revision:1,lifecycle_status:"proposed",verification_status:"ingested"}] as StoredPaperCandidate[];
-const jobs=[{id:"J1",kind:"paper_download",status:"succeeded",revision:1,target_object_id:"PC-a"},{id:"J2",kind:"mineru",status:"succeeded",revision:1,target_object_id:"PC-a"}] as StoredJob[];
-describe("paperCandidateModel",()=>{it("filters the persistent catalog independently of discovery query",()=>{expect(filterCandidates(candidates,jobs,"vision","all").map((x)=>x.id)).toEqual(["PC-a"]);expect(filterCandidates(candidates,jobs,"zotero","all").map((x)=>x.id)).toEqual(["PC-b"])});it("classifies ready and ingested candidates",()=>{expect(candidateStatus(candidates[0],jobs)).toBe("ready");expect(candidateStatus(candidates[1],[])).toBe("ingested");expect(filterCandidates(candidates,jobs,"","ready")).toHaveLength(1)})});

@@ -18504,5 +18504,5302 @@
     "message": "评测exit0/marker，1766唯一覆盖与固定候选逐例一致；791有效/0无效，full mIoU71.148673%，multi65.593501%，Acc50 77.802945%。相对画框2095 full +0.009464pp；127改选，47IoU改善/51下降，38命中修复/36损害，净2。近似持平，1310/2095预算不同，不能归因纯无框或声称显著提升。审计已保存；managed complete首次返回metrics observation is not yet stable，尚待管理收尾，不重跑评测。",
     "details": {},
     "event_id": "evt-b62d733191c9"
+  },
+  {
+    "time": "2026-10-19T15:01:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_organization",
+    "message": "e014-historical-three-source-train8367-generation-20261019: microtask",
+    "details": {
+      "time": "2026-10-19T15:01:19",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-01825be2c4bb0e6d23df"
+    },
+    "event_id": "evt-0cc4ab596ca4"
+  },
+  {
+    "time": "2026-10-19T15:01:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-historical-three-source-train8367-generation-20261019 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-e76433b6e66edcfe7805a07f",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-three-source-train8367-generation-20261019",
+      "status": "queued",
+      "created_at": "2026-10-19T15:01:19",
+      "updated_at": "2026-10-19T15:01:19",
+      "authorization_timestamp": "2026-10-19T15:01:19.400690",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-19T15:01:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-fe0d2ac32156"
+  },
+  {
+    "time": "2026-10-19T15:01:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_direct_steward",
+    "message": "e014-historical-three-source-train8367-generation-20261019: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-e76433b6e66edcfe7805a07f",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-3bccd69d47e0"
+  },
+  {
+    "time": "2026-10-19T15:01:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_derived",
+    "message": "e014-historical-three-source-train8367-generation-20261019: 衍生自 e014-selection-fulltrain-step200-gtaugment-20261018 · 用户批准上一轮三来源在训练集生成候选：固定合法8367对manifest SHA184f50ab3663a5a2640f62b9cdb6ebf96dd7121480d9508caf7e3aef99d95640；顺序E012 ref10query5 step494 focus单框无score、E013 SFT659三框位置假设v2、E013三实例GRPO650 focus_multi3_instan",
+    "details": {
+      "parent_run_id": "e014-selection-fulltrain-step200-gtaugment-20261018",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-ddf24cc9ec1a"
+  },
+  {
+    "time": "2026-10-19T15:03:32",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_update",
+    "message": "用户授权三个来源完整训练候选收集；已固定真实checkpoint哈希和输入，串行单次执行，不训练选择器。",
+    "details": {},
+    "event_id": "evt-4a51c98760da"
+  },
+  {
+    "time": "2026-10-19T15:04:32",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_update",
+    "message": "仅将已登记精确串行shell用Bash ANSI-C转义为单行，满足managed接口；先前continue多行在启动前被拒绝，没有实际生成或重试。",
+    "details": {},
+    "event_id": "evt-80e09c5332c1"
+  },
+  {
+    "time": "2026-10-19T15:04:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_update",
+    "message": "精确串行生成命令保存在inputs/command.json；单行启动命令先核SHA再exec bash同一已登记内容，无新增runner或科研变化。",
+    "details": {},
+    "event_id": "evt-8256d4b6722e"
+  },
+  {
+    "time": "2026-10-19T20:21:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-three-source-train8367-generation-20261019",
+    "type": "run_update",
+    "message": "真实exit0，三来源各8367/合计25101；预测SHA与root一致、唯一覆盖和源dataset/sequence/target一致，候选IoU及Oracle独立重算通过。未补GT原生条件K>=2/Oracle>=.5/gap>.05：SFT659 3211组（513原score漏选），instances650 7505组（503漏选）；单框8367仅互补来源。新两多框来源联合7633独立源，较旧3571有4575新增有效题源（GOT4090/LaSOT272/TAO213）。新三来源自然好框补回原step200漏框356源（GOT292/La31/TAO33）；四来源仍无好框408。只是标签可用性/训练候选覆盖，不是VQA难度或泛化收益；旧三实例近乎总选首框，须区别真干扰与填充框。未生成新选择训练清单、未训练。managed complete首次稳定性待确认，不重跑。",
+    "details": {},
+    "event_id": "evt-79a3e2ce765e"
+  },
+  {
+    "time": "2026-10-19T20:25:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+    "type": "run_organization",
+    "message": "e014-historical-balanced-vqa-lora4epoch-20261019: microtask",
+    "details": {
+      "time": "2026-10-19T20:25:53",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ebb3e17d3302878af498"
+    },
+    "event_id": "evt-fe7d0f67936e"
+  },
+  {
+    "time": "2026-10-19T20:25:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-historical-balanced-vqa-lora4epoch-20261019 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-6fb17de16a38ba6113aaae68",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+      "status": "queued",
+      "created_at": "2026-10-19T20:25:54",
+      "updated_at": "2026-10-19T20:25:54",
+      "authorization_timestamp": "2026-10-19T20:25:54.106988",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-19T20:25:54",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ac67fe68ccb3"
+  },
+  {
+    "time": "2026-10-19T20:25:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+    "type": "run_direct_steward",
+    "message": "e014-historical-balanced-vqa-lora4epoch-20261019: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-6fb17de16a38ba6113aaae68",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-c8595e4b2dc8"
+  },
+  {
+    "time": "2026-10-19T20:25:54",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+    "type": "run_derived",
+    "message": "e014-historical-balanced-vqa-lora4epoch-20261019: 衍生自 e014-historical-three-source-train8367-generation-20261019 · 用户授权用新收集历史候选训练VQA4epoch。fresh独立无框原图+文字bbox选择LoRA，不继承旧1310权重，不做自动评测。先构造原生合格组（精确框/集合去重，保留来源），补少量oldstep200无好框时跨来源好框+真实错框互补组；所有来源均无好框时按既有规则训练专用补GT。K>=2/Oracle>=.5/gap>.05。分层均衡静态清单：三数据集各相同曝光量，至少覆盖所有可用独立图像",
+    "details": {
+      "parent_run_id": "e014-historical-three-source-train8367-generation-20261019",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-172f7842ccb1"
+  },
+  {
+    "time": "2026-10-19T20:34:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+    "type": "run_update",
+    "message": "用户授权4epoch，均衡数据验收通过：8203源/21552行每epoch，5388更新；fresh无框独立LoRA，不评测。",
+    "details": {},
+    "event_id": "evt-8a7baceb44d9"
+  },
+  {
+    "time": "2026-10-20T09:22:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+    "type": "run_organization",
+    "message": "e014-historical-balanced-vqa-step4041-test1766-20261020: microtask",
+    "details": {
+      "time": "2026-10-20T09:22:24",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-684d79fa8cd8feb6227f"
+    },
+    "event_id": "evt-0b1c34fe701d"
+  },
+  {
+    "time": "2026-10-20T09:22:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-historical-balanced-vqa-step4041-test1766-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-e9ef31177169d2845a5ae46d",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T09:22:24",
+      "updated_at": "2026-10-20T09:22:24",
+      "authorization_timestamp": "2026-10-20T09:22:24.931404",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T09:22:24",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-7831dd16c65b"
+  },
+  {
+    "time": "2026-10-20T09:22:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-historical-balanced-vqa-step4041-test1766-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-e9ef31177169d2845a5ae46d",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-2ee4571dd83d"
+  },
+  {
+    "time": "2026-10-20T09:22:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+    "type": "run_derived",
+    "message": "e014-historical-balanced-vqa-step4041-test1766-20261020: 衍生自 e014-historical-balanced-vqa-lora4epoch-20261019 · 用户要求先暂停当前训练然后评测。已向核实本Run torchrun339243发SIGINT；最新保存checkpoint samples_00064656_step_004041（3epoch）待完整性核验。仅评测此最新完整checkpoint，固定1766与score04step200候选、无框原图+exact_instance文字bbox，greedy16/EOS/vision4096/se",
+    "details": {
+      "parent_run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-2c000bc96e15"
+  },
+  {
+    "time": "2026-10-20T09:24:02",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+    "type": "run_update",
+    "message": "已停止父训练并核验最新完整4041，准备无框固定1766评测",
+    "details": {},
+    "event_id": "evt-615a53e23352"
+  },
+  {
+    "time": "2026-10-20T11:18:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+    "type": "run_organization",
+    "message": "e014-historical-vqa-resume4041-to5388-eval1766-20261020: microtask",
+    "details": {
+      "time": "2026-10-20T11:18:24",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-046415f01cabf79de927"
+    },
+    "event_id": "evt-651c7853263c"
+  },
+  {
+    "time": "2026-10-20T11:18:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-historical-vqa-resume4041-to5388-eval1766-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-fa4dbf97078548450b180f74",
+      "experiment_id": "E-014",
+      "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T11:18:25",
+      "updated_at": "2026-10-20T11:18:25",
+      "authorization_timestamp": "2026-10-20T11:18:25.105708",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T11:18:25",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-5d693b4becff"
+  },
+  {
+    "time": "2026-10-20T11:18:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-historical-vqa-resume4041-to5388-eval1766-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-fa4dbf97078548450b180f74",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-7f2a44a2a7ff"
+  },
+  {
+    "time": "2026-10-20T11:18:25",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+    "type": "run_derived",
+    "message": "e014-historical-vqa-resume4041-to5388-eval1766-20261020: 衍生自 e014-historical-balanced-vqa-lora4epoch-20261019 · 用户要求从3epoch checkpoint断点续训完成并看看提升：从samples_00064656_step_004041恢复adapter/AdamW/scheduler/history/进度，到原总4epoch step5388，仅新增1347更新/21552呈现。复用同一21552行静态均衡train SHA6d2a9b4fcd6825736aa3534afd6b2de895da4f45",
+    "details": {
+      "parent_run_id": "e014-historical-balanced-vqa-lora4epoch-20261019",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-3469f858ccf2"
+  },
+  {
+    "time": "2026-10-20T11:20:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+    "type": "run_update",
+    "message": "用户授权恢复3epoch checkpoint到总4epoch并比较最终1766；预算有界、原门禁不变、失败不自动重试。",
+    "details": {},
+    "event_id": "evt-8b73d414bc73"
+  },
+  {
+    "time": "2026-10-20T18:47:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "run_organization",
+    "message": "e014-selector-extension-validation-20261020: microtask",
+    "details": {
+      "time": "2026-10-20T18:47:44",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-da0f4001fef4a9b9f50c"
+    },
+    "event_id": "evt-134cbafa788c"
+  },
+  {
+    "time": "2026-10-20T18:47:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-extension-validation-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0b97b49063a651914ff87381",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:47:44",
+      "updated_at": "2026-10-20T18:47:44",
+      "authorization_timestamp": "2026-10-20T18:47:44.776617",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:47:44",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ddced1fb2435"
+  },
+  {
+    "time": "2026-10-20T18:47:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-extension-validation-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0b97b49063a651914ff87381",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-f41cd7d8a0d7"
+  },
+  {
+    "time": "2026-10-20T18:47:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "run_derived",
+    "message": "e014-selector-extension-validation-20261020: 衍生自 e014-historical-balanced-vqa-step4041-test1766-20261020 · 用户在四项代码交付后明确授权“可以部署运行”。部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6后，先执行一次有限验证：候选换序映射/无效回答统计、裁剪像素与角色顺序、LR端点和二次恢复、少量真实输入的train/eval processor编码；原始TAO配对证据可用性只作核验，不训练、不改变历史产物。通过后另登记step4041固定1766换序P1诊断。",
+    "details": {
+      "parent_run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-ad449f736ad9"
+  },
+  {
+    "time": "2026-10-20T18:50:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-extension-validation-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-40f516e6decbe68877484c48",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:50:58",
+      "updated_at": "2026-10-20T18:50:58",
+      "authorization_timestamp": "2026-10-20T18:50:58.637752",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:50:58",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-62087b0821ff"
+  },
+  {
+    "time": "2026-10-20T18:50:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-extension-validation-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-40f516e6decbe68877484c48",
+      "actor": "codex:explicit-user-deploy-and-run"
+    },
+    "event_id": "evt-87714da7c7e4"
+  },
+  {
+    "time": "2026-10-20T18:50:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-20261020",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-selector-extension-validation-20261020: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-40f516e6decbe68877484c48",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-aa6d29761856"
+  },
+  {
+    "time": "2026-10-20T18:53:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "run_organization",
+    "message": "e014-selector-extension-validation-r2-20261020: microtask",
+    "details": {
+      "time": "2026-10-20T18:53:10",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f5b93a1cfddef64f926c"
+    },
+    "event_id": "evt-3361fa3391e0"
+  },
+  {
+    "time": "2026-10-20T18:53:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-extension-validation-r2-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-418196e3cb49c2902c617a82",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-r2-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:53:10",
+      "updated_at": "2026-10-20T18:53:10",
+      "authorization_timestamp": "2026-10-20T18:53:10.403572",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:53:10",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-eb980d65d7e9"
+  },
+  {
+    "time": "2026-10-20T18:53:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-extension-validation-r2-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-418196e3cb49c2902c617a82",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-150ab34752de"
+  },
+  {
+    "time": "2026-10-20T18:53:10",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "run_derived",
+    "message": "e014-selector-extension-validation-r2-20261020: 衍生自 e014-selector-extension-validation-20261020 · 继续用户已授权的部署运行验收：首次验收脚本遗漏仓库现有torchvision NMS兼容初始化，在任何测试/模型调用前exit1，保留失败事实。修正版仅复用iploc_szy.compat.ensure_torchvision_nms_schema，并使用独立payload目录与受管outputs分离；部署SHA、科学代码和验证范围不变，不安装依赖、不恢复历史训练。",
+    "details": {
+      "parent_run_id": "e014-selector-extension-validation-20261020",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-4660c35b3035"
+  },
+  {
+    "time": "2026-10-20T18:53:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-extension-validation-r2-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a5404f83515479c121b9a2d1",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-extension-validation-r2-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:53:17",
+      "updated_at": "2026-10-20T18:53:17",
+      "authorization_timestamp": "2026-10-20T18:53:17.781434",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:53:17",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-8f82e29a7600"
+  },
+  {
+    "time": "2026-10-20T18:53:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-extension-validation-r2-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-a5404f83515479c121b9a2d1",
+      "actor": "codex:explicit-user-deploy-and-run"
+    },
+    "event_id": "evt-204ae629b4c2"
+  },
+  {
+    "time": "2026-10-20T18:53:17",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-extension-validation-r2-20261020",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-selector-extension-validation-r2-20261020: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-a5404f83515479c121b9a2d1",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-c201fef10c70"
+  },
+  {
+    "time": "2026-10-20T18:56:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "run_organization",
+    "message": "e014-selector-step4041-permutation-p1-20261020: microtask",
+    "details": {
+      "time": "2026-10-20T18:56:28",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-51a1cc89f951648e1fe4"
+    },
+    "event_id": "evt-43379b9b7384"
+  },
+  {
+    "time": "2026-10-20T18:56:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-step4041-permutation-p1-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-34a2b8acda05e18f49af712e",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-permutation-p1-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:56:28",
+      "updated_at": "2026-10-20T18:56:28",
+      "authorization_timestamp": "2026-10-20T18:56:28.652081",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:56:28",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-4a3acd5f2f8d"
+  },
+  {
+    "time": "2026-10-20T18:56:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-step4041-permutation-p1-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-34a2b8acda05e18f49af712e",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-be779ca3c978"
+  },
+  {
+    "time": "2026-10-20T18:56:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "run_derived",
+    "message": "e014-selector-step4041-permutation-p1-20261020: 衍生自 e014-historical-balanced-vqa-step4041-test1766-20261020 · 用户已授权“可以部署运行”，部署7caae090351c9c71ce65fd8c98a0bbbbb1825bc6及有限逻辑/真实输入验收已完成。现在执行一次step4041选择器换序P1诊断：冻结1766/791和原候选不变，无框exact_instance，原顺序加每题1个非重复排列；8GPU/BF16/SDPA/greedy16/EOS/vision4096/seed20260901。1582",
+    "details": {
+      "parent_run_id": "e014-historical-balanced-vqa-step4041-test1766-20261020",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-b0c15585eeec"
+  },
+  {
+    "time": "2026-10-20T18:56:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-step4041-permutation-p1-20261020 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-37063026f7021563a6127c6e",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-permutation-p1-20261020",
+      "status": "queued",
+      "created_at": "2026-10-20T18:56:35",
+      "updated_at": "2026-10-20T18:56:35",
+      "authorization_timestamp": "2026-10-20T18:56:35.704139",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-20T18:56:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-54e38f8ad06b"
+  },
+  {
+    "time": "2026-10-20T18:56:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "run_direct_steward",
+    "message": "e014-selector-step4041-permutation-p1-20261020: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-37063026f7021563a6127c6e",
+      "actor": "codex:explicit-user-deploy-and-run"
+    },
+    "event_id": "evt-bebcd72eb13d"
+  },
+  {
+    "time": "2026-10-20T18:56:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-permutation-p1-20261020",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-selector-step4041-permutation-p1-20261020: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-37063026f7021563a6127c6e",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-9902fa1d842f"
+  },
+  {
+    "time": "2026-10-21T01:03:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "run_organization",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:03:38",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f2687ea0f887a3925e1b"
+    },
+    "event_id": "evt-41e8478cc452"
+  },
+  {
+    "time": "2026-10-21T01:03:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1efb7f092a323482f815391a",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:03:38",
+      "updated_at": "2026-10-21T01:03:38",
+      "authorization_timestamp": "2026-10-21T01:03:38.260366",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:03:38",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-d9039809a096"
+  },
+  {
+    "time": "2026-10-21T01:03:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1efb7f092a323482f815391a",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-a312acac5b3d"
+  },
+  {
+    "time": "2026-10-21T01:03:38",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "run_derived",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021: 衍生自 e014-historical-vqa-resume4041-to5388-eval1766-20261020 · 用户明确要求直接执行所讨论实验。本次从原step4041恢复，保持原数据和总5388步，仅将最后1347更新改为linear学习率5e-5降至5e-6，保留Adam/history，完成后一次最终1766评测，与已有恒定LR续训对照；使用已部署7caae09，不重复确认授权。",
+    "details": {
+      "parent_run_id": "e014-historical-vqa-resume4041-to5388-eval1766-20261020",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-70ea92ba45b4"
+  },
+  {
+    "time": "2026-10-21T01:03:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f914002665aaa8d4063399ba",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:03:58",
+      "updated_at": "2026-10-21T01:03:58",
+      "authorization_timestamp": "2026-10-21T01:03:58.648400",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:03:58",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-12a221006051"
+  },
+  {
+    "time": "2026-10-21T01:03:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f914002665aaa8d4063399ba",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-354ee48a42c1"
+  },
+  {
+    "time": "2026-10-21T01:03:58",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-selector-linear-decay4041-to5388-eval1766-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-f914002665aaa8d4063399ba",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-36c0050f329b"
+  },
+  {
+    "time": "2026-10-21T01:06:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "run_organization",
+    "message": "e014-real-reference-pairs-preparation-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:06:49",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-eb96fb2833925955416e"
+    },
+    "event_id": "evt-a8e8e32080f7"
+  },
+  {
+    "time": "2026-10-21T01:06:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-real-reference-pairs-preparation-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-66f8d12f463d8af7b749f9dc",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:06:49",
+      "updated_at": "2026-10-21T01:06:49",
+      "authorization_timestamp": "2026-10-21T01:06:49.170094",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:06:49",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-dad251e2b74d"
+  },
+  {
+    "time": "2026-10-21T01:06:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-real-reference-pairs-preparation-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-66f8d12f463d8af7b749f9dc",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-323775a56176"
+  },
+  {
+    "time": "2026-10-21T01:06:49",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "run_derived",
+    "message": "e014-real-reference-pairs-preparation-20261021: 衍生自 e014-historical-three-source-train8367-generation-20261019 · 直接执行已讨论的Reference成对数据方案：基于真实TAO train标注及现有冻结候选，核实同Query换Reference对应不同答案的可用量并导出普通SFT/匹配预算控制输入。原始标注与图像/候选SHA核验、视频拆分、真实接受拒绝都记录，不追加GT；准备过程无GPU。",
+    "details": {
+      "parent_run_id": "e014-historical-three-source-train8367-generation-20261019",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-c79de427ad68"
+  },
+  {
+    "time": "2026-10-21T01:06:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-real-reference-pairs-preparation-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-ed9dd22b905250559fc557dc",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:06:59",
+      "updated_at": "2026-10-21T01:06:59",
+      "authorization_timestamp": "2026-10-21T01:06:59.268983",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:06:59",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-4f5a5729b47e"
+  },
+  {
+    "time": "2026-10-21T01:06:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-real-reference-pairs-preparation-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-ed9dd22b905250559fc557dc",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-8d0c547e8241"
+  },
+  {
+    "time": "2026-10-21T01:06:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-real-reference-pairs-preparation-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-ed9dd22b905250559fc557dc",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-a626e2f38e14"
+  },
+  {
+    "time": "2026-10-21T01:08:04",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "run_organization",
+    "message": "e014-selector-step4041-localviews-validation334-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:08:04",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-963df426facbae22a444"
+    },
+    "event_id": "evt-438f51c351c2"
+  },
+  {
+    "time": "2026-10-21T01:08:04",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-step4041-localviews-validation334-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-11f252c0c3c03a868bd80129",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:08:04",
+      "updated_at": "2026-10-21T01:08:04",
+      "authorization_timestamp": "2026-10-21T01:08:04.512626",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:08:04",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a25dc538a0fa"
+  },
+  {
+    "time": "2026-10-21T01:08:04",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-selector-step4041-localviews-validation334-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-11f252c0c3c03a868bd80129",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-7617b8fe1b0a"
+  },
+  {
+    "time": "2026-10-21T01:08:04",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "run_derived",
+    "message": "e014-selector-step4041-localviews-validation334-20261021: 衍生自 e014-selection-lora-step72-validation334-20261018 · 用户明确要求运行局部图方案。使用固定validation334/123多候选、step4041，比较无框原图两张与原图+Reference和候选裁剪K+3张，padding.15，其他推理设置一致，共246次VQA。等待当前LR实验释放GPU后自动执行，不重复确认；单独记录，不训练、不改候选/GT。",
+    "details": {
+      "parent_run_id": "e014-selection-lora-step72-validation334-20261018",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-21247b53c50e"
+  },
+  {
+    "time": "2026-10-21T01:08:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-selector-step4041-localviews-validation334-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a828ae49196d84bd52a3ee06",
+      "experiment_id": "E-014",
+      "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:08:12",
+      "updated_at": "2026-10-21T01:08:12",
+      "authorization_timestamp": "2026-10-21T01:08:12.298312",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:08:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-7e1212fffc49"
+  },
+  {
+    "time": "2026-10-21T01:08:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-selector-step4041-localviews-validation334-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-a828ae49196d84bd52a3ee06",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-621c68738f75"
+  },
+  {
+    "time": "2026-10-21T01:08:12",
+    "experiment_id": "E-014",
+    "run_id": "e014-selector-step4041-localviews-validation334-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-selector-step4041-localviews-validation334-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-a828ae49196d84bd52a3ee06",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-abb3b82df5ad"
+  },
+  {
+    "time": "2026-10-21T01:09:19",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "run_organization",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:09:19",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-1da7668a468899d6ddd7"
+    },
+    "event_id": "evt-41673ec9b169"
+  },
+  {
+    "time": "2026-10-21T01:09:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2577e6c76a70f767c7476de9",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:09:20",
+      "updated_at": "2026-10-21T01:09:20",
+      "authorization_timestamp": "2026-10-21T01:09:20.063278",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:09:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a615fdb2d0d3"
+  },
+  {
+    "time": "2026-10-21T01:09:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2577e6c76a70f767c7476de9",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-0ea0916443f2"
+  },
+  {
+    "time": "2026-10-21T01:09:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "run_derived",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021: 衍生自 e014-real-reference-pairs-preparation-20261021 · 继续当前明确授权的真实配对准备，首次脚本历史路径缺generation层，在任何配对数据写出前失败。已从原真实命令纠正路径并实测三份SHA相符，科学设置不变；独立修正版执行，原失败保留。",
+    "details": {
+      "parent_run_id": "e014-real-reference-pairs-preparation-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-d88defd756dd"
+  },
+  {
+    "time": "2026-10-21T01:09:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-c480d8dae964713c1ad6092e",
+      "experiment_id": "E-014",
+      "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:09:28",
+      "updated_at": "2026-10-21T01:09:28",
+      "authorization_timestamp": "2026-10-21T01:09:28.584964",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:09:28",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-0ebd367cd06e"
+  },
+  {
+    "time": "2026-10-21T01:09:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-c480d8dae964713c1ad6092e",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-11e95d710984"
+  },
+  {
+    "time": "2026-10-21T01:09:28",
+    "experiment_id": "E-014",
+    "run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-real-reference-pairs-preparation-r2-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-c480d8dae964713c1ad6092e",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-27257afe2761"
+  },
+  {
+    "time": "2026-10-21T01:13:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:13:13",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-c35a1c222b0e8455882e"
+    },
+    "event_id": "evt-542efaaaeda6"
+  },
+  {
+    "time": "2026-10-21T01:13:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-37bcdda334d7eb0c2fa9d27e",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:13:13",
+      "updated_at": "2026-10-21T01:13:13",
+      "authorization_timestamp": "2026-10-21T01:13:13.601428",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:13:13",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-4f0d4bbaca9b"
+  },
+  {
+    "time": "2026-10-21T01:13:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-37bcdda334d7eb0c2fa9d27e",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-450bf4b393c7"
+  },
+  {
+    "time": "2026-10-21T01:13:13",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021: 衍生自 e014-real-reference-pairs-preparation-r2-20261021 · 用户已明确要求运行成对监督对照。真实数据已验收，先执行A-only控制：718行/fresh同seed LoRA/3epochs135更新2160呈现，最终124条双Reference验证。与下一配对arm同预算，编号分布差异如实记录。等待局部图评测释放GPU后自动执行，不额外确认。",
+    "details": {
+      "parent_run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-8c77722a3a9c"
+  },
+  {
+    "time": "2026-10-21T01:13:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T01:13:13",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-36fdaafb6c758cf36fb5"
+    },
+    "event_id": "evt-6289186984c8"
+  },
+  {
+    "time": "2026-10-21T01:13:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-9c259714d1ed7296f5f92520",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:13:14",
+      "updated_at": "2026-10-21T01:13:14",
+      "authorization_timestamp": "2026-10-21T01:13:14.139829",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:13:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-e4e4c71ded83"
+  },
+  {
+    "time": "2026-10-21T01:13:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-9c259714d1ed7296f5f92520",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-cfdb9ab1aa92"
+  },
+  {
+    "time": "2026-10-21T01:13:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021: 衍生自 e014-real-reference-pairs-preparation-r2-20261021 · 用户已明确要求运行成对监督对照。真实359train pairs导出718行A/B监督，fresh同seed LoRA/3epochs135更新2160呈现，最终124条/62pairs验证并统计双题均正确、换Reference选择变化；与A-only同预算。等待控制arm释放GPU后执行，记录编号分布混杂，复用已部署共享训练评测入口，不额外确认。",
+    "details": {
+      "parent_run_id": "e014-real-reference-pairs-preparation-r2-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-09425b21dac4"
+  },
+  {
+    "time": "2026-10-21T01:13:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-94bb2bb58bdefb5dcdb72904",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:13:21",
+      "updated_at": "2026-10-21T01:13:21",
+      "authorization_timestamp": "2026-10-21T01:13:21.545509",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:13:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-76caab138b01"
+  },
+  {
+    "time": "2026-10-21T01:13:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-94bb2bb58bdefb5dcdb72904",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-ea517fec0ff7"
+  },
+  {
+    "time": "2026-10-21T01:13:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-control-fresh3epoch-validation124-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-94bb2bb58bdefb5dcdb72904",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-d08cf1010eae"
+  },
+  {
+    "time": "2026-10-21T01:13:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2dd5c4b6cb7f42d24e16b6e1",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T01:13:30",
+      "updated_at": "2026-10-21T01:13:30",
+      "authorization_timestamp": "2026-10-21T01:13:30.066247",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T01:13:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-1b29f4a46aa8"
+  },
+  {
+    "time": "2026-10-21T01:13:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2dd5c4b6cb7f42d24e16b6e1",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-c5b75f0fdce2"
+  },
+  {
+    "time": "2026-10-21T01:13:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-paired-fresh3epoch-validation124-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-2dd5c4b6cb7f42d24e16b6e1",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-4dd5f22d17b3"
+  },
+  {
+    "time": "2026-10-21T13:37:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T13:37:44",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-5bba08948520b09860e0"
+    },
+    "event_id": "evt-8addbf93f106"
+  },
+  {
+    "time": "2026-10-21T13:37:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-83aea0e6355385694cb0dbc4",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:37:44",
+      "updated_at": "2026-10-21T13:37:44",
+      "authorization_timestamp": "2026-10-21T13:37:44.776904",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:37:44",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-d369b62820a3"
+  },
+  {
+    "time": "2026-10-21T13:37:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-83aea0e6355385694cb0dbc4",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-e68fc959ddc1"
+  },
+  {
+    "time": "2026-10-21T13:37:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021: 衍生自 e014-reference-control-fresh3epoch-validation124-20261021 · 补完用户已授权的control组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最终checkpoint，不重训、不改科学参数或旧失败记录；新独立评测Run。",
+    "details": {
+      "parent_run_id": "e014-reference-control-fresh3epoch-validation124-20261021",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-24f558635900"
+  },
+  {
+    "time": "2026-10-21T13:37:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T13:37:45",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-86cb2f57aac67e7ea198"
+    },
+    "event_id": "evt-44ebed33e328"
+  },
+  {
+    "time": "2026-10-21T13:37:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0a555c4982be9050e2e6f859",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:37:45",
+      "updated_at": "2026-10-21T13:37:45",
+      "authorization_timestamp": "2026-10-21T13:37:45.216089",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:37:45",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-299d98dbfe25"
+  },
+  {
+    "time": "2026-10-21T13:37:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0a555c4982be9050e2e6f859",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-ca1d9f942a20"
+  },
+  {
+    "time": "2026-10-21T13:37:45",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021: 衍生自 e014-reference-paired-fresh3epoch-validation124-20261021 · 补完用户已授权的paired组124条/62pair最终评测。原135步训练完成且passed，但一次性收尾脚本误将fresh空字符串判错导致未评测。只复用原最终checkpoint，不重训、不改科学参数或旧失败记录；新独立评测Run。",
+    "details": {
+      "parent_run_id": "e014-reference-paired-fresh3epoch-validation124-20261021",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-f7b1aeb9eda6"
+  },
+  {
+    "time": "2026-10-21T13:37:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5314c4c9e99bb9e95aae3667",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:37:52",
+      "updated_at": "2026-10-21T13:37:52",
+      "authorization_timestamp": "2026-10-21T13:37:52.363869",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:37:52",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-8461cd921ae4"
+  },
+  {
+    "time": "2026-10-21T13:37:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5314c4c9e99bb9e95aae3667",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-5d768ea20426"
+  },
+  {
+    "time": "2026-10-21T13:37:52",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-control-step135-eval124-recovery-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-5314c4c9e99bb9e95aae3667",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-67431602da51"
+  },
+  {
+    "time": "2026-10-21T13:38:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5124fa2aab160028a469735e",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:38:44",
+      "updated_at": "2026-10-21T13:38:44",
+      "authorization_timestamp": "2026-10-21T13:38:44.549968",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:38:44",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-dab8202e26c2"
+  },
+  {
+    "time": "2026-10-21T13:38:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5124fa2aab160028a469735e",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-5d4b825bacad"
+  },
+  {
+    "time": "2026-10-21T13:38:44",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-paired-step135-eval124-recovery-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-5124fa2aab160028a469735e",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-b6056e685807"
+  },
+  {
+    "time": "2026-10-21T13:40:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T13:40:15",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-dc868621e24a6e2e1835"
+    },
+    "event_id": "evt-1610e90ac8f8"
+  },
+  {
+    "time": "2026-10-21T13:40:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5031aae2ea93a613fae9f275",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:40:15",
+      "updated_at": "2026-10-21T13:40:15",
+      "authorization_timestamp": "2026-10-21T13:40:15.165215",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:40:15",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-eb8f88c08ef1"
+  },
+  {
+    "time": "2026-10-21T13:40:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5031aae2ea93a613fae9f275",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-ac4adef73914"
+  },
+  {
+    "time": "2026-10-21T13:40:15",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021: 衍生自 e014-reference-control-step135-eval124-recovery-20261021 · 继续完成用户原定control组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint和原数据/seed/评测参数，不训练，不改历史。",
+    "details": {
+      "parent_run_id": "e014-reference-control-step135-eval124-recovery-20261021",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-ebc07e3e863b"
+  },
+  {
+    "time": "2026-10-21T13:40:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "run_organization",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T13:40:20",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-fa24ff812bd6b1a564f4"
+    },
+    "event_id": "evt-cf15f89acb9d"
+  },
+  {
+    "time": "2026-10-21T13:40:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-abbbd66d638ca1f896a71415",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:40:21",
+      "updated_at": "2026-10-21T13:40:21",
+      "authorization_timestamp": "2026-10-21T13:40:21.049193",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:40:21",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-eb9d35675f6b"
+  },
+  {
+    "time": "2026-10-21T13:40:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-abbbd66d638ca1f896a71415",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-f4bd06f8942a"
+  },
+  {
+    "time": "2026-10-21T13:40:21",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "run_derived",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021: 衍生自 e014-reference-paired-step135-eval124-recovery-20261021 · 继续完成用户原定paired组124条最终评测；前次评测命令遗漏PYTHONPATH在导入阶段失败。恢复原环境导出，使用同一个已完成135步checkpoint和原数据/seed/评测参数，不训练，不改历史。",
+    "details": {
+      "parent_run_id": "e014-reference-paired-step135-eval124-recovery-20261021",
+      "actor": "codex:complete-existing-authorized-evaluation"
+    },
+    "event_id": "evt-20243821f72b"
+  },
+  {
+    "time": "2026-10-21T13:40:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-d6f00999b63f25ed4ed16f8d",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:40:53",
+      "updated_at": "2026-10-21T13:40:53",
+      "authorization_timestamp": "2026-10-21T13:40:53.356231",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:40:53",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-17fe9ca6623d"
+  },
+  {
+    "time": "2026-10-21T13:40:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-d6f00999b63f25ed4ed16f8d",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-3b788843b990"
+  },
+  {
+    "time": "2026-10-21T13:40:53",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-control-step135-eval124-recovery-r2-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-control-step135-eval124-recovery-r2-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-d6f00999b63f25ed4ed16f8d",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-996779e9ff43"
+  },
+  {
+    "time": "2026-10-21T13:41:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-3a0f7b9696d20da008c031dc",
+      "experiment_id": "E-014",
+      "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T13:41:14",
+      "updated_at": "2026-10-21T13:41:14",
+      "authorization_timestamp": "2026-10-21T13:41:14.163084",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T13:41:14",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a4d4875b6224"
+  },
+  {
+    "time": "2026-10-21T13:41:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-3a0f7b9696d20da008c031dc",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-ff54e0463079"
+  },
+  {
+    "time": "2026-10-21T13:41:14",
+    "experiment_id": "E-014",
+    "run_id": "e014-reference-paired-step135-eval124-recovery-r2-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-reference-paired-step135-eval124-recovery-r2-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-3a0f7b9696d20da008c031dc",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-76f4cb4c10c9"
+  },
+  {
+    "time": "2026-10-21T14:57:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "run_organization",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T14:57:57",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-412046eaac92cc893344"
+    },
+    "event_id": "evt-4eb38c91b224"
+  },
+  {
+    "time": "2026-10-21T14:57:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-09e46759cd8844e93bfd0a48",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T14:57:57",
+      "updated_at": "2026-10-21T14:57:57",
+      "authorization_timestamp": "2026-10-21T14:57:57.805231",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T14:57:57",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ff1b399e408e"
+  },
+  {
+    "time": "2026-10-21T14:57:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-09e46759cd8844e93bfd0a48",
+      "actor": "codex:explicit-user-proposal-test"
+    },
+    "event_id": "evt-4e57c1308c7d"
+  },
+  {
+    "time": "2026-10-21T14:57:57",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "run_derived",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021: 衍生自 e014-selector-linear-decay4041-to5388-eval1766-20261021 · 用户明确要求测试固定三框checkpoint的proposal。固定父Run最终线性LR step5388选择器，在同1766例上将当前step200候选替换为instances650历史冻结三框候选；先核对同Reference/Query图像和标注，再做一次全量评测。只改proposal来源，不训练，不做并集或新checkpoint搜索。",
+    "details": {
+      "parent_run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "actor": "codex:explicit-user-proposal-test"
+    },
+    "event_id": "evt-d48de2931b43"
+  },
+  {
+    "time": "2026-10-21T14:58:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1d563354ac6cd296020cb626",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T14:58:20",
+      "updated_at": "2026-10-21T14:58:20",
+      "authorization_timestamp": "2026-10-21T14:58:20.094537",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T14:58:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-7e87b3f75ab0"
+  },
+  {
+    "time": "2026-10-21T14:58:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1d563354ac6cd296020cb626",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-9808d5454c24"
+  },
+  {
+    "time": "2026-10-21T14:58:20",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-instances650-proposals-test1766-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-linear5388-instances650-proposals-test1766-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-1d563354ac6cd296020cb626",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-607d343c1161"
+  },
+  {
+    "time": "2026-10-21T15:41:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "run_organization",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T15:41:23",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f02b1c590e930b1aa7aa"
+    },
+    "event_id": "evt-a5e9ddebcc49"
+  },
+  {
+    "time": "2026-10-21T15:41:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-51aa1801f5114250831e3ea8",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T15:41:24",
+      "updated_at": "2026-10-21T15:41:24",
+      "authorization_timestamp": "2026-10-21T15:41:23.986343",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T15:41:24",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-3ce27a1a38cd"
+  },
+  {
+    "time": "2026-10-21T15:41:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-51aa1801f5114250831e3ea8",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-ecead152b774"
+  },
+  {
+    "time": "2026-10-21T15:41:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "run_derived",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021: 衍生自 e014-selector-linear-decay4041-to5388-eval1766-20261021 · 用户请求可视化当前选择器与Oracle的差距，明确用原step200 proposal而非三框。对已完成的1766冻结预测做CPU事后分析，核逐例IoU，拆解gap分布/数据集/候选数/命中阈值，导出可筛选图册、参考图及Query上的GT/选择/Oracle对照、统计图与CSV。无新推理、训练或checkpoint变化。",
+    "details": {
+      "parent_run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-3a89998d8ebb"
+  },
+  {
+    "time": "2026-10-21T15:49:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2af454c025208a046ee5caec",
+      "experiment_id": "E-014",
+      "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T15:49:56",
+      "updated_at": "2026-10-21T15:49:56",
+      "authorization_timestamp": "2026-10-21T15:49:56.082678",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T15:49:56",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-24736a4183e3"
+  },
+  {
+    "time": "2026-10-21T15:49:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2af454c025208a046ee5caec",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-34ca763a72d6"
+  },
+  {
+    "time": "2026-10-21T15:49:56",
+    "experiment_id": "E-014",
+    "run_id": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-linear5388-original-proposal-oracle-visualization-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-2af454c025208a046ee5caec",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-948c37cc06a7"
+  },
+  {
+    "time": "2026-10-21T17:40:23",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "run_organization",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T17:40:23",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-47d9692ca956ba2bc528"
+    },
+    "event_id": "evt-89ac6c190c3c"
+  },
+  {
+    "time": "2026-10-21T17:40:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-dfd1b371ef2736d3c0aa477b",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T17:40:24",
+      "updated_at": "2026-10-21T17:40:24",
+      "authorization_timestamp": "2026-10-21T17:40:23.952383",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T17:40:24",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b44d13195547"
+  },
+  {
+    "time": "2026-10-21T17:40:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-dfd1b371ef2736d3c0aa477b",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-3f5f269e757b"
+  },
+  {
+    "time": "2026-10-21T17:40:24",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "run_derived",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021: 衍生自 e014-selector-linear-decay4041-to5388-eval1766-20261021 · 用户要求试验每个模型拆到两张卡、四个副本DDP的4x2方式。本次仅实现并验证混合模型并行＋DDP训练能力：复用现有Qwen3-VL-8B和SFT入口，fresh LoRA，不继承父训练checkpoint或完整训练命令；在同8张3090上核对GPU配对、跨卡前反向、全副本LoRA梯度/参数一致、checkpoint保存恢复和1/2/4-shot真实样本的短程更新及显存。先用已有Qwen3验证并行能",
+    "details": {
+      "parent_run_id": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-777c732eb7cf"
+  },
+  {
+    "time": "2026-10-21T17:48:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0aea709ce33f8d053b595056",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T17:48:05",
+      "updated_at": "2026-10-21T17:48:05",
+      "authorization_timestamp": "2026-10-21T17:48:05.771362",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T17:48:05",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-12f2605eb00e"
+  },
+  {
+    "time": "2026-10-21T17:48:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0aea709ce33f8d053b595056",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-f831634f5bd4"
+  },
+  {
+    "time": "2026-10-21T17:48:05",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-model-parallel-ddp4x2-capability-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-0aea709ce33f8d053b595056",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-c6b5834e8583"
+  },
+  {
+    "time": "2026-10-21T18:03:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "run_organization",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T18:03:35",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-3eea7f6e7c4d87b1ad1a"
+    },
+    "event_id": "evt-4956bfb85f8d"
+  },
+  {
+    "time": "2026-10-21T18:03:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-32b90ce538e9ae7fdc86563c",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T18:03:35",
+      "updated_at": "2026-10-21T18:03:35",
+      "authorization_timestamp": "2026-10-21T18:03:35.538683",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T18:03:35",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-5f8ac6e30414"
+  },
+  {
+    "time": "2026-10-21T18:03:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-32b90ce538e9ae7fdc86563c",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-6e1b76174068"
+  },
+  {
+    "time": "2026-10-21T18:03:35",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "run_derived",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021: 衍生自 e014-model-parallel-ddp4x2-capability-20261021 · 继续完成用户要求的4x2模型并行DDP能力验证。前次1/2shot通过而4shot反向OOM；此次保留全部失败产物，使用独立新目录，同8个GOT视频/同1,2,4shot采样/每图4096raw patches/14+22层切分/4进程/global16，仅显式改为冻结embedding BF16＋SFT autocast BF16，记录真实q_proj dtype。不安装或改变环境；FlashA",
+    "details": {
+      "parent_run_id": "e014-model-parallel-ddp4x2-capability-20261021",
+      "actor": "terminal_pi:user-request"
+    },
+    "event_id": "evt-5530e658a82c"
+  },
+  {
+    "time": "2026-10-21T18:07:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-33ead0acb447117dd9e67586",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T18:07:30",
+      "updated_at": "2026-10-21T18:07:30",
+      "authorization_timestamp": "2026-10-21T18:07:30.049536",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T18:07:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-efb2621191f2"
+  },
+  {
+    "time": "2026-10-21T18:07:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-33ead0acb447117dd9e67586",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-3e5aa25b78d7"
+  },
+  {
+    "time": "2026-10-21T18:07:30",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-model-parallel-ddp4x2-bf16-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-33ead0acb447117dd9e67586",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-3ceaa2599dde"
+  },
+  {
+    "time": "2026-10-21T18:19:46",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "run_organization",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T18:19:46",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-e8a4bbda6b6694109ea1"
+    },
+    "event_id": "evt-f0b21f681634"
+  },
+  {
+    "time": "2026-10-21T18:19:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-3e22c332b2566dc66bae91f4",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T18:19:47",
+      "updated_at": "2026-10-21T18:19:47",
+      "authorization_timestamp": "2026-10-21T18:19:47.092859",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T18:19:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-8fd3fd6be1f5"
+  },
+  {
+    "time": "2026-10-21T18:19:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-3e22c332b2566dc66bae91f4",
+      "actor": "codex:explicit-user-4x2-ddp-capability"
+    },
+    "event_id": "evt-838f40d17120"
+  },
+  {
+    "time": "2026-10-21T18:19:47",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "run_derived",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021: 衍生自 e014-model-parallel-ddp4x2-bf16-20261021 · 继续完成用户要求的4×2 DDP能力验证：只读既有4×2 DDP短程GPU训练产物的CPU审计；不新增训练/模型推理/部署。父Run的汇总脚本错误地要求q_proj输出必须BF16，实际首尾层均为FP32，即使显式embedding BF16与autocast已启用。保留父Run终态和错误，单独核验1/2/4shot各2步和4shot恢复step3、112呈现、有限梯度、全LoRA跨rank SH",
+    "details": {
+      "parent_run_id": "e014-model-parallel-ddp4x2-bf16-20261021",
+      "actor": "codex:explicit-user-4x2-ddp-capability"
+    },
+    "event_id": "evt-4a417ae4d4bc"
+  },
+  {
+    "time": "2026-10-21T18:19:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-73208fde7535988fcddac0da",
+      "experiment_id": "E-014",
+      "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T18:19:59",
+      "updated_at": "2026-10-21T18:19:59",
+      "authorization_timestamp": "2026-10-21T18:19:59.760224",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T18:19:59",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-d37264a002f0"
+  },
+  {
+    "time": "2026-10-21T18:19:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "run_direct_steward",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-73208fde7535988fcddac0da",
+      "actor": "codex:explicit-user-run-all-discussed-comparisons"
+    },
+    "event_id": "evt-cd806aa63f85"
+  },
+  {
+    "time": "2026-10-21T18:19:59",
+    "experiment_id": "E-014",
+    "run_id": "e014-model-parallel-ddp4x2-result-audit-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e014-model-parallel-ddp4x2-result-audit-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-73208fde7535988fcddac0da",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-accf47098896"
+  },
+  {
+    "time": "2026-10-21T19:02:20",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-20261021",
+    "type": "run_organization",
+    "message": "e015-multishot-data-preparation-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:02:20",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-737b44b7f19a4abf5406"
+    },
+    "event_id": "evt-4571c7739c92"
+  },
+  {
+    "time": "2026-10-21T19:03:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f7db4a16d7c5979126993ef6",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:03:51",
+      "updated_at": "2026-10-21T19:03:51",
+      "authorization_timestamp": "2026-10-21T19:03:51.879204",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:03:51",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ae171f068c2b"
+  },
+  {
+    "time": "2026-10-21T19:03:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f7db4a16d7c5979126993ef6",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-d1d4dbb5c3aa"
+  },
+  {
+    "time": "2026-10-21T19:03:52",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multishot-data-preparation-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-f7db4a16d7c5979126993ef6",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-856970bc9908"
+  },
+  {
+    "time": "2026-10-21T19:05:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "run_organization",
+    "message": "e015-multishot-data-preparation-r2-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:05:50",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-18da7488d867e9c1da16"
+    },
+    "event_id": "evt-f5bd850e26f7"
+  },
+  {
+    "time": "2026-10-21T19:05:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5a5a890aea896e182cc27612",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:05:51",
+      "updated_at": "2026-10-21T19:05:51",
+      "authorization_timestamp": "2026-10-21T19:05:51.204169",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:05:51",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-36d751ec7b61"
+  },
+  {
+    "time": "2026-10-21T19:05:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5a5a890aea896e182cc27612",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-042352a519d3"
+  },
+  {
+    "time": "2026-10-21T19:05:51",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "run_derived",
+    "message": "e015-multishot-data-preparation-r2-20261021: 衍生自 e015-multishot-data-preparation-20261021 · 仅修复TAO原始验证集标注文件名为validation.json；保持原数据准备定义和所有原始输入，不复用失败目录。用户本次已授权完成E015数据与pipeline。",
+    "details": {
+      "parent_run_id": "e015-multishot-data-preparation-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-fa573df5ee93"
+  },
+  {
+    "time": "2026-10-21T19:08:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2f09d22824638e0dd2c121ff",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:08:50",
+      "updated_at": "2026-10-21T19:08:50",
+      "authorization_timestamp": "2026-10-21T19:08:50.776921",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:08:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-784da09ac7e6"
+  },
+  {
+    "time": "2026-10-21T19:08:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2f09d22824638e0dd2c121ff",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-49714f250f2f"
+  },
+  {
+    "time": "2026-10-21T19:08:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r2-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multishot-data-preparation-r2-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-2f09d22824638e0dd2c121ff",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-a540fe869673"
+  },
+  {
+    "time": "2026-10-21T19:10:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "run_organization",
+    "message": "e015-multishot-data-preparation-r3-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:10:18",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-32049dcddd986226304e"
+    },
+    "event_id": "evt-527d6288f2ce"
+  },
+  {
+    "time": "2026-10-21T19:10:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r3-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-9e1710ee2363c6f52e4ed762",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r3-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:10:18",
+      "updated_at": "2026-10-21T19:10:18",
+      "authorization_timestamp": "2026-10-21T19:10:18.557138",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:10:18",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-200dea7386e4"
+  },
+  {
+    "time": "2026-10-21T19:10:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r3-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-9e1710ee2363c6f52e4ed762",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-7e9446d2ddc8"
+  },
+  {
+    "time": "2026-10-21T19:10:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "run_derived",
+    "message": "e015-multishot-data-preparation-r3-20261021: 衍生自 e015-multishot-data-preparation-r2-20261021 · 前次仅预检因部署超时而未执行。部署完成后按完全相同的修正版输入进行一次数据准备。",
+    "details": {
+      "parent_run_id": "e015-multishot-data-preparation-r2-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-d53e6b4f4c3a"
+  },
+  {
+    "time": "2026-10-21T19:10:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r3-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0496fb4d1c61c568c6d555e0",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r3-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:10:40",
+      "updated_at": "2026-10-21T19:10:40",
+      "authorization_timestamp": "2026-10-21T19:10:40.426467",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:10:40",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-acf6f36a17db"
+  },
+  {
+    "time": "2026-10-21T19:10:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r3-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0496fb4d1c61c568c6d555e0",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-b7c2ba4f4ea2"
+  },
+  {
+    "time": "2026-10-21T19:10:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r3-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multishot-data-preparation-r3-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-0496fb4d1c61c568c6d555e0",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-de85a01d35b8"
+  },
+  {
+    "time": "2026-10-21T19:11:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "run_organization",
+    "message": "e015-multishot-data-preparation-r4-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:11:39",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-bd8627f2645742d0c79b"
+    },
+    "event_id": "evt-f653d074152b"
+  },
+  {
+    "time": "2026-10-21T19:11:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r4-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2ecec868974b1eba98d9457a",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r4-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:11:39",
+      "updated_at": "2026-10-21T19:11:39",
+      "authorization_timestamp": "2026-10-21T19:11:39.525585",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:11:39",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-3d873dda3ca2"
+  },
+  {
+    "time": "2026-10-21T19:11:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r4-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2ecec868974b1eba98d9457a",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-4f92b11ad8bd"
+  },
+  {
+    "time": "2026-10-21T19:11:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "run_derived",
+    "message": "e015-multishot-data-preparation-r4-20261021: 衍生自 e015-multishot-data-preparation-r3-20261021 · 只修正PIL尺寸读取属性，保持所有数据、采样、排除和哈希审计定义，继续完成已授权E015数据准备。",
+    "details": {
+      "parent_run_id": "e015-multishot-data-preparation-r3-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-d52bb497cc32"
+  },
+  {
+    "time": "2026-10-21T19:11:42",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r4-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-9b3370641cb032db613dbc62",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r4-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:11:42",
+      "updated_at": "2026-10-21T19:11:42",
+      "authorization_timestamp": "2026-10-21T19:11:42.297734",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:11:42",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b3e5c8a217b4"
+  },
+  {
+    "time": "2026-10-21T19:11:42",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r4-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-9b3370641cb032db613dbc62",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-9a91340e1f02"
+  },
+  {
+    "time": "2026-10-21T19:11:42",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r4-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multishot-data-preparation-r4-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-9b3370641cb032db613dbc62",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-6a6f4e8a1f02"
+  },
+  {
+    "time": "2026-10-21T19:14:57",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-sft-selector-ddp4x2-capability-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:14:57",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-b846e104f8043ea8dc7e"
+    },
+    "event_id": "evt-42cc9c80ce07"
+  },
+  {
+    "time": "2026-10-21T19:41:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "run_organization",
+    "message": "e015-multishot-data-preparation-r5-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:41:03",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-a059b3d8597134cbd7f0"
+    },
+    "event_id": "evt-c77a647d072c"
+  },
+  {
+    "time": "2026-10-21T19:41:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r5-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-b6f82af5a418f94e52d22f1d",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r5-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:41:03",
+      "updated_at": "2026-10-21T19:41:03",
+      "authorization_timestamp": "2026-10-21T19:41:03.339665",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:41:03",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-1d36050359e9"
+  },
+  {
+    "time": "2026-10-21T19:41:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r5-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-b6f82af5a418f94e52d22f1d",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-d5a1ae80600c"
+  },
+  {
+    "time": "2026-10-21T19:41:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "run_derived",
+    "message": "e015-multishot-data-preparation-r5-20261021: 衍生自 e015-multishot-data-preparation-r4-20261021 · 复用已完成六份清单（训练10175、测试1728），重核同Query/GT/索引和SHA；仅复核被排除记录并记录原因。GRPO中保留原始行与奖励，对无效中间参考帧选择同轨迹最近的有效帧，不裁剪标注，逐例记录nominal→actual和原始标注SHA。继续用户授权的E015。",
+    "details": {
+      "parent_run_id": "e015-multishot-data-preparation-r4-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-97815fa6787d"
+  },
+  {
+    "time": "2026-10-21T19:41:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multishot-data-preparation-r5-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-28fe91b73360ea92f3313359",
+      "experiment_id": "E-015",
+      "run_id": "e015-multishot-data-preparation-r5-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:41:06",
+      "updated_at": "2026-10-21T19:41:06",
+      "authorization_timestamp": "2026-10-21T19:41:06.321251",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:41:06",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-f46097982039"
+  },
+  {
+    "time": "2026-10-21T19:41:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-multishot-data-preparation-r5-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-28fe91b73360ea92f3313359",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-b1f81e2a9534"
+  },
+  {
+    "time": "2026-10-21T19:41:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-multishot-data-preparation-r5-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multishot-data-preparation-r5-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-28fe91b73360ea92f3313359",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-ebbaf4ebe4ec"
+  },
+  {
+    "time": "2026-10-21T19:41:43",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-sft-selector-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-0c6647895fce54dc381c9378",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T19:41:43",
+      "updated_at": "2026-10-21T19:41:43",
+      "authorization_timestamp": "2026-10-21T19:41:43.190744",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T19:41:43",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-31681edef3a0"
+  },
+  {
+    "time": "2026-10-21T19:41:43",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-sft-selector-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-0c6647895fce54dc381c9378",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-68219ec6cdc3"
+  },
+  {
+    "time": "2026-10-21T19:41:43",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-sft-selector-ddp4x2-capability-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-0c6647895fce54dc381c9378",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-b0d2f00e9a2a"
+  },
+  {
+    "time": "2026-10-21T19:56:38",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-4shot-sft-grpo-vqa-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T19:56:38",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-c54d96bb63ec9330aaeb"
+    },
+    "event_id": "evt-a84c146435d7"
+  },
+  {
+    "time": "2026-10-21T20:02:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T20:02:50",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-1ab9314e0ee57d27c9f3"
+    },
+    "event_id": "evt-899fca16d338"
+  },
+  {
+    "time": "2026-10-21T20:02:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-4aa886e6237f82aee4ae686f",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:02:50",
+      "updated_at": "2026-10-21T20:02:50",
+      "authorization_timestamp": "2026-10-21T20:02:50.689865",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:02:50",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a9f57b8e20f8"
+  },
+  {
+    "time": "2026-10-21T20:02:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-4aa886e6237f82aee4ae686f",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-ef27e1cda2bd"
+  },
+  {
+    "time": "2026-10-21T20:02:50",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "run_derived",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021: 衍生自 e015-qwen2-sft-selector-ddp4x2-capability-20261021 · 修正选择器配置并仅补跑选择训练/五图推理，复核父Run已通过SFT阶段；继续用户授权E015完整任务。",
+    "details": {
+      "parent_run_id": "e015-qwen2-sft-selector-ddp4x2-capability-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-6f4df57540c6"
+  },
+  {
+    "time": "2026-10-21T20:04:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-32257876154d44ea2e7f03b9",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:04:03",
+      "updated_at": "2026-10-21T20:04:03",
+      "authorization_timestamp": "2026-10-21T20:04:03.208051",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:04:03",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-4999282ab04e"
+  },
+  {
+    "time": "2026-10-21T20:04:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-32257876154d44ea2e7f03b9",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-b2b262368ef1"
+  },
+  {
+    "time": "2026-10-21T20:04:03",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-selector-ddp4x2-capability-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-32257876154d44ea2e7f03b9",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-9c759051115b"
+  },
+  {
+    "time": "2026-10-21T20:17:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T20:17:06",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-efce2bc0738b43d68c29"
+    },
+    "event_id": "evt-2bad9422505a"
+  },
+  {
+    "time": "2026-10-21T20:17:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-44a7c9cbec4290bd1b0e45e4",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:17:06",
+      "updated_at": "2026-10-21T20:17:06",
+      "authorization_timestamp": "2026-10-21T20:17:06.416638",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:17:06",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ec00b2a00746"
+  },
+  {
+    "time": "2026-10-21T20:17:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-44a7c9cbec4290bd1b0e45e4",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-8a3fc7097c70"
+  },
+  {
+    "time": "2026-10-21T20:17:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "run_derived",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021: 衍生自 e015-qwen2-selector-ddp4x2-capability-20261021 · 修正两卡副本早期同步的设备编号，只补跑五图VQA，所有已通过训练阶段不重复；继续E015。",
+    "details": {
+      "parent_run_id": "e015-qwen2-selector-ddp4x2-capability-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-3104f53f801e"
+  },
+  {
+    "time": "2026-10-21T20:18:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-3f1f474b4f9aceb356b9328f",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:18:18",
+      "updated_at": "2026-10-21T20:18:18",
+      "authorization_timestamp": "2026-10-21T20:18:18.865716",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:18:18",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-8cdd1db8c8b6"
+  },
+  {
+    "time": "2026-10-21T20:18:18",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-3f1f474b4f9aceb356b9328f",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-8098b433cbe0"
+  },
+  {
+    "time": "2026-10-21T20:18:19",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-vqa-ddp4x2-capability-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-3f1f474b4f9aceb356b9328f",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-042fb1ab4f40"
+  },
+  {
+    "time": "2026-10-21T20:27:00",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T20:27:00",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f0ac65922c54b7f64172"
+    },
+    "event_id": "evt-773467bac4bd"
+  },
+  {
+    "time": "2026-10-21T20:27:00",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-c06607d846c10a782332be5c",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:27:00",
+      "updated_at": "2026-10-21T20:27:00",
+      "authorization_timestamp": "2026-10-21T20:27:00.421863",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:27:00",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-53cb1aa60cb0"
+  },
+  {
+    "time": "2026-10-21T20:27:00",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-c06607d846c10a782332be5c",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-c3666dd77fc3"
+  },
+  {
+    "time": "2026-10-21T20:27:00",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "run_derived",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021: 衍生自 e015-qwen2-vqa-ddp4x2-capability-20261021 · 修正Qwen2真实图像预算并补测输入grid；保留全部历史证据，继续独立E015正式pipeline。",
+    "details": {
+      "parent_run_id": "e015-qwen2-vqa-ddp4x2-capability-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-6b47e49ce6a2"
+  },
+  {
+    "time": "2026-10-21T20:28:59",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-20f283f25ed67ceba0e2ca3e",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:28:59",
+      "updated_at": "2026-10-21T20:28:59",
+      "authorization_timestamp": "2026-10-21T20:28:59.534719",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:28:59",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-bb189cb198eb"
+  },
+  {
+    "time": "2026-10-21T20:28:59",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-20f283f25ed67ceba0e2ca3e",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-bb1f3d0f87f8"
+  },
+  {
+    "time": "2026-10-21T20:28:59",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-vqa-actual-budget4096-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-20f283f25ed67ceba0e2ca3e",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-18389bfed2ef"
+  },
+  {
+    "time": "2026-10-21T20:34:05",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "run_organization",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021: microtask",
+    "details": {
+      "time": "2026-10-21T20:34:05",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-42b59f472e85e4881b2e"
+    },
+    "event_id": "evt-be876af14c0a"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5079bec05c818bba1777017c",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:34:06",
+      "updated_at": "2026-10-21T20:34:06",
+      "authorization_timestamp": "2026-10-21T20:34:06.083248",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:34:06",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-a688d84562e3"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5079bec05c818bba1777017c",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-6c880e920593"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "run_derived",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021: 衍生自 e015-qwen2-vqa-actual-budget4096-20261021 · 使用实际Qwen3 processor配置修正回归测试导入，继续CPU和五图预算验证。",
+    "details": {
+      "parent_run_id": "e015-qwen2-vqa-actual-budget4096-20261021",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-32be08e12f08"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-86b101e941342a23a19cbb60",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:34:06",
+      "updated_at": "2026-10-21T20:34:06",
+      "authorization_timestamp": "2026-10-21T20:34:06.684658",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:34:06",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-f8c63e7ab351"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-86b101e941342a23a19cbb60",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-375139fbe5d7"
+  },
+  {
+    "time": "2026-10-21T20:34:06",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-vqa-actual-budget4096-r2-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-vqa-actual-budget4096-r2-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-86b101e941342a23a19cbb60",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-377b28e8a231"
+  },
+  {
+    "time": "2026-10-21T20:40:05",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-4shot-sft-grpo-vqa-20261021 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-8c6ae75f6165d2823559fa09",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+      "status": "queued",
+      "created_at": "2026-10-21T20:40:05",
+      "updated_at": "2026-10-21T20:40:05",
+      "authorization_timestamp": "2026-10-21T20:40:05.010683",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-21T20:40:05",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ef25badd8127"
+  },
+  {
+    "time": "2026-10-21T20:40:05",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-4shot-sft-grpo-vqa-20261021: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-8c6ae75f6165d2823559fa09",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-3d404728c404"
+  },
+  {
+    "time": "2026-10-21T20:40:05",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-4shot-sft-grpo-vqa-20261021",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-4shot-sft-grpo-vqa-20261021: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-8c6ae75f6165d2823559fa09",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-eb0fab9287f6"
+  },
+  {
+    "time": "2026-10-23T20:48:34",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-20261023",
+    "type": "run_organization",
+    "message": "e015-iploc144-qwen2-4shot-restart-20261023: microtask",
+    "details": {
+      "time": "2026-10-23T20:48:34",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-4b96319d26e620680bf1"
+    },
+    "event_id": "evt-3edfacdc7742"
+  },
+  {
+    "time": "2026-10-23T20:49:09",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+    "type": "run_organization",
+    "message": "e015-iploc144-qwen2-4shot-restart-r2-20261023: microtask",
+    "details": {
+      "time": "2026-10-23T20:49:09",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-421e37a36cb0cd305fd5"
+    },
+    "event_id": "evt-2bf528c0eab6"
+  },
+  {
+    "time": "2026-10-23T20:49:16",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-iploc144-qwen2-4shot-restart-r2-20261023 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a87a6fd0aa97d7e09b626e92",
+      "experiment_id": "E-015",
+      "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+      "status": "queued",
+      "created_at": "2026-10-23T20:49:16",
+      "updated_at": "2026-10-23T20:49:16",
+      "authorization_timestamp": "2026-10-23T20:49:16.524246",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-23T20:49:16",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-87b604c630e0"
+  },
+  {
+    "time": "2026-10-23T20:49:16",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+    "type": "run_direct_steward",
+    "message": "e015-iploc144-qwen2-4shot-restart-r2-20261023: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-a87a6fd0aa97d7e09b626e92",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-1099c9dba25c"
+  },
+  {
+    "time": "2026-10-23T20:49:16",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r2-20261023",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-iploc144-qwen2-4shot-restart-r2-20261023: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-a87a6fd0aa97d7e09b626e92",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-d1b7b7470915"
+  },
+  {
+    "time": "2026-10-23T20:53:41",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+    "type": "run_organization",
+    "message": "e015-iploc144-qwen2-4shot-restart-r3-20261023: microtask",
+    "details": {
+      "time": "2026-10-23T20:53:41",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-043052653450d6307554"
+    },
+    "event_id": "evt-4a6e919c1027"
+  },
+  {
+    "time": "2026-10-23T20:53:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-iploc144-qwen2-4shot-restart-r3-20261023 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-35dd5e036dab5110a63caeb6",
+      "experiment_id": "E-015",
+      "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+      "status": "queued",
+      "created_at": "2026-10-23T20:53:47",
+      "updated_at": "2026-10-23T20:53:47",
+      "authorization_timestamp": "2026-10-23T20:53:47.384723",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-23T20:53:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-12c463166e28"
+  },
+  {
+    "time": "2026-10-23T20:53:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+    "type": "run_direct_steward",
+    "message": "e015-iploc144-qwen2-4shot-restart-r3-20261023: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-35dd5e036dab5110a63caeb6",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-4b05ea05020a"
+  },
+  {
+    "time": "2026-10-23T20:53:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-iploc144-qwen2-4shot-restart-r3-20261023: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-35dd5e036dab5110a63caeb6",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-47cd9cb37495"
+  },
+  {
+    "time": "2026-10-26T09:51:22",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "run_organization",
+    "message": "e015-three-dataset-eval-20261026: microtask",
+    "details": {
+      "time": "2026-10-26T09:51:21",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ac2777085e0e8e140bc0"
+    },
+    "event_id": "evt-97c2edf85e8a"
+  },
+  {
+    "time": "2026-10-26T09:51:22",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-three-dataset-eval-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1cdee3f09e6db46b93867425",
+      "experiment_id": "E-015",
+      "run_id": "e015-three-dataset-eval-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T09:51:22",
+      "updated_at": "2026-10-26T09:51:22",
+      "authorization_timestamp": "2026-10-26T09:51:22.155048",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T09:51:22",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-4017d28fd322"
+  },
+  {
+    "time": "2026-10-26T09:51:22",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-three-dataset-eval-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1cdee3f09e6db46b93867425",
+      "actor": "codex:user-authorized-joint-evaluation"
+    },
+    "event_id": "evt-d4a5e0bb2168"
+  },
+  {
+    "time": "2026-10-26T09:51:22",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "run_derived",
+    "message": "e015-three-dataset-eval-20261026: 衍生自 e015-iploc144-qwen2-4shot-restart-r3-20261023 · 用户授权使用已完成E015模型联合评测LaSOT/GOT10k/TAO的1/2/4shot。复用父GRPO与selector及LaSOT144预测；新增GOT10k和TAO-Amodal官方validation带标签评测，按父训练的均匀参考取帧构造共同query集，核查SFT/GRPO源视频互斥并报告类别重合。分别报告score/VQA/Oracle mIoU与Acc50，各数据集、合并样本微平均",
+    "details": {
+      "parent_run_id": "e015-iploc144-qwen2-4shot-restart-r3-20261023",
+      "actor": "codex:user-authorized-joint-evaluation"
+    },
+    "event_id": "evt-8494006e91b5"
+  },
+  {
+    "time": "2026-10-26T09:51:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-three-dataset-eval-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-b2eefc53aa2ee88c0caa1972",
+      "experiment_id": "E-015",
+      "run_id": "e015-three-dataset-eval-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T09:51:32",
+      "updated_at": "2026-10-26T09:51:32",
+      "authorization_timestamp": "2026-10-26T09:51:32.882940",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T09:51:32",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-e363d26e7ef2"
+  },
+  {
+    "time": "2026-10-26T09:51:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-three-dataset-eval-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-b2eefc53aa2ee88c0caa1972",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-301e9915e342"
+  },
+  {
+    "time": "2026-10-26T09:51:33",
+    "experiment_id": "E-015",
+    "run_id": "e015-three-dataset-eval-20261026",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-three-dataset-eval-20261026: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-b2eefc53aa2ee88c0caa1972",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-131b35ab2ada"
+  },
+  {
+    "time": "2026-10-26T15:41:09",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "run_organization",
+    "message": "e015-qwen2-selector-e014data-20261026: microtask",
+    "details": {
+      "time": "2026-10-26T15:41:09",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f94d8dff1952a2397d9a"
+    },
+    "event_id": "evt-202cf99baa3d"
+  },
+  {
+    "time": "2026-10-26T15:41:09",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014data-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-af06137a30dd4a040127220a",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014data-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T15:41:09",
+      "updated_at": "2026-10-26T15:41:09",
+      "authorization_timestamp": "2026-10-26T15:41:09.396310",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T15:41:09",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-2f4cfcf454f1"
+  },
+  {
+    "time": "2026-10-26T15:41:09",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014data-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-af06137a30dd4a040127220a",
+      "actor": "codex:user-authorized-e014-data-diagnostic"
+    },
+    "event_id": "evt-083f47c491cd"
+  },
+  {
+    "time": "2026-10-26T15:41:09",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "run_derived",
+    "message": "e015-qwen2-selector-e014data-20261026: 衍生自 e015-three-dataset-eval-20261026 · 用户明确要求先用E014丰富选择数据替换当前VQA阶段数据，诊断提升幅度，之后再解决数据来源。原样使用E014冻结21552行/8203 source_index（SHA6d2a9b4f...），全部1参考图，不重建/删改标签或过滤重合；审计与当前评测的源视频/图像重合并披露。Qwen2官方base fresh独立LoRA，保留E015选择器lr5e-5/global16/4epochs/warm",
+    "details": {
+      "parent_run_id": "e015-three-dataset-eval-20261026",
+      "actor": "codex:user-authorized-e014-data-diagnostic"
+    },
+    "event_id": "evt-8443a2b7dabc"
+  },
+  {
+    "time": "2026-10-26T15:44:30",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014data-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-882fa893f914de1c533846ea",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014data-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T15:44:30",
+      "updated_at": "2026-10-26T15:44:30",
+      "authorization_timestamp": "2026-10-26T15:44:30.597027",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T15:44:30",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-3810a8969f34"
+  },
+  {
+    "time": "2026-10-26T15:44:30",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014data-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-882fa893f914de1c533846ea",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-41bc004c6fa5"
+  },
+  {
+    "time": "2026-10-26T15:44:30",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014data-20261026",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-selector-e014data-20261026: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-882fa893f914de1c533846ea",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-6fad293c5d54"
+  },
+  {
+    "time": "2026-10-26T16:02:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "run_organization",
+    "message": "e015-qwen2-selector-e014clean-20261026: microtask",
+    "details": {
+      "time": "2026-10-26T16:02:32",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-2d1c0fe48098dc1610f8"
+    },
+    "event_id": "evt-f799c8e17a65"
+  },
+  {
+    "time": "2026-10-26T16:02:33",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014clean-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-2def4b6d57bbcce69420b788",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T16:02:33",
+      "updated_at": "2026-10-26T16:02:33",
+      "authorization_timestamp": "2026-10-26T16:02:33.133093",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T16:02:33",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-9bdd15542357"
+  },
+  {
+    "time": "2026-10-26T16:02:33",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014clean-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-2def4b6d57bbcce69420b788",
+      "actor": "codex:user-authorized-e014-data-diagnostic"
+    },
+    "event_id": "evt-a799e3f84ef7"
+  },
+  {
+    "time": "2026-10-26T16:02:33",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "run_derived",
+    "message": "e015-qwen2-selector-e014clean-20261026: 衍生自 e015-three-dataset-eval-20261026 · 用户纠正：去掉可能影响当前测试集的旧E014数据。排除当前作者LaSOT36测试类别（含TAO内LaSOT来源），排除三数据集1/2/4shot全部测试源视频（跨数据集LaSOT/YouTube身份、AVA/HACS场景归一）及相同图像路径/SHA，按整源组/source_index闭包删除全部排列。原始21552行文件保持，独立过滤清单和删除原因/SHA留档，不重采样平衡。中止旧e014data",
+    "details": {
+      "parent_run_id": "e015-three-dataset-eval-20261026",
+      "actor": "codex:user-authorized-e014-data-diagnostic"
+    },
+    "event_id": "evt-1a104217ba21"
+  },
+  {
+    "time": "2026-10-26T16:02:46",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014clean-20261026 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-4cfc414dc15095729be1c414",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean-20261026",
+      "status": "queued",
+      "created_at": "2026-10-26T16:02:46",
+      "updated_at": "2026-10-26T16:02:46",
+      "authorization_timestamp": "2026-10-26T16:02:46.521937",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-26T16:02:46",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-56b45aa5c2c8"
+  },
+  {
+    "time": "2026-10-26T16:02:46",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014clean-20261026: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-4cfc414dc15095729be1c414",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-9fdf197003f3"
+  },
+  {
+    "time": "2026-10-26T16:02:46",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean-20261026",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-selector-e014clean-20261026: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-4cfc414dc15095729be1c414",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-d0c802021f80"
+  },
+  {
+    "time": "2026-10-27T13:33:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-tier3-grpo-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T13:33:46",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-288a8666e07ac03ff992"
+    },
+    "event_id": "evt-b234a27af2a2"
+  },
+  {
+    "time": "2026-10-27T13:33:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-grpo-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-6b2aeff90cd64e0adfc1bf2a",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-grpo-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T13:33:47",
+      "updated_at": "2026-10-27T13:33:47",
+      "authorization_timestamp": "2026-10-27T13:33:47.193469",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T13:33:47",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b600d653e9ea"
+  },
+  {
+    "time": "2026-10-27T13:33:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-grpo-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-6b2aeff90cd64e0adfc1bf2a",
+      "actor": "codex:user-authorized-tier3-grpo-restart"
+    },
+    "event_id": "evt-e6ecd86391ae"
+  },
+  {
+    "time": "2026-10-27T13:33:47",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-tier3-grpo-20261027: 衍生自 e015-qwen2-selector-e014clean-20261026 · 用户授权修改奖励并重启GRPO，持续记录多框率等指标。复用e015-iploc144-qwen2-4shot-restart-r3-20261023的SFT636 adapter及训练数据/排除表/4shot参考；新optimizer fresh GRPO400步，不续旧GRPO。相同Qwen2/G4/4x2GPU/lr1e-5/beta0/seed11451/192token/保存50。采用ca",
+    "details": {
+      "parent_run_id": "e015-qwen2-selector-e014clean-20261026",
+      "actor": "codex:user-authorized-tier3-grpo-restart"
+    },
+    "event_id": "evt-90f5549ae868"
+  },
+  {
+    "time": "2026-10-27T13:34:08",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-grpo-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-7cf79e0cc2412355c8b09b48",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-grpo-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T13:34:08",
+      "updated_at": "2026-10-27T13:34:08",
+      "authorization_timestamp": "2026-10-27T13:34:08.514603",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T13:34:08",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ac9aa69c251d"
+  },
+  {
+    "time": "2026-10-27T13:34:08",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-grpo-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-7cf79e0cc2412355c8b09b48",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-a40c7fff1a4b"
+  },
+  {
+    "time": "2026-10-27T13:34:08",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-grpo-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-tier3-grpo-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-7cf79e0cc2412355c8b09b48",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-cd62a7cd01dd"
+  },
+  {
+    "time": "2026-10-27T14:34:57",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T14:34:57",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-696c3ff5551b478773d2"
+    },
+    "event_id": "evt-5efb9c371fd8"
+  },
+  {
+    "time": "2026-10-27T14:34:58",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f90fe92eb833fa6fd2873704",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T14:34:58",
+      "updated_at": "2026-10-27T14:34:58",
+      "authorization_timestamp": "2026-10-27T14:34:57.993403",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T14:34:58",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-2e20aab820cd"
+  },
+  {
+    "time": "2026-10-27T14:34:58",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f90fe92eb833fa6fd2873704",
+      "actor": "codex:user-authorized-eight-gpu-probe"
+    },
+    "event_id": "evt-c49ce3dd69b8"
+  },
+  {
+    "time": "2026-10-27T14:34:58",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027: 衍生自 e015-qwen2-tier3-grpo-20261027 · 用户明确要求试8卡单副本DDP能否运行，并授权直接停止当前4x2训练；父Run完成18步后终止、无checkpoint、日志保留。独立8步能力短测，从同SFT636初始化，原GRPO4shot数据/三档mean覆盖.1奖励/G4/seed11451/4096patches/192completion/1e-5保持；devices_per_replica1/layer_splitNone/torch",
+    "details": {
+      "parent_run_id": "e015-qwen2-tier3-grpo-20261027",
+      "actor": "codex:user-authorized-eight-gpu-probe"
+    },
+    "event_id": "evt-0b8d2e5b83a0"
+  },
+  {
+    "time": "2026-10-27T14:35:20",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f64abad0a63fa05b283088a9",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T14:35:20",
+      "updated_at": "2026-10-27T14:35:20",
+      "authorization_timestamp": "2026-10-27T14:35:20.397549",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T14:35:20",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-1605ced2e245"
+  },
+  {
+    "time": "2026-10-27T14:35:20",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f64abad0a63fa05b283088a9",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-077f7cce574a"
+  },
+  {
+    "time": "2026-10-27T14:35:20",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-probe-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-tier3-ddp8-probe-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-f64abad0a63fa05b283088a9",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-f5b07039f49a"
+  },
+  {
+    "time": "2026-10-27T15:15:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T15:15:12",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-360ffe9dcec8d1497b9f"
+    },
+    "event_id": "evt-fd3d77b296e4"
+  },
+  {
+    "time": "2026-10-27T15:15:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-7dda3744fe7de6db2853767f",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T15:15:12",
+      "updated_at": "2026-10-27T15:15:12",
+      "authorization_timestamp": "2026-10-27T15:15:12.631861",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T15:15:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-9a1d45767856"
+  },
+  {
+    "time": "2026-10-27T15:15:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-7dda3744fe7de6db2853767f",
+      "actor": "codex:user-authorized-full-ddp8-training"
+    },
+    "event_id": "evt-71c1e8831144"
+  },
+  {
+    "time": "2026-10-27T15:15:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027: 衍生自 e015-qwen2-tier3-grpo-20261027 · 用户在8卡DDP短测完成4步并核验无OOM记录后，明确要求进行完整训练。新的独立Run从同一SFT636 adapter重新初始化GRPO，8进程×1GPU，4shot/G4/三档奖励/拼接mean覆盖最高0.1均沿用已停止tier3父Run；devices_per_replica=1、layer_split=None，400更新、warmup_ratio0.01(4步)、lr1e-5/beta0",
+    "details": {
+      "parent_run_id": "e015-qwen2-tier3-grpo-20261027",
+      "actor": "codex:user-authorized-full-ddp8-training"
+    },
+    "event_id": "evt-bcb29befcfbd"
+  },
+  {
+    "time": "2026-10-27T15:15:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-c70a2d98c912ae736d428a90",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T15:15:39",
+      "updated_at": "2026-10-27T15:15:39",
+      "authorization_timestamp": "2026-10-27T15:15:39.694734",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T15:15:39",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-59d4358e5450"
+  },
+  {
+    "time": "2026-10-27T15:15:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-c70a2d98c912ae736d428a90",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-0f4aaa8520d1"
+  },
+  {
+    "time": "2026-10-27T15:15:39",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-tier3-ddp8-full-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-c70a2d98c912ae736d428a90",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-c9d59c0d6556"
+  },
+  {
+    "time": "2026-10-27T19:16:27",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "run_organization",
+    "message": "e015-multibox-history-reward-audit-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T19:16:27",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-2dcad9b49b7ec4e828df"
+    },
+    "event_id": "evt-ca2bf1885ac6"
+  },
+  {
+    "time": "2026-10-27T19:16:27",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multibox-history-reward-audit-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-433b3390ca241c5c93c39e60",
+      "experiment_id": "E-015",
+      "run_id": "e015-multibox-history-reward-audit-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T19:16:27",
+      "updated_at": "2026-10-27T19:16:27",
+      "authorization_timestamp": "2026-10-27T19:16:27.301713",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T19:16:27",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-3c32ead68dc3"
+  },
+  {
+    "time": "2026-10-27T19:16:27",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-multibox-history-reward-audit-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-433b3390ca241c5c93c39e60",
+      "actor": "codex:user-requested-historical-sample-analysis"
+    },
+    "event_id": "evt-7d23f6a23663"
+  },
+  {
+    "time": "2026-10-27T19:16:27",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "run_derived",
+    "message": "e015-multibox-history-reward-audit-20261027: 衍生自 e015-qwen2-tier3-ddp8-full-20261027 · 用户明确要求分析过去多框率较高的样本，解释当前单框收缩。独立CPU衍生分析：冻结同Qwen2/SFT636/4shot/数据的旧discovery400步12800rollouts与当前tier3-DDP8前84步5376rollouts（按每rank前672行SHA冻结，不读取后续训练更新作为主数据），复用现有parser和two_instance_coverage。逐输出重算旧/新奖励并核对实",
+    "details": {
+      "parent_run_id": "e015-qwen2-tier3-ddp8-full-20261027",
+      "actor": "codex:user-requested-historical-sample-analysis"
+    },
+    "event_id": "evt-d58a69b0ac77"
+  },
+  {
+    "time": "2026-10-27T19:16:34",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-multibox-history-reward-audit-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a5bd1e149c5318f99715f5c7",
+      "experiment_id": "E-015",
+      "run_id": "e015-multibox-history-reward-audit-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T19:16:34",
+      "updated_at": "2026-10-27T19:16:34",
+      "authorization_timestamp": "2026-10-27T19:16:34.118420",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T19:16:34",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-cadd85429f5f"
+  },
+  {
+    "time": "2026-10-27T19:16:34",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-multibox-history-reward-audit-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-a5bd1e149c5318f99715f5c7",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-fba62152d25c"
+  },
+  {
+    "time": "2026-10-27T19:16:34",
+    "experiment_id": "E-015",
+    "run_id": "e015-multibox-history-reward-audit-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-multibox-history-reward-audit-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-a5bd1e149c5318f99715f5c7",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-40112a11aaaf"
+  },
+  {
+    "time": "2026-10-27T19:41:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T19:41:11",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-f5f217b733ddafb0f0c8"
+    },
+    "event_id": "evt-14ebd4b49183"
+  },
+  {
+    "time": "2026-10-27T19:41:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-e6f92115be91adee7df60948",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T19:41:12",
+      "updated_at": "2026-10-27T19:41:12",
+      "authorization_timestamp": "2026-10-27T19:41:12.159695",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T19:41:12",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-27a96b30b5ea"
+  },
+  {
+    "time": "2026-10-27T19:41:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-e6f92115be91adee7df60948",
+      "actor": "codex:explicit-user-qwen2-vqa-on-e014"
+    },
+    "event_id": "evt-f626fc3eccc5"
+  },
+  {
+    "time": "2026-10-27T19:41:12",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027: 衍生自 e015-qwen2-selector-e014clean-20261026 · 用户明确要求使用新的Qwen2 VQA评测E014原始proposal，固定1766条1shot/791多框，报告score/VQA/Oracle及旧VQA配对；另报排除18原视频重合后的1748条。等现有完整GRPO及其评测成功结束且8卡空闲后执行，不中断训练。",
+    "details": {
+      "parent_run_id": "e015-qwen2-selector-e014clean-20261026",
+      "actor": "codex:explicit-user-qwen2-vqa-on-e014"
+    },
+    "event_id": "evt-858415f20838"
+  },
+  {
+    "time": "2026-10-27T19:41:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-a6f84698836c47ee8d3e6690",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T19:41:40",
+      "updated_at": "2026-10-27T19:41:40",
+      "authorization_timestamp": "2026-10-27T19:41:40.020678",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T19:41:40",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-fd1d1699a978"
+  },
+  {
+    "time": "2026-10-27T19:41:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-a6f84698836c47ee8d3e6690",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-7ac694a1cd77"
+  },
+  {
+    "time": "2026-10-27T19:41:40",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-proposals1766-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-cleanvqa-e014-proposals1766-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-a6f84698836c47ee8d3e6690",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-768a6fdba59e"
+  },
+  {
+    "time": "2026-10-27T19:59:25",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T19:59:24",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-61e0191307e04f755e3d"
+    },
+    "event_id": "evt-78202d717873"
+  },
+  {
+    "time": "2026-10-27T19:59:25",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-f835695f906363b6a3e91b8d",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T19:59:25",
+      "updated_at": "2026-10-27T19:59:25",
+      "authorization_timestamp": "2026-10-27T19:59:25.146152",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T19:59:25",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-ebf6d58b66f3"
+  },
+  {
+    "time": "2026-10-27T19:59:25",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-f835695f906363b6a3e91b8d",
+      "actor": "codex:user-corrected-124shot-e014-vqa"
+    },
+    "event_id": "evt-9941f3167727"
+  },
+  {
+    "time": "2026-10-27T19:59:25",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027: 衍生自 e015-qwen2-selector-e014clean-20261026 · 用户将新Qwen2 VQA评测E014原proposal改为1/2/4shot都评测，不单独做/报告多框子集。固定proposal与同一共同查询，只增加VQA参考图；旧1shot排队取消。当前GRPO继续，新评测在其及既定评测成功结束且8卡空闲后运行。",
+    "details": {
+      "parent_run_id": "e015-qwen2-selector-e014clean-20261026",
+      "actor": "codex:user-corrected-124shot-e014-vqa"
+    },
+    "event_id": "evt-34c5d20ed631"
+  },
+  {
+    "time": "2026-10-27T20:00:53",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1f26c0a89994a8dd0ff0eac4",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T20:00:53",
+      "updated_at": "2026-10-27T20:00:53",
+      "authorization_timestamp": "2026-10-27T20:00:53.733059",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T20:00:53",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-0b272352b835"
+  },
+  {
+    "time": "2026-10-27T20:00:53",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1f26c0a89994a8dd0ff0eac4",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-3b8ba8f84bc5"
+  },
+  {
+    "time": "2026-10-27T20:00:53",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-1f26c0a89994a8dd0ff0eac4",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-834cabe8d82a"
+  },
+  {
+    "time": "2026-10-27T20:17:19",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "run_organization",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027: microtask",
+    "details": {
+      "time": "2026-10-27T20:17:19",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-b45c0ce3dfd4047ebbb2"
+    },
+    "event_id": "evt-dbf0145744c5"
+  },
+  {
+    "time": "2026-10-27T20:17:19",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-464ffc734337881f993abf23",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T20:17:19",
+      "updated_at": "2026-10-27T20:17:19",
+      "authorization_timestamp": "2026-10-27T20:17:19.287079",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T20:17:19",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-467d3985cdfc"
+  },
+  {
+    "time": "2026-10-27T20:17:19",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-464ffc734337881f993abf23",
+      "actor": "codex:user-immediate-vqa-cancel-grpo"
+    },
+    "event_id": "evt-b45b75cb5e14"
+  },
+  {
+    "time": "2026-10-27T20:17:19",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "run_derived",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027: 衍生自 e015-qwen2-cleanvqa-e014-124shot-20261027 · 用户明确取消当前GRPO并立即执行已准备的新Qwen2 VQA×E014固定proposal的1/2/4shot评测。只取消等待依赖，科学配置和已核验输入全部复用；不单列多框子集。",
+    "details": {
+      "parent_run_id": "e015-qwen2-cleanvqa-e014-124shot-20261027",
+      "actor": "codex:user-immediate-vqa-cancel-grpo"
+    },
+    "event_id": "evt-052863829b99"
+  },
+  {
+    "time": "2026-10-27T20:17:31",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-1a4159a9fd9b2d1e44fae7a0",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+      "status": "queued",
+      "created_at": "2026-10-27T20:17:31",
+      "updated_at": "2026-10-27T20:17:31",
+      "authorization_timestamp": "2026-10-27T20:17:31.824811",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-27T20:17:31",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-985b7f16f1db"
+  },
+  {
+    "time": "2026-10-27T20:17:31",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-1a4159a9fd9b2d1e44fae7a0",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-2bdfccfed7f0"
+  },
+  {
+    "time": "2026-10-27T20:17:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-cleanvqa-e014-124shot-now-20261027",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-cleanvqa-e014-124shot-now-20261027: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-1a4159a9fd9b2d1e44fae7a0",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-540b67de3631"
+  },
+  {
+    "time": "2026-10-28T10:44:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "run_organization",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028: microtask",
+    "details": {
+      "time": "2026-10-28T10:44:32",
+      "policy_version": "run-organization/v1",
+      "action": "microtask",
+      "group_id": "",
+      "reason": "ambiguous",
+      "task_id": "classify-ef928d5b95342be27cc8"
+    },
+    "event_id": "evt-937e6c7f9a88"
+  },
+  {
+    "time": "2026-10-28T10:44:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-5b8b318646c6791c98a14ad6",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+      "status": "queued",
+      "created_at": "2026-10-28T10:44:32",
+      "updated_at": "2026-10-28T10:44:32",
+      "authorization_timestamp": "2026-10-28T10:44:32.394281",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-28T10:44:32",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-b2dd52c3c77d"
+  },
+  {
+    "time": "2026-10-28T10:44:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-5b8b318646c6791c98a14ad6",
+      "actor": "codex:user-corrected-unified-e015-vqa-training"
+    },
+    "event_id": "evt-d56515ca7416"
+  },
+  {
+    "time": "2026-10-28T10:44:32",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "run_derived",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028: 衍生自 e015-qwen2-selector-e014clean-20261026 · 用户明确重新训练：E014清洗仅作数据来源，VQA参考数/提示/训练配置统一原E015四参考协议；沿原4epoch/global16设置，训练后固定E015和E014两组proposal均评测1/2/4shot，不单列多框子集；不恢复GRPO。",
+    "details": {
+      "parent_run_id": "e015-qwen2-selector-e014clean-20261026",
+      "actor": "codex:user-corrected-unified-e015-vqa-training"
+    },
+    "event_id": "evt-efa4b130477e"
+  },
+  {
+    "time": "2026-10-28T10:44:36",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "execution_dispatch_enqueue",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028 outbox=queued",
+    "details": {
+      "dispatch_id": "dispatch-53cdbd225ddf60c0fcf23561",
+      "experiment_id": "E-015",
+      "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+      "status": "queued",
+      "created_at": "2026-10-28T10:44:36",
+      "updated_at": "2026-10-28T10:44:36",
+      "authorization_timestamp": "2026-10-28T10:44:36.861692",
+      "requested_route": "experiment_code_edit",
+      "requested_agent": "codex",
+      "requested_model": "gpt-5.6-sol",
+      "delivery_attempts": 0,
+      "claim_attempts": 0,
+      "last_error": "",
+      "history": [
+        {
+          "time": "2026-10-28T10:44:36",
+          "type": "queued",
+          "detail": "direct_steward"
+        }
+      ]
+    },
+    "event_id": "evt-e868f44c72bd"
+  },
+  {
+    "time": "2026-10-28T10:44:36",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "run_direct_steward",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028: current snapshot sent directly to Steward",
+    "details": {
+      "dispatch_id": "dispatch-53cdbd225ddf60c0fcf23561",
+      "actor": "codex:explicit-user-e015-pipeline"
+    },
+    "event_id": "evt-10a2e8940b3e"
+  },
+  {
+    "time": "2026-10-28T10:44:37",
+    "experiment_id": "E-015",
+    "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
+    "type": "run_runtime_command_prepared",
+    "message": "e015-qwen2-selector-e014clean4shot-20261028: Pi resolved launch placeholders",
+    "details": {
+      "dispatch_id": "dispatch-53cdbd225ddf60c0fcf23561",
+      "consumer": "pi-steward"
+    },
+    "event_id": "evt-33f507d60f3a"
   }
 ]

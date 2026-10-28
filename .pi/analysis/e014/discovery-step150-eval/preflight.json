@@ -1,7 +1,0 @@
-{
-  "prepared": true,
-  "checkpoint_step": 150,
-  "weights_sha256": "ddabbef487150ad95903a6c59b58c1f480dbc38511033aa94eacf858a9636bee",
-  "samples": 1766,
-  "payload_absent_before_start": true
-}

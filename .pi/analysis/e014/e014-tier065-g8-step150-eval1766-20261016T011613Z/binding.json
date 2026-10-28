@@ -1,8 +1,0 @@
-{
-  "run_id": "e014-tier065-g8-step150-eval1766-20261016T011613Z",
-  "run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-tier065-g8-step150-eval1766-20261016T011613Z",
-  "checkpoint": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261015T172455Z-tier065-oracle005-selected015-score015-g8-kl0-sft659-400step-seed11451/payload/grpo/checkpoints/step_000150",
-  "source_training_run_id": "e014-20261015T172455Z-tier065-oracle005-selected015-score015-g8-kl0-sft659-400step-seed11451",
-  "source_training_git_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53",
-  "evaluation_git_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53"
-}

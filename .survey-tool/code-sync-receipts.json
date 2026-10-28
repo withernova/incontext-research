@@ -5,17 +5,16 @@
       "workspace_id": "03",
       "machine": "db7a6137a485d9dd7561727a",
       "workspace_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
-      "recorded_at": "2026-10-18T14:14:20.444039+00:00",
-      "binding_created": false,
-      "local_clone_created": false,
-      "operation": "prepare",
-      "baseline_commit": "53ab7653602f62ffc1d5c9dadfbefccf7ad67474",
+      "recorded_at": "2026-10-27T05:31:47.434078+00:00",
+      "operation": "deploy",
+      "baseline_commit": "28c72afff503650316e37039c5931f2587b62b45",
+      "deployed_commit": "0e02d856ae30837eb60b511e8303cb50a50d1c26",
       "local_repo": "/home/zhengyuesong/Projects/NKU-MASTER/Projects/26-CVPR/incontext/code-repositories/03/iploc-szy",
       "remote_repo": "/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy",
       "ssh_host": "SZY-3090",
-      "remote_commit_created": false,
       "push_performed": false,
-      "execution_started": false
+      "execution_started": false,
+      "linux_cuda_validation": "not_performed; only on explicit request"
     }
   }
 }

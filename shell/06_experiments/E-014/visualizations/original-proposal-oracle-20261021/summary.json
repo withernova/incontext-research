@@ -1,0 +1,271 @@
+{
+  "status": "completed",
+  "action": "frozen_oracle_gap_analysis",
+  "samples": 1766,
+  "all": {
+    "samples": 1766,
+    "ours_miou": 0.7194462334134393,
+    "oracle_miou": 0.7573992982137026,
+    "gap_miou": 0.037953064800262476,
+    "gap_sum": 67.02511243726353,
+    "contribution_pp": 3.7953064800262477,
+    "ours_hits": 1388,
+    "oracle_hits": 1467,
+    "positive_gap": 109,
+    "invalid": 1
+  },
+  "multi": {
+    "samples": 791,
+    "ours_miou": 0.6737055384736944,
+    "oracle_miou": 0.7584401938937492,
+    "gap_miou": 0.08473465542005504,
+    "gap_sum": 67.02511243726353,
+    "contribution_pp": 3.7953064800262477,
+    "ours_hits": 576,
+    "oracle_hits": 655,
+    "positive_gap": 109,
+    "invalid": 1
+  },
+  "by_dataset": {
+    "LaSOT": {
+      "samples": 600,
+      "ours_miou": 0.6781810701280799,
+      "oracle_miou": 0.7167223918508266,
+      "gap_miou": 0.0385413217227463,
+      "gap_sum": 23.124793033647776,
+      "contribution_pp": 1.3094446791420034,
+      "ours_hits": 457,
+      "oracle_hits": 485,
+      "positive_gap": 38,
+      "invalid": 0
+    },
+    "GOT10k": {
+      "samples": 180,
+      "ours_miou": 0.8269725873337589,
+      "oracle_miou": 0.8462972143842374,
+      "gap_miou": 0.019324627050478636,
+      "gap_sum": 3.4784328690861543,
+      "contribution_pp": 0.19696675362888758,
+      "ours_hits": 162,
+      "oracle_hits": 166,
+      "positive_gap": 4,
+      "invalid": 0
+    },
+    "TAO": {
+      "samples": 986,
+      "ours_miou": 0.7249273229322606,
+      "oracle_miou": 0.7659231510605866,
+      "gap_miou": 0.04099582812832618,
+      "gap_sum": 40.42188653452961,
+      "contribution_pp": 2.2888950472553575,
+      "ours_hits": 769,
+      "oracle_hits": 816,
+      "positive_gap": 67,
+      "invalid": 1
+    }
+  },
+  "by_category": {
+    "threshold_miss": {
+      "samples": 79,
+      "ours_miou": 0.03639597067795778,
+      "oracle_miou": 0.8272734097024002,
+      "gap_miou": 0.7908774390244423,
+      "gap_sum": 62.47931768293094,
+      "contribution_pp": 3.537900208546486,
+      "ours_hits": 0,
+      "oracle_hits": 79,
+      "positive_gap": 79,
+      "invalid": 0
+    },
+    "both_hit_gap": {
+      "samples": 5,
+      "ours_miou": 0.6961494627904086,
+      "oracle_miou": 0.8148852935742275,
+      "gap_miou": 0.11873583078381884,
+      "gap_sum": 0.5936791539190942,
+      "contribution_pp": 0.033617166133584044,
+      "ours_hits": 5,
+      "oracle_hits": 5,
+      "positive_gap": 5,
+      "invalid": 0
+    },
+    "both_miss_gap": {
+      "samples": 25,
+      "ours_miou": 0.04227315871835416,
+      "oracle_miou": 0.200357782734894,
+      "gap_miou": 0.1580846240165398,
+      "gap_sum": 3.952115600413495,
+      "contribution_pp": 0.2237891053461775,
+      "ours_hits": 0,
+      "oracle_hits": 0,
+      "positive_gap": 25,
+      "invalid": 1
+    },
+    "at_oracle": {
+      "samples": 1657,
+      "ours_miou": 0.7622988474608716,
+      "oracle_miou": 0.7622988474608716,
+      "gap_miou": 0.0,
+      "gap_sum": 0.0,
+      "contribution_pp": 0.0,
+      "ours_hits": 1383,
+      "oracle_hits": 1383,
+      "positive_gap": 0,
+      "invalid": 0
+    }
+  },
+  "by_candidate_count": {
+    "0": {
+      "samples": 11,
+      "ours_miou": 0.0,
+      "oracle_miou": 0.0,
+      "gap_miou": 0.0,
+      "gap_sum": 0.0,
+      "contribution_pp": 0.0,
+      "ours_hits": 0,
+      "oracle_hits": 0,
+      "positive_gap": 0,
+      "invalid": 0
+    },
+    "1": {
+      "samples": 964,
+      "ours_miou": 0.7651877253894614,
+      "oracle_miou": 0.7651877253894614,
+      "gap_miou": 0.0,
+      "gap_sum": 0.0,
+      "contribution_pp": 0.0,
+      "ours_hits": 812,
+      "oracle_hits": 812,
+      "positive_gap": 0,
+      "invalid": 0
+    },
+    "2": {
+      "samples": 650,
+      "ours_miou": 0.7019188725954242,
+      "oracle_miou": 0.7640605449207177,
+      "gap_miou": 0.06214167232529393,
+      "gap_sum": 40.392087011441056,
+      "contribution_pp": 2.2872076450419625,
+      "ours_hits": 496,
+      "oracle_hits": 543,
+      "positive_gap": 67,
+      "invalid": 1
+    },
+    "3": {
+      "samples": 92,
+      "ours_miou": 0.5505602210774075,
+      "oracle_miou": 0.7286406005979065,
+      "gap_miou": 0.17808037952049902,
+      "gap_sum": 16.38339491588591,
+      "contribution_pp": 0.9277120563921805,
+      "ours_hits": 52,
+      "oracle_hits": 72,
+      "positive_gap": 26,
+      "invalid": 0
+    },
+    "4": {
+      "samples": 31,
+      "ours_miou": 0.6578910254004976,
+      "oracle_miou": 0.7485438847417573,
+      "gap_miou": 0.09065285934125955,
+      "gap_sum": 2.810238639579046,
+      "contribution_pp": 0.15913016079156547,
+      "ours_hits": 22,
+      "oracle_hits": 25,
+      "positive_gap": 6,
+      "invalid": 0
+    },
+    "5": {
+      "samples": 10,
+      "ours_miou": 0.27743985462476184,
+      "oracle_miou": 0.7402140744483651,
+      "gap_miou": 0.46277421982360323,
+      "gap_sum": 4.6277421982360325,
+      "contribution_pp": 0.26204655709150804,
+      "ours_hits": 3,
+      "oracle_hits": 8,
+      "positive_gap": 6,
+      "invalid": 0
+    },
+    "6": {
+      "samples": 8,
+      "ours_miou": 0.3541566341102544,
+      "oracle_miou": 0.7056128431254423,
+      "gap_miou": 0.3514562090151878,
+      "gap_sum": 2.8116496721215025,
+      "contribution_pp": 0.15921006070903185,
+      "ours_hits": 3,
+      "oracle_hits": 7,
+      "positive_gap": 4,
+      "invalid": 0
+    }
+  },
+  "eps": 1e-10,
+  "top_gap_shares": {
+    "10": 0.1450258161070968,
+    "20": 0.28517010286925293,
+    "50": 0.664599764181482,
+    "100": 0.997153120145331
+  },
+  "positive_gap_quantiles": {
+    "0.25": 0.3738353465973894,
+    "0.5": 0.710409472126295,
+    "0.75": 0.8845346737592114,
+    "0.9": 0.9542218089754363
+  },
+  "overlap_below_point1": 89,
+  "source_run": "e014-selector-linear-decay4041-to5388-eval1766-20261021",
+  "analysis_run": "e014-linear5388-original-proposal-oracle-visualization-20261021",
+  "git_commit": "7caae090351c9c71ce65fd8c98a0bbbbb1825bc6",
+  "seed": 20260901,
+  "input_pins": {
+    "selector_predictions": {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selector-linear-decay4041-to5388-eval1766-20261021/payload/evaluation/predictions.jsonl",
+      "sha256": "88723b51c29aac929d6f576a43821f949b83f59515348f318d46ed1fa1cafb50"
+    },
+    "proposal_predictions": {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score04-step200-eval1766-20261015T152856Z/payload/evaluation/predictions.jsonl",
+      "sha256": "1a864fdce10f300ec53ddf2945b7e2d063c74280d7a750207dcff99a7ff76129"
+    },
+    "manifest": {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-discovery-score04-step200-eval1766-20261015T152856Z/inputs/manifest.json",
+      "sha256": "8a873e3605e7a8b429dda33d84e197b60ee4dd0db262a1949e4cbe5ceb6b1e2d"
+    },
+    "metrics": {
+      "path": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selector-linear-decay4041-to5388-eval1766-20261021/payload/evaluation/metrics.json",
+      "sha256": "171f568318af6d84824bab8b5129992339af7e86c3c9ec3344a3a08f306f68e4"
+    }
+  },
+  "shared_implementations": {
+    "iploc_szy/prompting/coordinates.py": {
+      "sha256": "0e0412245ba3fcab3db2791bf3c7557195994af3afaba9a19e2cbb1d4e37197f",
+      "functions": [
+        "parse_box",
+        "pixel_to_normalized",
+        "format_box"
+      ]
+    },
+    "iploc_szy/evaluation/bbox.py": {
+      "sha256": "3ee0ded78803ef411d443ac2132f64ce6ffa252db148c69f0e81e89ce3945f36",
+      "functions": [
+        "box_iou"
+      ]
+    },
+    "iploc_szy/evaluation/candidate_vqa.py": {
+      "sha256": "9cd99507df770531b11e683b7335be8f63bb78b9e0f591384077e7a386b2a2f7",
+      "functions": [
+        "parse_choice"
+      ]
+    }
+  },
+  "model_calls": 0,
+  "interpretation": "Oracle为同一冻结候选集合中GT IoU最高的框；差距=Oracle IoU−实际IoU。与Oracle相等不代表GT定位完美。几何重叠不能证明对象身份。",
+  "image_audit": {
+    "unique_images": 3532,
+    "matched_manifest_occurrences": 3532,
+    "gt_normalization_matches": 1766,
+    "preview_max_edge": 900,
+    "jpeg_quality": 84,
+    "crop": false
+  }
+}

@@ -448,3 +448,24 @@ Never edit past entries.
   - li2023evaluati: Evaluating Object Hallucination in Large Vision-Language Models | http://arxiv.org/abs/2305.10355v3 | 2023 | doi=
 
 - 2026-10-15 | E-014 分段GRPO方案设计：搜索 `site.arxiv.org GRPO token level credit assignment reward normalization length bias Dr GRPO`；实际读取官方TRL v0.24.0文档 https://huggingface.co/docs/trl/v0.24.0/grpo_trainer ，仅用于核对组内归一化与loss归约定义，不将搜索摘要或未抓取论文作为研究证据；无新增论文citekey或Claim。
+
+- 2026-10-21 | E-014 多shot可行性：web搜索 `FOCUS Forcing In-Context Object Localization Visual Support Constraints Policy Optimization Qwen shots` 和 `site.huggingface.co/docs peft fsdp qlora memory gradient checkpointing`；命中focusfor2026。优先读取本地MinerU §7/7.1/9/Table7，核对 https://arxiv.org/html/2605.31145v1 、https://huggingface.co/docs/peft/accelerate/fsdp 、https://huggingface.co/docs/transformers/main/en/model_doc/qwen2_vl 。第三方摘要未作证据。原PDF用ingest.py登记；网页工具摘录见`.pi/analysis/e014/focus-multishot-advice-20261021/web_evidence.json`，SHA256 `85b5928eef5b5ec9fd6256d395c1abc46f98a906a202171a7a91a5e86908247a`。FSDP＋QLoRA是可评估路径，不证明本项目兼容性和峰值已验证。
+
+- 2026-10-21 | 4×2 GPU DDP实现核对：直接读取PyTorch官方教程 https://docs.pytorch.org/tutorials/intermediate/ddp_tutorial.html 的Combining DDP with Model Parallelism，以及DDP API入口；无新论文检索。命中pytorch_ddp_modelparallel20261021；实际摘录SHA 36f9cef24acc34235e9e5822331d89b55980b04c78edcef6ea2ae23f083580c0，归档于.pi/analysis/e014/model-parallel-ddp-20261021/pytorch_ddp_reference.json。文档为当前在线版；服务器实际torch2.8.0/transformers4.57.3/peft.17.1的兼容性由独立短程Run验证。
+
+- 2026-10-21T18:34:02.494225+08:00 | query=确认FOCUS同版本Qwen2加载与多图输入 | source=官方模型卡 https://huggingface.co/Qwen/Qwen2-VL-7B-Instruct（直接打开） | hit=[[qwen2vl7b_modelcard20261021]] | content_sha256=24fd43d072eee9db8189afdab960997294f6cf7ced74d99860beb72ccb43da55；FOCUS正文从已入库MinerU §7.1/Table7复核。
+
+
+## 2026-10-23 E015 重启前协议调研
+- 查询：FOCUS完整标题+github；IPLoc Doveh in context localization github dataset；FOCUS Karim Verma github localization；2605.31145 code dataset；FOCUS Forcing In-Context implementation。
+- 来源：web搜索、arXiv官方HTML、SivanDoveh/IPLoc官方GitHub/API。命中focusfor2026、doveh2025iploc。FOCUS精确官方代码/manifest本次未找到；第三方解读未作协议依据。
+- 已获取：IPLoc HEAD固定27682bc2a059a932c70d9ecdef01265026fdcc30、递归树、README、loc_dataset.py、Loc_Qwen2VL7B.py、data/test_LASOT_{1,2,4,8}_shot.json。官方数据144/36，不与论文35类措辞混同。
+- 降级记录：首批下载自动审批超时，重试成功；raw loc_dataset连接中断，官方contents API成功；web打开固定SHA文件cache miss，但本地API下载成功。未联系作者。
+- 证据/哈希：.pi/analysis/e015/protocol-research-20261023/evidence_hashes.json；web_open_evidence.json存web实际返回摘录，非完整HTML。PDF以check_hash.py核验通过。
+
+
+### 2026-10-23T22:20:09.111979+08:00 E015类别50/50复核
+- 查询："FOCUS" "Forcing In-Context" "35"；"Teaching VLMs" "half" categories；site:github.com "FOCUS" "asadkarim" localization；site:github.com/SivanDoveh/IPLoc "35" OR "split" OR "categories"。
+- 来源：web search/open；本地两篇MinerU全文+check_hash.py均通过；固定作者仓库树及已下载JSON。
+- 命中：[[focusfor2026]] §7.4明确70类35train/35unseen test；[[doveh2025iploc]] §4.1明确类别50%/50%。作者公开JSON统计36类144条与此不等同，当前未取得精确35/35类别ID。GitHub窄搜索返回无关内容，无有效新增split来源；CVF PDF打开403、issues cache miss，不能声称其内容已完整检查。误打开的不相关arxiv2411.02165v1已排除；正确IPLoc链接来自作者README为2411.13317v1。
+- 结果：撤回34/36作为论文设置替代的执行决策；当前Run进程已SIGSTOP，不自动选35类或恢复。原有研究Claim不升级。网页输出SHA见kernel/citations.md。

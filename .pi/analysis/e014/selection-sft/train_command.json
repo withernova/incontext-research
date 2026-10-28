@@ -1,9 +1,0 @@
-{
-  "run_id": "e014-drawn-selection-lora-sft1epoch-20261018",
-  "command": "set -euo pipefail; cd /defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/iploc-szy; export IPLOC_PYTHON=/songzhengyue/miniconda3/envs/IPLoc/bin/python PYTHONPATH=. OMP_NUM_THREADS=1; mkdir /defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018/payload; bash tools/run.sh configs/sft/candidate_selection_lora.py --cfg-options work_dir=/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018/payload/training model.model_path=/defaultShare/archive/songzhengyue/projects/IPLoc/mechanism/models/Qwen3-VL-8B-Instruct train_dataloader.dataset.ann_file=/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-selection-sft-data-step200-20261018/payload/selection_data/train.json train_dataloader.dataset.ann_file_sha256=89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403; cp /defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018/payload/training/metrics.json /defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-drawn-selection-lora-sft1epoch-20261018/metrics.json; echo SURVEY_TOOL_RUN_COMPLETE",
-  "train_sha256": "89dda90ab573b0305bf02f5e0c302c59812b6438428008e8a95f1a0009481403",
-  "train_examples": 1152,
-  "unique_sources": 501,
-  "expected_updates": 72,
-  "git_commit": "a45d11a9c1ebe9953e7f4522eb463cef9650db02"
-}

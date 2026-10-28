@@ -1,7 +1,0 @@
-{
-  "run_id": "e014-20261015T172455Z-tier065-oracle005-selected015-score015-g8-kl0-sft659-400step-seed11451",
-  "run_dir": "/defaultShare/archive/songzhengyue/projects/IPLoc/experiments/E-014/e014-20261015T172455Z-tier065-oracle005-selected015-score015-g8-kl0-sft659-400step-seed11451",
-  "parent_run": "e014-discovery-priority-score04-beta0-sft659-200step-seed11451",
-  "git_commit": "e64c8742dec0ee88f08fed15712b989e55e9bc53",
-  "config": "configs/experiments/E-014/training/e014_behavior_tier_g8_400step_grpo.py"
-}

@@ -1,0 +1,94 @@
+{
+  "sample": {
+    "index": 1533,
+    "id": "1533-1",
+    "dataset": "TAO",
+    "sequence": "val/LaSOT/zebra-10",
+    "boxes": [
+      [
+        15.0,
+        487.0,
+        205.0,
+        964.0
+      ],
+      [
+        530.0,
+        425.0,
+        707.0,
+        632.0
+      ],
+      [
+        742.0,
+        384.0,
+        900.0,
+        572.0
+      ],
+      [
+        812.0,
+        367.0,
+        998.0,
+        622.0
+      ]
+    ],
+    "candidate_ious": [
+      0.0,
+      0.9840006519258978,
+      0.0,
+      0.0
+    ],
+    "proposal_scores": [
+      0.0,
+      0.67,
+      0.0,
+      0.33
+    ],
+    "selected": 2,
+    "oracle_index": 1,
+    "oracle_ties": [
+      1
+    ],
+    "gt": [
+      532.0,
+      424.0,
+      707.0,
+      632.0
+    ],
+    "ours": 0.0,
+    "oracle": 0.9840006519258978,
+    "gap": 0.9840006519258978,
+    "k": 4,
+    "route": "vqa",
+    "response": "3",
+    "terminated": true,
+    "invalid": false,
+    "category": "threshold_miss",
+    "pair_overlap": 0.0,
+    "ref_box": [
+      405,
+      411,
+      557,
+      599
+    ],
+    "ref_image": "images/402c6cdd4fd025627d8e34ab.jpg",
+    "query_image": "images/38fad1598a4f4a3155f567ea.jpg",
+    "ref_size": [
+      1280,
+      720
+    ],
+    "query_size": [
+      1280,
+      720
+    ]
+  },
+  "source_samples_sha256": "be094b01ac143c3bc8cabcdfa8d2d98d7229494b7d79f519f9fc9e50bff4e4c6",
+  "image_sha256": {
+    "images/402c6cdd4fd025627d8e34ab.jpg": "4e735459b730ed49642e26b0c8ed4d0cc0064d7bd0194ce441992719a367f7b2",
+    "images/38fad1598a4f4a3155f567ea.jpg": "3bbe85d7b796fc5d6a956b6afbd903be663ca982a76a1bf281221541eec64d2b"
+  },
+  "script_sha256": "18c728bcf3f9c545f3d8ca27e48aadc62160acdb8dd1817af91ce117b8355439",
+  "outputs": {
+    "case_1533-1_v2.png": "4691c5a05bca704295f3748716ef5553157a64890142424fd42ff8057d69486d",
+    "case_1533-1_v2.pdf": "777530dd28ca22f809335601f931baf012b395a42d3d8ecb249fe6d11a0f8757"
+  },
+  "scope": "已完成分析的单例展示导出；无新模型调用或科学指标修改。"
+}
