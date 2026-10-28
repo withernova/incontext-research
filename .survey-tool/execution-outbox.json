@@ -29536,7 +29536,7 @@
       "run_id": "e015-qwen2-selector-e014clean4shot-20261028",
       "status": "running",
       "created_at": "2026-10-28T10:44:36",
-      "updated_at": "2026-10-28T10:53:05",
+      "updated_at": "2026-10-28T13:43:21",
       "authorization_timestamp": "2026-10-28T10:44:36.861692",
       "approved_spec_hash": "991379178ce0913aa669475f1c5e844643e7153639dc3c9958d3f9fbfc634ab9",
       "workspace_execution_hash": "sha256:fc3930903d6caef383b59f38db040a9cc0b3807064ccaa374618897e4efbdbf9",
@@ -29586,6 +29586,16 @@
           "time": "2026-10-28T10:53:05",
           "type": "managed_execution_metadata",
           "detail": "status_observation"
+        },
+        {
+          "time": "2026-10-28T13:43:06",
+          "type": "managed_heartbeat_reacquired",
+          "detail": "pi-steward:codex-e015-20261021"
+        },
+        {
+          "time": "2026-10-28T13:43:21",
+          "type": "managed_execution_metadata",
+          "detail": "status_observation"
         }
       ],
       "runtime_command_prepared_at": "2026-10-28T10:44:37",
@@ -29593,7 +29603,7 @@
       "lease_token_hash": "15356c25d3ef8822e4d63ce5cf69416ebbf4a358ded57d773a33b031ff540c2f",
       "consumer": "pi-steward:codex-e015-20261021",
       "claimed_at": "2026-10-28T10:44:37",
-      "lease_expires_at": "2026-10-28T11:07:52",
+      "lease_expires_at": "2026-10-28T13:58:06",
       "acknowledged_at": "2026-10-28T10:44:37",
       "executor_kind": "agent",
       "actual_agent": "codex",
@@ -29608,13 +29618,13 @@
         "tmux_session": "incontext-E-015-e015-qwen2-selector-e014clean4shot-20261028",
         "status_observation": {
           "tmux_alive": true,
-          "observed_at": "2026-10-28T10:53:05",
+          "observed_at": "2026-10-28T13:43:21",
           "completion_candidate": false,
           "files": {
             "log_file": {
               "exists": true,
-              "size": 7878,
-              "mtime": 1793155931.8205855
+              "size": 79807,
+              "mtime": 1793166316.044643
             },
             "metrics_file": {
               "exists": false,
